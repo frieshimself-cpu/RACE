@@ -1,0 +1,15 @@
+{
+  "name": "race-worker",
+  "private": true,
+  "type": "module",
+  "description": "24/7 worker that runs Grok, ChatGPT, and Claude against the Millennium Prize Problems and publishes every attempt.",
+  "scripts": {
+    "start": "node worker.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.114.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
