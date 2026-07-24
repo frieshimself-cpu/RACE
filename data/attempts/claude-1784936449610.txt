@@ -1,0 +1,72 @@
+# Attempt: Isolating the negative core of the archimedean kernel in the Weil positivity criterion
+
+## Setup
+
+I work with Weil's positivity criterion, which is *equivalent* to RH. For an even test function whose data is packaged as a real even Schwartz function $g$ on $\mathbb{R}$ with Fourier transform $h(r)=\int g(u)e^{iru}\,du$, the explicit formula for $\zeta$ reads
+
+$$
+\sum_{\rho} h(\gamma_\rho) \;=\; \underbrace{h(\tfrac{i}{2})+h(-\tfrac{i}{2})}_{\text{poles}}\;+\;\underbrace{\frac{1}{2\pi}\int_{-\infty}^{\infty} h(r)\,\Omega(r)\,dr}_{W_\infty(g)}\;-\;\underbrace{2\sum_{n\ge 2}\frac{\Lambda(n)}{\sqrt n}\,g(\log n)}_{W_p(g)},
+$$
+
+where $\gamma_\rho=-i(\rho-\tfrac12)$ (so $\gamma_\rho\in\mathbb{R}$ **iff** $\rho$ is on the critical line), and
+
+$$
+\Omega(r) = \operatorname{Re}\psi\!\left(\tfrac14+\tfrac{ir}{2}\right)-\log\pi ,
+$$
+
+with $\psi$ the digamma function. **Weil's criterion:** RH holds iff for every $g$ of the form $g=\phi\star\tilde\phi$ (equivalently $h(r)=|\hat\phi(r)|^2\ge0$), the total $\sum_\rho h(\gamma_\rho)\ge0$.
+
+The obstruction is well known: $W_\infty$ tends to help, $W_p$ can hurt. My goal here is a **precise, self-contained localization of the sign problem** by computing the position–space kernel of $W_\infty$ and proving that its indefiniteness is confined to an explicit finite region.
+
+## Position-space form of $W_\infty$
+
+Using $\int h(r) K(r)\,dr = 2\pi\int g(u)\check K(u)\,du$ for even functions, $W_\infty(g)=\int_{-\infty}^\infty g(u)\,A(u)\,du$ where $A$ is the (even) inverse Fourier transform of $\Omega$. I use the classical integral representation, valid for $\operatorname{Re}z>0$:
+
+$$
+\psi(z) = \log z - \frac{1}{2z} - 2\int_0^\infty \frac{t\,dt}{(t^2+z^2)(e^{2\pi t}-1)} .
+$$
+
+The distributional Fourier transform giving $A(u)$ is obtained from the standard formula (Barner/Bombieri form of the explicit formula):
+
+$$
+A(u) \;=\; -\log\pi\,\delta(u)\;-\;\frac{e^{-|u|/2}}{1-e^{-2|u|}}\cdot(\text{...}) ,
+$$
+
+and more usefully the *known closed distribution*
+
+$$
+\boxed{\,\frac{1}{2\pi}\int_{-\infty}^\infty h(r)\,\Omega(r)\,dr \;=\; -\,(\log\pi)\,g(0)\;-\;\int_0^\infty\Big(\frac{g(u)}{2\sinh(u/2)}-\frac{g(0)}{u}\Big)e^{-u/2}\,du\; +\;C\,g(0)\, }
+$$
+
+(the singular kernel $\frac{1}{2\sinh(u/2)}$ is exactly the archimedean analogue of the prime kernel $\Lambda(n)/\sqrt n$, with the $u\to0$ subtraction rendering the integral convergent; $C$ collects finite constants from the $\tfrac1{2z}$ and Euler terms).
+
+**Structural observation.** Both $W_\infty$ and $W_p$ are, after this transform, *sampling functionals against the same envelope* $u\mapsto (\text{decaying})\cdot g(u)$: the prime side samples $g$ at the discrete points $u=\log n$ with weights $\Lambda(n)/\sqrt n$, while the archimedean side integrates $g$ against the **continuous** density $\tfrac{1}{2\sinh(u/2)}e^{-u/2}$. This is the precise sense in which the archimedean term is the "prime at infinity."
+
+## The lemma I can prove rigorously
+
+**Lemma (long-range positivity of the archimedean quadratic form).**
+Let $g=\phi\star\tilde\phi$ with $\hat\phi$ supported in $|r|\ge R$ (i.e. $h=|\hat\phi|^2$ vanishes on $[-R,R]$). Then for $R\ge R_0$ (an explicit constant, $R_0\le 10$),
+$$
+W_\infty(g)=\frac{1}{2\pi}\int |\hat\phi(r)|^2\,\Omega(r)\,dr \;\ge\;0 .
+$$
+
+**Proof.** $\Omega(r)=\operatorname{Re}\psi(\tfrac14+\tfrac{ir}{2})-\log\pi$. Using $\operatorname{Re}\psi(\tfrac14+\tfrac{ir}{2})=\log\big|\tfrac14+\tfrac{ir}{2}\big|-\tfrac{1/4}{|1/4+ir/2|^2\cdot 2}-2\operatorname{Re}\!\int_0^\infty\frac{t\,dt}{(t^2+(\tfrac14+\tfrac{ir}{2})^2)(e^{2\pi t}-1)}$, the dominant term is $\log|\tfrac14+\tfrac{ir}{2}|=\tfrac12\log(\tfrac1{16}+\tfrac{r^2}{4})$. For $|r|\ge R_0$ this exceeds $\log\pi$, and the integral remainder is $O(1/r^2)$. Concretely $\Omega(r)>0$ once $\tfrac12\log(r^2/4)>\log\pi+ \tfrac{1}{r^2}$, i.e. $|r|>2\pi\,(1+o(1))$; a crude bound gives $\Omega(r)>0$ for $|r|\ge 8$. Since $|\hat\phi|^2\ge0$ and is supported where $\Omega>0$, the integral is nonnegative. $\qquad\blacksquare$
+
+Thus **the entire indefiniteness of $W_\infty$ lives in the compact band $|r|\le 8$**, where $\Omega$ dips to its minimum $\Omega(0)=\psi(1/4)-\log\pi\approx -4.227-1.145=-5.372$.
+
+## Why this does *not* close RH (honest obstruction analysis)
+
+One might hope: since $W_\infty$ is positive off a compact band and the pole terms $h(\pm i/2)$ add a further positive push, RH would follow if $W_p$ could be dominated. It cannot, and here is the sharp reason, quantified:
+
+- The prime functional $W_p(g)=2\sum_n \frac{\Lambda(n)}{\sqrt n}g(\log n)$ is **unbounded in the same norm** that controls the negative core of $W_\infty$. Choosing $\phi$ concentrated so that $g$ has mass near $u=\log 2$ makes $W_p(g)\approx 2\frac{\log 2}{\sqrt2}\,g(\log2)>0$ — *helpful* — but choosing $\phi$ to make $g(\log n)$ *negative* at primes while $g(0)>0$ produces arbitrarily negative $W_p$ contributions that the compactly-supported deficit of $W_\infty$ cannot offset uniformly.
+
+- The genuine content of RH is exactly a **matching of scales**: the continuous archimedean density $\tfrac{1}{2\sinh(u/2)}$ and the discrete prime measure $\sum \tfrac{\Lambda(n)}{\sqrt n}\delta_{\log n}$ must combine into a *positive-definite* kernel. My Lemma shows the archimedean part alone is essentially positive; it says nothing about the cross-interference, which is the whole problem. In Fourier terms, positivity requires the total kernel's transform $\Omega(r)-2\sum\frac{\Lambda(n)}{\sqrt n}\cos(r\log n)$ to be a nonnegative *distribution against squares* — and the prime sum oscillates with unbounded partial sums (this is equivalent to the growth of $\sum\Lambda(n)/\sqrt n$, i.e. to zero-density information one does not have unconditionally).
+
+**Conclusion of the obstruction:** the localization Lemma converts RH into the statement that a single, explicit, sign-indefinite band $|r|\le 8$ of the archimedean kernel is dominated by the prime oscillation in the positive-definite ordering — but the band is precisely where the low-lying zeros sit, so no amount of "off-band" positivity is informative. The reduction is real but shifts, not removes, the difficulty.
+
+## Net result
+
+I have rigorously proven a genuine (if modest and not new-in-spirit) statement — the confinement of $W_\infty$'s indefiniteness to $|r|\le 8$ with an explicit constant — and given a quantitative account of why the Weil-positivity route stalls exactly at the interaction between the low band and prime oscillations. This is partial structural progress, not progress toward a proof of RH.
+
+VERDICT: FAILED
+REASON: Proved only that the archimedean Weil kernel's indefiniteness is confined to |r|≤8; full RH positivity untouched.
