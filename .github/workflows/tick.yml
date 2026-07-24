@@ -1,0 +1,51 @@
+name: race-tick
+# The 24/7 heartbeat of THE RACE: every 20 minutes, ask /api/tick to run one
+# attempt (it self-rate-limits per racer), then commit the result to the repo
+# — which doubles as the public, auditable record of every attempt.
+
+on:
+  schedule:
+    - cron: "*/20 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: race-tick
+  cancel-in-progress: false
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run one attempt and commit it
+        run: |
+          set -e
+          RESP=$(curl -s --max-time 340 "https://the-race-umber.vercel.app/api/tick")
+          echo "$RESP" | head -c 300; echo
+          ID=$(echo "$RESP" | jq -r '.ran.id // empty')
+          if [ -z "$ID" ]; then echo "no attempt due — done"; exit 0; fi
+
+          AI=$(echo "$RESP"  | jq -r '.ran.ai')
+          MS=$(echo "$RESP"  | jq -r '.ran.started_ms')
+          NEW=$(echo "$RESP" | jq -c '.ran | del(.text, .started_ms)')
+
+          mkdir -p data/attempts
+          echo "$RESP" | jq -r '.ran.text // ""' > "data/attempts/${ID}.txt"
+          echo "$NEW" >> data/attempts.jsonl
+          jq --argjson new "$NEW" --arg ai "$AI" --argjson ms "$MS" \
+             '.lastRun[$ai] = $ms
+              | .counts[$ai] = ((.counts[$ai] // 0) + 1)
+              | .attempts = ([$new] + .attempts)[0:50]' \
+             data/state.json > data/state.tmp && mv data/state.tmp data/state.json
+
+          git config user.name "race-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          git commit -m "attempt: ${ID}"
+          git pull --rebase origin "${GITHUB_REF_NAME}" || true
+          git push

@@ -8,6 +8,20 @@ module.exports = async (req, res) => {
   res.setHeader("Cache-Control", "no-store");
   res.setHeader("Content-Type", "application/json");
 
+  // --- GitHub-as-storage backend (state committed by the race-tick Action) ---
+  if (process.env.STATE_RAW_URL) {
+    try {
+      const r = await fetch(`${process.env.STATE_RAW_URL}?t=${Date.now()}`, { cache: "no-store" });
+      if (!r.ok) throw new Error(`state ${r.status}`);
+      const state = await r.json();
+      const attempts = (state.attempts || []).slice(0, 50);
+      res.status(200).json({ live: attempts.length > 0, counts: state.counts || {}, attempts });
+    } catch {
+      res.status(200).json({ live: false, reason: "no attempts yet" });
+    }
+    return;
+  }
+
   // --- Vercel Blob backend ---
   if (process.env.BLOB_READ_WRITE_TOKEN) {
     try {

@@ -109,6 +109,9 @@ const RACERS = [
 const HAS_BLOB = () => !!process.env.BLOB_READ_WRITE_TOKEN;
 const HAS_REDIS = () =>
   !!process.env.UPSTASH_REDIS_REST_URL && !!process.env.UPSTASH_REDIS_REST_TOKEN;
+// GitHub-as-storage mode: state lives in the repo (committed by the
+// race-tick GitHub Action); tick only READS it — the Action does the writes.
+const HAS_GITHUB = () => !!process.env.STATE_RAW_URL;
 
 async function redis(command) {
   const r = await fetch(process.env.UPSTASH_REDIS_REST_URL, {
@@ -124,6 +127,15 @@ async function redis(command) {
 }
 
 async function readState() {
+  if (HAS_GITHUB()) {
+    try {
+      const res = await fetch(`${process.env.STATE_RAW_URL}?t=${Date.now()}`, { cache: "no-store" });
+      if (!res.ok) throw new Error(`state ${res.status}`);
+      return await res.json();
+    } catch {
+      return { counts: {}, lastRun: {}, attempts: [] };
+    }
+  }
   if (HAS_BLOB()) {
     try {
       const meta = await head(STATE_PATH);
@@ -144,6 +156,7 @@ async function readState() {
 }
 
 async function writeState(state) {
+  if (HAS_GITHUB()) return; // the GitHub Action commits state, not us
   if (HAS_BLOB()) {
     await put(STATE_PATH, JSON.stringify(state), {
       access: "public",
@@ -159,6 +172,7 @@ async function writeState(state) {
 
 /* Record a finished attempt (backend-specific append). */
 async function recordAttempt(attempt, fullText) {
+  if (HAS_GITHUB()) return; // the GitHub Action commits the attempt
   if (HAS_BLOB()) {
     await put(`race/attempts/${attempt.id}.txt`, fullText.slice(0, 100000), {
       access: "public", addRandomSuffix: false, contentType: "text/plain; charset=utf-8",
@@ -191,8 +205,8 @@ function parseVerdict(text) {
 
 module.exports = async (req, res) => {
   res.setHeader("Content-Type", "application/json");
-  if (!HAS_BLOB() && !HAS_REDIS()) {
-    res.status(200).json({ ok: false, reason: "storage not configured (need Blob or Upstash env vars)" });
+  if (!HAS_BLOB() && !HAS_REDIS() && !HAS_GITHUB()) {
+    res.status(200).json({ ok: false, reason: "storage not configured" });
     return;
   }
 
@@ -205,8 +219,12 @@ module.exports = async (req, res) => {
     return;
   }
 
-  // most-overdue racer; no-op if nobody is due yet
+  // most-overdue racer; no-op if nobody is due yet. ?racer= narrows the pick
+  // but NEVER bypasses the rate limit — only due racers can run, so this is
+  // safe to expose publicly.
+  const wanted = new URL(req.url, "http://x").searchParams.get("racer");
   const due = active
+    .filter((r) => !wanted || r.id === wanted)
     .map((r) => ({ r, since: now - (state.lastRun[r.id] || 0) }))
     .filter((x) => x.since >= INTERVAL)
     .sort((a, b) => b.since - a.since)[0];
@@ -256,5 +274,9 @@ module.exports = async (req, res) => {
   }
 
   await recordAttempt(attempt, fullText);
-  res.status(200).json({ ok: true, ran: attempt });
+  // In GitHub mode the caller (the race-tick Action) persists this response.
+  res.status(200).json({
+    ok: true,
+    ran: { ...attempt, started_ms: started, text: fullText.slice(0, 20000) },
+  });
 };

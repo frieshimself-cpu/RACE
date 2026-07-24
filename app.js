@@ -254,13 +254,16 @@ function startClocks() {
 /* ============================= buttons ============================= */
 
 function initButtons() {
-  const notDeployed = () => {
-    const s = ENGINE.racers[rint(0, ENGINE.racers.length - 1)];
-    logFeed(s, "token not deployed yet. the math, however, is very deployed.", "partial");
-    document.getElementById("wire").scrollIntoView({ behavior: "smooth" });
-  };
-  $("#btn-buy").onclick = notDeployed;
-  $("#btn-chart").onclick = notDeployed;
+  const copyBtn = $("#copy-ca");
+  if (copyBtn) {
+    copyBtn.onclick = async () => {
+      try {
+        await navigator.clipboard.writeText($("#ca").textContent.trim());
+        copyBtn.textContent = "copied";
+        setTimeout(() => (copyBtn.textContent = "copy"), 1500);
+      } catch {}
+    };
+  }
 }
 
 /* ============================= boot ============================= */
