@@ -126,7 +126,7 @@ const RACERS = [
       openAICompatible(
         "https://api.x.ai/v1/chat/completions",
         process.env.XAI_API_KEY,
-        process.env.XAI_MODEL || "grok-4",
+        process.env.XAI_MODEL || "grok-4.5",
         p
       ),
   },
