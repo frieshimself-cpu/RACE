@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 2,
-    "grok": 1,
+    "grok": 2,
     "gpt": 1
   },
   "lastRun": {
     "claude": 1784905857779,
-    "grok": 1784899773304,
+    "grok": 1784912377152,
     "gpt": 1784899940078
   },
   "attempts": [
+    {
+      "id": "grok-1784912377152",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Classical positivity polys obstructed by Fejér-Riesz (a1/a0\\le2); cannot reach RH.",
+      "ts": "2026-07-24T16:59:37.152Z",
+      "duration_ms": 33903
+    },
     {
       "id": "claude-1784905857779",
       "ai": "claude",

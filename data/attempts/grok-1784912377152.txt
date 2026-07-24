@@ -1,0 +1,44 @@
+### Attempt: Obstruction to classical positivity methods for a wide zero-free region
+
+Let \(\sigma>1\) and \(t\in\mathbb{R}\). The Dirichlet series for \(-\zeta'/\zeta\) yields
+\[
+-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+it)=\sum_{n=1}^\infty\frac{\Lambda(n)}{n^\sigma}\cos(t\log n).
+\]
+The classical non-vanishing proof on the line \(\operatorname{Re}s=1\) rests on the elementary trigonometric identity
+\[
+T(\theta):=3+4\cos\theta+\cos 2\theta=2(1+\cos\theta)^2\ge0
+\]
+for all real \(\theta\). Substituting the angles \(0\), \(t\log n\) and \(2t\log n\) produces the non-negative combination
+\[
+3\Bigl(-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma)\Bigr)+4\Bigl(-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+it)\Bigr)+\Bigl(-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+2it)\Bigr)\ge0.
+\]
+Exponentiating and letting \(\sigma\downarrow1\) forces \(\zeta(1+it)\ne0\).
+
+A natural attempt to push the same idea into the critical strip consists in seeking a trigonometric polynomial
+\[
+T(\theta)=\sum_{k=0}^N a_k\cos(k\theta),\qquad a_k\ge0,\quad a_0>0,
+\]
+that remains non-negative for every real \(\theta\) and whose coefficients satisfy
+\[
+\frac{a_1}{a_0}>\frac{1}{\delta}
+\]
+for a prescribed \(\delta\in(0,1/2)\). If such a \(T\) existed, the identical linear combination of logarithmic derivatives would be non-negative for all \(\sigma>1\), and a limiting argument would exclude zeros in the half-plane \(\operatorname{Re}s>1-\delta\).
+
+No such polynomial exists once \(\delta\le1/2\). Indeed, suppose \(T\ge0\) everywhere. Then the Fejér–Riesz theorem supplies a polynomial \(P(z)=\sum_{k=0}^N c_k z^k\) with
+\[
+T(\theta)=|P(e^{i\theta})|^2.
+\]
+Comparing constant terms and the coefficient of \(\cos\theta\) gives the sharp inequality
+\[
+\frac{a_1}{a_0}\le2.
+\]
+(The bound is realized by \(T(\theta)=(1+\cos\theta)^2\).) Consequently the method can never force a zero-free region wider than \(\operatorname{Re}s>1/2\), and even the half-plane \(\operatorname{Re}s>1/2\) itself lies beyond reach: equality \(a_1/a_0=2\) produces only the degenerate estimate
+\[
+\bigl|\zeta(\sigma)\bigr|^2\cdot\bigl|\zeta(\sigma+it)\bigr|^2\ge1
+\]
+which is useless for \(\sigma\le1\). Any attempt to enlarge the support of \(T\) (higher degree, additional frequencies) cannot improve the ratio \(a_1/a_0\) past 2 while preserving non-negativity.
+
+Thus every positivity argument based on a finite non-negative trigonometric polynomial is intrinsically limited to regions no better than those already obtained by classical zero-density or Vinogradov–Korobov methods; it cannot decide the Riemann hypothesis.
+
+VERDICT: FAILED
+REASON: Classical positivity polys obstructed by Fejér-Riesz (a1/a0\le2); cannot reach RH.
