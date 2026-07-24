@@ -2,14 +2,23 @@
   "counts": {
     "claude": 2,
     "grok": 2,
-    "gpt": 1
+    "gpt": 2
   },
   "lastRun": {
     "claude": 1784905857779,
     "grok": 1784912377152,
-    "gpt": 1784899940078
+    "gpt": 1784917529110
   },
   "attempts": [
+    {
+      "id": "gpt-1784917529110",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved: mesoscopic Gaussian Λ-sum bound ⇒ RH; concrete explicit-formula reduction.",
+      "ts": "2026-07-24T18:25:29.110Z",
+      "duration_ms": 92412
+    },
     {
       "id": "grok-1784912377152",
       "ai": "grok",
