@@ -1,0 +1,46 @@
+# Attempt: Rigorous verification of the first Li coefficient and its structural meaning
+
+## Setup
+
+Let ξ(s) = ½ s(s−1)π^{−s/2}Γ(s/2)ζ(s), the completed zeta function, entire, satisfying ξ(s)=ξ(1−s), with zeros exactly the nontrivial zeros ρ of ζ.
+
+**Li's criterion** (a genuine reformulation, not a restatement of RH): define
+$$\lambda_n = \frac{1}{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1}\ln\xi(s)\Big]_{s=1} = \sum_\rho\Big[1-\big(1-\tfrac1\rho\big)^n\Big],$$
+the sum over nontrivial zeros (paired to converge). Then RH holds **iff** λ_n ≥ 0 for all n ≥ 1.
+
+The case n=1 gives λ₁ = Σ_ρ 1/ρ = ξ′(1)/ξ(1). I compute it unconditionally and confirm λ₁ > 0.
+
+## Computation of ξ′(1)/ξ(1)
+
+Take logarithmic derivative of ξ:
+$$\frac{\xi'}{\xi}(s)=\frac1s+\frac1{s-1}-\tfrac12\ln\pi+\tfrac12\psi\!\left(\tfrac s2\right)+\frac{\zeta'}{\zeta}(s),$$
+where ψ = Γ′/Γ. Both 1/(s−1) and ζ′/ζ are singular at s=1, but the singularities cancel. Writing u = s−1 and using
+$$\zeta(s)=\frac1u+\gamma-\gamma_1 u+\cdots,\qquad \zeta'(s)=-\frac1{u^2}-\gamma_1+\cdots,$$
+I get
+$$\frac{\zeta'}{\zeta}(s)=\frac{-1-\gamma_1u^2}{u(1+\gamma u-\gamma_1u^2)}=-\frac1u\big(1+\gamma_1u^2\big)\big(1-\gamma u+\cdots\big)=-\frac1{s-1}+\gamma+O(s-1).$$
+
+Hence the pole terms cancel and
+$$\lim_{s\to1}\Big[\tfrac1{s-1}+\tfrac{\zeta'}{\zeta}(s)\Big]=\gamma.$$
+
+Evaluating the remaining terms at s=1 with 1/s = 1 and ψ(½) = −γ − 2ln 2:
+$$\frac{\xi'}{\xi}(1)=1+\gamma-\tfrac12\ln\pi+\tfrac12(-\gamma-2\ln2)
+=1+\tfrac{\gamma}{2}-\ln2-\tfrac12\ln\pi.$$
+
+Therefore
+$$\boxed{\;\lambda_1=\sum_\rho\frac1\rho=1+\frac{\gamma}{2}-\frac12\ln(4\pi).\;}$$
+
+## Positivity check
+
+Numerically: γ/2 = 0.288607…, ½ln(4π) = ½·ln(12.56637) = ½·2.531024 = 1.265512…, so
+$$\lambda_1 = 1 + 0.288607 - 1.265512 = 0.023095\ldots > 0.$$
+
+To make positivity rigorous rather than numerical: we need ½ln(4π) < 1 + γ/2, i.e. ln(4π) < 2 + γ. Since γ > 0.5772 and 2 + γ > 2.5772, and ln(4π) = ln 4 + ln π < 1.38630 + 1.14473 = 2.53103 < 2.5772, the inequality holds strictly. Hence **λ₁ > 0 unconditionally.**
+
+## Interpretation and honest assessment
+
+- λ₁ = Σ_ρ 1/ρ > 0 is the n=1 instance of Li's necessary-and-sufficient condition. Under RH each ρ = ½+it contributes 1/ρ + 1/ρ̄ = 1/(¼+t²) > 0, so positivity is *expected*; the point is that it holds without assuming RH, confirming the criterion is satisfied at first order.
+- This is **not new**: the value 1 + γ/2 − ½ln(4π) is classical. What I have done is give a clean, self-contained, fully checked derivation and a rigorous (non-numerical) positivity proof of the bounding inequality ln(4π) < 2 + γ.
+- **Why this does not extend easily:** for n ≥ 2, λ_n = Σ_ρ[1−(1−1/ρ)^n] mixes the *arguments* of the ρ (via powers), so off-line zeros could produce negative contributions that no closed-form constant controls. The obstruction is exactly that (1−1/ρ)^n has modulus > 1 when Re ρ > ½ for suitable phases, and there is no unconditional handle on the phases. The gap is genuine and structural, not merely computational; the n=1 positivity carries no leverage on n≥2.
+
+VERDICT: PARTIAL
+REASON: Rigorously verified λ₁ = 1+γ/2−½ln(4π) > 0 (first Li coefficient), a genuine RH-consistency check; no progress on n≥2.
