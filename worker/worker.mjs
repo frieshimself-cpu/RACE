@@ -132,6 +132,22 @@ const RACERS = [
   },
 ];
 
+/* ---------- secret scrubbing ---------- */
+/* Nothing key-shaped may ever reach storage, the public feed, or logs.
+ * Provider error bodies can echo (parts of) the API key — scrub everything. */
+
+const KEY_PATTERNS = [
+  /sk-[A-Za-z0-9_-]{8,}/g,        // OpenAI + Anthropic key formats
+  /xai-[A-Za-z0-9_-]{8,}/g,       // xAI key format
+  /Bearer\s+[A-Za-z0-9._~+/=-]{8,}/g,
+];
+
+function scrub(str) {
+  let out = String(str ?? "");
+  for (const re of KEY_PATTERNS) out = out.replace(re, "[REDACTED]");
+  return out;
+}
+
 /* ---------- verdict parsing ---------- */
 
 function parseVerdict(text) {
@@ -166,21 +182,22 @@ async function runOnce(racer) {
       ai: racer.id,
       problem,
       verdict,
-      reason,
+      reason: scrub(reason),
       ts: new Date(started).toISOString(),
       duration_ms: Date.now() - started,
-      text: text.slice(0, MAX_STORED_TEXT),
+      text: scrub(text.slice(0, MAX_STORED_TEXT)),
     };
     await recordAttempt(attempt);
-    console.log(`[${racer.id}] ${problem} → ${verdict}: ${reason}`);
+    console.log(`[${racer.id}] ${problem} → ${verdict}: ${scrub(reason)}`);
   } catch (err) {
-    console.error(`[${racer.id}] attempt errored:`, err.message || err);
+    const safeErr = scrub(String(err.message || err));
+    console.error(`[${racer.id}] attempt errored:`, safeErr);
     await recordAttempt({
       id: `${racer.id}-${started}`,
       ai: racer.id,
       problem,
       verdict: "FAILED",
-      reason: `attempt crashed: ${String(err.message || err).slice(0, 100)}`,
+      reason: `attempt crashed: ${safeErr.slice(0, 100)}`,
       ts: new Date(started).toISOString(),
       duration_ms: Date.now() - started,
       text: "",
