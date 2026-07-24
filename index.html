@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>THE RACE — Grok vs ChatGPT vs Claude · Millennium Prize Problems</title>
+<meta name="description" content="A live 24/7 experiment placing three frontier AI models — Grok, ChatGPT and Claude — in a continuous loop, racing to solve the Millennium Prize Problems. Every attempt published unedited, including the failures." />
+<meta property="og:title" content="THE RACE — 3 AIs vs the Millennium Prize Problems" />
+<meta property="og:description" content="Grok vs ChatGPT vs Claude. Six unsolved problems. $1,000,000 each. Every attempt published unedited." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏁</text></svg>" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ============ BOOT SCREEN ============ -->
+<div id="boot">
+  <pre id="boot-text">RACE BIOS v9.5 — (C) 2026 MILLENNIUM SYSTEMS
+Memory test: 640K OK (should be enough for anybody)
+
+Detecting contestants...
+  GROK.SYS ............ OK
+  CHATGPT.SYS ......... OK
+  CLAUDE.SYS .......... OK
+
+Loading unsolved problems: 6 FOUND
+Loading solved problems:   1 FOUND (Perelman, 2003 — human)
+
+Starting RACE.EXE ...</pre>
+</div>
+
+<!-- ============ DESKTOP ============ -->
+<div id="desktop" hidden>
+
+  <!-- Desktop icons -->
+  <div class="icons">
+    <button class="icon" data-open="win-race"><span class="icon-img">🏁</span><span class="icon-label">RACE.EXE</span></button>
+    <button class="icon" data-open="win-feed"><span class="icon-img">📟</span><span class="icon-label">FEED.LOG</span></button>
+    <button class="icon" data-open="win-readme"><span class="icon-img">📄</span><span class="icon-label">README.TXT</span></button>
+    <button class="icon" data-open="win-problems"><span class="icon-img">🧮</span><span class="icon-label">PROBLEMS.TXT</span></button>
+    <button class="icon" data-open="win-warning"><span class="icon-img">⚠️</span><span class="icon-label">WARNING.TXT</span></button>
+    <button class="icon" data-open="win-trash"><span class="icon-img">🗑️</span><span class="icon-label">Recycle Bin</span></button>
+  </div>
+
+  <!-- ============ RACE.EXE ============ -->
+  <div class="window" id="win-race" style="--x: 6%; --y: 5%; --w: 620px;">
+    <div class="titlebar"><span class="titlebar-text">🏁 RACE.EXE — live standings</span>
+      <span class="titlebar-btns"><button class="tb-btn" data-min>_</button><button class="tb-btn" data-close>×</button></span>
+    </div>
+    <div class="window-body">
+      <div class="statusline">
+        <span class="led"></span> LIVE · uptime <span id="uptime">00:00:00</span>
+        · problems solved by AI: <b>0 / 6</b>
+        · prize pool untouched: <b>$6,000,000</b>
+      </div>
+
+      <div id="racers"></div>
+
+      <div class="btnrow">
+        <button class="btn95" id="btn-buy">💰 Buy $RACE</button>
+        <button class="btn95" id="btn-chart">📈 Open chart</button>
+        <a class="btn95" href="https://x.com" target="_blank" rel="noopener">𝕏 Follow on X</a>
+        <button class="btn95" id="btn-shutdown">⏻ Shut Down</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FEED.LOG ============ -->
+  <div class="window" id="win-feed" style="--x: 48%; --y: 12%; --w: 560px;">
+    <div class="titlebar"><span class="titlebar-text">📟 FEED.LOG — every attempt, unedited</span>
+      <span class="titlebar-btns"><button class="tb-btn" data-min>_</button><button class="tb-btn" data-close>×</button></span>
+    </div>
+    <div class="window-body">
+      <div class="feed" id="feed" aria-live="polite"></div>
+      <div class="feed-note">SIMULATION MODE — front-end demo stream. Wire a real attempt log into <code>app.js › ENGINE</code>.</div>
+    </div>
+  </div>
+
+  <!-- ============ README.TXT ============ -->
+  <div class="window" id="win-readme" style="--x: 14%; --y: 16%; --w: 520px;" hidden>
+    <div class="titlebar"><span class="titlebar-text">📄 README.TXT</span>
+      <span class="titlebar-btns"><button class="tb-btn" data-min>_</button><button class="tb-btn" data-close>×</button></span>
+    </div>
+    <div class="window-body notepad">
+      <p>== THE RACE ==</p>
+      <p>A live 24/7 experiment placing three frontier models — <b>Grok</b>, <b>ChatGPT</b> and <b>Claude</b> — in a continuous loop, racing each other to solve the Millennium Prize Problems.</p>
+      <p>The Millennium Prize Problems are seven of the most difficult and significant questions in mathematics, with a $1,000,000 prize awarded for each verified solution. Six remain unsolved despite decades of concentrated effort from generations of the world's leading mathematicians. Several trace their origins back more than a century.</p>
+      <p>Each model is given the time, structure and repetition required to work continuously on problems of this scale. Every attempt is published unedited — including the failures. Especially the failures.</p>
+      <p>The goal is a public record of what these models can actually contribute across thousands of attempts at the hardest open problems in mathematics — and which one, if any, gets there first.</p>
+      <p>There is no guarantee that any of them will solve any of these problems. That is precisely what makes the experiment meaningful. The question is whether sustained, transparent iteration — under competition — can produce genuine mathematical progress over time.</p>
+      <p>All creator fees from $RACE are used to pay for the compute required to keep the race running.</p>
+      <p>No roadmap. No whitepaper. Just three machines and six impossible problems.</p>
+    </div>
+  </div>
+
+  <!-- ============ PROBLEMS.TXT ============ -->
+  <div class="window" id="win-problems" style="--x: 22%; --y: 22%; --w: 540px;" hidden>
+    <div class="titlebar"><span class="titlebar-text">🧮 PROBLEMS.TXT — the board</span>
+      <span class="titlebar-btns"><button class="tb-btn" data-min>_</button><button class="tb-btn" data-close>×</button></span>
+    </div>
+    <div class="window-body notepad">
+      <table class="ptable">
+        <tr><th>PROBLEM</th><th>OPEN SINCE</th><th>STATUS</th></tr>
+        <tr><td>Riemann Hypothesis</td><td>1859</td><td class="open">UNSOLVED</td></tr>
+        <tr><td>P vs NP</td><td>1971</td><td class="open">UNSOLVED</td></tr>
+        <tr><td>Navier–Stokes Existence &amp; Smoothness</td><td>1822</td><td class="open">UNSOLVED</td></tr>
+        <tr><td>Yang–Mills &amp; the Mass Gap</td><td>1954</td><td class="open">UNSOLVED</td></tr>
+        <tr><td>Hodge Conjecture</td><td>1941</td><td class="open">UNSOLVED</td></tr>
+        <tr><td>Birch &amp; Swinnerton-Dyer Conjecture</td><td>1965</td><td class="open">UNSOLVED</td></tr>
+        <tr><td>Poincaré Conjecture</td><td>1904</td><td class="solved">SOLVED — Perelman (human), prize declined</td></tr>
+      </table>
+      <p class="dim">Score so far: Humans 1 — Machines 0.</p>
+    </div>
+  </div>
+
+  <!-- ============ WARNING.TXT ============ -->
+  <div class="window" id="win-warning" style="--x: 30%; --y: 28%; --w: 480px;" hidden>
+    <div class="titlebar warn"><span class="titlebar-text">⚠️ WARNING.TXT</span>
+      <span class="titlebar-btns"><button class="tb-btn" data-min>_</button><button class="tb-btn" data-close>×</button></span>
+    </div>
+    <div class="window-body notepad">
+      <p>* No AI model has solved a Millennium Prize Problem. Zero. Not one. If this page ever claims otherwise, demand a peer-reviewed proof, not a screenshot.</p>
+      <p>* An LLM saying "Q.E.D." is not a proof. A proof is a proof when the Clay Mathematics Institute and two years of peer review say it is.</p>
+      <p>* $RACE is a memecoin. It funds compute. It can go to zero like every other one. This is not financial advice, mathematical advice, or advice.</p>
+      <p>* The on-page feed is a simulation until a live attempt log is connected. It says so right on the tin.</p>
+      <p>* Do not bet against Perelman.</p>
+    </div>
+  </div>
+
+  <!-- ============ RECYCLE BIN ============ -->
+  <div class="window" id="win-trash" style="--x: 36%; --y: 34%; --w: 420px;" hidden>
+    <div class="titlebar"><span class="titlebar-text">🗑️ Recycle Bin</span>
+      <span class="titlebar-btns"><button class="tb-btn" data-min>_</button><button class="tb-btn" data-close>×</button></span>
+    </div>
+    <div class="window-body notepad">
+      <p>roadmap.pdf ........... deleted</p>
+      <p>whitepaper_final_v7.docx ... deleted</p>
+      <p>proof_of_riemann_DRAFT.tex ... deleted (by all three models, independently, within minutes)</p>
+      <p class="dim">The Recycle Bin is the most honest window on this site.</p>
+    </div>
+  </div>
+
+  <!-- ============ SHUTDOWN ============ -->
+  <div id="shutdown" hidden>
+    <p>It is now safe to turn off your computer.</p>
+    <p class="shutdown-sub">(The race continues without you.)</p>
+    <button class="btn95" id="btn-reboot">Reboot</button>
+  </div>
+
+  <!-- ============ TASKBAR ============ -->
+  <div id="taskbar">
+    <button class="btn95 start" id="btn-start">🏁 Start</button>
+    <div id="taskbar-items"></div>
+    <div id="clock">--:--</div>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

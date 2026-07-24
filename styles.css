@@ -1,0 +1,234 @@
+/* THE RACE — Win95 retro chrome */
+
+:root {
+  --chrome: #c0c0c0;
+  --chrome-dark: #808080;
+  --chrome-darker: #404040;
+  --chrome-light: #ffffff;
+  --title-a: #000080;
+  --title-b: #1084d0;
+  --desktop: #008080;
+  --term-bg: #0a0a0a;
+  --term-green: #33ff66;
+  --grok: #e6e6e6;
+  --gpt: #10a37f;
+  --claude: #d97757;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+[hidden] { display: none !important; }
+
+html, body { height: 100%; }
+
+body {
+  font-family: "Tahoma", "MS Sans Serif", "Segoe UI", system-ui, sans-serif;
+  font-size: 13px;
+  background: var(--desktop);
+  overflow: hidden;
+  color: #000;
+}
+
+/* ---------- boot ---------- */
+#boot {
+  position: fixed; inset: 0; z-index: 999;
+  background: #000; color: #c0c0c0;
+  font-family: "Courier New", monospace;
+  padding: 4vh 5vw;
+}
+#boot-text { white-space: pre-wrap; font-size: clamp(11px, 1.9vw, 15px); line-height: 1.5; }
+#boot-text::after { content: "█"; animation: blink 0.7s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ---------- desktop & icons ---------- */
+#desktop { position: fixed; inset: 0; }
+
+.icons {
+  position: absolute; top: 10px; left: 10px;
+  display: flex; flex-direction: column; gap: 14px; z-index: 1;
+}
+.icon {
+  background: none; border: 1px solid transparent; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  width: 76px; padding: 4px; color: #fff;
+}
+.icon:hover, .icon:focus-visible { border: 1px dotted #fff; outline: none; }
+.icon-img { font-size: 30px; text-shadow: 1px 2px 0 rgba(0,0,0,.45); }
+.icon-label {
+  font-size: 11px; text-align: center; line-height: 1.2;
+  background: rgba(0,0,128,.55); padding: 1px 3px;
+}
+
+/* ---------- windows ---------- */
+.window {
+  position: absolute;
+  left: var(--x, 10%); top: var(--y, 10%);
+  width: min(var(--w, 520px), calc(100vw - 16px));
+  max-height: calc(100vh - 60px);
+  display: flex; flex-direction: column;
+  background: var(--chrome);
+  border: 2px solid;
+  border-color: var(--chrome-light) var(--chrome-darker) var(--chrome-darker) var(--chrome-light);
+  box-shadow: 3px 3px 0 rgba(0,0,0,.35);
+  z-index: 2;
+}
+.window.active { z-index: 5; }
+
+.titlebar {
+  display: flex; align-items: center; justify-content: space-between;
+  background: linear-gradient(90deg, var(--title-a), var(--title-b));
+  color: #fff; padding: 3px 4px 3px 8px;
+  font-weight: bold; font-size: 12px;
+  cursor: grab; user-select: none; touch-action: none;
+}
+.titlebar.warn { background: linear-gradient(90deg, #7a0000, #d04010); }
+.titlebar-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.titlebar-btns { display: flex; gap: 3px; flex: none; }
+.tb-btn {
+  width: 18px; height: 16px; line-height: 1;
+  background: var(--chrome); cursor: pointer;
+  border: 2px solid;
+  border-color: var(--chrome-light) var(--chrome-darker) var(--chrome-darker) var(--chrome-light);
+  font-family: inherit; font-weight: bold; font-size: 11px;
+}
+.tb-btn:active { border-color: var(--chrome-darker) var(--chrome-light) var(--chrome-light) var(--chrome-darker); }
+
+.window-body { padding: 10px; overflow: auto; }
+
+/* ---------- buttons ---------- */
+.btn95 {
+  display: inline-block;
+  background: var(--chrome); color: #000; text-decoration: none;
+  border: 2px solid;
+  border-color: var(--chrome-light) var(--chrome-darker) var(--chrome-darker) var(--chrome-light);
+  padding: 5px 12px; font-family: inherit; font-size: 12px; cursor: pointer;
+}
+.btn95:active { border-color: var(--chrome-darker) var(--chrome-light) var(--chrome-light) var(--chrome-darker); }
+.btnrow { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+
+/* ---------- race window ---------- */
+.statusline {
+  font-family: "Courier New", monospace; font-size: 12px;
+  background: #000; color: var(--term-green);
+  padding: 6px 8px; margin-bottom: 10px;
+  border: 2px inset var(--chrome-dark);
+}
+.led {
+  display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+  background: #ff3030; margin-right: 4px;
+  animation: blink 1.2s steps(1) infinite;
+}
+
+.racer {
+  border: 2px groove var(--chrome-light);
+  padding: 8px 10px; margin-bottom: 8px; background: #d4d4d4;
+}
+.racer-head { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.racer-name { font-weight: bold; font-size: 14px; }
+.racer-name .swatch {
+  display: inline-block; width: 10px; height: 10px; margin-right: 5px;
+  border: 1px solid #000;
+}
+.racer-rank { font-family: "Courier New", monospace; font-size: 12px; color: #333; }
+.racer-stats {
+  margin-left: auto; font-family: "Courier New", monospace; font-size: 12px;
+}
+.racer-current { font-size: 12px; color: #222; margin-top: 4px; }
+.racer-current .working::after {
+  content: ""; animation: dots 1.5s steps(4) infinite;
+}
+@keyframes dots { 0% { content: ""; } 25% { content: "."; } 50% { content: ".."; } 75% { content: "..."; } }
+
+.meter {
+  margin-top: 6px; height: 16px;
+  background: #fff; border: 2px inset var(--chrome-dark);
+  position: relative; overflow: hidden;
+}
+.meter-fill {
+  height: 100%; width: 0%;
+  background: repeating-linear-gradient(90deg, var(--title-a) 0 8px, var(--title-b) 8px 16px);
+  transition: width .6s ease;
+}
+.meter-label {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-family: "Courier New", monospace; color: #000;
+  mix-blend-mode: normal; text-shadow: 0 0 2px #fff;
+}
+
+/* ---------- feed ---------- */
+.feed {
+  background: var(--term-bg); color: var(--term-green);
+  font-family: "Courier New", monospace; font-size: 12px; line-height: 1.45;
+  height: min(320px, 45vh); overflow-y: auto;
+  padding: 8px; border: 2px inset var(--chrome-dark);
+  overflow-wrap: anywhere;
+}
+.feed p { margin-bottom: 2px; }
+.feed .t { color: #4d7d5d; }
+.feed .ai-grok { color: #e6e6e6; }
+.feed .ai-gpt { color: #2fd6ac; }
+.feed .ai-claude { color: #ff9e7a; }
+.feed .fail { color: #ff5555; }
+.feed .partial { color: #ffd75f; }
+.feed-note {
+  margin-top: 6px; font-size: 11px; color: #444;
+  font-family: "Courier New", monospace;
+}
+.feed-note code { background: #ddd; padding: 0 3px; }
+
+/* ---------- notepad windows ---------- */
+.notepad {
+  background: #fff; font-family: "Courier New", monospace;
+  font-size: 12.5px; line-height: 1.5;
+}
+.notepad p { margin-bottom: 9px; }
+.notepad .dim { color: #777; }
+
+.ptable { border-collapse: collapse; width: 100%; margin-bottom: 9px; }
+.ptable th, .ptable td {
+  border: 1px solid #999; padding: 4px 6px; text-align: left; font-size: 12px;
+}
+.ptable th { background: #e8e8e8; }
+.ptable .open { color: #b00000; font-weight: bold; }
+.ptable .solved { color: #006600; font-weight: bold; }
+
+/* ---------- taskbar ---------- */
+#taskbar {
+  position: fixed; left: 0; right: 0; bottom: 0; height: 34px; z-index: 50;
+  background: var(--chrome);
+  border-top: 2px solid var(--chrome-light);
+  display: flex; align-items: center; gap: 6px; padding: 0 6px;
+}
+.start { font-weight: bold; flex: none; }
+#taskbar-items { display: flex; gap: 4px; overflow: hidden; flex: 1; }
+.task-item {
+  max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  flex: none;
+}
+.task-item.pressed { border-color: var(--chrome-darker) var(--chrome-light) var(--chrome-light) var(--chrome-darker); background: #d8d8d8; }
+#clock {
+  flex: none; font-size: 12px; padding: 4px 10px;
+  border: 2px inset var(--chrome-dark);
+  font-family: "Courier New", monospace;
+}
+
+/* ---------- shutdown ---------- */
+#shutdown {
+  position: fixed; inset: 0; z-index: 1000;
+  background: #000; color: #ffa500;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  font-family: "Courier New", monospace; font-size: clamp(16px, 3vw, 26px); text-align: center; padding: 20px;
+}
+.shutdown-sub { font-size: .55em; color: #888; }
+
+/* ---------- mobile ---------- */
+@media (max-width: 700px) {
+  .icons { flex-direction: row; flex-wrap: wrap; gap: 4px; right: 10px; }
+  .icon { width: 62px; }
+  .icon-img { font-size: 24px; }
+  .window {
+    left: 8px !important; right: 8px; top: calc(var(--y, 10%) * .6 + 90px) !important;
+    width: auto; max-height: calc(100vh - 140px);
+  }
+  .racer-stats { margin-left: 0; width: 100%; }
+}
