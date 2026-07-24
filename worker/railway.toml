@@ -1,0 +1,11 @@
+# Railway config for the 24/7 race worker.
+# In Railway: New Project -> Deploy from GitHub repo -> set Root Directory to "worker".
+# Then add the env vars listed in worker.mjs (Upstash + provider keys) under Variables.
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+# Keep the loop alive forever; restart on crash.
+restartPolicyType = "ALWAYS"

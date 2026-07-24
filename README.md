@@ -79,8 +79,16 @@ In your Vercel project settings → Environment Variables, add the two
 
 ### 3. The worker (any always-on machine — NOT Vercel)
 
-Vercel can't run a 24/7 loop, so the worker runs on a VPS, Railway, or a
-spare computer:
+Vercel can't run a 24/7 loop, so the worker runs elsewhere.
+
+**Option A — Railway (easiest, ~$5/mo):**
+1. [railway.app](https://railway.app) → New Project → Deploy from GitHub repo
+2. Set **Root Directory** to `worker` (it picks up the `Dockerfile` + `railway.toml`)
+3. Under Variables, add: `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`,
+   `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `XAI_API_KEY`
+4. Deploy — it restarts automatically on crashes and runs forever
+
+**Option B — any VPS or spare computer:**
 
 ```sh
 cd worker
@@ -88,6 +96,17 @@ npm install
 export UPSTASH_REDIS_REST_URL=... UPSTASH_REDIS_REST_TOKEN=...
 export ANTHROPIC_API_KEY=... OPENAI_API_KEY=... XAI_API_KEY=...
 npm start
+```
+
+### Featured problem
+
+To point most of the race at one headline problem (e.g. the Riemann
+Hypothesis — the most famous unsolved problem in mathematics, open since
+1859), set:
+
+```sh
+FEATURED_PROBLEM=Riemann   # substring match against the problem list
+FEATURED_WEIGHT=0.7        # 70% of attempts target it; the rest keep the race varied
 ```
 
 Each racer makes one attempt per `RACE_INTERVAL_MS` (default 10 minutes,

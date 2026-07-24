@@ -15,6 +15,8 @@
  *   OPENAI_MODEL    (default gpt-5)
  *   XAI_MODEL       (default grok-4)
  *   RACE_INTERVAL_MS (default 600000 — one attempt per model every 10 min)
+ *   FEATURED_PROBLEM (substring, e.g. "Riemann" — biases attempts toward it)
+ *   FEATURED_WEIGHT  (0..1, default 0.7 — share of attempts on the featured problem)
  */
 
 import Anthropic from "@anthropic-ai/sdk";
@@ -144,8 +146,17 @@ function parseVerdict(text) {
 
 /* ---------- main loop ---------- */
 
+function pickProblem() {
+  const featured = process.env.FEATURED_PROBLEM
+    ? PROBLEMS.find((p) => p.toLowerCase().includes(process.env.FEATURED_PROBLEM.toLowerCase()))
+    : null;
+  const weight = Math.min(1, Math.max(0, Number(process.env.FEATURED_WEIGHT ?? 0.7)));
+  if (featured && Math.random() < weight) return featured;
+  return PROBLEMS[Math.floor(Math.random() * PROBLEMS.length)];
+}
+
 async function runOnce(racer) {
-  const problem = PROBLEMS[Math.floor(Math.random() * PROBLEMS.length)];
+  const problem = pickProblem();
   const started = Date.now();
   try {
     const text = await racer.run(problem);
@@ -188,6 +199,9 @@ async function main() {
     process.exit(1);
   }
   console.log(`THE RACE worker: ${active.map((r) => r.id).join(", ")} — one attempt each every ${INTERVAL / 60000} min`);
+  if (process.env.FEATURED_PROBLEM) {
+    console.log(`Featured problem: ${process.env.FEATURED_PROBLEM} (weight ${process.env.FEATURED_WEIGHT ?? 0.7})`);
+  }
 
   // Stagger racers so attempts spread across the interval instead of bursting.
   for (const [i, racer] of active.entries()) {
