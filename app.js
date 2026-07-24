@@ -1,8 +1,8 @@
 /* THE RACE — Grok vs ChatGPT vs Claude vs the Millennium Prize Problems.
  *
- * SIMULATION MODE: everything below generates a plausible demo stream
- * client-side. To wire up real attempt logs, replace ENGINE.tick() with a
- * fetch/websocket to your backend and keep the same render calls.
+ * SIMULATION MODE by default: a plausible demo stream generated client-side.
+ * The page auto-upgrades to LIVE MODE when /api/feed reports real attempts
+ * (worker/ + Upstash configured) — see the "live mode" section below.
  */
 
 "use strict";
@@ -67,7 +67,7 @@ const PARTIALS = [
 
 const RACERS = [
   {
-    id: "grok", name: "GROK", cls: "ai-grok", color: "#e6e6e6",
+    id: "grok", name: "GROK", cls: "ai-grok", color: "var(--grok)",
     attempts: 4102, interval: [2800, 6500],
     quips: [
       "trivial. wait. not trivial.",
@@ -76,7 +76,7 @@ const RACERS = [
     ],
   },
   {
-    id: "gpt", name: "CHATGPT", cls: "ai-gpt", color: "#10a37f",
+    id: "gpt", name: "CHATGPT", cls: "ai-gpt", color: "var(--gpt)",
     attempts: 4551, interval: [2500, 6000],
     quips: [
       "I apologize for the confusion in my previous 600 attempts.",
@@ -85,7 +85,7 @@ const RACERS = [
     ],
   },
   {
-    id: "claude", name: "CLAUDE", cls: "ai-claude", color: "#d97757",
+    id: "claude", name: "CLAUDE", cls: "ai-claude", color: "var(--claude)",
     attempts: 4287, interval: [2600, 6200],
     quips: [
       "I should be careful here — step 3 doesn't actually follow.",
@@ -103,91 +103,6 @@ const rint = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
 const fmt = (n) => n.toLocaleString("en-US");
 const pad = (n) => String(n).padStart(2, "0");
 
-/* ============================= windows ============================= */
-
-const openWindows = new Set();
-
-function bringToFront(win) {
-  document.querySelectorAll(".window").forEach((w) => w.classList.remove("active"));
-  win.classList.add("active");
-}
-
-function openWindow(id) {
-  const win = document.getElementById(id);
-  if (!win) return;
-  win.hidden = false;
-  openWindows.add(id);
-  bringToFront(win);
-  renderTaskbar();
-}
-
-function closeWindow(id) {
-  const win = document.getElementById(id);
-  if (!win) return;
-  win.hidden = true;
-  openWindows.delete(id);
-  renderTaskbar();
-}
-
-function renderTaskbar() {
-  const bar = $("#taskbar-items");
-  bar.innerHTML = "";
-  for (const id of openWindows) {
-    const win = document.getElementById(id);
-    const label = $(".titlebar-text", win).textContent;
-    const btn = document.createElement("button");
-    btn.className = "btn95 task-item" + (win.hidden ? "" : " pressed");
-    btn.textContent = label;
-    btn.onclick = () => {
-      if (win.hidden) { win.hidden = false; bringToFront(win); }
-      else if (win.classList.contains("active")) { win.hidden = true; }
-      else bringToFront(win);
-      renderTaskbar();
-    };
-    bar.appendChild(btn);
-  }
-}
-
-function makeDraggable(win) {
-  const bar = $(".titlebar", win);
-  bar.addEventListener("pointerdown", (e) => {
-    if (e.target.closest(".tb-btn")) return;
-    bringToFront(win);
-    const rect = win.getBoundingClientRect();
-    const offX = e.clientX - rect.left;
-    const offY = e.clientY - rect.top;
-    bar.setPointerCapture(e.pointerId);
-    const move = (ev) => {
-      win.style.left = Math.max(-rect.width + 60, Math.min(ev.clientX - offX, innerWidth - 60)) + "px";
-      win.style.top = Math.max(0, Math.min(ev.clientY - offY, innerHeight - 60)) + "px";
-      win.style.setProperty("--x", "auto");
-    };
-    const up = () => {
-      bar.removeEventListener("pointermove", move);
-      bar.removeEventListener("pointerup", up);
-    };
-    bar.addEventListener("pointermove", move);
-    bar.addEventListener("pointerup", up);
-  });
-}
-
-function initWindows() {
-  document.querySelectorAll(".window").forEach((win) => {
-    makeDraggable(win);
-    win.addEventListener("pointerdown", () => bringToFront(win));
-    $("[data-close]", win)?.addEventListener("click", () => closeWindow(win.id));
-    $("[data-min]", win)?.addEventListener("click", () => {
-      win.hidden = true;
-      renderTaskbar();
-    });
-    if (!win.hidden) openWindows.add(win.id);
-  });
-  document.querySelectorAll(".icon").forEach((icon) => {
-    icon.addEventListener("click", () => openWindow(icon.dataset.open));
-  });
-  renderTaskbar();
-}
-
 /* ============================= race engine ============================= */
 
 const ENGINE = { racers: [] };
@@ -196,22 +111,22 @@ function initRacers(sim = true) {
   const host = $("#racers");
   for (const r of RACERS) {
     const startAttempts = sim ? r.attempts : 0;
-    const el = document.createElement("div");
+    const el = document.createElement("article");
     el.className = "racer";
+    el.style.setProperty("--ac", r.color);
     el.innerHTML = `
-      <div class="racer-head">
-        <span class="racer-name"><span class="swatch" style="background:${r.color}"></span>${r.name}</span>
-        <span class="racer-rank" id="rank-${r.id}"></span>
-        <span class="racer-stats">attempts: <b id="att-${r.id}">${fmt(startAttempts)}</b> · solved: <b>0/6</b></span>
+      <div class="racer-top">
+        <span class="pos" id="rank-${r.id}">P–</span>
+        <h3>${r.name}</h3>
+        <span class="odo">attempts <b id="att-${r.id}">${fmt(startAttempts)}</b> · solved <b>0/6</b></span>
       </div>
-      <div class="racer-current">now attacking: <b id="cur-${r.id}"></b> <span class="working"></span></div>
-      <div class="meter"><div class="meter-fill" id="meter-${r.id}"></div>
-        <div class="meter-label" id="mlabel-${r.id}">confidence 0%</div></div>`;
+      <div class="lane"><div class="lane-fill" id="meter-${r.id}"></div><div class="lane-finish"></div></div>
+      <div class="racer-meta"><span id="mlabel-${r.id}"></span> · attacking <b id="cur-${r.id}"></b><span class="working"></span></div>`;
     host.appendChild(el);
 
     const state = {
       ...r,
-      attempts: sim ? r.attempts : 0, // live mode gets real counts from the API
+      attempts: startAttempts,
       problem: rnd(PROBLEMS),
       confidence: rint(5, 40),
       el,
@@ -233,9 +148,10 @@ function renderRacer(s) {
 function renderRanks() {
   const sorted = [...ENGINE.racers].sort((a, b) => b.attempts - a.attempts);
   sorted.forEach((s, i) => {
-    const medal = ["🥇", "🥈", "🥉"][i] || "";
-    $(`#rank-${s.id}`).textContent = `${medal} #${i + 1} by volume`;
+    $(`#rank-${s.id}`).textContent = `P${i + 1}`;
   });
+  const total = ENGINE.racers.reduce((n, s) => n + s.attempts, 0);
+  $("#stat-attempts").textContent = fmt(total);
 }
 
 function scheduleTick(s) {
@@ -247,17 +163,14 @@ function tick(s) {
 
   const roll = Math.random();
   if (roll < 0.72) {
-    // outright failure — confidence collapses
     const reason = rnd(FAILS[s.problem.key]);
     logFeed(s, `attempt #${fmt(s.attempts)} — ${s.problem.name} — FAILED: ${reason}`, "fail");
     s.confidence = rint(3, 18);
     if (Math.random() < 0.5) s.problem = rnd(PROBLEMS);
   } else if (roll < 0.9) {
-    // partial progress — confidence climbs a bit
     logFeed(s, `attempt #${fmt(s.attempts)} — ${s.problem.name} — PARTIAL: ${rnd(PARTIALS)}`, "partial");
     s.confidence = Math.min(94, s.confidence + rint(4, 14));
   } else {
-    // personality quip
     logFeed(s, rnd(s.quips), "");
     s.confidence = Math.max(2, s.confidence - rint(0, 6));
   }
@@ -273,15 +186,15 @@ function logFeed(s, msg, cls) {
   const now = new Date();
   const t = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
   const p = document.createElement("p");
-  p.innerHTML = `<span class="t">[${t}]</span> <span class="${s.cls}">[${s.name}]</span> <span class="${cls}">${msg}</span>`;
+  p.innerHTML = `<span class="t">[${t}]</span> <span class="${s.cls}">${s.name}</span> <span class="${cls}">${msg}</span>`;
   feed.appendChild(p);
-  while (feed.children.length > 120) feed.removeChild(feed.firstChild);
+  while (feed.children.length > 150) feed.removeChild(feed.firstChild);
   feed.scrollTop = feed.scrollHeight;
 }
 
 /* ============================= live mode ============================= */
-/* If the /api/feed endpoint reports live data (worker + Redis configured),
- * the simulation is disabled and the feed/counters come from real attempts. */
+/* If /api/feed reports live data (worker + Redis configured), the simulation
+ * is disabled and the feed/counters come from real attempts. */
 
 const LIVE = { seen: new Set() };
 
@@ -327,29 +240,24 @@ function startLiveMode(initialData) {
   }, 10000);
 }
 
-/* ============================= clocks ============================= */
+/* ============================= uptime ============================= */
 
 const bootTime = Date.now();
 
 function startClocks() {
   setInterval(() => {
-    const now = new Date();
-    $("#clock").textContent = `${pad(now.getHours())}:${pad(now.getMinutes())}`;
     const s = Math.floor((Date.now() - bootTime) / 1000);
     $("#uptime").textContent = `${pad(Math.floor(s / 3600))}:${pad(Math.floor((s % 3600) / 60))}:${pad(s % 60)}`;
   }, 1000);
 }
 
-/* ============================= misc UI ============================= */
+/* ============================= buttons ============================= */
 
 function initButtons() {
-  $("#btn-shutdown").onclick = () => { $("#shutdown").hidden = false; };
-  $("#btn-reboot").onclick = () => location.reload();
-  $("#btn-start").onclick = () => openWindow("win-readme");
   const notDeployed = () => {
     const s = ENGINE.racers[rint(0, ENGINE.racers.length - 1)];
     logFeed(s, "token not deployed yet. the math, however, is very deployed.", "partial");
-    openWindow("win-feed");
+    document.getElementById("wire").scrollIntoView({ behavior: "smooth" });
   };
   $("#btn-buy").onclick = notDeployed;
   $("#btn-chart").onclick = notDeployed;
@@ -357,20 +265,10 @@ function initButtons() {
 
 /* ============================= boot ============================= */
 
-function boot() {
-  const bootEl = $("#boot");
-  const desktop = $("#desktop");
-  setTimeout(async () => {
-    bootEl.remove();
-    desktop.hidden = false;
-    if (innerWidth < 700) $("#win-feed").hidden = true; // one window at a time on phones
-    initWindows();
-    const liveData = await fetchLive();
-    initRacers(!liveData);
-    if (liveData) startLiveMode(liveData);
-    initButtons();
-    startClocks();
-  }, 1800);
-}
-
-boot();
+(async function boot() {
+  const liveData = await fetchLive();
+  initRacers(!liveData);
+  if (liveData) startLiveMode(liveData);
+  initButtons();
+  startClocks();
+})();
