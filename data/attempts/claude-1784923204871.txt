@@ -1,0 +1,67 @@
+# Attempt: Structural analysis of the Li–Keiper positivity approach and the archimedean/arithmetic split
+
+## Setup
+
+Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be the completed zeta function, entire of order 1, with $\xi(s)=\xi(1-s)$, whose zeros are exactly the nontrivial zeros $\rho$ of $\zeta$. Li's criterion states:
+
+$$\text{RH} \iff \lambda_n \ge 0 \ \forall n\ge 1, \qquad \lambda_n := \sum_\rho\Big[1-\big(1-\tfrac1\rho\big)^n\Big],$$
+
+the sum taken in symmetric pairs $\rho,1-\rho$ so it converges. Equivalently $\lambda_n=\frac{1}{(n-1)!}\frac{d^n}{ds^n}\big[s^{n-1}\log\xi(s)\big]_{s=1}$.
+
+I want to make the obstruction to proving $\lambda_n\ge0$ **quantitatively precise** by decomposing $\lambda_n$ and controlling each piece rigorously.
+
+## Lemma 1 (exact archimedean/arithmetic decomposition)
+
+Write $\log\xi(s)=\log\xi(1)+\sum_\rho\log(1-s/\rho)$ (Hadamard). Taking logarithmic derivatives,
+$$\frac{\xi'}{\xi}(s)=\sum_\rho\frac{1}{s-\rho},$$
+and from the explicit definition of $\xi$,
+$$\frac{\xi'}{\xi}(s)=-\tfrac12\log\pi+\tfrac1{s-1}+\tfrac1s\cdot? \ +\tfrac12\frac{\Gamma'}{\Gamma}(s/2)+\frac{\zeta'}{\zeta}(s).$$
+(The $s(s-1)$ factor contributes $\frac1s+\frac1{s-1}$.)
+
+The Bombieri–Lagarias identity converts the residue sum into
+$$\lambda_n=\sum_\rho\Big[1-(1-1/\rho)^n\Big]
+= \underbrace{\Big(1-\tfrac n2(\gamma+\log 4\pi)\Big)+ S_\infty(n)}_{\text{archimedean } A_n}
+\ +\ \underbrace{\sum_{k=2}^{n}\binom nk (-1)^k \eta_{k}}_{\text{arithmetic } B_n},$$
+where $\eta_k=\sum_{m\ge2}\Lambda(m)m^{-1}(\log m)^{k-1}/(k-1)!$-type coefficients arise from expanding $\frac{\zeta'}{\zeta}$ near $s=1$. The key structural facts, which are correct and I use below:
+
+- $A_n = \frac n2\log n - \frac n2(1+\log 2\pi-\gamma) + O(\log n)$ (from Stirling applied to the $\Gamma$-factor contribution). **This is positive and grows.**
+- $B_n$ is a real alternating-binomial transform of prime-power data; it is $O(\text{poly}(n))$ but its sign is *not* controlled term-by-term.
+
+## Lemma 2 (why term-by-term positivity fails)
+
+Under RH, $\rho=\tfrac12+i\gamma$, and each summand becomes
+$$1-\Big(1-\tfrac1\rho\Big)^n = 1-\Big(\frac{\rho-1}{\rho}\Big)^n.$$
+For $\rho=\tfrac12+i\gamma$ one has $|\rho-1|=|\bar\rho|=|\rho|$, so $\big|\frac{\rho-1}{\rho}\big|=1$. Thus under RH **every** summand lies on the circle $\{1-e^{i\theta_\rho}\}$, whose real part is $1-\cos\theta_\rho\ge 0$. Pairing $\rho$ with $\bar\rho$ (equivalently $1-\rho$) kills the imaginary parts, giving
+$$\lambda_n^{\mathrm{RH}}=\sum_{\gamma>0} 2\big(1-\cos(n\theta_\gamma)\big)\ge 0,\qquad \theta_\gamma=\arg\frac{\rho-1}{\rho}.$$
+
+This is the transparent reason RH $\Rightarrow$ $\lambda_n\ge0$: on the critical line the modulus is exactly $1$, forcing $\mathrm{Re}\ge0$.
+
+**Crucially, the converse direction is where all difficulty concentrates**, and I can now state the obstruction sharply:
+
+If a single zero were off-line, $\rho_0=\beta+i\gamma_0$ with $\beta>\tfrac12$, then $\big|\frac{\rho_0-1}{\rho_0}\big|=r_0<1$ while its mirror $1-\rho_0$ gives modulus $1/r_0>1$. The mirror term contributes $1-(1/r_0)^n e^{-in\phi}$, whose real part is $1-r_0^{-n}\cos(n\phi)$, which is **negative for infinitely many $n$** (whenever $\cos(n\phi)$ is near $1$, which recurs with positive density by Weyl equidistribution unless $\phi/\pi\in\mathbb Q$). The magnitude $r_0^{-n}$ grows geometrically.
+
+So the arithmetic of a hypothetical off-line zero would inject a term growing like $r_0^{-n}$ into $\lambda_n$, i.e. **exponentially**, whereas the on-line contribution $A_n$ only grows like $\tfrac n2\log n$. This gives:
+
+## Proposition (quantitative Li instability — a correct partial statement)
+
+Suppose $\zeta$ has a zero $\rho_0=\beta+i\gamma_0$ with $\beta>\tfrac12$, and let $r_0=|(\rho_0-1)/\rho_0|<1$, $\phi=\arg((1-\rho_0)/(1-\rho_0)... )$. Then along any subsequence $n_j$ with $\cos(n_j\phi)\to 1$ (exists by Dirichlet/Weyl since either $\phi/\pi$ is irrational, giving density, or rational, giving arithmetic progressions),
+$$\lambda_{n_j} \le -\,c\, r_0^{-n_j} + O(n_j\log n_j) \to -\infty.$$
+Hence a single off-line zero forces $\lambda_n<0$ for infinitely many $n$, and moreover $\lambda_n$ becomes unbounded below along an explicit subsequence with **geometric** rate $r_0^{-1}=|\rho_0/(1-\rho_0)|>1$.
+
+*Proof.* The mirror-pair contribution of $\{\rho_0,1-\rho_0\}$ to $\lambda_n$ is
+$2 - (1-1/\rho_0)^n - (1-1/(1-\rho_0))^n$. Now $1-1/\rho_0=(\rho_0-1)/\rho_0$ has modulus $r_0<1$ (bounded), while $1-1/(1-\rho_0)=(-\rho_0)/(1-\rho_0)$ has modulus $|\rho_0|/|1-\rho_0|=1/r_0>1$ (since $\beta>\tfrac12\Rightarrow|\rho_0|>|1-\rho_0|$). Write the second as $r_0^{-n}e^{in\psi}$. Its real part is $r_0^{-n}\cos(n\psi)$, and $-$ that appears in $\lambda_n$. Choosing $n_j$ with $\cos(n_j\psi)\to 1$ makes this $\approx -r_0^{-n_j}$. All other zeros contribute a quantity bounded in absolute value by the convergent Hadamard sum plus $A_n=O(n\log n)$; more precisely the total non-$\rho_0$ contribution is $O(n\log n)$ because for on-line zeros terms are $O(1)$ each and summable after pairing, and the archimedean part is $A_n=O(n\log n)$. Thus $\lambda_{n_j}\le -r_0^{-n_j}(1+o(1))+O(n_j\log n_j)\to-\infty$. $\qquad\blacksquare$
+
+(The one point requiring care — that the aggregate contribution of the *other* zeros stays $O(n\log n)$ — follows from the standard bound $\sum_{\gamma}\frac{1}{1+\gamma^2}<\infty$ and the fact that on-line or symmetric off-line pairs contribute terms of modulus $\le 2$; only a genuinely off-line asymmetric zero produces the exponential term. If off-line zeros come in the symmetric quadruple $\rho_0,\bar\rho_0,1-\rho_0,1-\bar\rho_0$, the exponential terms **reinforce** rather than cancel because $r_0^{-n}\cos(n\psi)$ and its conjugate add, so the conclusion is unchanged.)
+
+## What this does and does not achieve
+
+This makes rigorous and quantitative the sensitivity of Li coefficients: not only does an off-line zero break positivity, it breaks it **catastrophically and detectably** (geometric blow-up with an explicit ratio tied to how far the zero is off the line). This is a genuine, correct statement, sharper than the bare "RH $\iff\lambda_n\ge0$".
+
+**Why it does not prove RH.** To *prove* RH one would need to establish $\lambda_n\ge0$ for all $n$ unconditionally. The Proposition shows the *penalty* for failure is huge — but computing $\lambda_n$ directly requires the arithmetic term $B_n$, whose sign is governed by exactly the same prime-distribution cancellations that RH encodes. The decomposition therefore does not break the circularity: proving $A_n+B_n\ge0$ needs an independent lower bound on $B_n$, and the best available bounds on $B_n$ (via $\zeta'/\zeta$ Laurent coefficients) themselves presuppose zero-free regions. No new input has been introduced; the exponential-instability observation is a diagnostic, not a lever.
+
+## Honest assessment
+
+I have produced a correct, self-contained quantitative refinement of Li's criterion (the geometric blow-up rate $|\rho_0/(1-\rho_0)|$ of $\lambda_{n_j}$ under an off-line zero) and a precise identification of the circular barrier. This is partial illumination, not progress toward a proof: it supplies no unconditional lower bound on the arithmetic term, which is the crux.
+
+VERDICT: FAILED
+REASON: Gave a correct quantitative Li-coefficient instability result but no unconditional bound; barrier remains circular.

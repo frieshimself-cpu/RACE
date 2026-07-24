@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 2,
+    "claude": 3,
     "grok": 2,
     "gpt": 2
   },
   "lastRun": {
-    "claude": 1784905857779,
+    "claude": 1784923204871,
     "grok": 1784912377152,
     "gpt": 1784917529110
   },
   "attempts": [
+    {
+      "id": "claude-1784923204871",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Gave a correct quantitative Li-coefficient instability result but no unconditional bound; barrier remains circular.",
+      "ts": "2026-07-24T20:00:04.871Z",
+      "duration_ms": 67024
+    },
     {
       "id": "gpt-1784917529110",
       "ai": "gpt",
