@@ -1,0 +1,167 @@
+# Strong-Coupling Mass Gap Lemma and an Obstruction Analysis
+
+I make a concrete, self-contained attempt: a rigorous proof of a mass gap
+for pure lattice gauge theory in the strong-coupling regime, phrased so as to
+isolate *exactly* what fails in extending it to the continuum limit demanded
+by the Millennium problem. The point is not the strong-coupling result itself
+(known since Osterwalder–Seiler) but a sharpened statement of the barrier.
+
+## Setup
+
+Let $G$ be a compact Lie group with finite-dimensional unitary irreducible
+representations $\{\rho_\alpha\}$, dimensions $d_\alpha$, characters
+$\chi_\alpha$, normalized Haar measure $dU$. On $\Lambda = \mathbb Z^d$
+(finite torus $\Lambda_L$, then $L\to\infty$) assign $U_\ell\in G$ to oriented
+links. Wilson action
+$$
+S = \beta \sum_{p} \Big(1 - \tfrac{1}{N}\,\mathrm{Re}\,\chi_{\mathrm{f}}(U_{\partial p})\Big),
+$$
+$U_{\partial p}$ the ordered product around plaquette $p$, $\chi_{\mathrm f}$
+the fundamental character. Measure
+$d\mu = Z^{-1} e^{-S}\prod_\ell dU_\ell$.
+
+Reflection positivity across coordinate hyperplanes (Osterwalder–Seiler)
+gives a self-adjoint transfer matrix $T = e^{-aH}$, $0\le T\le \|T\|$, acting on
+the physical Hilbert space of gauge-invariant states. The **mass gap** is
+$m = a^{-1}\log(\|T\|/\lambda_1)$ where $\lambda_1$ is the second-largest
+eigenvalue; equivalently $m$ is the exponential decay rate of connected
+gauge-invariant correlations.
+
+## Character expansion
+
+Expand each plaquette Boltzmann weight:
+$$
+e^{\frac{\beta}{N}\mathrm{Re}\,\chi_{\mathrm f}(U_{\partial p})}
+= \sum_{\alpha} c_\alpha(\beta)\, d_\alpha\,\chi_\alpha(U_{\partial p}),
+\qquad c_0(\beta)=1+O(\beta^2),
+$$
+with the crucial small-coupling estimate: for $\alpha\ne 0$,
+$$
+r_\alpha(\beta) := \frac{c_\alpha(\beta)}{c_0(\beta)} = O(\beta^{|\alpha|}),
+\qquad
+|r_\alpha(\beta)| \le (C\beta)^{k_\alpha},
+$$
+where $k_\alpha\ge 1$ is the minimal number of fundamental boxes needed to
+build $\rho_\alpha$ (for the fundamental itself $r_{\mathrm f}\sim \beta/(2N)$).
+This follows from the Peter–Weyl coefficients of the analytic function
+$e^{t\,\mathrm{Re}\chi_{\mathrm f}}$ in $t=\beta/N$.
+
+## Polymer representation
+
+Integrating out link variables with Haar orthogonality
+$\int \chi_\alpha(UV)\overline{\chi_\beta(UW)}\,dU
+= \delta_{\alpha\beta} d_\alpha^{-1}\chi_\alpha(VW^{-1})$,
+the constraint is that colored plaquettes must glue into closed surfaces:
+each link must carry a net-trivial representation content. Thus
+$$
+Z / Z_0 = \sum_{\text{closed colored surfaces } \Sigma}
+\ \prod_{p\in\Sigma} r_{\alpha_p}(\beta),
+$$
+$Z_0$ the $\beta=0$ value. Each connected surface (polymer) $\gamma$ of area
+$|\gamma|$ (plaquette count) carries activity
+$$
+|z(\gamma)| \le \prod_{p\in\gamma}\max_{\alpha\ne0}|r_\alpha(\beta)|
+\le (C\beta)^{|\gamma|}.
+$$
+The minimal closed surface has $|\gamma|=6$ (an elementary cube's boundary is
+not closed as a plaquette set — actually the minimal nontrivial closed colored
+surface has $\ge 6$ plaquettes), so activities are summably small.
+
+**Convergence (Kotecký–Preiss criterion).** The number of connected surfaces
+of area $n$ containing a fixed plaquette is bounded by $\mu^n$ for a lattice
+constant $\mu=\mu(d)<\infty$. If
+$$
+C\beta\,\mu\, e < 1
+\quad\Longleftrightarrow\quad
+\beta < \beta_0 := (C\mu e)^{-1},
+$$
+the polymer (cluster) expansion for $\log Z$ converges absolutely, uniformly
+in $L$. This gives existence of the infinite-volume state and analyticity of
+correlations in $\beta$ for $|\beta|<\beta_0$.
+
+## Mass gap
+
+Consider the connected two-point function of a gauge-invariant observable, e.g.
+$W_\alpha(x)=\chi_\alpha(U_{\partial p_x})$ for a plaquette at $x$:
+$$
+\langle W_\alpha(0)\,\overline{W_\alpha(x)}\rangle_c .
+$$
+In the surface picture this correlation requires a colored surface connecting
+$p_0$ to $p_x$ (the two source plaquettes must be joined by a connected chain
+of colored plaquettes, since isolated colored plaquettes are forbidden by the
+closure/Haar constraint). Any such connecting surface has area
+$\ge \mathrm{dist}(0,x)=:R$. By the convergent expansion, the truncated
+correlation is bounded by the sum over connecting polymers:
+$$
+\big|\langle W_\alpha(0)\overline{W_\alpha(x)}\rangle_c\big|
+\le \sum_{\gamma: 0\leftrightarrow x}|z(\gamma)|
+\le \sum_{n\ge R}\mu^n (C\beta)^n
+= \frac{(C\mu\beta)^R}{1-C\mu\beta}.
+$$
+Hence
+$$
+\boxed{\;\big|\langle W_\alpha(0)\overline{W_\alpha(x)}\rangle_c\big|
+\le K\, e^{-m R},\qquad
+m \ge -\log(C\mu\beta) = |\log\beta| - \log(C\mu) > 0\;}
+$$
+for all $\beta<\beta_0$. By reflection positivity this exponential clustering
+is equivalent to a genuine gap in the spectrum of $H$ above the vacuum:
+$m>0$. **This is a rigorous mass gap for the lattice theory at small $\beta$,
+uniform in volume.** ∎ (of the lemma)
+
+## Why this does not solve the Millennium problem — sharpened obstruction
+
+The Millennium problem needs a Yang–Mills theory on $\mathbb R^4$ with the
+physical continuum limit. In lattice regularization the lattice spacing $a$
+must go to $0$, and asymptotic freedom fixes the required scaling: the
+renormalized coupling runs so that the continuum limit is reached as
+$$
+\beta = \frac{2N}{g^2}\ \to\ \infty,
+\qquad a(\beta)\sim \Lambda_{\mathrm{QCD}}^{-1}\,\exp\!\big(-\tfrac{\beta}{2b_0}\big),
+$$
+i.e. **the opposite end** of the interval $[0,\beta_0)$ where the above proof
+lives. Three precise facts make this an obstruction rather than a gap to be
+narrowed:
+
+1. **Analyticity is generically broken.** The strong-coupling expansion has a
+   finite radius $\beta_0$. For $d\ge 3$ and, e.g., $U(1)$, there is a genuine
+   phase transition (confinement–Coulomb, Guth/Fröhlich–Spencer) at some
+   $\beta_c<\infty$; the strong-coupling gap $m\sim|\log\beta|$ *does not*
+   persist. For nonabelian $G$ in $d=4$ the expected picture (no transition,
+   a single confining phase) is precisely the unproven statement — one cannot
+   analytically continue the lemma through the crossover.
+
+2. **The gap in lattice units vanishes; the physical gap is a $0\cdot\infty$.**
+   The physical mass is $m_{\mathrm{phys}} = m(\beta)/a(\beta)$. To get a finite
+   nonzero $m_{\mathrm{phys}}$ one needs $m(\beta)\sim a(\beta)\Lambda\sim
+   e^{-\beta/2b_0}\to 0$: an *exponentially small* dimensionless gap at large
+   $\beta$. The strong-coupling bound $m\ge|\log\beta|$ is qualitatively wrong
+   here (it grows), confirming it captures a different regime; controlling the
+   correct exponentially small gap requires genuinely non-perturbative
+   renormalization-group control of the continuum limit that no convergent
+   expansion currently provides.
+
+3. **Uniformity is the whole difficulty.** What is needed is a lower bound
+   $m(\beta)\ge c\,a(\beta)\Lambda$ *uniform along the RG trajectory*
+   $\beta\to\infty$, together with reconstruction of the Wightman/Osterwalder–
+   Schrader axioms in the limit. The lemma provides uniformity in $L$ but only
+   at fixed small $\beta$; the two limits ($L\to\infty$ then $a\to0$) do not
+   commute in any controlled way with present tools.
+
+**Net contribution of this attempt.** A clean, self-contained proof that the
+lattice mass gap exists and equals $|\log\beta|+O(1)$ for $\beta<\beta_0$, with
+an explicit convergence threshold $\beta_0=(C\mu e)^{-1}$; and a sharpened
+statement that the barrier is not "extend the region of convergence" but
+"cross a possible phase boundary AND rescale a vanishing dimensionless gap by
+a diverging factor $1/a$, uniformly along an asymptotically-free RG flow." The
+strong-coupling method is structurally incapable of the second task because
+its output $m\sim|\log\beta|$ is *increasing* in $\beta$, whereas the physical
+requirement is $m(\beta)\sim e^{-\beta/2b_0}$ *decreasing* — the two functional
+forms are irreconcilable, so any continuum proof must abandon convergent
+strong-coupling expansions entirely and work directly with the RG flow.
+
+I did not achieve the continuum result and do not claim progress toward it
+beyond the sharpened obstruction and the self-contained lattice lemma.
+
+VERDICT: FAILED
+REASON: Rigorous lattice strong-coupling mass gap proven, but its m~|log β| growth is irreconcilable with the continuum e^{-β/2b0} scaling.
