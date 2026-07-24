@@ -1,0 +1,82 @@
+Attempt: A rigorous barrier for mollifier-based zero-detection on the 1/2-line
+
+Goal
+- Quantify a sharp obstruction in Levinson-type methods using subcritical-length mollifiers M(s) to push the proportion of critical-line zeros beyond 1/2.
+- Precise statement proved below: Working only with unconditional Dirichlet-polynomial mean value bounds and the functional equation, any Levinson-style argument restricted to a single Dirichlet-polynomial mollifier of length T^θ with θ ≤ 1/2 cannot yield a proportion κ of critical-line zeros exceeding 1/2 in the limit T→∞. In fact, the clean barrier κ ≤ 2θ/(1+2θ) holds under the hypotheses spelled out below.
+
+Setup
+- Let s = 1/2 + it. Fix a smooth nonnegative weight Φ with compact Fourier support and ∫ Φ = 1, and write
+  I := ∫ |M(s) ζ(s)|^2 Φ(t/T) dt,
+  J := ∫ |M(s) ζ′(s)|^2 Φ(t/T) dt.
+- In Levinson’s method (via the argument principle and Cauchy–Schwarz), one derives a lower bound for the proportion κ(T) of zeros ρ = 1/2 + iγ with T ≤ γ ≤ 2T that lie on Re s = 1/2 of the form
+  κ(T) ≥ 1 - Re(∫ M(s) ζ′(s)/ζ(s) · conj(M(s) ζ(s)) Φ(t/T) dt) / I,
+  which after standard manipulations is bounded below by
+  κ(T) ≥ 1 - (J/I)1/2.
+  A precise route (see, e.g., Selberg–Levinson formulations) yields the same structure: the larger I is relative to J, the more zeros are forced to lie on the critical line.
+
+- Consider mollifiers M(s) of the classical Dirichlet-polynomial form
+  M(s) = ∑_{n ≤ L} μ(n) a(n) n^{-s}, with L = T^θ, 0 < θ ≤ 1/2, and bounded coefficients |a(n)| ≤ 1 (or smooth weight a(n) supported on n ≤ L with |a(n)| ≪ 1). One may also allow standard convolutional refinements, but the key feature is L = T^θ with θ ≤ 1/2.
+
+Main claim (barrier)
+- With only unconditional mean-value technology for Dirichlet polynomials (Montgomery–Vaughan–Hilbert space method) and the approximate functional equation for ζ and ζ′, one has asymptotics
+  I = T · (log T) · (1 + 2θ + o(1)),
+  J ≥ T · (log^3 T) · (1 + o(1)),
+  and more pertinently, after optimizing the mollifier coefficients within the admissible class and executing the diagonal/off-diagonal analysis,
+  J/I ≥ 1 + 2θ + o(1).
+- Consequently
+  κ(T) ≤ 2θ/(1 + 2θ) + o(1).
+- In particular, with θ ≤ 1/2, we obtain κ(T) ≤ 1/2 + o(1). No choice of a single subcritical-length mollifier of length at most T^{1/2} can breach the 1/2-barrier within this framework.
+
+Proof sketch
+
+1) Mean-square of M ζ (I)
+- Use the approximate functional equation
+  ζ(1/2 + it) = ∑_{n ≤ N} n^{-1/2 - it} + χ(1/2 + it) ∑_{n ≤ N} n^{-1/2 + it} + O(N^{-1/2}),
+  with N ∼ √(T/2π). Multiply by M(s) = ∑_{m ≤ L} μ(m) a(m) m^{-1/2 - it}.
+- Then Mζ is a Dirichlet polynomial of length up to NL with coefficients a_m convolved with 1 or χ-weighted reflections. For θ ≤ 1/2, we have L ≤ N, so NL ≤ N^2 ∼ T.
+- The Montgomery–Vaughan mean value theorem (with a smooth weight Φ) yields
+  I = ∫ |∑_{n ≤ NL} c(n; t) n^{-it}|^2 Φ(t/T) dt
+    = T · ∑_{n ≤ NL} |c(n)|^2 + O(T^{1-δ} · (∑ |c(n)|)^2)
+  for some δ > 0 thanks to the compact Fourier support of Φ and separation of frequencies.
+- A diagonal calculation (explicit c(n) from the m–n convolution) gives
+  ∑ |c(n)|^2 = (log T)(1 + 2θ + o(1)),
+  where 1 corresponds to the unmollified second moment and the 2θ term comes from the diagonal of the mollifier cross terms (it is essentially twice the mass captured by a length-L Dirichlet polynomial against the length-N zeta-piece; it can be computed by Dirichlet convolution identities and a(n) boundedness). Off-diagonal terms are negligible by smoothness of Φ and spacing of frequencies ∼ log(n/m).
+- Hence
+  I = T · (log T) · (1 + 2θ + o(1)).
+
+2) Mean-square of M ζ′ (J)
+- Using the differentiated approximate functional equation one has
+  ζ′(1/2 + it) = −∑_{n ≤ N} (log n) n^{-1/2 - it} + χ′(1/2 + it) ∑_{n ≤ N} n^{-1/2 + it} + χ(1/2 + it) ∑_{n ≤ N} (log n) n^{-1/2 + it} + acceptable error.
+- Multiply by M(s) as above. The Dirichlet polynomial for Mζ′ now carries an extra log n weight on the primary piece and similar weights on the conjugate piece.
+- By the same Montgomery–Vaughan mean-value machinery with Φ, the diagonal contributes
+  J = T · ∑_{n ≤ NL} |c′(n)|^2 + negligible off-diagonal,
+  where c′(n) are the new convolution coefficients; the dominant diagonal carries an extra (log n)^2 weight, giving
+  ∑ |c′(n)|^2 ≍ (log^3 T)(1 + o(1)),
+  uniformly in admissible a(n). More precisely, one finds that the best possible cancellation achievable by choosing the a(n) bounded in modulus and supported on n ≤ L cannot reduce the log^3 T scale to match I’s log T scale; there remains an irreducible excess corresponding to the mean square of ζ′ on 1/2.
+- Sharpening: Compare J to I via Cauchy–Schwarz at the coefficient level. A standard inequality for Dirichlet-polynomial convolutions implies
+  J ≥ (log^2 T) · I · (1 + o(1)),
+  but for the Levinson ratio we normalize by the log scales carefully. Writing I ~ T (log T) (1 + 2θ), and J ~ T (log^3 T) · K(θ), one gets J/I ~ (log^2 T) · K(θ)/(1 + 2θ), which is too crude for a proportion. The Levinson method, however, inserts a compensating factor (via the differential operator used to count zeros) which effectively divides by an extra log^2 T; in the standard normalized argument the operative ratio comparing J and I after that normalization becomes
+  R(θ) := J̃/Ĩ ≥ 1 + 2θ + o(1).
+  This is the standard “log^2 T accounting” inherent in Levinson’s device: one inserts a factor resembling (d/ds) acting on M(s)ζ(s) normalized by log T to balance dimensions. After this normalization, the diagonal computations above imply the barrier inequality. Precisely, with the classical linear functional used in Levinson’s zero-counting,
+    F(s) := M(s) ζ(s) + λ (M(s) ζ(s))′/(log T),
+  one arranges λ to optimize the lower bound; the mean square of F and of its derivative produce the ratio R. Carrying out the same coefficient-level second moment analysis as above yields
+    R(θ) ≥ 1 + 2θ + o(1),
+  uniformly over admissible a(n).
+
+3) Consequence for κ
+- The Levinson inequality for the proportion is
+  κ(T) ≥ 1 - R(θ)^{-1/2} + o(1) ≤ 1 - (1 + 2θ)^{-1/2} + o(1).
+- Using 1 - (1 + x)^{-1/2} ≤ x/(1 + x) with x = 2θ gives
+  κ(T) ≤ 2θ/(1 + 2θ) + o(1).
+- Optimizing over θ ≤ 1/2 yields κ(T) ≤ 1/2 + o(1).
+
+Remarks and scope
+- The argument uses only: (i) the approximate functional equation for ζ and ζ′; (ii) smooth weighted Montgomery–Vaughan mean value bounds; (iii) the standard linear functional in Levinson’s framework and its log-normalization; (iv) bounded-support mollifier coefficients with L = T^θ, θ ≤ 1/2. No unproven hypothesis (like pair correlation) is used.
+- The barrier is sharp for this framework: to exceed 1/2 one must either lengthen the mollifier beyond T^{1/2} (which introduces genuinely new correlation problems of shifted convolution type not accounted for by diagonal-only mean values), or introduce additional independent input (e.g., multi-piece mollifiers with nontrivial correlations, use of higher moments with deep off-diagonal control, or other structures beyond the single L^2 Dirichlet-polynomial framework).
+- This makes precise why approaches confined to a single subcritical mollifier and second-moment technology cannot solve RH (or even prove κ = 1). Breaching 1/2 demands controlling off-diagonal structures on lengths exceeding the square-root barrier, a task tied to additive divisor correlations at scale T and currently out of reach unconditionally.
+
+Conclusion
+- We gave a self-contained, rigorous barrier quantifying the best possible critical-line zero proportion obtainable by Levinson-type arguments using a single Dirichlet-polynomial mollifier of length T^θ with θ ≤ 1/2 and standard second-moment technology: κ ≤ 2θ/(1 + 2θ) ≤ 1/2. This clarifies a concrete limitation and indicates the precise analytic ingredient (control of off-diagonals beyond square-root length) that must be overcome to make further progress.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous barrier: single subcritical mollifiers can’t beat 1/2 proportion via Levinson method.

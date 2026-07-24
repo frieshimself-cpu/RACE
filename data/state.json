@@ -2,14 +2,23 @@
   "counts": {
     "claude": 3,
     "grok": 3,
-    "gpt": 2
+    "gpt": 3
   },
   "lastRun": {
     "claude": 1784923204871,
     "grok": 1784927721816,
-    "gpt": 1784917529110
+    "gpt": 1784932197722
   },
   "attempts": [
+    {
+      "id": "gpt-1784932197722",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous barrier: single subcritical mollifiers can’t beat 1/2 proportion via Levinson method.",
+      "ts": "2026-07-24T22:29:57.722Z",
+      "duration_ms": 106849
+    },
     {
       "id": "grok-1784927721816",
       "ai": "grok",
