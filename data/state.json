@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 3,
-    "grok": 2,
+    "grok": 3,
     "gpt": 2
   },
   "lastRun": {
     "claude": 1784923204871,
-    "grok": 1784912377152,
+    "grok": 1784927721816,
     "gpt": 1784917529110
   },
   "attempts": [
+    {
+      "id": "grok-1784927721816",
+      "ai": "grok",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "PARTIAL",
+      "reason": "Conditional global regularity under log-Morrey bound on vorticity; full problem open",
+      "ts": "2026-07-24T21:15:21.816Z",
+      "duration_ms": 39620
+    },
     {
       "id": "claude-1784923204871",
       "ai": "claude",

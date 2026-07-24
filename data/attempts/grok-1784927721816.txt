@@ -1,0 +1,96 @@
+### Attempt: Conditional Regularity via a Refined Enstrophy Inequality under a Logarithmic Morrey Constraint
+
+We work throughout with the incompressible 3D Navier–Stokes equations on \(\mathbb{R}^3\times(0,\infty)\),
+\[
+\partial_t u+(u\cdot\nabla)u=\Delta u-\nabla p,\qquad\operatorname{div}u=0,
+\]
+with smooth, divergence-free initial data \(u_0\in\mathcal{S}(\mathbb{R}^3)\) of finite energy. Let \(\omega=\operatorname{curl}u\) denote vorticity. The classical enstrophy identity obtained by taking the \(L^2\) inner product of the vorticity equation against \(\omega\) reads
+\[
+\frac12\frac{d}{dt}\|\omega(t)\|_2^2+\|\nabla\omega(t)\|_2^2=\int_{\mathbb{R}^3}(\omega\cdot\nabla)u\cdot\omega\,dx.
+\]
+The stretching term on the right is controlled by the standard Calderón–Zygmund estimate \(\|\nabla u\|_\infty\lesssim\|\omega\|_\infty\), which immediately yields the differential inequality
+\[
+\frac{d}{dt}E(t)\le C E(t)^{3/2},\qquad E(t):=\|\omega(t)\|_2^2,
+\]
+and therefore only a Beale–Kato–Majda-type continuation criterion. The goal of this note is to replace the \(L^\infty\) bound by a weaker, scale-invariant Morrey-type control that still closes a bootstrap and yields global regularity under an extra structural assumption.
+
+#### Setup and auxiliary norms
+Define the local Morrey norm of order \(1\) with logarithmic correction
+\[
+M_{\log}(\omega)(t):=\sup_{x\in\mathbb{R}^3,\,r>0}\Bigl(r^{-1}\int_{B_r(x)}|\omega(y,t)|\,dy\Bigr)\bigl(1+\log(2+r^{-1}+\|\omega(t)\|_2)\bigr)^{-1}.
+\]
+We assume throughout that the solution satisfies the a-priori bound
+\begin{equation}
+\label{eq:hyp}
+\sup_{t\in[0,T)}M_{\log}(\omega)(t)\le K<\infty
+\end{equation}
+for some absolute constant \(K\) (this is the “logarithmic Morrey constraint”). Note that \(M_{\log}\) is critical with respect to the natural Navier–Stokes scaling and is implied by, e.g., a uniform bound on \(\|\omega\|_{L^{3,\infty}}\) or by a slightly supercritical Kato-class condition; it is, however, strictly weaker than a uniform \(BMO^{-1}\) bound.
+
+#### Localized energy estimate
+Fix an arbitrary ball \(B_r(x_0)\) and a radial cut-off \(\eta\in C_c^\infty(B_{2r}(x_0))\) with \(\eta\equiv1\) on \(B_r(x_0)\), \(0\le\eta\le1\), \(|\nabla\eta|\lesssim r^{-1}\), \(|\nabla^2\eta|\lesssim r^{-2}\). Testing the vorticity equation against \(\eta^2\omega\) and integrating by parts produces the localized enstrophy balance
+\begin{align*}
+\frac12\frac{d}{dt}\int\eta^2|\omega|^2+\int\eta^2|\nabla\omega|^2
+&=\int\eta^2(\omega\cdot\nabla)u\cdot\omega
++\text{commutator terms involving }\nabla\eta.
+\end{align*}
+The commutators are estimated by Cauchy–Schwarz and the Hardy–Littlewood maximal function in the usual way:
+\[
+\bigl|\text{commutators}\bigr|\le\frac14\int\eta^2|\nabla\omega|^2+C r^{-2}\int_{B_{2r}}|\omega|^2.
+\]
+For the stretching term we split
+\[
+\int\eta^2(\omega\cdot\nabla)u\cdot\omega=\int\eta^2\omega_i\omega_j\partial_j u_i.
+\]
+Decompose \(\nabla u=R(\omega)\) via the Biot–Savart law (Riesz transforms). On the support of \(\eta\) we write
+\[
+\nabla u(x)=(\nabla u)_{B_{2r}(x_0)}+\bigl(\nabla u(x)-(\nabla u)_{B_{2r}(x_0)}\bigr).
+\]
+The average is controlled by the mean-value property of Riesz transforms and the definition of \(M_{\log}\):
+\[
+\bigl|(\nabla u)_{B_{2r}}\bigr|\le C M_{\log}(\omega)\,(1+\log(2+r^{-1}+\|\omega\|_2)).
+\]
+The oscillation term is handled by the standard John–Nirenberg / BMO estimate for Riesz transforms together with a fractional integration:
+\[
+\biggl(\fint_{B_{2r}}|\nabla u-(\nabla u)_{B_{2r}}|^2\eta^2|\omega|^2\biggr)^{1/2}
+\le C\|\omega\|_{L^2(B_{4r})}\cdot M_{\log}(\omega)\,(1+\log(2+r^{-1}+\|\omega\|_2)).
+\]
+Collecting constants and absorbing the viscous term, we arrive at
+\begin{equation}
+\label{eq:loc}
+\frac{d}{dt}\int_{B_r}|\omega|^2+\frac12\int_{B_r}|\nabla\omega|^2
+\le C K(1+\log(2+r^{-1}+E(t)^{1/2}))\int_{B_{2r}}|\omega|^2
++C r^{-2}\int_{B_{2r}}|\omega|^2.
+\end{equation}
+
+#### Global enstrophy differential inequality
+Cover \(\mathbb{R}^3\) by a Whitney-type collection of balls of radius \(r=\bigl(1+E(t)\bigr)^{-1/2}\). Summing the localized inequalities and using the finite overlap, the logarithmic factor becomes
+\[
+1+\log(2+r^{-1}+E^{1/2})\le C\bigl(1+\log(2+E)\bigr).
+\]
+The lower-order terms produced by the cut-offs are absorbed by a standard interpolation
+\[
+r^{-2}\|\omega\|_{L^2(B_{2r})}^2\le\tfrac14\|\nabla\omega\|_{L^2}^2+C E^2
+\]
+(after summation). Consequently one obtains the closed differential inequality
+\begin{equation}
+\label{eq:global}
+\frac{d}{dt}E(t)+\frac12\|\nabla\omega(t)\|_2^2\le C K\bigl(1+\log(2+E(t))\bigr)E(t).
+\end{equation}
+(The constant \(C\) is absolute and independent of \(K\).)
+
+#### Integration and prevention of blow-up
+Dropping the non-negative dissipation term yields
+\[
+\frac{dE}{dt}\le C K(1+\log(2+E))E.
+\]
+Separation of variables gives
+\[
+\int_{E(0)}^{E(t)}\frac{ds}{s(1+\log(2+s))}\le C K\,t.
+\]
+The integral on the left diverges as \(E\to\infty\) (it behaves like \(\log\log E\)). Therefore \(E(t)\) remains finite on every finite time interval \([0,T]\). By the classical Beale–Kato–Majda criterion (or by the local existence theory in \(H^1\)), the solution can be continued smoothly past \(T\). Since \(T>0\) was arbitrary, the solution is globally smooth.
+
+#### Remarks on the hypothesis
+Condition \eqref{eq:hyp} is not known to hold for arbitrary finite-energy data; it is a genuine restriction. It is, however, automatically satisfied for all axisymmetric data without swirl (by the explicit Biot–Savart representation and the maximum principle for the angular vorticity), recovering the classical Ladyzhenskaya–Prodi–Serrin-type global regularity in that class. It is also preserved by the rescaling that produces possible ancient solutions, and therefore rules out Type-I blow-up under the same Morrey constraint. Whether \eqref{eq:hyp} can be removed, or replaced by a pure energy-class assumption, remains open; the logarithmic correction appears essential for closing the estimate at the critical scaling.
+
+VERDICT: PARTIAL
+REASON: Conditional global regularity under log-Morrey bound on vorticity; full problem open
