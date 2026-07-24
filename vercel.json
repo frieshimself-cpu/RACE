@@ -1,6 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
+  "functions": {
+    "api/tick.js": { "maxDuration": 300 },
+    "api/feed.js": { "maxDuration": 15 }
+  },
   "headers": [
     {
       "source": "/(.*)",

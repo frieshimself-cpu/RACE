@@ -1,0 +1,6 @@
+worker/
+Dockerfile
+railway.toml
+render.yaml
+node_modules/
+.env
