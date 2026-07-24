@@ -34,6 +34,24 @@ race loop. No Vercel, no Upstash.
 
 That's the whole deployment.
 
+## ★ EASY MODE on Render.com (~$7/mo) — same thing, different host
+
+1. **Set spending caps** in the three provider dashboards first.
+2. [render.com](https://render.com) → sign in with GitHub → **New + → Blueprint**
+   → connect this repo. Render reads `render.yaml` automatically.
+3. It prompts for the three secrets: `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`,
+   `XAI_API_KEY`. Paste them (leave blank to launch in simulation mode and
+   add them later — Variables → Environment).
+4. Click **Apply**. Done — your public URL appears on the service page
+   (`https://the-race-xxxx.onrender.com`; custom domain under Settings).
+5. Logs should show `THE RACE worker: claude, gpt, grok — one attempt each
+   every 60 min`. The site flips to LIVE MODE when the first attempt lands.
+
+The blueprint already includes a 1 GB persistent disk at `/data`, so the
+full attempt history survives redeploys. ⚠️ Don't downgrade to Render's
+free tier — free instances spin down after 15 idle minutes, which pauses
+the race loop.
+
 ## PRO MODE — Vercel site + separate worker (optional alternative)
 
 Site + `/api/feed` on Vercel (Upstash Redis as shared storage), worker
