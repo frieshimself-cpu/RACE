@@ -12,7 +12,7 @@ const { Anthropic } = require("@anthropic-ai/sdk");
 
 const STATE_PATH = "race/state.json";
 const INTERVAL = Number(process.env.RACE_INTERVAL_MS || 3600000);
-const MAX_TOKENS = Number(process.env.TICK_MAX_TOKENS || 6000);
+const MAX_TOKENS = Number(process.env.TICK_MAX_TOKENS || 10000);
 const CALL_TIMEOUT_MS = 260000; // stay under the 300s function ceiling
 const FEED_LENGTH = 500;
 
@@ -35,6 +35,9 @@ Rules of the race:
   relevant lemma, a new reduction, an analysis of why a known approach fails,
   or a concrete partial result. Do not restate the problem or survey history.
 - Be rigorous. Check your own reasoning before concluding.
+- IMPORTANT: you have a hard token budget (~${MAX_TOKENS} tokens INCLUDING your
+  internal reasoning). Keep deliberation brief and prioritize writing the
+  attempt itself down — an unwritten attempt counts as nothing.
 - Every attempt is published unedited, including this one.
 - You MUST end with exactly two lines:
     VERDICT: FAILED | PARTIAL | SOLVED
@@ -65,12 +68,14 @@ async function attemptClaude(problem) {
     model: process.env.ANTHROPIC_MODEL || "claude-opus-4-8",
     max_tokens: MAX_TOKENS,
     thinking: { type: "adaptive" },
+    // medium effort keeps thinking within the serverless time/token budget
+    output_config: { effort: process.env.TICK_EFFORT || "low" },
     messages: [{ role: "user", content: prompt(problem) }],
   });
   return msg.content.filter((b) => b.type === "text").map((b) => b.text).join("\n");
 }
 
-async function openAICompatible(url, key, model, problem) {
+async function openAICompatible(url, key, model, problem, extra = {}) {
   const res = await fetch(url, {
     method: "POST",
     signal: AbortSignal.timeout(CALL_TIMEOUT_MS),
@@ -79,6 +84,7 @@ async function openAICompatible(url, key, model, problem) {
       model,
       messages: [{ role: "user", content: prompt(problem) }],
       max_completion_tokens: MAX_TOKENS,
+      ...extra,
     }),
   });
   if (!res.ok) throw new Error(`${url} ${res.status}: ${await res.text()}`);
@@ -91,8 +97,11 @@ const RACERS = [
   {
     id: "gpt",
     enabled: () => !!process.env.OPENAI_API_KEY,
+    // low reasoning effort keeps GPT-5's reasoning tokens from eating the
+    // whole completion budget inside the serverless time limit
     run: (p) => openAICompatible("https://api.openai.com/v1/chat/completions",
-      process.env.OPENAI_API_KEY, process.env.OPENAI_MODEL || "gpt-5", p),
+      process.env.OPENAI_API_KEY, process.env.OPENAI_MODEL || "gpt-5", p,
+      { reasoning_effort: process.env.OPENAI_REASONING_EFFORT || "low" }),
   },
   {
     id: "grok",
@@ -253,6 +262,12 @@ module.exports = async (req, res) => {
   let fullText = "";
   try {
     const text = await racer.run(problem);
+    if (!text || !text.trim()) {
+      // reasoning ate the whole token budget before any text — don't record
+      // a junk attempt; leave the racer due so the next ping retries
+      res.status(200).json({ ok: false, racer: racer.id, reason: "empty output — token budget exhausted by reasoning; will retry" });
+      return;
+    }
     fullText = scrub(text);
     const { verdict, reason } = parseVerdict(text);
     attempt = {

@@ -1,13 +1,24 @@
 {
  "counts": {
   "claude": 1,
-  "grok": 1
+  "grok": 1,
+  "gpt": 1
  },
  "lastRun": {
   "claude": 1784899530001,
-  "grok": 1784899773304
+  "grok": 1784899773304,
+  "gpt": 1784899940078
  },
  "attempts": [
+  {
+   "id": "gpt-1784899940078",
+   "ai": "gpt",
+   "problem": "Riemann Hypothesis",
+   "verdict": "PARTIAL",
+   "reason": "Gave a rigorous reduction: square-root M\u00f6bius cancellation on H \u2265 x^{1/2} \u21d2 RH via dyadic telescoping.",
+   "ts": "2026-07-24T13:32:20.078Z",
+   "duration_ms": 143887
+  },
   {
    "id": "grok-1784899773304",
    "ai": "grok",

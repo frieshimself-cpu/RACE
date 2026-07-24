@@ -1,0 +1,43 @@
+A one-parameter short-interval criterion for RH via Mertens sums
+
+Claim (reduction). Suppose there exist constants A ≥ 1, B ≥ 0, and X0 ≥ 2 such that for all x ≥ X0 and all H with x^{1/2} ≤ H ≤ x, we have the short-interval bound
+|∑_{x < n ≤ x+H} μ(n)| ≤ A H^{1/2} (log x)^B.
+Then the Riemann Hypothesis holds.
+
+Proof sketch (complete within its scope):
+
+Step 1: From short-interval bounds to a global bound for M(x).
+Let M(x) = ∑_{n ≤ x} μ(n). Fix X ≥ 2 and consider the dyadic partition
+(X/2^{j+1}, X/2^j] for j = 0,1,2,…,J where J = ⌊log_2 X⌋.
+On the j-th block, the left endpoint is x_j = X/2^{j+1} and the length is H_j = X/2^{j+1} = x_j. Hence H_j ≥ x_j^{1/2} and H_j ≤ x_j (indeed H_j = x_j), so the hypothesis applies:
+|M(X/2^j) − M(X/2^{j+1})| ≤ A H_j^{1/2} (log X)^B = A (X/2^{j+1})^{1/2} (log X)^B.
+Summing telescopically from j = 0 to J − 1 gives
+|M(X) − M(X/2^J)| ≤ A (log X)^B ∑_{j=0}^{J-1} (X/2^{j+1})^{1/2}
+≤ C √X (log X)^B
+for some absolute C depending only on A. Since |M(X/2^J)| ≤ X/2^J ≤ 2 (trivial bound) when J ≈ log_2 X, we get
+M(X) = O(√X (log X)^B).
+Thus there exists C' such that for all X ≥ 2,
+|M(X)| ≤ C' √X (log X)^B.            (1)
+
+Step 2: Absolute convergence of ∑ μ(n)/n^s for Re(s) > 1/2.
+By Abel summation, for Re(s) = σ > 1,
+∑_{n=1}^∞ μ(n) n^{-s} = s ∫_{1}^{∞} M(x) x^{-s-1} dx.
+The right-hand side identity extends analytically to any σ > 1/2 provided the integral converges absolutely. Using (1),
+∫_{1}^{∞} |M(x)| x^{-σ-1} dx ≪ ∫_{1}^{∞} x^{1/2} (log x)^B x^{-σ-1} dx,
+which converges for σ > 1/2. Hence the Dirichlet series ∑ μ(n)/n^s converges absolutely and defines a holomorphic function for σ > 1/2, and the integral identity holds there.
+
+Step 3: Nonvanishing of ζ(s) for Re(s) > 1/2.
+For σ > 1, we have ∑ μ(n)/n^s = 1/ζ(s). Both sides define holomorphic functions on σ > 1/2 and agree on the nonempty open set σ > 1; by analytic continuation they agree on σ > 1/2. Therefore 1/ζ(s) is holomorphic on σ > 1/2, so ζ(s) has no zeros there.
+
+Conclusion: ζ(s) has no zeros with Re(s) > 1/2. By the functional equation and standard symmetry, all nontrivial zeros lie on Re(s) = 1/2. Hence the Riemann Hypothesis follows.
+
+Remarks:
+- The hypothesis only requires square-root cancellation for the Möbius function on all intervals [x, x+H] with H ≥ x^{1/2} (up to a polylogarithmic factor). This is strictly local-in-x information and is weaker to assume than a global bound on M(x).
+- The dyadic covering argument is robust; minor variations of the hypothesis (e.g., allowing H ≥ x^{1/2+ε} or bounds with any power-saving factor beating H^{1/2+δ}) yield the same conclusion, with the log factor absorbed into x^{ε} if needed.
+
+Limitations:
+- The reduction is conditional: it shows that such a short-interval bound for μ would imply RH, but it does not prove the bound itself.
+- Achieving this bound is at least as hard as RH; this sharpness is consistent with known barriers for controlling Möbius on almost all short intervals of critical length.
+
+VERDICT: PARTIAL
+REASON: Gave a rigorous reduction: square-root Möbius cancellation on H ≥ x^{1/2} ⇒ RH via dyadic telescoping.
