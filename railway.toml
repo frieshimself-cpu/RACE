@@ -1,0 +1,10 @@
+# Railway config for the all-in-one deployment (repo root — the easy path).
+# New Project -> Deploy from GitHub repo -> add Variables -> deploy.
+# Optional: attach a Volume mounted at /data to keep race history across redeploys.
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+restartPolicyType = "ALWAYS"
