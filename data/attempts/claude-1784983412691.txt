@@ -1,0 +1,36 @@
+# Attempt: Structural constraints on NP-complete sets via density, and a barrier note
+
+I'll give a rigorous self-contained proof of a structural constraint that any NP-complete set must satisfy (a density lower bound), then honestly analyze why such structural results — while genuine — cannot by themselves resolve P vs NP.
+
+## Lemma (tally sets cannot be NP-hard unless P = NP)
+
+**Claim.** Let $T \subseteq \{1\}^*$ be a *tally* language (subset of a unary alphabet). If SAT $\le_m^p T$, then P = NP.
+
+**Proof.** Let $f$ be a polynomial-time many-one reduction from SAT to $T$, with running time bounded by a polynomial $p$, so $|f(x)| \le p(|x|)$ for all $x$. Since $T$ is tally, $f(x) \in T$ requires $f(x)$ to be of the form $1^k$; on any input $x$, either $f(x) \in \{1\}^*$ or $f(x) \notin T$ trivially. For an input formula $\phi$ of length $n$, $f(\phi) = 1^{k}$ with $k \le p(n)$, so $f(\phi)$ takes at most $p(n)+1$ distinct values.
+
+We solve SAT in polynomial time by a pruned self-reduction search tree. Given $\phi$ on variables $x_1,\dots,x_m$, build the tree of partial assignments. For a partial assignment $\sigma$, let $\phi_\sigma$ be the residual formula. Two partial assignments $\sigma,\tau$ are *equivalent* for our purposes if $f(\phi_\sigma) = f(\phi_\tau)$: since $f$ is a reduction, $\phi_\sigma$ is satisfiable iff $f(\phi_\sigma)\in T$ iff $f(\phi_\tau)\in T$ iff $\phi_\tau$ is satisfiable. Crucially the *value* $f(\phi_\sigma)$ ranges over the tally strings $1^k$ with $k\le p(N)$ where $N$ is the (polynomially bounded) length of any residual formula, so there are at most $p(N)+1$ distinct values.
+
+Perform breadth-first search over partial assignments, but at each level keep, for each distinct value $v = f(\phi_\sigma)$ seen, only one representative partial assignment $\sigma$. If two nodes have the same $f$-image they have the same satisfiability status, so discarding duplicates is sound. At each level the number of surviving nodes is at most $p(N)+1$, a polynomial. There are $m \le n$ levels. At each surviving leaf (full assignment) we check $\phi$ directly. $\phi$ is satisfiable iff some retained node eventually leads to a satisfying assignment; because pruning only removes nodes duplicating the satisfiability status of a kept node, no satisfiable branch is lost.
+
+Total work: $O(n \cdot \mathrm{poly}(n))$ nodes, each processed in polynomial time (computing $f$, residuals, comparisons). Hence SAT $\in$ P, so P = NP. $\qquad\blacksquare$
+
+This is a clean instance of the general principle (Berman–Mahaney): **NP-completeness forces exponential density.** Any $\le_m^p$-hard set for NP with fewer than $2^{n^{\epsilon}}$ strings of length $\le n$ runs into the same collapse via a more elaborate census argument.
+
+## Why this is a genuine but insufficient constraint
+
+The lemma tells us NP-complete sets are "combinatorially fat." One might hope to leverage this: if we could show SAT's natural encoding *must* be sparse under some efficient re-encoding, we'd get a separation. Here is the obstruction, stated precisely.
+
+**Observation (self-reducibility neutralizes density).** The proof above works *because* SAT is downward self-reducible and paddable. The density argument does not distinguish "P" from "NP"; it only relates two hypothetical structural features of NP-complete sets. Concretely, the argument relativizes: for any oracle $A$, "tally sets are not $\le_m^{p,A}$-hard for $\mathrm{NP}^A$ unless $\mathrm{P}^A = \mathrm{NP}^A$" holds by the identical proof (the reduction and census computations are oracle-relative). By Baker–Gill–Solovay there exist oracles $B$ with $\mathrm{P}^B = \mathrm{NP}^B$ and $C$ with $\mathrm{P}^C \ne \mathrm{NP}^C$. Thus no chain of such relativizing structural lemmas can decide P vs NP: the density constraint is satisfied consistently in both worlds.
+
+This sharpens *where* the difficulty sits. Density/structural theorems constrain the **shape** of NP-complete sets but are all relativizing, hence blocked by the relativization barrier. Progress requires non-relativizing techniques — and by Razborov–Rudich, if those techniques prove circuit lower bounds "naturally" (constructive + large), they'd contradict the existence of strong pseudorandom generators believed to lie inside NP. So the real target is a lower-bound method that is simultaneously (i) non-relativizing, (ii) non-naturalizing, and (iii) non-algebrizing.
+
+## A small concrete pointer
+
+The census technique above *is* non-relativizing-resistant precisely at the "one representative per value" step: it exploits that $f$'s output length is polynomially bounded independent of the oracle. A candidate non-relativizing refinement is to replace "same $f$-value" by "same value under a *pseudorandom fingerprint* computed by the verifier itself," turning a purely counting argument into one about the verifier's internal branching. I could not carry this to a lower bound — the fingerprint's collision structure again factors through an oracle-style black box, re-inviting relativization. This failure mode is itself informative: it suggests that any strengthening of Mahaney-type theorems into separations must break the *value = satisfiability-status* factorization, i.e., must inspect the verifier's computation transcript rather than its input/output behavior. That is exactly the non-black-box regime where the known barriers lose force.
+
+## Honest assessment
+
+I proved a correct, self-contained structural theorem (tally sets are not NP-hard unless P=NP) and gave a precise argument that this entire *family* of density constraints relativizes and therefore cannot separate P from NP, isolating the exact algebraic step ("value = satisfiability status") that a would-be separating argument must break. This is a re-derivation of known results plus a modest localization of the barrier; it is not new progress on the main problem.
+
+VERDICT: FAILED
+REASON: Re-proved a known density theorem and localized the relativization barrier, but achieved no new separation.

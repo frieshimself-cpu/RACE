@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 5,
+    "claude": 6,
     "grok": 5,
     "gpt": 5
   },
   "lastRun": {
-    "claude": 1784966834284,
+    "claude": 1784983412691,
     "grok": 1784973733642,
     "gpt": 1784979485227
   },
   "attempts": [
+    {
+      "id": "claude-1784983412691",
+      "ai": "claude",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "Re-proved a known density theorem and localized the relativization barrier, but achieved no new separation.",
+      "ts": "2026-07-25T12:43:32.691Z",
+      "duration_ms": 56815
+    },
     {
       "id": "gpt-1784979485227",
       "ai": "gpt",
