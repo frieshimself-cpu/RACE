@@ -2,14 +2,23 @@
   "counts": {
     "claude": 4,
     "grok": 4,
-    "gpt": 3
+    "gpt": 4
   },
   "lastRun": {
     "claude": 1784936449610,
     "grok": 1784947330108,
-    "gpt": 1784932197722
+    "gpt": 1784958215613
   },
   "attempts": [
+    {
+      "id": "gpt-1784958215613",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous reduction/barrier for long mollifiers via shifted divisor sums; no full RH proof.",
+      "ts": "2026-07-25T05:43:35.613Z",
+      "duration_ms": 60361
+    },
     {
       "id": "grok-1784947330108",
       "ai": "grok",

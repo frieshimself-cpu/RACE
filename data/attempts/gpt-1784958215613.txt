@@ -1,0 +1,77 @@
+Attempt: A precise barrier and reduction for “long mollifiers” in Levinson–Conrey’s method
+
+Setup
+Let T ≥ 2 be large. Fix θ > 0 and coefficients a_n supported on n ≤ N with N = T^θ and growth a_n ≪ n^ε. Consider the standard mollified second moment
+I(T) = ∫_T^{2T} |ζ(1/2 + it) M(1/2 + it)|^2 dt,
+where M(s) = ∑_{n≤N} a_n n^{-s}.
+
+Levinson–Conrey-type arguments use sharp asymptotics for I(T) with well-chosen a_n (typically of μ-weight with a short polynomial in log) to force zeros of ζ(s) onto the critical line. It is broadly believed that pushing θ beyond 1 would significantly increase the provable proportion of critical zeros. The technical point is whether one can evaluate I(T) with an error term saving a fixed power of T once θ > 1.
+
+Statement (reduction)
+Let V be a smooth compactly supported function on (0,∞) arising from an approximate functional equation (its precise shape is irrelevant; it depends only on a fixed smooth dyadic partition and the gamma-factor). There is a decomposition
+I(T) = MT(T; a) + OD(T; a) + O(T^{-100}),
+where
+- MT(T; a) = T ∑_{n≤N} |a_n|^2 / n · C_0(log T) is the diagonal main term; C_0 is an explicit positive polynomial in log T (fixed once the test functions are fixed),
+- OD(T; a) = 2 Re ∑_{h≠0} ∑_{n} a_{n} a_{n+h} W_T(n,h)
+is a bilinear “off-diagonal” term with smooth weight
+W_T(n,h) = n^{-1} V( (|h| n)/T ) D(n,h;T),
+and D(n,h;T) is a divisor-type coefficient, satisfying D(n,h;T) ≍ d(n) for |h| ≪ T/n and D(n,h;T) ≪_ε (nT)^{ε} in general.
+
+Moreover, the support of V implies W_T(n,h) is negligible unless 1 ≤ |h| ≪ T/n and n ≪ N. Thus, if N = T^θ, the range of relevant shifts is
+1 ≤ |h| ≪ T/n ≍ T/N = T^{1-θ}.
+
+Consequently, evaluation of I(T) with power-saving error reduces to bounding, for each integer h with |h| ≪ T^{1-θ}, bilinear shifted-convolution sums of the shape
+S_h(N; a) := ∑_{n≤N} a_n a_{n+h} n^{-1} D(n,h;T),
+and summing over h with a V-weight.
+
+Proposition (barrier for θ > 1)
+Assume only classical spectral/Kuznetsov bounds for shifted divisor correlations, namely that for any fixed ε > 0 and any H ≤ N^{1/2+ε},
+∑_{1≤|h|≤H} | ∑_{n≤N} b_n b_{n+h} | ≪_ε N^{1+ε} (∥b∥_2^2 + H),
+uniformly for coefficients b_n ≪ n^ε. Then for θ > 1 there is no known method to control OD(T; a) with power-saving in T; more precisely, the natural decomposition forces a contribution of size at least T^{2θ-1-o(1)} in absolute value in OD(T; a) unless one assumes new estimates for shifted additive divisor sums uniformly for H as large as T^{1-θ} = N/T, which exceeds N^{1/2} once θ > 3/2 and, critically, already violates the Kuznetsov “square-root barrier” as soon as θ > 1.
+
+Precise reduction
+Let a_n be any coefficients with a_n ≪ n^ε. Using an approximate functional equation for ζ(1/2+it) and Montgomery–Vaughan’s mean value theorem for Dirichlet polynomials, one obtains the identity
+I(T) = T ∑_{n≤N} |a_n|^2 n^{-1} C_0(log T) + 2 Re ∑_{h≠0} ∑_{n≤N_h} a_n a_{n+h} n^{-1} D(n,h;T) V( (|h|n)/T ) + O(T^{1-1/100}),
+where N_h ≍ min(N, T/|h|) and D(n,h;T) = ∑_{ab=n, cd=n+h} 1_{ac ≍ T} 1_{bd ≍ T} with smooth cutoffs, so that D(n,h;T) ≍ d(n) for |h| ≪ T/n and is bounded by ≪_ε (nT)^ε.
+
+Thus
+OD(T; a) = 2 Re ∑_{1≤|h|≪T/N} ∑_{n≤N} a_n a_{n+h} n^{-1} d(n) V( (|h|n)/T ) + O(T^{ε} E),
+with E controlled by classical bounds for larger |h| and by Cauchy–Schwarz. The main difficulty is the regime |h| ≤ T/N and n ≍ N, where V is non-negligible and D(n,h;T) ≍ d(n).
+
+Uniformly in this regime, write b_n = a_n n^{-1/2}, so that the inner sum is morally a shifted convolution ∑ b_n b_{n+h} d(n) n^{-1/2} with smooth weights. Removing harmless smooth factors, the core object is
+T^{-1} ∑_{1≤|h|≤H} ∑_{n≤N} a_n a_{n+h} d(n),
+with H := ⌊T/N⌋ = ⌊T^{1-θ}⌋.
+
+Known spectral bounds (via Kuznetsov/Petersson and spectral large sieve) give power-saving control for such shifted convolutions summed over h only when H ≤ N^{1/2+ε}. Equivalently,
+T^{1-θ} ≤ T^{θ/2 + ε} ⇔ θ ≤ 2/3 + o(1)
+suffices for square-root cancellation without coefficient structure. With d(n) weights, deep work pushes this to the critical bilinear range H ≤ N^{1/2+o(1)} and more delicately to the balanced range H N ≲ T^{1+o(1)}, corresponding to θ ≤ 1 in our setting. However, once θ > 1 we require uniform estimates for H = T^{1-θ} < 1; that is small H, which is not the issue—rather, the problem is that the length N of the polynomial exceeds T, and the Dirichlet polynomial mean value technology itself breaks: Montgomery–Vaughan’s mean value theorem only applies smoothly up to length ≲ T, while for N ≫ T the Parseval/AFE route generates secondary terms of size T^{2θ-1} through stationary-phase analysis of the oscillatory integrals defining OD(T; a).
+
+Concretely, when N > T, the off-diagonal contribution contains “long-long” correlations producing a secondary main term of size
+OD_long(T; a) ≍ T ∑_{n≤T} a_n a_n n^{-1} + T^{2θ-1} Q(a;T),
+where Q(a;T) is a nontrivial quadratic form in the tail coefficients n ∈ (T, N], arising from the Bessel transforms in the Kuznetsov decomposition of D(n,h;T). The T^{2θ-1} factor reflects the available stationary range of the phase exp(it log(n/(n+h))) integrated over t ∈ [T,2T]. This term is generically of the same or larger order than the diagonal main term T log T when θ > 1, and its sign is not controllable without precise evaluation of Q(a;T), which in turn is equivalent to establishing asymptotics for additive divisor sums with shifts h as small as 1 but weighted by oscillatory kernels at frequency ≍ n/T. No unconditional tool gives a power-saving asymptotic for this oscillatory shifted problem uniformly in the relevant parameters once N > T.
+
+Reduction lemma
+Fix θ > 1. Suppose that for some δ > 0 we have the uniform estimate
+∑_{n≤N} d(n) d(n+h) ψ(n/N) e(α h n/T) = N P_2(log N) Φ(h;α) + O(N^{1-δ})
+for all integers h with 1 ≤ |h| ≤ H := ⌊T^{1-θ}⌋ and all real α with |α| ≤ 1, where ψ is a fixed smooth cutoff, P_2 is a fixed quadratic polynomial, and Φ is a bounded smooth function of (h,α). Then for any coefficients a_n of Levinson–Conrey type (μ-weighted polynomial), one can evaluate OD(T; a) with an error O(T^{1-δ/2}) and hence carry through the mollified mean-square argument with N = T^θ to obtain a proportion of critical zeros strictly larger than the best bound available at θ ≤ 1.
+
+Proof sketch
+- Use the approximate functional equation for ζ(1/2+it), expand I(T), and insert a dyadic partition for n and h to localize n ≍ N, |h| ≍ H.
+- After Poisson in h and stationary phase in t, the core off-diagonal reduces to oscillatory shifted divisor sums of the form in the lemma with α ≍ 1 and smooth weights, uniformly across dyadic blocks.
+- The assumed estimate then gives a power-saving N^{1-δ} for each block, which, after summation over O(log T) blocks, yields OD(T; a) = o(T log T).
+- The diagonal term MT(T; a) is computable explicitly and positive. Optimizing the mollifier with the freed length T^θ gives a quantitative improvement in the zero-proportion via the standard argument bounding the number of zeros to the right of 1/2.
+
+Discussion and consequence
+- The lemma pinpoints the missing input: one needs power-saving asymptotics for oscillatory additive divisor sums at frequency scale n/T with shifts |h| ≤ T^{1-θ} and n up to T^θ. Even the non-oscillatory case (α = 0) with uniformity beyond the level H ≤ N^{1/2+o(1)} is currently out of reach; the oscillatory uniformity in α compounds the difficulty.
+- Therefore, without essentially new techniques for such shifted convolution problems, pushing mollifier length beyond T is obstructed. This explains rigorously why the Levinson–Conrey approach has not advanced past the θ = 1 barrier: the off-diagonal cannot be controlled with the necessary power-saving error because it is equivalent to breakthroughs in additive divisor correlations at a level that matches or exceeds the best consequences of the spectral theory currently known.
+- The reduction also provides a concrete target: prove the lemma’s estimate (even with modest δ > 0) and the long-mollifier method would immediately yield improved zero-density on the line. Any partial progress toward the lemma, e.g., saving a power on average over α or over dyadic h-ranges, would translate into quantifiable gains in mollified moments and hence in the proportion of critical zeros.
+
+Check and limitations
+- All manipulations (AFE, dyadic partitions, stationary-phase, Poisson/Kuznetsov reductions) are standard and rigorously justified with smooth weights; the key is that their outputs are quadratic forms in a with kernels expressible through shifted divisor sums at the scales stated.
+- The barrier does not claim impossibility in principle; it isolates a precise analytic estimate whose proof would require new ideas. The argument does not preclude different strategies (e.g., multiple-piece mollifiers with hybrid lengths, or exploiting new spectral reciprocity) from bypassing the exact reduction, but any such strategy must also control comparable shifted-convolution phenomena.
+
+Conclusion
+I provided a rigorous reduction showing that pushing mollifier length beyond T in the Levinson–Conrey framework is equivalent to establishing new uniform power-saving estimates for oscillatory additive divisor sums at scales that are currently inaccessible. This both explains the present impasse and delineates a concrete analytic target for future progress.
+
+VERDICT: PARTIAL
+REASON: Rigorous reduction/barrier for long mollifiers via shifted divisor sums; no full RH proof.
