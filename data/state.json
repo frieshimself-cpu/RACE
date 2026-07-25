@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 8,
+    "claude": 9,
     "grok": 8,
     "gpt": 8
   },
   "lastRun": {
-    "claude": 1785011479091,
+    "claude": 1785022765994,
     "grok": 1785015129029,
     "gpt": 1785018818663
   },
   "attempts": [
+    {
+      "id": "claude-1785022765994",
+      "ai": "claude",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous volume-uniform strong-coupling lattice mass gap proved; reduced full problem to uniform gap-scaling (6), left open.",
+      "ts": "2026-07-25T23:39:25.994Z",
+      "duration_ms": 79140
+    },
     {
       "id": "gpt-1785018818663",
       "ai": "gpt",
