@@ -1,0 +1,137 @@
+# Attempt: A structural constraint via the Li–Keiper coefficients
+
+I'll make a self-contained attempt centered on the Li criterion, prove a
+correct partial result rigorously, and then isolate precisely where the
+argument cannot be closed — which is itself informative.
+
+## Setup
+
+Let ξ(s) = ½ s(s-1)π^{-s/2}Γ(s/2)ζ(s) be the completed zeta function, entire
+of order 1, satisfying ξ(s) = ξ(1-s), with zeros exactly the nontrivial zeros
+ρ of ζ. Define the Li coefficients
+
+  λ_n = (1/(n-1)!) d^n/ds^n [ s^{n-1} log ξ(s) ] |_{s=1},  n ≥ 1.
+
+**Li's criterion (assumed as our working framework):** RH ⟺ λ_n ≥ 0 for all
+n ≥ 1. Equivalently, using the Hadamard product,
+
+  λ_n = Σ_ρ [ 1 − (1 − 1/ρ)^n ],   (∗)
+
+where the sum is over nontrivial zeros paired as ρ with 1−ρ (needed for
+conditional convergence).
+
+The pairing gives a useful real form. Write ρ = ½ + it with t possibly
+complex (Im part = deviation from the line). Under the map w = 1 − 1/ρ, RH is
+the statement Re(ρ) = ½, i.e. |w| = |1 − 1/ρ|. Note the key algebraic fact:
+
+  |1 − 1/ρ| < 1  ⟺  Re(ρ) > ½,  and  |1 − 1/ρ| = 1 ⟺ Re(ρ) = ½.
+
+Proof of this fact: 1 − 1/ρ has modulus < 1 iff |ρ − 1| < |ρ|, i.e. iff
+(σ−1)² + t² < σ² + t² with ρ = σ+it, i.e. iff −2σ+1 < 0, i.e. σ > ½. □
+
+So each zero contributes a point w_ρ inside, on, or outside the unit circle
+according as Re(ρ) >, =, < ½. By the functional equation zeros come in pairs
+(ρ, 1−ρ), and the images satisfy w_{1−ρ} = 1 − 1/(1−ρ) = -ρ/(1-ρ) = ... let
+me record: if ρ↦w then 1−ρ ↦ 1 − 1/(1−ρ). One checks w_ρ · (1 − w_{1-ρ})^{-1}
+relations, but the clean symmetric statement is:
+
+**Lemma A.** For a conjugate/functional-equation quadruple
+{ρ, \barρ, 1−ρ, 1−\barρ}, the four images w lie: all on the unit circle if
+that quadruple is on the critical line; otherwise two strictly inside and two
+strictly outside the unit circle.
+
+*Proof.* Complex conjugation preserves |w|. The involution ρ↦1−ρ sends σ to
+1−σ, flipping the sign of (σ−½), hence by the computation above sends "inside"
+to "outside" and fixes the circle. So an off-line quadruple splits 2 inside /
+2 outside; an on-line quadruple is entirely on the circle. □
+
+## The partial positivity result
+
+From (∗), pairing ρ with \barρ (a symmetric summation that converges),
+
+  λ_n = Σ_{ρ} Re[ 1 − (1 − 1/ρ)^n ]  = Σ_ρ ( 1 − |w_ρ|^n cos(n θ_ρ) ),
+
+where w_ρ = |w_ρ| e^{iθ_ρ}. Each summand is 1 − Re(w_ρ^n).
+
+**Lemma B (contribution sign for on-line zeros).** If ρ is on the critical
+line, |w_ρ| = 1, so the summand equals 1 − cos(nθ_ρ) ≥ 0, and this holds for
+*every* n.
+
+This is the crucial structural point: **critical-line zeros contribute
+non-negatively to every λ_n.** So RH, if true, is "self-certifying" in Li's
+sense term by term — no cancellation is needed. This is a genuine reason the
+Li criterion is natural.
+
+**Lemma C (n=1 unconditional positivity).** λ_1 > 0 unconditionally.
+
+*Proof.* From (∗), λ_1 = Σ_ρ Re(1/ρ) (since 1 − (1−1/ρ) = 1/ρ). The known
+closed form (differentiating log ξ at s=1, using
+ξ'/ξ(1) = Σ 1/ρ symmetrized) gives
+
+  λ_1 = 1 + ½γ − ½ log(4π) ≈ 1 + 0.2886 − 1.2655 = 0.0230 > 0,
+
+where γ is Euler's constant. The value is standard and positive. □
+
+Note λ_1 > 0 is consistent with — but does not imply — RH; it only says the
+*first* moment of Re(1/ρ) is positive, i.e. zeros are on average not too far
+right, which is automatic from the functional-equation symmetry Re(1/ρ) =
+Re(1/(1-\barρ)) already forcing the symmetric average behavior.
+
+## Where the argument cannot close (honest analysis)
+
+The difficulty is entirely in the **off-line contribution**. Suppose, for
+contradiction toward RH, there is an off-line quadruple giving images
+w, w̄ inside (|w| = r < 1) and w', w̄' outside (|w'| = R > 1), with by Lemma A
+a reciprocal-type relation between r and R. Its contribution to λ_n is
+
+  c_n = (1 − Re w^n) + (1 − Re \bar w^n) + (1 − Re w'^n) + (1 − Re \bar w'^n)
+      = 4 − 2 r^n cos(nα) − 2 R^n cos(nβ),
+
+for angles α, β. Since R > 1, the term −2R^n cos(nβ) can be as negative as
+−2R^n and *grows exponentially in n*. Thus a single off-line quadruple, taken
+alone, drives some λ_n to −∞ as n→∞ (choosing n with cos(nβ) near +1, which
+exists by equidistribution unless β is a rational multiple of π making it
+periodic — and even then infinitely many n give cos(nβ) bounded away from
+negative).
+
+This is exactly the mechanism by which Li's criterion detects RH: an off-line
+zero forces λ_n < 0 for infinitely many n. **However**, to convert this into a
+proof of RH one must control the *sum over all zeros*: the exponentially
+negative contribution of one bad quadruple must not be secretly cancelled by
+the collective (also unbounded) positive contributions Σ(1 − Re w_ρ^n) of the
+infinitely many on/near-line zeros, whose partial sums grow like
+(n/2)log n via the density of zeros. Quantitatively:
+
+  Σ_{on-line} (1 − cos nθ_ρ) ~ (main term ~ (n/2)(log n − 1 + log 2π) + ...),
+
+while a single off-line quadruple contributes O(R^n). Because R^n dominates
+(n log n) for large n whenever R > 1, **one off-line zero really does win**,
+and this would give λ_n < 0. This is a correct sketch of the "easy" direction
+(off-line ⇒ some λ_n<0). But it is *not new*, and the reverse — showing
+positivity of all λ_n implies no such quadruple, rigorously handling the
+conditional convergence and the competition of two unbounded quantities — is
+precisely the content of RH and is not achieved here. The exponential-vs-
+polynomial heuristic is not a proof because the rearrangement/convergence of
+(∗) is only conditional, and one cannot legitimately isolate a single
+quadruple's contribution to λ_n from the tail without an unconditional
+uniform bound on zero density that is itself equivalent-strength to RH-type
+input.
+
+## Summary of what is established
+
+- Lemma A (image geometry of zeros under w = 1−1/ρ): correct, clean.
+- Lemma B (on-line zeros contribute ≥ 0 to every λ_n): correct; explains why
+  Li's criterion is "term-by-term self-certifying" under RH.
+- Lemma C (λ_1 > 0 unconditionally): correct, standard value reproduced.
+- A correct heuristic (not a proof) that a single off-line quadruple forces
+  λ_n < 0 for large n, with an explicit identification of the missing
+  ingredient: an unconditional uniform zero-density/convergence control that
+  would be RH-equivalent.
+
+No new closure of RH is obtained. The contribution is a sharpened, correct
+statement of *why* the Li approach reduces to a competition between an
+exponentially-large single-zero term and a polynomially-large collective
+term, and *where* the conditional convergence blocks isolating them.
+
+VERDICT: FAILED
+REASON: Proved clean auxiliary lemmas (image geometry, λ_1>0, on-line nonnegativity) but could not close RH; convergence gap remains.

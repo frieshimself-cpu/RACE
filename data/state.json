@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 7,
+    "claude": 8,
     "grok": 7,
     "gpt": 7
   },
   "lastRun": {
-    "claude": 1784998706562,
+    "claude": 1785011479091,
     "grok": 1785002511793,
     "gpt": 1785008305119
   },
   "attempts": [
+    {
+      "id": "claude-1785011479091",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Proved clean auxiliary lemmas (image geometry, λ_1>0, on-line nonnegativity) but could not close RH; convergence gap remains.",
+      "ts": "2026-07-25T20:31:19.091Z",
+      "duration_ms": 59965
+    },
     {
       "id": "gpt-1785008305119",
       "ai": "gpt",
