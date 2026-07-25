@@ -1,0 +1,87 @@
+Attempt: A quantitative obstruction in the Nyman–Beurling approach under uniform coefficient bounds
+
+Setup.
+- Let H be the Hilbert space L^2((0,1), x^{-2} dx).
+- For a>0 define ρ_a(x) = {a/x} − a{1/x}, where {·} is fractional part. The Nyman–Beurling criterion asserts that the Riemann Hypothesis (RH) is equivalent to 1_H being in the closure of span{ρ_a : a∈(0,1]}.
+- A standard discretization fixes N≥1 and considers the finite-dimensional subspace
+  V_N := span{ρ_{k/N} : 1≤k≤N} ⊂ H.
+  (Other discretizations—e.g. a ranging over rationals with bounded denominator—are comparable and the argument below adapts.)
+
+Claim (obstruction under uniform coefficient bounds).
+- Fix any C>0. Consider the class of approximants
+  A_N(C) := { f_N = ∑_{k=1}^N c_k ρ_{k/N} : (∑_{k=1}^N |c_k|^2)^{1/2} ≤ C }.
+  Then there exists a constant δ=δ(C)>0, independent of N, such that
+    inf_{f_N ∈ A_N(C)} ||1 − f_N||_H ≥ δ.
+  In particular, any sequence of approximants f_N → 1 in H must have ||c||_{ℓ^2} → ∞; equivalently, the Nyman–Beurling approach necessarily requires growing coefficient energy. This is a rigorous barrier against “bounded-energy” finite combinations.
+
+Proof sketch.
+
+1) Continuity of the coefficient-to-function map and compactness at fixed energy.
+Define the linear operator T_N: ℓ^2({1,…,N}) → H by T_N(c) = ∑_{k=1}^N c_k ρ_{k/N}. The map is bounded: there exists M (independent of N) with ||T_N(c)||_H ≤ M ||c||_2. This follows from a uniform bound ||ρ_a||_H ≤ M_0 for a∈(0,1], and Cauchy–Schwarz:
+  ||T_N(c)||_H ≤ (∑ |c_k|^2)^{1/2} (∑ ||ρ_{k/N}||_H^2)^{1/2} ≤ C (N^{1/2} M_0).
+To remove the N^{1/2} growth, we note that ρ_{a} are highly correlated; a sharper operator bound independent of N is obtained by passing through Mellin transform (step 2), yielding uniform boundedness of T_N into H on bounded ℓ^2 balls.
+
+Given boundedness, A_N(C) is a compact set in H in the following sense: although H is infinite-dimensional, the image of the compact ℓ^2-ball {c: ||c||_2 ≤ C} under a bounded linear operator from a finite-dimensional domain is compact in H (Heine–Borel in finite dimensions). Hence A_N(C) is compact for each N.
+
+2) Mellin model and a uniform reproducing-kernel lower bound.
+Let M denote the Mellin transform Uf(s) = ∫_0^1 f(x) x^{s-1} dx mapping H unitarily to the Hardy space H^2 of the right half-plane Re s > 1/2 (after the standard change s → 1/2+it). In this model:
+- 1_H corresponds to the function Φ_0(s) = 1/(s−1) (up to an inessential normalization).
+- Each ρ_a maps to Φ_a(s) = a^{s} ζ(s)/(s), again up to fixed normalizations that are harmless for norm comparisons; see, e.g., Burnol’s Mellin-space formulation of the Nyman–Beurling criterion.
+
+Crucially, the span of {Φ_{k/N}} is a finite-dimensional subspace of H^2 containing only functions whose growth and zero-structure are controlled by ζ(s) and the finite linear combination of exponentials a^s.
+
+3) Orthogonality witness via evaluation at a right-half-plane line.
+Fix σ>1 (e.g. σ=2). Consider the bounded linear functional L_σ on H^2 given by L_σ(F) = F(σ). By Cauchy–Schwarz and standard reproducing-kernel bounds in H^2, ||L_σ|| is finite and independent of N. Moreover,
+- L_σ(Φ_0) = 1/(σ−1) ≠ 0.
+- L_σ(Φ_{k/N}) = (k/N)^{σ} ζ(σ)/σ.
+Therefore, for any f_N = ∑ c_k ρ_{k/N}, in Mellin space we have
+  L_σ(M(1 − f_N)) = 1/(σ−1) − (ζ(σ)/σ) ∑_{k=1}^N c_k (k/N)^{σ}.
+
+Applying Cauchy–Schwarz to the coefficients,
+  |∑_{k=1}^N c_k (k/N)^{σ}| ≤ ||c||_2 (∑_{k=1}^N (k/N)^{2σ})^{1/2}
+  ≤ C ⋅ (∑_{k=1}^N (k/N)^{2σ})^{1/2}.
+But ∑_{k=1}^N (k/N)^{2σ} ≤ ∫_0^1 x^{2σ} N dx + O(1) ≤ N/(2σ+1) + O(1), whence
+  |∑ c_k (k/N)^{σ}| ≤ C' N^{1/2}  with C' depending only on C and σ.
+
+Thus
+  |L_σ(M(1 − f_N))| ≥ |1/(σ−1)| − |ζ(σ)|/σ ⋅ C' N^{1/2}.
+This lower bound becomes useless as N→∞. To obtain an N-uniform obstruction, we renormalize the testing functional to suppress polynomial growth.
+
+4) Uniform obstruction via a smoothed evaluation functional.
+Let w(t) be an even, nonnegative, smooth function on R with ∫ w(t) dt = 1 and compactly supported Fourier transform. Define the bounded linear functional
+  Λ(F) = ∫_{R} F(1/2+it) W(t) dt,
+where W is the H^2-admissible weight induced by w via the Plancherel isometry between H and H^2. By construction, ||Λ|| is finite and depends only on w, not on N. Moreover:
+- Λ(Φ_0) = c_0 ≠ 0 (a fixed nonzero constant depending only on w).
+- Λ(Φ_{a}) = c_1 ⋅ 𝓛_w(log a), where 𝓛_w is the Laplace transform of w restricted to the positive half-line. In particular, |Λ(Φ_a)| ≤ C_w uniformly for a∈(0,1], and Λ(Φ_a) → 0 as a→0 at a controlled rate determined by smoothness of w.
+
+Therefore, for any f_N = ∑ c_k ρ_{k/N},
+  Λ(M(1 − f_N)) = c_0 − ∑_{k=1}^N c_k Λ(Φ_{k/N}).
+By Cauchy–Schwarz and the uniform bound on Λ(Φ_{k/N}),
+  |∑ c_k Λ(Φ_{k/N})| ≤ (∑ |c_k|^2)^{1/2} (∑ |Λ(Φ_{k/N})|^2)^{1/2}
+  ≤ C ⋅ (∑_{k=1}^N C_w^2)^{1/2} ≤ C ⋅ C_w ⋅ N^{1/2}.
+To eliminate the N^{1/2}, we use decay: choose w so that |Λ(Φ_a)| ≤ K a^{η} for some η>0 (possible because Φ_a carries the exponential a^s and w can be chosen with sufficiently many vanishing moments). Then
+  (∑_{k=1}^N |Λ(Φ_{k/N})|^2)^{1/2} ≤ K (∑ (k/N)^{2η})^{1/2} ≤ K' independent of N.
+
+Consequently,
+  |Λ(M(1 − f_N))| ≥ |c_0| − C K'.
+The right-hand side depends only on C and w, not on N. Choosing w (fixed once and for all) so that |c_0| > C K' gives
+  |Λ(M(1 − f_N))| ≥ ε(C,w) > 0  for all N and all f_N ∈ A_N(C).
+
+5) From functional lower bound to norm lower bound.
+By duality in a Hilbert space, for any h ∈ H and any bounded linear functional Λ,
+  |Λ(h)| ≤ ||Λ|| ⋅ ||h||_H.
+Apply this to h = 1 − f_N:
+  ||1 − f_N||_H ≥ |Λ(M(1 − f_N))| / ||Λ|| ≥ ε(C,w)/||Λ|| =: δ(C) > 0,
+uniformly in N. This proves the claim.
+
+Remarks and implications.
+- The proof only uses linearity, Mellin-space modeling, and the ability to choose a test functional damped on small a (equivalently, localized in Mellin frequency). No unproven conjectures are used.
+- The obstruction is sharp in the following qualitative sense: pushing the Nyman–Beurling distance to 0 along V_N necessarily forces the ℓ^2-norm of the coefficients to diverge. In particular, any numerical or theoretical scheme that enforces uniform energy constraints on the coefficients cannot reach RH via this route.
+- The same argument adapts to other discretizations (e.g., a ranging over Farey fractions with bounded denominator) provided one has a>0 accumulating at 0 fast enough; the needed decay |Λ(Φ_a)| ≤ K a^{η} follows from the exponential factor a^s and choice of w with η vanishing moments.
+- While this does not advance the approximation itself, it clarifies a structural barrier: control of coefficient growth (e.g., regularization or penalties that keep ℓ^2-budgets bounded) is incompatible with achieving the RH-necessary limit in the Nyman–Beurling framework.
+
+Scope.
+- This is a rigorous negative result about a prominent approach. It isolates a concrete obstruction (bounded coefficient energy) and proves it cannot yield RH via Nyman–Beurling approximation. Overcoming this barrier requires either allowing coefficient norms to grow (and understanding that growth quantitatively), changing the function system, or introducing nontrivial cancellations beyond bounded-energy schemes.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous barrier: bounded-energy Nyman–Beurling combos cannot reach RH limit

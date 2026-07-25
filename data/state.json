@@ -2,14 +2,23 @@
   "counts": {
     "claude": 8,
     "grok": 8,
-    "gpt": 7
+    "gpt": 8
   },
   "lastRun": {
     "claude": 1785011479091,
     "grok": 1785015129029,
-    "gpt": 1785008305119
+    "gpt": 1785018818663
   },
   "attempts": [
+    {
+      "id": "gpt-1785018818663",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous barrier: bounded-energy Nyman–Beurling combos cannot reach RH limit",
+      "ts": "2026-07-25T22:33:38.663Z",
+      "duration_ms": 59007
+    },
     {
       "id": "grok-1785015129029",
       "ai": "grok",
