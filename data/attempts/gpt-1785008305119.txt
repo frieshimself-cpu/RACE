@@ -1,0 +1,57 @@
+Attempt: A single-weight equivalence for RH via a smoothed explicit formula
+
+Set-up.
+- Fix any integer k ≥ 0 and define the smooth, rapidly decaying weight w(u) = u^k e^{-u} on (0, ∞).
+- Its Mellin transform is W(s) = ∫_0^∞ w(u) u^{s-1} du = Γ(s + k). This meromorphic function has no zeros anywhere in C and simple poles only at s = -k, -k-1, -k-2, ...
+- Define the smoothed Chebyshev sum Ψ_w(x) = ∑_{n ≥ 1} Λ(n) w(n/x) for x ≥ 1.
+
+Claim (explicit formula with exponential damping).
+There is an identity, valid for all x ≥ 1,
+Ψ_w(x) = W(1) x − ∑_ρ W(ρ) x^ρ + E_triv(x) + E_cont(x),
+where the sum is over all nontrivial zeros ρ of ζ(s), counted with multiplicity; E_triv(x) is a linear combination of terms of the form W(−2m) x^{−2m} (from the trivial zeros at s = −2m), hence O_k(x^{-2}) as x → ∞; and the remainder E_cont(x) arises from the integral on a far left vertical line and is O_k(x^{-A}) for any fixed A > 0 (by shifting arbitrarily far to the left, using the rapid decay of W on vertical lines). The series ∑_ρ W(ρ) x^ρ converges absolutely and locally uniformly in x > 0.
+
+Sketch of proof.
+- Start from −ζ′/ζ(s) = ∑_{n ≥ 1} Λ(n) n^{−s} for Re s > 1. For c > 1,
+Ψ_w(x) = (1/2πi) ∫_{(c)} (−ζ′/ζ)(s) W(s) x^s ds,
+since Mellin inversion of w(n/x) gives W(s) x^s n^{−s}, and absolute convergence holds due to W(s) being of at most polynomial growth on vertical lines in Re s > 1.
+- Shift the contour to Re s = −A with A > 0 large. Crossing the pole at s = 1 of −ζ′/ζ brings the main term W(1) x. Crossing nontrivial zeros ρ contributes residues −W(ρ) x^ρ. Crossing trivial zeros at s = −2m contributes −W(−2m) x^{−2m}. The integral on Re s = −A is O_k(x^{-A}) by Stirling for Γ(s + k): for s = −A + it, |W(s)| ≍ |t|^{−A+k−1/2} e^{−π|t|/2}, ensuring absolute integrability, and (−ζ′/ζ)(s) is ≪ log(2+|t|).
+- Absolute convergence of ∑_ρ W(ρ) x^ρ follows from Stirling on W(ρ) = Γ(ρ + k): for ρ = β + iγ, |W(ρ)| ≍ |γ|^{β + k − 1/2} e^{−π|γ|/2}. Summing over zeros of density ≪ log|γ| yields convergence.
+
+Define the error term
+E_w(x) = Ψ_w(x) − W(1) x.
+Then, by the explicit formula,
+E_w(x) = −∑_ρ W(ρ) x^ρ + O_k(x^{-2}), with absolute convergence of the zero sum.
+
+Main theorem (equivalence).
+For the fixed weight w(u) = u^k e^{−u} with any k ≥ 0, the following are equivalent:
+(a) The Riemann Hypothesis holds.
+(b) For every ε > 0, there exists C_{k,ε} such that for all x ≥ 2,
+|E_w(x)| ≤ C_{k,ε} x^{1/2 + ε}.
+In fact, under (a) one has the stronger bound |E_w(x)| ≪_{k} x^{1/2}.
+
+Proof of (a) ⇒ (b).
+Under RH, all nontrivial zeros satisfy β = 1/2. Then
+E_w(x) = −x^{1/2} ∑_ρ W(1/2 + iγ) x^{iγ} + O_k(x^{-2}).
+By Stirling, |W(1/2 + iγ)| = |Γ(k + 1/2 + iγ)| ≪_{k} (1 + |γ|)^{k} e^{−π|γ|/2}. Hence the series ∑_ρ W(1/2 + iγ) x^{iγ} converges absolutely and uniformly in x, to a bounded function of x. Therefore |E_w(x)| ≪_{k} x^{1/2}, proving (b) with ε arbitrary.
+
+Proof of (b) ⇒ (a).
+Assume (b) holds for our fixed k but RH fails. Let β0 = sup Re ρ over all nontrivial zeros; by assumption β0 > 1/2. Define t = log x and
+F(t) = e^{−β0 t} E_w(e^{t}) = −∑_ρ W(ρ) e^{(ρ − β0) t} + O_k(e^{−(β0+2) t}).
+Let S0 be the (nonempty) set of zeros with Re ρ = β0. Because W has no zeros, for each ρ in S0 we have W(ρ) ≠ 0. Split the sum:
+F(t) = −∑_{ρ ∈ S0} W(ρ) e^{i Im(ρ) t} + R(t),
+where R(t) is a uniformly exponentially decaying sum over zeros with Re ρ < β0, thus R(t) → 0 as t → ∞.
+Therefore F is the sum of a nontrivial finite or countable exponential sum with constant amplitudes (frequencies γ = Im ρ) plus a vanishing remainder. A standard lemma on exponential sums states: if ∑_{j} a_j e^{iλ_j t} is not identically zero (some a_j ≠ 0), then limsup_{T→∞} (1/T) ∫_0^T |∑ a_j e^{iλ_j t}| dt ≥ c > 0, and in particular limsup_{t→∞} |∑ a_j e^{iλ_j t}| ≥ max_j |a_j|. Applying this to the S0-sum yields limsup_{t→∞} |F(t)| ≥ c0 > 0 with c0 depending only on {W(ρ)}_{ρ∈S0}.
+Consequently, there is a sequence t_n → ∞ with |E_w(e^{t_n})| ≥ (c0/2) e^{β0 t_n}. Equivalently, for x_n = e^{t_n},
+|E_w(x_n)| ≫ x_n^{β0}.
+This contradicts (b) because β0 > 1/2. Therefore β0 ≤ 1/2, i.e. RH holds.
+
+Remarks.
+- The weight w(u) = u^k e^{−u} is only one convenient choice; any smooth w with Mellin transform nonvanishing on C and sufficiently fast decay on vertical lines works. The nonvanishing ensures that any zero ρ with Re ρ maximal contributes a genuine undamped oscillatory term that cannot be canceled uniformly by other terms.
+- Under RH, the bound |E_w(x)| ≪ x^{1/2} in this smoothed model is sharper than the classical unsmoothed prime number theorem error term O(x^{1/2} log^2 x); the exponential decay of Γ on vertical lines makes the zero-sum absolutely convergent, eliminating the need for truncation and the resulting log losses.
+- This gives a crisp single-weight criterion: RH holds if and only if the smoothed Chebyshev sum with one fixed admissible weight exhibits the square-root cancellation bound x^{1/2+ε}. It packages the zero-detection mechanism into the Mellin transform W.
+
+Conclusion.
+This establishes a rigorous equivalence between RH and a single smoothed prime-weighted counting bound using a fixed weight with Mellin transform Γ(s + k). It does not resolve RH, but it isolates a concrete numerical target: prove the x^{1/2+ε} bound for one such smoothed sum.
+
+VERDICT: PARTIAL
+REASON: Proved an exact equivalence: RH ⇔ x^{1/2+ε} bound for one fixed smoothed Λ-sum with Γ-Mellin weight

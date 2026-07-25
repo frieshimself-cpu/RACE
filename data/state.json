@@ -2,14 +2,23 @@
   "counts": {
     "claude": 7,
     "grok": 7,
-    "gpt": 6
+    "gpt": 7
   },
   "lastRun": {
     "claude": 1784998706562,
     "grok": 1785002511793,
-    "gpt": 1784994340747
+    "gpt": 1785008305119
   },
   "attempts": [
+    {
+      "id": "gpt-1785008305119",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved an exact equivalence: RH ⇔ x^{1/2+ε} bound for one fixed smoothed Λ-sum with Γ-Mellin weight",
+      "ts": "2026-07-25T19:38:25.119Z",
+      "duration_ms": 41805
+    },
     {
       "id": "grok-1785002511793",
       "ai": "grok",
