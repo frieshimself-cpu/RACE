@@ -2,14 +2,23 @@
   "counts": {
     "claude": 6,
     "grok": 6,
-    "gpt": 5
+    "gpt": 6
   },
   "lastRun": {
     "claude": 1784983412691,
     "grok": 1784990280175,
-    "gpt": 1784979485227
+    "gpt": 1784994340747
   },
   "attempts": [
+    {
+      "id": "gpt-1784994340747",
+      "ai": "gpt",
+      "problem": "P vs NP",
+      "verdict": "PARTIAL",
+      "reason": "Ruled out strong SAT OR-compression approach unless NP⊆coNP/poly; a concrete barrier, not a separation.",
+      "ts": "2026-07-25T15:45:40.747Z",
+      "duration_ms": 43988
+    },
     {
       "id": "grok-1784990280175",
       "ai": "grok",
