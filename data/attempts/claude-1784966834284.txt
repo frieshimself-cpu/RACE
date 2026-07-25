@@ -1,0 +1,51 @@
+# Analysis: The precise obstruction in the Euler-system approach to BSD beyond analytic rank 1
+
+I focus on why Kolyvagin's Euler system of Heegner points — the tool behind essentially all unconditional BSD results (rank part) — provably cannot reach analytic rank ≥ 2, and I isolate the obstruction structurally.
+
+## Setup
+
+Let $E/\mathbb{Q}$ be an elliptic curve of conductor $N$, and let $K$ be an imaginary quadratic field satisfying the Heegner hypothesis (all primes dividing $N$ split in $K$). Let $y_K \in E(K)$ be the basic Heegner point (trace of a CM point on $X_0(N)$). The two pillars are:
+
+- **Gross–Zagier:** $\hat h(y_K) = c \cdot L'(E/K, 1)$ with $c>0$ explicit. Hence $y_K$ is non-torsion $\iff L'(E/K,1)\neq 0$.
+- **Kolyvagin:** if $y_K$ is non-torsion, then $\operatorname{rank} E(K)=1$ and $\Sha(E/K)$ is finite, with the Selmer group bounded by cohomology classes derived from $y_K$.
+
+Combining with the factorization $L(E/K,s)=L(E/\mathbb{Q},s)\,L(E^D/\mathbb{Q},s)$ ($D=\operatorname{disc}K$) gives the theorem: **BSD (full, including finiteness of $\Sha$) holds when $\operatorname{ord}_{s=1}L(E/\mathbb{Q},s)\le 1$.**
+
+## Where the method structurally fails at analytic rank ≥ 2
+
+The Euler system produces, for each squarefree product $n=\ell_1\cdots\ell_k$ of Kolyvagin primes, a *derived class* $c_n \in H^1(K, E[p^M])$ built from Heegner points $y_n \in E(K[n])$ over ring class fields. The bound on the $p$-Selmer group comes from the **non-vanishing** of these classes and from the relation
+$$
+\operatorname{loc}_\ell(c_n) \;\leftrightarrow\; \operatorname{loc}_\ell(c_{n/\ell}) \quad(\text{via } a_\ell,\ \text{Frobenius data}),
+$$
+a recursion whose *base case* is $c_1 = y_K \in E(K)/p^M$.
+
+**Key point (the obstruction):** the entire tower $\{c_n\}$ is generated from $c_1=y_K$. If $y_K$ is torsion — which by Gross–Zagier is exactly the case $L'(E/K,1)=0$, i.e. analytic rank $\ge 2$ over $\mathbb{Q}$ once one accounts for the sign — then:
+
+1. $c_1 = 0$ in $E(K)/p^M$;
+2. the derivation relations force every $c_n$ to land in the "already-controlled" part, and crucially they no longer produce classes with prescribed *nontrivial* local behavior at the Kolyvagin primes $\ell$;
+3. therefore the Kolyvagin bound degenerates to the trivial bound $\operatorname{rank}_p \operatorname{Sel} \le \operatorname{(everything)}$, giving no finiteness of $\Sha$ and no rank bound.
+
+This is not a soft difficulty: it is a *dimension count*. A single Euler system class $c_1$ can bound a corank-1 Selmer group (it "kills" one Kolyvagin relation per prime, matching one dimension of the dual Selmer group via Poitou–Tate global duality). To bound a corank-$\ge 2$ Selmer group one needs $\ge 2$ *linearly independent* global classes with controllable and independent local ramification. The Heegner construction canonically supplies **exactly one** such generator, because $E(K)$ contributes a single line in the relevant $\operatorname{Gal}(K/\mathbb{Q})$-eigenspace (the $y_K$ is essentially unique up to the CM Hecke action, which does not enlarge its $\mathbb{Z}_p$-span in the anticyclotomic tower when analytic rank is $\ge 2$).
+
+## Making the count precise
+
+Global duality (Poitou–Tate) gives, for the $p$-Selmer group $\operatorname{Sel}_{p^M}$ and its dual $\operatorname{Sel}^*$, an exact sequence in which each Kolyvagin prime $\ell$ contributes a local pairing
+$$
+\operatorname{loc}_\ell:\operatorname{Sel}^* \to H^1_{\mathrm{unr}}(K_\ell,E[p^M]) \cong \mathbb{Z}/p^M.
+$$
+An Euler-system class $c_n$ that is *unramified everywhere except at the primes dividing $n$*, with prescribed nonzero $\operatorname{loc}_\ell$, forces $\dim \operatorname{Sel}^*$ down by the number of independent such $\ell$-directions it realizes. The Chebotarev argument shows one can realize **as many primes $\ell$ as one likes**, but all the resulting constraints on $\operatorname{Sel}^*$ come from the *same seed line* $\mathbb{Z}_p\cdot y_K$. Concretely, the classes $c_n$ satisfy
+$$
+c_n \in \operatorname{Frac}\big(\mathbb{Z}_p \cdot y_K\big)\text{-span under the derivative operators } D_\ell,
+$$
+so the image of the collection $\{\operatorname{loc}_\ell(c_n)\}$ in $\bigoplus_\ell \mathbb{Z}/p^M$ has *rank at most 1* as a $\Lambda$-module datum over the seed. This caps the achievable reduction of $\operatorname{corank}\operatorname{Sel}$ at $1$.
+
+**Conclusion of the analysis:** the barrier at analytic rank $2$ is intrinsic to a *rank-one Euler system*. The correct object would be a *rank-two Euler system* (in the sense of Perrin-Riou / Mazur–Rubin's theory of Kolyvagin systems of higher core rank), whose existence for $E/\mathbb{Q}$ in the analytic-rank-2 situation is exactly what is missing. Heegner points on $X_0(N)$, and their generalizations to Shimura curves and to Gross–Kohnen–Zagier cycles, all remain **rank-one** systems: they linearize the problem around a single cycle class.
+
+## A concrete positive remark
+
+The above pinpoints a testable strategy: to attack analytic rank 2, one seeks two algebraically independent, norm-compatible families of *cycles* on a variety fibered over the anticyclotomic tower whose heights match $L''(E/K,1)$ (a conjectural higher Gross–Zagier). The generalized Gross–Zagier of Yuan–Zhang–Zhang gives heights for *codimension-one cycles on Shimura varieties*, which for higher analytic rank produce cycles that are again homologous to zero — i.e. one still gets a **single** motivic class per eigenspace. Thus the obstruction I isolated (one seed line) persists across all current geometric constructions, which explains uniformly why no unconditional BSD result reaches rank $\ge 2$.
+
+This is an explanatory reduction, not new progress on the conjecture itself: I have neither constructed the required rank-two Euler system nor proved a new case of BSD.
+
+VERDICT: FAILED
+REASON: No new BSD case proved; I only isolated the "single seed line" obstruction blocking Euler-system methods past analytic rank 1.
