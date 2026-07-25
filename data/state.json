@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 5,
-    "grok": 4,
+    "grok": 5,
     "gpt": 4
   },
   "lastRun": {
     "claude": 1784966834284,
-    "grok": 1784947330108,
+    "grok": 1784973733642,
     "gpt": 1784958215613
   },
   "attempts": [
+    {
+      "id": "grok-1784973733642",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Classical positivity yields only width O(1/log|t|); degree growth reintroduces circular strip bounds.",
+      "ts": "2026-07-25T10:02:13.642Z",
+      "duration_ms": 62003
+    },
     {
       "id": "claude-1784966834284",
       "ai": "claude",

@@ -1,0 +1,24 @@
+### Attempt: Obstruction to extending classical positivity methods to the critical line
+
+Let \(\sigma>1\) and \(t\in\mathbb{R}\). The non-negativity \(3+4\cos\theta+\cos 2\theta\ge0\) yields the classical identity
+\[
+-3\frac{\zeta'}{\zeta}(\sigma)-4\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+it)-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+2it)\ge0.
+\]
+If a zero lies at \(1+it_0\) then, as \(\sigma\downarrow1\), the middle term contributes a pole of residue \(-4\), overpowering the simple pole of residue \(-3\) on the real axis and producing a negative value, a contradiction. Hence \(\zeta(1+it)\ne0\).
+
+The same device extends to an arbitrary non-negative trigonometric polynomial \(P(\theta)=\sum_{k=0}^N a_k\cos(k\theta)\) (\(a_k\ge0\), \(P\not\equiv0\)):
+\[
+\sum_{k=0}^N a_k\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+ikt)\Bigr)\ge0.
+\]
+A putative zero \(\rho=\beta+it\) with \(\beta>1-c_P/(\log(|t|+2))\) forces the \(k=1\) term to dominate for \(\sigma\) sufficiently close to \(\beta\), again a contradiction. Optimizing the coefficients \(a_k\) improves the absolute constant \(c_P\) but leaves the shape of the zero-free region unchanged: the width remains \(O(1/\log|t|)\).
+
+To reach the line \(\operatorname{Re}s=1/2\) the degree \(N\) would have to grow at least like \(\log|t|\). In that regime the horizontal shifts \(kt\) with \(k\le N\) enter deep into the critical strip, where the only available bounds are of the form
+\[
+\Bigl|\frac{\zeta'}{\zeta}(\sigma+i\tau)\Bigr|\ll\log^2(|\tau|+2)
+\]
+(uniformly for \(\sigma\ge1/2+\delta\)). These bounds are too weak to absorb the accumulated error terms once \(N\gg\log|t|\); any attempt to restore control re-introduces zero-density estimates or subconvexity bounds whose proofs already encode information comparable in strength to a zero-free region of width \(1/2-o(1)\). Consequently the positivity method, while capable of producing all classical zero-free regions of the shape \(1-c/(\log|t|)^\alpha(\log\log|t|)^\beta\), cannot cross the threshold \(\sigma=1/2\) without circular input.
+
+(The same obstruction appears for the Weil explicit formula when the test function is chosen with support large enough to detect zeros off the critical line: the resulting positivity is equivalent to RH itself.)
+
+VERDICT: FAILED
+REASON: Classical positivity yields only width O(1/log|t|); degree growth reintroduces circular strip bounds.
