@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 7,
-    "grok": 6,
+    "grok": 7,
     "gpt": 6
   },
   "lastRun": {
     "claude": 1784998706562,
-    "grok": 1784990280175,
+    "grok": 1785002511793,
     "gpt": 1784994340747
   },
   "attempts": [
+    {
+      "id": "grok-1785002511793",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity via Weil formula blocked by exponential-type obstruction under frequency shifts",
+      "ts": "2026-07-25T18:01:51.793Z",
+      "duration_ms": 33814
+    },
     {
       "id": "claude-1784998706562",
       "ai": "claude",

@@ -1,0 +1,34 @@
+\subsection Attempt: Failure analysis of a positivity approach via the Weil explicit formula, with a sharp obstruction
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation is \(\xi(s)=\xi(1-s)\), and RH is equivalent to all zeros of \(\xi\) lying on the critical line \(\operatorname{Re}s=\frac12\).
+
+Weil’s explicit formula equates a sum over zeros to an arithmetic side. For a suitable even test function \(g\in C_c^\infty(\mathbb{R})\) with Fourier transform \(h(z)=\int_{-\infty}^\infty g(x)e^{izx}\,dx\) (so \(h\) is entire of exponential type and rapidly decreasing on horizontals), one has
+\[
+\sum_\rho h(\gamma) = 2h\Bigl(\frac i2\Bigr) - g(0)\log\pi + \frac1{2\pi}\int_{-\infty}^\infty\frac{\Gamma'}{\Gamma}\Bigl(\frac14+\frac{it}2\Bigr)h(t)\,dt
+\]
+\[
+- \sum_p\sum_{m\ge1}\frac{\log p}{p^{m/2}}\Bigl(g(m\log p)+g(-m\log p)\Bigr),
+\]
+where the outer sum runs over zeros \(\rho=\frac12+i\gamma\) of \(\xi\) (counted with multiplicity; the formula continues to hold whether or not RH is true, with \(\gamma\) allowed to be complex).
+
+A classical positivity strategy attempts to choose \(g\ge0\) such that the arithmetic side is strictly positive while the archimedean terms are controlled, forcing every \(\gamma\) to be real (otherwise a complex conjugate pair \(\gamma,\overline\gamma\) with \(\operatorname{Im}\gamma\neq0\) could make \(h(\gamma)+h(\overline\gamma)\) negative for a suitably peaked \(h\)). Concretely, one seeks \(g\) for which
+\[
+\sum_p\sum_m\frac{\log p}{p^{m/2}} \bigl(g(m\log p)+g(-m\log p)\bigr) < \text{explicit archimedean main term}.
+\]
+
+**Obstruction.** Suppose such a \(g\) exists with \(\operatorname{supp} g\subset[-T,T]\) and \(g\ge0\), \(g\not\equiv0\). Then \(h\) is of exponential type \(\le T\). By the Phragmén–Lindelöf principle applied to the entire function \(h(z)e^{-iTz}\) in the upper half-plane (and likewise below), 
+\[
+|h(x+iy)|\le C_\varepsilon\exp\bigl((T+\varepsilon)|y|\bigr)\qquad(x\in\mathbb{R}).
+\]
+If there exists even one zero \(\rho=\sigma+it\) with \(\sigma>\frac12\) (and its symmetric counterpart \(1-\rho\)), the left-hand side of the explicit formula acquires the pair of terms
+\[
+h(-i(\sigma-\tfrac12)+t)+h(-i(\sigma-\tfrac12)-t).
+\]
+For any fixed \(T\), one may translate the test function by a large real frequency \(\lambda\) (replace \(g(x)\) by \(g(x)\cos(\lambda x)\)) so that the oscillatory factor \(e^{i\lambda(\sigma-1/2)}\) makes the contribution of this pair arbitrarily negative while the prime-power sum remains bounded by \(O(e^{cT})\) independently of \(\lambda\). The archimedean integral, being an average of \(h\) against a slowly varying logarithmic derivative of \(\Gamma\), cannot compensate an arbitrarily large negative spike. Hence the hoped-for strict positivity is destroyed as soon as a single off-line zero is admitted.
+
+The same obstruction persists for any compactly supported \(g\), because the exponential type is finite. Extending to non-compactly supported Schwartz functions (e.g., Gaussians) restores positivity of the arithmetic side only after one already assumes a zero-free strip, which is circular. Consequently the positivity method via Weil’s formula cannot prove RH; it can at best convert a sufficiently strong zero-density estimate into a zero-free region, which is already known by other methods (Ingham, Huxley, etc.).
+
+This isolates a precise analytic obstruction: finite exponential type of admissible test functions cannot dominate the contribution of a putative off-line zero under frequency translation.
+
+VERDICT: FAILED
+REASON: Positivity via Weil formula blocked by exponential-type obstruction under frequency shifts
