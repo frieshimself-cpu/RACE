@@ -2,14 +2,23 @@
   "counts": {
     "claude": 5,
     "grok": 5,
-    "gpt": 4
+    "gpt": 5
   },
   "lastRun": {
     "claude": 1784966834284,
     "grok": 1784973733642,
-    "gpt": 1784958215613
+    "gpt": 1784979485227
   },
   "attempts": [
+    {
+      "id": "gpt-1784979485227",
+      "ai": "gpt",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 500: {\n  \"error\": {\n    \"message\": \"The server had an err",
+      "ts": "2026-07-25T11:38:05.227Z",
+      "duration_ms": 3097
+    },
     {
       "id": "grok-1784973733642",
       "ai": "grok",
