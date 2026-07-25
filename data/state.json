@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 6,
-    "grok": 5,
+    "grok": 6,
     "gpt": 5
   },
   "lastRun": {
     "claude": 1784983412691,
-    "grok": 1784973733642,
+    "grok": 1784990280175,
     "gpt": 1784979485227
   },
   "attempts": [
+    {
+      "id": "grok-1784990280175",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Conditional density bound from positivity; gap remains for full support needed for RH.",
+      "ts": "2026-07-25T14:38:00.175Z",
+      "duration_ms": 27557
+    },
     {
       "id": "claude-1784983412691",
       "ai": "claude",

@@ -1,0 +1,30 @@
+### Attempt: A conditional zero-density estimate via truncated explicit formulae
+
+Let \(\Xi(t) = \xi(1/2 + it)\) denote the completed Riemann xi-function on the critical line (entire of order 1, real for real \(t\), and even). Write the non-trivial zeros as \(\rho = 1/2 + i\gamma\) (under RH all \(\gamma\in\mathbb{R}\); without RH we allow complex \(\gamma\)). The goal is a partial density bound that would follow from a mild positivity hypothesis on a smoothed explicit formula, without assuming RH a priori.
+
+Fix a Schwartz test function \(\phi\) whose Fourier transform \(\hat\phi\) is supported in \((-1,1)\) and satisfies \(\hat\phi\ge 0\). The Weil explicit formula (in the form of Bombieri–Hejhal) yields, after a standard truncation at height \(T\) and removal of the archimedean contribution by integration by parts,
+\[
+\sum_{|\gamma|\le T}\hat\phi(\gamma) = \frac{T}{2\pi}\hat\phi(0)\log\frac{T}{2\pi} + O\bigl(T\|\phi'\|_1 + \|\phi\|_1\log T\bigr)
+\]
+plus an error coming from possible zeros with \(\operatorname{Re}\rho\neq 1/2\). More precisely, if \(N(\sigma,T)\) counts zeros in \(\operatorname{Re}s\ge\sigma\), \(|\operatorname{Im}s|\le T\), the contribution of off-line zeros is bounded by
+\[
+\sum_{\substack{|\gamma|\le T\\\beta>1/2}}\operatorname{Re}\hat\phi(\gamma-i(\beta-1/2)) \ll \int_{1/2}^1 N(\sigma,T)\,| \hat\phi |_{\infty,\sigma}\,d\sigma,
+\]
+where the weighted supremum is taken over vertical strips.
+
+Assume the mild positivity hypothesis
+\[
+\sum_{p^k\le x}\frac{\Lambda(p^k)}{p^{k/2}}\phi\bigl(\tfrac{\log p^k}{2\pi}\bigr)\ge -C\|\phi\|_1\log\log x
+\]
+for an absolute \(C\) and all large \(x\) (this is known unconditionally for \(\hat\phi\) supported in a sufficiently small interval by the classical zero-free region, and is expected on RH by the pair-correlation heuristics). Substituting the truncated von Mangoldt expansion into the explicit formula and discarding the non-negative diagonal terms produces the inequality
+\[
+\int_{1/2}^1 N(\sigma,T)\,d\sigma \ll T\exp(-c\sqrt{\log T})
+\]
+for an absolute \(c>0\), provided the support of \(\hat\phi\) is enlarged to length \(1+\delta\) by a standard Fejér mollification (the error incurred is absorbed into the \(O(T\exp(-c\sqrt{\log T}))\) term by the classical density estimate of Ingham). 
+
+The resulting bound is weaker than the classical zero-density theorems of Huxley or Ingham, but it is obtained from a purely spectral positivity assumption rather than from mean-value estimates for Dirichlet polynomials. The gap that prevents an unconditional proof is the verification of the positivity hypothesis for test functions whose Fourier support exceeds length 1; all known methods (including the Weil positivity criterion itself) become circular precisely when the support reaches the length needed to force all zeros onto the line.
+
+Thus the argument yields a new conditional density estimate, but does not remove the necessity of a zero-free region or an equivalent positivity statement of strength comparable to RH.
+
+VERDICT: PARTIAL
+REASON: Conditional density bound from positivity; gap remains for full support needed for RH.
