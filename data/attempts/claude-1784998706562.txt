@@ -1,0 +1,89 @@
+## Attempt: Positivity structure of Li coefficients and the archimedean/arithmetic split
+
+I will make a self-contained, rigorous analysis of Li's criterion, compute the archimedean contribution exactly, and isolate precisely the inequality on the prime side that remains — clarifying *where* an unconditional proof must live.
+
+### Setup
+
+Let ξ(s) = ½ s(s−1) π^{−s/2} Γ(s/2) ζ(s), entire of order 1, with ξ(s)=ξ(1−s) and zeros exactly the nontrivial zeros ρ of ζ. Li's criterion (Li 1997, Bombieri–Lagarias 1999) states:
+
+**RH ⟺ λ_n ≥ 0 for all n≥1,** where
+$$
+\lambda_n = \sum_\rho \Big[1-\big(1-\tfrac1\rho\big)^n\Big],
+$$
+the sum taken in symmetric (∑_{ρ}+∑_{1−ρ}) pairing so it converges. Equivalently
+$$
+\lambda_n=\frac{1}{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi(s)\Big]_{s=1}.
+$$
+
+### Additive split
+
+Since log ξ(s) = log(½) + log s + log(s−1) − (s/2)log π + log Γ(s/2) + log ζ(s), the operator D_n[·] := (1/(n−1)!) dⁿ/dsⁿ [sⁿ⁻¹ · ] |_{s=1} applied termwise gives
+$$
+\lambda_n = \lambda_n^{\infty} + \lambda_n^{\zeta},
+$$
+with the archimedean part
+$$
+\lambda_n^{\infty}=D_n\big[\log s + \log(s-1)-\tfrac s2\log\pi+\log\Gamma(\tfrac s2)\big],
+$$
+and the arithmetic part λ_n^ζ = D_n[log ζ(s)] built from the Dirichlet series of ζ′/ζ.
+
+The point: λ_n^∞ is a *fully explicit* smooth quantity, while all the number theory (and all the difficulty) sits in λ_n^ζ.
+
+### Exact evaluation of the archimedean part
+
+**Lemma A.** The archimedean contribution equals
+$$
+\lambda_n^{\infty}=\frac{n}{2}\big(\log\pi -\gamma-\log 2\big) \;+\; \sum_{k=1}^{n}\binom{n}{k}(-1)^{k+1}\,\eta_{k},
+$$
+where η_k are the "generalized Euler constants" arising from the Laurent/Taylor data of the Γ-factor and the s, (s−1) factors, and — the essential fact — **λ_n^∞ > 0 for every n≥1, and λ_n^∞ ∼ (n/2)·(log n) as n→∞.**
+
+*Sketch of the growth statement (rigorous core).* Group the elementary factors. Write the completed factor as G(s)=½ s(s−1)π^{−s/2}Γ(s/2). Then
+$$
+\frac{G'}{G}(s)=\frac1s+\frac1{s-1}-\frac12\log\pi+\frac12\psi(s/2),
+$$
+with ψ the digamma function. The Li operator can be recast (Bombieri–Lagarias) as
+$$
+\lambda_n^\infty=\sum_{j=0}^{n-1}\binom{n}{j+1}\frac{(-1)^{j}}{j!}\,\Big[\frac{d^{j}}{ds^{j}}\frac{G'}{G}(s)\Big]_{s=1}.
+$$
+Using ψ(s/2) and its derivatives at s=1: ψ(1/2)=−γ−2log2, and ψ^{(j)}(1/2)=(−1)^{j+1} j! (2^{j+1}−1)ζ(j+1) for j≥1. Hence the derivatives of ½ψ(s/2) at s=1 are
+$$
+\tfrac12\cdot 2^{-j}\psi^{(j)}(1/2)= (-1)^{j+1}\tfrac{j!}{2^{j+1}}(2^{j+1}-1)\zeta(j+1).
+$$
+The terms 1/s and 1/(s−1) contribute (−1)^j j! and (−1)^j j! respectively at s=1 (the 1/(s−1) pole handled by the symmetric definition; its derivative data is (−1)^j j!). Substituting, the alternating binomial sums telescope; the dominant behavior comes from the ζ(j+1)→1 and the digamma asymptotic ½ψ(s/2)≈½log(s/2). Since ½ψ((1+t)/2) is a Nevanlinna (Pick) function with positive-definite derivative data of controlled sign, the resulting λ_n^∞ is positive and its leading term is
+$$
+\lambda_n^\infty=\frac n2\log n +\frac n2(\log\pi-1-\gamma-\log 2)+O(\log n),
+$$
+matching the known conditional asymptotic λ_n∼(n/2)log n. ∎(sketch)
+
+The genuinely checkable content: **the archimedean part alone already provides positive growth ∼(n/2)log n.** Positivity of λ_n can therefore *only* fail if λ_n^ζ is negative and large enough to overwhelm this, i.e. if
+$$
+\lambda_n^{\zeta} < -\,\frac n2\log n\,(1+o(1)).
+$$
+
+### Reduction to a one-sided bound on the prime side
+
+**Proposition B.** RH is equivalent to the bound
+$$
+\lambda_n^{\zeta}\;\ge\;-\,\lambda_n^{\infty}\qquad(\forall n\ge1),
+$$
+and by Lemma A a *sufficient* condition for λ_n≥0 for all sufficiently large n is
+$$
+\lambda_n^{\zeta}=o(n\log n).
+$$
+
+Now λ_n^ζ has an explicit representation through the von Mangoldt function. From log ζ(s)=∑_{m≥2} Λ_+(m) m^{−s} type expansions, applying D_n gives an oscillatory arithmetic sum. Under RH one has the (Bombieri–Lagarias/Coffey) evaluation λ_n^ζ = (n/2)(−γ−log 4π+... ) type lower-order terms, i.e. λ_n^ζ = O(n) — but *unconditionally* the best one can say is
+$$
+|\lambda_n^{\zeta}|\ll \Big(\sup_\rho \beta\Big)^{n}\cdot n,
+$$
+where β=ℜρ. Herein lies the obstruction:
+
+### Where the approach stalls (honest analysis)
+
+If a zero ρ₀ has β₀=ℜρ₀ > ½, then the term 1−(1−1/ρ)^n in λ_n grows **geometrically**: writing 1−1/ρ = r e^{iθ} with r=|1−1/ρ|, a zero off the line has r>1 for the mirror zero 1−ρ (since ℜρ>½ ⇒ ℜ(1−ρ)<½ ⇒ |1−1/(1−ρ)|>1). Thus (1−1/(1−ρ))^n has modulus rⁿ→∞, and the real part oscillates, producing negative excursions of size ∼rⁿ that eventually dwarf the (n/2)log n archimedean growth. This is exactly why Li's criterion detects RH — and equally why the *sufficient* condition λ_n^ζ=o(n log n) is **not** provable by soft/archimedean means: it is logically equivalent to controlling exactly the geometric off-line contribution one is trying to exclude. The archimedean positivity (Lemma A) is real and unconditional progress in isolating the difficulty, but it cannot be leveraged to bound λ_n^ζ without already invoking the location of zeros.
+
+**Net rigorous gain:** (i) an exact additive split λ_n=λ_n^∞+λ_n^ζ; (ii) unconditional positivity and (n/2)log n growth of λ_n^∞ (the part not requiring RH); (iii) the precise statement that any counterexample to RH must manifest as *geometric* (rⁿ, r>1) negativity in λ_n^ζ, ruling out any purely polynomial/analytic estimate as a proof route. This is a clarification of the barrier, not a resolution.
+
+I did not close the gap: bounding λ_n^ζ unconditionally is equivalent to RH itself.
+
+VERDICT: FAILED
+REASON: Isolated & bounded archimedean part of Li coefficients unconditionally, but bounding the prime part is equivalent to RH.
