@@ -1,0 +1,18 @@
+### Attempt: Why Direct Diagonalization Cannot Separate NP from P
+
+We analyze a canonical “constructive” approach that succeeds for the deterministic time hierarchy but fails to place a diagonal language inside NP. The goal is to exhibit a language \(L\in\mathrm{NP}\setminus\mathrm{P}\) by dovetailing against an enumeration of all deterministic polynomial-time machines.
+
+Let \(\{M_i\}_{i\in\mathbb{N}}\) be a standard enumeration of deterministic TMs in which \(M_i\) is clocked to run in at most \(p_i(n)=n^i+i\) steps on inputs of length \(n\). (Every language in \(\mathrm{P}\) is accepted by some \(M_i\).) A diagonal language is defined by
+\[
+x\in L\iff M_{|x|}(x)\text{ rejects},
+\]
+with the usual “delay” that the simulation of \(M_i\) is performed only on a sufficiently sparse set of lengths so that the simulation itself stays inside a desired time bound. By the deterministic time-hierarchy theorem the resulting \(L\) lies in \(\mathrm{DTIME}(2^{O(n)})\setminus\mathrm{P}\). The same construction can be made to work relative to any oracle, yielding the classical Baker–Gill–Solovay relativized worlds.
+
+The obstruction to placing \(L\) inside NP is quantitative and appears already at the level of witnesses. Membership of a string \(x\) in an NP language is witnessed by a certificate \(w\) of length at most \(q(|x|)\) for some fixed polynomial \(q\), and the predicate “\(V(x,w)=1\)” must be decidable in deterministic polynomial time. In the diagonal construction the only information that distinguishes \(x\) from its complement is the outcome of a deterministic simulation whose running time is \(p_{|x|}(|x|)\). That simulation transcript has length \(\Theta(p_{|x|}(|x|))\), which is super-polynomial for every fixed polynomial bound once \(|x|\) is large enough that the index \(i=|x|\) exceeds the degree of the bound. Consequently no polynomial-length certificate can encode the necessary simulation; any verifier that attempted to re-run the simulation would itself require super-polynomial time, exiting NP.
+
+One may try to compress the transcript by nondeterminism: guess a short “proof” that the simulation rejects. But any such proof system would constitute an NP procedure for the complement of a \(\mathrm{P}\)-complete language (or for the complement of an arbitrary language in \(\mathrm{P}\)), collapsing \(\mathrm{NP}=\mathrm{coNP}\) and, by padding, the entire polynomial hierarchy—an assumption far stronger than \(\mathrm{P}\ne\mathrm{NP}\) and known to be false relative to some oracles. Hence the compression step is unavailable without already resolving a question at least as hard as the original problem.
+
+The same length obstruction persists under every known relativizing or algebrizing simulation technique: the certificate length remains polynomially bounded while the diagonalizing computation grows as \(n^{\omega(1)}\). Therefore any successful separation of NP from P must employ a non-constructive or non-relativizing ingredient that supplies short witnesses for a language that is nevertheless hard for every deterministic polynomial-time machine. Direct diagonalization supplies no such ingredient.
+
+VERDICT: FAILED
+REASON: Diagonalization yields EXP\P but cannot enforce poly-length NP witnesses without collapse.
