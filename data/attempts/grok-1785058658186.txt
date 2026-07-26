@@ -1,0 +1,44 @@
+### Attempt: A conditional regularity criterion via controlled enstrophy growth
+
+We work on the incompressible Navier–Stokes system on \(\mathbb{T}^3\) (periodic) with viscosity \(\nu=1\):
+\[
+\partial_t u+(u\cdot\nabla)u=\Delta u-\nabla p,\qquad\nabla\cdot u=0,
+\]
+smooth divergence-free initial data \(u_0\in H^s\) for \(s>5/2\). Let \(\omega=\nabla\times u\) be the vorticity. The enstrophy \(\mathcal{E}(t)=\|\omega(t)\|_{L^2}^2\) satisfies the identity
+\[
+\frac12\frac{d}{dt}\mathcal{E}+\|\nabla\omega\|_{L^2}^2=\int_{\mathbb{T}^3}(\omega\cdot\nabla)u\cdot\omega\,dx.
+\]
+The standard obstruction is that the stretching term is controlled only by
+\[
+\bigl|\int(\omega\cdot\nabla)u\cdot\omega\bigr|\le C\|\omega\|_{L^\infty}\mathcal{E},
+\]
+which does not close in \(L^1_t L^\infty_x\) without additional structure.
+
+**Lemma (conditional control).** Suppose there exists a measurable set \(A\subset[0,T]\times\mathbb{T}^3\) with
+\[
+\int_0^T\|1_A(t)\omega(t)\|_{L^\infty}\,dt\le M<\infty
+\]
+and such that the complementary stretching is small in the sense
+\[
+\int_0^T\Bigl|\int_{\mathbb{T}^3\setminus A_t}(\omega\cdot\nabla)u\cdot\omega\,dx\Bigr|dt\le\varepsilon\mathcal{E}(0)
+\]
+for a sufficiently small absolute \(\varepsilon>0\) (depending only on the Sobolev embedding constant on \(\mathbb{T}^3\)). Then
+\[
+\sup_{t\in[0,T]}\mathcal{E}(t)+\int_0^T\|\nabla\omega\|_{L^2}^2\,dt\le C(M,\mathcal{E}(0))<\infty.
+\]
+In particular \(u\) remains smooth on \([0,T]\).
+
+**Proof sketch.** Split the stretching integral into \(A_t\) and its complement. On \(A_t\) the \(L^\infty\) bound on \(\omega\) together with the elementary estimate \(\|\nabla u\|_{L^2}\le C\|\omega\|_{L^2}\) and interpolation yields
+\[
+\int_{A_t}|(\omega\cdot\nabla)u\cdot\omega|\le C\|\omega\|_{L^\infty}\mathcal{E}.
+\]
+Integrating in time and absorbing the resulting factor \(e^{C M}\) into a Gronwall factor produces a controlled exponential growth. On the complement the hypothesis supplies an arbitrarily small additive contribution, which is absorbed into the dissipative term \(\|\nabla\omega\|_{L^2}^2\) for \(\varepsilon\) small enough (by the usual Young inequality and the fact that the dissipation controls the \(H^1\) norm of \(\omega\)). The resulting differential inequality
+\[
+\frac{d}{dt}\mathcal{E}+\frac12\|\nabla\omega\|_{L^2}^2\le C(M)\mathcal{E}
+\]
+integrates to the claimed bound. Higher Sobolev norms then remain finite by the standard Kato–Ponce commutator estimates once enstrophy is controlled, yielding smoothness.
+
+**Limitation.** The lemma reduces global regularity to the existence of a “large-vorticity set” \(A\) of controlled space-time measure on which \(\|\omega\|_{L^\infty}\) is integrable, together with a quantitative smallness of stretching outside \(A\). No mechanism is given that constructs such an \(A\) from the NS dynamics alone; the geometric alignment of \(\omega\) with the eigenvectors of the strain (as in the Constantin–Fefferman–Majda criteria) is not exploited. Thus the reduction, while rigorous, does not close the existence question.
+
+VERDICT: PARTIAL
+REASON: Conditional enstrophy bound under mixed L^\infty/small-stretching hypothesis; no construction of the set A.
