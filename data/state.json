@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 9,
+    "claude": 10,
     "grok": 9,
     "gpt": 9
   },
   "lastRun": {
-    "claude": 1785022765994,
+    "claude": 1785051333679,
     "grok": 1785028495547,
     "gpt": 1785041176945
   },
   "attempts": [
+    {
+      "id": "claude-1785051333679",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous Herglotz-positivity reformulation of RH (Re ξ′/ξ>0 on Re s>1/2) with structural constraints, but no proof.",
+      "ts": "2026-07-26T07:35:33.679Z",
+      "duration_ms": 94399
+    },
     {
       "id": "gpt-1785041176945",
       "ai": "gpt",

@@ -1,0 +1,53 @@
+# Attempt: A Herglotz-positivity reformulation of RH via ξ′/ξ, with structural consequences
+
+## Setup
+
+Let ξ be the completed Riemann function
+$$\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),$$
+which is entire, satisfies ξ(s)=ξ(1−s), and whose zeros are exactly the nontrivial zeros ρ of ζ (the trivial zeros of ζ being cancelled by the Γ‑factor). By Hadamard factorization one has the classical symmetric‑sum identity (Davenport, *Multiplicative Number Theory*, §12):
+$$\frac{\xi'}{\xi}(s)=\sum_{\rho}\frac{1}{s-\rho},\tag{1}$$
+where the sum is taken by grouping each ρ with 1−ρ (and each with its conjugate), which makes it absolutely convergent. This is an exact identity, valid for all s away from zeros.
+
+## The criterion
+
+**Theorem.** The Riemann Hypothesis holds if and only if
+$$\operatorname{Re}\frac{\xi'}{\xi}(s)>0\qquad\text{for all }s\text{ with }\operatorname{Re}(s)>\tfrac12.\tag{2}$$
+
+**Proof.** From (1), writing s=σ+it, ρ=β+iγ,
+$$\operatorname{Re}\frac{\xi'}{\xi}(s)=\sum_\rho \frac{\sigma-\beta}{(\sigma-\beta)^2+(t-\gamma)^2}.\tag{3}$$
+
+(⇐, i.e. RH ⟹ (2).) If RH holds every zero has β=1/2, so for σ>1/2 each summand in (3) has numerator σ−1/2>0. Hence Re(ξ′/ξ)(s)>0 throughout Re(s)>1/2.
+
+(⇒, i.e. ¬RH ⟹ ¬(2).) Suppose RH fails. By the functional equation and complex conjugation, off‑line zeros occur in quadruples {ρ,1−ρ,ρ̄,1−ρ̄}, so there is a zero ρ₀=β₀+iγ₀ with β₀>1/2. Fix t=γ₀ and let σ↑β₀ with 1/2<σ<β₀. The term for ρ₀ in (3) equals
+$$\frac{\sigma-\beta_0}{(\sigma-\beta_0)^2}\;=\;\frac{1}{\sigma-\beta_0}\longrightarrow-\infty.$$
+Every other zero ρ contributes a term that stays bounded as σ→β₀ at t=γ₀ (its denominator is bounded below: any distinct zero has γ≠γ₀ or β≠β₀, so (σ−β)²+(γ₀−γ)² is bounded away from 0 on the compact σ‑interval). Hence Re(ξ′/ξ)(s)→−∞, so (2) fails at points arbitrarily close to ρ₀ with σ>1/2. ∎
+
+Thus RH is *exactly* the statement that ξ′/ξ maps the half‑plane {Re s>1/2} into the closed right half‑plane {Re w≥0} (in fact into the open one, away from the boundary line).
+
+## Structural refinement: an odd Carathéodory function
+
+Shift to the center of symmetry. Put w=s−1/2 and
+$$F(w):=\frac{\xi'}{\xi}\!\left(\tfrac12+w\right).$$
+Since ξ(1/2+w)=ξ(1/2−w) is **even** in w, its logarithmic derivative F is **odd**:
+$$F(-w)=-F(w).\tag{4}$$
+The Theorem now reads: **RH ⟺ Re F(w)>0 on the right half‑plane {Re w>0}.**
+
+An odd holomorphic function on {Re w>0} with nonnegative real part is a very rigid object. Rotating by w=−iz maps {Re w>0} to the upper half‑plane {Im z>0}, and Φ(z):=iF(−iz) is a **Herglotz (Nevanlinna) function** (Im Φ≥0 on the upper half‑plane). Every such function admits the integral representation
+$$\Phi(z)=a z+b+\int_{\mathbb R}\Big(\frac{1}{\lambda-z}-\frac{\lambda}{1+\lambda^2}\Big)\,d\mu(\lambda),\qquad a\ge0,\ \mu\ge0.\tag{5}$$
+
+From (1)–(4), on the critical line (w=iu, u∈ℝ real) the poles of F are exactly at u=γ (the ordinates of on‑line zeros), and their residues are the multiplicities. Under RH the representing measure μ in (5) is therefore
+$$\mu=\sum_{\gamma}m_\gamma\,\delta_{\gamma},$$
+a **pure point measure supported on the zero ordinates**, with masses equal to the zero multiplicities and total counting behavior governed by the Riemann–von Mangoldt law N(T)∼(T/2π)log(T/2πe).
+
+## What this buys, and where it stalls
+
+- The reformulation converts RH into a *positivity/Herglotz* property of one explicit meromorphic function, with no analytic‑continuation subtleties (identity (1) is exact everywhere).
+- The parity constraint (4) is genuinely restrictive: it forces Φ in (5) to satisfy Φ(z)=−\overline{Φ(−\bar z)} on the imaginary axis, i.e. the representing measure μ must be *symmetric* (μ(E)=μ(−E)) and a=−a so **a=0**. This is a nontrivial necessary structural feature any Hilbert–Pólya construction must reproduce: the spectral measure is symmetric and grows like the zero‑counting function.
+- **The obstruction.** The equivalence "measure μ is a nonnegative point mass ⟺ RH" is not, by itself, provable from Herglotz theory: for the *unconditional* function F, off‑line zeros make F fail to be Herglotz precisely because they place poles off the real axis (Im w≠0), destroying the sign of Im Φ near those points. So the Herglotz property is *equivalent* to RH, not a lever above it. Proving Re F>0 directly would require an a‑priori positivity input (a trace‑formula/self‑adjointness statement) that is exactly as strong as RH itself. This makes precise why the "map ξ′/ξ into a Herglotz function" strategy, while a clean packaging, cannot escape the need for an external positivity source (Weil‑type explicit‑formula positivity or a genuine self‑adjoint operator).
+
+## Honest assessment
+
+I have given a rigorous, self‑contained proof of the equivalence RH ⟺ Re(ξ′/ξ)(s)>0 on Re s>1/2, recast it as an odd‑Carathéodory/Herglotz condition on F(w)=ξ′/ξ(1/2+w), derived the forced structure of the representing measure (symmetric, point masses = zero multiplicities, generator a=0), and identified precisely where the reformulation stops being progress: the required positivity is co‑extensive with RH, not weaker. This is a clean criterion and a sharpened target for Hilbert–Pólya constructions, but not a proof.
+
+VERDICT: PARTIAL
+REASON: Rigorous Herglotz-positivity reformulation of RH (Re ξ′/ξ>0 on Re s>1/2) with structural constraints, but no proof.
