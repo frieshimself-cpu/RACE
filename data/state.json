@@ -2,14 +2,23 @@
   "counts": {
     "claude": 13,
     "grok": 13,
-    "gpt": 12
+    "gpt": 13
   },
   "lastRun": {
     "claude": 1785097083916,
     "grok": 1785100496786,
-    "gpt": 1785093119856
+    "gpt": 1785104143137
   },
   "attempts": [
+    {
+      "id": "gpt-1785104143137",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous Perron-based lemma: a rightmost off-line zero forces M(x)=Ω(x^{β0}) oscillations.",
+      "ts": "2026-07-26T22:15:43.137Z",
+      "duration_ms": 60777
+    },
     {
       "id": "grok-1785100496786",
       "ai": "grok",

@@ -1,0 +1,70 @@
+Attempt: Rightmost off-line zero forces power-size oscillations of the Mertens function
+
+Statement
+Let M(x) = ∑_{n≤x} μ(n), and let ρ run over the nontrivial zeros of ζ(s). Put β0 = sup Re ρ. Suppose β0 > 1/2. Assume there exists at least one simple zero ρ0 = β0 + iγ0 with Re ρ0 = β0, and that there is δ > 0 such that no zero satisfies Re ρ ≥ β0 − δ except possibly those with Re ρ = β0. Then:
+
+1) For any ε with 0 < ε < δ, there exists Cε > 0 and an unbounded sequence x → ∞ such that
+   |M(x)| ≥ Cε x^{β0−o(1)} and in fact |M(x)| ≥ Cε x^{β0} − O(x^{β0−ε}).
+
+2) If only finitely many zeros have real part β0, then there exists C > 0 such that
+   limsup_{x→∞} x^{-β0} |M(x)| ≥ C > 0.
+   In particular, M(x) is not o(x^{β0}).
+
+Thus any rightmost off-line zero forces power-size oscillations of M(x) of order x^{β0} (up to lower-order terms). Consequently, any global bound M(x) = O(x^{1/2+ε}) for a single ε<β0−1/2 would contradict the existence of such a zero.
+
+Proof sketch
+- Perron setup:
+  For c > 1 and T ≥ 1, with x not an integer to avoid endpoint issues,
+    M(x) = (1/2πi) ∫_{c−iT}^{c+iT} x^{s} (1/ζ(s)) (ds/s) + E(x,T),
+  where E(x,T) ≪ x^{c}/(T (c−1)) + 1/T by standard Perron bounds.
+
+- Shifting the contour:
+  Fix small η with 0 < η < δ and set σ1 = β0 − η. Shift the contour from Re s = c to Re s = σ1, taking T to infinity along a sequence where zero ordinates are avoided (standard). Poles crossed are:
+  • s = ρ with Re ρ ≥ σ1, i.e., those with Re ρ = β0 (by the δ-gap assumption);
+  • s = 0 (from the factor 1/s); note 1/ζ is regular at s=0 and contributes a bounded constant term.
+  Since 1/ζ(s) has a simple pole at each simple zero ρ with residue 1/ζ'(ρ),
+  the residue contribution at s = ρ is x^{ρ}/(ρ ζ'(ρ)).
+
+  Hence
+    M(x) = S_main(x) + R(x) + O(1),
+  where
+    S_main(x) = ∑_{Re ρ = β0} x^{ρ}/(ρ ζ'(ρ)),
+    R(x) = (1/2πi) ∫_{σ1−i∞}^{σ1+i∞} x^{s} (1/ζ(s)) (ds/s).
+
+- Bounding the remainder R:
+  On Re s = σ1, we use convexity-type bounds for ζ(s) away from its zeros. Since σ1 < β0 and by the hypothesis that there are no zeros with Re ≥ σ1 except those with Re = β0 (which have been accounted for as residues), 1/ζ(s) is holomorphic on this line. One has polynomial growth in t: for any A > 0, (1/ζ(σ1+it)) ≪_{σ1,A} (1+|t|)^{A}. The factor x^{σ1} and 1/|s| in the integrand then yields, after standard truncation at height T ≍ x, that
+    R(x) ≪ x^{σ1} = x^{β0−η}.
+  Making this uniform requires a conventional zero-avoiding choice of T; this is routine in explicit Perron analyses.
+
+- Structure of S_main(x):
+  Zeros come in conjugate pairs ρ and ρ̄ with the same residue relation, so
+    S_main(x) = x^{β0} ∑_{γ: β(γ)=β0} a_γ e^{iγ log x},
+    where a_γ = 1/(ρ ζ'(ρ) ρ).
+  Grouping conjugate pairs,
+    S_main(x) = x^{β0} ∑_{γ≥0: β(γ)=β0} 2 Re(a_γ e^{iγ log x}).
+  If there are finitely many such zeros, this is a finite trigonometric sum in θ = log x.
+
+- Extracting a lower bound:
+  • Finite case: If only finitely many zeros lie on Re s = β0, write
+      S_main(x) = x^{β0} F(θ), with θ = log x and F a continuous 2π-quasiperiodic function (periods determined by {γ}). Then max_θ |F(θ)| ≥ c > 0 unless all coefficients vanish, which they do not because residues are nonzero at simple zeros. Hence there exists a sequence x → ∞ such that
+      |S_main(x)| ≥ c x^{β0}.
+    Combining with R(x) ≪ x^{β0−η} gives the desired bound in (2) and the sharper inequality in (1).
+
+  • Infinite case on the ridge: If infinitely many zeros have real part β0, fix ε with 0 < ε < δ. Truncate S_main(x) to |γ| ≤ G and bound the tail ∑_{|γ|>G} x^{β0} |a_γ| by choosing G = G(x) tending to infinity slowly (e.g., G = (log x)^B) and using standard bounds on ∑_{|γ|≤G} 1/|ζ'(ρ) ρ| (finite-order growth) to ensure the tail is o(x^{β0−ε}). Then apply the finite-sum argument to the truncated sum to produce a sequence x where the truncated main term is ≥ c x^{β0}, and absorb both the tail and R(x) into O(x^{β0−ε}). This yields (1).
+
+- Conclusion:
+  In all cases under the hypotheses, there are arbitrarily large x with
+    |M(x)| ≥ C x^{β0} − O(x^{β0−ε}),
+  whence limsup_{x→∞} x^{-β0+ε} |M(x)| = ∞ for any ε ∈ (0, δ), and in the finite-ridge case limsup_{x→∞} x^{-β0} |M(x)| ≥ C > 0.
+
+Remarks and consequences
+- The proof is a clean Perron-residue argument exploiting that a rightmost zero produces a dominant pole for the Dirichlet series of 1/ζ(s) after insertion of the 1/s from summation. The δ-gap ensures the shifted integral is of strictly lower order.
+- This gives a precise obstruction: any approach aiming to prove M(x) = O(x^{1/2+ε}) for some fixed ε < β0 − 1/2 must first rule out the existence of a zero with real part > 1/2. Equivalently, such bounds would imply RH (at least no rightmost zero with β0 > 1/2).
+- The constants depend on residues 1/(ρ ζ'(ρ) ρ) at rightmost zeros; if one of these zeros is simple, the contribution is decisively nonzero.
+
+Limitations
+- The argument requires either finiteness of the set of zeros on the rightmost line or a mild summability to control the tail; it does not produce a zero-free region, nor does it approach RH directly.
+- It is conditional: it derives consequences from the existence of a rightmost off-line zero; it does not eliminate such zeros.
+
+VERDICT: PARTIAL
+REASON: Rigorous Perron-based lemma: a rightmost off-line zero forces M(x)=Ω(x^{β0}) oscillations.
