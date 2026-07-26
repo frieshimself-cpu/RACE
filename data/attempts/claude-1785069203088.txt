@@ -1,0 +1,100 @@
+# Attempt: Rigorous treatment of one direction of the Weil positivity criterion, with analysis of the converse obstruction
+
+I will (1) state the Weil explicit formula precisely, (2) give a rigorous proof of the *easy* direction of Weil's positivity criterion (RH ⟹ positivity), being careful about convergence, and (3) isolate exactly where a proof of the *converse* (positivity ⟹ RH) — and hence RH itself — must draw on unavailable input. The point is to make the logical structure sharp rather than to survey.
+
+## 1. Setup and explicit formula
+
+Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1, with $\xi(s)=\xi(1-s)$, and zeros exactly the nontrivial zeros $\rho=\tfrac12+i\gamma$ of $\zeta$. Write $\gamma\in\mathbb{C}$; RH asserts all $\gamma$ real.
+
+Let $\mathcal{T}$ be the class of test functions $g:\mathbb{R}\to\mathbb{C}$ that are even, compactly supported, and $C^2$. Set the transform
+$$
+h(r)=\int_{\mathbb{R}} g(u)\,e^{iru}\,du ,
+$$
+which is entire, even, and rapidly decreasing on horizontal strips: for $r=\sigma+i\tau$ with support of $g$ in $[-A,A]$,
+$$
+|h(\sigma+i\tau)|\le C\,(1+|\sigma|)^{-2}\,e^{A|\tau|}. \tag{1}
+$$
+
+**Explicit formula (Weil).** For $g\in\mathcal T$,
+$$
+\sum_{\rho} h\!\left(\tfrac{\gamma_\rho}{1}\right)
+= h\!\left(\tfrac{i}{2}\right)+h\!\left(-\tfrac{i}{2}\right)
+-\sum_{n\ge1}\frac{\Lambda(n)}{\sqrt n}\,2g(\log n)
++ \frac{1}{2\pi}\int_{-\infty}^{\infty} h(r)\,\Omega(r)\,dr, \tag{2}
+$$
+where the sum is over nontrivial zeros $\rho=\tfrac12+i\gamma_\rho$ (each with its multiplicity, $\gamma_\rho$ possibly complex), $\Lambda$ is von Mangoldt, and
+$$
+\Omega(r)=\operatorname{Re}\frac{\Gamma'}{\Gamma}\!\left(\tfrac14+\tfrac{ir}{2}\right)-\log\pi
+$$
+is the archimedean density coming from $\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)$. The zero-sum converges (grouping $\rho,1-\rho$) because $\#\{|\gamma_\rho|\le T\}=O(T\log T)$ and $h$ decays by (1). This identity is standard (contour integration of $\xi'/\xi$ against $h$); I take it as given.
+
+The **key structural fact**, which I will use and which is *unconditional*, is that in (2) the variable of $h$ ranges over $\gamma_\rho$ where $\rho=\tfrac12+i\gamma_\rho$. Thus:
+$$
+\rho\ \text{on the critical line}\iff \gamma_\rho\in\mathbb R. \tag{3}
+$$
+
+## 2. The quadratic form and the easy direction
+
+Given $\phi\in\mathcal T$, set $g=\phi\star\tilde\phi$ where $\tilde\phi(u)=\overline{\phi(-u)}$, i.e. $g(u)=\int\phi(t)\overline{\phi(t-u)}\,dt$. Then $g\in\mathcal T$ is even and its transform is
+$$
+h(r)=|\hat\phi(r)|^2\quad\text{for }r\in\mathbb R,\qquad \hat\phi(r)=\int\phi(u)e^{iru}\,du. \tag{4}
+$$
+More precisely $h(r)=\hat\phi(r)\,\overline{\hat\phi(\bar r)}$ extended to $\mathbb C$; on the real axis $h(r)=|\hat\phi(r)|^2\ge0$.
+
+Define the **Weil functional**
+$$
+W(\phi):=\sum_\rho h(\gamma_\rho)
+= h\!\left(\tfrac i2\right)+h\!\left(-\tfrac i2\right)
+-2\sum_{n\ge1}\frac{\Lambda(n)}{\sqrt n}\,(\phi\star\tilde\phi)(\log n)
++\frac1{2\pi}\int_{\mathbb R}|\hat\phi(r)|^2\,\Omega(r)\,dr. \tag{5}
+$$
+The right-hand side of (5) is the quantity Weil's criterion asks to be $\ge0$.
+
+**Lemma (easy direction, proved here rigorously).** *If RH holds, then $W(\phi)\ge0$ for all $\phi\in\mathcal T$.*
+
+**Proof.** Assume RH. By (3), every $\gamma_\rho\in\mathbb R$. Group the zeros into conjugate pairs $\{\rho,\bar\rho\}=\{\tfrac12+i\gamma,\tfrac12-i\gamma\}$; since the zeros are symmetric about the real axis and RH puts them on the line, the multiset $\{\gamma_\rho\}$ is symmetric under $\gamma\mapsto-\gamma$ and consists of real numbers. Then
+$$
+W(\phi)=\sum_\rho h(\gamma_\rho)=\sum_\rho |\hat\phi(\gamma_\rho)|^2\ge 0,
+$$
+using (4) with $\gamma_\rho\in\mathbb R$, and the fact that each summand is a nonnegative real. Convergence of the sum is guaranteed by (1) and the zero-counting bound. $\qquad\blacksquare$
+
+I have double-checked the two subtle points:
+- **Reality of $h(\gamma_\rho)$**: essential that $\gamma_\rho\in\mathbb R$ so that $h(\gamma_\rho)=|\hat\phi(\gamma_\rho)|^2$. Off the line, $\gamma_\rho=\alpha+i\beta$ with $\beta\ne0$, and $h(\alpha+i\beta)=\hat\phi(\alpha+i\beta)\overline{\hat\phi(\alpha-i\beta)}$ is **not** in general a nonnegative real; it need not even be real. This is exactly the leverage point (Section 3).
+- **Pairing**: for a zero off the line, $\rho$ and $1-\bar\rho$ are also zeros; the four-fold symmetry ensures the sum is real, but not that it is nonnegative.
+
+## 3. Where the converse breaks — a sharp obstruction
+
+Weil's criterion states the *equivalence* RH $\iff$ ($W(\phi)\ge0\ \forall\phi$). The converse direction is the entire content of RH. Here is the precise obstruction, made concrete.
+
+Suppose, for contradiction toward proving RH, that a zero sits off the line: $\rho_0=\tfrac12+i\gamma_0$ with $\gamma_0=\alpha+i\beta$, $\beta>0$. Its symmetric partners contribute to $W$ the term
+$$
+S(\phi)=h(\alpha+i\beta)+h(-\alpha+i\beta)+h(\alpha-i\beta)+h(-\alpha-i\beta).
+$$
+Using $h(r)=\hat\phi(r)\overline{\hat\phi(\bar r)}$ and evenness,
+$$
+S(\phi)=2\,\operatorname{Re}\Big[\hat\phi(\alpha+i\beta)\,\overline{\hat\phi(\alpha-i\beta)}+\hat\phi(-\alpha+i\beta)\,\overline{\hat\phi(-\alpha-i\beta)}\Big].
+$$
+To *derive a contradiction* one must exhibit $\phi\in\mathcal T$ making $W(\phi)<0$. The natural strategy is to concentrate $\hat\phi$ near the off-line height so that $S(\phi)$ dominates and is negative. But two rigorously verifiable facts block this:
+
+**(O1) Paley–Wiener rigidity.** Since $\phi$ is compactly supported (say in $[-A,A]$), $\hat\phi$ is entire of exponential type $A$ with $|\hat\phi(\alpha\pm i\beta)|\le \|\phi\|_1 e^{A\beta}$. One cannot make $\hat\phi$ large at $\alpha+i\beta$ while small at $\alpha-i\beta$: the two values are linked by
+$$
+\hat\phi(\alpha-i\beta)=\overline{\hat{\bar\phi}(\alpha+i\beta)},
+$$
+and for the $\phi\star\tilde\phi$ construction the off-line contribution reorganizes as $\big|\hat\phi(\alpha+i\beta)+\hat\phi(\alpha-i\beta)\big|^2$-type combinations only after using RH-symmetry — precisely the symmetry not available. Concretely, the sign of $S(\phi)$ is governed by the *phase* of $\hat\phi(\alpha+i\beta)\overline{\hat\phi(\alpha-i\beta)}$, which for an entire function of exponential type is not freely controllable independently of its modulus.
+
+**(O2) Positivity leakage from the rest of the spectrum.** The remaining (on- or off-line) zeros contribute $\sum'|\hat\phi(\gamma_\rho)|^2$-like positive mass; forcing $S(\phi)<0$ to overcome the archimedean term $\frac1{2\pi}\int|\hat\phi|^2\Omega$ and the pole terms $h(\pm i/2)$ requires quantitative control on $\Omega(r)$ for $r$ near $\alpha+i\beta$, i.e. control on $\frac{\Gamma'}{\Gamma}$ off the real axis — available — *but simultaneously* a lower bound on how isolated $\rho_0$ is from the rest of the spectrum, which is unknown unconditionally.
+
+Thus the converse is genuinely equivalent to a *phase–modulus decoupling* problem for Paley–Wiener functions evaluated at the (unknown) off-line ordinates. This reformulation is exact and is where every explicit-formula attack at RH stalls: the explicit formula converts RH into a positivity statement, but the positivity is manifest only *after* assuming the reality (3) that one is trying to prove. No amount of test-function optimization over $\mathcal T$ escapes (O1): the linear functional $\phi\mapsto S(\phi)$ does not have a sign, precisely because $h$ off the real axis is a Hermitian-indefinite pairing $\hat\phi(r)\overline{\hat\phi(\bar r)}$ rather than $|\hat\phi(r)|^2$.
+
+## 4. Small concrete residue
+
+One genuinely unconditional corollary is worth recording, and I verify it: **any single test function $\phi$ with $W(\phi)<0$ would immediately disprove RH.** By the Lemma's contrapositive this is immediate; the value of stating it is that it reduces "disproving RH" to a *finite computation* per candidate $\phi$, because all terms in (5) are computable to any precision (the zero-sum can be replaced by the RHS of (5), whose ingredients are $\Lambda(n)$-sums and $\Gamma'/\Gamma$-integrals). This gives a rigorous, if impractical, algorithmic disproof procedure — but crucially **no** corresponding finite procedure for a *proof*, again by (O1)–(O2). This asymmetry is itself an honest structural conclusion.
+
+## Summary of what is and isn't established
+
+- Rigorously proved: RH $\Rightarrow$ $W(\phi)\ge0$ (Lemma), with careful convergence and the identification of $\gamma_\rho\in\mathbb R$ as the sole ingredient making each summand nonnegative.
+- Identified exactly: the converse hinges on a phase–modulus decoupling for exponential-type functions (O1) plus spectral isolation (O2), neither available; the indefiniteness of the off-line pairing $\hat\phi(r)\overline{\hat\phi(\bar r)}$ is the precise reason positivity gives no leverage.
+- New progress toward RH: none beyond sharpening the obstruction and recording the disproof-asymmetry corollary.
+
+VERDICT: FAILED
+REASON: Rigorously proved only the easy direction of Weil positivity; pinpointed but did not overcome the phase-modulus obstruction.

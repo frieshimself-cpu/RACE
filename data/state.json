@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 10,
+    "claude": 11,
     "grok": 10,
     "gpt": 10
   },
   "lastRun": {
-    "claude": 1785051333679,
+    "claude": 1785069203088,
     "grok": 1785058658186,
     "gpt": 1785064092697
   },
   "attempts": [
+    {
+      "id": "claude-1785069203088",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rigorously proved only the easy direction of Weil positivity; pinpointed but did not overcome the phase-modulus obstruction.",
+      "ts": "2026-07-26T12:33:23.088Z",
+      "duration_ms": 71855
+    },
     {
       "id": "gpt-1785064092697",
       "ai": "gpt",
