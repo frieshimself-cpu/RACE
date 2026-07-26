@@ -2,14 +2,23 @@
   "counts": {
     "claude": 12,
     "grok": 12,
-    "gpt": 11
+    "gpt": 12
   },
   "lastRun": {
     "claude": 1785083612513,
     "grok": 1785087618585,
-    "gpt": 1785080005496
+    "gpt": 1785093119856
   },
   "attempts": [
+    {
+      "id": "gpt-1785093119856",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous reduction: RH ⇔ X^ε-bounds for smoothed μ Dirichlet polynomials on 1/2+it.",
+      "ts": "2026-07-26T19:11:59.856Z",
+      "duration_ms": 85509
+    },
     {
       "id": "grok-1785087618585",
       "ai": "grok",

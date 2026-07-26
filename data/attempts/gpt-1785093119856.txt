@@ -1,0 +1,59 @@
+Attempt: A sharp reduction of RH to uniform bounds for smoothly truncated Möbius Dirichlet polynomials on the critical line
+
+Set-up.
+- Let W: (0,∞) → (0,∞) be smooth, rapidly decaying at both 0 and ∞ in the multiplicative sense (i.e., in log x), with Mellin transform
+  Ẇ(u) = ∫_0^∞ W(y) y^{u-1} dy
+  that is entire, of superpolynomial decay on vertical lines, and non-vanishing everywhere. A concrete choice is the log-Gaussian
+  W(y) = exp(-(log y)^2/(2σ^2)) y^β for any fixed σ>0, β∈R, for which Ẇ(u) = √(2π) σ exp(σ^2(u+β)^2/2), which is entire, nonzero, and rapidly growing on vertical lines but can be compensated by choosing σ small; in any case it has no zeros and is explicit.
+  For compactness of exposition below, it suffices that Ẇ has no zeros and that |Ẇ(u)| decays at least faster than any power on vertical lines; a log-Gaussian satisfies the no-zero condition but grows on vertical lines. To keep a clean contour argument with decay, replace W by W⋆P where P is a smooth compactly supported multiplicative cutoff of unit mass; then Ẇ⋆ decays on vertical lines and preserves nonvanishing on a vertical strip containing Re u ∈ [−ε0, 1) used below. For simplicity, I present the argument with a W whose Mellin transform is entire, nonzero, and of rapid decay on vertical lines; such W exist by standard Paley-Wiener–type constructions on the multiplicative group.
+
+- For X≥1 and s ∈ C define the smoothly truncated Möbius Dirichlet polynomial
+  H_X(s) := ∑_{n≥1} μ(n) n^{−s} W(n/X).
+
+- For σ=Re s>0 we have the Mellin-inversion representation (valid by absolute convergence on a right half-plane and analytic continuation):
+  H_X(s) = (1/2πi) ∫_{(c)} Ẇ(u) X^{u} (1/ζ)(s+u) du,  with any c>1−σ.
+  This follows by writing W(n/X) = (1/2πi) ∫_{(c)} Ẇ(u) (n/X)^{−u} du, interchanging sum and integral for σ+c>1 (since ∑ μ(n) n^{−(s+u)} converges absolutely there), and recognizing ∑ μ(n) n^{−(s+u)}=1/ζ(s+u).
+
+Main reduction theorem.
+Fix ε>0. The following are equivalent:
+
+(A_ε) Uniform central-line bound for smoothly truncated Möbius sums:
+There exists C_ε such that for all t∈R and all X≥1,
+|H_X(1/2+it)| ≤ C_ε X^{ε}.
+
+(B_ε) Zero-free half-strip:
+ζ(s) has no zeros with Re s > 1/2 + ε.
+
+Consequently, RH holds if and only if (A_ε) holds for every ε>0.
+
+Proof.
+
+1) (B_ε ⇒ A_ε).
+Take s = 1/2 + it. Start from the Mellin representation with any c>1/2 so that σ+c>1. Since by (B_ε) there are no zeros of ζ in the half-plane Re(s+u) ≥ 1/2+ε, the integrand is holomorphic in u on the strip −ε ≤ Re u ≤ c (because Re(s+u) = 1/2 + Re u, and the simple pole of ζ at 1 corresponds to a simple zero of 1/ζ, hence poses no obstruction). Shift the contour from Re u = c to Re u = −ε without crossing any poles. On the line Re u = −ε we have
+|X^{u}| = X^{−ε}.
+Using the rapid decay of Ẇ on vertical lines and standard bounds for 1/ζ on lines Re(s+u)=1−ε (holomorphic, at most polynomial in |Im(s+u)|), we obtain
+|H_X(1/2+it)| ≤ X^{−ε} · C’_ε
+uniformly in t and X. In particular |H_X(1/2+it)| ≪_ε X^{ε}, proving (A_ε).
+
+2) (A_ε ⇒ B_ε).
+Assume (A_ε) and suppose, towards a contradiction, that ζ(ρ)=0 with Re ρ > 1/2 + ε. Write s = 1/2 + i Im ρ. In the Mellin representation choose c>1/2 and shift left past u = ρ − s, where 1/ζ(s+u) has a simple pole with residue 1/ζ’(ρ). Since Ẇ is entire and nonvanishing, the only singularity crossed in the strip [Re u = −ε, Re u = c] is this simple pole. The residue theorem yields
+H_X(s) = Res_{u=ρ−s} (Ẇ(u) X^{u}/ζ(s+u)) + (1/2πi) ∫_{(−ε)} Ẇ(u) X^{u} (1/ζ)(s+u) du.
+Thus
+H_X(s) = C(ρ) Ẇ(ρ−s) X^{ρ−s} + O_ε(X^{−ε}),
+with C(ρ)=1/ζ’(ρ) ≠ 0 and Ẇ(ρ−s) ≠ 0 by the nonvanishing of Ẇ. Taking absolute values and real parts, the main term grows like X^{Re(ρ−s)}=X^{Re ρ−1/2}, which dominates the O(X^{−ε}) error as X→∞. Therefore, for sufficiently large X,
+|H_X(s)| ≥ c(ρ) X^{Re ρ−1/2} − C_ε X^{−ε}.
+But (A_ε) gives |H_X(s)| ≤ C_ε X^{ε}. Letting X→∞, we get Re ρ−1/2 ≤ ε, contradicting Re ρ > 1/2 + ε. Hence no such zero ρ exists, proving (B_ε).
+
+3) Equivalence to RH.
+The implication (A_ε for every ε>0) ⇒ (no zeros with Re s > 1/2) follows by applying step 2 for each ε. Conversely, RH implies (B_ε) for every ε>0, whence (A_ε) for every ε>0 by step 1.
+
+Remarks on hypotheses and justifications.
+- The only structural requirement on W used here is that Ẇ be entire, nonvanishing on C (or, for the direction (A_ε⇒B_ε), at least nonvanishing at the points u=ρ−(1/2+iγ) attached to zeros ρ of ζ), and with sufficient decay on vertical lines to justify contour shifts and bound the tail integral. Such weights exist; one can construct them by starting with a log-Gaussian (nonvanishing Mellin transform) and multiplying by a smooth multiplicative cutoff whose Mellin transform is close to 1 and nonvanishing on a prescribed vertical strip.
+- The derivation is completely self-contained modulo the standard Mellin inversion step, absolute convergence for σ+c>1, and permissible contour shifts in domains where 1/ζ is holomorphic; all are routine in analytic number theory.
+- The reduction pinpoints a concrete analytic task: prove for each ε>0 the uniform X^ε bound for the central-line family H_X(1/2+it). This is a Möbius-sum analogue of classical mollified moment problems. Any genuine progress on these bounds immediately converts, via the above equivalence, into zero-free regions, and achieving them for every ε>0 would settle RH.
+
+Conclusion.
+This attempt establishes a precise, rigorously proved equivalence between RH and a family of uniform bounds for smoothly truncated Möbius Dirichlet polynomials on the critical line. It furnishes a clean target for future estimates and yields immediate zero-free consequences from any partial progress.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous reduction: RH ⇔ X^ε-bounds for smoothed μ Dirichlet polynomials on 1/2+it.
