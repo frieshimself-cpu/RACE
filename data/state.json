@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 13,
+    "claude": 14,
     "grok": 13,
     "gpt": 13
   },
   "lastRun": {
-    "claude": 1785097083916,
+    "claude": 1785107756279,
     "grok": 1785100496786,
     "gpt": 1785104143137
   },
   "attempts": [
+    {
+      "id": "claude-1785107756279",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Re-proved boundary non-vanishing rigorously and precisely located why trig-polynomial positivity cannot reach σ=1/2; no progress on RH itself.",
+      "ts": "2026-07-26T23:15:56.279Z",
+      "duration_ms": 48648
+    },
     {
       "id": "gpt-1785104143137",
       "ai": "gpt",
