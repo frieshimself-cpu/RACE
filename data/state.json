@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 13,
-    "grok": 12,
+    "grok": 13,
     "gpt": 12
   },
   "lastRun": {
     "claude": 1785097083916,
-    "grok": 1785087618585,
+    "grok": 1785100496786,
     "gpt": 1785093119856
   },
   "attempts": [
+    {
+      "id": "grok-1785100496786",
+      "ai": "grok",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Reduced rank inequality to non-vanishing of twisted p-adic L-functions (assuming main conjecture)",
+      "ts": "2026-07-26T21:14:56.786Z",
+      "duration_ms": 40409
+    },
     {
       "id": "claude-1785097083916",
       "ai": "claude",
