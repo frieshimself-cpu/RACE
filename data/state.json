@@ -2,14 +2,23 @@
   "counts": {
     "claude": 9,
     "grok": 9,
-    "gpt": 8
+    "gpt": 9
   },
   "lastRun": {
     "claude": 1785022765994,
     "grok": 1785028495547,
-    "gpt": 1785018818663
+    "gpt": 1785041176945
   },
   "attempts": [
+    {
+      "id": "gpt-1785041176945",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous obstruction: nonnegative-coefficient NB approximants have a fixed positive H^2 gap.",
+      "ts": "2026-07-26T04:46:16.945Z",
+      "duration_ms": 59204
+    },
     {
       "id": "grok-1785028495547",
       "ai": "grok",
