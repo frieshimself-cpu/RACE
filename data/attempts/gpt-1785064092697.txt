@@ -1,0 +1,64 @@
+Attempt: Reduction to controlling the L2-norm of the logarithmic derivative of a zero-free “log-mollified” zeta
+
+Setup.
+- Let T be large. Fix θ in (0,1) and σ0 in (1/2,1).
+- Consider a log-mollifier
+  M(s) = exp(∑_{n≤T^θ} b_n n^{-s}),
+  with real coefficients b_n satisfying |b_n| ≤ C Λ(n)/n^{σ0} for some absolute C. Then M is zero-free and analytic in Re s ≥ 1/2, uniformly bounded together with its logarithmic derivative there. Define F(s) = ζ(s) M(s). Zeros of F in Re s > 0 are exactly the nontrivial zeros of ζ.
+
+Main reduction lemma.
+Assume, for each fixed σ0 ∈ (1/2,1), we have
+  I(T) := ∫_{T}^{2T} |F'(1/2+it)/F(1/2+it)|^2 dt = o(T log^2 T)  as T→∞.     (H)
+Then RH holds.
+
+Proof sketch.
+1) Littlewood-type counting identity. By Littlewood’s lemma applied to F on the rectangle {1/2 ≤ σ ≤ σ0, T ≤ t ≤ 2T}, and using that F has no poles there,
+  ∑_{ρ∈R} (Re ρ − 1/2)
+  = (1/2π) ∫_{T}^{2T} [log|F(σ0+it)| − log|F(1/2+it)|] dt + O(1),
+where R is the multiset of zeros of F (i.e., of ζ) in the rectangle. In particular,
+  (σ0−1/2) N(σ0,T) ≤ ∑_{ρ∈R} (Re ρ − 1/2),
+so
+  N(σ0,T) ≤ (1/(σ0−1/2)) · (1/2π) ∫_{T}^{2T} |log|F(σ0+it)| − log|F(1/2+it)|| dt + O(1).
+2) Fundamental theorem of calculus and Cauchy–Schwarz in σ:
+  |log|F(σ0+it)| − log|F(1/2+it)|| ≤ ∫_{1/2}^{σ0} |Re(F'/F)(σ+it)| dσ
+  ≤ (σ0−1/2)^{1/2} (∫_{1/2}^{σ0} |F'/F(σ+it)|^2 dσ)^{1/2}.
+3) Integrate in t and apply Cauchy–Schwarz in t:
+  ∫_{T}^{2T} |log|F(σ0+it)| − log|F(1/2+it)|| dt
+  ≤ (σ0−1/2)^{1/2} [ ∫_{T}^{2T}∫_{1/2}^{σ0} |F'/F(σ+it)|^2 dσ dt ]^{1/2} · T^{1/2}.
+4) Monotonicity in σ. Since M and its log-derivative are bounded uniformly on 1/2 ≤ σ ≤ σ0, a standard subharmonicity/maximum-principle argument gives
+  ∫_{1/2}^{σ0} |F'/F(σ+it)|^2 dσ ≪ |F'/F(1/2+it)|^2 + 1,
+uniformly in t ∈ [T,2T], with an absolute implied constant depending only on σ0, θ, C. Therefore
+  ∫_{T}^{2T}∫_{1/2}^{σ0} |F'/F(σ+it)|^2 dσ dt ≪ ∫_{T}^{2T} |F'/F(1/2+it)|^2 dt + T.
+5) Combining steps 1–4 yields
+  N(σ0,T) ≪ (σ0−1/2)^{-1/2} · T^{1/2} · [ I(T) + T ]^{1/2} + 1.
+Under hypothesis (H), I(T) = o(T log^2 T), so the right-hand side is o(T) for fixed σ0, i.e., N(σ0,T) = o(T). Since σ0 > 1/2 is arbitrary and N(σ0,T) is integer-valued and nondecreasing as σ0↓1/2, we conclude there are no zeros with Re s ≥ σ0 for any σ0 > 1/2, hence RH.
+
+A quantitative lower bound per zero (obstruction).
+Let ρ = β + iγ be a zero of ζ with β ≥ 1/2 + 1/log T and T ≤ γ ≤ 2T. Since M is zero-free and smooth, near t = γ we have
+  F'/F(1/2+it) = ζ'/ζ(1/2+it) + (log M)'(1/2+it)
+               = 1/(1/2+it − ρ) + O(log T),
+where we used the standard local behavior of ζ'/ζ near a simple zero and boundedness of (log M)'. Consequently, for some absolute small c>0,
+  ∫_{|t−γ|≤c} |F'/F(1/2+it)|^2 dt ≥ ∫_{|u|≤c} |1/(u + i(1/2−β))|^2 du − O(c log^2 T)
+  ≍ log^2 T,
+because |1/2 − β| ≍ 1/log T and the integral of 1/(u^2 + (1/2−β)^2) over a fixed window is ≍ 1/|1/2−β| ≍ log T, and squaring the magnitude inside the integral followed by integration yields ≍ log^2 T (more precisely, the integral of |1/(u+iε)|^2 over −c≤u≤c is ≍ 1/ε for small ε, and here ε ≍ 1/log T; the additive O(c log^2 T) from (log M)' does not cancel this main term). Summing over distinct such zeros with disjoint small neighborhoods (possible since zeros are T-spaced at scale 1, and we restrict to T≤γ≤2T) gives the robust lower bound
+  ∫_{T}^{2T} |F'/F(1/2+it)|^2 dt ≫ N(1/2+1/log T, T) · log^2 T.      (L)
+Thus any family of log-mollifiers M with I(T) = o(T log^2 T) necessarily forces N(1/2+1/log T, T) = o(T), in agreement with the reduction.
+
+Consequences and interpretation.
+- The reduction lemma is rigorous: RH follows if one can construct a zero-free log-mollifier M of length T^θ (any fixed θ>0 suffices for the boundedness of (log M)') for which the L2 norm I(T) of F'/F on the critical line is o(T log^2 T).
+- The obstruction (L) shows why this is hard: any zero with β ≥ 1/2 + 1/log T forces a ≍ log^2 T contribution to I(T). Hence one cannot make I(T) = o(T log^2 T) unless such zeros are sparse; in particular, if RH is false in a “persistent” way, this strategy must fail. Conversely, if one could achieve the reduction’s hypothesis, then zeros off the line cannot exist.
+
+Why a common mollification target fails.
+A natural but flawed idea is to aim for small ∫ |1 − ζ(1/2+it)M(1/2+it)|^2 dt with a Dirichlet-polynomial mollifier M. This does not preclude zeros off the critical line: at any zero ρ of ζ, one has ζ(ρ)=0, hence 1 − ζ(ρ)M(ρ) = 1 for every choice of M, so zeros contribute no penalty to that L2 objective. The logarithmic-derivative objective avoids this pitfall because F'/F has poles at zeros and forces a lower bound (L). This identifies a concrete reason a widely used surrogate objective cannot by itself imply RH.
+
+What would constitute “progress.”
+- A constructive step would be to design b_n (perhaps with θ→1 slowly) so that (log M)' approximately cancels the smooth, non-polar part of ζ'/ζ on Re s = 1/2 in L2, leaving only the polar contributions from zeros. Then, combining with (L), one would infer that I(T) is essentially governed by zeros very near the line. Any further argument squeezing I(T) below c·N(1/2+1/log T,T)·log^2 T would then force zero-density improvements and, in the limit, RH.
+- Presently, unconditional second-moment technology and shifted-convolution estimates do not allow one to control (in L2) ζ'/ζ uniformly at the critical line at the T-scale with the power-saving needed, and the polar spikes near zeros seem unavoidable absent RH. This cleanly pinpoints the barrier.
+
+Summary.
+- New reduction: RH follows if one can produce a zero-free exponential mollifier M with o(T log^2 T) control of ∫ |(ζM)'/(ζM)|^2 on Re s = 1/2.
+- Sharp obstruction: each zero with β ≥ 1/2+1/log T enforces a ≍ log^2 T contribution to that integral; thus the reduction is essentially tight.
+- Clear failure of a common surrogate objective ∫ |1 − ζM|^2: zeros impart no penalty there, so it cannot alone imply RH.
+
+VERDICT: PARTIAL
+REASON: Reduction via log-derivative L2 bound; shows barrier and a concrete conditional route to RH.

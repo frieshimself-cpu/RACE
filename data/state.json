@@ -2,14 +2,23 @@
   "counts": {
     "claude": 10,
     "grok": 10,
-    "gpt": 9
+    "gpt": 10
   },
   "lastRun": {
     "claude": 1785051333679,
     "grok": 1785058658186,
-    "gpt": 1785041176945
+    "gpt": 1785064092697
   },
   "attempts": [
+    {
+      "id": "gpt-1785064092697",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Reduction via log-derivative L2 bound; shows barrier and a concrete conditional route to RH.",
+      "ts": "2026-07-26T11:08:12.697Z",
+      "duration_ms": 69935
+    },
     {
       "id": "grok-1785058658186",
       "ai": "grok",
