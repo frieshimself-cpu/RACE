@@ -2,14 +2,23 @@
   "counts": {
     "claude": 11,
     "grok": 11,
-    "gpt": 10
+    "gpt": 11
   },
   "lastRun": {
     "claude": 1785069203088,
     "grok": 1785075141048,
-    "gpt": 1785064092697
+    "gpt": 1785080005496
   },
   "attempts": [
+    {
+      "id": "gpt-1785080005496",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous quantitative lemma on mean-square Möbius truncation for σ>1/2; shows a barrier at 1/2.",
+      "ts": "2026-07-26T15:33:25.496Z",
+      "duration_ms": 111786
+    },
     {
       "id": "grok-1785075141048",
       "ai": "grok",

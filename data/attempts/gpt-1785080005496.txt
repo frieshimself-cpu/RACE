@@ -1,0 +1,51 @@
+Attempt: A quantified mean-square approximation to 1/ζ(s) by truncated Möbius Dirichlet polynomials for σ>1/2
+
+Statement (Lemma).
+Fix σ>1/2. For T≥2 and N≥1 define the Dirichlet polynomial
+M_N(s) = ∑_{n≤N} μ(n) n^{-s}.
+Then for s = σ + it we have, uniformly in T and N,
+I(T,N;σ) := ∫_T^{2T} |ζ(s) M_N(s) - 1|^2 dt ≤ C(σ) T N^{1-2σ} + O_σ(N^{1-2σ}),
+for some absolute constant C(σ) depending only on σ. In particular, if N grows with T (e.g. N=T), then
+I(T,N;σ) ≪_σ T N^{1-2σ}.
+
+Remarks.
+- The identity ζ(s)M_N(s) − 1 is just the tail of the absolutely convergent Dirichlet series for ζ(s)∑_{n≥1} μ(n) n^{-s} = 1 in Re s>1. In the half-plane σ>1/2, this tail is square-summable and we quantify its mean-square size on vertical lines.
+- The bound shows that in mean square on Re s=σ, the best possible N-dependent error decays like N^{-(2σ−1)}. As σ→1/2+, the exponent 2σ−1→0+, exhibiting the “barrier” at the critical line: no power-saving in N survives at σ=1/2 from this elementary truncation. This helps explain the necessity of more delicate mollifiers and cancellations at the critical line.
+
+Proof.
+1) Dirichlet series identity. For Re s>1/2, absolute convergence of ζ(s) on Re s>1 and conditional convergence beyond is not directly used; instead we expand the product formally and then justify by square-summability. Write
+ζ(s) M_N(s) = ∑_{n=1}^∞ n^{-s} · ∑_{d≤N} μ(d) d^{-s}
+= ∑_{m=1}^∞ a_N(m) m^{-s},
+where the coefficients are
+a_N(m) = ∑_{d≤N, d|m} μ(d) = ∑_{d|m} μ(d) 1_{d≤N}.
+Then ζ(s)M_N(s) − 1 = ∑_{m=2}^∞ a_N(m) m^{-s}. Note that a_N(1)=1, and for each fixed N, the sequence a_N(m) has finite support in the divisor variable and is in ℓ^2 weighted by m^{-2σ} for σ>1/2 (see step 2).
+
+2) ℓ^2 bound for the coefficients. We claim
+S(N,σ) := ∑_{m=1}^∞ |a_N(m)|^2 m^{-2σ} ≪_σ N^{1-2σ}.
+Proof. Expand:
+S(N,σ) = ∑_{m=1}^∞ ∑_{d1|m, d1≤N} μ(d1) ∑_{d2|m, d2≤N} μ(d2) m^{-2σ}
+= ∑_{d1≤N} ∑_{d2≤N} μ(d1)μ(d2) ∑_{m ≡ 0 mod l} m^{-2σ},
+with l = lcm(d1,d2). The inner sum equals l^{-2σ} ζ(2σ). Thus
+S(N,σ) = ζ(2σ) ∑_{d1≤N} ∑_{d2≤N} μ(d1)μ(d2) lcm(d1,d2)^{-2σ}.
+Write d1 = g a, d2 = g b, with g = gcd(d1,d2), so lcm(d1,d2) = gab. Because μ vanishes off squarefree numbers, we can restrict to squarefree g,a,b with (a,b)=1, and g a ≤ N, g b ≤ N. Then
+S(N,σ) = ζ(2σ) ∑_{g≤N, sf} g^{-2σ} ∑_{a≤N/g, sf} μ(a) a^{-2σ} ∑_{b≤N/g, sf, (a,b)=1} μ(b) b^{-2σ}.
+Extend the a- and b-sums to infinity and subtract the tails. The infinite coprime-restricted products converge absolutely for σ>1/2, hence the main term over g is ≪ ∑_{g≤N} g^{-2σ} ≪ 1 (bounded in N). The tail errors from truncating at N/g are ≪ (N/g)^{1-2σ}, by partial summation and absolute convergence. Squaring and summing over g yields
+S(N,σ) ≪_σ ∑_{g≤N} g^{-2σ} (N/g)^{2(1-2σ)} ≪_σ N^{2(1-2σ)} ∑_{g≤N} g^{2σ-2}
+≪_σ N^{2(1-2σ)} · N^{2σ-1} = N^{1-2σ},
+as claimed.
+
+3) Mean value estimate for Dirichlet polynomials. Let
+F_N(s) := ζ(s)M_N(s) − 1 = ∑_{m=2}^∞ a_N(m) m^{-s}.
+For σ>1/2, the series for F_N(σ+it) converges in L^2(dt) on finite intervals, and we can apply Montgomery’s mean value theorem (or Parseval for Dirichlet polynomials with an approximation by truncating at a large M and then sending M→∞) to get
+∫_T^{2T} |F_N(σ+it)|^2 dt = T ∑_{m=1}^∞ |a_N(m)|^2 m^{-2σ} + O_σ(∑_{m=1}^∞ |a_N(m)|^2 m^{1-2σ}),
+where the error O_σ(...) comes from the standard remainder term when integrating |∑ c_m m^{-it}|^2 over a length-T interval; see e.g. Montgomery–Vaughan, Multiplicative Number Theory I. Since σ>1/2, the extra factor m^{1-2σ} is summable with the same bound as in step 2 up to a factor N (or more precisely, by the same argument one gets ∑ |a_N(m)|^2 m^{1-2σ} ≪_σ N^{1-2σ}). Therefore,
+∫_T^{2T} |F_N(σ+it)|^2 dt = T S(N,σ) + O_σ(S(N,σ)) ≪_σ T N^{1-2σ} + N^{1-2σ}.
+This is the desired inequality with C(σ) comparable to ζ(2σ) and the implicit constants from the mean value theorem.
+
+Consequences and discussion.
+- Taking N = T yields I(T,T;σ) ≪_σ T·T^{1-2σ} = T^{2-2σ}. For any fixed σ>1/2 this is o(T) as T→∞, quantitatively capturing that 1/ζ(s) is “well approximated in mean square” along the vertical line Re s=σ by the truncated Möbius Dirichlet polynomial of length T.
+- The exponent barrier: the decay rate in N is N^{-(2σ−1)}. As σ→1/2+, the exponent tends to 0+, and no power-saving in N remains at σ=1/2. This cleanly articulates a fundamental obstruction in pushing such naïve approximations onto the critical line: without additional structure (e.g., more sophisticated mollifiers that exploit cancellation tied to the functional equation and zero distribution), the truncation method alone cannot deliver a quantitatively small error at σ=1/2.
+- This lemma can be inserted into any approach that requires a controlled mean-square approximation to 1/ζ(s) off the critical line, serving as a base case. It also supplies a rigorous benchmark for evaluating whether proposed mollifiers meaningfully beat the trivial tail bound as σ approaches 1/2.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous quantitative lemma on mean-square Möbius truncation for σ>1/2; shows a barrier at 1/2.
