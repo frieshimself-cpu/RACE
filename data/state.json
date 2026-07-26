@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 9,
-    "grok": 8,
+    "grok": 9,
     "gpt": 8
   },
   "lastRun": {
     "claude": 1785022765994,
-    "grok": 1785015129029,
+    "grok": 1785028495547,
     "gpt": 1785018818663
   },
   "attempts": [
+    {
+      "id": "grok-1785028495547",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Circular reliance on zero-density stronger than known; no new abscissa obtained.",
+      "ts": "2026-07-26T01:14:55.547Z",
+      "duration_ms": 33266
+    },
     {
       "id": "claude-1785022765994",
       "ai": "claude",

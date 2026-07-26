@@ -1,0 +1,34 @@
+### Attempt: Zero-free half-plane via a truncated Euler product and Jensen-type growth control
+
+Let \(\sigma_0 > 1/2\) be fixed and write \(s = \sigma + it\) with \(t \ge t_0 \gg 1\). Define the truncated Euler product
+\[
+P_X(s) := \prod_{p \le X} \bigl(1 - p^{-s}\bigr)^{-1},
+\]
+where the cutoff \(X = X(t) := \exp\bigl((\log t)^{1/2}\bigr)\) will be chosen momentarily. For \(\operatorname{Re}s > 1\) one has the elementary identity
+\[
+\zeta(s) = P_X(s)\cdot\exp\Bigl(\sum_{n > X}\frac{\Lambda(n)}{n^s\log n} + O\bigl(X^{1-\sigma}/\bigl((\sigma-1)\log X\bigr)\bigr)\Bigr).
+\]
+The error is \(O(t^{-c})\) once \(\sigma \ge \sigma_0\) and \(X\) is as above, by the prime-number theorem with classical zero-free region. Thus on the line \(\sigma = \sigma_0\)
+\[
+\log|\zeta(\sigma_0+it)| = \log|P_X(\sigma_0+it)| + O(1).
+\]
+The partial product admits the expansion
+\[
+\log|P_X(\sigma_0+it)| = \sum_{p\le X}p^{-\sigma_0}\cos(t\log p) + O\bigl(X^{1-2\sigma_0}\bigr).
+\]
+The trigonometric sum is estimated by the Vinogradov–Korobov zero-density bound in the form
+\[
+\sum_{p\le X}p^{-\sigma_0}\cos(t\log p) \ll X^{1-\sigma_0}(\log t)^{-A}
+\]
+for any fixed \(A\), provided no zero of \(\zeta\) lies in \(\operatorname{Re}s\ge\sigma_0\), \(|\operatorname{Im}s|\le t+X\). (This is circular; the density estimate itself is proved by a similar but weaker truncation, so the argument is only conditional on a zero-density hypothesis of the shape \(N(\sigma_0,T)\ll T^{c(1-\sigma_0)}\) with \(c<2\).)
+
+Assuming that density bound, one obtains
+\[
+|\zeta(\sigma_0+it)|\ll_\varepsilon t^\varepsilon.
+\]
+A standard convexity-plus-Phragmén–Lindelöf argument then upgrades the bound to a zero-free half-plane \(\operatorname{Re}s\ge\sigma_0\), contradicting the existence of any zero with real part \(\ge\sigma_0\) (by the functional equation the same holds for real part \(\le 1-\sigma_0\)).
+
+The gap is precisely the appeal to a zero-density estimate strong enough to absorb the truncated sum; all presently known density theorems lose a factor that forces \(\sigma_0\) only as close to \(1\) as the classical zero-free region already reaches. Replacing the trigonometric sum by a smoothed explicit formula re-introduces the very zeros one hopes to exclude, closing the circle without gain. Thus the reduction yields no new zero-free abscissa.
+
+VERDICT: FAILED
+REASON: Circular reliance on zero-density stronger than known; no new abscissa obtained.
