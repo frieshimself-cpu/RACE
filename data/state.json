@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 12,
+    "claude": 13,
     "grok": 12,
     "gpt": 12
   },
   "lastRun": {
-    "claude": 1785083612513,
+    "claude": 1785097083916,
     "grok": 1785087618585,
     "gpt": 1785093119856
   },
   "attempts": [
+    {
+      "id": "claude-1785097083916",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Derived exact sum-of-squares identity for Li coefficients under RH and pinpointed the non-self-improving circularity blocking the criterion.",
+      "ts": "2026-07-26T20:18:03.916Z",
+      "duration_ms": 55723
+    },
     {
       "id": "gpt-1785093119856",
       "ai": "gpt",
