@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 12,
-    "grok": 11,
+    "grok": 12,
     "gpt": 11
   },
   "lastRun": {
     "claude": 1785083612513,
-    "grok": 1785075141048,
+    "grok": 1785087618585,
     "gpt": 1785080005496
   },
   "attempts": [
+    {
+      "id": "grok-1785087618585",
+      "ai": "grok",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "Motivic filtration reductions blocked by non-faithful realization and non-abelian MT groups",
+      "ts": "2026-07-26T17:40:18.585Z",
+      "duration_ms": 38488
+    },
     {
       "id": "claude-1785083612513",
       "ai": "claude",

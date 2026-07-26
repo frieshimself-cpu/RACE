@@ -1,0 +1,25 @@
+### Attempt: Failure analysis of a motivic filtration approach to algebraicity of Hodge classes
+
+Let \(X/\mathbb{C}\) be smooth projective of dimension \(n\). Write \(Hdg^{p}(X):=H^{2p}(X,\mathbb{Q})\cap H^{p,p}(X)\). The cycle class map \(\operatorname{cl}:CH^{p}(X)_{\mathbb{Q}}\to Hdg^{p}(X)\) is conjecturally surjective. Consider the following attempted attack via the conjectural motivic filtration on Chow groups (Bloch–Beilinson).
+
+Assume the existence of a decreasing filtration \(F^\bullet\) on \(CH^{p}(X)_{\mathbb{Q}}\) satisfying:
+- \(F^0=CH^{p}(X)_{\mathbb{Q}}\), \(F^1=\ker(\operatorname{cl})\),
+- \(F^{r}/F^{r+1}\) is controlled by \(\operatorname{Ext}^{r}_{\mathrm{MM}}(\mathbb{Q}(-p),h^{2p-r}(X))\) in a category of mixed motives,
+- the filtration is respected by correspondences and is opposite to the coniveau filtration in the expected way.
+
+Under these axioms one formally obtains that a class \(\alpha\in Hdg^{p}(X)\) lifts to an element of \(F^0/F^1\) if and only if all higher Ext-obstructions vanish. For \(p=2\) and \(n=4\) the only possible non-trivial obstruction lies in
+\[
+\operatorname{Ext}^1_{\mathrm{MM}}(\mathbb{Q}(-2),h^{3}(X)).
+\]
+If one further assumes that the motive \(h^{3}(X)\) is a direct summand of the motive of an abelian variety (or a product of curves), the Ext-group can be identified with a subspace of intermediate Jacobian torsors. Hard Lefschetz and the fact that the Abel–Jacobi map annihilates \(F^2\) would then force the obstruction to vanish, yielding algebraicity of \(\alpha\).
+
+The argument collapses for two independent reasons, both already visible at the level of realizations.
+
+1. Even granting a Tannakian category of mixed motives with the expected Ext-groups, the realization functor to mixed Hodge structures need not be fully faithful on the relevant Ext^1. Concretely, there exist non-zero classes in \(\operatorname{Ext}^1_{\mathrm{MHS}}(\mathbb{Q}(-2),H^{3}(X))\) that do not arise from algebraic cycles (Griffiths’ examples on quintic threefolds already produce transcendental intermediate Jacobian points; their Künneth components survive in products that realize fourfolds). Thus vanishing of the Hodge-theoretic obstruction does not imply vanishing of the motivic obstruction.
+
+2. The generation assumption on \(h^{3}(X)\) fails in general. For a very general hypersurface \(X\subset\mathbb{P}^5\) of degree \(\ge 6\) the Hodge structure \(H^{3}(X)\) is not a subquotient of the cohomology of any abelian variety (by results on the Mumford–Tate group being the full symplectic group). Consequently the identification of the Ext-group with an intermediate Jacobian is unavailable, and no cycle-class computation can be performed.
+
+Both obstructions are sharp: the first is realized by known counter-examples to the integral Hodge conjecture (Voisin), while the second is realized by the generic member of the moduli space of hypersurfaces. Therefore the motivic-filtration machine cannot produce a proof of surjectivity of \(\operatorname{cl}\) beyond the classical cases (curves, surfaces, abelian varieties of low dimension) already settled by Lefschetz (1,1) and Fourier–Mukai techniques. Any successful approach must either construct algebraic cycles by geometric means that bypass Ext-obstructions, or prove a comparison theorem strong enough to kill transcendental Ext classes—neither of which is supplied by the present axioms.
+
+VERDICT: FAILED
+REASON: Motivic filtration reductions blocked by non-faithful realization and non-abelian MT groups
