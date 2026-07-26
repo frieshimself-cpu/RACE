@@ -1,0 +1,30 @@
+### Attempt: Conditional continuum mass gap from uniform lattice cluster expansions under asymptotic freedom
+
+Fix a compact simple Lie group \(G\) (e.g., \(SU(N)\)). Consider the Wilson lattice gauge theory on \(\mathbb{Z}^4_a\) with spacing \(a>0\), plaquette action
+\[
+S_a(U)=\frac{1}{g_0^2(a)}\sum_p\operatorname{Re}\operatorname{Tr}(1-U_p),
+\]
+and the associated Gibbs measure \(\mu_a\) on \(G\)-valued link configurations (normalized Haar measure, infinite-volume limit via finite-volume tori with periodic b.c.). Let \(W(\gamma)\) denote the Wilson loop observable for a closed lattice path \(\gamma\).
+
+It is classical (Brydges–Fröhlich–Seiler, 1980s; Balaban, Magnen–Rivasseau–Sénéor) that for each fixed \(a>0\) and bare coupling \(g_0(a)\) sufficiently large, a convergent cluster (polymer) expansion yields exponential clustering:
+\[
+\bigl|\langle W(\gamma_1)W(\gamma_2)\rangle_a-\langle W(\gamma_1)\rangle_a\langle W(\gamma_2)\rangle_a\bigr|\le C\exp\bigl(-m(a)\operatorname{dist}(\gamma_1,\gamma_2)/a\bigr),
+\]
+with mass gap \(m(a)\ge c\,g_0(a)^{-\kappa}>0\) for absolute constants \(c,\kappa>0\). The same expansion controls the existence of the infinite-volume measure and reflection positivity.
+
+**Lemma (conditional continuum limit).** Suppose there exists a sequence \(a_n\to0^+\) and a continuous, strictly positive running coupling \(g_0(a)\) obeying the asymptotically free \(\beta\)-function asymptotics
+\[
+a\frac{d g_0}{da}=-\beta_0 g_0^3+O(g_0^5),\qquad\beta_0>0,
+\]
+such that the family of measures \(\{\mu_{a_n}\}\) is tight in the space of tempered distributions on connection 1-forms (after suitable gauge fixing, e.g., Landau) and the renormalized two-point functions of the field strength remain uniformly exponentially clustered:
+\[
+\sup_n\bigl|\langle F_{\mu\nu}(x)F_{\rho\sigma}(y)\rangle_{a_n}^c\bigr|\le C\exp(-m|x-y|),\qquad m>0
+\]
+independent of \(n\). Then the weak limit \(\mu_*=\lim_n\mu_{a_n}\) (which exists by tightness and OS positivity) defines a non-trivial continuum Yang–Mills measure on \(\mathbb{R}^4\) satisfying the Osterwalder–Schrader axioms and possessing a mass gap \(\Delta\ge m>0\).
+
+**Sketch of proof.** Tightness + OS positivity pass to the limit, yielding a Euclidean QFT whose Wightman reconstruction (after analytic continuation) produces a Hilbert space, a continuous unitary representation of the Poincaré group, and a self-adjoint Hamiltonian \(H\ge0\) with \(H\Omega=0\). The uniform exponential decay of the lattice Schwinger functions for the curvature implies, by the usual transfer-matrix argument and density of local Wilson-loop algebra, that the spectrum of \(H\) on the orthogonal complement of the vacuum has a gap \(\Delta\ge m\). Non-triviality follows because the continuum string tension (extracted from large rectangular Wilson loops via the same cluster expansion) remains positive and finite after renormalization of \(g_0(a)\). Gauge invariance of the limit measure is inherited from the lattice.
+
+**Obstruction.** The hypothesis of *uniform* exponential clustering down to \(a=0\) is precisely the content of the mass-gap problem; the lattice cluster expansion constants deteriorate as \(g_0(a)\to0\) (required by asymptotic freedom to keep a finite continuum scale), and no uniform lower bound on \(m(a)\) is known. Infrared slavery heuristics suggest \(m\sim\Lambda_{\mathrm{QCD}}>0\), but converting this into a rigorous a-priori estimate that survives the continuum limit remains open. Thus the reduction is valid but does not yet close the problem.
+
+VERDICT: PARTIAL
+REASON: Conditional mass-gap lemma via lattice clusters; uniformity under AF continuum limit unproven

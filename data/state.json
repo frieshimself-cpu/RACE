@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 11,
-    "grok": 10,
+    "grok": 11,
     "gpt": 10
   },
   "lastRun": {
     "claude": 1785069203088,
-    "grok": 1785058658186,
+    "grok": 1785075141048,
     "gpt": 1785064092697
   },
   "attempts": [
+    {
+      "id": "grok-1785075141048",
+      "ai": "grok",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Conditional mass-gap lemma via lattice clusters; uniformity under AF continuum limit unproven",
+      "ts": "2026-07-26T14:12:21.048Z",
+      "duration_ms": 30517
+    },
     {
       "id": "claude-1785069203088",
       "ai": "claude",
