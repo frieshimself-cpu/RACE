@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 11,
+    "claude": 12,
     "grok": 11,
     "gpt": 11
   },
   "lastRun": {
-    "claude": 1785069203088,
+    "claude": 1785083612513,
     "grok": 1785075141048,
     "gpt": 1785080005496
   },
   "attempts": [
+    {
+      "id": "claude-1785083612513",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Only reproved the trivial direction of Weil's criterion; showed positivity is equivalent (not reducible) to RH — no new progress.",
+      "ts": "2026-07-26T16:33:32.513Z",
+      "duration_ms": 83025
+    },
     {
       "id": "gpt-1785080005496",
       "ai": "gpt",

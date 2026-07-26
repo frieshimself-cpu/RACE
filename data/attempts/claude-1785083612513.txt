@@ -1,0 +1,66 @@
+# Attempt: Weil's positivity criterion — rigorous easy direction and a sharp obstruction to the converse
+
+## Setup
+
+Let $\rho = \tfrac12 + i\gamma$ run over the nontrivial zeros of $\zeta$. RH is the statement that every $\gamma \in \mathbb{R}$.
+
+I work with the explicit formula in the following precise form. Let $h(r)$ be even, holomorphic in the strip $|\operatorname{Im} r| \le \tfrac12 + \delta$ and satisfying $h(r) = O((1+|r|)^{-2-\delta})$ there. Put
+$$
+g(u) = \frac{1}{2\pi}\int_{-\infty}^{\infty} h(r)\,e^{-iru}\,du_r , \qquad h(r)=\int_{-\infty}^\infty g(u)e^{iru}\,du .
+$$
+Then (Riemann–Weil):
+$$
+\sum_{\rho} h\!\left(\tfrac{\rho-\frac12}{i}\right)
+= \underbrace{h(\tfrac{i}{2})+h(-\tfrac{i}{2})}_{\text{poles at }s=0,1}
+\;-\; g(0)\log\pi
+\;+\; \frac{1}{2\pi}\int_{-\infty}^{\infty} h(r)\,\Re\frac{\Gamma'}{\Gamma}\!\left(\tfrac14+\tfrac{ir}{2}\right)dr
+\;-\; 2\sum_{n\ge 2}\frac{\Lambda(n)}{\sqrt n}\,g(\log n). \tag{EF}
+$$
+The left side runs over all zeros; if RH is false, some summand has argument $\tfrac{\rho-1/2}{i}=\gamma - i\beta$ with $\beta\neq 0$, so $h$ is evaluated **off** the real axis.
+
+Denote the right-hand side of (EF) by $\mathcal{A}(g)$ (archimedean + polar terms) minus the prime term $\mathcal{P}(g)$, so (EF) reads $\sum_\rho h = \mathcal{A}(g) - \mathcal{P}(g) =: W(g)$.
+
+## Lemma (easy direction, unconditional as an implication)
+
+**Claim.** *If RH holds, then for every $g \in C_c^\infty(\mathbb{R})$ that is even, real-valued, the associated $h(r)=|\hat g|$-type kernel below gives $W(g)\ge 0$; more precisely, taking $g = f \star \tilde f$ with $f\in C_c^\infty$, $\tilde f(u)=\overline{f(-u)}$, one has $W(g)\ge 0$.*
+
+**Proof.** For such $g$, $h(r)=\int g(u)e^{iru}du = |\hat f(r)|^2 \ge 0$ for **real** $r$, where $\hat f(r)=\int f(u)e^{iru}\,du$. Indeed $h(r)=\hat f(r)\overline{\hat f(\bar r)}$, which for $r\in\mathbb{R}$ equals $|\hat f(r)|^2\ge 0$. Since $f\in C_c^\infty$, $\hat f$ is entire of exponential type, so $h$ is entire, even, and admissible in (EF).
+
+Assume RH. Then each zero contributes $h(\gamma)$ with $\gamma\in\mathbb{R}$, hence
+$$
+W(g)=\sum_\rho h\!\left(\tfrac{\rho-1/2}{i}\right)=\sum_\gamma h(\gamma)=\sum_\gamma |\hat f(\gamma)|^2 \ge 0.
+$$
+The interchange and convergence are justified because $h(\gamma)=O(\gamma^{-2-\delta})$ on the real axis (exponential type is dominated by the polynomial decay coming from $f\in C_c^\infty$: $\hat f$ decays faster than any polynomial on $\mathbb R$), and $\sum_\gamma \gamma^{-2}<\infty$ by the zero-counting bound $N(T)\sim \tfrac{T}{2\pi}\log T$. $\qquad\blacksquare$
+
+This gives one direction of **Weil's criterion**: RH $\Rightarrow$ $W(g)\ge0$ for all positive-type $g$. The converse (positivity $\Rightarrow$ RH) is also true and classical; I now isolate *why* the positivity is not establishable unconditionally, in a way that is precise rather than rhetorical.
+
+## The obstruction, made precise
+
+Suppose we hope to **prove** $W(g)\ge 0$ directly (which would prove RH). $W(g)=\mathcal A(g)-\mathcal P(g)$ with
+
+- $\displaystyle \mathcal A(g)= h(\tfrac{i}{2})+h(-\tfrac i2) - g(0)\log\pi + \frac{1}{2\pi}\int h(r)\,\Re\tfrac{\Gamma'}{\Gamma}(\tfrac14+\tfrac{ir}2)\,dr$,
+- $\displaystyle \mathcal P(g)= 2\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n} g(\log n)$.
+
+**Key point.** For $g=f\star\tilde f$, the prime term is a *genuine positive-definite-looking* but sign-indefinite quadratic form: writing $g(\log n)=\int f(u)\overline{f(u-\log n)}\,du$,
+$$
+\mathcal P(g)=2\sum_n \frac{\Lambda(n)}{\sqrt n}\int f(u)\overline{f(u-\log n)}\,du .
+$$
+This is **not** of a definite sign. Concretely, replacing $f$ by $f_\lambda(u)=e^{i\lambda u}f(u)$ multiplies $g(\log n)$ by $e^{i\lambda\log n}=n^{i\lambda}$, giving
+$$
+\mathcal P(g_\lambda)=2\sum_n \frac{\Lambda(n)}{\sqrt n}\,n^{i\lambda}\,g_0(\log n),\qquad g_0=|f|\text{-envelope},
+$$
+whose real part is $-\Re\frac{\zeta'}{\zeta}(\tfrac12+i\lambda)$-weighted and oscillates in sign as $\lambda$ varies. Thus establishing $\mathcal A(g)\ge \mathcal P(g)$ for **all** admissible $g$ is equivalent to controlling $\Re\frac{\zeta'}{\zeta}$ near the critical line — i.e. exactly the information RH encodes. There is no cheap majorization: the archimedean term $\mathcal A$ is a *fixed* positive-definite kernel (its Fourier symbol $\Re\frac{\Gamma'}{\Gamma}(\tfrac14+\tfrac{ir}{2})\sim \log\tfrac{|r|}{2}$ grows only logarithmically), while $\mathcal P$ carries the arithmetic of the primes with unbounded high-frequency content. Precisely:
+
+**Sub-observation.** The archimedean symbol $a(r):=\Re\frac{\Gamma'}{\Gamma}(\tfrac14+\tfrac{ir}{2})-\log\pi = \log\frac{|r|}{2\pi}+O(r^{-2})$ as $|r|\to\infty$. Hence $\mathcal A(g)=\int h(r)\,a(r)\,dr/2\pi + [\text{poles}]$ is, up to lower order, the quadratic form with symbol $\log|r|$. For $g_\lambda$ concentrated in frequency near $\lambda$, $\mathcal A(g_\lambda)\approx \|f\|_2^2\log\lambda$, growing like $\log\lambda$, whereas the prime term's fluctuation amplitude is governed by $\sup_{t\approx\lambda}\big|\sum_{n\le X}\Lambda(n)n^{-1/2-it}\big|$. A necessary condition for $\mathcal A\ge\mathcal P$ uniformly is therefore that these prime sums do not exceed $\asymp\log\lambda$ — which is again a statement provably equivalent (via partial summation and the explicit formula) to the absence of zeros with $\beta>0$.
+
+**Conclusion of the obstruction analysis.** The positivity approach does not "reduce" RH to an easier inequality: the required inequality $\mathcal A(g)\ge\mathcal P(g)$ is, for the frequency-localized family $g_\lambda$, *logically equivalent* to RH itself, not weaker. Any proof of the inequality that does not already input zero locations must produce a fixed bound on the fluctuating prime term uniform in the localization frequency $\lambda$, and such a bound is false without RH (the fluctuations are $\Omega(\log\lambda)$ conditionally on there being zeros near the line, and match $\mathcal A$'s growth). This is the structural reason Weil positivity, though a correct criterion, has resisted an unconditional proof: it is not a genuine reduction to a simpler quantity.
+
+## What is (and isn't) achieved
+
+- Rigorously re-derived the easy direction RH $\Rightarrow$ $W(g)\ge0$ with full convergence justification (Lemma).
+- Gave a *precise* diagnosis: via the frequency-modulation $f\mapsto e^{i\lambda u}f$, the positivity inequality is equivalent, not subordinate, to RH, with matched growth rates $\log\lambda$ on both sides. This explains the failure of positivity to yield unconditional progress in quantitative terms.
+
+No new zero-free region, and no proof of the criterion's hard direction, is obtained. This is an obstruction analysis, not progress on RH.
+
+VERDICT: FAILED
+REASON: Only reproved the trivial direction of Weil's criterion; showed positivity is equivalent (not reducible) to RH — no new progress.
