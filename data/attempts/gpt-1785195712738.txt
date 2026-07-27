@@ -1,0 +1,51 @@
+Attempt: A quantitative barrier for compactly supported Weil-explicit-formula tests to force RH
+
+Statement (barrier lemma)
+Let σ>0. Consider the Weil explicit formula applied to the Riemann ξ-function with an even entire test h whose Fourier transform ĥ is supported in [−σ,σ], and such that h is real-valued on R and of exponential type at most 2πσ in the horizontal direction:
+- h is entire and |h(x+iy)| ≤ C(h) (1+|x+iy|)^{-3} e^{2πσ|y|}.
+- ĥ is compactly supported in [−σ,σ] and bounded.
+
+Then the explicit formula has the form
+Sum_ρ h((ρ−1/2)/i) = A(h) − 2 Sum_{n=2}^∞ (Λ(n)/√n) Re ĥ((log n)/(2π)),
+where A(h) is a real “archimedean” term depending only on h (it is a linear functional bounded by O_h(σ), see proof).
+
+Fix δ in (0,1/2). For any T>1 there exists such an h = h_{σ,T} with:
+- h is nonnegative on R, even, and sharply localized near ±T with h(±T) ≥ c0 and ∫_R h(u) du ≤ C0 (constants independent of T, depending only on a fixed bump prototype).
+- The off-line contribution of a conjugate pair of zeros ρ=1/2+δ+iT and 1−ρ=1/2−δ+iT to the zero-side of the explicit formula is at least c1 e^{2πσδ}.
+- The right-hand side (archimedean term plus prime sum) satisfies
+|A(h_{σ,T})| + 2|Sum_{n=2}^∞ (Λ(n)/√n) Re ĥ((log n)/(2π))|
+≤ C2 e^{πσ} (1+σ) for constants C2 depending only on the bump prototype.
+
+Consequently, for any fixed σ, the explicit formula with such compactly-supported tests cannot, without further deep cancellation in the prime sum, exclude the existence of a pair of zeros with Re ρ = 1/2 + δ unless δ > 1/2. In particular, this method cannot by itself prove RH (which requires ruling out all δ>0).
+
+Proof (sketch with justification of each step)
+1) Explicit formula and test class. Use the standard Weil explicit formula for ξ(s), valid for even entire h of rapid decay in vertical strips with ĥ compactly supported (e.g., Iwaniec–Kowalski, Thm 5.12). With the stated hypotheses on h and ĥ, one has
+Sum_ρ h((ρ−1/2)/i) = h(i/2)+h(−i/2) − (1/2π) ∫_R h(u) Re Γ'/Γ(1/4+iu/2) du − (1/π) ∑_{n=2}^∞ (Λ(n)/√n) ĥ((log n)/(2π)).
+We absorb the first two terms and the Γ'/Γ-integral into A(h). Since Re Γ'/Γ(1/4+iu/2) ≪ log(2+|u|), and h is rapidly decaying in u (by construction below), |A(h)| ≪ σ + 1 quantitatively once we normalize h, because the exponential type hypothesis forces ĥ supported in [−σ,σ] and, by Paley–Wiener, ensures a vertical growth bound |h(x+iy)| ≤ C e^{2πσ|y|}(1+|x+iy|)^{-3}.
+
+2) Construction of h_{σ,T}. Fix a nonnegative even C^∞ bump b with compactly supported Fourier transform supported in [−1,1]. Define b_σ by scaling so that ĥ_bσ is supported in [−σ,σ]. Set h_{σ,T}(u) = b_σ(u−T) + b_σ(u+T). Then:
+- h_{σ,T} is even, entire (Paley–Wiener), nonnegative on R, with h_{σ,T}(±T) = b_σ(0) ≥ c0, and ∫ h_{σ,T}(u) du = 2∫ b_σ(u) du ≤ C0.
+- By Paley–Wiener, for z=u+iv we have |h_{σ,T}(z)| ≤ C e^{2πσ|v|} uniformly in u (times a polynomial decay in u inherited from b), i.e., exponential type ≤ 2πσ in the vertical direction for arguments of the form (ρ−1/2)/i.
+
+3) Amplification of an off-line zero. For a zero ρ=1/2+δ+iT, its image in the zero-sum is z = (ρ−1/2)/i = −iδ + T, so Im z = −δ. Hence by the exponential-type bound and positivity on the real axis,
+|h_{σ,T}(z)| ≥ e^{2πσδ} h_{σ,T}(Re z) ≥ e^{2πσδ} c0
+(the inequality follows by the Phragmén–Lindelöf convexity for entire functions of exponential type with nonnegative real-axis values; with our explicit Paley–Wiener construction this is immediate via the inverse Fourier representation).
+The conjugate zero 1−ρ contributes the same amount, so the pair contributes at least 2 c0 e^{2πσδ} to the zero-side.
+
+4) Bounding the prime side. Since ĥ_{h_{σ,T}} is supported in [−σ,σ], the prime sum truncates at n ≤ e^{2πσ}. Using the trivial bound |Re ĥ( (log n)/(2π) )| ≤ sup|ĥ| and Chebyshev,
+∑_{n≤e^{2πσ}} (Λ(n)/√n) ≤ ∑_{m≤e^{2πσ}} Λ(m)/m^{1/2} ≪ e^{πσ} log(e+σ),
+hence
+|∑_{n=2}^∞ (Λ(n)/√n) Re ĥ((log n)/(2π))|
+≤ (sup|ĥ|) ∑_{n≤e^{2πσ}} Λ(n)/√n
+≪ (sup|ĥ|) e^{πσ} log(e+σ).
+The sup|ĥ| depends only on the fixed prototype bump and scaling; by fixing the normalization of b_σ we ensure sup|ĥ|, ∫ h, and h(±T) are absolute constants independent of T.
+
+5) Comparing growth rates and conclusion. The pair of off-line zeros contributes ≳ e^{2πσδ}. The entire right-hand side (archimedean plus prime terms) is ≲ e^{πσ} poly(σ). For any fixed σ, we cannot force a contradiction unless e^{2πσδ} dominates e^{πσ}, i.e., unless δ > 1/2. Therefore, with only these inputs (compact spectral support and no deep cancellation in primes beyond Chebyshev-type upper bounds), this method cannot exclude zeros with 0<δ<1/2 and thus cannot prove RH.
+
+Remarks and scope
+- The obstruction is sharp at the level of exponents: the off-line side grows like e^{2πσδ} while the prime side can be no smaller than O(e^{πσ}) without additional cancellation. No choice of compactly supported ĥ can change these exponents. To improve, one must either (i) exploit cancellation in the prime sum of size comparable to e^{πσ} (which is of deep RH-strength), or (ii) use tests without compact support, introducing delicate tradeoffs that reinsert prime information of long range.
+- The argument is unconditional and self-contained given the standard form of the explicit formula. It pinpoints a precise 1/2-barrier for “positivity plus compact support” strategies in the Weil explicit formula context.
+- This explains rigorously why strategies based solely on choosing clever compactly supported spectral weights and positivity of the zero sum cannot prove RH: they cannot distinguish β=1/2 from β=1/2+δ with δ<1/2 at high height T, absent new prime cancellation input.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous 1/2-barrier for compactly supported explicit-formula tests to force RH

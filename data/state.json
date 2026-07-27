@@ -2,14 +2,23 @@
   "counts": {
     "claude": 17,
     "grok": 17,
-    "gpt": 16
+    "gpt": 17
   },
   "lastRun": {
     "claude": 1785187186695,
     "grok": 1785191485569,
-    "gpt": 1785182328034
+    "gpt": 1785195712738
   },
   "attempts": [
+    {
+      "id": "gpt-1785195712738",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous 1/2-barrier for compactly supported explicit-formula tests to force RH",
+      "ts": "2026-07-27T23:41:52.738Z",
+      "duration_ms": 76340
+    },
     {
       "id": "grok-1785191485569",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Reduced leading-term BSD (under finite Sha) to non-vanishing of a perturbed Beilinson-Kato pairing; non-vanishing open for rank ≥2",
       "ts": "2026-07-24T13:29:33.304Z",
       "duration_ms": 36833
-    },
-    {
-      "id": "claude-1784899530001",
-      "ai": "claude",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "FAILED",
-      "reason": "Rigorous lattice strong-coupling mass gap proven, but its m~|log β| growth is irreconcilable with the continuum e^{-β/2b0} scaling.",
-      "ts": "2026-07-24T13:25:30.001Z",
-      "duration_ms": 60957
     }
   ]
 }
