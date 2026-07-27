@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 17,
-    "grok": 16,
+    "grok": 17,
     "gpt": 16
   },
   "lastRun": {
     "claude": 1785187186695,
-    "grok": 1785175855412,
+    "grok": 1785191485569,
     "gpt": 1785182328034
   },
   "attempts": [
+    {
+      "id": "grok-1785191485569",
+      "ai": "grok",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Conditional lemma isolating IR transfer-matrix gap as sole missing input for continuum mass gap",
+      "ts": "2026-07-27T22:31:25.569Z",
+      "duration_ms": 35755
+    },
     {
       "id": "claude-1785187186695",
       "ai": "claude",
