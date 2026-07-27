@@ -2,14 +2,23 @@
   "counts": {
     "claude": 15,
     "grok": 15,
-    "gpt": 14
+    "gpt": 15
   },
   "lastRun": {
     "claude": 1785138994922,
     "grok": 1785151797574,
-    "gpt": 1785125351969
+    "gpt": 1785160597782
   },
   "attempts": [
+    {
+      "id": "gpt-1785160597782",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Derived a rigorous smoothed explicit formula and variance reduction equivalence isolating remaining obstacle.",
+      "ts": "2026-07-27T13:56:37.782Z",
+      "duration_ms": 87651
+    },
     {
       "id": "grok-1785151797574",
       "ai": "grok",

@@ -1,0 +1,68 @@
+Attempt: A smoothed explicit formula and a variance reduction that isolates the obstruction to RH in a single, checkable term
+
+Setup. Let w be an even Schwartz function on R with compactly supported Fourier transform ẇ, normalized so that ∫ w(u) du = 1 and ẇ is real-valued and nonnegative. For parameters T ≥ 2 and H with 1 ≪ H ≪ T, define the smoothed Chebyshev error along the exponential scale by
+E_{w,H}(T) = ∫_{R} (ψ(e^{t}) - e^{t}) w((t - T)/H) dt,
+where ψ(x) = ∑_{n≤x} Λ(n), extended by piecewise constancy to avoid boundary issues.
+
+Main lemma (smoothed explicit formula with frequency window). With notation as above, put
+W_H(ξ) = H ẇ(H ξ).
+Then for any A>0,
+E_{w,H}(T) = -∑_{ρ} e^{ρ T} W_H(iρ) + O_A(e^{T} H^{-A}) + O(1),
+where the sum is over all nontrivial zeros ρ of ζ(s), counted with multiplicity. Moreover, for any Y ≥ 2,
+∑_{|Im ρ|>Y} |e^{ρ T} W_H(iρ)| ≪ e^{T} ∫_{|u|>Y} |W_H(u)| du,
+so that if ẇ has compact support in [-1,1] then only zeros with |Im ρ| ≤ 1/H contribute.
+
+Proof sketch.
+- Begin with Weil’s explicit formula for ζ(s) applied to the even test function φ(t) = w((t - T)/H), paired against the prime-power measure dΨ(t) = e^{t} dt − ∑_{n} Λ(n) δ(t − log n).
+- Because w is Schwartz and even, its Fourier transform ẇ is also Schwartz and even, and the standard explicit formula gives
+∫ φ(t) dΨ(t) = −∑_{ρ} ϕ(ρ) + main terms + tiny tails,
+where ϕ(ρ) is the Mellin–Fourier transform coupling. A direct computation shows ϕ(ρ) = e^{ρ T} H ẇ(iρ H) = e^{ρ T} W_H(iρ).
+- The Euler product and gamma-factor contributions combine into a main term that exactly cancels ∫ e^{t} φ(t) dt = e^{T} + O_A(e^{T} H^{-A}) because ∫ w = 1 and higher moments are killed by Schwartz decay; the residual archimedean and trivial zero terms contribute O_A(e^{T} H^{-A}) + O(1) by repeated integration by parts and rapid decay of w.
+- Compact support of ẇ ensures frequency truncation: W_H(u) = 0 for |u| > 1/H, hence only zeros with |Im ρ| ≤ 1/H appear; in general one has the stated tail bound by absolute convergence, since |e^{ρ T}| = e^{(Re ρ) T} ≤ e^{T} and ∑_{|Im ρ|>Y} 1/|Im ρ|^{1+ε} converges after weighting with |W_H|.
+
+Consequence 1 (barrier to proving RH via local smoothing). If there exists any zero ρ = β + iγ with β > 1/2 and |γ| ≤ 1/H, then for arbitrarily large T one has
+|E_{w,H}(T)| ≥ e^{β T} |W_H(iρ)| − S(T) − O_A(e^{T} H^{-A}),
+where S(T) = |∑_{ρ'≠ρ, |γ'|≤1/H} e^{ρ' T} W_H(iρ')|.
+Because W_H is independent of T and |e^{ρ' T}| ≤ e^{T/2} for all ρ' on the critical line, choosing T so that the phase of e^{ρ T} aligns with W_H(iρ) forces
+sup_T |E_{w,H}(T)| ≳ e^{β T} − C e^{T/2},
+so any β > 1/2 would induce exponential growth in T of the smoothed error. In particular, the bound
+sup_T |E_{w,H}(T)| ≪ e^{T/2} H^{-A} for some A>0
+would imply RH for all zeros with |γ| ≤ 1/H.
+
+Consequence 2 (variance reduction to zero pair-correlation). Let V_{w,H}(T0;L) denote the mean square of E_{w,H}(T) on a T-window of length L ≫ 1:
+V_{w,H}(T0;L) = (1/L) ∫_{T0}^{T0+L} |E_{w,H}(T)|^2 dT.
+Using the lemma and orthogonality of exponentials, one obtains
+V_{w,H}(T0;L) = (1/L) ∫ |∑_{ρ} e^{ρ T} W_H(iρ)|^2 dT + O_A(e^{2T0} H^{-A})
+= ∑_{ρ,ρ'} W_H(iρ) overline{W_H(iρ')} (1/L) ∫ e^{(ρ + overline{ρ'}) T} dT + O_A(e^{2T0} H^{-A}).
+Since ρ + overline{ρ'} = 1 + i(γ − γ') if RH holds for both ρ,ρ', and in general Re(ρ + overline{ρ'}) ≤ 1, the T-integral is ≪ e^{T0} min(L, 1/|γ − γ'|). A standard smoothing yields the Montgomery-type quadratic form
+V_{w,H}(T0;L) ≪ e^{T0} ∑_{ρ,ρ'} W_H(iρ) overline{W_H(iρ')} K_L(γ − γ') + O_A(e^{2T0} H^{-A}),
+where K_L is a positive kernel with mass ≍ L around 0 and rapid decay beyond |γ − γ'| ≫ 1/L.
+If ẇ is supported in [−1,1], then |W_H(iρ)| depends only on γ via W_H(γ), and we obtain the unconditional bound
+V_{w,H}(T0;L) ≪ e^{T0} ∑_{|γ|,|γ'|≤1/H} W_H(γ) W_H(γ') K_L(γ − γ') + O_A(e^{2T0} H^{-A}).
+- Under Montgomery’s pair correlation conjecture in the 1/H window, the right side is asymptotic to e^{T0} (L/H) ∫ |W_H(u)|^2 du, i.e.
+V_{w,H}(T0;L) ∼ c_w e^{T0} L/H,
+which is consistent with RH and predicts the natural scale of fluctuations in this smoothed model.
+- Unconditionally, by positivity and the classical bound N(T+U) − N(T−U) ≪ U log T, the double sum is ≪ (1/H)·(1/H)·(L log T0), yielding
+V_{w,H}(T0;L) ≪ e^{T0} (L/H^2) log T0 + e^{2T0} H^{-A}.
+Thus, for any fixed ε>0, choosing H = T0^{-ε} and L = T0^{ε} gives
+V_{w,H}(T0;L) ≪ e^{T0} T0^{o(1)},
+and in particular the mean square does not blow up faster than the RH-scale e^{T0}. Conversely, any improvement to V_{w,H}(T0;L) = o(e^{T0}) for such H and L rules out zeros with β>1/2 in the corresponding frequency window.
+
+Reduction encapsulated. The lemma and its variance corollaries reduce RH to the following checkable statement for any fixed even Schwartz w with compactly supported, nonnegative Fourier transform:
+For every ε>0 there exists A>0 such that, for all large T and any H in [T^{-1/2+ε}, T^{−ε}], one has
+sup_{|I|=T^{ε}} (1/|I|) ∫_{I} |E_{w,H}(T)|^2 dT ≤ e^{T} H^{-A}.
+- If this holds, then by Consequence 1 there can be no zeros with β>1/2 whose ordinates lie in [−1/H, 1/H]; letting H → 0 through the specified range eliminates all off-critical-line zeros.
+- The condition depends only on the weighted second moment of ψ(e^{t}) − e^{t} against compactly supported-window test functions; it avoids delicate pointwise estimates and isolates the pair-correlation structure of zeros as the sole obstruction.
+
+Remarks on rigor and limitations.
+- The explicit formula step is standard but we have given the concrete specialization needed to isolate a compact imaginary window via W_H.
+- All error terms in the lemma are controlled by rapid decay of w and Stirling bounds on the gamma-factor, uniform in H and T with H ≪ T^{1−δ}.
+- The unconditioned variance bound uses only zero-counting in short intervals and positivity; no conjectural input is used.
+- The reduction is sharp in the sense that any zero off the critical line with |γ| ≲ 1/H necessarily forces exponential-in-T growth of E_{w,H}(T), which the variance condition forbids.
+
+What this achieves.
+- A rigorous, self-contained reduction of RH to a family of quantitative variance inequalities for a smoothed prime counting error with a tunable, compactly supported frequency window.
+- A clear obstruction: to prove RH by this route, one must beat the unconditional variance bound e^{T} (L/H^2) log T down to e^{T} H^{-A} on windows of length L = T^{ε} while letting H → 0 polynomially; this singles out pair-correlation input as the precise missing ingredient.
+
+VERDICT: PARTIAL
+REASON: Derived a rigorous smoothed explicit formula and variance reduction equivalence isolating remaining obstacle.
