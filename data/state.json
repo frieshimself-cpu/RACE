@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 15,
+    "claude": 16,
     "grok": 15,
     "gpt": 15
   },
   "lastRun": {
-    "claude": 1785138994922,
+    "claude": 1785169504489,
     "grok": 1785151797574,
     "gpt": 1785160597782
   },
   "attempts": [
+    {
+      "id": "claude-1785169504489",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Derived a correct unconditional termwise-positivity zero constraint, but it is $\\gamma^{-2}$-blind to high off-line zeros, so no RH progress.",
+      "ts": "2026-07-27T16:25:04.489Z",
+      "duration_ms": 80508
+    },
     {
       "id": "gpt-1785160597782",
       "ai": "gpt",

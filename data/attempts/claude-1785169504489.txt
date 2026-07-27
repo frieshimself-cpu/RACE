@@ -1,0 +1,64 @@
+# Attempt: An unconditional termwise-positivity constraint on off-critical zeros via the ξ-sum identity
+
+I work with a fully verifiable elementary constraint derived from a classical convergent zero-sum, and analyze exactly how much (and why not more) it controls the location of zeros. The goal is a *clean, self-contained, rigorous* partial constraint, and an honest account of the obstruction.
+
+## Setup
+
+Let the nontrivial zeros of ζ be ρ = β + iγ, 0 < β < 1. From the Hadamard product for the completed zeta function
+$$\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),$$
+one has the classical identity (obtained by evaluating $\xi'/\xi$ at $s=0,1$ and using $\xi(s)=\xi(1-s)$):
+$$\sum_{\rho}\frac{1}{\rho(1-\rho)} \;=\; 2 + \gamma_E - \log(4\pi) \;=:\; C,$$
+where the sum is over all nontrivial zeros, $\gamma_E$ is Euler's constant, and
+$$C = 2 + 0.5772156649\ldots - \log(12.566\ldots) = 0.0461914\ldots > 0.$$
+This series converges absolutely (terms are $O(\gamma^{-2})$) and $C$ is a definite positive constant. This is standard and I take it as given.
+
+## Lemma (termwise positivity)
+
+**Claim.** For every nontrivial zero $\rho=\beta+i\gamma$, writing $\delta = \beta - \tfrac12 \in(-\tfrac12,\tfrac12)$, the quantity $\operatorname{Re}\dfrac{1}{\rho(1-\rho)}$ is strictly positive.
+
+**Proof.** Compute
+$$\rho(1-\rho) = (\tfrac12+\delta+i\gamma)(\tfrac12-\delta-i\gamma) = \tfrac14 - (\delta+i\gamma)^2 = \underbrace{(\tfrac14-\delta^2+\gamma^2)}_{A} \;-\; i\underbrace{(2\delta\gamma)}_{-B}.$$
+So $\rho(1-\rho) = A + iB$ with $A = \tfrac14-\delta^2+\gamma^2$, $B = -2\delta\gamma$. Then
+$$\operatorname{Re}\frac{1}{\rho(1-\rho)} = \frac{A}{A^2+B^2}.$$
+Since $|\delta|<\tfrac12$ we have $\delta^2 < \tfrac14$, hence $A = (\tfrac14-\delta^2) + \gamma^2 > 0$. Therefore the real part is strictly positive. $\qquad\blacksquare$
+
+**Consequence (grouping conjugates).** Zeros come in conjugate pairs $\rho, \bar\rho$ (and the functional equation pairs $\rho\leftrightarrow 1-\rho$). For $\bar\rho$ we have $\gamma\to-\gamma$, so $A$ is unchanged and $B\to -B$; thus $\rho$ and $\bar\rho$ contribute equal positive real parts, and their sum is real. Since $C$ is real and the total sum equals $C$, we obtain a decomposition of $C$ as a sum of **strictly positive** real numbers:
+$$C = \sum_{\gamma>0} \frac{2A}{A^2+B^2}, \qquad A=\tfrac14-\delta^2+\gamma^2,\; B=2\delta\gamma. \tag{$\star$}$$
+
+## Extracting a constraint
+
+Because every summand in $(\star)$ is positive and the total is $C$, each individual term is bounded:
+$$\frac{2\,(\tfrac14-\delta^2+\gamma^2)}{(\tfrac14-\delta^2+\gamma^2)^2 + 4\delta^2\gamma^2} \;\le\; C = 0.04620\ldots \tag{$\dagger$}$$
+for **every** zero with $\gamma>0$. This is an unconditional necessary condition on the location of any single zero.
+
+**Rearrangement toward RH.** Suppose, for contradiction toward RH, that some zero has $\delta\neq 0$. Set $x=\gamma^2>0$, $c=\tfrac14-\delta^2\in(0,\tfrac14]$, $d=4\delta^2$. The left side of $(\dagger)$ is
+$$f(x) = \frac{2(c+x)}{(c+x)^2 + d\,x}.$$
+For RH to be *forced* by $(\dagger)$ we would need $(\dagger)$ to be violated whenever $\delta\neq0$. Let us test this.
+
+- As $x\to\infty$, $f(x)\sim 2/x\to 0$, so $(\dagger)$ holds trivially for high zeros regardless of $\delta$.
+- $f$ is maximized at small $x$. At $x=0$: $f(0)=2c/c^2 = 2/c = 2/(\tfrac14-\delta^2)\ge 8 > C$. So a hypothetical off-line zero with **very small** $|\gamma|$ *would* violate $(\dagger)$.
+
+Solving $f(x)\le C$ gives an explicit **forbidden low-lying strip**: a zero with height $\gamma$ must satisfy
+$$(c+x)^2 + d x \ge \frac{2(c+x)}{C}, \quad\text{i.e.}\quad \gamma^2 \gtrsim \frac{2}{C} - \tfrac14 \approx 43.0$$
+after neglecting the (small) $\delta$-corrections; more precisely for $\delta=0$ this yields $\gamma \ge \sqrt{2/C - 1/4}\approx 6.55$. This is a genuine, correct, unconditional statement: **there are no zeros (on or off the line) with $0<\gamma < 6.5$**, consistent with the true first zero $\gamma_1\approx 14.13$.
+
+## Honest assessment of the obstruction
+
+The Lemma and $(\star)$ are rigorous and the positivity is real, but the constraint $(\dagger)$ **does not force RH**, and I can pinpoint exactly why:
+
+1. The bound $(\dagger)$ constrains a zero only through the combination $A^2+B^2 = |\rho(1-\rho)|^2$. Crucially $f(x)$ decays like $2/\gamma^2$ for large $\gamma$ **for any fixed $\delta$**. So an off-line zero at large height (e.g. $\delta=0.1$, $\gamma=1000$) satisfies $(\dagger)$ comfortably. The single convergent sum simply lacks the resolution to detect off-line zeros high up: the "budget" $C$ is spent by low zeros and the tail is negligible.
+
+2. Termwise positivity is a *feature of every zero regardless of RH* — it used only $|\delta|<\tfrac12$, which is the trivial zero-free strip $0<\beta<1$. Thus no amount of manipulating this one identity can distinguish $\delta=0$ from $\delta\neq0$ at large $\gamma$; the same positivity holds either way. To gain sensitivity to $\delta$ at height $\gamma$ one needs a kernel weighting zeros by $\gamma$-dependent factors that *penalize* $\delta\neq0$ uniformly in $\gamma$ — precisely the role played by the archimedean term in Weil's explicit formula, which this single moment does not capture.
+
+This is the same wall that defeats all "finite-moment" approaches: RH is equivalent to positivity of an *infinite family* of functionals (Li's coefficients $\lambda_n$, Weil's quadratic form), and any single one of them — such as $\lambda_1 = \sum_\rho \rho^{-1}(2-\rho^{-1})$-type sums, essentially the identity above — is automatically nonnegative and gives no contradiction from off-line zeros. Progress requires controlling the *whole family uniformly*, which the identity I used cannot do.
+
+## Summary
+
+- Rigorously established: termwise positivity of $\operatorname{Re}\,1/(\rho(1-\rho))$ for every nontrivial zero, hence the positive decomposition $(\star)$ of the constant $C=2+\gamma_E-\log4\pi$.
+- Rigorously derived: an unconditional zero-free interval $\{0<\gamma<6.5\}$ from a single elementary identity (weaker than known, but self-contained).
+- Rigorously identified: the precise reason this cannot reach RH — the $\gamma^{-2}$ decay makes the moment blind to high off-line zeros, and the positivity is $\delta$-agnostic.
+
+No new progress toward the full theorem; the partial constraint is correct but almost certainly not new, and I have honestly characterized the barrier.
+
+VERDICT: FAILED
+REASON: Derived a correct unconditional termwise-positivity zero constraint, but it is $\gamma^{-2}$-blind to high off-line zeros, so no RH progress.
