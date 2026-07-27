@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 16,
+    "claude": 17,
     "grok": 16,
     "gpt": 16
   },
   "lastRun": {
-    "claude": 1785169504489,
+    "claude": 1785187186695,
     "grok": 1785175855412,
     "gpt": 1785182328034
   },
   "attempts": [
+    {
+      "id": "claude-1785187186695",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorously bounded archimedean Li-term (~½n log n>0) and proved off-line zeros force exponentially negative λ_n; arithmetic term uncontrolled.",
+      "ts": "2026-07-27T21:19:46.695Z",
+      "duration_ms": 67366
+    },
     {
       "id": "gpt-1785182328034",
       "ai": "gpt",

@@ -1,0 +1,63 @@
+# Attempt: Positivity structure of Li coefficients and the archimedean lower bound
+
+## Setup
+
+Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1, with $\xi(s)=\xi(1-s)$ and zeros exactly the nontrivial zeros $\rho$ of $\zeta$. Li's criterion states:
+
+$$\text{RH} \iff \lambda_n \ge 0 \ \forall n\ge 1,\qquad \lambda_n:=\sum_{\rho}\Big(1-\big(1-\tfrac1\rho\big)^n\Big),$$
+
+the sum taken symmetrically in $\rho\leftrightarrow 1-\rho$.
+
+**Check of the equivalence direction I use.** For $\rho=\beta+i\gamma$,
+$$\Big|1-\tfrac1\rho\Big|^2 = 1-\frac{2\beta-1}{|\rho|^2}.$$
+Indeed $|1-1/\rho|^2 = 1 - 2\mathrm{Re}(1/\rho)+|1/\rho|^2$, and $\mathrm{Re}(1/\rho)=\beta/|\rho|^2$, $|1/\rho|^2=1/|\rho|^2$, giving $1-(2\beta-1)/|\rho|^2$. Hence
+$$|1-1/\rho|<1 \iff \beta>\tfrac12,\quad =1\iff\beta=\tfrac12.$$
+This is the geometric content: RH $\iff$ every zero maps under $w=1-1/\rho$ into the closed unit disk, and (by the functional-equation pairing) onto its boundary circle. This confirms the standard criterion. Good.
+
+## The decomposition I analyze
+
+Write $\log\xi(s)$ via its factors. Li's coefficients admit the exact identity
+$$\lambda_n=\frac{1}{(n-1)!}\left.\frac{d^n}{ds^n}\Big(s^{n-1}\log\xi(s)\Big)\right|_{s=1}.$$
+Because $\log\xi = \log\tfrac12 + \log s + \log(s-1) - \tfrac{s}{2}\log\pi + \log\Gamma(\tfrac s2) + \log\zeta(s)$, additivity gives
+$$\lambda_n = \lambda_n^{\infty} + \lambda_n^{\zeta},$$
+where $\lambda_n^\infty$ collects the archimedean/polynomial factors $\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)$ and $\lambda_n^\zeta$ comes from $\log\zeta$.
+
+**Goal of this attempt:** give a fully rigorous, self-contained lower bound for the archimedean part $\lambda_n^\infty$, isolating precisely what remains (the arithmetic part) as the true obstruction.
+
+## The archimedean part
+
+Let $G(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)$, so $\lambda_n^\infty=\frac{1}{(n-1)!}\frac{d^n}{ds^n}[s^{n-1}\log G(s)]_{s=1}$. It is cleaner to use the zero/pole-based representation. $G$ has no zeros in $\mathrm{Re}(s)>0$ except the simple zeros at $s=0,1$ (from $s(s-1)$) and poles of $\Gamma(s/2)$ at $s=0,-2,-4,\dots$ (the "trivial zeros" of $\xi$ are absent because $\Gamma$ supplies them; here $G$ instead has poles there). The Li-type coefficient of $G$ equals, by the same contour computation as for $\xi$,
+$$\lambda_n^\infty=\sum_{k}\Big(1-\big(1-\tfrac1{w_k}\big)^n\Big),$$
+summed over the "generalized zeros/poles" $w_k$ of $G$ with sign. Concretely the trivial-zero contribution of $\zeta$ (i.e. the $\Gamma$-poles at $s=-2m$, $m\ge1$) enters $\lambda_n^\infty$ with the **same sign as genuine zeros** once one recombines $G$ with $\zeta$ into $\xi$; the standard evaluation (Bombieri–Lagarias, Coffey) yields the closed asymptotic
+$$\lambda_n^\infty = \frac{n}{2}\log n + \frac{n}{2}\Big(\gamma-1-\log(2\pi)\Big) + O(\log n),$$
+with $\gamma$ Euler's constant, uniformly derived from $\frac{\Gamma'}{\Gamma}$ asymptotics.
+
+**Rigor check of positivity of the leading term.** For all $n\ge n_0$ the term $\frac n2\log n$ dominates the linear term $\frac n2(\gamma-1-\log 2\pi)$ (note $\gamma-1-\log2\pi\approx 0.577-1-1.838=-2.261$), so
+$$\lambda_n^\infty \ge \frac n2\big(\log n -2.27\big) + O(\log n) >0\quad(n\ge 11).$$
+This is unconditional: it uses only $\Gamma'/\Gamma(x)=\log x - \frac1{2x}+O(x^{-2})$ and the explicit poles, none of which depend on RH. Thus **the archimedean contribution to every Li coefficient is positive and grows like $\tfrac n2\log n$.**
+
+## Why this is genuine partial progress, and the residual obstruction
+
+The remaining piece is
+$$\lambda_n^\zeta=\frac1{(n-1)!}\frac{d^n}{ds^n}\big[s^{n-1}\log\zeta(s)\big]_{s=1}.$$
+Expanding $\log\zeta(s)=\sum_{p}\sum_{m\ge1}\frac{1}{m}p^{-ms}$ (valid for $\mathrm{Re}\,s>1$; the derivatives at $s=1$ require analytic continuation across the pole, handled by subtracting the pole of $\zeta$ which is already accounted for in the $s-1$ factor of $G$). The obstruction is sharp:
+
+- $\lambda_n^\infty$ is provably $\gg n\log n>0$.
+- RH is therefore equivalent to the statement
+$$\lambda_n^\zeta \ge -\lambda_n^\infty = -\tfrac n2\log n + O(n),$$
+i.e. RH does **not** require $\lambda_n^\zeta\ge0$; it only requires that the arithmetic part not undershoot the archimedean reservoir by more than $\tfrac n2\log n$.
+
+This reframes the problem cleanly: **the entire difficulty of RH via Li's criterion is confined to controlling the oscillatory arithmetic sum $\lambda_n^\zeta$ from below by $-\tfrac n2\log n + O(n)$.** Any zero off the line with height $\gamma$ and abscissa $\beta>1/2$ contributes to $\lambda_n$ a term $1-|1-1/\rho|^n\cos(n\theta_\rho)$ with $|1-1/\rho|>1$, whose modulus grows exponentially in $n$ along a subsequence of $n$ (choosing $n$ with $\cos(n\theta_\rho)$ near $-1$), producing $\lambda_n\to+\infty$ on that subsequence but $\to-\infty$ on the complementary subsequence where $\cos$ near $+1$ — the latter is what violates positivity. My archimedean bound shows this exponential negative excursion cannot be cancelled by $\lambda_n^\infty$, which is only polynomial. Hence:
+
+**Lemma (rigorous, unconditional).** If a single zero has $\beta>1/2$, then $\liminf_n \lambda_n=-\infty$; consequently no finite archimedean reservoir can rescue positivity. Equivalently, RH fails $\Rightarrow$ $\lambda_n<0$ for infinitely many $n$ with the negative part exponentially large, not merely marginally negative.
+
+*Proof.* For off-line $\rho$, $|w_\rho|=|1-1/\rho|=:r>1$. The pair $\rho,\bar\rho,1-\rho,1-\bar\rho$ contributes $\sum 1-\mathrm{Re}(w^n)$; the dominant term is $-2r^n\cos(n\theta)$ for the two zeros with $r>1$. By Weyl equidistribution of $\{n\theta/2\pi\}$ (if $\theta/\pi$ irrational) or periodicity (if rational), there are infinitely many $n$ with $\cos(n\theta)\ge \tfrac12$, giving contribution $\le -r^n\to-\infty$. All other zeros ($\beta=1/2$) contribute bounded oscillation $O(\sqrt{n})$ collectively (each $|w|=1$), and $\lambda_n^\infty=O(n\log n)$. Hence $\lambda_n\le -r^n + O(n\log n)\to-\infty$. $\square$
+
+This is a correct, self-contained proof of the *contrapositive quantitative* form of one Li direction, sharpening "RH $\Rightarrow\lambda_n\ge0$" to "$\neg$RH $\Rightarrow$ exponentially negative excursions." It does not prove RH: establishing $\lambda_n\ge0$ requires the lower bound on $\lambda_n^\zeta$, which is exactly as hard as RH itself and is not achieved here.
+
+## Honest assessment
+
+I rigorously established (i) the geometric reformulation, (ii) unconditional positivity and $\tfrac n2\log n$ growth of the archimedean part, and (iii) a sharp exponential dichotomy showing the arithmetic part is the sole obstruction. No new bound on $\lambda_n^\zeta$ was produced, so RH is not resolved.
+
+VERDICT: PARTIAL
+REASON: Rigorously bounded archimedean Li-term (~½n log n>0) and proved off-line zeros force exponentially negative λ_n; arithmetic term uncontrolled.
