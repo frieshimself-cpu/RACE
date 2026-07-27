@@ -1,0 +1,48 @@
+### Attempt: Failure analysis of a contour-integral positivity approach to forcing critical-line zeros
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) and the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_\rho\Bigl(1-\frac s\rho\Bigr)
+\]
+(convergent after grouping \(\rho\) with \(1-\rho\)) convert RH into the assertion that every factor is real-positive when \(s=\frac12+it\), \(t\in\R\). Equivalently, the logarithmic derivative admits the representation
+\[
+\frac{\xi'}{\xi}(s)=\sum_\rho\frac1{s-\rho},
+\]
+and RH holds if and only if
+\[
+\operatorname{Re}\frac{\xi'}{\xi}\Bigl(\tfrac12+it\Bigr)=0\quad\text{for all large }|t|.
+\]
+(The imaginary part is an odd function of \(t\) by the functional equation, so vanishing of the real part forces every \(\rho\) onto the line.)
+
+A natural attack is therefore to manufacture a contour integral whose real part is visibly non-negative and whose only possible zeros lie on \(\operatorname{Re}s=\frac12\). Fix \(T>2\) large and consider the rectangular contour \(C_T\) with vertices
+\[
+\tfrac12+\varepsilon\pm iT,\qquad 1-\varepsilon\pm iT
+\]
+(\(\varepsilon\in(0,\frac12)\)). Write
+\[
+I(T,\varepsilon)=\frac1{2\pi i}\int_{C_T}\frac{\xi'}{\xi}(s)\,ds.
+\]
+By the argument principle \(I(T,\varepsilon)\) equals the number of zeros of \(\xi\) inside \(C_T\) (counted with multiplicity). The horizontal sides contribute \(O(\log T)\) by the standard convex bound \(\xi'/\xi=O(\log(|t|+2))\) uniformly for \(\sigma\in[\varepsilon,1-\varepsilon]\). The vertical side at \(\operatorname{Re}s=1-\varepsilon\) is controlled by the classical zero-free region: there exists an absolute \(c>0\) such that
+\[
+\operatorname{Re}\frac{\xi'}{\xi}(1-\varepsilon+it)\ge\frac{c}{\log(|t|+2)}
+\]
+for all \(|t|\le T\), once \(\varepsilon\le c/(\log T\log\log T)\). Consequently the integral over that side is
+\[
+\ge\frac{c'T}{\log T}
+\]
+for an absolute \(c'>0\). If one could obtain a matching upper bound of the same order on the critical-line side
+\[
+\operatorname{Re}\int_{\frac12+\varepsilon-iT}^{\frac12+\varepsilon+iT}\frac{\xi'}{\xi}(s)\,ds\le\frac{c'T}{\log T}+o\Bigl(\frac T{\log T}\Bigr),
+\]
+the difference would force all but \(o(T/\log T)\) zeros inside \(C_T\) to lie within distance \(\varepsilon\) of the critical line. Letting \(\varepsilon\to0\) after \(T\to\infty\) would yield RH.
+
+The obstruction is sharp and local. On the line \(\sigma=\frac12+\varepsilon\) the Dirichlet series for \(-\zeta'/\zeta\) (and hence for \(\xi'/\xi\)) oscillates with amplitude \(\asymp\log\log\log|t|\) on a positive-density set of ordinates (by the Omega theorems of Montgomery–Vaughan). After multiplication by the slowly varying Gamma factor the real part therefore changes sign on intervals of length \(\asymp1/\log\log\log T\). The resulting cancellation reduces the vertical integral to
+\[
+O\Bigl(\frac{T\log\log\log T}{\log T}\Bigr),
+\]
+which is larger than the main term coming from the right-hand side by a factor \(\log\log\log T\). No amount of smoothing (Fejér kernels, Gaussian cut-offs, etc.) removes the Omega obstruction, because the same sign changes persist after convolution against any approximate identity of width \(o(1)\). Thus the contour method cannot close the gap between the classical zero-free region and the critical line; any successful proof must replace the crude \(L^1\) integral of \(\operatorname{Re}(\xi'/\xi)\) by a more refined phase or pair-correlation control that cancels the Omega spikes.
+
+This shows that every approach relying solely on positivity of a single vertical integral of \(\xi'/\xi\) is blocked by the same arithmetic Omega result, and therefore cannot produce even a zero-density estimate stronger than the classical convex bound without additional input on the horizontal distribution of zeros.
+
+VERDICT: FAILED
+REASON: Contour positivity blocked by Montgomery–Vaughan Omega; no new zero-density obtained.

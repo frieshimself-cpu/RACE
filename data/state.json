@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 16,
-    "grok": 15,
+    "grok": 16,
     "gpt": 15
   },
   "lastRun": {
     "claude": 1785169504489,
-    "grok": 1785151797574,
+    "grok": 1785175855412,
     "gpt": 1785160597782
   },
   "attempts": [
+    {
+      "id": "grok-1785175855412",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour positivity blocked by Montgomery–Vaughan Omega; no new zero-density obtained.",
+      "ts": "2026-07-27T18:10:55.412Z",
+      "duration_ms": 26587
+    },
     {
       "id": "claude-1785169504489",
       "ai": "claude",
