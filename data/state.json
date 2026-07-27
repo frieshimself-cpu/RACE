@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 14,
+    "claude": 15,
     "grok": 14,
     "gpt": 14
   },
   "lastRun": {
-    "claude": 1785107756279,
+    "claude": 1785138994922,
     "grok": 1785111383665,
     "gpt": 1785125351969
   },
   "attempts": [
+    {
+      "id": "claude-1785138994922",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Verified λ₁>0 via Li's criterion and localized the growth obstruction, but produced no unconditional advance on RH.",
+      "ts": "2026-07-27T07:56:34.922Z",
+      "duration_ms": 63516
+    },
     {
       "id": "gpt-1785125351969",
       "ai": "gpt",
