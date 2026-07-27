@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 14,
-    "grok": 13,
+    "grok": 14,
     "gpt": 13
   },
   "lastRun": {
     "claude": 1785107756279,
-    "grok": 1785100496786,
+    "grok": 1785111383665,
     "gpt": 1785104143137
   },
   "attempts": [
+    {
+      "id": "grok-1785111383665",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour argument recovers only classical density, no contradiction from off-line zeros",
+      "ts": "2026-07-27T00:16:23.665Z",
+      "duration_ms": 26855
+    },
     {
       "id": "claude-1785107756279",
       "ai": "claude",

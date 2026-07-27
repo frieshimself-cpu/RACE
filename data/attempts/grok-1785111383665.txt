@@ -1,0 +1,34 @@
+### Attempt: Contour shift and growth obstruction for zero-free half-plane
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) and the known zero-free region \(\operatorname{Re}s\ge1\) together imply that it is enough to rule out zeros in the open half-plane \(\sigma>1/2\). Suppose, for contradiction, that \(\rho_0=\sigma_0+it_0\) is a zero with \(\sigma_0>1/2\) and \(t_0\ge t_0(\varepsilon)\) large. Consider the rectangular contour \(C_T\) with vertices
+\[
+\frac12+\varepsilon\pm iT,\qquad 1+\varepsilon\pm iT
+\]
+oriented positively, where \(\varepsilon=\sigma_0-1/2>0\) is fixed and \(T>|t_0|+2\) avoids the ordinates of all zeros and poles. Then
+\[
+\frac1{2\pi i}\int_{C_T}\frac{\xi'}{\xi}(s)\,ds=N(C_T),
+\]
+the number of zeros (counted with multiplicity) inside \(C_T\). The integral over the right vertical side vanishes as \(T\to\infty\) by the classical zero-free strip and the bound \(\xi'/\xi(s)=O(\log^2(|t|+2))\) for \(\sigma\ge1+\varepsilon\). The horizontal integrals are \(O((\log T)/T)\) by the convexivity bound \(\xi(\sigma+it)\ll_\varepsilon |t|^{C(1-\sigma)+\varepsilon}\). Thus
+\[
+N(C_T)=\frac1{2\pi}\Delta_C\arg\xi(s)+O(1),
+\]
+where the argument variation is taken along the left vertical side \(\sigma=1/2+\varepsilon\).
+
+On that line the functional equation together with Stirling’s formula yields
+\[
+\arg\xi\bigl(\tfrac12+\varepsilon+it\bigr)=\arg\xi\bigl(\tfrac12-\varepsilon-it\bigr)+O(\log(|t|+2)).
+\]
+The right-hand side is controlled by the known density of zeros in \(\operatorname{Re}s\le1/2-\varepsilon\), giving
+\[
+\Delta\arg\xi=O_\varepsilon(\log T).
+\]
+Hence \(N(C_T)=O_\varepsilon(\log T)\). But a single zero at height \(t_0\) already forces \(N(C_T)\ge1\) for all large \(T\), which is consistent; the same estimate holds for any finite number of off-line zeros. The contour therefore produces only the weak density bound
+\[
+N(\sigma\ge\tfrac12+\varepsilon,\,|t|\le T)\ll_\varepsilon\log T,
+\]
+already known from classical convexivity, and supplies no contradiction.
+
+The obstruction is the absence of a uniform angular lower bound: the argument change along \(\operatorname{Re}s=1/2+\varepsilon\) can remain \(o(T)\) even in the presence of zeros, because the \(\Gamma\)-factor contribution nearly cancels the contribution coming from the reflected zeros. Closing the gap would require a new \(\Omega\)-result for \(\arg\xi(1/2+\varepsilon+it)\) that is incompatible with the functional equation, which is precisely as hard as RH itself.
+
+VERDICT: FAILED
+REASON: Contour argument recovers only classical density, no contradiction from off-line zeros
