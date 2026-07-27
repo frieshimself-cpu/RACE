@@ -1,0 +1,39 @@
+The Riemann \(\xi\)-function
+\[
+\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)
+\]
+is entire of order 1, satisfies the functional equation \(\xi(s)=\xi(1-s)\), and has the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_{\rho}(1-s/\rho),
+\]
+the product running over the non-trivial zeros (counted with multiplicity). The Riemann Hypothesis is equivalent to every factor satisfying \(\operatorname{Re}\rho=1/2\).
+
+Assume, for contradiction, that there exists a zero \(\rho_0=\beta+i\gamma\) with \(\beta>1/2\). The functional equation forces the conjugate zero \(1-\rho_0\) to appear as well. Consider the logarithmic derivative on the critical line:
+\[
+\frac{\xi'}{\xi}\Bigl(\tfrac12+it\Bigr)=\sum_{\rho}\frac1{\tfrac12+it-\rho}.
+\]
+Grouping the pair \(\{\rho_0,1-\rho_0\}\) produces the real-part contribution
+\[
+\operatorname{Re}\Bigl(\frac1{\tfrac12+it-\rho_0}+\frac1{\tfrac12+it-(1-\rho_0)}\Bigr)
+=\frac{2(\beta-1/2)\bigl((\beta-1/2)^2+(t-\gamma)^2+(t+\gamma)^2\bigr)}{\bigl|(\tfrac12+it-\rho_0)(\tfrac12+it-(1-\rho_0))\bigr|^2}.
+\]
+The numerator is strictly positive for all real \(t\). Consequently the partial sum over this pair alone is a strictly positive continuous function of \(t\) that decays only like \(O(1/t^2)\).
+
+The remaining zeros contribute a sum that, by the classical zero-density estimate
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}\log T\qquad(\sigma\ge1/2),
+\]
+is \(O(\log t)\) on average. Integrating the real part against a non-negative Fejér kernel of width \(T^{-1}\) therefore yields
+\[
+\int_{-\infty}^{\infty}\operatorname{Re}\frac{\xi'}{\xi}\Bigl(\tfrac12+it\Bigr)K_T(t)\,dt\ge c(\beta-1/2)>0
+\]
+for all sufficiently large \(T\). On the other hand the left-hand side equals
+\[
+\sum_{n=1}^\infty\frac{\Lambda(n)}{\sqrt n}\hat K_T(\log n)+O(1),
+\]
+where the Fourier transform \(\hat K_T\) is supported in an interval of length \(O(T^{-1})\). The prime-number theorem with classical zero-free region forces the weighted sum of \(\Lambda(n)n^{-1/2}\) over that short interval to be \(o(1)\), a contradiction for large \(T\).
+
+The gap in the argument is the invocation of a zero-density bound strong enough to absorb the positive contribution of the off-line pair; every presently known density estimate loses a factor that grows with \(\beta-1/2\), so the lower bound cannot be made uniform. Closing the gap would require a density estimate of the shape \(N(\sigma,T)\ll T^{2(1-\sigma)}\operatorname{polylog}T\), which is known to be equivalent to the Lindelöf hypothesis and is therefore circular for the present purpose.
+
+VERDICT: FAILED
+REASON: Gap in zero-density control prevents contradiction; reduces RH to a form of Lindelöf already known to be insufficient.

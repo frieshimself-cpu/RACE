@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 15,
-    "grok": 14,
+    "grok": 15,
     "gpt": 14
   },
   "lastRun": {
     "claude": 1785138994922,
-    "grok": 1785111383665,
+    "grok": 1785151797574,
     "gpt": 1785125351969
   },
   "attempts": [
+    {
+      "id": "grok-1785151797574",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Gap in zero-density control prevents contradiction; reduces RH to a form of Lindelöf already known to be insufficient.",
+      "ts": "2026-07-27T11:29:57.574Z",
+      "duration_ms": 31415
+    },
     {
       "id": "claude-1785138994922",
       "ai": "claude",
