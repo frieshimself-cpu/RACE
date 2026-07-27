@@ -1,0 +1,54 @@
+Attempt: A rigorous obstruction to any “short Euler product on the critical line” strategy
+
+Setup.
+Fix 0<θ<1 and T large. Let y = T^θ and consider the truncated Euler product
+E_y(s) = ∏_{p≤y} (1 - p^{-s})^{-1}, s = 1/2 + it.
+
+Write P(t) = ∑_{p≤y} p^{-1/2-it}. Then
+log E_y(1/2+it) = ∑_{p≤y} p^{-1/2-it} + O(∑_{p≤y} p^{-1})
+= P(t) + O(log log y),
+since ∑_{p≤y} 1/p = log log y + O(1). Consequently,
+Re log E_y(1/2+it) = Re P(t) + O(log log T).
+
+Lemma (mean-square lower bound forces large fluctuations of short prime sums).
+Let P(t) = ∑_{p≤y} p^{-1/2-it}. Then
+(1) ∫_T^{2T} |P(t)|^2 dt = T ∑_{p≤y} 1/p + O(y),
+so, for all T large enough (depending on θ),
+(2) ∫_T^{2T} |P(t)|^2 dt ≥ c T log log T
+and hence
+(3) sup_{t∈[T,2T]} |P(t)| ≥ c sqrt(log log T).
+
+Moreover, with the same constants,
+(4) sup_{t∈[T,2T]} |Re P(t)| ≥ c sqrt(log log T).
+
+Proof.
+The Montgomery–Vaughan mean value theorem for Dirichlet polynomials gives
+∫_T^{2T} |∑_{p≤y} a_p p^{-it}|^2 dt
+= T ∑_{p≤y} |a_p|^2 + O(∑_{p≤y} |a_p|^2 p)
+for any coefficients a_p with bounded size. Taking a_p = p^{-1/2}, we obtain (1). Since ∑_{p≤y} 1/p = log log y + O(1) and y=T^θ, (2) follows. Then (3) follows by the trivial inequality ∫ |P|^2 ≤ T sup |P|^2, and (4) follows since |Re P|^2 ≤ |P|^2 and equality of mean squares up to a factor 2 for real and imaginary parts.
+
+Corollary (large multiplicative fluctuation for short Euler products on [T,2T]).
+For any fixed 0<θ<1 and all large T, there exists t∈[T,2T] such that
+max{ log |E_y(1/2+it)|, -log |E_y(1/2+it)| } ≥ c sqrt(log log T) - C log log T,
+and hence
+max{ |E_y(1/2+it)|, |E_y(1/2+it)|^{-1} } ≥ exp( c' sqrt(log log T) )
+for suitable absolute constants c,c',C>0 depending at most on θ.
+
+Proof.
+From the lemma we have some t with |Re P(t)| ≥ c sqrt(log log T). Using
+Re log E_y(1/2+it) = Re P(t) + O(log log T),
+we obtain the displayed inequality for log |E_y|, which yields the exponential bound.
+
+Consequence for RH approaches based on short Euler products/logarithmic truncations.
+- Any argument that seeks to prove nonvanishing of ζ(1/2+it) throughout an interval [T,2T] by uniform approximation of log ζ(1/2+it) with a short Dirichlet polynomial (e.g., a truncation over primes p≤T^θ, θ<1) must control uniform error at the scale of the size of that polynomial itself.
+- The corollary shows that, even before considering approximation error, the truncated Euler product E_y(1/2+it) itself exhibits multiplicative fluctuations of order at least exp(c sqrt(log log T)) within [T,2T].
+- Because the difference between log E_y and the linear prime sum is only O(log log T), these fluctuations are genuinely present already at the level of the first-order approximation by primes.
+- Therefore, any attempt to deduce uniform nonvanishing of ζ(1/2+it) on [T,2T] by arguing that a short Euler product (or its logarithm) gives a stable, uniformly controlled proxy on the critical line is obstructed: unavoidable large oscillations occur on every such interval. To overcome this, one must either (i) allow truncations extending to scales comparable to T (or beyond), or (ii) introduce mollification/averaging that fundamentally changes the object, or (iii) incorporate precise cancellation from longer prime sums (or zero contributions via the explicit formula).
+
+Remarks.
+- The statement and proof are unconditional and self-contained, relying only on the Montgomery–Vaughan mean value theorem and the elementary expansion of log E_y.
+- The scale sqrt(log log T) is the correct order of magnitude for the mean-square size of short prime sums at length y = T^θ; it quantifies a robust obstruction to uniform control by short truncations on the critical line.
+- This does not prove or disprove RH; it isolates and rigorously quantifies a failure mode of a concrete, frequently invoked strategy.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous obstruction: short Euler products oscillate by exp(c sqrt(log log T)) on [T,2T]

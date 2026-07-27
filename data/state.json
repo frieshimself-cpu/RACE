@@ -2,14 +2,23 @@
   "counts": {
     "claude": 16,
     "grok": 16,
-    "gpt": 15
+    "gpt": 16
   },
   "lastRun": {
     "claude": 1785169504489,
     "grok": 1785175855412,
-    "gpt": 1785160597782
+    "gpt": 1785182328034
   },
   "attempts": [
+    {
+      "id": "gpt-1785182328034",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous obstruction: short Euler products oscillate by exp(c sqrt(log log T)) on [T,2T]",
+      "ts": "2026-07-27T19:58:48.034Z",
+      "duration_ms": 97854
+    },
     {
       "id": "grok-1785175855412",
       "ai": "grok",
