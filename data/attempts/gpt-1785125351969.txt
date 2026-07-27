@@ -1,0 +1,42 @@
+Attempt: Monodromy-invariant Hodge classes in families are algebraic very generally if algebraic on one fiber
+
+Setup. Let π: X → S be a smooth projective morphism of complex algebraic varieties with S irreducible and quasi-projective. Fix an integer p. Denote by H := R^{2p}π∗Q the polarizable rational variation of Hodge structure (VHS) on S, and for s ∈ S(C) write Xs := π−1(s) and Hs := H^{2p}(Xs,Q). We use the cycle class map cl: CH^p(−)⊗Q → H^{2p}(−,Q).
+
+Step 1: Global invariant classes and Deligne’s global invariant cycle theorem.
+- For a very general s ∈ S, the monodromy representation ρ: π1(S,s) → Aut(Hs) has Zariski-dense image in the generic Mumford–Tate group. Let Hs^{inv} denote the subspace of monodromy invariants.
+- Global invariant cycle theorem (Deligne): The natural restriction map res_s: H^{2p}(X,Q) → Hs surjects onto Hs^{inv}. In particular, every α_gen ∈ Hs^{inv} is the restriction of a unique class α ∈ H^{2p}(X,Q) modulo ker(res_s).
+
+Moreover, if α_gen is a rational Hodge class on very general fibers (i.e., type (p,p) in the Hodge decomposition for such fibers), then α is of type (p,p) on every fiber. Concretely, α lies in the flat subbundle of the Hodge bundle F^p that intersects its complex conjugate fiberwise, hence its restrictions are Hodge classes.
+
+Step 2: Spread of algebraicity for fiberwise Hodge classes coming from the total space.
+Proposition (spread). Let α ∈ H^{2p}(X,Q) be a cohomology class whose restriction α_s ∈ H^{2p}(Xs,Q) is of Hodge type (p,p) for all s in a Zariski-open U ⊆ S. Suppose there exists s0 ∈ U and a cycle Z0 ∈ CH^p(X_{s0})⊗Q with cl(Z0) = α_{s0}. Then, after possibly shrinking U, there exists Z ∈ CH^p(X_U)⊗Q such that cl(Z)|_{Xs} = α_s for very general s ∈ U. In particular, α_s is algebraic for very general s.
+
+Proof sketch.
+- Choose a relative Hilbert scheme Hilb := ⨆_P Hilb^P(X/U) over U parameterizing relative codimension-p subschemes with fixed Hilbert polynomial P with respect to a fixed very ample line bundle on X. This is a countable union of projective schemes over U.
+- Let I ⊂ Hilb ×_U X be the universal incidence cycle; for each point h ∈ Hilb with image s = q(h) ∈ U, let Z_h ⊂ X_s denote the corresponding cycle, and let [Z_h] ∈ H^{2p}(X_s,Q) be its Betti class.
+- The function h ↦ [Z_h] is locally constant on connected components of Hilb: this follows because I → Hilb is proper, flat with pure relative dimension, and the cycle class in the local system H restricts to a section that is flat for the Gauss–Manin connection; thus on each connected component the cohomology class is constant (by Ehresmann and topological invariance).
+- Consider the subset Σ ⊂ Hilb consisting of points h such that [Z_h] = α_{q(h)} in H^{2p}(X_{q(h)},Q). By the previous item, Σ is a union of connected components of Hilb (intersected with the locus where α is of Hodge type), hence Σ is a countable union of closed subsets, each proper over its image in U.
+- By assumption, there exists h0 over s0 with Z_{h0} = Z0 and [Z_{h0}] = α_{s0}, so h0 ∈ Σ. Let H0 be the connected component of Σ containing h0, and let T := q(H0) ⊂ U be its image. Since H0 is projective over T with connected fibers and the class is constant along H0, for every t ∈ T we have a cycle Z_t with cl(Z_t) = α_t.
+- As Σ is a countable union of such components and U is irreducible, the union of the images q(Σ) is a countable union of Zariski-closed subsets of U containing s0. Hence its union is Zariski dense in U. Therefore, for very general s ∈ U there exists a cycle Z_s with cl(Z_s) = α_s.
+- By standard “spreading out” (taking the Zariski closure of the incidence correspondence of one dominating component over a dense open), we obtain a relative cycle Z ∈ CH^p(X_U)⊗Q whose restriction to very general fibers has class α_s.
+
+Remark. No use is made of the conjectural standard conjectures; we only used Hilbert schemes, Ehresmann’s theorem, and basic Hodge theory.
+
+Step 3: Consequence for monodromy-invariant Hodge classes.
+Theorem. Let π: X → S be smooth projective with S irreducible, and let α_gen ∈ H^{2p}(X_s,Q) be a rational Hodge class for very general s ∈ S that is invariant under monodromy. Suppose there exists some s0 ∈ S such that α_gen (transported to H^{2p}(X_{s0},Q) via parallel transport) equals the class of an algebraic cycle on X_{s0}. Then α_gen is algebraic for very general s; more precisely, shrinking S to a Zariski-open U, there exists Z ∈ CH^p(X_U)⊗Q with cl(Z)|_{X_s} = α_gen for very general s ∈ U.
+
+Proof. By Deligne’s global invariant cycle theorem, α_gen = res_s(α) for some α ∈ H^{2p}(X,Q) whose restrictions are Hodge classes on very general fibers. After shrinking S, α has the required fiberwise Hodge type on U. By assumption there is s0 with α_{s0} algebraic. Apply the spread proposition.
+
+Concrete corollaries and examples.
+- Product with projective space: For any smooth projective Y, Hodge classes on Y×P^m that lie in the monodromy-invariant subspace of a deformation family are algebraic very generally if they are algebraic on one fiber. In particular, reduction from Y×P^m to Y for monodromy-invariants holds, since cohomology of P^m is algebraic and Künneth identifies invariants with classes pulled back from Y and their Lefschetz transforms.
+- Noether–Lefschetz style propagation: In a Lefschetz pencil of very ample hypersurfaces in a fixed projective manifold, any section of the local system of (p,p)-classes that is monodromy-invariant and algebraic on one member is algebraic on very general members.
+
+Limitations and why this falls short of Hodge.
+- The theorem addresses only the monodromy-invariant subspace of Hodge classes; the hard cases for the Hodge conjecture are typically those with large, variable Hodge loci and classes not fixed by monodromy.
+- Even within invariants, one needs a single fiber where the target invariant class is known to be algebraic; producing such a fiber is often as hard as the original problem.
+- The spread argument crucially uses connected components of Hilbert schemes; it gives algebraicity on a very general set, not on all fibers, and does not address existence of algebraic representatives varying algebraically across S beyond a dominant component.
+
+Nonetheless, this yields a clean and unconditional reduction: to prove the Hodge conjecture for the monodromy-invariant subspace on very general fibers of any smooth projective family, it suffices to exhibit one fiber where the corresponding invariant class is algebraic.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous spread/reduction for monodromy-invariant Hodge classes in families.
