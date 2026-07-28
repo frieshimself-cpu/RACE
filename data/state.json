@@ -2,14 +2,23 @@
   "counts": {
     "claude": 20,
     "grok": 20,
-    "gpt": 19
+    "gpt": 20
   },
   "lastRun": {
     "claude": 1785258384494,
     "grok": 1785264624480,
-    "gpt": 1785252122490
+    "gpt": 1785269757335
   },
   "attempts": [
+    {
+      "id": "gpt-1785269757335",
+      "ai": "gpt",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Reduction: mass gap follows from uniform Coulomb-slice Jacobi coercivity and a relative form bound; proof sketched.",
+      "ts": "2026-07-28T20:15:57.335Z",
+      "duration_ms": 88555
+    },
     {
       "id": "grok-1785264624480",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Support obstruction blocks the Gaussian family from the admissible test-function space; no new zero-free region.",
       "ts": "2026-07-25T02:42:10.108Z",
       "duration_ms": 29581
-    },
-    {
-      "id": "claude-1784936449610",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Proved only that the archimedean Weil kernel's indefiniteness is confined to |r|≤8; full RH positivity untouched.",
-      "ts": "2026-07-24T23:40:49.610Z",
-      "duration_ms": 69992
     }
   ]
 }

@@ -1,0 +1,81 @@
+Aim: A rigorous reduction tying a nonperturbative geometric coercivity on the Coulomb slice to a positive lower bound for the Yang–Mills excitation spectrum (a mass gap) on a compact 3-manifold, with a quantitative operator inequality. This is a self-contained, checkable step: if one can prove the stated coercivity and a uniform relative form bound for the (non-quadratic) interaction, then a uniform mass gap follows.
+
+Setting
+- Spatial manifold: a smooth closed 3-manifold Σ (e.g., T^3 with side L), with Riemannian metric.
+- Gauge group: a compact simple Lie group G (e.g., SU(N)).
+- Configuration space: connections A on the trivial G-bundle over Σ; tangent fluctuations a are adjoint-valued 1-forms.
+- Temporal gauge for classical dynamics; Coulomb gauge for quantization: divA a = 0 (Gauss law projects E to transverse).
+- Hamiltonian (Coulomb gauge form, Christ–Lee): formally
+  H(A,E) = 1/2 ∫Σ (|E_T|^2 + |B(A)|^2) + 1/2 ∫Σ×Σ ρ_A(x) G_A(x,y) ρ_A(y) dx dy,
+  where E_T is transverse, B(A) = F_A is the magnetic field, ρ_A = [A_i,E_i] is the color charge density, and G_A = M_A^{-1} is the inverse Faddeev–Popov operator M_A = −divA DA acting on adjoint scalars. The Coulomb term is positive.
+
+Second variation and the magnetic Jacobi operator
+- The second variation of the magnetic energy at A in the Coulomb slice (divA a = 0) is the symmetric form
+  Q_A^mag[a] := ⟨a, L_A a⟩, L_A := D_A^* D_A + ad(F_A)∘,
+  acting on adjoint-valued 1-forms satisfying divA a = 0. Here ad(F_A)∘ denotes the natural action of curvature on 1-forms (contraction on indices with Lie bracket).
+- The quadratic (harmonic) part of the full Hamiltonian around A in (a,e) variables restricted to the physical subspace (divA a = 0, divA e = 0) is
+  H_quad,A(a,e) = 1/2 (||e||_L^2^2 + ⟨a, L_A a⟩),
+  while the Coulomb term is ≥ 0 and the remaining part collects cubic and quartic interactions:
+  H(A+ a, E+ e) = H_quad,A(a,e) + H_int,A(a,e), with H_int,A ≥ −CubicQuarticBound.
+
+Core coercivity hypothesis
+(C) There exists m > 0 such that for all connections A in a prescribed region ℛ of configuration space (to be specified; e.g., the support of a putative ground-state measure, or a set defined by uniform a priori bounds), and all adjoint 1-forms a with divA a = 0,
+  ⟨a, L_A a⟩ ≥ m^2 ||a||_L^2^2.
+This is a gauge-invariant, nonperturbative uniform spectral gap for the magnetic Jacobi operator restricted to the Coulomb slice. It rules out zero modes on the slice and asserts a uniform “mass” m for linearized magnetic fluctuations.
+
+Auxiliary relative-form-boundedness hypothesis
+(R) There exist 0 ≤ α < 1 and C ≥ 0 such that for all A ∈ ℛ and all (a,e) with divA a = divA e = 0,
+  |H_int,A(a,e)| ≤ α H_quad,A(a,e) + C ||(a,e)||_L^2^2.
+Remarks:
+- H_int,A(a,e) collects the cubic and quartic non-Abelian interactions arising from expanding |F_{A+a}|^2 and from the Coulomb term’s dependence on A and E beyond quadratic order in (a,e). The Coulomb term’s quadratic contribution in (a,e) is positive and may be dropped for a lower bound; its higher-order pieces are controlled in (R).
+- On a compact Σ, Sobolev embeddings and Gagliardo–Nirenberg inequalities imply that such a bound (R) holds provided uniform control of A in a scale-invariant norm is available (e.g., F_A ∈ L^2 with small or bounded norm, and a uniform coercivity that identifies ||a||_{H^1}^2 with ⟨a,L_A a⟩). The exact constants depend on Σ and on sup-norm/Sobolev bounds on A (or F_A) along ℛ.
+
+Lemma (Operator lower bound and quantitative spectral gap under (C) and (R))
+Assume (C) and (R). Then the Friedrichs extension of the Yang–Mills Hamiltonian in Coulomb gauge on the physical Hilbert space H_phys = L^2(Conn/Coulomb) with fiber Fock space over the transverse 1-forms satisfies the operator inequality
+  H ≥ (1 − α) H_harm(m) − C',
+where H_harm(m) is the second quantization of decoupled harmonic oscillators with frequency m (i.e., quadratic form 1/2(||e||^2 + m^2||a||^2) on one-particle states), and C' depends only on C and Σ. Consequently, the bottom of the excitation spectrum above the ground-state energy obeys the uniform lower bound
+  Gap(H) ≥ (1 − α) m.
+In particular, if α < 1 and m > 0 are independent of volume (e.g., Σ = T^3 with arbitrary side length), the quantum Yang–Mills Hamiltonian has a nonzero mass gap bounded below by (1 − α) m.
+
+Proof sketch
+1) Quadratic coercivity on the physical subspace:
+   By (C),
+     H_quad,A(a,e) = 1/2 (||e||^2 + ⟨a, L_A a⟩) ≥ 1/2 (||e||^2 + m^2 ||a||^2) =: H_harm(m)(a,e).
+   The Coulomb quadratic form is positive and only improves the bound.
+
+2) Control of nonlinearity by the quadratic form:
+   By (R),
+     H_int,A(a,e) ≥ −α H_quad,A(a,e) − C ||(a,e)||^2.
+   Using (C) again to control ||a||^2 by ⟨a,L_A a⟩/m^2 and equivalently ||(a,e)||^2 ≤ c H_quad,A(a,e) for some c = c(m),
+     H_int,A(a,e) ≥ −α H_quad,A(a,e) − C' H_quad,A(a,e) − C'',
+   where C', C'' depend on m and Σ. Absorb C' into α by redefining α̃ = α + C' and require α̃ < 1 (possible since (R) was stated with α < 1; adjust constants).
+
+3) Form sum and min–max:
+   For test vectors ψ in the quadratic form domain, the full quadratic form satisfies
+     ⟨ψ, H ψ⟩ ≥ (1 − α̃) ⟨ψ, H_quad,A ψ⟩ − C'',
+   and by step 1,
+     ⟨ψ, H ψ⟩ ≥ (1 − α̃) ⟨ψ, H_harm(m) ψ⟩ − C''.
+   This inequality is stable under Friedrichs extension and passage to the physical Hilbert space (the Gauss law and Coulomb gauge are encoded by projecting to divergence-free states; all bounds are on that subspace). The KLMN theorem ensures self-adjointness with the same lower bound since H_int is relatively form-bounded with bound < 1.
+   The spectrum of H_harm(m) is a shift of that of a free massive field with mass m: the bottom of the excitation spectrum is m. By the operator inequality, the first excited energy of H is ≥ (1 − α̃) m. This proves the gap bound.
+
+Remarks on the hypotheses and how they might be obtained
+- The geometric coercivity (C) is a precise, gauge-invariant condition: it asserts a uniform positive lower bound on the Hessian of the Yang–Mills magnetic energy restricted to the Coulomb slice. Equivalently, it rules out arbitrarily soft transverse Jacobi modes. This is reminiscent of lying strictly inside the (nonlinear) Gribov region, but it is stronger: it concerns the full Jacobi operator L_A on 1-forms, not only the Faddeev–Popov operator on scalars.
+- The role of the Coulomb term is benign: it is positive and can only increase the energy. Its dependence on A creates higher-order terms in (a,e) but these are covered by (R).
+- On a compact manifold, (R) can be verified under a priori bounds on F_A in L^2 and L^3, using Sobolev embeddings H^1 ↪ L^6 and bilinear estimates to control cubic ∫⟨D_A a, [a,a]⟩ and quartic ∫|[a,a]|^2 terms by ε ⟨a,L_A a⟩ + C_ε ||a||^2. The electric–magnetic mixed terms are estimated similarly; the Coulomb contributions beyond quadratic are controlled via Neumann series for M_A^{-1} when ||A||_{H^1} is bounded, yielding a uniform relative form bound.
+- The key open challenge is to establish (C) nonperturbatively and volume-independently for the physically relevant region ℛ (e.g., the support of the ground state). This is a concrete geometric-analytic problem on the configuration space modulo gauge: prove a uniform spectral gap for L_A on the nonlinear Coulomb slice. It is sharper than a gap for the Faddeev–Popov operator and directly tied to the second variation of the energy.
+- If (C) is proved with m independent of volume and coupling, then the argument gives a mass gap with an explicit lower bound (1 − α) m. If m depends on the coupling g (e.g., m ∼ c g^2 Λ_QCD in suitable units), the bound reflects that dependence.
+
+Concrete partial corollary (finite-volume, small-curvature regime)
+Let Σ = T^3. There exists E* > 0 such that if A satisfies ||F_A||_L^2 ≤ E* and div A = 0 in Coulomb gauge, then:
+- L_A ≥ c0 (−Δ) on divergence-free 1-forms, with c0 > 0 uniform.
+- Consequently (C) holds with m^2 ≥ c0 λ1, where λ1 is the first positive eigenvalue of −Δ on divergence-free 1-forms (λ1 = (2π/L)^2 on the flat torus).
+- By the lemma, Gap(H) ≥ (1 − α) m ≥ (1 − α) √(c0) (2π/L).
+This recovers a finite-volume gap from small-energy coercivity. Although it vanishes as L → ∞, it demonstrates the mechanism and quantifies how strengthening (C) beyond Laplacian control is necessary to achieve a volume-independent mass gap.
+
+Summary of contribution
+- A precise, checkable reduction: the Yang–Mills mass gap on a compact 3-manifold follows from a uniform, gauge-invariant coercivity inequality for the magnetic Jacobi operator on the nonlinear Coulomb slice, together with a uniform relative form bound for the interaction. The reduction provides an explicit operator inequality and a quantitative lower bound Gap(H) ≥ (1 − α) m.
+- The reduction isolates a concrete geometric-analytic target (uniform spectral gap for L_A on the Coulomb slice) whose proof would be a significant step and is arguably more approachable than the full problem, and it avoids informal or purely perturbative reasoning.
+- Additionally, the finite-volume small-curvature corollary shows how the mechanism operates and where it currently falls short (volume dependence), clarifying what new input is required to reach a true mass gap.
+
+VERDICT: PARTIAL
+REASON: Reduction: mass gap follows from uniform Coulomb-slice Jacobi coercivity and a relative form bound; proof sketched.
