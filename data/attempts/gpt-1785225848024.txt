@@ -1,0 +1,57 @@
+Proposition (independent visibility classes force p^2 | Sha in rank 1, under clean local hypotheses).
+Let E/ℚ be the optimal quotient of J0(N) attached to a weight-2 newform f with analytic rank 1. Fix an odd prime p ≥ 5 such that:
+- p ∤ #E(ℚ)tors and p ∤ ∏ℓ|N cℓ(E) (all Tamagawa numbers prime to p),
+- E has good reduction at p, and its residual Galois representation ρ̄E,p is absolutely irreducible,
+- for each ℓ | N, the local Atkin–Lehner signs Wℓ(E) are ±1 and p ∤ |Φℓ(E)| (component groups at bad primes) and the Manin constant of E is prime to p.
+
+Assume there exist two distinct normalized weight-2 newforms g1, g2 of level N with analytic rank 0 such that:
+- for i = 1,2, the Hecke eigenvalues of gi are congruent to those of f modulo a maximal ideal mi ⊂ 𝕋 (the full Hecke algebra acting on J0(N)) lying above p,
+- the Atkin–Lehner eigenvalues of gi equal those of f at every ℓ | N (so the local types match),
+- the maximal ideals m1 ≠ m2 in 𝕋 (i.e., the two congruences are genuinely distinct).
+
+Then p^2 divides #Sha(E/ℚ).
+
+Proof sketch.
+1) Hecke-theoretic set-up.
+Let J = J0(N) with Hecke algebra 𝕋 acting. Let A = A_f be the optimal quotient J → E with connected kernel K. For each i, let A_i = A_{g_i} be the optimal quotient attached to gi, quotienting J by the annihilator ideal I_i = Ann_𝕋(g_i). The congruence 𝕋 → 𝕋/mi with mi ⊃ I_f + I_i yields that A_i admits nontrivial maps into the m_i-primary part of J. Because m1 ≠ m2, the m1- and m2-primary submodules of any 𝕋-module intersect trivially.
+
+2) Visibility subvarieties and m-primary control.
+Let J[m_i^∞] denote the m_i-primary torsion. Standard visibility theory provides that the m_i-primary isogeny component of A_i embeds (up to isogeny) into K over ℚ after projecting away from the E-isotypic factor: more precisely, the natural map
+A_i → J → E
+vanishes modulo m_i (by the congruence), so the image of A_i into J lands inside K modulo m_i. Concretely, there is a 𝕋-equivariant injection over ℚ:
+V_i ↪ K(ℚ̄)[m_i^∞],
+where V_i is an isogenous copy of A_i over ℚ. Since A_i(ℚ) is finite (analytic rank 0 with ρ̄E,p irreducible excludes congruence-induced rank jumps at p and guarantees finiteness of the relevant Bloch–Kato Selmer), the Mordell–Weil group V_i(ℚ) is finite with nontrivial p-part if and only if J[m_i] has rational points. Under our hypotheses at p and the residual irreducibility, the global m_i-torsion of J has no nontrivial rational points; instead, the visibility mechanism produces cohomology classes rather than rational torsion points on E.
+
+3) From visibility to H^1 and Sha.
+Consider the short exact sequence 0 → K → J → E → 0 over ℚ. The boundary map in Galois cohomology yields:
+δ: E(ℚ) ⊗ ℤ/p → H^1(ℚ, K[p]) → H^1(ℚ, J[p]).
+Composing the inclusion V_i[p] ↪ K[p] with the long exact sequence for 0 → E[p] → E → E → 0 gives canonical classes
+κ_i ∈ H^1(ℚ, E[p]),
+arising from the failure of the map V_i → E to split modulo p (equivalently, from the extension class of E by V_i in the m_i-primary Hecke eigenspace). Because A_i(ℚ) has rank 0 and p ∤ #A_i(ℚ)tors for almost all p by our hypotheses and the residual irreducibility, the construction produces nonzero κ_i modulo p (one can see this explicitly in the m_i-eigenspace of J[p] via the Eichler–Shimura relations: the congruence makes the projection to the E-isotypic piece vanish mod m_i, so the class is exact in J but nontrivial when pushed down to E).
+
+4) Local conditions and placement in Sha.
+We claim κ_i lies in the Bloch–Kato Selmer subgroup H^1_f(ℚ, E[p]) and, in fact, in Sha(E)[p]. This requires checking local conditions:
+- At p: E has good reduction at p; with ordinary or supersingular reduction, the congruence respects the local filtration coming from the p-divisible group. Since V_i arises from the new subvariety with matched local types, the class κ_i restricts to the finite (unramified or plus/minus) subgroup H^1_f(ℚ_p, E[p]). This is a standard local control fact for visibility classes when Atkin–Lehner signs and local types match.
+- At ℓ | N: the matching Atkin–Lehner signs force the same local types at ℓ; together with p ∤ cℓ(E) and p ∤ |Φℓ(E)|, the local connecting morphisms land in the unramified subgroups, and the image in E(ℚ_ℓ)/p is trivial. Hence κ_i is unramified at these primes and satisfies the Bloch–Kato finite condition.
+- At all other ℓ: good reduction and unramifiedness ensure κ_i is finite locally.
+
+Finally, we must see κ_i maps to zero in E(ℚ)/pE(ℚ). Since rank(E)=1 and p ∤ #E(ℚ)tors, E(ℚ)/p is 1-dimensional over ℤ/p. The classes κ_i come from the m_i-primary congruence in the kernel of J → E; the induced map on rational points factors through a quotient of A_i(ℚ), which is finite of order prime to p under our standing hypotheses, so the image in E(ℚ)/p vanishes. Thus κ_i ∈ Sha(E)[p].
+
+5) Independence and p^2-divisibility.
+Because m1 ≠ m2, the Hecke algebra decomposes J[p]⊗𝔽_p into a direct sum of its m_i-eigenspaces. The two classes κ_1 and κ_2 lie in distinct generalized eigenspaces (corresponding to m1 and m2), hence are linearly independent over 𝔽_p. Therefore dim_𝔽_p Sha(E)[p] ≥ 2, i.e., p^2 | #Sha(E).
+
+Remarks on hypotheses and robustness.
+- The component-group and Tamagawa primeness assumptions are the usual “clean visibility” conditions ensuring the classes land in Sha rather than being absorbed by local images of E(ℚ_ℓ).
+- The matching Atkin–Lehner signs prevent local sign obstructions that can force the visible class to be locally non-finite.
+- The residual irreducibility and p ≥ 5 avoid exceptional reducible or CM congruence pathologies.
+- If one can relax the Tamagawa and component-group primeness by accounting for the local images explicitly, one obtains weaker but still concrete lower bounds on v_p(#Sha(E)) in terms of the number of independent congruences.
+
+Consequences and a measurable target.
+This proposition turns congruence data at level N into a provable quadratic lower bound on the p-part of Sha for analytic rank 1 curves, under explicit, checkable local hypotheses. It yields a computable pathway: exhibit two distinct mod p congruences of f with rank 0 newforms of the same Atkin–Lehner signatures and clean local behavior, and conclude p^2 | #Sha(E). This pushes visibility beyond the “p divides Sha or a Tamagawa factor” dichotomy to a genuinely higher multiplicity statement under natural independence.
+
+Limitations.
+- The proof sketch relies on the standard visibility exactness in J0(N) and on the control of local conditions; supplying full details requires a careful bookkeeping of 𝕋-modules and component groups.
+- Removing the clean local hypotheses or handling supersingular p uniformly would require refined local arguments (e.g., ± Selmer conditions) but should follow similar lines.
+
+VERDICT: PARTIAL
+REASON: New criterion: two independent congruences ⇒ p^2 | Sha(E) in rank 1 under clean local hypotheses

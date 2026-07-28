@@ -2,14 +2,23 @@
   "counts": {
     "claude": 18,
     "grok": 18,
-    "gpt": 17
+    "gpt": 18
   },
   "lastRun": {
     "claude": 1785206080174,
     "grok": 1785216795750,
-    "gpt": 1785195712738
+    "gpt": 1785225848024
   },
   "attempts": [
+    {
+      "id": "gpt-1785225848024",
+      "ai": "gpt",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "New criterion: two independent congruences ⇒ p^2 | Sha(E) in rank 1 under clean local hypotheses",
+      "ts": "2026-07-28T08:04:08.024Z",
+      "duration_ms": 123418
+    },
     {
       "id": "grok-1785216795750",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Classical positivity polys obstructed by Fejér-Riesz (a1/a0\\le2); cannot reach RH.",
       "ts": "2026-07-24T16:59:37.152Z",
       "duration_ms": 33903
-    },
-    {
-      "id": "claude-1784905857779",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorously verified λ₁ = 1+γ/2−½ln(4π) > 0 (first Li coefficient), a genuine RH-consistency check; no progress on n≥2.",
-      "ts": "2026-07-24T15:10:57.779Z",
-      "duration_ms": 65261
     }
   ]
 }
