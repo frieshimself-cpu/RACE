@@ -1,0 +1,30 @@
+### Attempt: Obstruction in Hilbert–Pólya spectral realizations
+
+Let \(\Xi(t)=\xi(1/2+it)\) denote the Riemann \(\xi\)-function restricted to the critical line (entire of order 1, real on \(\mathbb{R}\), and even). The Hilbert–Pólya conjecture asserts the existence of an unbounded self-adjoint operator \(H\) on a Hilbert space \(\mathcal{H}\) such that the non-trivial zeros satisfy
+\[
+\rho=\frac12+i\gamma\quad\Longleftrightarrow\quad\gamma\in\operatorname{Spec}(H).
+\]
+(The functional equation \(\xi(s)=\xi(1-s)\) then forces the spectrum to be symmetric about zero.)
+
+Any candidate \(H\) must reproduce the asymptotic density of zeros
+\[
+N(T)=\#\{\gamma:0<\gamma\le T\}=\frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}+O(\log T)
+\]
+given by the Riemann–von Mangoldt formula. Consider the model Berry–Keating operator formally written \(H=xp\) on \(L^2(\mathbb{R}_+)\). After symmetric ordering and a cutoff regularization at scale \(\Lambda\), the eigenvalue counting function of the resulting semiclassical operator is
+\[
+N_{\mathrm{BK}}(T;\Lambda)=\frac{T}{2\pi}\log\Lambda+O(1).
+\]
+Matching the logarithmic main term forces \(\Lambda\sim T\), which is inconsistent with a fixed (unbounded) operator independent of the spectral window. More precisely, the resolvent \((H-z)^{-1}\) cannot be trace-class on any fixed domain that simultaneously
+- encodes the Gamma-factor of the completed zeta function via a boundary condition at the origin, and
+- produces a pure-point spectrum whose imaginary parts coincide with the zeros of \(\Xi\).
+
+If one attempts to restore the correct density by inserting a dilogarithmic potential (or any potential whose Weyl law yields an extra \(\log T\)), the resulting Schrödinger operator fails to be essentially self-adjoint on the natural Sobolev domain, or else its spectrum acquires a continuous component of positive measure. In all rigorously constructed variants the spectral measure \(\mu_H\) therefore satisfies
+\[
+\int\frac{d\mu_H(t)}{1+t^2}<\infty
+\]
+while the corresponding measure built from the zeros of \(\Xi\) does not arise as the spectral measure of any differential operator with locally regular coefficients. Consequently every concrete Hilbert–Pólya candidate either (i) fails to be self-adjoint, (ii) produces the wrong zero density, or (iii) presupposes analytic continuation and the functional equation of \(\zeta(s)\) in the very definition of its domain, rendering the argument circular.
+
+Thus the spectral approach, while formally equivalent to RH once a suitable \(H\) is exhibited, supplies no independent existence proof and is obstructed at the level of operator realization.
+
+VERDICT: FAILED
+REASON: Hilbert-Pólya candidates obstructed by density mismatch or circular domain definition
