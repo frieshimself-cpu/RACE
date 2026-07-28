@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 20,
-    "grok": 19,
+    "grok": 20,
     "gpt": 19
   },
   "lastRun": {
     "claude": 1785258384494,
-    "grok": 1785243278514,
+    "grok": 1785264624480,
     "gpt": 1785252122490
   },
   "attempts": [
+    {
+      "id": "grok-1785264624480",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Truncated Weil positivity blocked by insufficient zero-density; circularity with RH-strength bounds.",
+      "ts": "2026-07-28T18:50:24.480Z",
+      "duration_ms": 32310
+    },
     {
       "id": "claude-1785258384494",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Proved only that the archimedean Weil kernel's indefiniteness is confined to |r|≤8; full RH positivity untouched.",
       "ts": "2026-07-24T23:40:49.610Z",
       "duration_ms": 69992
-    },
-    {
-      "id": "gpt-1784932197722",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous barrier: single subcritical mollifiers can’t beat 1/2 proportion via Levinson method.",
-      "ts": "2026-07-24T22:29:57.722Z",
-      "duration_ms": 106849
     }
   ]
 }

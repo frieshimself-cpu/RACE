@@ -1,0 +1,30 @@
+### Attempt: Positivity obstruction in a truncated Weil explicit formula
+
+Let \(\Xi(t) := \xi(1/2 + it)\), where \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The Riemann Hypothesis is equivalent to all zeros of the entire function \(\Xi\) being real. Weil’s criterion states that RH holds if and only if
+\[
+\sum_{\rho} \widehat{f}(\rho) \ge 0
+\]
+for every admissible test function \(f\) (even, Schwartz-class, Fourier transform supported in \((-1,1)\)), where the sum runs over the non-trivial zeros \(\rho\) of \(\zeta\) (counted with multiplicity) and
+\[
+\widehat{f}(s) = \int_{-\infty}^{\infty} f(t) e^{(s-1/2)t}\,dt.
+\]
+(The archimedean and prime-power contributions that appear in the full explicit formula are absorbed into a separately non-negative quadratic form once the support condition is imposed.)
+
+Fix a parameter \(T\ge 3\) and consider the truncated Gaussian family
+\[
+f_T(x) := e^{-\pi x^2/T^2}\cdot\bigl(1-\tfrac{|x|}{T}\bigr)_+.
+\]
+Its Fourier transform admits the elementary bound
+\[
+|\widehat{f}_T(\sigma+it)| \le C T\exp\bigl(-\pi t^2 T^{-2} + 2\pi|\sigma-1/2|T\bigr)
+\]
+uniformly for \(\sigma\in[0,1]\). Consequently the contribution of any hypothetical zero \(\rho=\beta+i\gamma\) with \(\beta>1/2\) and \(|\gamma|\le T\) is at least
+\[
+c\,T\exp\bigl(c'(\beta-1/2)T\bigr)
+\]
+while the total contribution of all zeros with \(|\gamma|>T\) is \(O(T\exp(-c''T))\) by the classical zero-density estimate \(N(\sigma,T)\ll T^{c(1-\sigma)}\log T\). The diagonal archimedean term is \(O(T)\). Hence, if a zero with \(\beta\ge 1/2+\delta\) existed inside the window \(|\gamma|\le T\), the Weil sum for \(f_T\) would become negative for all sufficiently large \(T\) (depending only on \(\delta\)).
+
+The obstruction is quantitative: the best available zero-density estimates still permit a thin set of zeros with \(\beta-1/2\gg(\log\log T)/\log T\) whose collective contribution can cancel the positive main term before the exponential growth in \(T\) dominates. Closing the gap requires a density estimate of the shape \(N(\sigma,T)\ll T^{2(1-\sigma)-\varepsilon}\), which is precisely equivalent in strength to a zero-free region of width \(T^{-\varepsilon}\) and is therefore circular for the full RH. Thus the truncated Weil sums detect no contradiction with present technology.
+
+VERDICT: FAILED
+REASON: Truncated Weil positivity blocked by insufficient zero-density; circularity with RH-strength bounds.
