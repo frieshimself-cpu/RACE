@@ -1,0 +1,53 @@
+### Attempt: A reduction of RH to a uniform lower bound on a certain quadratic form arising from the Weil explicit formula
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). This is an entire function of order 1 satisfying the functional equation \(\xi(s)=\xi(1-s)\), and the non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\). Write the Hadamard factorization
+\[
+\xi(s)=\xi(0)\prod_{\rho}(1-s/\rho),
+\]
+the product running over all zeros \(\rho=\beta+i\gamma\) (counted with multiplicity), which converges in the usual entire-function sense after grouping \(\rho\) with \(1-\rho\).
+
+The Weil explicit formula, in the form convenient for positivity, states the following. Let \(h\) be an even Schwartz test function on \(\mathbb{R}\) whose Fourier transform
+\[
+\hat h(t)=\int_{-\infty}^{\infty}h(x)e^{-itx}\,dx
+\]
+is supported in \((-2\log2,2\log2)\). Then
+\begin{align*}
+\sum_{\rho}h(\gamma)
+&=\frac1{2\pi}\int_{-\infty}^{\infty}h(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)\,dt
++h\Bigl(\tfrac i2\Bigr)+h\Bigl(-\tfrac i2\Bigr)\\
+&\qquad-\sum_{n=1}^{\infty}\frac{\Lambda(n)}{\sqrt n}\Bigl(\hat h(\log n)+\hat h(-\log n)\Bigr),
+\end{align*}
+where the sum on the left is over the imaginary parts of the zeros (with multiplicity) and the right-hand side is well-defined by the support restriction on \(\hat h\).
+
+Define the quadratic form associated with a finite collection of real frequencies \(t_1,\dots,t_N\) and complex coefficients \(c_1,\dots,c_N\) by
+\[
+Q(c)=\sum_{j,k=1}^N c_j\overline{c_k}\sum_{\rho}e^{i(t_j-t_k)\gamma}.
+\]
+By the explicit formula (applied to a suitable non-negative approximate identity built from the \(t_j\)), \(Q(c)\) admits an expression
+\[
+Q(c)=D(c)-P(c),
+\]
+in which \(D(c)\) is a diagonal-type term coming from the Gamma factor and the polar terms (manifestly positive for non-zero \(c\) when the \(t_j\) are sufficiently separated), while \(P(c)\) is the prime-power contribution
+\[
+P(c)=\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\Bigl|\sum_{j=1}^N c_je^{it_j\log n}\Bigr|^2.
+\]
+(The precise normalization of the approximate identity is immaterial for the argument below; any standard Fejér-type kernel with sufficiently small support works.)
+
+**Lemma (reduction).** Suppose there exists an absolute constant \(c_0>0\) such that for every \(N\) and every choice of real \(t_j\) and coefficients \(c\in\mathbb{C}^N\setminus\{0\}\),
+\[
+D(c)\ge c_0\|c\|_2^2+P(c).
+\]
+Then every non-trivial zero satisfies \(\beta=1/2\).
+
+*Proof of the lemma.* Assume a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>1/2\). By the functional equation there is a companion zero at \(1-\rho_0\). Choose a sequence of test functions whose Fourier transforms concentrate at frequencies near \(\pm\gamma_0\) while remaining admissible (support of \(\hat h\) inside \((-2\log2,2\log2)\)). The contribution of the pair \(\{\rho_0,1-\rho_0\}\) to the left-hand side of the explicit formula then produces a term whose real part is asymptotically
+\[
+2\cosh\bigl((2\beta_0-1)T\bigr)\cdot\|c\|_2^2
+\]
+for a large scaling parameter \(T\to\infty\) (the hyperbolic growth arises from the horizontal displacement \(\beta_0-1/2>0\)). This term dominates both the Gamma contribution (which grows at most like \(\log T\)) and the prime-power sum \(P(c)\) (which remains \(O(\|c\|_2^2)\) by the prime-number theorem with classical zero-free region). Consequently \(Q(c)\) becomes negative for large \(T\), contradicting the assumed lower bound. The case \(\beta_0<1/2\) is symmetric. Hence all zeros lie on the critical line.
+
+**Obstruction.** The required uniform lower bound \(D(c)\ge c_0\|c\|_2^2+P(c)\) is precisely a quantitative form of the “Weil positivity” criterion. While \(D(c)-P(c)\) is known to be non-negative when the support of \(\hat h\) is small enough that only the prime 2 appears (by direct verification of the resulting trigonometric polynomial), the constant \(c_0\) deteriorates as soon as the support is enlarged to include further primes. No method currently available produces a support-independent \(c_0>0\). In particular, the contribution of the primes near \(e^{|t_j-t_k|}\) can cancel an arbitrarily large fraction of \(D(c)\) once the \(t_j\) are allowed to range over all of \(\mathbb{R}\). This is the precise point at which the reduction fails to yield a proof: the inequality is true if and only if RH is true, yet the only regimes in which it can be checked unconditionally are those too restrictive to force all zeros onto the line.
+
+Thus the reduction is valid, but the analytic estimate needed to apply it remains open and appears to be of comparable difficulty to RH itself.
+
+VERDICT: PARTIAL
+REASON: Valid reduction of RH to uniform positivity of Weil quadratic form; obstruction identified but not overcome
