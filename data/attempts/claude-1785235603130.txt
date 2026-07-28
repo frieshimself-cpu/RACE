@@ -1,0 +1,50 @@
+# Attempt: Rigorous computation within Li's criterion, and structural analysis of the positivity obstruction
+
+## Setup
+
+Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1, with Hadamard product
+$$\xi(s)=\xi(0)\prod_{\rho}\Big(1-\frac{s}{\rho}\Big),$$
+the product over nontrivial zeros $\rho$ of $\zeta$, taken in symmetric pairs $\rho,1-\rho$ (and $\rho,\bar\rho$). The Li coefficients are
+$$\lambda_n=\sum_\rho\Big[1-\Big(1-\frac1\rho\Big)^n\Big],$$
+and the Bombieri–Lagarias theorem states $\text{RH}\iff \lambda_n\ge 0$ for all $n\ge1$. My aim here is (i) a fully rigorous computation of $\lambda_1$ from first principles, and (ii) an exact reformulation of $\lambda_n$ on the critical line that isolates *why* positivity for $n\ge2$ is not free.
+
+## Part I: Rigorous evaluation of $\lambda_1$
+
+Since $\lambda_1=\sum_\rho 1/\rho$, and from the product $(\log\xi)'(s)=\sum_\rho \frac{1}{s-\rho}$, we get $(\log\xi)'(0)=-\sum_\rho 1/\rho$. The functional equation $\xi(s)=\xi(1-s)$ gives $(\log\xi)'(1)=-(\log\xi)'(0)$, hence
+$$\lambda_1=\sum_\rho\frac1\rho=(\log\xi)'(1).$$
+
+Now differentiate $\log\xi(s)=-\log2+\log s+\log(s-1)-\tfrac{s}{2}\log\pi+\log\Gamma(s/2)+\log\zeta(s)$:
+$$(\log\xi)'(s)=\frac1s+\Big[\frac{1}{s-1}+\frac{\zeta'}{\zeta}(s)\Big]-\tfrac12\log\pi+\tfrac12\psi(s/2).$$
+The bracket is the only singular piece at $s=1$. Using $\zeta(s)=\frac{1}{s-1}+\gamma+O(s-1)$ and $\zeta'(s)=-\frac{1}{(s-1)^2}+O(1)$,
+$$\frac{\zeta'}{\zeta}(s)=\frac{-\frac{1}{(s-1)^2}+O(1)}{\frac{1}{s-1}+\gamma+O(s-1)}=-\frac{1}{s-1}\cdot\frac{1}{1+\gamma(s-1)+\cdots}=-\frac{1}{s-1}+\gamma+O(s-1),$$
+so $\displaystyle\lim_{s\to1}\Big[\frac{1}{s-1}+\frac{\zeta'}{\zeta}(s)\Big]=\gamma.$
+
+Therefore, using $\psi(1/2)=-\gamma-2\log2$,
+$$\lambda_1=1+\gamma-\tfrac12\log\pi+\tfrac12(-\gamma-2\log2)=1+\frac\gamma2-\frac12\log\pi-\log2=1+\frac\gamma2-\frac12\log(4\pi).$$
+
+Numerically $\lambda_1=1+0.288607-1.265512=0.023096>0$. This is rigorous and unconditional: $\lambda_1>0$ holds regardless of RH. So $\lambda_1\ge0$ carries **no** information about RH — the criterion only bites for large $n$.
+
+## Part II: Exact form of $\lambda_n$ on the critical line and the obstruction
+
+Suppose RH holds, so every $\rho=\tfrac12+it$. Write $\rho=re^{i\theta}$, $r=|\rho|=\sqrt{\tfrac14+t^2}$. Then
+$$1-\frac1\rho=\frac{\rho-1}{\rho}.$$
+Under RH, $1-\rho=\tfrac12-it=\overline{\rho}$, so $\rho-1=-\overline\rho$ and
+$$1-\frac1\rho=-\frac{\overline\rho}{\rho}=-e^{-2i\theta},\qquad \Big|1-\frac1\rho\Big|=1.$$
+Hence $\big(1-\frac1\rho\big)^n=(-1)^n e^{-2in\theta}$, and pairing $\rho$ with $\overline\rho$ (which has angle $-\theta$) makes the sum real:
+$$\boxed{\;\lambda_n=\sum_{\rho}\big[1-(-1)^n\cos(2n\theta_\rho)\big]\quad(\text{under RH}),\;}$$
+where the sum is over zeros with $t>0$ counted with their conjugates absorbed, i.e. each conjugate pair contributes $2[\,1-(-1)^n\cos 2n\theta\,]$.
+
+**Structural reading.** Each summand lies in $[1-1,\,1+1]\cdot$(sign), i.e. in $[0,2]$ when $(-1)^n\cos(2n\theta)\le1$ — which always holds. So on the critical line **every individual term is $\ge0$**, giving $\lambda_n\ge0$ termwise. This is precisely the content of the "$\Rightarrow$" direction of Bombieri–Lagarias: RH forces $|1-1/\rho|=1$, keeping $(1-1/\rho)^n$ on the unit circle so that $1-\text{Re}(1-1/\rho)^n\ge0$.
+
+**Where a zero off the line breaks this.** If some $\rho_0=\beta+it$ with $\beta>\tfrac12$ exists, then its partner $1-\rho_0$ has $\text{Re}<\tfrac12$, and
+$$\Big|1-\frac1{\rho_0}\Big|^2=\Big|\frac{\rho_0-1}{\rho_0}\Big|^2=\frac{(\beta-1)^2+t^2}{\beta^2+t^2}<1,\qquad \Big|1-\frac1{1-\rho_0}\Big|^2=\frac{\beta^2+t^2}{(\beta-1)^2+t^2}>1.$$
+The zero with $\beta<\tfrac12$ has $|1-1/\rho|>1$, so $(1-1/\rho)^n$ grows *geometrically* in $n$, and its real part oscillates to $-\infty$ along a subsequence; this eventually dominates and drives some $\lambda_n<0$. That is the mechanism (made quantitative by Bombieri–Lagarias) converting a single off-line zero into a sign violation.
+
+## Assessment
+
+Part I is a complete, correct, self-contained derivation of $\lambda_1$, and it sharpens a point often glossed over: $\lambda_1>0$ *unconditionally*, so low-index Li positivity is not evidence of RH — the criterion is entirely an asymptotic-in-$n$ statement. Part II gives the exact critical-line expression $\lambda_n=\sum_\rho[1-(-1)^n\cos 2n\theta_\rho]$ and pins the positivity obstruction to the modulus dichotomy $|1-1/\rho|\gtrless1$.
+
+This does **not** prove RH: the hard direction requires establishing $\lambda_n\ge0$ for all $n$ (or the equivalent $\sum_\rho[1-\cos 2n\theta]$-type positivity) *without* assuming zero locations, which the above analysis reduces to but does not achieve. The termwise positivity only holds *given* RH; extracting positivity from the arithmetic definition of $\lambda_n$ (via $\log\xi$ Taylor coefficients at $s=1$, i.e. from prime sums) remains open. No new bound bridging that gap is produced here.
+
+VERDICT: FAILED
+REASON: Rederived λ₁>0 unconditionally and gave exact critical-line form of λₙ, but no unconditional positivity proof.
