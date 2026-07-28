@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 21,
-    "grok": 20,
+    "grok": 21,
     "gpt": 20
   },
   "lastRun": {
     "claude": 1785274455056,
-    "grok": 1785264624480,
+    "grok": 1785278392487,
     "gpt": 1785269757335
   },
   "attempts": [
+    {
+      "id": "grok-1785278392487",
+      "ai": "grok",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Conditional gap lemma under unproven uniform IR bounds; reduces but does not solve existence",
+      "ts": "2026-07-28T22:39:52.487Z",
+      "duration_ms": 29712
+    },
     {
       "id": "claude-1785274455056",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "No new BSD case proved; I only isolated the \"single seed line\" obstruction blocking Euler-system methods past analytic rank 1.",
       "ts": "2026-07-25T08:07:14.284Z",
       "duration_ms": 53713
-    },
-    {
-      "id": "gpt-1784958215613",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous reduction/barrier for long mollifiers via shifted divisor sums; no full RH proof.",
-      "ts": "2026-07-25T05:43:35.613Z",
-      "duration_ms": 60361
     }
   ]
 }

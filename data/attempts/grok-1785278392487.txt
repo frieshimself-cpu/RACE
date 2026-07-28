@@ -1,0 +1,40 @@
+### Attempt: Conditional Mass Gap from Uniform Infrared Bounds in Continuum Limit of Lattice YM
+
+We work throughout with a compact simple gauge group \(G\) (e.g., \(SU(N)\), \(N\geq 2\)) and consider pure Yang–Mills theory in Euclidean signature on \(\mathbb{R}^4\). Let \(\Lambda_a\subset\mathbb{R}^4\) be a finite cubic lattice of spacing \(a>0\) with periodic boundary conditions, volume \(V=L^4\), and let \(S_a(U)\) denote the standard Wilson plaquette action
+\[
+S_a(U)=\frac{1}{g_0^2}\sum_{p\subset\Lambda_a}\operatorname{Re}\operatorname{Tr}(1-U_p),
+\]
+where \(U_p\) is the oriented product of link variables around plaquette \(p\). The lattice measure is the normalized product Haar measure \(d\mu_a=Z_a^{-1}e^{-S_a(U)}\prod_\ell dU_\ell\).
+
+Assume the following two hypotheses, both of which are known to hold for sufficiently small bare coupling \(g_0>0\) (by standard cluster-expansion or polymer-expansion techniques) but whose uniform control down to \(a\to 0\) remains open:
+
+**(H1) (Uniform exponential clustering / infrared bound).** There exist constants \(m_0>0\) and \(C<\infty\), independent of \(a\in(0,a_0]\) and of volume \(V\), such that for any two local gauge-invariant observables \(A,B\) supported in regions separated by Euclidean distance \(R\),
+\[
+\bigl|\langle AB\rangle_a-\langle A\rangle_a\langle B\rangle_a\bigr|\le C\|A\|\|B\|e^{-m_0 R}.
+\]
+(The expectation is with respect to \(d\mu_a\).)
+
+**(H2) (Existence of a continuum limit in the OS sense).** There is a sequence \(a_n\to 0\) along which the finite-dimensional distributions of Wilson loops (and more generally of smeared gauge-invariant local fields) converge to a continuum measure \(d\mu\) on a space of distributions that satisfies the Osterwalder–Schrader axioms (OS0)–(OS4), including reflection positivity and Euclidean invariance. Moreover the limiting two-point functions of the curvature (or of a local gauge-invariant field \(\Phi\) of engineering dimension 2) remain tempered distributions.
+
+**Lemma (Conditional mass gap).** Under (H1)–(H2) the continuum theory possesses a mass gap: the spectrum of the self-adjoint Hamiltonian \(H\) obtained by OS reconstruction satisfies \(\operatorname{spec}(H)\subset\{0\}\cup[\Delta,\infty)\) with \(\Delta\ge m_0>0\).
+
+**Proof sketch.**  
+By OS reconstruction the continuum two-point function of a local gauge-invariant field \(\Phi\) (e.g., \(\operatorname{Tr} F_{\mu\nu}F^{\mu\nu}\) smeared against a test function of compact support) yields a Hilbert space \(\mathcal{H}\) and a positive self-adjoint operator \(H\) generating time translations. Reflection positivity plus the lattice infrared bound (H1) pass to the limit: for the continuum Schwinger function one has
+\[
+\bigl|S_2(x,y)-\langle\Phi\rangle\langle\Phi\rangle\bigr|\le C'e^{-m_0|x-y|}.
+\]
+Fourier transforming in the time difference and using the spectral representation
+\[
+S_2(t,\mathbf{x};0)=\int_0^\infty e^{-E|t|}\,d\mu_{\mathbf{x}}(E)
+\]
+(the measure \(d\mu_{\mathbf{x}}\) coming from the spectral theorem for \(H\)), the exponential decay forces \(\operatorname{supp}d\mu_{\mathbf{x}}\subset\{0\}\cup[m_0,\infty)\). The vacuum is unique by the cluster property, so the only contribution at \(E=0\) is the disconnected part. Hence the connected spectrum starts at or above \(m_0\). Since the local field \(\Phi\) generates (by repeated commutators with the Poincaré generators) a dense set of states in the vacuum sector, the gap \(\Delta\ge m_0\) holds for the full Hamiltonian.  
+
+(The same argument applies verbatim to the transfer-matrix formulation on the lattice and survives the continuum limit by (H2).)
+
+**Status of the hypotheses.**  
+(H1) is established for fixed \(a>0\) by the results of Osterwalder–Seiler and of Balaban (polymer expansions around the axial gauge fixing), but the constant \(m_0\) deteriorates as \(a\to 0\) unless an a-priori continuum mass gap is already assumed—an obvious circularity. (H2) is known only in dimensions \(d\le 3\) or for abelian groups; in four-dimensional non-abelian YM the necessary tightness and ultraviolet stability estimates remain incomplete (the best available bounds still lose powers of \(\log(1/a)\)).
+
+Thus the lemma reduces the mass-gap problem to the uniform control of the infrared mass in the continuum limit—an open analytic problem, but a strictly smaller one than the original existence-plus-gap statement.
+
+VERDICT: PARTIAL
+REASON: Conditional gap lemma under unproven uniform IR bounds; reduces but does not solve existence
