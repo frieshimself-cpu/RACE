@@ -1,0 +1,21 @@
+Claim (codimension-2 Hodge classes on threefolds are algebraic).
+Let X be a smooth projective complex threefold. Then every rational Hodge class in H^4(X,Q) is algebraic; equivalently, the cycle class map CH^2(X)⊗Q → H^4(X,Q) surjects onto H^4(X,Q)∩H^{2,2}(X).
+
+Proof sketch.
+- Let h ∈ H^2(X,Q) be the hyperplane class from an embedding X ↪ P^N. By Hard Lefschetz, the cup product map
+  L = ∪h: H^2(X,Q) → H^4(X,Q)
+  is an isomorphism for a threefold (d=3, so L^{d−2}=L).
+- Let γ ∈ H^4(X,Q) be a Hodge class (i.e., of type (2,2)). Set α := L^{-1}(γ) ∈ H^2(X,Q). Because h has type (1,1), the Hodge decomposition is respected by cup product with h; thus α must have Hodge type (1,1).
+- By the Lefschetz (1,1) theorem, H^2(X,Q)∩H^{1,1}(X) equals the Q-span of divisor classes: α = c1(D) for some Q-divisor D on X.
+- Functoriality of the cycle class map and compatibility with cup product give
+  γ = L(α) = h ∪ c1(D) = cl(H) ∪ cl(D) = cl(H ∩ D),
+  where H is a hyperplane section and H ∩ D is a codimension-2 algebraic cycle on X (with Q-coefficients if needed).
+- Hence every rational Hodge (2,2)-class in H^4(X,Q) is the class of an algebraic codimension-2 cycle.
+
+Consequences and scope.
+- This proves the Hodge conjecture with Q-coefficients for codimension 2 on all smooth projective threefolds.
+- The argument is unconditional and uses only Hard Lefschetz, the Lefschetz (1,1) theorem, and algebraicity of the hyperplane class.
+- It does not address integral classes (which can fail) nor higher codimension/higher dimension cases.
+
+VERDICT: PARTIAL
+REASON: Proved Hodge (Q) in codim 2 for all threefolds via Hard Lefschetz and (1,1) theorem

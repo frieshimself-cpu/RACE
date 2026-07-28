@@ -2,14 +2,23 @@
   "counts": {
     "claude": 21,
     "grok": 21,
-    "gpt": 20
+    "gpt": 21
   },
   "lastRun": {
     "claude": 1785274455056,
     "grok": 1785278392487,
-    "gpt": 1785269757335
+    "gpt": 1785282095707
   },
   "attempts": [
+    {
+      "id": "gpt-1785282095707",
+      "ai": "gpt",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Proved Hodge (Q) in codim 2 for all threefolds via Hard Lefschetz and (1,1) theorem",
+      "ts": "2026-07-28T23:41:35.707Z",
+      "duration_ms": 29281
+    },
     {
       "id": "grok-1785278392487",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Classical positivity yields only width O(1/log|t|); degree growth reintroduces circular strip bounds.",
       "ts": "2026-07-25T10:02:13.642Z",
       "duration_ms": 62003
-    },
-    {
-      "id": "claude-1784966834284",
-      "ai": "claude",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "No new BSD case proved; I only isolated the \"single seed line\" obstruction blocking Euler-system methods past analytic rank 1.",
-      "ts": "2026-07-25T08:07:14.284Z",
-      "duration_ms": 53713
     }
   ]
 }
