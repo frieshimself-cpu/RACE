@@ -1,0 +1,154 @@
+# On the continuous-spectrum obstruction in the Berry–Keating / Hilbert–Pólya approach
+
+I give a self-contained, rigorous analysis of a concrete obstruction facing the
+spectral (Hilbert–Pólya) approach to RH via the Berry–Keating operator
+$H = \tfrac12(xp+px)$. The point is to pin down *precisely* why the naive
+operator produces a continuum, not the discrete set of zeros, and to state what
+any successful variant must supply.
+
+## Setup
+
+Work on $\mathcal H = L^2((0,\infty),dx)$ with $p=-i\,d/dx$. The classical
+Berry–Keating Hamiltonian is $H_{\mathrm{cl}}=xp$, symmetrized to
+$$
+H=\tfrac12(xp+px) = -i\Big(x\frac{d}{dx}+\tfrac12\Big),
+$$
+acting initially on $C_c^\infty((0,\infty))$. The heuristic hope is that a
+self-adjoint realization of $H$ has eigenvalues $E_n$ with $\tfrac12+iE_n$ the
+nontrivial zeros of $\zeta$.
+
+## Lemma 1 (Symmetry).
+
+On $D_0=C_c^\infty((0,\infty))$, $H$ is symmetric.
+
+*Proof.* For $f,g\in D_0$,
+$$
+\langle Hf,g\rangle=\int_0^\infty \overline{-i(xf'+\tfrac12 f)}\,g\,dx
+=\int_0^\infty (i x\overline{f'}+\tfrac{i}{2}\overline f)\,g\,dx .
+$$
+Integrate $\int i x\overline{f'} g\,dx$ by parts. Since $f,g$ have compact
+support in $(0,\infty)$ boundary terms vanish:
+$$
+\int_0^\infty i x\overline{f'}g\,dx
+= -\int_0^\infty i\,\overline f\,(g + x g')\,dx
+= -i\int \overline f g\,dx - i\int x\overline f g'\,dx .
+$$
+Hence
+$$
+\langle Hf,g\rangle = -i\int x\overline f g'\,dx -\tfrac{i}{2}\int \overline f g\,dx
+=\int_0^\infty \overline f\,\big(-i(xg'+\tfrac12 g)\big)\,dx=\langle f,Hg\rangle. \qquad\blacksquare
+$$
+
+## Lemma 2 (Generalized eigenfunctions and their non-normalizability).
+
+For every $E\in\mathbb C$ the equation $H\psi=E\psi$ has the one-dimensional
+solution space spanned by
+$$
+\psi_E(x)=x^{\,iE-\frac12},\qquad x>0.
+$$
+For $E\in\mathbb R$, $|\psi_E(x)|^2=x^{-1}$, so
+$$
+\|\psi_E\|^2=\int_0^\infty \frac{dx}{x}=\Big[\log x\Big]_0^\infty=+\infty,
+$$
+with **logarithmic divergence at both ends** $x\to0^+$ and $x\to\infty$.
+Thus no real $E$ yields an $L^2$ eigenfunction.
+
+*Proof.* $H\psi=E\psi$ reads $-i(x\psi'+\tfrac12\psi)=E\psi$, i.e.
+$x\psi'=(iE-\tfrac12)\psi$, giving $\psi'/\psi=(iE-\tfrac12)/x$ and
+$\psi=x^{iE-1/2}$. The norm computation is immediate. $\quad\blacksquare$
+
+## Proposition 3 (The unitary conjugation to multiplication, and continuous spectrum).
+
+Let $U:L^2((0,\infty),dx)\to L^2(\mathbb R,du)$ be the Mellin-type unitary
+$$
+(Uf)(u)=e^{u/2}f(e^{u}),\qquad x=e^u .
+$$
+Then $U$ is unitary and
+$$
+U H U^{-1} = -i\frac{d}{du}=:P_u
+$$
+on the corresponding domain. Consequently every self-adjoint extension of $H$
+is unitarily equivalent to a self-adjoint realization of the momentum operator
+$P_u$ on $L^2(\mathbb R)$, whose spectrum is purely absolutely continuous and
+equal to all of $\mathbb R$.
+
+*Proof.* Unitarity: with $x=e^u$, $dx=e^u du$, so
+$\int_0^\infty|f|^2dx=\int_{\mathbb R}|f(e^u)|^2e^u du=\int_{\mathbb R}|(Uf)(u)|^2du$.
+Compute the conjugated action. Write $g=Uf$, i.e. $f(x)=x^{-1/2}g(\log x)$.
+Then
+$$
+x f'(x)= x\Big(-\tfrac12 x^{-3/2}g(\log x)+x^{-1/2}g'(\log x)\tfrac1x\Big)
+=-\tfrac12 x^{-1/2}g+x^{-1/2}g',
+$$
+so $xf'+\tfrac12 f = x^{-1/2}g'(\log x)$ and
+$$
+(Hf)(x)=-i\,x^{-1/2}g'(\log x).
+$$
+Applying $U$: $(U Hf)(u)=e^{u/2}(Hf)(e^u)=-i\,e^{u/2}e^{-u/2}g'(u)=-ig'(u)=(P_u g)(u)$.
+Thus $UHU^{-1}=P_u$. The operator $-i\,d/du$ on $L^2(\mathbb R)$ is
+essentially self-adjoint on $C_c^\infty(\mathbb R)$ (equivalently on
+Schwartz space), and by the Fourier transform it is unitarily equivalent to
+multiplication by $u$, whose spectrum is $\mathbb R$, absolutely continuous.
+$\quad\blacksquare$
+
+## Consequence: the sharp obstruction.
+
+Proposition 3 shows that **the plain Berry–Keating operator on the full
+half-line has purely continuous spectrum equal to $\mathbb R$.** It therefore
+has *no* eigenvalues at all, and in particular cannot exhibit the imaginary
+parts of the zeta zeros as a point spectrum. The divergence in Lemma 2 is
+two-sided and logarithmic, which is exactly the signature of a momentum
+operator on the whole line (no normalizable modes, uniform continuous
+spectrum).
+
+This makes explicit what any spectral realization must do:
+
+1. **Break translation invariance in $u=\log x$.** In the $u$-picture $H$ is
+   literally the translation generator $P_u$; its symmetry group is the full
+   real line, forcing continuous spectrum. Producing a discrete spectrum
+   requires an operator that is *not* unitarily equivalent to free momentum on
+   $\mathbb R$ — e.g. imposing boundary conditions that confine to a half-line
+   $u\ge u_0$ *and simultaneously* at $u\to+\infty$, or adding a potential.
+
+2. **Regularize both logarithmic ends.** Truncating only one end (a half-line
+   in $u$) still yields continuous spectrum (momentum on a half-line has
+   deficiency indices $(1,0)$ or $(0,1)$ and no self-adjoint extension with
+   discrete real spectrum). One needs confinement at *both* ends, i.e. an
+   effectively compact configuration — but then the eigenvalue counting
+   function is generically $\sim (\text{length})\cdot E/2\pi$, a *linear* Weyl
+   law, whereas the zeta counting function is
+   $N(T)\sim \tfrac{T}{2\pi}\log\tfrac{T}{2\pi}$, which grows *faster than
+   linear*. Hence no fixed-length one-dimensional confinement can reproduce the
+   zeta density; the required density $\tfrac{1}{2\pi}\log\tfrac{E}{2\pi}$ forces
+   an *energy-dependent* effective length $\ell(E)\sim\log(E/2\pi)$.
+
+Point (2) is a genuine quantitative constraint that I can verify: for a
+self-adjoint realization on $u\in[a,b]$ (Dirichlet-type), the eigenvalues of
+$-i\,d/du$ are $E_n=\tfrac{2\pi n + \theta}{b-a}$, giving the counting law
+$N(E)=\tfrac{(b-a)}{2\pi}E+O(1)$ — strictly linear. Matching
+$dN/dE=\tfrac{1}{2\pi}\log\tfrac{E}{2\pi}$ (the smoothed zeta density from the
+Riemann–von Mangoldt formula) forces
+$$
+b-a=\ell(E)=\log\frac{E}{2\pi},
+$$
+so the "box length" must grow logarithmically with energy. This is precisely
+the semiclassical content behind Berry–Keating's $xp$ with a hyperbolic
+cutoff, and it explains rigorously *why* a linear (constant-length) or
+free-momentum model is doomed, and *what* growth rate the confinement must have.
+
+## Summary of the contribution
+
+- Proven rigorously (Lemma 1–3, Prop 3) that the unregularized Berry–Keating
+  operator is unitarily the free momentum operator, hence has purely continuous
+  spectrum $\mathbb R$ and **no** eigenvalues — a clean no-go excluding the
+  naive Hilbert–Pólya realization.
+- Derived the exact matching condition any confined variant must satisfy: a
+  Weyl law $N(E)=\tfrac{\ell(E)}{2\pi}E$ with logarithmically growing effective
+  length $\ell(E)=\log(E/2\pi)$, incompatible with any translation-invariant or
+  fixed-length model.
+
+This is an obstruction/reduction analysis, not a proof of RH. It sharpens what
+the spectral program must produce but does not construct such an operator.
+
+VERDICT: FAILED
+REASON: Rigorous no-go: naive Berry–Keating operator is free momentum (continuous spectrum), no proof of RH obtained.
