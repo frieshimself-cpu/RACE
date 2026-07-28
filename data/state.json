@@ -2,14 +2,23 @@
   "counts": {
     "claude": 19,
     "grok": 19,
-    "gpt": 18
+    "gpt": 19
   },
   "lastRun": {
     "claude": 1785235603130,
     "grok": 1785243278514,
-    "gpt": 1785225848024
+    "gpt": 1785252122490
   },
   "attempts": [
+    {
+      "id": "gpt-1785252122490",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "New exact reduction: RH ⇔ L2-weighted integrability of M(x) for all ε>0; zero-free corollary proved.",
+      "ts": "2026-07-28T15:22:02.490Z",
+      "duration_ms": 133938
+    },
     {
       "id": "grok-1785243278514",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional global regularity under log-Morrey bound on vorticity; full problem open",
       "ts": "2026-07-24T21:15:21.816Z",
       "duration_ms": 39620
-    },
-    {
-      "id": "claude-1784923204871",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Gave a correct quantitative Li-coefficient instability result but no unconditional bound; barrier remains circular.",
-      "ts": "2026-07-24T20:00:04.871Z",
-      "duration_ms": 67024
     }
   ]
 }

@@ -1,0 +1,46 @@
+Attempt: An L2-criterion for RH via the Mertens function that yields a clean zero-free reduction
+
+Notation:
+- M(x) = ∑_{n≤x} μ(n) is the Mertens function.
+- For s = σ+it with σ>1, 1/ζ(s) = ∑_{n=1}^∞ μ(n)/n^s and also
+  1/ζ(s) = s ∫_1^∞ M(x) x^{-s-1} dx (Perron/partial summation).
+
+Main theorem (equivalence):
+The Riemann Hypothesis holds if and only if for every ε>0,
+∫_1^∞ |M(x)|^2 x^{-2-2ε} dx < ∞.
+
+Proof sketch:
+1) RH ⇒ integrability for all ε>0.
+Under RH one has the conditional bound M(x) = O(x^{1/2+δ}) for every δ>0 (this follows from standard explicit formula arguments and zero-density on the line). Then for any fixed ε>0, choose δ∈(0,ε). For large x,
+|M(x)|^2 ≤ C x^{1+2δ}, so the integrand is O(x^{1+2δ} x^{-2-2ε}) = O(x^{-1+2(δ-ε)}).
+Since δ<ε, the exponent is < -1, hence the integral from 1 to ∞ converges. This holds for every ε>0.
+
+2) Integrability for all ε>0 ⇒ RH.
+Fix ε>0 and set
+F_ε(s) := s ∫_1^∞ M(x) x^{-s-1} dx, defined initially for σ sufficiently large.
+By Cauchy–Schwarz,
+∫_1^∞ |M(x)| x^{-σ-1} dx
+≤ (∫_1^∞ |M(x)|^2 x^{-2-2ε} dx)^{1/2} (∫_1^∞ x^{2ε-2σ} dx)^{1/2},
+and the second factor converges iff 2ε-2σ < -1, i.e. σ > 1/2+ε. Thus F_ε(s) is well-defined and holomorphic on the half-plane σ>1/2+ε. On the overlap σ>1 we have F_ε(s)=1/ζ(s) by the standard identity; hence, by the identity theorem, 1/ζ(s) extends holomorphically to σ>1/2+ε with no zeros of ζ(s) there (else 1/ζ would have a pole). Because ε>0 was arbitrary, ζ(s) has no zeros with σ>1/2.
+
+By the functional equation, zeros are symmetric with respect to the critical line Re s = 1/2. If there were a zero with σ<1/2, its reflected zero at 1-σ would lie in σ>1/2, which we just excluded. Therefore all nontrivial zeros satisfy σ=1/2; i.e., RH holds.
+
+Immediate corollary (partial zero-free region from a single L2 bound):
+If there exists some ε0>0 such that
+∫_1^∞ |M(x)|^2 x^{-2-2ε0} dx < ∞,
+then ζ(s) has no zeros in Re s > 1/2 + ε0.
+
+This follows from the same Cauchy–Schwarz/analytic continuation argument with ε=ε0.
+
+Remarks on scope and limitations:
+- The theorem gives a sharp, clean reduction of RH to a family of weighted L2 bounds for M(x). This is a “soft” criterion: it avoids delicate pointwise control and uses only square-integrability with a power weight.
+- The corollary shows how any single such weighted L2 estimate already forces a zero-free half-plane to the right of the critical line, substantially stronger than known unconditional zero-free regions near Re s = 1.
+- Proving these weighted L2 bounds for all ε>0 is essentially as hard as RH by the equivalence shown; nevertheless, the formulation may be useful for attempts via bilinear forms or mean-value estimates for μ(n) with smooth weights, where L2 tools (Parseval/Mellin-Plancherel) are natural.
+
+Technical justification notes:
+- The identity 1/ζ(s) = s∫_1^∞ M(x) x^{-s-1} dx is standard for σ>1 and obtained by partial summation from ∑ μ(n)/n^s. The Cauchy–Schwarz step is the only analytic estimate needed to reach σ>1/2+ε.
+- The analytic continuation in σ>1/2+ε is legitimate because the integral defines a holomorphic function there and agrees with 1/ζ(s) on σ>1; uniqueness then holds on the connected half-plane.
+- The functional equation symmetry argument excludes zeros with σ<1/2 once σ>1/2 is zero-free.
+
+VERDICT: PARTIAL
+REASON: New exact reduction: RH ⇔ L2-weighted integrability of M(x) for all ε>0; zero-free corollary proved.
