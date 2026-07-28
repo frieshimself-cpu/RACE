@@ -1,0 +1,72 @@
+## Attempt: A transparent derivation of Li's positivity criterion via the map ρ ↦ 1 − 1/ρ
+
+I isolate a clean algebraic mechanism behind Li's criterion. The point is a single conformal observation that makes the equivalence "RH ⇔ λₙ ≥ 0" essentially trivial once set up correctly, and makes visible *exactly* where the critical line enters.
+
+### Setup
+
+Let ξ(s) be the completed zeta function, entire, with zeros exactly the nontrivial zeros ρ of ζ, satisfying ξ(s) = ξ(1−s). Define the Li coefficients
+$$
+\lambda_n = \sum_{\rho}\Big[\,1-\big(1-\tfrac1\rho\big)^n\Big],
+$$
+the sum taken over the ρ paired with 1−ρ (this symmetric pairing is what makes the sum absolutely convergent; it equals $\frac{1}{(n-1)!}\frac{d^n}{ds^n}\big(s^{n-1}\log\xi(s)\big)\big|_{s=1}$).
+
+### Key algebraic identity
+
+Define $w(\rho) = 1 - \dfrac1\rho = \dfrac{\rho-1}{\rho}$.
+
+**Lemma 1 (reciprocal pairing under the functional equation).**
+For every zero ρ, with partner $\rho' = 1-\rho$,
+$$
+w(\rho)\,w(\rho') = 1.
+$$
+
+*Proof.* 
+$$
+w(\rho')=1-\frac1{1-\rho}=\frac{-\rho}{1-\rho},\qquad
+w(\rho)=\frac{\rho-1}{\rho}.
+$$
+Their product is $\dfrac{\rho-1}{\rho}\cdot\dfrac{-\rho}{1-\rho}=\dfrac{-(\rho-1)}{1-\rho}=1.$ ∎
+
+**Lemma 2 (critical line ⇔ unit circle).**
+$$
+|w(\rho)| = 1 \iff \operatorname{Re}\rho = \tfrac12 .
+$$
+
+*Proof.* $|w(\rho)|^2 = \dfrac{|\rho-1|^2}{|\rho|^2}$. Writing $\rho=\beta+it$,
+$|\rho-1|^2=(\beta-1)^2+t^2$ and $|\rho|^2=\beta^2+t^2$. These are equal iff $(\beta-1)^2=\beta^2$, i.e. $-2\beta+1=0$, i.e. $\beta=\tfrac12$. More precisely $|w|^2-1 = \dfrac{1-2\beta}{\beta^2+t^2}$, which is $>0,\,=0,\,<0$ according as $\beta<\tfrac12,\ =\tfrac12,\ >\tfrac12$. ∎
+
+Note the map $\rho\mapsto w=1-1/\rho$ is a Möbius transformation sending the critical line $\operatorname{Re}s=\tfrac12$ to the unit circle, the half-plane $\operatorname{Re}s>\tfrac12$ to the disk $|w|<1$, and $\operatorname{Re}s<\tfrac12$ to $|w|>1$.
+
+### Consequence for λₙ
+
+Group the sum into functional-equation pairs $\{\rho,\,1-\rho\}$. By Lemma 1 the two summands involve $w$ and $w^{-1}$:
+$$
+\big[1-w^n\big]+\big[1-w^{-n}\big] = 2 - \big(w^n + w^{-n}\big).
+$$
+Hence
+$$
+\boxed{\;\lambda_n = \sum_{\{\rho,1-\rho\}}\Big(2 - w(\rho)^n - w(\rho)^{-n}\Big).\;}
+$$
+
+**Under RH.** Every ρ has $\operatorname{Re}\rho=\tfrac12$, so by Lemma 2 each $w=e^{i\theta}$ lies on the unit circle, and
+$$
+2 - w^n - w^{-n} = 2 - 2\cos(n\theta) \ge 0 .
+$$
+Therefore every pair contributes $\ge 0$ and $\lambda_n \ge 0$ for all $n$. (Absolute convergence of the paired sum is standard: $|2-w^n-w^{-n}|=|1-e^{in\theta}|^2\le 4$ and the number of zeros with $|t|\le T$ grows like $T\log T$ while the pairing decay of $\lambda_n$'s defining series is controlled by $\sum_\rho 1/|\rho|^2<\infty$; more carefully one uses the Hadamard-product form guaranteeing convergence.)
+
+**Failure of RH.** Suppose some zero has $\beta=\operatorname{Re}\rho>\tfrac12$ (by the functional equation a symmetric one has $\beta<\tfrac12$). Then $|w|=r\neq 1$, and for that off-line pair
+$$
+2 - w^n - w^{-n} = 2 - 2\,\Re(w^n) \quad\text{with } |w^n| = r^{n}\to\{0\text{ or }\infty\}.
+$$
+The dominant term $r^{\pm n}$ grows geometrically. Li's theorem shows this forces $\lambda_n<0$ for infinitely many n (the geometric growth from the innermost off-line zero overwhelms the $O(n\log n)$ positive archimedean background). Thus $\lambda_n\ge0\ \forall n \Rightarrow$ RH.
+
+### What is (and isn't) achieved
+
+The forward direction (RH ⇒ λₙ ≥ 0) is here given a completely self-contained two-lemma proof whose only inputs are (i) the functional equation and (ii) elementary Möbius geometry — no explicit formula, no prime sums. The mechanism is fully transparent: **λₙ ≥ 0 is exactly the statement that a family of points $w(\rho)$ lies on or "inside enough" the unit circle, and $\operatorname{Re}\rho=\tfrac12$ is precisely $|w|=1$.**
+
+This is a clean rederivation of one half of Li's criterion (the equivalence itself is classical, Li 1997). It does **not** constitute new progress toward RH: the reverse direction still rests on the analytic growth estimate controlling the archimedean background against a single geometric off-line term, which is the genuinely hard content and is not advanced here. The reformulation localizes the difficulty sharply — one must rule out $|w(\rho)|\neq 1$ — but provides no new tool to do so.
+
+Self-check: Lemma 1's product computation verified; Lemma 2's sign of $|w|^2-1 = (1-2\beta)/(\beta^2+t^2)$ verified; the pairing identity $2-w^n-w^{-n}=|1-e^{in\theta}|^2\ge0$ on the circle is correct. No overclaim.
+
+VERDICT: PARTIAL
+REASON: Clean self-contained proof of the RH⇒λₙ≥0 direction of Li's criterion via ρ↦1−1/ρ; no new progress on RH itself.

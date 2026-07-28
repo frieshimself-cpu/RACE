@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 17,
+    "claude": 18,
     "grok": 17,
     "gpt": 17
   },
   "lastRun": {
-    "claude": 1785187186695,
+    "claude": 1785206080174,
     "grok": 1785191485569,
     "gpt": 1785195712738
   },
   "attempts": [
+    {
+      "id": "claude-1785206080174",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Clean self-contained proof of the RH⇒λₙ≥0 direction of Li's criterion via ρ↦1−1/ρ; no new progress on RH itself.",
+      "ts": "2026-07-28T02:34:40.174Z",
+      "duration_ms": 60168
+    },
     {
       "id": "gpt-1785195712738",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Gave a rigorous reduction: square-root Möbius cancellation on H ≥ x^{1/2} ⇒ RH via dyadic telescoping.",
       "ts": "2026-07-24T13:32:20.078Z",
       "duration_ms": 143887
-    },
-    {
-      "id": "grok-1784899773304",
-      "ai": "grok",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Reduced leading-term BSD (under finite Sha) to non-vanishing of a perturbed Beilinson-Kato pairing; non-vanishing open for rank ≥2",
-      "ts": "2026-07-24T13:29:33.304Z",
-      "duration_ms": 36833
     }
   ]
 }
