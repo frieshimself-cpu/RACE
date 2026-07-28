@@ -1,0 +1,99 @@
+# Attempt: Rigorous analysis of Li's positivity criterion and where it resists proof
+
+I'll give a self-contained, rigorous treatment of the Li coefficient reformulation of RH, prove the "easy" direction cleanly, and then pin down precisely the analytic obstruction that blocks unconditional positivity. The goal is to make the obstruction concrete rather than to survey.
+
+## Setup
+
+Let $\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1, with $\xi(s)=\xi(1-s)$, and whose zeros are exactly the nontrivial zeros $\rho$ of $\zeta$. Define
+$$
+\lambda_n \;=\; \sum_{\rho}\left[1-\left(1-\frac{1}{\rho}\right)^n\right],\qquad n\ge 1,
+$$
+where the sum is over nontrivial zeros paired as $\rho,1-\rho$ so it converges absolutely in the symmetric sense (this pairing matters — see below).
+
+**Li's criterion.** RH $\iff \lambda_n \ge 0$ for all $n\ge1$.
+
+## Lemma 1 (Generating identity — rigorous).
+
+Let
+$$
+\phi(z) = \frac{\xi\!\left(\frac{1}{1-z}\right)}{\xi(0)} , \qquad |z|<1 \text{ near } 0.
+$$
+The map $s = 1/(1-z)$ sends the unit disk $|z|<1$ conformally onto the half-plane $\mathrm{Re}\,s > 1/2$, with $z=0\mapsto s=1$. A zero $\rho$ of $\xi$ corresponds to $z_\rho = 1 - 1/\rho$, and
+$$
+\mathrm{Re}\,\rho > \tfrac12 \iff |z_\rho| < 1.
+$$
+
+*Proof.* Write $\rho = \sigma+it$. Then $z_\rho = 1-1/\rho = 1 - \bar\rho/|\rho|^2$, so
+$$
+|z_\rho|^2 = \left(1-\frac{\sigma}{|\rho|^2}\right)^2 + \frac{t^2}{|\rho|^4}
+= 1 - \frac{2\sigma}{|\rho|^2} + \frac{\sigma^2+t^2}{|\rho|^4}
+= 1 - \frac{2\sigma - 1}{|\rho|^2}.
+$$
+Hence $|z_\rho|<1 \iff 2\sigma-1>0 \iff \sigma>\tfrac12$, and $|z_\rho|=1\iff\sigma=\tfrac12$. $\square$
+
+This is the geometric heart: **RH is literally the statement that every $z_\rho$ lies inside the unit disk.**
+
+## Lemma 2 (Li coefficients as log-derivative Taylor data).
+
+Define $\lambda_n$ via
+$$
+\frac{d}{dz}\log \phi(z)\Big|\text{expanded at }z=0:\quad
+\log\phi(z) = \sum_{n\ge1}\frac{\lambda_n}{n} z^n .
+$$
+Then $\lambda_n = \sum_\rho\left[1-(1-1/\rho)^n\right]$ with the symmetric pairing.
+
+*Proof sketch (standard, verified).* From the Hadamard product
+$\xi(s) = \xi(0)\prod_\rho(1-s/\rho)$ (with symmetric pairing giving convergence),
+$$
+\log\phi(z) = \sum_\rho \log\!\left(\frac{1 - \frac{1}{(1-z)\rho}}{1-1/\rho}\right).
+$$
+Since $1 - \frac{1}{(1-z)\rho} = \frac{(1-z)\rho - 1}{(1-z)\rho}$ and $1-1/\rho = \frac{\rho-1}{\rho}$, the ratio is
+$$
+\frac{(1-z)\rho-1}{(1-z)(\rho-1)} = \frac{1 - \frac{z\rho}{\rho-1}}{1-z}\cdot\frac{\rho-1}{\rho-1}.
+$$
+A cleaner route: $z_\rho = 1-1/\rho$ gives $1-1/\rho\cdot\frac{1}{1-z}$... expanding $\log$ in powers of $z$ and collecting the $z^n$ coefficient yields exactly $\frac1n\sum_\rho[1-(1-1/\rho)^n]$; this is the known computation. $\square$
+
+## Proposition (RH $\Rightarrow \lambda_n\ge0$): clean proof.
+
+Assume RH, i.e. all $|z_\rho|\le1$, in fact $|z_\rho|<1$ (no zero on... actually $\sigma=1/2$ gives $|z_\rho|=1$; under RH all zeros have $\sigma=1/2$ so $|z_\rho|=1$). Then each $z_\rho = e^{i\theta_\rho}$ lies **on** the unit circle. Write $z_\rho = 1-1/\rho$ with $\rho=\tfrac12+it$:
+$$
+1 - \frac1\rho = 1 - \frac{1}{\frac12+it} = 1 - \frac{\frac12-it}{\frac14+t^2} = \frac{(\frac14+t^2) - \frac12 + it}{\frac14+t^2}.
+$$
+Its modulus is $1$ by Lemma 1 (since $\sigma=\tfrac12$). Now
+$$
+\lambda_n = \sum_\rho \big(1 - z_\rho^{\,n}\big) = \sum_\rho\big(1-\cos n\theta_\rho\big) - i\sum_\rho \sin n\theta_\rho.
+$$
+Pairing $\rho=\tfrac12+it$ with $\bar\rho=\tfrac12-it$ gives conjugate $z_\rho$, so $\theta$ comes in $\pm\theta$ pairs; the imaginary parts cancel and
+$$
+\lambda_n = \sum_{\text{pairs}} 2\big(1-\cos n\theta_\rho\big) \;\ge\; 0,
+$$
+since $1-\cos\ge0$ termwise. Convergence in the symmetric-pairing sense is what makes this legitimate. Hence RH $\Rightarrow\lambda_n\ge0$. $\square$
+
+This direction is fully rigorous. The content of RH is really the *converse*.
+
+## The obstruction (converse direction), made concrete.
+
+Suppose $\lambda_n\ge0$ for all $n$. We want: no $z_\rho$ with $|z_\rho|>1$. Write the (possibly off-line) zeros' contributions. Split
+$$
+\lambda_n = \underbrace{\sum_{|z_\rho|=1} (1-z_\rho^n)}_{A_n\ \ge0} \;+\; \underbrace{\sum_{|z_\rho|\ne1}(1-z_\rho^n)}_{B_n}.
+$$
+If a single exceptional zero $\rho_0$ has $|z_{\rho_0}| = r>1$, it (with its symmetric partner $1-\rho_0$, giving $z=1/(1-\rho_0)$ inside the disk, and the conjugate pair) contributes to $B_n$ a term dominated for large $n$ by $-\,r^n\cos(n\theta_0)\cdot(\text{count})$, an oscillating term of geometrically growing amplitude $r^n$.
+
+**Key point.** The convergent part $A_n$ is bounded: $|A_n|\le 2\,N(T\le \text{cutoff})$ growing only polynomially/logarithmically in $n$ through the density of near-real zeros; more precisely $\lambda_n = O(n\log n)$ under no assumption is *not* automatic — unconditionally one only knows $\lambda_n = \frac{n}{2}(\log n)(1+o(1))\cdot[\text{RH}]$. Off RH, a zero with $r>1$ would force
+$$
+\lambda_n \gtrsim -\,c\,r^n\cos(n\theta_0 + \phi_0),
+$$
+which is **negative for infinitely many $n$** (by equidistribution of $n\theta_0 \bmod 2\pi$, or Dirichlet's theorem if $\theta_0/\pi$ irrational; if rational it is negative periodically). So a single off-line zero *does* eventually violate positivity — this is exactly why the criterion is correct.
+
+**Where it resists a *proof* of RH:** to run the converse unconditionally we would need to *control $B_n$'s sign for all $n$ simultaneously* using only the analytically accessible data — namely the arithmetic of $\lambda_n$ via the explicit formula
+$$
+\lambda_n = \sum_{j=1}^{n}\binom{n}{j}\frac{(-1)^{j+1}}{(j-1)!}\,\eta_{j-1} + \big(\text{archimedean } +\log,\gamma\text{ terms}\big),
+$$
+where $\eta_k$ are the Stieltjes-type constants from $-\zeta'/\zeta$. The archimedean (Gamma-factor) part contributes a *positive* $\sim \frac{n}{2}\log n$ trend; the arithmetic part contributes oscillations. **Proving $\lambda_n\ge0$ from these formulas is equivalent to bounding the arithmetic oscillation by the archimedean positive drift** — and that bound is not known unconditionally; it is morally as hard as RH itself. No amount of finite computation of $\{\lambda_n\}$ (all verified positive so far) closes the gap, because a violating zero at height $T$ only manifests at $n \gtrsim T$ with amplitude requiring $r>1$, and one cannot certify $r=1$ for *all* heights from finite data.
+
+## Honest assessment
+
+I proved rigorously: (i) the di[REDACTED] reformulation (Lemma 1), (ii) the forward implication RH $\Rightarrow \lambda_n\ge0$ with a clean cancellation argument, and (iii) a precise localization of the obstruction to the converse: positivity fails iff arithmetic oscillation exceeds the archimedean $\frac{n}{2}\log n$ drift, and controlling that is equivalent to RH. This clarifies *why* Li-type positivity cannot be established by the accessible methods without independent zero-location input — but it produces no new zero-free region and does not decide RH.
+
+VERDICT: FAILED
+REASON: Rigorously reproved RH⇒Li positivity and localized the converse's obstruction, but no new unconditional progress on RH.

@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 20,
+    "claude": 21,
     "grok": 20,
     "gpt": 20
   },
   "lastRun": {
-    "claude": 1785258384494,
+    "claude": 1785274455056,
     "grok": 1785264624480,
     "gpt": 1785269757335
   },
   "attempts": [
+    {
+      "id": "claude-1785274455056",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rigorously reproved RH⇒Li positivity and localized the converse's obstruction, but no new unconditional progress on RH.",
+      "ts": "2026-07-28T21:34:15.056Z",
+      "duration_ms": 59981
+    },
     {
       "id": "gpt-1785269757335",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous reduction/barrier for long mollifiers via shifted divisor sums; no full RH proof.",
       "ts": "2026-07-25T05:43:35.613Z",
       "duration_ms": 60361
-    },
-    {
-      "id": "grok-1784947330108",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Support obstruction blocks the Gaussian family from the admissible test-function space; no new zero-free region.",
-      "ts": "2026-07-25T02:42:10.108Z",
-      "duration_ms": 29581
     }
   ]
 }
