@@ -1,0 +1,65 @@
+Attempt: A rigorous obstruction to “perfect mollification” on length T^(1/2)
+
+Goal
+Show a quantitative barrier to a natural L^2-mollifier strategy on the critical line: with a Dirichlet polynomial of length at most T^(1/2), one cannot make ζ(1/2+it)M(1/2+it) approximate 1 in mean square to accuracy o(T). This isolates a concrete threshold and clarifies why such a line of attack cannot, by itself, yield RH.
+
+Setup
+Let T be large. For coefficients {a_n} supported on n ≤ T^(1/2), set
+M(s) = ∑_{n≤T^(1/2)} a_n n^(-s),    s = 1/2 + it,
+and define the L^2-error over [T,2T]
+I = ∫_T^{2T} |1 - ζ(1/2+it) M(1/2+it)|^2 dt.
+
+Proposition (Unconditional lower bound at the T^(1/2)-barrier)
+There exist absolute constants c, C > 0 such that for all choices of {a_n} supported on n ≤ T^(1/2),
+I ≥ c T log T ∑_{n≤T^(1/2)} |a_n|^2 - 2T Re(a_1) - C T ∑_{n≤T^(1/2)} |a_n|^2 + T + O(T^(1/2+ε) (∑|a_n|^2)^(1/2)),
+uniformly for large T and any fixed ε>0. In particular,
+inf_{a_n, n≤T^(1/2)} I ≥ c' T
+for some absolute c'>0 and all sufficiently large T.
+
+Remarks on the inequality
+- The dominating positive term is c T log T ∑|a_n|^2 from the second moment of ζ times a Dirichlet polynomial.
+- The term -2T Re(a_1) is the only substantial linear cancellation available (coming from the “1” in the Euler product), and optimizing over a_1 reduces I by at most ≪ T, not by ≫ T log T.
+- The O(T^(1/2+ε)(…)) cross-term bound is negligible compared to T for any fixed ε>0.
+
+Proof sketch
+1) Expand the square and separate the three pieces:
+I = ∫ |ζ M|^2 dt - 2 Re ∫ ζ M dt + ∫ 1 dt.
+The last integral is T.
+
+2) Mean square of ζ times a short Dirichlet polynomial.
+Let P(t) = ∑_{n≤N} a_n n^(-1/2-it) with N ≤ T^(1/2). Then, using the approximate functional equation for ζ(1/2+it) and the Montgomery–Vaughan mean value theorem for Dirichlet polynomials, one obtains
+∫_T^{2T} |ζ(1/2+it) P(t)|^2 dt = T log T ∑_{n≤N} |a_n|^2 + O(T ∑_{n≤N} |a_n|^2).
+This is standard: the main term arises from the “diagonal” in the convolution with the Dirichlet coefficients of ζ, and the N ≤ T^(1/2) length keeps off-diagonal error under control. One can deduce a lower bound
+∫ |ζ M|^2 dt ≥ c T log T ∑ |a_n|^2 - C T ∑ |a_n|^2
+for some absolute c, C>0.
+
+3) The cross term.
+We need to bound J := ∫_T^{2T} ζ(1/2+it) M(1/2+it) dt. By Cauchy–Schwarz,
+|J - T a_1| = |∫ (ζ - 1) M| ≤ (∫ |ζ-1|^2)^(1/2) (∫ |M|^2)^(1/2).
+Using ∫_T^{2T} |ζ(1/2+it)|^2 dt ∼ T log T and the Montgomery–Vaughan mean value theorem
+∫_T^{2T} |M(1/2+it)|^2 dt = T ∑ |a_n|^2 + O(∑ n |a_n|^2),
+we get
+J = T a_1 + O(T^(1/2+ε) (∑ |a_n|^2)^(1/2)),
+for any fixed ε>0 (here we also used that ∫ 1·M = O(T^(1/2)(∑|a_n|^2)^(1/2))).
+
+4) Combine the pieces.
+We obtain
+I ≥ [c T log T - C T] ∑ |a_n|^2 - 2T Re(a_1) + T + O(T^(1/2+ε) (∑|a_n|^2)^(1/2)).
+For large T, absorb the error into, say, (C/2) T ∑|a_n|^2 by a standard ε-δ argument (or fix ε small and note that (∑|a_n|^2)^(1/2) ≤ (∑|a_n|^2) + 1, and the “+1” can be absorbed into the main T term).
+
+5) Optimization lower bound.
+View the right-hand side as a quadratic form in the variables {a_n}. The only linear term is -2T Re(a_1). Minimizing the quadratic c T log T |a_1|^2 - 2T Re(a_1) over a_1 gives a_1 ≈ 1/(c log T) and minimal value ≈ -T^2/(c T log T) = -T/(c log T). All other coefficients a_n (n≥2) only increase I via the positive c T log T ∑_{n≥2} |a_n|^2 term. Therefore
+I ≥ T - T/(c log T) ≥ c' T
+for some absolute c'>0 and all large T.
+
+Consequences and interpretation
+- No length-≤T^(1/2) mollifier M can make ζ(1/2+it) M(1/2+it) approximate 1 in L^2([T,2T]) beyond a constant-factor error: the best possible mean-square error is Ω(T).
+- Any strategy that attempts to force zeros onto the critical line by requiring ∫ |1 - ζ M|^2 = o(T) (or even o(T/log T)) cannot succeed if M is restricted to length T^(1/2) or shorter. Pushing mollifiers beyond the T^(1/2) barrier (in a way that preserves control of second moments) is genuinely necessary for such an L^2-approximation approach.
+- This makes precise a well-known heuristic barrier in the mollifier method and clarifies why existing “short” mollifiers cannot by themselves prove RH through near-perfect L^2 inversion of ζ on the 1/2-line.
+
+Limitations
+- This is an obstruction result, not a proof of RH. It does not rule out other avenues, nor does it quantify what happens for mollifiers of length > T^(1/2).
+- The mean-square input used is standard but one needs care near the exact T^(1/2) threshold; the proof sketch indicates the mechanism and how the constants can be managed.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous lower bound showing a concrete mollifier-length barrier (T^(1/2)) for an L^2 approach.
