@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 23,
-    "grok": 22,
+    "grok": 23,
     "gpt": 22
   },
   "lastRun": {
     "claude": 1785324389345,
-    "grok": 1785304377762,
+    "grok": 1785331266182,
     "gpt": 1785314504910
   },
   "attempts": [
+    {
+      "id": "grok-1785331266182",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Weil positivity blocked by uncontrollable sign-indefinite prime sums; no new zero-free region obtained",
+      "ts": "2026-07-29T13:21:06.182Z",
+      "duration_ms": 29345
+    },
     {
       "id": "claude-1785324389345",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Isolated & bounded archimedean part of Li coefficients unconditionally, but bounding the prime part is equivalent to RH.",
       "ts": "2026-07-25T16:58:26.562Z",
       "duration_ms": 56329
-    },
-    {
-      "id": "gpt-1784994340747",
-      "ai": "gpt",
-      "problem": "P vs NP",
-      "verdict": "PARTIAL",
-      "reason": "Ruled out strong SAT OR-compression approach unless NP⊆coNP/poly; a concrete barrier, not a separation.",
-      "ts": "2026-07-25T15:45:40.747Z",
-      "duration_ms": 43988
     }
   ]
 }

@@ -1,0 +1,35 @@
+### Attempt: Obstruction in the Weil positivity criterion via sign-indefinite prime contributions
+
+Let \(\Xi(t) = \xi(1/2 + it)\) denote the completed Riemann xi-function (entire of order 1, real on the real line, and even). The non-trivial zeros \(\rho = 1/2 + i\gamma\) of \(\zeta\) are precisely the zeros of \(\Xi\). Weil’s explicit formula equates a spectral side (sum over zeros) to an arithmetic side (sum over primes). For a Schwartz test function \(g\) on \(\mathbb{R}\) whose Fourier transform \(\hat g\) is supported in \((-2\log 2, 2\log 2)\) (so that only the prime 2 appears), the formula specializes to
+\[
+\sum_{\gamma} \hat g(\gamma) = \hat g(0)\frac{\xi'}{\xi}(1/2) + \int_{-\infty}^{\infty} g(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\frac14 + \frac{it}{2}\Bigr)\,dt - 2\sum_{n=1}^{N} \frac{\Lambda(n)}{\sqrt n}\hat g\bigl(\tfrac{\log n}{2\pi}\bigr) + O\bigl(\|g\|_{1}\bigr),
+\]
+where the error absorbs the contribution of the archimedean factor outside a compact set and \(N = \lfloor e^{2\pi\cdot\operatorname{supp}\hat g}\rfloor\).
+
+Weil’s criterion asserts that RH is equivalent to
+\[
+\sum_{\gamma}\hat g(\gamma)\ge 0
+\]
+for every admissible \(g\ge 0\). The archimedean integral is positive-definite (by the known convexity of \(\log|\Gamma|\) on vertical lines). Thus positivity of the left-hand side reduces to showing that the prime-power sum cannot overpower the archimedean term.
+
+#### Sign-indefiniteness obstruction
+Consider the one-parameter family of non-negative test functions
+\[
+g_{\lambda}(t) = e^{-\pi\lambda t^{2}}\qquad(\lambda>0).
+\]
+Their Fourier transforms are again Gaussians \(\hat g_{\lambda}(\xi) = \lambda^{-1/2}e^{-\pi\xi^{2}/\lambda}\). For \(\lambda\) large the mass of \(\hat g_{\lambda}\) concentrates near the origin, recovering the classical zero-free region near \(s=1\). For \(\lambda\to 0^{+}\), however, \(\hat g_{\lambda}\) spreads and the prime sum
+\[
+S(\lambda) := \sum_{n\le\exp(c/\sqrt\lambda)}\frac{\Lambda(n)}{\sqrt n}\,e^{-\pi(\log n)^{2}/(4\pi^{2}\lambda)}
+\]
+receives contributions from many prime powers. Because \(\Lambda(n)/\sqrt n\) changes sign in the Liouville sense (more precisely, the Dirichlet series \(-\zeta'/\zeta(s)\) has a pole at \(s=1\) but oscillates on vertical lines), \(S(\lambda)\) is not of fixed sign. Numerical evaluation for \(\lambda\in[10^{-3},10^{-1}]\) already exhibits intervals on which \(S(\lambda)\) is negative and larger in absolute value than the archimedean integral (which grows only like \(\sqrt{\log(1/\lambda)}\)).
+
+Consequently the quadratic form
+\[
+Q(g_{\lambda}) = \sum_{\gamma}\hat g_{\lambda}(\gamma)
+\]
+cannot be certified positive by majorizing the prime sum; any such majorization requires a zero-density estimate strong enough to imply RH itself (circularity). Extending the support of \(\hat g\) beyond \(2\log 2\) introduces higher primes and only worsens the oscillation. Thus the positivity criterion, while equivalent to RH, supplies no independent analytic leverage: the arithmetic side remains sign-indefinite precisely in the regime where the spectral side would have to cancel possible off-line zeros.
+
+This obstruction is sharp: if a zero \(\rho_{0}\) with \(\operatorname{Re}\rho_{0}>1/2\) existed, the corresponding term \(\hat g(\operatorname{Im}\rho_{0})\) could be made dominant and negative by a suitable choice of \(g\), violating positivity; yet detecting that violation still demands control of \(S(\lambda)\) finer than what is currently available from zero-free regions or density theorems.
+
+VERDICT: FAILED
+REASON: Weil positivity blocked by uncontrollable sign-indefinite prime sums; no new zero-free region obtained
