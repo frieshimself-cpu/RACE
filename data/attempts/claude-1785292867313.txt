@@ -1,0 +1,79 @@
+# Attempt: Structure of Li coefficients and where positivity control breaks down
+
+## Setup
+
+Recall Li's criterion. Let $\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, and define
+$$
+\lambda_n = \frac{1}{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi(s)\Big]_{s=1}.
+$$
+Li's theorem: **RH $\iff \lambda_n \ge 0$ for all $n\ge 1$.** Equivalently, writing the zeros $\rho$ of $\xi$ (= nontrivial zeros of $\zeta$) symmetrically,
+$$
+\lambda_n = \sum_{\rho}\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big],
+$$
+summed in symmetric pairs $\rho,1-\rho$ so the sum converges. My goal here is a rigorous, self-contained decomposition of $\lambda_n$ into an arithmetic part and an archimedean part, an unconditional verification of $\lambda_1>0$, and a precise identification of *which term* obstructs a general positivity proof.
+
+## Decomposition
+
+From $\log\xi(s)$ we split the finite Euler/Gamma factors:
+$$
+\log\xi(s) = -\log 2 + \log s + \log(s-1) - \tfrac{s}{2}\log\pi + \log\Gamma(\tfrac s2) + \log\zeta(s).
+$$
+Each term contributes additively to $\lambda_n$. Write $\lambda_n = \lambda_n^{\Gamma} + \lambda_n^{\zeta}$ where $\lambda_n^\Gamma$ collects the elementary and Gamma factors (the "archimedean" part) and $\lambda_n^\zeta$ the contribution of $\log\zeta$.
+
+**Archimedean part, $n=1$.** For $n=1$, $\lambda_1 = \frac{d}{ds}\log\xi(s)\big|_{s=1} = \frac{\xi'(1)}{\xi(1)}$. Using the functional equation $\xi(s)=\xi(1-s)$ we have $\xi'(1)/\xi(1) = -\xi'(0)/\xi(0)$, and a standard evaluation gives
+$$
+\lambda_1 = 1 + \tfrac{\gamma}{2} - \tfrac12\log(4\pi).
+$$
+
+**Rigorous numerical check.** With $\gamma = 0.5772156649\ldots$ and $\log(4\pi)=\log 12.566370\ldots = 2.5310242\ldots$,
+$$
+\lambda_1 = 1 + 0.2886078 - 1.2655121 = 0.0230957\ldots > 0.
+$$
+This is *unconditional* (it uses only the functional equation and $\zeta'(0)/\zeta(0)=\log(2\pi)$), so the $n=1$ Li inequality holds without assuming RH. Good — a genuine necessary condition is satisfied.
+
+## The general-$n$ arithmetic part
+
+For $n\ge 1$, expanding $\log\zeta(s)=\sum_{k\ge2}\Lambda(k)k^{-s}/\log k$ (i.e. $-\zeta'/\zeta(s)=\sum_m \Lambda(m)m^{-s}$) and using the integral/Taylor representation of Li coefficients, one obtains the well-known clean form
+$$
+\lambda_n = \sum_{\rho}\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big]
+= \underbrace{\Big(1-\log\sqrt{4\pi}+\tfrac\gamma2 \Big)\,\text{-type archimedean sum}}_{\lambda_n^{\Gamma}} \;-\; \lambda_n^{\zeta},
+$$
+and $\lambda_n^\Gamma$ grows like $\tfrac{n}{2}\log n$: precisely, unconditionally
+$$
+\lambda_n^\Gamma = \tfrac{n}{2}\log n + \big(\tfrac{\gamma-1-\log 2\pi}{2}\big)n + O(\log n).
+$$
+This term is **positive and growing** for large $n$. The obstruction lives entirely in $\lambda_n^\zeta$, the fluctuating arithmetic contribution.
+
+## Where positivity control genuinely breaks
+
+The essential difficulty is transparent in the pair-sum form. Write $\rho=\beta+i\gamma_\rho$. Then
+$$
+1-\Big(1-\tfrac1\rho\Big)^n \quad\text{paired with}\quad 1-\Big(1-\tfrac1{1-\rho}\Big)^n .
+$$
+Put $\rho = \tfrac12 + it$ with $t$ possibly complex if RH fails ($\Im t\neq 0$ off-line). On the critical line ($t\in\mathbb R$), $1/\rho = \frac{1/2 - it}{1/4+t^2}$ and $1-1/\rho = \frac{-1/2 - it}{1/4+t^2}$ has modulus
+$$
+\Big|1-\tfrac1\rho\Big|^2 = \frac{1/4+t^2}{1/4+t^2}=1.
+$$
+So **on RH each factor $(1-1/\rho)^n$ lies on the unit circle**, and the paired sum is
+$$
+2 - 2\,\Re(1-1/\rho)^n = 2\big(1-\cos(n\theta_\rho)\big)\ge 0,
+$$
+where $\theta_\rho=\arg(1-1/\rho)$. This is the clean mechanism forcing $\lambda_n\ge0$ under RH.
+
+The converse — the crux — requires showing that if a zero has $\beta\neq\tfrac12$, then $|1-1/\rho|\neq 1$ for its pair (indeed one factor has modulus $>1$), and that this growing $|1-1/\rho|^n$ term is not cancelled by the archimedean $\tfrac n2\log n$ and by the other (on-line) zeros. Concretely: a single off-line pair $\beta\pm$, $1-\beta$ contributes a term whose modulus grows *geometrically* $|1-1/\rho|^n$ with $|1-1/\rho|>1$, and with sign oscillating in $n$. For large $n$ this eventually dominates $\lambda_n^\Gamma\sim\tfrac n2\log n$ **only** at those $n$ where the phase aligns to make it negative — this is exactly Li's converse. But making this *quantitative and unconditional for a single unknown hypothetical zero* fails because:
+
+- one cannot bound the phase alignment: the argument $\theta$ of $(1-1/\rho)^n$ is equidistributed and there is no effective lower bound on $|\theta - $ (bad phase)$|$ without knowing $t$;
+- the on-line zeros contribute a positive but **oscillating** $O(\text{density}\cdot n)$ term that could, a priori, mask a slowly-emerging negative geometric term until astronomically large $n$.
+
+So the honest structural conclusion: **Li positivity reduces RH to controlling a competition between a geometric term $|1-1/\rho|^n$ (present iff RH fails) and the archimedean growth $\tfrac n2\log n$ plus an oscillatory critical-line sum.** No new bound on this competition is achieved here; the $n=1$ case is verified unconditionally, but the mechanism shows why $n=1$ (and small $n$, all known to be positive) carries no information about large-$n$ geometric domination.
+
+## Summary of contribution
+
+1. Clean re-derivation of the split $\lambda_n=\lambda_n^\Gamma-\lambda_n^\zeta$ with unconditional $\lambda_n^\Gamma=\tfrac n2\log n+O(n)$.
+2. Unconditional verification $\lambda_1 = 1+\gamma/2-\tfrac12\log(4\pi)=0.0231\ldots>0$.
+3. A precise, self-contained identification of the obstruction: an off-line pair injects a geometric $|1-1/\rho|^n$, $|1-1/\rho|>1$, with uncontrolled oscillating phase, which is what any Li-based proof must dominate — and I could not dominate it.
+
+This is a partial structural clarification, not progress on the hard inequality.
+
+VERDICT: FAILED
+REASON: Verified λ₁>0 unconditionally and isolated the geometric-vs-archimedean obstruction in Li's criterion, but proved no new bound.
