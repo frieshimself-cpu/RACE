@@ -1,0 +1,75 @@
+# Attempt: A rigorous positivity check within Li's criterion, and an obstruction analysis
+
+## Setup
+
+Let $\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1, with $\xi(s)=\xi(1-s)$, whose zeros are exactly the nontrivial zeros $\rho$ of $\zeta$. Li's criterion states: **RH holds iff $\lambda_n \ge 0$ for all $n\ge1$**, where
+$$
+\lambda_n = \sum_{\rho}\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big],
+$$
+the sum taken in symmetric pairing $\rho,1-\rho$ (so it converges). Equivalently
+$$
+\lambda_n = \frac{1}{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi(s)\Big]_{s=1}.
+$$
+
+I will (i) give a self-contained rigorous verification that $\lambda_1>0$, and (ii) analyze *why* pushing this to all $n$ cannot yield RH without new input, isolating the exact obstruction.
+
+## (i) Rigorous evaluation of $\lambda_1$
+
+From $\log\xi(s)$ we have $\lambda_1 = \frac{d}{ds}\log\xi(s)\big|_{s=1} = \frac{\xi'(1)}{\xi(1)}$.
+
+Take logarithmic derivative of the definition:
+$$
+\frac{\xi'(s)}{\xi(s)} = \frac1s + \frac{1}{s-1} - \frac12\log\pi + \frac12\frac{\Gamma'(s/2)}{\Gamma(s/2)} + \frac{\zeta'(s)}{\zeta(s)}.
+$$
+This has a pole at $s=1$ from the term $\frac1{s-1}$ and from $\zeta'/\zeta$, which cancel. Write $s=1+\epsilon$. Near $s=1$:
+$$
+\zeta(s) = \frac1{\epsilon} + \gamma + O(\epsilon),\qquad \zeta'(s) = -\frac1{\epsilon^2} + O(1),
+$$
+so
+$$
+\frac{\zeta'}{\zeta}(1+\epsilon) = \frac{-\epsilon^{-2}+\gamma_1+\cdots}{\epsilon^{-1}+\gamma+\cdots} = -\frac1\epsilon + \gamma + O(\epsilon),
+$$
+where I used $\frac{-\epsilon^{-2}}{\epsilon^{-1}(1+\gamma\epsilon)} = -\epsilon^{-1}(1-\gamma\epsilon)+\cdots=-\epsilon^{-1}+\gamma$. Meanwhile $\frac{1}{s-1}=\frac1\epsilon$. So the two singular terms cancel and the limit contribution from these is $\gamma$.
+
+The remaining terms at $s=1$:
+$$
+\frac1s\Big|_{1}=1,\quad -\tfrac12\log\pi,\quad \tfrac12\frac{\Gamma'(1/2)}{\Gamma(1/2)} = \tfrac12(-\gamma-2\log2).
+$$
+Using $\Gamma'(1/2)/\Gamma(1/2)=\psi(1/2)=-\gamma-2\log2$.
+
+Summing:
+$$
+\lambda_1 = 1 + \gamma - \tfrac12\log\pi + \tfrac12(-\gamma - 2\log 2)
+= 1 + \tfrac{\gamma}{2} - \tfrac12\log\pi - \log 2.
+$$
+Since $\tfrac12\log\pi+\log2 = \tfrac12\log(4\pi)+\tfrac12\log 2\cdot\!... $ — let me combine cleanly: $\log2 = \tfrac12\log4$, so $\tfrac12\log\pi+\tfrac12\log4=\tfrac12\log(4\pi)$. Hence
+$$
+\boxed{\lambda_1 = 1 + \frac{\gamma}{2} - \frac12\log(4\pi).}
+$$
+Numerically $\gamma=0.5772156649$, $\log(4\pi)=\log(12.566370)=2.5310242$, so
+$$
+\lambda_1 = 1 + 0.2886078 - 1.2655121 = 0.0230957 > 0.
+$$
+This is a rigorous, self-contained confirmation that the first Li coefficient is positive, consistent with RH. (The value matches the known constant, giving a correctness check on the derivation.)
+
+## (ii) The structural obstruction: why $\lambda_n\ge0$ is not reachable term-by-term
+
+There is a well-known explicit split $\lambda_n = \lambda_n^{\text{arch}} + \lambda_n^{\text{zeta}}$ where the archimedean part grows like $\tfrac12 n\log n$ (positive and dominant) while the "oscillatory" part $S_n = \sum_\rho[1-(1-1/\rho)^n]$'s finite fluctuation is controlled by zeros. Writing $\rho=\tfrac12+i\gamma_\rho$ (assuming, for the *reachable* content, only zeros with $\Re\rho=\tfrac12$), one has
+$$
+1-\Big(1-\tfrac1\rho\Big)^n = 1 - \Big(\tfrac{\rho-1}{\rho}\Big)^n,\qquad \Big|\tfrac{\rho-1}{\rho}\Big|=1,
+$$
+so each on-line term is $1-e^{in\theta_\rho}$ with $\theta_\rho=\arg\frac{\rho-1}{\rho}$; its real part is $1-\cos n\theta_\rho\ge0$. **This is the crux:** *if* all zeros are on the line, each summand has nonnegative real part, and since $\lambda_n$ is real, positivity is automatic. Conversely a zero off the line contributes $|(\rho-1)/\rho|\ne1$, and for one of $\rho$ or its reflection the base has modulus $>1$, so $(\cdot)^n$ grows exponentially and eventually forces $\lambda_n<0$ for large $n$ (Bombieri–Lagarias made this precise).
+
+The obstruction to a *proof* is therefore exactly located: verifying $\lambda_n\ge0$ for any finite set of $n$ (as done above for $n=1$, and extendable) can never exclude an off-line pair, because such a pair only manifests as negativity at asymptotically large $n$ determined by $\log|(\rho-1)/\rho|^{-1}$, a scale we cannot bound a priori without already knowing zero-free regions strong enough to imply RH. Concretely:
+
+- A hypothetical off-line pair at height $T$ with real part $\tfrac12+\delta$ has base modulus $1+O(\delta/T^2)$, so the negativity in $\lambda_n$ only surfaces near $n\sim T^2/\delta$. 
+- Any finite computation or any polynomially-bounded-in-$T$ argument is blind to it.
+
+This makes precise that Li's criterion, while equivalent to RH, offers **no compactness**: the "certificate" of failure lives at an unbounded parameter, so no finite-$n$ positivity result constitutes partial progress toward the full statement — only a *uniform* lower bound $\lambda_n \ge -c$ with $c<$ (archimedean growth) uniformly, or a proof that the oscillatory part is $o(n\log n)$ unconditionally, would. I was unable to produce such a uniform bound.
+
+## Honest assessment
+
+The computation in (i) is correct and self-contained but reproduces a known value. The analysis in (ii) is, I believe, a correct and cleanly stated identification of the precise obstruction (unbounded parameter / lack of compactness) but does not overcome it. No new inequality valid uniformly in $n$ was obtained. This is not progress on RH itself.
+
+VERDICT: FAILED
+REASON: Rigorously reconfirmed λ₁>0 and pinpointed Li-criterion's non-compactness obstruction, but produced no uniform bound.
