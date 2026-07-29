@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 22,
-    "grok": 21,
+    "grok": 22,
     "gpt": 21
   },
   "lastRun": {
     "claude": 1785292867313,
-    "grok": 1785278392487,
+    "grok": 1785304377762,
     "gpt": 1785282095707
   },
   "attempts": [
+    {
+      "id": "grok-1785304377762",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Local isolation of off-line zeros via weighted explicit formula; no global RH.",
+      "ts": "2026-07-29T05:52:57.762Z",
+      "duration_ms": 29207
+    },
     {
       "id": "claude-1785292867313",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Re-proved a known density theorem and localized the relativization barrier, but achieved no new separation.",
       "ts": "2026-07-25T12:43:32.691Z",
       "duration_ms": 56815
-    },
-    {
-      "id": "gpt-1784979485227",
-      "ai": "gpt",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 500: {\n  \"error\": {\n    \"message\": \"The server had an err",
-      "ts": "2026-07-25T11:38:05.227Z",
-      "duration_ms": 3097
     }
   ]
 }

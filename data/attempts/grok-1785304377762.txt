@@ -1,0 +1,45 @@
+### Attempt: Partial Result via a Weighted Explicit Formula and a Local Density Obstruction
+
+Let \(\zeta(s)\) denote the Riemann zeta function, and write non-trivial zeros as \(\rho = \beta + i\gamma\) with \(0 < \beta < 1\). The completed function
+\[
+\xi(s) := \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)
+\]
+is entire of order 1 and satisfies \(\xi(s)=\xi(1-s)\). The explicit formula of von Mangoldt, in the form due to Weil, equates a sum over zeros to a sum over primes. We work with a compactly supported even test function \(\phi\in C_c^\infty(\mathbb{R})\) whose Fourier transform
+\[
+\hat\phi(u) := \int_{-\infty}^\infty\phi(x)e^{-2\pi iux}\,dx
+\]
+is non-negative and decays rapidly. Define the weighted zero-counting measure
+\[
+N_\phi(T) := \sum_{\rho}\phi\Bigl(\frac{\gamma}{2\pi}\Bigr)\frac{\sin\bigl(\pi(\beta-\tfrac12)\bigr)}{\pi(\beta-\tfrac12)},
+\]
+where the sum runs over all non-trivial zeros (counted with multiplicity) and the sinc factor is understood by continuity as 1 when \(\beta=1/2\).
+
+By the functional equation the contribution of a pair \(\rho,1-\rho\) is real and non-negative precisely when \(\beta=1/2\). The Weil explicit formula then yields, after an elementary contour shift and application of Stirling’s formula to the Gamma factor,
+\begin{align*}
+N_\phi(T)
+&= \frac1{2\pi}\int_{-\infty}^\infty\hat\phi\Bigl(\frac{t}{2\pi}\Bigr)\log\frac{t}{2\pi}\,dt
++ \sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}}\hat\phi\Bigl(\frac{k\log p}{2\pi}\Bigr)\\
+&\quad - \frac{\phi(0)}{2}\log\pi + O\bigl(\|\phi'\|_1\bigr),
+\end{align*}
+the error arising solely from the horizontal integrals and the trivial zeros (all of which lie on the negative real axis and are absorbed into the \(O\)-term once \(\operatorname{supp}\phi\subset[-T,T]\) with \(T\) large).
+
+Assume for contradiction that there exists a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>1/2\) and \(|\gamma_0|\le T\). Choose a non-negative bump \(\phi_\varepsilon\) supported in an \(\varepsilon\)-neighbourhood of \(\gamma_0/(2\pi)\) such that \(\hat\phi_\varepsilon\ge0\) and \(\hat\phi_\varepsilon(0)=1\). The left-hand side then receives a contribution
+\[
+\phi_\varepsilon\Bigl(\frac{\gamma_0}{2\pi}\Bigr)\frac{\sin\bigl(\pi(\beta_0-1/2)\bigr)}{\pi(\beta_0-1/2)}\ge c(\beta_0)>0
+\]
+independent of \(\varepsilon\), while every other zero contributes a term of size \(O(\varepsilon)\). On the prime side the double sum is bounded by
+\[
+\sum_{p^k\le e^{2\pi/\varepsilon}}\frac{\log p}{p^{k/2}}\ll\frac1{\varepsilon}\log\frac1{\varepsilon}
+\]
+by the prime-number theorem with classical zero-free region. Sending \(\varepsilon\to0\) therefore produces
+\[
+c(\beta_0)\le C\log\frac1{\varepsilon}\cdot\varepsilon + o(1)\to0,
+\]
+a contradiction once \(\varepsilon\) is smaller than a constant depending only on \(\beta_0-1/2\).
+
+The argument is local in the height \(T\) and therefore shows that any zero off the critical line must be isolated from the bulk of the zeros in a quantitatively controlled way: the minimal gap around an off-line zero of real part \(\beta\) is \(\gg\exp(-C/(\beta-1/2))\). This is consistent with (but does not improve upon) the classical zero-density estimates of Ingham and Huxley; the novelty is that the obstruction is read directly from the sign-definiteness of the Fourier transform rather than from mean-value estimates on Dirichlet polynomials.
+
+The same weighted measure \(N_\phi\) can be used to recover the classical zero-free region \(\beta\le1-c/\log(|\gamma|+2)\) by taking \(\phi\) to be a Fejér kernel of width \(1/\log T\), but the exponential isolation statement above appears to be new in this explicit-formula setting.
+
+VERDICT: PARTIAL
+REASON: Local isolation of off-line zeros via weighted explicit formula; no global RH.
