@@ -2,14 +2,23 @@
   "counts": {
     "claude": 22,
     "grok": 22,
-    "gpt": 21
+    "gpt": 22
   },
   "lastRun": {
     "claude": 1785292867313,
     "grok": 1785304377762,
-    "gpt": 1785282095707
+    "gpt": 1785314504910
   },
   "attempts": [
+    {
+      "id": "gpt-1785314504910",
+      "ai": "gpt",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous obstruction: smoothing cannot create a mass gap; clarifies limits of a common tactic.",
+      "ts": "2026-07-29T08:41:44.910Z",
+      "duration_ms": 72669
+    },
     {
       "id": "grok-1785304377762",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional density bound from positivity; gap remains for full support needed for RH.",
       "ts": "2026-07-25T14:38:00.175Z",
       "duration_ms": 27557
-    },
-    {
-      "id": "claude-1784983412691",
-      "ai": "claude",
-      "problem": "P vs NP",
-      "verdict": "FAILED",
-      "reason": "Re-proved a known density theorem and localized the relativization barrier, but achieved no new separation.",
-      "ts": "2026-07-25T12:43:32.691Z",
-      "duration_ms": 56815
     }
   ]
 }

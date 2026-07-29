@@ -1,0 +1,57 @@
+Attempt: A rigorous obstruction to deriving a mass gap from smoothing (gradient/heat flow) of gauge-invariant fields
+
+Setup
+- Work in Euclidean 4D. Let S be any (translation-invariant) Schwinger two-point function of a gauge-invariant local operator O (e.g., tr F^2), viewed as a tempered distribution S(x) with Fourier transform Ŝ(p) that is a finite, positive measure in p (by reflection positivity and gauge invariance; one can take Ŝ to be absolutely continuous for the argument). Assume S has no mass gap in the sense that the spectral measure has support touching p = 0.
+- Let K_t(x) be the 4D heat kernel with variance t > 0: K_t(x) = (4πt)^{-2} exp(-|x|^2/(4t)). Define the t-smeared operator O_t = K_t * O, and its two-point function S_t = K_t * S * K_t. On the lattice this corresponds to Wilson/gradient flow at flow time t; in the continuum it corresponds to Gaussian smearing. It is known that O_t is finite without renormalization for t > 0.
+
+Claim (obstruction)
+Smoothing by any finite-variance, rapidly decaying kernel (in particular, the heat kernel) cannot create an exponential decay in position space that is uniformly bounded below by e^{-m|x|} with m > 0, unless the unsmeared theory already has a mass gap. Concretely, if the spectral measure of Ŝ has support touching 0, then for any fixed t > 0,
+limsup_{R→∞} (1/R) log sup_{|x|=R} |S_t(x)| = 0.
+Equivalently, one cannot infer a positive mass gap from gradient/heat flow smearing alone.
+
+Remarks
+- This result is robust: it uses only translation invariance, positivity of the spectral measure, and that the smearing kernel has entire Fourier transform which is strictly positive near p = 0 (e.g., e^{-t|p|^2}).
+- It rules out a tempting strategy where one hopes the gradient flow “massifies” correlators so that exponential clustering at positive flow time could be propagated back to t = 0. It does not preclude using flow in a more intricate multiscale construction, but shows smearing by itself is insufficient.
+
+Proof sketch
+1) Fourier representation.
+Let d = 4. Write Ŝ(p) = σ(p) d^4p with σ ≥ 0 in L^1_loc, and suppose for every ε > 0, ∫_{|p|<ε} σ(p) d^4p > 0 (no spectral gap). Then
+S_t(x) = ∫ e^{ip·x} e^{-2t|p|^2} σ(p) d^4p.
+
+2) Lower bound by small momenta.
+Fix 0 < ε < 1. Split the integral:
+S_t(x) = I_<(x) + I_>(x), where I_<(x) = ∫_{|p|<ε} e^{ip·x} e^{-2t|p|^2} σ(p) d^4p.
+The factor e^{-2t|p|^2} ≥ e^{-2tε^2} on |p|<ε. By rotation invariance of the domain and nonnegativity of σ, there is a direction n = n(x) (take n = x/|x|) such that
+Re I_<(x) ≥ e^{-2tε^2} ∫_{|p|<ε} cos(p·x) σ(p) d^4p.
+
+3) Stationary phase with nonnegative weight yields power-law lower bound along a sequence.
+Let B_ε be the ball { |p|<ε }. Since σ ≥ 0 and not identically zero on B_ε, there exist c_0, r_0 with 0 < r_0 ≤ ε and c_0 > 0 such that ∫_{|p|<r_0} σ(p) d^4p ≥ c_0.
+Then choose radii R_k = 2π k / r_0 along the same direction n. For x = R_k n, cos(p·x) ≥ 1/2 on the set { |p|<r_0, |p·n| ≤ π/R_k }, whose measure is ≍ r_0^3 (π/R_k). More explicitly, for x = R n,
+∫_{|p|<r_0} cos(p·x) σ(p) d^4p ≥ (1/2) ∫_{|p|<r_0, |p·n| ≤ π/R} σ(p) d^4p.
+By Fubini and monotonicity, the inner integral over the slab has measure ≍ c_1 R^{-1} for some c_1 > 0 depending on σ|_{B_{r_0}}. Therefore
+Re I_<(R n) ≥ e^{-2t r_0^2} c_2 R^{-1}
+for an infinite sequence of R = R_k and some c_2 > 0 depending on σ, r_0, t.
+
+4) No uniform exponential decay.
+The contribution I_>(x) is bounded by ∥σ 1_{|p|≥ε}∥_{L^1}, a constant independent of x. Hence for the sequence R_k,
+|S_t(R_k n)| ≥ Re I_<(R_k n) - |I_>(R_k n)| ≥ c_2' R_k^{-1} - C,
+and for large k the positive term dominates in absolute value versus any e^{-m R_k}. More directly, for any m > 0 and large k,
+|S_t(R_k n)| ≥ c_3 R_k^{-1} >> e^{-m R_k}.
+Thus
+limsup_{R→∞} (1/R) log sup_{|x|=R} |S_t(x)| ≥ limsup_{k→∞} (1/R_k) log(c_3 R_k^{-1}) = 0.
+Since S_t is real-analytic and bounded by its Fourier L^1 norm, the upper bound limsup ≤ 0 also holds, giving the claimed limit 0.
+
+5) Consequences.
+- If one observes exponential decay of S_t for some fixed t > 0 with a mass parameter m_t > 0 uniformly in |x|, then necessarily the underlying unsmeared spectral measure had a genuine gap: σ(p) = 0 in a neighborhood of p = 0. In particular, in a constructive program for Yang–Mills, exponential clustering at positive flow time cannot be the source of a mass gap; it can at most preserve one already present.
+- Any attempt to deduce a mass gap by taking t → 0 after establishing bounds for S_t must introduce genuinely new infrared input beyond Gaussian smoothing (e.g., uniform coercive inequalities, reflection-positive infrared regulators removed at the end, or a nonperturbative renormalization group scheme producing an actual spectral gap).
+
+Context for Yang–Mills
+- Gradient/Wilson flow is widely used to define finite, renormalized composite operators at positive flow time and to establish UV regularity. The above shows that this tool alone cannot address the IR mass gap: one must combine it with independent IR control that eliminates spectral weight near p = 0 before smearing, or proves its absence by other means (e.g., reflection-positive transfer matrix estimates, uniform Log-Sobolev/cluster expansion yields, or a full nonperturbative RG).
+- This precise obstruction helps focus efforts: IR mass generation must be proven at t = 0 (or in a way that survives t ↓ 0), not created by t > 0 smearing.
+
+Limitations and outlook
+- The argument applies to any nonnegative spectral density touching p = 0. It does not by itself rule out more sophisticated flows (nonlinear, scale-dependent) coupled to renormalization that could open a gap. It only rules out linear convolution smoothing as a mechanism to generate exponential decay ex nihilo.
+- A promising path is to prove uniform exponential clustering at a fixed coarse-grained scale (via reflection positivity + infrared polymer/cluster expansions with gauge-fixing and Ward identities), and then use gradient flow only for UV finiteness of composite operators; but the gap must come from the IR expansion itself, not from the smoothing.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous obstruction: smoothing cannot create a mass gap; clarifies limits of a common tactic.
