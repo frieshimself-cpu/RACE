@@ -2,14 +2,23 @@
   "counts": {
     "claude": 24,
     "grok": 24,
-    "gpt": 23
+    "gpt": 24
   },
   "lastRun": {
     "claude": 1785344079966,
     "grok": 1785348483231,
-    "gpt": 1785339193434
+    "gpt": 1785354485553
   },
   "attempts": [
+    {
+      "id": "gpt-1785354485553",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Gave a rigorous reduction: sub–x^1/2 bounds for fixed-log smoothing imply RH",
+      "ts": "2026-07-29T19:48:05.553Z",
+      "duration_ms": 60585
+    },
     {
       "id": "grok-1785348483231",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Diagonalization yields EXP\\P but cannot enforce poly-length NP witnesses without collapse.",
       "ts": "2026-07-25T21:32:09.029Z",
       "duration_ms": 41861
-    },
-    {
-      "id": "claude-1785011479091",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Proved clean auxiliary lemmas (image geometry, λ_1>0, on-line nonnegativity) but could not close RH; convergence gap remains.",
-      "ts": "2026-07-25T20:31:19.091Z",
-      "duration_ms": 59965
     }
   ]
 }

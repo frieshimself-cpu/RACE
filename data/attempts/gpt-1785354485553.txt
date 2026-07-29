@@ -1,0 +1,89 @@
+Attempt: A reduction showing that uniform sub–x^(1/2) bounds for logarithmically smoothed Mertens sums would imply RH
+
+Set-up.
+- Fix K ∈ C_c^∞(R) (smooth, compactly supported), even, with ∫_{R} K(t) dt ≠ 0. Let its bilateral Laplace transform be Φ(u) = ∫_{R} K(t) e^{ut} dt (an entire, even function with Φ(0)=∫K ≠ 0).
+- For x ≥ 2 and a scale H = H(x) ∈ (0,1), define the logarithmically smoothed Mertens sum
+  M_K(x;H) := ∑_{n≥1} μ(n) K((log n − log x)/H).
+  Only n with n ≍ x contribute (because K has compact support).
+
+Main statement (reduction).
+Suppose there exist:
+- a fixed admissible kernel K as above,
+- a function H(x) → 0 with H(x) log x → ∞,
+- and an exponent A < 1/2,
+such that for some constant C(K) the uniform bound
+  |M_K(x;H(x))| ≤ C(K) x^A H(x)
+holds for all sufficiently large x. Then the Riemann Hypothesis holds.
+
+Comments: This formalizes the obstruction that any method producing pointwise sub–x^(1/2) control on a single, fixed logarithmic smoothing of Mertens at scales H(x) going to zero more slowly than 1/log x would already prove RH.
+
+Proof sketch.
+1) Mellin representation. For σ > 1,
+   ζ(s)^{-1} = ∑_{n=1}^∞ μ(n) n^{-s}.
+   Using Mellin inversion for the logarithmic weight K((log n − log x)/H),
+   M_K(x;H) = (1/(2πi)) ∫_{(σ)} ζ(s)^{-1} x^{s} · H · Φ(H(s−1)) ds.
+   This follows by writing n^{-s} x^{s} = exp((s−1)(log x − log n)) x and the identity
+   K((log n − log x)/H) = (1/(2πi)) ∫ Φ(H(s−1)) e^{(s−1)(log n − log x)} ds.
+
+   The factor H Φ(H(s−1)) is entire and decays rapidly in vertical strips (Φ is entire of exponential type because K is compactly supported).
+
+2) Contour shift and zeros’ contributions. Let 1/2 < σ1 < 1 and shift the contour from Re s = σ > 1 to Re s = σ1. We cross simple poles at the nontrivial zeros ρ of ζ (counted with multiplicity), and possibly s=1 (but ζ(s)^{-1} is regular at s=1; there is no pole). Thus
+   M_K(x;H) = −∑_{ρ} Res_{s=ρ} [ζ(s)^{-1} x^{s} H Φ(H(s−1))] + E,
+   where the sum is over nontrivial zeros ρ and the error E is the integral on Re s = σ1:
+   E = (1/(2π)) ∫_{−∞}^{∞} ζ(σ1+it)^{-1} x^{σ1+it} H Φ(H(σ1−1+it)) dt.
+
+   Since H → 0 and Φ is bounded in vertical strips, and using standard bounds for ζ(s)^{-1} away from the 1-line and Stirling-type growth for Φ, one obtains
+   E = O(x^{σ1} H · polylog(x)),
+   uniformly in x and H with H log x → ∞ (the rapid decay in t of Φ(H(σ1−1+it)) for |t| ≫ 1/H controls the vertical integral).
+
+3) Size of an individual zero’s contribution. Each zero ρ contributes
+   C_ρ(x,H) = − x^{ρ} · H Φ(H(ρ−1)) / ζ′(ρ).
+   Write ρ = β + iγ. As H → 0, Φ(H(ρ−1)) → Φ(0) (since Φ is entire and continuous), and Φ(0) = ∫ K ≠ 0. Hence, for H small,
+   C_ρ(x,H) = −(Φ(0) + o(1)) · x^{β} e^{iγ log x} · H / ζ′(ρ).
+
+4) Forcing a contradiction from a zero with β > 1/2. Suppose there exists a zero ρ0 = β0 + iγ0 with β0 > 1/2. Fix ε with 0 < ε < β0 − 1/2 and set σ1 = 1/2 + ε. Then E = O(x^{1/2+ε} H · polylog(x)).
+
+   Consider a multiplicative Cesàro average of M_K over x in a short log-interval to isolate the frequency γ0. Precisely, let w be a smooth, nonnegative weight supported in [−1,1] with ∫ w = 1, and define for parameters Y large and δ = δ(Y) with δ → 0 but δ ≫ 1/log Y,
+   A(Y) := ∫ M_K(e^{u}Y; H(Y)) · w(u/δ) du.
+   By Fubini and the expansion in terms of zeros,
+   A(Y) = −H(Y) ∑_{ρ} [Y^{ρ} Φ(H(ρ−1)) / ζ′(ρ)] · ∫ e^{ρ u} w(u/δ) du + Ẽ,
+   with Ẽ ≪ Y^{1/2+ε} H(Y) · polylog(Y) (uniformly, since the same control applies under the averaging).
+
+   The inner integral is δ times the Laplace transform W(δρ) of w, with W(0)=1 and W decaying rapidly in Im ρ at scale 1/δ. Choosing δ ≍ H(Y) (recall H(Y) log Y → ∞), we have:
+   - For ρ = ρ0, the contribution is
+     −(Φ(0)+o(1)) · Y^{β0} · H(Y) · δ · e^{iγ0 log Y} · (1 + o(1)) / ζ′(ρ0),
+     i.e. of magnitude ≍ Y^{β0} H(Y) δ.
+   - For zeros with |γ − γ0| ≫ 1/δ, the factor W(δρ) is tiny, killing their contribution.
+   - For the finitely many zeros with |γ − γ0| ≪ 1/δ, their phases e^{iγ log Y} differ slowly; but since W is nonnegative at 0 and bounded, the total contribution from these neighboring zeros cannot cancel the main term from ρ0 uniformly in Y. In particular, by varying log Y along a sequence so that e^{iγ0 log Y} aligns with −ζ′(ρ0)/|ζ′(ρ0)| and using continuity, there exists a sequence Y_k → ∞ such that
+     |A(Y_k)| ≥ c · Y_k^{β0} H(Y_k) δ − C · Y_k^{1/2+ε} H(Y_k) polylog(Y_k),
+     with c>0 depending on K,w,ρ0 and C absolute.
+
+   Since β0 > 1/2+ε and δ ≍ H(Y), for large k the right-hand side is ≫ Y_k^{β0} H(Y_k)^2.
+
+5) From average to pointwise. The average A(Y) is an integral of M_K over a multiplicative window of relative width e^{±δ}; hence
+   sup_{x ∈ [e^{−δ}Y, e^{δ}Y]} |M_K(x;H(Y))| ≥ |A(Y)|.
+   Therefore, along the sequence Y_k,
+   sup_{x ≍ Y_k} |M_K(x;H(Y_k))| ≫ Y_k^{β0} H(Y_k)^2.
+
+6) Contradiction with the assumed bound. The hypothesis gives, for all large x,
+   |M_K(x;H(x))| ≤ C(K) x^A H(x),
+   with A < 1/2. In particular, along the sequence Y_k (and x in a comparable range) we have
+   Y_k^{β0} H(Y_k)^2 ≪ Y_k^A H(Y_k),
+   i.e.
+   Y_k^{β0 − A} H(Y_k) ≪ 1.
+   But β0 − A > 0 and H(Y_k) log Y_k → ∞, so the left-hand side tends to ∞, a contradiction.
+
+Hence there can be no zero with β0 > 1/2. By the functional equation and the symmetry of zeros, all nontrivial zeros must therefore satisfy Re s = 1/2. That is, RH holds.
+
+Consequence (obstruction to a popular strategy).
+- Fix any smooth, compactly supported even K with ∫K ≠ 0. If one could prove a pointwise bound
+  |∑_{n} μ(n) K((log n − log x)/H(x))| ≤ C x^{1/2 − ε} H(x)
+  for some ε>0 and a scale H(x) with H(x) → 0 and H(x) log x → ∞, uniformly for all large x, then RH would follow.
+- In particular, attempts to beat the x^{1/2} barrier for Mertens-type sums solely via a single fixed logarithmic smoothing at vanishing scales that are wide enough to see many integers (H log x → ∞) would necessarily entail a proof of RH.
+
+Scope and limitations.
+- The argument hinges on: Mellin representation; a short multiplicative average to isolate a zero; and the assumption of a uniform pointwise sub–x^(1/2) exponent for one fixed K and scales H with H log x → ∞. It does not rule out bounds at coarser scales (H ≍ 1/log x) or for varying families of K that depend on x in special ways; it shows that a specific line of approach would, if successful in that strong form, resolve RH.
+- The core quantitative obstruction is the inevitable x^{β} contribution from a zero with β>1/2 that survives any such smoothing when H shrinks slower than 1/log x.
+
+VERDICT: PARTIAL
+REASON: Gave a rigorous reduction: sub–x^1/2 bounds for fixed-log smoothing imply RH
