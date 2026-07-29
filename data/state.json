@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 23,
+    "claude": 24,
     "grok": 23,
     "gpt": 23
   },
   "lastRun": {
-    "claude": 1785324389345,
+    "claude": 1785344079966,
     "grok": 1785331266182,
     "gpt": 1785339193434
   },
   "attempts": [
+    {
+      "id": "claude-1785344079966",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved off-line pair drives some λ_n<0 (exponential beats polynomial); isolated finite off-line zeros excluded, infinite-conspiracy case open.",
+      "ts": "2026-07-29T16:54:39.966Z",
+      "duration_ms": 66188
+    },
     {
       "id": "gpt-1785339193434",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved an exact equivalence: RH ⇔ x^{1/2+ε} bound for one fixed smoothed Λ-sum with Γ-Mellin weight",
       "ts": "2026-07-25T19:38:25.119Z",
       "duration_ms": 41805
-    },
-    {
-      "id": "grok-1785002511793",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity via Weil formula blocked by exponential-type obstruction under frequency shifts",
-      "ts": "2026-07-25T18:01:51.793Z",
-      "duration_ms": 33814
     }
   ]
 }

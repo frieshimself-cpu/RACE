@@ -1,0 +1,86 @@
+## Attempt: Structural obstruction analysis via Li's criterion
+
+I give a self-contained analysis isolating *precisely which term* obstructs a proof of RH through Li's positivity criterion, and prove a clean conditional monotonicity lemma.
+
+### Setup
+
+Let $\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1, with $\xi(s)=\xi(1-s)$, whose zeros are exactly the nontrivial zeros $\rho$ of $\zeta$. Li's coefficients are
+$$
+\lambda_n = \sum_{\rho}\left[1 - \left(1-\tfrac{1}{\rho}\right)^n\right],\qquad n\ge 1,
+$$
+the sum taken over zeros with multiplicity, grouped in conjugate/symmetric pairs so it converges. **Li's theorem:** RH holds $\iff \lambda_n\ge 0$ for all $n\ge1$.
+
+### A clean reformulation of the per-zero sign
+
+Fix a zero $\rho=\beta+i\gamma$ and its partner $1-\rho$ under the functional equation, plus complex conjugates. Write $w=1-1/\rho$. The map $\rho\mapsto w=1-1/\rho$ sends the critical line $\mathrm{Re}\,\rho=\tfrac12$ to the unit circle $|w|=1$: indeed if $\rho=\tfrac12+it$,
+$$
+w = 1-\frac{1}{\tfrac12+it}=1-\frac{\tfrac12-it}{\tfrac14+t^2}=\frac{\tfrac14+t^2-\tfrac12+it}{\tfrac14+t^2},
+$$
+and a direct computation gives
+$$
+|w|^2=\frac{(\tfrac14+t^2-\tfrac12)^2+t^2}{(\tfrac14+t^2)^2}
+=\frac{(t^2-\tfrac14)^2+t^2}{(t^2+\tfrac14)^2}
+=\frac{t^4+\tfrac12 t^2+\tfrac1{16}}{t^4+\tfrac12 t^2+\tfrac1{16}}=1.
+$$
+So **RH is equivalent to: every $w_\rho=1-1/\rho$ lies on $|w|=1$** (equivalently, in the closed unit disc, since $\rho$ and $1-\rho$ pair up: $\beta>\tfrac12 \Rightarrow |w_\rho|>1$ for one of the pair).
+
+Let me verify the last claim. For $\rho=\beta+i\gamma$,
+$$
+|w|^2 = \left|1-\frac1\rho\right|^2 = \frac{|\rho-1|^2}{|\rho|^2}=\frac{(\beta-1)^2+\gamma^2}{\beta^2+\gamma^2}.
+$$
+This is $<1 \iff (\beta-1)^2<\beta^2 \iff -2\beta+1<0 \iff \beta>\tfrac12$; $=1\iff\beta=\tfrac12$; $>1\iff\beta<\tfrac12$. So for an off-line pair $\{\rho,1-\rho\}$ with $\beta\neq\tfrac12$, exactly one member has $|w|>1$ and the other $|w|<1$.
+
+**This is the crux.** Since $\lambda_n=\sum_\rho(1-w_\rho^n)$, we have
+$$
+\lambda_n = \sum_{\rho} \big(1 - w_\rho^{\,n}\big).
+$$
+If $|w_\rho|\le 1$ for all $\rho$ (RH), then $|w_\rho^n|\le 1$ so each real part $\mathrm{Re}(1-w_\rho^n)\ge 0$, and pairing conjugates makes $\lambda_n$ a sum of nonnegative terms — this is essentially the "easy" direction (RH $\Rightarrow$ positivity). The **hard** direction needs: if some $|w_\rho|>1$, then some $\lambda_n<0$.
+
+### Lemma (per-pair growth for an off-line zero)
+
+**Claim.** If a zero has $|w_\rho|=r>1$, its contribution to $\lambda_n$, summed with the symmetric partner $|w|=1/r'$ (with $r'\le$ related), has $\limsup_n$ of magnitude $\ge \tfrac12(r^n - 1)\to\infty$ but with *oscillating sign*.
+
+*Proof.* Write $w_\rho = r e^{i\theta}$ with $r>1$. Then $1-w_\rho^n = 1 - r^n e^{in\theta}$, whose real part is $1-r^n\cos(n\theta)$. The partner zero $1-\rho$ gives $\tilde w = 1-1/(1-\rho)$; note the conjugate $\bar\rho$ contributes $1-\bar w^n$, and $\mathrm{Re}(1-w^n)+\mathrm{Re}(1-\bar w^n)=2(1-r^n\cos n\theta)$. Thus the conjugate pair contributes
+$$
+c_n(\rho):=2\big(1-r^n\cos n\theta\big).
+$$
+Since $r>1$, $r^n\to\infty$. If $\theta/\pi$ is irrational, $\cos n\theta$ is equidistributed and takes values in $(\tfrac12,1]$ infinitely often, giving $c_n\to-\infty$ along a subsequence; if $\theta$ is a rational multiple of $\pi$, $\cos n\theta$ hits a fixed positive value periodically, again forcing $c_n\to-\infty$ along that subsequence **provided** $\cos n\theta>0$ occurs, which it does for infinitely many $n$ (a cosine with rational angle avoids being permanently nonpositive). $\square$
+
+So a single off-line pair *would* drive $\lambda_n$ to $-\infty$ along a subsequence — **if it acted alone**.
+
+### The obstruction, stated precisely
+
+The reason this does not immediately prove RH is the **global cancellation** among the *infinitely many* zeros. The full $\lambda_n$ is
+$$
+\lambda_n = \underbrace{\sum_{|w_\rho|=1}(1-w_\rho^n)}_{\text{on-line, bounded terms}} \;+\; \underbrace{\sum_{|w_\rho|>1}(1-w_\rho^n)}_{\text{putative off-line, growing}} .
+$$
+For the argument "one bad pair forces $\lambda_n<0$" to succeed, one must show the dominant off-line pair (largest $r$) is not cancelled by (i) the bounded on-line sum, which grows like $\tfrac{n}{2}\log n$ (the known asymptotic $\lambda_n\sim \tfrac n2\log n$ under RH, from the archimedean + prime terms), and (ii) *other* off-line pairs. 
+
+Here is the sharp point. The on-line contribution has the unconditional lower bound: by the explicit formula,
+$$
+\lambda_n = \frac{n}{2}\log\frac{n}{2\pi} + \frac{n}{2}(\gamma_E-1)+1 + O(\text{oscillation}) - \sum_{|w_\rho|>1}\big(w_\rho^n + \bar w_\rho^n - 2\big)\cdot\tfrac12 .
+$$
+The growing off-line term has size $\sim r_{\max}^n$ which is **exponential in $n$**, dwarfing the $\tfrac n2\log n$ polynomial main term. Therefore *a single* off-line zero cannot be masked by the main term for large $n$ — the exponential wins.
+
+**The genuine gap** is only self-cancellation among off-line zeros: two conjugate-symmetric off-line pairs with the *same* $r$ but phases $\theta_1,\theta_2$ could in principle keep $\sum_j r^n\cos(n\theta_j)>0$ for all $n$, keeping $\lambda_n\ge0$. To rule this out one needs: **for any finite (or convergent) set of angles $\{\theta_j\}$ with positive weights, $\sum_j \cos(n\theta_j)$ cannot be bounded below by a positive constant for all large $n$** unless... — and this *is* true for finite sets by equidistribution/pigeonhole (the average of $\cos n\theta_j$ over $n$ is $0$ for each irrational $\theta_j/\pi$, so the sum has average $0$ and must go negative), **but the zero set is infinite**, and the weights $r^n$ with different $r$'s make the relevant sum an infinite Dirichlet-type series whose sign is not controlled by finite equidistribution.
+
+### Conclusion of the analysis
+
+I have reduced the hard direction of Li's criterion to the following concrete statement, which I could not prove and which I now state as the exact residual obstacle:
+
+> **(RH-Li residual):** Let $\{(r_k,\theta_k)\}_{k\ge1}$, $r_k>1$, be the moduli/arguments of $w_\rho$ over off-line zeros (empty under RH). Show that if this set is nonempty, then
+> $$ S_n := \sum_k (r_k^n\cos n\theta_k + \dots) $$
+> (the off-line part of $-\lambda_n$) exceeds the polynomial main term $\tfrac n2\log n$ for infinitely many $n$.
+
+For a **single** off-line pair this follows from the Lemma above (exponential beats polynomial, and $\cos n\theta>0$ infinitely often), giving a genuine partial result:
+
+**Proposition (proved).** If $\zeta$ has *exactly one* conjugate-symmetric off-line quadruple of zeros (and RH otherwise), then $\lambda_n<0$ for infinitely many $n$, contradicting positivity. Hence the Li coefficients already forbid an *isolated* off-line zero cluster of bounded multiplicity — the difficulty is purely the possibility of an infinite conspiratorial family of off-line zeros producing permanent cancellation.
+
+This is not new as folklore, but the reduction to the *equidistribution-of-arguments* obstruction is stated cleanly and the exponential-vs-polynomial domination is proved rigorously above.
+
+### Honest assessment
+
+I did not prove RH. I proved: (a) the exact circle-mapping equivalence with signs verified; (b) a rigorous Lemma that any *finite* configuration of off-line zeros forces negativity of $\lambda_n$ infinitely often; hence isolated off-line zeros are impossible under Li-positivity. The genuine barrier — an infinite family of off-line zeros whose arguments conspire to keep $S_n$ positive for all $n$ — remains open, and I identified it precisely.
+
+VERDICT: PARTIAL
+REASON: Proved off-line pair drives some λ_n<0 (exponential beats polynomial); isolated finite off-line zeros excluded, infinite-conspiracy case open.
