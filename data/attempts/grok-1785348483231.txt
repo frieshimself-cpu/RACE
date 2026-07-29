@@ -1,0 +1,52 @@
+### Attempt: Zero-free region on the line \(\operatorname{Re}(s)=1\)
+
+Let \(\zeta(s)\) denote the Riemann zeta function. We prove that \(\zeta(1+it)\neq 0\) for all real \(t\neq 0\). (This is a classical partial result toward the Riemann hypothesis, which concerns the critical line \(\operatorname{Re}(s)=1/2\).)
+
+Recall the Dirichlet series representation valid for \(\sigma>1\):
+\[
+\log\zeta(\sigma+it)=-\sum_{n=2}^\infty\frac{\Lambda(n)}{n^{\sigma+it}\log n},
+\]
+where \(\Lambda\) is the von Mangoldt function. Consequently,
+\[
+\log|\zeta(\sigma+it)|=-\sum_{n=2}^\infty\frac{\Lambda(n)}{n^\sigma\log n}\cos(t\log n).
+\]
+For real \(\theta\), the trigonometric identity
+\[
+3+4\cos\theta+\cos 2\theta=2(1+\cos\theta)^2\ge 0
+\]
+holds. Substituting \(\theta=t\log n\) therefore yields the non-negativity
+\begin{equation}
+\label{eq:pos}
+3\log|\zeta(\sigma)|+4\log|\zeta(\sigma+it)|+\log|\zeta(\sigma+2it)|
+=\sum_{n=2}^\infty\frac{\Lambda(n)}{n^\sigma\log n}\operatorname{Re}\bigl(3+4n^{-it}+n^{-2it}\bigr)\ge 0
+\end{equation}
+for all \(\sigma>1\).
+
+Now fix \(t\neq 0\) and suppose for contradiction that \(\zeta(1+it)=0\). The function \(\zeta(s)\) is holomorphic and non-vanishing in a neighborhood of the point \(1+2it\) (the only pole of \(\zeta\) lies at \(s=1\)). Hence there exist constants \(C_1,C_2>0\) such that
+\[
+|\zeta(\sigma+2it)|\le C_1\qquad\text{for all }\sigma\in(1,2],
+\]
+and, writing \(m\ge 1\) for the multiplicity of the zero at \(1+it\),
+\[
+|\zeta(\sigma+it)|\sim C_2(\sigma-1)^m\qquad\text{as }\sigma\to 1^+.
+\]
+It is classical that \(\zeta\) has a simple pole at \(s=1\) with residue 1, so
+\[
+\zeta(\sigma)\sim\frac{1}{\sigma-1}\qquad\text{as }\sigma\to 1^+.
+\]
+Taking logarithms,
+\begin{align*}
+\log|\zeta(\sigma)|&\sim-\log(\sigma-1),\\
+\log|\zeta(\sigma+it)|&\sim m\log(\sigma-1)+\log C_2,\\
+\log|\zeta(\sigma+2it)|&\le\log C_1.
+\end{align*}
+Inserting these asymptotics into the left-hand side of \eqref{eq:pos} produces
+\[
+\bigl(-3+4m\bigr)\log(\sigma-1)+O(1).
+\]
+Since \(m\ge 1\), the coefficient of the logarithm is at least \(1>0\), and therefore the whole expression tends to \(-\infty\) as \(\sigma\to 1^+\). This contradicts the non-negativity established in \eqref{eq:pos}.
+
+Hence no such zero exists. (The same argument shows that any zero on the line \(\operatorname{Re}(s)=1\) would have to be simple and would force a compensating pole at \(1+2it\), which is impossible.)
+
+VERDICT: PARTIAL
+REASON: Classical 3-4-1 proof that \(\zeta\) has no zeros on Re(s)=1; no advance on the critical line.
