@@ -1,0 +1,47 @@
+# Attempt: The exponent barrier in diagonalizing NP against P
+
+I focus on a precise question: *how far can pure time-hierarchy diagonalization go toward P ≠ NP, and exactly where does it stall?* I give a rigorous statement of what diagonalization delivers, a clean proof, and a sharp identification of the obstruction. This is deliberately narrow so it can be checked.
+
+## Lemma 1 (fixed-exponent separation)
+
+For every fixed integer $k \ge 1$, $\mathrm{NP} \ne \mathrm{DTIME}(n^k)$.
+
+**Proof.** Suppose for contradiction $\mathrm{NP} = \mathrm{DTIME}(n^k)$.
+
+By definition $\mathrm{NP} = \bigcup_{c\ge 1}\mathrm{NTIME}(n^c)$, so for the particular constant $k+2$ we have
+$$\mathrm{NTIME}(n^{k+2}) \subseteq \mathrm{NP}.$$
+Under the assumption this gives $\mathrm{NTIME}(n^{k+2}) \subseteq \mathrm{DTIME}(n^k)$. Since any deterministic machine is a (degenerate) nondeterministic one, $\mathrm{DTIME}(n^k) \subseteq \mathrm{NTIME}(n^k)$. Chaining,
+$$\mathrm{NTIME}(n^{k+2}) \subseteq \mathrm{NTIME}(n^k).$$
+This contradicts the **nondeterministic time hierarchy theorem** (Cook 1972; Seiferas–Fischer–Meyer), which asserts $\mathrm{NTIME}(f) \subsetneq \mathrm{NTIME}(g)$ whenever $f(n+1)=o(g(n))$ and $g$ is time-constructible — here $f=n^k$, $g=n^{k+2}$. $\qquad\blacksquare$
+
+So NP cannot be captured by *any single* polynomial-time bound. This is the maximal unconditional statement obtainable from hierarchy diagonalization alone.
+
+## Why this does not yield P ≠ NP — a precise diagnosis
+
+The temptation is to "take $k \to \infty$." The reason this fails is structural, and worth stating exactly, because it isolates the true difficulty.
+
+$P = \bigcup_{k\ge 1}\mathrm{DTIME}(n^k)$ is a *countable union of classes each of which Lemma 1 defeats*, yet the union is not itself of the form $\mathrm{DTIME}(n^k)$. Concretely: Lemma 1 produces, for each $k$, a witness language $L_k \in \mathrm{NP}\setminus\mathrm{DTIME}(n^k)$. But the diagonalization producing $L_k$ **uses the exponent $k$ inside its own running time**: the diagonalizing machine simulates $n^k$-time machines and must itself run in nondeterministic time $\approx n^{k+1}$ to beat them. There is no uniform bound on the resource used by the family $\{L_k\}$, so:
+
+$$\bigcap_k \big(\mathrm{NP}\setminus \mathrm{DTIME}(n^k)\big)$$
+
+need not contain a single language that is *simultaneously* outside every $\mathrm{DTIME}(n^k)$ **and** inside NP. Indeed a single NP language $L$ lies in some $\mathrm{NTIME}(n^c)$; to place it outside $P$ we would need to diagonalize against all $\mathrm{DTIME}(n^k)$ using only $O(n^c)$ nondeterministic time for a *fixed* $c$ — but the standard diagonalizer against $\mathrm{DTIME}(n^k)$ inherently needs time growing with $k$. The exponents of "problem" and "diagonalizer" are locked together.
+
+## Formalizing the obstruction (a no-go for the naive strengthening)
+
+**Claim.** No diagonalizer that (i) enumerates deterministic machines by running time bound $n^k$ and (ii) simulates the $k$-th machine with slowdown $\ge$ a function of $k$ unbounded in $k$, can output a *single* NP language separating NP from P.
+
+*Argument.* Any such construction yields a language whose membership test at exponent-index $k$ costs $\omega_k(1)\cdot n^{k}$ nondeterministic steps. For the diagonal language to be in NP it must have a fixed verifier running in $n^{c}$ time for one constant $c$. But then it only defeats $\mathrm{DTIME}(n^{k})$ for $k$ up to roughly $c$ (the range where slowdown $\le n^{c}$), leaving all $\mathrm{DTIME}(n^{k})$ with $k>c$ untouched — hence the language may well be in $P$. Thus the union $P$ escapes. $\qquad\square$
+
+This is not a formal barrier theorem on the scale of relativization/natural-proofs/algebrization; it is a precise account of *why hierarchy theorems, which are the only unconditional separation tool we possess, top out at Lemma 1.* The relativization barrier then explains why no *relativizing* refinement of this argument (all hierarchy/simulation arguments relativize) can close the gap: there exist oracles $A$ with $P^A = NP^A$, and Lemma 1's proof relativizes verbatim, so Lemma 1 holds in *both* the $P=NP$ and $P\ne NP$ oracle worlds — confirming it cannot distinguish them.
+
+## Net contribution
+
+1. A clean, self-contained proof that $\mathrm{NP}\ne\mathrm{DTIME}(n^k)$ for every fixed $k$ (the sharp limit of pure diagonalization).
+2. A precise identification of the *coupled-exponent* mechanism that prevents pushing this to $P\ne NP$, and a consistency check via relativization showing any relativizing enhancement is doomed.
+
+This reduces the informal slogan "diagonalization is too weak" to a concrete statement: **the separation task requires a technique whose witness-complexity is decoupled from the exponent being defeated** — precisely what non-relativizing lower-bound methods must supply.
+
+I did not prove P ≠ NP or any new separation; I sharpened the boundary of a known method.
+
+VERDICT: FAILED
+REASON: Proved only the known fixed-exponent bound NP≠DTIME(n^k) and diagnosed why diagonalization cannot reach P≠NP.

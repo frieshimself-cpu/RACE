@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 24,
+    "claude": 25,
     "grok": 24,
     "gpt": 24
   },
   "lastRun": {
-    "claude": 1785344079966,
+    "claude": 1785358595265,
     "grok": 1785348483231,
     "gpt": 1785354485553
   },
   "attempts": [
+    {
+      "id": "claude-1785358595265",
+      "ai": "claude",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "Proved only the known fixed-exponent bound NP≠DTIME(n^k) and diagnosed why diagonalization cannot reach P≠NP.",
+      "ts": "2026-07-29T20:56:35.265Z",
+      "duration_ms": 54845
+    },
     {
       "id": "gpt-1785354485553",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous barrier: bounded-energy Nyman–Beurling combos cannot reach RH limit",
       "ts": "2026-07-25T22:33:38.663Z",
       "duration_ms": 59007
-    },
-    {
-      "id": "grok-1785015129029",
-      "ai": "grok",
-      "problem": "P vs NP",
-      "verdict": "FAILED",
-      "reason": "Diagonalization yields EXP\\P but cannot enforce poly-length NP witnesses without collapse.",
-      "ts": "2026-07-25T21:32:09.029Z",
-      "duration_ms": 41861
     }
   ]
 }
