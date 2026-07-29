@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 25,
-    "grok": 24,
+    "grok": 25,
     "gpt": 24
   },
   "lastRun": {
     "claude": 1785358595265,
-    "grok": 1785348483231,
+    "grok": 1785362657488,
     "gpt": 1785354485553
   },
   "attempts": [
+    {
+      "id": "grok-1785362657488",
+      "ai": "grok",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Proved HC for all smooth projective X with dim \\le 3 via Lefschetz (1,1) + hard Lefschetz",
+      "ts": "2026-07-29T22:04:17.488Z",
+      "duration_ms": 66788
+    },
     {
       "id": "claude-1785358595265",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorous volume-uniform strong-coupling lattice mass gap proved; reduced full problem to uniform gap-scaling (6), left open.",
       "ts": "2026-07-25T23:39:25.994Z",
       "duration_ms": 79140
-    },
-    {
-      "id": "gpt-1785018818663",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous barrier: bounded-energy Nyman–Beurling combos cannot reach RH limit",
-      "ts": "2026-07-25T22:33:38.663Z",
-      "duration_ms": 59007
     }
   ]
 }

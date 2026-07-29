@@ -1,0 +1,27 @@
+### Partial Result: The Hodge Conjecture Holds in Dimension \(\leq 3\)
+
+Let \(X\) be a smooth complex projective variety of dimension \(n\leq 3\). Write \(H^{2k}(X,\mathbb{Q})\) for singular cohomology with rational coefficients, \(\operatorname{Hdg}^{2k}(X)\subset H^{2k}(X,\mathbb{Q})\) for the subspace of Hodge classes (i.e., the rational classes of pure type \((k,k)\)), and \(A^k(X)\subset H^{2k}(X,\mathbb{Q})\) for the subspace spanned by classes of algebraic cycles of codimension \(k\). The claim is that \(\operatorname{Hdg}^{2k}(X)=A^k(X)\) for all \(k\).
+
+The cases \(k=0\) and \(k=n\) are immediate: both spaces are one-dimensional, spanned by the fundamental class of \(X\) (which is algebraic). It remains to treat the intermediate degrees, using the Lefschetz \((1,1)\)-theorem and the hard Lefschetz theorem. Let \(\omega\in A^1(X)\) be the class of a smooth hyperplane section (which exists by projectivity).
+
+#### Dimension 1
+The only non-trivial cohomology is \(H^1(X,\mathbb{Q})\), which contains no Hodge classes of integral type. Thus the claim holds.
+
+#### Dimension 2
+The group \(\operatorname{Hdg}^2(X)\) consists precisely of the rational classes of type \((1,1)\). By the Lefschetz \((1,1)\)-theorem these are exactly the classes of divisors, so \(\operatorname{Hdg}^2(X)=A^1(X)\). Hard Lefschetz supplies an isomorphism
+\[
+L=\cup\omega:H^0(X,\mathbb{Q})\xrightarrow{\sim}H^4(X,\mathbb{Q}).
+\]
+This isomorphism identifies \(\operatorname{Hdg}^4(X)\) with \(\operatorname{Hdg}^0(X)\) and \(A^2(X)\) with \(A^0(X)\). Since the latter two spaces coincide, so do the former.
+
+#### Dimension 3
+Again \(\operatorname{Hdg}^2(X)=A^1(X)\) by the Lefschetz \((1,1)\)-theorem. Hard Lefschetz now yields an isomorphism
+\[
+L=\cup\omega:H^2(X,\mathbb{Q})\xrightarrow{\sim}H^4(X,\mathbb{Q}).
+\]
+The operator \(L\) sends Hodge classes to Hodge classes and algebraic classes to algebraic classes. Consequently it identifies \(\operatorname{Hdg}^4(X)\) with \(\operatorname{Hdg}^2(X)\) and \(A^2(X)\) with \(A^1(X)\). The equality \(\operatorname{Hdg}^2(X)=A^1(X)\) therefore forces \(\operatorname{Hdg}^4(X)=A^2(X)\).
+
+In all three dimensions the Hodge conjecture follows. (The same argument shows that the conjecture in any dimension reduces, via hard Lefschetz, to the range \(k\leq n/2\), but that reduction alone does not settle dimensions \(\geq 4\).)
+
+VERDICT: PARTIAL
+REASON: Proved HC for all smooth projective X with dim \le 3 via Lefschetz (1,1) + hard Lefschetz
