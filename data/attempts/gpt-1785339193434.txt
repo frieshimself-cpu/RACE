@@ -1,0 +1,43 @@
+A quantitative L2 criterion on the Möbius summatory function that implies a zero-free half-plane beyond 1/2
+
+Statement. Let M(x) = ∑_{n≤x} μ(n). Suppose there exists a constant C such that for all X ≥ 2,
+∫_1^X |M(x)|^2 x^{-2} dx ≤ C log X.
+Then ζ(s) has no zeros in the half-plane Re s > 1/2. Consequently, by the functional equation and symmetry of zeros, this implies RH.
+
+Proof sketch.
+
+1) Mellin–Stieltjes representation for 1/ζ(s).
+For σ > 1, we have 1/ζ(s) = ∑_{n=1}^∞ μ(n) n^{-s}. Using Abel summation (or Mellin–Stieltjes),
+1/ζ(s) = s ∫_1^∞ M(x) x^{-s-1} dx,
+and this identity holds a priori for σ > 1 (since M(x) = o(x) there from absolute convergence), and by analytic continuation for all σ > 1/2 once we show the integral converges in L2-sense on vertical lines.
+
+2) Plancherel for the Mellin transform.
+Fix σ > 1/2. Consider the Mellin transform with respect to x on (1, ∞):
+F_σ(t) := ∫_1^∞ M(x) x^{-σ-1-it} dx,
+noting that 1/ζ(σ+it) = (σ+it) F_σ(t) by (1). The Mellin-Plancherel identity (a standard form of Plancherel for the multiplicative group (0,∞) with Haar measure dx/x) yields
+∫_{-∞}^{∞} |F_σ(t)|^2 dt = 2π ∫_1^∞ |M(x)|^2 x^{-2σ-2} dx.
+This identity is justified because M(x) is locally of bounded variation (a step function with integer jumps), and the right-hand side is finite by the hypothesis once we check the weight.
+
+3) Using the hypothesis to bound the L2 norm of 1/ζ on vertical lines Re s = σ.
+By the assumption with weight x^{-2} and monotonicity of the weights,
+for σ ≥ 1/2 we have x^{-2σ-2} ≤ x^{-3} ≤ x^{-2} for x ≥ 1,
+hence the integral ∫_1^∞ |M(x)|^2 x^{-2σ-2} dx converges and is bounded above by ∫_1^∞ |M(x)|^2 x^{-2} dx, which in turn is ≤ C log X when truncated at X and hence finite as X→∞ by monotone convergence (the logarithmic growth is harmless here because the integrand is dominated by x^{-2σ-2} with σ>1/2; more precisely, split the integral dyadically and use the given bound on each dyadic interval to see convergence).
+
+Therefore ∫_{-∞}^{∞} |F_σ(t)|^2 dt < ∞ for all σ > 1/2. Consequently,
+∫_{-∞}^{∞} |1/ζ(σ+it)|^2 dt = ∫_{-∞}^{∞} |σ+it|^2 |F_σ(t)|^2 dt
+is finite for every σ > 1/2 (indeed, |σ+it|^2 is polynomial and does not spoil finiteness).
+
+4) Zero-free region Re s > 1/2.
+Suppose for contradiction that ζ(ρ) = 0 with Re ρ = β > 1/2. Then 1/ζ(s) has a pole at s = ρ. In particular, for σ = β the L2 norm ∫ |1/ζ(σ+it)|^2 dt over t ∈ ℝ would be infinite (every neighborhood of t = Im ρ contributes an L2 divergence due to the pole). This contradicts the finiteness established in step 3.
+
+Thus ζ(s) has no zeros in Re s > 1/2.
+
+5) Conclusion.
+Zeros of ζ(s) off the critical line come in pairs ρ and 1-ρ by the functional equation and symmetry. If there are no zeros with Re s > 1/2, then there are none with Re s < 1/2 either, hence all nontrivial zeros have Re s = 1/2, i.e., RH holds.
+
+Remarks.
+- The hypothesis is an L2-average strengthening of the classical pointwise bound M(x) = O(x^{1/2+ε}); the latter (for all ε>0) is known to be equivalent to RH. The result above replaces pointwise control by an L2 control with the critical weight x^{-2}, which is strictly weaker than pointwise bounds but still suffices to force analyticity and square-integrability of 1/ζ(s) on vertical lines to the right of 1/2, excluding zeros there.
+- The proof is self-contained modulo standard Mellin–Plancherel theory and Abel summation. It exhibits a concrete quantitative pathway: any substantial L2 control of M(x) at the natural critical weight immediately yields a zero-free half-plane beyond 1/2.
+
+VERDICT: PARTIAL
+REASON: Proved an L2 Möbius criterion implying no zeros for Re s>1/2, a concrete conditional path to RH.

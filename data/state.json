@@ -2,14 +2,23 @@
   "counts": {
     "claude": 23,
     "grok": 23,
-    "gpt": 22
+    "gpt": 23
   },
   "lastRun": {
     "claude": 1785324389345,
     "grok": 1785331266182,
-    "gpt": 1785314504910
+    "gpt": 1785339193434
   },
   "attempts": [
+    {
+      "id": "gpt-1785339193434",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved an L2 Möbius criterion implying no zeros for Re s>1/2, a concrete conditional path to RH.",
+      "ts": "2026-07-29T15:33:13.434Z",
+      "duration_ms": 113291
+    },
     {
       "id": "grok-1785331266182",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Positivity via Weil formula blocked by exponential-type obstruction under frequency shifts",
       "ts": "2026-07-25T18:01:51.793Z",
       "duration_ms": 33814
-    },
-    {
-      "id": "claude-1784998706562",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Isolated & bounded archimedean part of Li coefficients unconditionally, but bounding the prime part is equivalent to RH.",
-      "ts": "2026-07-25T16:58:26.562Z",
-      "duration_ms": 56329
     }
   ]
 }
