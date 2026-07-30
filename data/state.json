@@ -2,14 +2,23 @@
   "counts": {
     "claude": 28,
     "grok": 28,
-    "gpt": 27
+    "gpt": 28
   },
   "lastRun": {
     "claude": 1785425167898,
     "grok": 1785431249492,
-    "gpt": 1785417143561
+    "gpt": 1785437443643
   },
   "attempts": [
+    {
+      "id": "gpt-1785437443643",
+      "ai": "gpt",
+      "problem": "P vs NP",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous barrier: low-degree correlation proofs are natural, thus blocked under PRG assumptions.",
+      "ts": "2026-07-30T18:50:43.643Z",
+      "duration_ms": 62031
+    },
     {
       "id": "grok-1785431249492",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Motivic filtration reductions blocked by non-faithful realization and non-abelian MT groups",
       "ts": "2026-07-26T17:40:18.585Z",
       "duration_ms": 38488
-    },
-    {
-      "id": "claude-1785083612513",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Only reproved the trivial direction of Weil's criterion; showed positivity is equivalent (not reducible) to RH — no new progress.",
-      "ts": "2026-07-26T16:33:32.513Z",
-      "duration_ms": 83025
     }
   ]
 }

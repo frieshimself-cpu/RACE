@@ -1,0 +1,77 @@
+Attempt: A precise barrier for “low-degree polynomial correlation” strategies toward NP ⊄ P/poly
+
+Setup and goal
+- We analyze a concrete family of approaches that try to prove SAT ∉ SIZE(n^k) by certifying that, for infinitely many input lengths n, the n-variable Boolean function f_n encoding SAT on n-bit inputs has very low correlation with every low-degree F2-polynomial (or closely related low-complexity test class), and combining this with known correlation bounds against small circuits.
+- We give a crisp obstruction: the induced “property” of truth tables is natural in the Razborov–Rudich sense whenever the tested class has subexponential-in-2^n cardinality and is uniformly enumerable from the truth table in subexp(2^n) time. Consequently, under standard PRG/one-way-function assumptions, such a strategy cannot separate NP from P/poly.
+
+Notation and background
+- Let N = 2^n denote the truth-table length of an n-variable Boolean function f: {0,1}^n → {0,1}.
+- For a class T_n of “tests” t: {0,1}^n → {±1} (e.g., low-degree F2 polynomials), define Corr(f,t) = |E_x[(-1)^{f(x)} t(x)]|.
+- Define the property P_n(τ, T_n):= { f : Corr(f,t) ≤ τ for all t ∈ T_n }.
+
+We will instantiate T_n as the set of degree-≤d(n) polynomials over F2, treated as tests t(x)=(-1)^{p(x)}.
+
+Lemma 1 (Naturalness criterion in terms of T_n)
+Fix functions τ(n), d(n) and T_n as above. Suppose:
+  (i) Size(T_n) ≤ 2^{o(N)}.
+  (ii) Given the truth table of f (length N), membership in P_n(τ,T_n) can be decided in time 2^{o(N)}.
+Then for any sequence Q_n ⊆ {0,1}^{N} defined by Q_n = P_n(τ,T_n) we have:
+  - Largeness: Pr_f[f ∈ Q_n] ≥ 1 − 2^{−o(N)} for any τ(n) ≥ N^{-1/3}·2^{-Ω(1)} (indeed for many τ down to ≈ √(log |T_n|/N)).
+  - Constructivity: Q_n is decidable in time 2^{o(N)}.
+Consequently, Q = {Q_n} is a Razborov–Rudich-natural property (constructive and large) against any circuit class C for which one attempts to show Q_n excludes C on infinitely many n.
+
+Proof sketch
+- Largeness: For random f, for any fixed t, Corr(f,t) is the absolute average of N i.i.d. ±1 Rademacher variables, so by Hoeffding, Pr[Corr(f,t) ≥ τ] ≤ 2·exp(−Ω(N τ^2)). Union bound over T_n yields
+  Pr_f[∃ t ∈ T_n: Corr(f,t) ≥ τ] ≤ |T_n|·2·exp(−Ω(N τ^2)).
+  If |T_n| ≤ 2^{o(N)} and we set τ = 2^{−Ω(1)} (or even τ ≈ √((log |T_n|)/N)), the RHS is 2^{−Ω(N τ^2)}·2^{o(N)} = 2^{−o(N)}. Thus Pr[f ∈ Q_n] ≥ 1 − 2^{−o(N)}.
+- Constructivity: Membership can be decided by enumerating T_n and computing each correlation from the truth table in O(N) time per t. If T_n is uniformly generable in 2^{o(N)} time and |T_n| ≤ 2^{o(N)}, total time is 2^{o(N)}.
+
+Instantiation: low-degree F2 polynomials
+Let T_n = { degree-≤d(n) polynomials over F2 }, tests t(x)=(-1)^{p(x)}.
+
+Fact A: The number of degree-≤d(n) F2 polynomials in n variables is 2^{M(n,d)}, where M(n,d) = sum_{i=0}^{d} binom(n,i).
+- If d(n) = n^{o(1)} (e.g., polylog n or even n/ log n divided by growing factors), then M(n,d) = 2^{o(n)} = o(N) in the exponent base 2 of N. Concretely, M(n,d) ≤ n^{O(d)} = 2^{o(n)} and hence |T_n| = 2^{2^{o(n)}} = 2^{o(N)}.
+
+Fact B: T_n can be uniformly enumerated with each polynomial’s coefficients listed in lexicographic monomial order in time 2^{M(n,d)} = 2^{o(N)}. Given a truth table for f, Corr(f,t) for each t can be computed in O(N) time (or via Walsh–Hadamard/Fourier transforms if desired, but not needed).
+
+Hence conditions (i)-(ii) of Lemma 1 hold.
+
+Corollary 2 (Barrier for low-degree correlation strategies)
+Fix any function d(n) = n^{o(1)}. Consider the property Q_n = P_n(τ(n), T_n) that “f has correlation ≤ τ(n) with every degree-≤d(n) F2 polynomial.” Then Q = {Q_n} is a constructive, large property in the Razborov–Rudich sense.
+
+In particular, any proof that, for infinitely many n, the n-bit SAT truth table lies in Q_n while every function computed by SIZE(n^k) circuits lies outside Q_n, would constitute a natural proof against SIZE(n^k).
+
+By the Razborov–Rudich barrier, if strong pseudorandom generators (equivalently, one-way functions) exist, such a natural proof cannot exist for general polynomial-size circuits.
+
+Discussion of scope and tightness
+- The obstruction triggers purely from the counting/constructivity of the test family T_n. It does not rely on any special structure of SIZE(n^k) beyond what Razborov–Rudich require (largeness vs constructivity gap leveraged to distinguish a secure PRG’s output from random).
+- The condition d(n) = n^{o(1)} is generous: it covers constant degree, polylogarithmic degree, n^ε for ε → 0, and any d such that M(n,d) = sum_{i ≤ d} binom(n,i) = 2^{o(n)}. For d as large as α n with constant α, M(n,d) becomes 2^{Θ(n)} and |T_n| becomes doubly-exponential in n relative to N, i.e., |T_n| = 2^{Θ(N^c)} for some c>0, at which point the largeness/constructivity balance may leave the RR regime. This delineates precisely where low-degree methods could, in principle, escape the barrier: only when the degree scales linearly with n (hence enumeration is 2^{Ω(N^c)} and far beyond 2^{o(N)}).
+- However, correlation bounds against arbitrary polynomial-size circuits via degree-Ω(n) F2 polynomials are far outside all currently tractable analytic frameworks and would subsume dramatic circuit lower bounds.
+
+Extension to related “analytic test” strategies
+- The same counting/constructivity argument applies to any test family T_n of size ≤ 2^{o(N)} that is uniformly enumerable in 2^{o(N)} time from n and for which Corr(f,t) (or any efficiently aggregatable statistic) is computable from the truth table in poly(N) time. Examples include:
+  - Sparse Fourier spectra under a basis with 2^{o(N)} candidates (e.g., bounded-width juntas, bounded-size DNF/CNF templates).
+  - Bounded-degree polynomial threshold functions over low-degree feature maps with subexponential number of features in N.
+  - Bounded uniformity Gowers norms U^k when estimated by a test family of phase polynomials of complexity k with subexponential cardinality in N (when the testing set is explicitly enumerable).
+
+Consequence for a line of attack on P vs NP
+- Suppose one attempts: (A) Prove that for infinitely many n, the SAT function f_n lies in Q_n for Q_n as above via some combinatorial/number-theoretic insight; (B) Prove that all n^k-size circuits violate Q_n (e.g., they correlate with at least one test in T_n above threshold τ(n)). Step (B) is a standard type of correlation lower bound.
+- By Corollary 2 and Razborov–Rudich, under standard cryptographic assumptions, such a program cannot yield NP ⊄ P/poly. Therefore, this entire approach family is blocked unless one also breaks widely believed cryptographic assumptions.
+
+Proof details for Lemma 1 (sketch precision)
+- Largeness detail: Let X_1,...,X_N be ±1 independent uniform. For fixed t, Corr(f,t) = |(1/N)∑ X_i|. Hoeffding: Pr(|(1/N)∑ X_i| ≥ τ) ≤ 2·exp(−2N τ^2). Union bound over |T_n| gives ≤ 2·|T_n|·exp(−2N τ^2). If log |T_n| = o(N), pick τ = √((3 log |T_n|)/N). Then the bound is ≤ 2·exp(−(2N)·(3 log|T_n|)/N + log|T_n|) = 2·exp(−5 log|T_n|) = 2·|T_n|^{−5} ≤ 2^{−ω(1)}. Taking τ even as a small constant 2^{-Ω(1)} makes the failure probability doubly-exponentially small in n given |T_n| ≤ 2^{o(N)}.
+- Constructivity detail: We assume a uniform procedure that enumerates all tests t∈T_n in time ≈ |T_n|·poly(n) and for each computes correlation in O(N) time. Total time: |T_n|·poly(n)·N = 2^{o(N)}.
+
+What this does and does not rule out
+- It rules out strategies that are: (i) test-based with subexponential-in-N test families; (ii) truth-table constructive in subexponential time. This covers many “analytic certificate” approaches including low-degree polynomial correlation, sparse spectral certificates, and similar.
+- It does not rule out:
+  - Non-natural (non-constructive, non-large) properties.
+  - Approaches that exploit specific structure of SAT instances in ways that cannot be checked from the full truth table in 2^{o(N)} time or that hold only for a vanishingly small fraction of functions.
+  - Proofs that pass through strong cryptographic consequences (indeed, breaking PRGs would evade the barrier).
+  - Circuit lower bounds for restricted classes where natural proofs are known to be possible (e.g., AC0).
+
+Conclusion
+We have isolated a rigorous obstruction for a wide and concrete family of “low-degree polynomial correlation” strategies toward NP ⊄ P/poly: the induced property is RR-natural as soon as the degree is n^{o(1)}, because the test family is subexponential in the truth-table length and is uniformly checkable in subexponential time. Under standard cryptographic assumptions, such a property cannot separate NP from P/poly. Thus, any successful correlation-based attack must either (a) escape subexponential test families (e.g., use degree Ω(n) or otherwise super-exponential-in-n test classes, which seems intractable), or (b) fundamentally avoid naturalness (non-constructive or non-large), or (c) break standard PRG assumptions.
+
+VERDICT: PARTIAL
+REASON: Rigorous barrier: low-degree correlation proofs are natural, thus blocked under PRG assumptions.
