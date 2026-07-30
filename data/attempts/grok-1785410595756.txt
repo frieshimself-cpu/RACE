@@ -1,0 +1,60 @@
+### Attempt: A conditional reduction via truncated explicit formulae and a positivity obstruction
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function (entire of order 1, functional equation \(\xi(s)=\xi(1-s)\)). Write the non-trivial zeros as \(\rho=\beta+i\gamma\) (with multiplicity). The classical explicit formula of Weil, for a suitable even Schwartz test function \(g\) whose Fourier transform \(\hat g\) has compact support, reads
+\[
+\sum_{\rho} \hat g\bigl(\tfrac{\rho-1/2}{i}\bigr)
+= \hat g\bigl(\tfrac{i}{2}\bigr)+\hat g\bigl(-\tfrac{i}{2}\bigr)
+-\frac1{2\pi}\int_{-\infty}^{\infty}\frac{\Gamma'}{\Gamma}\bigl(\tfrac14+\tfrac{it}{2}\bigr)\hat g(t)\,dt
++2\sum_{n=1}^\infty\frac{\Lambda(n)}{\sqrt n}\,g(\log n).
+\]
+(The integral is the archimedean contribution; the sum is the prime contribution.) Weil’s criterion asserts that RH is equivalent to the positivity
+\[
+\sum_{\rho}\hat g\bigl(\tfrac{\rho-1/2}{i}\bigr)\ge0
+\]
+for every admissible \(g\ge0\).
+
+#### Lemma (truncated positivity implies a zero-free half-plane)
+Fix \(T\ge3\) and \(\delta\in(0,1/2)\). Let \(\mathcal{A}_{T,\delta}\) be the class of even non-negative Schwartz functions \(g\) such that
+- \(\operatorname{supp}\hat g\subset[-T,T]\),
+- \(\hat g(0)=1\),
+- \(\|\hat g\|_{C^2}\le C_0\) (absolute constant).
+
+Suppose that for every \(g\in\mathcal{A}_{T,\delta}\) one has the truncated inequality
+\[
+\sum_{|\gamma|\le T}\operatorname{Re}\hat g\bigl(\tfrac{\rho-1/2}{i}\bigr)
+\ge -C_1\log T,
+\]
+where the sum runs over zeros with \(|\operatorname{Im}\rho|\le T\) and \(C_1\) is absolute. Then there are no zeros in the rectangle
+\[
+\{\,s:\operatorname{Re}s\ge\tfrac12+\delta,\;|\operatorname{Im}s|\le T/2\,\}.
+\]
+
+#### Proof of the Lemma
+Assume for contradiction that a zero \(\rho_0=\beta_0+i\gamma_0\) exists with \(\beta_0\ge1/2+\delta\) and \(|\gamma_0|\le T/2\). Choose a non-negative bump \(g_0\in\mathcal{A}_{T,\delta}\) whose Fourier transform is concentrated near frequency \(\gamma_0\): specifically, let
+\[
+\hat g_0(t)=\psi\bigl(\tfrac{t-\gamma_0}{\eta}\bigr)+\psi\bigl(\tfrac{t+\gamma_0}{\eta}\bigr),
+\]
+where \(\psi\) is a fixed non-negative even \(C^\infty\) function supported in \([-1,1]\) with \(\int\psi=1/2\), and the width \(\eta=\eta(\delta)>0\) is chosen small enough that
+\[
+\operatorname{Re}\hat g_0\bigl(\tfrac{\rho_0-1/2}{i}\bigr)\ge\tfrac12\eta^{-1}
+\]
+while, for every other zero with \(|\gamma|\le T\),
+\[
+\bigl|\hat g_0\bigl(\tfrac{\rho-1/2}{i}\bigr)\bigr|\le C_2\eta
+\]
+(possible by the isolation of zeros on vertical lines of length \(O(T)\) and the rapid decay of \(\psi\)). The contribution of the distant zeros (\(|\gamma|>T\)) is absorbed into the \(O(\log T)\) error by the standard zero-density bound \(N(T)=O(T\log T)\) together with the compact support of \(\hat g_0\). The prime-sum and archimedean terms on the right-hand side of the explicit formula remain \(O(\log T)\) uniformly for \(g\in\mathcal{A}_{T,\delta}\) (by the prime-number theorem with classical error and Stirling’s formula). Consequently the full left-hand side satisfies
+\[
+\sum_{\rho}\hat g_0\bigl(\tfrac{\rho-1/2}{i}\bigr)
+\ge\tfrac12\eta^{-1}-C_3\log T.
+\]
+Choosing \(\eta\) smaller than \(1/(4C_3\log T)\) produces a contradiction to the assumed truncated positivity. Hence no such \(\rho_0\) exists.
+
+#### Obstruction and failure of closure
+The lemma reduces RH (inside any fixed height) to a family of inequalities that are in principle checkable by finite computation once an effective zero-free region or a sufficiently strong zero-density estimate is fed into the error term. However, the constant \(C_1\) that appears in the hypothesis grows at least like the maximal multiplicity of zeros up to height \(T\). Under the present state of knowledge the best unconditional multiplicity bound is \(O(\log T/\log\log T)\), which forces \(C_1\to\infty\) and prevents the width \(\eta\) from being chosen independently of \(T\). Thus the argument yields only a zero-free region of the form
+\[
+\beta\le\tfrac12+C\frac{\log\log\log T}{\log\log T},
+\]
+which is weaker than classical zero-free regions already obtained by Korobov–Vinogradov methods. Closing the gap would require a uniform multiplicity bound \(O(1)\), which is itself equivalent to a weak form of RH. The reduction is therefore circular for the full conjecture and yields no new zero-free territory.
+
+VERDICT: FAILED
+REASON: Reduction to truncated Weil positivity is circular (needs mult. bounds ~ RH) and gives weaker regions than classical.

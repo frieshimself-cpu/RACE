@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 27,
-    "grok": 26,
+    "grok": 27,
     "gpt": 26
   },
   "lastRun": {
     "claude": 1785402444486,
-    "grok": 1785382595990,
+    "grok": 1785410595756,
     "gpt": 1785391913573
   },
   "attempts": [
+    {
+      "id": "grok-1785410595756",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Reduction to truncated Weil positivity is circular (needs mult. bounds ~ RH) and gives weaker regions than classical.",
+      "ts": "2026-07-30T11:23:15.756Z",
+      "duration_ms": 32262
+    },
     {
       "id": "claude-1785402444486",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously proved only the easy direction of Weil positivity; pinpointed but did not overcome the phase-modulus obstruction.",
       "ts": "2026-07-26T12:33:23.088Z",
       "duration_ms": 71855
-    },
-    {
-      "id": "gpt-1785064092697",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Reduction via log-derivative L2 bound; shows barrier and a concrete conditional route to RH.",
-      "ts": "2026-07-26T11:08:12.697Z",
-      "duration_ms": 69935
     }
   ]
 }
