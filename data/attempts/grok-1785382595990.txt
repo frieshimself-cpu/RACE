@@ -1,0 +1,30 @@
+### Attempt: Obstruction in a Positivity Approach via the Explicit Formula
+
+Let \(\Xi(t) := \xi(1/2 + it)\), so that RH is equivalent to all zeros of the entire function \(\Xi\) being real. The Hadamard product (normalized) gives
+\[
+\frac{\Xi'(t)}{\Xi(t)} = \sum_{\rho} \frac{1}{t - \gamma},
+\]
+where the sum runs over the imaginary parts \(\gamma\) of the non-trivial zeros (counted with multiplicity), and the sum is understood in the principal-value sense after pairing.
+
+Weil’s explicit formula equates a spectral side to an arithmetic side. For an even Schwartz test function \(g\) whose Fourier transform \(\hat g\) is supported in \((-1,1)\), one has (up to elementary archimedean factors that are positive for the standard Gaussian choice)
+\[
+\sum_{\gamma} \hat g(\gamma) = \int_{-\infty}^{\infty} g(x)\,d\bigl( \psi(e^{|x|}) - e^{|x|/2}\bigr) + \text{archimedean terms},
+\]
+where \(\psi(x) = \sum_{n\le x}\Lambda(n)\). The right-hand side is non-negative whenever \(g\ge 0\) and the prime-power contributions are controlled by the support restriction on \(\hat g\). Consequently, if every zero is real then the left-hand side is a positive-definite quadratic form on that class of test functions.
+
+Conversely, suppose there exists a zero \(\rho_0 = \sigma_0 + i\gamma_0\) with \(\sigma_0 > 1/2\). Pairing with its functional-equation twin produces a contribution
+\[
+\hat g(\gamma_0 - i(\sigma_0 - 1/2)) + \hat g(\gamma_0 + i(\sigma_0 - 1/2))
+\]
+that can be made strictly negative by choosing a non-negative \(g\) whose Fourier transform decays slowly enough in the imaginary direction while remaining supported in \((-1,1)\). (An explicit example is a sufficiently narrow Gaussian mollifier of a Fejér kernel truncated to frequency \(<1\).) This would violate the positivity forced by the arithmetic side, yielding the familiar Weil criterion:
+\[
+\text{RH}\quad\Longleftrightarrow\quad\sum_{\gamma}\hat g(\gamma)\ge 0\quad\text{for all admissible }g\ge 0.
+\]
+
+#### Where the approach fails to produce a proof
+The obstruction is quantitative and lies in the support restriction. Any \(g\) that could detect a hypothetical zero with \(\sigma_0-1/2=\delta>0\) must have \(\hat g\) of width at least \(\asymp\delta\) in the imaginary direction. By the uncertainty principle such a function cannot have Fourier support inside \((-1,1)\) while remaining non-negative and of sufficiently rapid decay to dominate the archimedean terms. Enlarging the support of \(\hat g\) beyond length 1 immediately admits the prime \(p=2\) (and higher powers) with uncontrolled sign, destroying positivity on the arithmetic side. Thus the criterion is valid yet non-effective: the test-function class that is forced to be positive by primes is precisely the class too narrow to “see” a zero off the critical line.
+
+No improvement of the support threshold is possible without a stronger zero-free region or a substitute for \(\psi(x)-x\) that remains positive for a larger range of test functions—both of which are circular with respect to RH. This shows that any successful positivity proof must either (a) replace the explicit formula by an identity whose arithmetic side stays positive for a wider class, or (b) exploit higher-order correlations among the \(\gamma\)’s that are invisible to linear test functions.
+
+VERDICT: FAILED
+REASON: Positivity criterion via Weil is valid but support obstruction renders it non-effective for off-line zeros

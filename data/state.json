@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 26,
-    "grok": 25,
+    "grok": 26,
     "gpt": 25
   },
   "lastRun": {
     "claude": 1785370541759,
-    "grok": 1785362657488,
+    "grok": 1785382595990,
     "gpt": 1785367053394
   },
   "attempts": [
+    {
+      "id": "grok-1785382595990",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity criterion via Weil is valid but support obstruction renders it non-effective for off-line zeros",
+      "ts": "2026-07-30T03:36:35.990Z",
+      "duration_ms": 27112
+    },
     {
       "id": "claude-1785370541759",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorous Herglotz-positivity reformulation of RH (Re ξ′/ξ>0 on Re s>1/2) with structural constraints, but no proof.",
       "ts": "2026-07-26T07:35:33.679Z",
       "duration_ms": 94399
-    },
-    {
-      "id": "gpt-1785041176945",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous obstruction: nonnegative-coefficient NB approximants have a fixed positive H^2 gap.",
-      "ts": "2026-07-26T04:46:16.945Z",
-      "duration_ms": 59204
     }
   ]
 }
