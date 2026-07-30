@@ -1,0 +1,72 @@
+Attempt: A single smooth smoothed prime-sum bound equivalent to RH
+
+Statement (reduction to one explicit smoothed sum). Fix an integer A ≥ 3 and define the compactly supported C^{A-1} weight
+w_A(y) = (1 - y)_+^A = max(1 - y, 0)^A.
+Let
+S_A(X) = sum_{n≥1} Λ(n) w_A(n/X) and μ_A = ∫_0^∞ w_A(y) dy = 1/(A+1).
+Then the following are equivalent:
+(1) Riemann Hypothesis.
+(2) For every ε>0, S_A(X) = μ_A X + O_ε(X^{1/2+ε}) as X→∞.
+Moreover, if RH fails and there exists at least one zero ρ = β + iγ of ζ(s) with β>1/2, then for this fixed A the error S_A(X) - μ_A X exhibits oscillations of size at least c_A X^{β} along an unbounded sequence of X, with c_A>0 depending only on A and ρ.
+
+Interpretation. RH is equivalent to obtaining square-root cancellation (up to X^ε) in one concrete, finitely supported smoothing of Chebyshev’s function ψ(x) = ∑_{n≤x}Λ(n), namely against the single weight (1 - n/X)_+^A. No family of test functions is needed.
+
+Proof sketch.
+
+1) Mellin transform of the weight.
+For A ≥ 1, the Mellin transform of w_A is
+W_A(s) = ∫_0^∞ w_A(y) y^{s-1} dy = ∫_0^1 (1-y)^A y^{s-1} dy = B(s, A+1) = Γ(s)Γ(A+1)/Γ(s+A+1),
+valid for Re s > 0. W_A is meromorphic with simple poles at s = 0, -1, -2, …, -A, and W_A(1) = 1/(A+1) = μ_A.
+
+2) Smoothed explicit formula.
+Let
+E_A(X) := S_A(X) - μ_A X.
+By Mellin inversion (shifting justified below),
+S_A(X) = (1/2πi) ∫_{(c)} -ζ'(s)/ζ(s) X^s W_A(s) ds
+for any c>1, where ∫_{(c)} denotes the vertical line Re s = c. Shift the contour left to Re s = -σ with 1<σ<A+1. The integrand has poles at:
+- s = 1 (simple pole of -ζ'/ζ with residue 1), contributing μ_A X;
+- nontrivial zeros ρ of ζ(s), contributing residues -X^ρ W_A(ρ);
+- the trivial zeros s = -2k (k≥1), each contributing -X^{-2k} W_A(-2k) = O_A(X^{-2}), absorbed in O_A(1);
+- poles of W_A at s ∈ {0, -1, …, -A}, each multiplied by -ζ'/ζ(s); these are O_A(1) since -ζ'/ζ is meromorphic and bounded on compacta away from the pole at s=1.
+
+Thus
+E_A(X) = -∑_{ρ} X^{ρ} W_A(ρ) + O_A(1) + (1/2πi) ∫_{(-σ)} -ζ'(s)/ζ(s) X^s W_A(s) ds.
+Here the sum is over nontrivial zeros ρ with multiplicity.
+
+3) Bounding the remainder integral.
+On Re s = -σ (choose 1<σ<A), Stirling gives |W_A(s)| ≍_A |t|^{-A-1+σ} as |t|→∞, while the standard bound -ζ'/ζ(s) ≪ log(2+|t|) on vertical lines in the left half-plane implies the integral converges absolutely and is O_A(X^{-σ}). Hence it is O_A(1) uniformly in X.
+
+Therefore the main structure is
+E_A(X) = -∑_{ρ} X^{ρ} W_A(ρ) + O_A(1).
+
+4) Consequence under RH.
+If RH holds, each ρ = 1/2 + iγ. Then
+|X^{ρ} W_A(ρ)| = X^{1/2} |W_A(1/2 + iγ)|.
+Using Γ-asymptotics,
+|W_A(1/2 + iγ)| = |Γ(1/2 + iγ) Γ(A+1)/Γ(A+3/2 + iγ)|
+≪_A (1+|γ|)^{-A-1/2}.
+Hence the sum over zeros converges absolutely and
+∑_{ρ} |X^{ρ} W_A(ρ)| ≪_A X^{1/2} ∑_{γ} (1+|γ|)^{-A-1/2} ≪_A X^{1/2}.
+A standard zero-density-to-smooth-sum smoothing (or crude partial summation combined with the classical counting N(T) ≍ T log T) yields, for any ε>0,
+E_A(X) = O_{A,ε}(X^{1/2+ε}).
+This proves (1) ⇒ (2).
+
+5) Converse: violation when a zero lies off the critical line.
+Assume there is a zero ρ0 = β + iγ0 with β>1/2. Consider the contribution of ρ0 and its conjugate 1 - ρ̄0 = 1 - β + iγ0. Since W_A is analytic on the strip (0, A+1) and nonzero at ρ0 (Γ has no zeros), the term X^{ρ0} W_A(ρ0) has magnitude ≍_A X^{β}. The remaining zero sum (excluding ρ0 and its conjugates) is dominated by X^{1/2+ε} for any fixed ε>0, because all other zeros have real part ≤ max(β, 1/2) and the set with real part = β has finite multiplicity at γ0; separating that finite set from the rest and using the decay of W_A on vertical lines, we obtain
+E_A(X) = -X^{ρ0} W_A(ρ0) - X^{\overline{ρ0}} W_A(\overline{ρ0}) + O_{A,ε}(X^{max(1/2, β')+ε}),
+where β' < β is the supremum of real parts of all other zeros, or 1/2 if β is maximal.
+The first two terms combine to
+-2 X^{β} Re(e^{i γ0 log X} W_A(ρ0)).
+
+Since W_A(ρ0) ≠ 0 is fixed, by varying X along a sequence X_k = e^{(2π k + θ)/γ0} with θ chosen so that the cosine equals ±1, the main term achieves magnitude ≥ c_A X^{β} with c_A = 2 |W_A(ρ0)|/2 > 0, while the remainder is o(X^{β}). Therefore
+limsup_{X→∞} |E_A(X)| / X^{β} ≥ c_A > 0.
+Thus the bound E_A(X) = O(X^{1/2+ε}) fails whenever a zero with β>1/2 exists. This proves (2) ⇒ (1).
+
+6) Uniformity remarks and regularity threshold.
+- The choice A ≥ 3 ensures W_A(s) decays sufficiently fast along vertical lines to justify absolute convergence and the O_A(1) treatment of the shifted integral. Any fixed A ≥ 2 suffices with modest technical care; we stated A ≥ 3 to keep estimates elementary and uniform.
+- The equivalence uses one fixed weight w_A; no family depending on X is required.
+
+Conclusion. We have reduced RH to the square-root error term (up to X^ε) for a single, explicit, compactly supported smoothing of the Chebyshev function. Conversely, any violation of RH forces oscillations of size X^{β} in that same smoothed sum along an infinite sequence of X.
+
+VERDICT: PARTIAL
+REASON: Reduction: RH iff a single explicit smoothed prime sum has O(X^{1/2+ε}) error; proof via explicit formula.

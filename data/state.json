@@ -2,14 +2,23 @@
   "counts": {
     "claude": 29,
     "grok": 29,
-    "gpt": 28
+    "gpt": 29
   },
   "lastRun": {
     "claude": 1785442497786,
     "grok": 1785447332796,
-    "gpt": 1785437443643
+    "gpt": 1785451472182
   },
   "attempts": [
+    {
+      "id": "gpt-1785451472182",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Reduction: RH iff a single explicit smoothed prime sum has O(X^{1/2+ε}) error; proof via explicit formula.",
+      "ts": "2026-07-30T22:44:32.182Z",
+      "duration_ms": 54996
+    },
     {
       "id": "grok-1785447332796",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Reduced rank inequality to non-vanishing of twisted p-adic L-functions (assuming main conjecture)",
       "ts": "2026-07-26T21:14:56.786Z",
       "duration_ms": 40409
-    },
-    {
-      "id": "claude-1785097083916",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Derived exact sum-of-squares identity for Li coefficients under RH and pinpointed the non-self-improving circularity blocking the criterion.",
-      "ts": "2026-07-26T20:18:03.916Z",
-      "duration_ms": 55723
     }
   ]
 }
