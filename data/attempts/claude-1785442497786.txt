@@ -1,0 +1,60 @@
+# Attempt: Verifying the first Li coefficient and locating the obstruction
+
+## Setup
+
+Let $\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1, with zeros exactly at the nontrivial zeros $\rho$ of $\zeta$. Li's criterion states:
+
+$$\text{RH} \iff \lambda_n \ge 0 \text{ for all } n\ge 1, \qquad \lambda_n := \sum_{\rho}\Big[1 - \Big(1-\tfrac1\rho\Big)^n\Big],$$
+
+where the sum is over nontrivial zeros grouped in conjugate pairs $\rho,\bar\rho$ (and via the functional equation, paired with $1-\rho$), so it converges.
+
+I will (i) rigorously compute $\lambda_1$ and confirm its positivity, and (ii) analyze precisely why the same method cannot be pushed to general $n$ without genuinely new input — a concrete statement of the obstruction.
+
+## The $n=1$ case
+
+For $n=1$, $\lambda_1 = \sum_\rho \tfrac1\rho$. Using the Hadamard product
+$$\xi(s) = \xi(0)\prod_\rho\Big(1-\tfrac s\rho\Big),$$
+we have
+$$\frac{\xi'(s)}{\xi(s)} = \sum_\rho \frac{1}{s-\rho} = \sum_\rho\Big(\frac1{s-\rho}\Big),$$
+and by the standard symmetric grouping,
+$$\lambda_1 = \sum_\rho \frac1\rho = \frac{\xi'(0)}{\xi(0)}\cdot(-1)\Big|_{\text{grouped}} = \frac{\xi'(1)}{\xi(1)}.$$
+
+Differentiating $\log\xi$:
+$$\frac{\xi'(s)}{\xi(s)} = \frac1s + \frac1{s-1} - \frac12\log\pi + \frac12\frac{\Gamma'(s/2)}{\Gamma(s/2)} + \frac{\zeta'(s)}{\zeta(s)}.$$
+
+This has a pole at $s=1$ from both $1/(s-1)$ and $\zeta'/\zeta$; the two singular parts cancel because $\zeta(s)\sim \frac1{s-1}+\gamma$. Concretely, near $s=1$, $\zeta'(s)/\zeta(s) = -\frac1{s-1}+\gamma + O(s-1)$, so
+$$\frac{\xi'(s)}{\xi(s)}\Big|_{s=1} = 1 - \tfrac12\log\pi + \tfrac12\psi(\tfrac12) + \gamma,$$
+where $\psi = \Gamma'/\Gamma$. Using $\psi(\tfrac12) = -\gamma - 2\log 2$:
+$$\lambda_1 = 1 - \tfrac12\log\pi + \tfrac12(-\gamma - 2\log 2) + \gamma = 1 + \tfrac\gamma2 - \log 2 - \tfrac12\log\pi.$$
+
+Thus
+$$\boxed{\;\lambda_1 = 1 + \frac\gamma2 - \frac12\log(4\pi)\;}$$
+
+Numerically: $\gamma/2 = 0.2886078$, $\tfrac12\log(4\pi) = \tfrac12(2.5310242) = 1.2655121$, giving
+$$\lambda_1 = 1 + 0.2886078 - 1.2655121 = 0.0230957\ldots > 0.$$
+
+**Check:** This matches the known unconditional value and confirms the $n=1$ instance of Li's criterion holds *unconditionally* — no assumption of RH is used, since we only summed $1/\rho$ via the Hadamard/functional-equation structure. Good consistency: $\lambda_1>0$ is necessary for RH and it holds.
+
+## The obstruction for general $n$
+
+Write $\rho = \tfrac12 + i\gamma_\rho$ under RH, or $\rho = \beta + i\gamma_\rho$ in general. Expand:
+$$\lambda_n = \sum_\rho\Big[1-\Big(\tfrac{\rho-1}{\rho}\Big)^n\Big].$$
+
+Set $z_\rho = 1 - 1/\rho$. Note $|z_\rho|<1 \iff \operatorname{Re}(1/\rho) > 1/2 \iff \beta < 1$... more precisely $|1-1/\rho|^2 = 1 - \frac{2\beta-1}{|\rho|^2}$, so
+$$|z_\rho| < 1 \iff \beta > \tfrac12, \qquad |z_\rho| = 1 \iff \beta = \tfrac12.$$
+
+Under RH every $|z_\rho|=1$, and one shows $\lambda_n = \sum_\rho(1-\cos(n\theta_\rho))\ge 0$ trivially where $z_\rho = e^{i\theta_\rho}$ — this is the *easy* direction. The hard direction (positivity $\Rightarrow$ RH) fails to be provable termwise precisely because:
+
+- A single off-line zero $\rho_0$ with $\beta_0>\tfrac12$ has $|z_{\rho_0}|<1$, so its contribution $1-z_{\rho_0}^n$ has real part bounded near $1$ and *cannot* drive $\lambda_n$ negative on its own.
+- Negativity, if it ever occurred, would come from the **collective oscillation** of the $\cos(n\theta_\rho)$ terms over the $\sim \frac{T}{2\pi}\log T$ zeros up to height $T$. The magnitude available is $O(n\log n)$ (the archimedean/prime contribution) against fluctuations that are conjecturally $O(\sqrt n \log n)$ — the same square-root cancellation that RH itself asserts.
+
+This is the crux: **Li positivity is equivalent to RH but its proof requires controlling exactly the oscillatory cancellation among zeros that RH is about.** The decomposition
+$$\lambda_n = \underbrace{\big(\text{smooth archimedean/prime part}\big)}_{\sim \frac n2\log n} + \underbrace{\big(\text{oscillatory zero part}\big)}_{\text{sign-indefinite}}$$
+shows there is no termwise positivity to exploit; any proof must bound the second part below by $-\frac n2\log n$, which is a statement of essentially the same depth as RH. My $\lambda_1$ computation succeeds only because $n=1$ kills the oscillatory structure (the sum $\sum 1/\rho$ is a single convergent archimedean constant).
+
+## Conclusion
+
+I rigorously derived $\lambda_1 = 1 + \gamma/2 - \tfrac12\log(4\pi) = 0.02309\ldots > 0$ unconditionally, and gave a precise structural reason (the archimedean-vs-oscillatory split with matched orders $n\log n$) why the Li-criterion route offers no purchase beyond the trivial cases without new cancellation estimates. This is a confirmation of a necessary condition and a sharpened statement of the obstruction, not new progress toward RH itself.
+
+VERDICT: FAILED
+REASON: Rederived λ₁>0 (necessary condition) and pinpointed the archimedean-vs-oscillatory obstruction in Li's criterion; no new progress on RH.
