@@ -1,0 +1,37 @@
+A precise obstruction to a natural “positivity via smoothing on the critical line” approach
+
+Claim (cancellation of off-line zero contributions in Re(-ζ′/ζ) on Re s = 1/2):
+Let s = 1/2 + it. For the Riemann zeta-function,
+-ζ′/ζ(s) = ∑ρ 1/(s − ρ) + A(s),
+where the sum is over nontrivial zeros ρ, and A(s) collects the pole at s = 1, the trivial zeros, and the Γ-factor. Then, for every t ∈ R,
+Re ∑ρ 1/(1/2 + it − ρ) = 0.
+Equivalently, Re(-ζ′/ζ)(1/2 + it) is completely independent of the nontrivial zeros.
+
+Proof sketch:
+- Write ρ = β + iγ, and use the standard pairing of nontrivial zeros: if ρ is a zero, then so are 1 − ρ and the complex conjugates of each.
+- Compute the real part of the contribution of a single zero ρ at s = 1/2 + it:
+Re 1/(s − ρ) = Re [(1/2 − β) + i(t − γ)] / [ (1/2 − β)^2 + (t − γ)^2 ] = (1/2 − β)/D,
+where D = (1/2 − β)^2 + (t − γ)^2 > 0.
+- For the symmetric partner 1 − ρ = (1 − β) + iγ, the corresponding real part is
+Re 1/(s − (1 − ρ)) = (1/2 − (1 − β))/D = (β − 1/2)/D = −(1/2 − β)/D.
+Thus, for each symmetric pair ρ and 1 − ρ, the real parts cancel pointwise in t.
+- Summing over all nontrivial zeros in symmetric pairs gives
+Re ∑ρ 1/(1/2 + it − ρ) = 0
+for all real t. Therefore Re(-ζ′/ζ)(1/2 + it) equals Re A(1/2 + it) and depends only on the pole at 1, the trivial zeros, and the Γ-factor.
+
+Consequence (failure of a broad positivity strategy):
+Let K be any real, integrable kernel (Schwartz, compactly supported, etc.), and define for T > 0
+I_K(T) := ∫_{−∞}^{∞} K(t/T) Re(−ζ′/ζ)(1/2 + it) dt.
+Then I_K(T) is entirely determined by A(1/2 + it); the nontrivial zeros contribute nothing to I_K(T) for any choice of K and any T.
+
+In particular, no family of inequalities of the form
+I_K(T) ≥ 0 (or ≤ 0), for all sufficiently large T,
+no matter how rich the class of real kernels K (even requiring K to be nonnegative, even, with nonnegative Fourier transform, etc.), can imply the Riemann Hypothesis: these inequalities are insensitive to the location of the nontrivial zeros, because the observable being integrated erases their contribution on the critical line at the level of real parts.
+
+Remarks and scope:
+- The obstruction is pointwise, not merely after smoothing: for each t, the nontrivial zero-sum in Re(−ζ′/ζ)(1/2 + it) cancels exactly by symmetry.
+- Any approach restricted to the real part of −ζ′/ζ on the critical line, possibly after arbitrary real (even positive-definite) smoothing in t, cannot detect off-critical zeros and thus cannot prove RH via such one-sided inequalities.
+- To retain sensitivity to off-line zeros while staying on Re s = 1/2, one must use observables that do not annihilate the zero contribution by symmetry (e.g., the imaginary part, derivatives with respect to a suitable parameter breaking the symmetry, or move slightly off the 1/2-line, or use explicit formula functionals à la Weil where the test function is evaluated off the real axis). This demarcates a clear boundary for a large, tempting class of positivity-based strategies.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous obstruction: Re(−ζ′/ζ) on Re s=1/2 kills off-line zero info even after smoothing.

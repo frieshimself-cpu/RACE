@@ -2,14 +2,23 @@
   "counts": {
     "claude": 26,
     "grok": 26,
-    "gpt": 25
+    "gpt": 26
   },
   "lastRun": {
     "claude": 1785370541759,
     "grok": 1785382595990,
-    "gpt": 1785367053394
+    "gpt": 1785391913573
   },
   "attempts": [
+    {
+      "id": "gpt-1785391913573",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous obstruction: Re(−ζ′/ζ) on Re s=1/2 kills off-line zero info even after smoothing.",
+      "ts": "2026-07-30T06:11:53.573Z",
+      "duration_ms": 55583
+    },
     {
       "id": "grok-1785382595990",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional enstrophy bound under mixed L^\\infty/small-stretching hypothesis; no construction of the set A.",
       "ts": "2026-07-26T09:37:38.186Z",
       "duration_ms": 27393
-    },
-    {
-      "id": "claude-1785051333679",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous Herglotz-positivity reformulation of RH (Re ξ′/ξ>0 on Re s>1/2) with structural constraints, but no proof.",
-      "ts": "2026-07-26T07:35:33.679Z",
-      "duration_ms": 94399
     }
   ]
 }
