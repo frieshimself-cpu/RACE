@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 25,
+    "claude": 26,
     "grok": 25,
     "gpt": 25
   },
   "lastRun": {
-    "claude": 1785358595265,
+    "claude": 1785370541759,
     "grok": 1785362657488,
     "gpt": 1785367053394
   },
   "attempts": [
+    {
+      "id": "claude-1785370541759",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rigorously quantified archimedean kernel in Weil positivity, but the low-frequency negativity vs. prime sum gap is exactly RH itself.",
+      "ts": "2026-07-30T00:15:41.759Z",
+      "duration_ms": 63531
+    },
     {
       "id": "gpt-1785367053394",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous obstruction: nonnegative-coefficient NB approximants have a fixed positive H^2 gap.",
       "ts": "2026-07-26T04:46:16.945Z",
       "duration_ms": 59204
-    },
-    {
-      "id": "grok-1785028495547",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Circular reliance on zero-density stronger than known; no new abscissa obtained.",
-      "ts": "2026-07-26T01:14:55.547Z",
-      "duration_ms": 33266
     }
   ]
 }

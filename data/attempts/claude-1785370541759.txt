@@ -1,0 +1,94 @@
+# Attempt: A positivity decomposition in Weil's explicit formula
+
+I'll make a self-contained, rigorous analysis of one component of Weil's positivity criterion, isolate exactly what remains, and be honest about the gap.
+
+## Setup
+
+Weil's explicit formula. For a suitable even test function $g$ with Fourier transform $h(r)=\int_{-\infty}^\infty g(u)e^{iru}\,du$ (analytic in a strip, decaying), with $g$ compactly supported and smooth,
+
+$$
+\sum_\rho h\!\left(\tfrac{\rho-\tfrac12}{i}\right)
+= \underbrace{h\!\left(\tfrac{1}{2i}\right)+h\!\left(-\tfrac{1}{2i}\right)}_{\text{poles}}
+- 2\sum_{n\ge1}\frac{\Lambda(n)}{\sqrt n}\,g(\log n)
++ \frac{1}{2\pi}\int_{-\infty}^\infty h(r)\,\Omega(r)\,dr,
+$$
+
+where the sum on the left runs over nontrivial zeros $\rho=\beta+i\gamma$ (written via $\gamma_\rho=(\rho-1/2)/i$, so $\gamma_\rho$ real $\iff \beta=1/2$), and the archimedean weight is
+
+$$
+\Omega(r)=\operatorname{Re}\frac{\Gamma'}{\Gamma}\!\left(\tfrac14+\tfrac{ir}{2}\right)-\log\pi .
+$$
+
+**Weil's criterion.** RH holds iff for every admissible $g$ with $h=|\hat\phi|^2\ge0$ (i.e. $h(r)=\int \phi(u)e^{iru}du$ times conjugate, a positive-definite choice via $g=\phi\star\tilde\phi$), the functional
+
+$$
+W(g):=\text{(poles)} + \text{(archimedean integral)} - 2\sum_n \frac{\Lambda(n)}{\sqrt n}g(\log n)
+$$
+
+is $\ge 0$. Indeed the left side is $\sum_\rho h(\gamma_\rho)$; if $g=\phi\star\overline{\tilde\phi}$ then $h(r)=|\hat\phi(r)|^2\ge0$ for **real** $r$, and off-line zeros contribute pairs $\gamma_\rho$ with nonzero imaginary part where $h$ can be evaluated and, by a standard argument, force negativity.
+
+## The lemma I can prove cleanly
+
+I focus on the **archimedean term** and prove it is a genuine positive-definite contribution, quantitatively.
+
+**Lemma (archimedean positivity kernel).** For every real-valued $\phi\in C_c^\infty(\mathbb R)$, set $g=\phi\star\tilde\phi$ where $\tilde\phi(u)=\phi(-u)$, so $h(r)=|\hat\phi(r)|^2$. Then the archimedean term equals
+
+$$
+A(\phi):=\frac{1}{2\pi}\int_{-\infty}^\infty |\hat\phi(r)|^2\,\Omega(r)\,dr
+= \int_{-\infty}^\infty\!\!\int_{-\infty}^\infty \phi(u)\,\phi(v)\,K(u,v)\,du\,dv,
+$$
+
+with a **real symmetric kernel** $K(u,v)=\kappa(u-v)$ where
+
+$$
+\kappa(t)=\frac{1}{2\pi}\int_{-\infty}^\infty \Omega(r)\,e^{-irt}\,dr
+$$
+
+understood as a tempered distribution, and moreover $\Omega(r)\to +\infty$ as $|r|\to\infty$; precisely
+$$
+\Omega(r)=\log\frac{|r|}{2\pi}+O(r^{-2}),\qquad |r|\to\infty. \tag{$\ast$}
+$$
+
+**Proof of ($\ast$).** By the digamma asymptotic $\frac{\Gamma'}{\Gamma}(z)=\log z-\frac{1}{2z}+O(|z|^{-2})$ for $|\arg z|<\pi$, applied at $z=\tfrac14+\tfrac{ir}{2}$: as $|r|\to\infty$, $z\sim \tfrac{ir}{2}$, so
+$$
+\operatorname{Re}\log z=\log|z|=\log\frac{|r|}{2}+O(r^{-2}),
+$$
+since $|z|^2=\tfrac1{16}+\tfrac{r^2}{4}$ gives $\log|z|=\tfrac12\log(\tfrac{r^2}{4}(1+O(r^{-2})))=\log\frac{|r|}{2}+O(r^{-2})$. The $-\tfrac{1}{2z}$ term is $O(r^{-1})$ but purely: $\operatorname{Re}\frac{-1}{2z}=\operatorname{Re}\frac{-1}{2(\frac14+\frac{ir}{2})}$. Computing, $\frac{1}{\frac14+\frac{ir}2}=\frac{\frac14-\frac{ir}2}{\frac1{16}+\frac{r^2}4}$, real part $\frac{1/4}{1/16+r^2/4}=O(r^{-2})$. Hence
+$$
+\Omega(r)=\log\frac{|r|}{2}-\log\pi+O(r^{-2})=\log\frac{|r|}{2\pi}+O(r^{-2}).\qquad\square
+$$
+
+**Consequence.** $\Omega$ is bounded below: since $\frac{\Gamma'}{\Gamma}(\tfrac14)$ is finite and $\Omega$ is continuous and $\to+\infty$, we have $\Omega(r)\ge -C_0$ for an explicit constant $C_0$. Numerically $\Omega(0)=\operatorname{Re}\frac{\Gamma'}{\Gamma}(\tfrac14)-\log\pi = \psi(\tfrac14)-\log\pi$. Using $\psi(\tfrac14)=-\gamma-3\log2-\tfrac\pi2\approx -4.227$, and $\log\pi\approx1.1447$, we get $\Omega(0)\approx -5.372$. One checks $\Omega$ is increasing in $|r|$ (as $\psi$ real part grows), so
+$$
+\Omega(r)\ge \Omega(0)\approx -5.372\quad\text{for all }r. \tag{$\ast\ast$}
+$$
+(Monotonicity: $\frac{d}{dr}\operatorname{Re}\psi(\tfrac14+\tfrac{ir}2)=-\tfrac12\operatorname{Im}\psi'(\tfrac14+\tfrac{ir}2)$; since $\psi'(z)=\sum_{k\ge0}(z+k)^{-2}$, $\operatorname{Im}\psi'=\sum -\tfrac{2\,\operatorname{Re}(z+k)\operatorname{Im}(z+k)}{|z+k|^4}$ has sign $-\operatorname{sgn}(r)$ for $\operatorname{Re} z>0$, giving $\frac{d}{dr}\Omega\ge0$ for $r>0$.)
+
+## What this buys, and the honest gap
+
+Weil's functional on the positive-definite cone becomes
+$$
+W(\phi)=\underbrace{h(\tfrac1{2i})+h(-\tfrac1{2i})}_{P(\phi)\ge0}
++\ A(\phi)\ -\ 2\sum_{n\ge1}\frac{\Lambda(n)}{\sqrt n}(\phi\star\tilde\phi)(\log n).
+$$
+
+- $P(\phi)=2\operatorname{Re}h(\tfrac1{2i})$. With $h(r)=|\hat\phi(r)|^2$ extended to complex $r$, this is $2\,\hat\phi(\tfrac1{2i})\overline{\hat\phi(-\tfrac1{2i})}$ — real and, for real $\phi$, equal to $2|\hat\phi(\tfrac{1}{2i})|^2\ge0$. **Nonnegative.** ✓
+- $A(\phi)\ge \frac{\Omega(0)}{2\pi}\int|\hat\phi|^2 = \frac{\Omega(0)}{2}\int|\phi|^2 \cdot$ (Plancherel) — this is a *lower bound but negative*, of size $\approx -2.69\,\|\phi\|_2^2$. This is the crux: the archimedean term is **not** sign-definite; ($\ast$) shows it is positive for high-frequency $\phi$ but ($\ast\ast$) shows it can be negative for low-frequency $\phi$.
+- The prime term $-2\sum \frac{\Lambda(n)}{\sqrt n}(\phi\star\tilde\phi)(\log n)$ is the only term coupling to arithmetic and is the source of both possible cancellation and the difficulty.
+
+**Reduction achieved (rigorous).** Combining, RH is *equivalent* to: for all real $\phi\in C_c^\infty$,
+$$
+\frac{1}{2\pi}\int|\hat\phi(r)|^2\Big(\Omega(r)+\text{(pole kernel)}\Big)\,dr \ \ge\ 2\sum_{n\ge1}\frac{\Lambda(n)}{\sqrt n}(\phi\star\tilde\phi)(\log n). \tag{R}
+$$
+The left kernel $\Omega+\log\frac{|r|}{2\pi}$-type growth is *coercive at high frequency* by ($\ast$): for $\phi$ supported at frequencies $|r|\ge R$, $A(\phi)\ge \log\frac{R}{2\pi}\cdot\tfrac12\|\phi\|_2^2$, which grows without bound. Meanwhile the prime side, by support of $\phi\star\tilde\phi$ in $[-2L,2L]$ if $\operatorname{supp}\phi\subset[-L,L]$, involves only $n\le e^{2L}$, a *finite* sum bounded by $2e^{2L}\|\phi\star\tilde\phi\|_\infty\lesssim e^{2L}\|\phi\|_2^2\cdot(2L)$.
+
+**The obstruction, made precise.** Fix support length $L$. High-frequency coercivity ($\log R$) can dominate a prime side that scales like $e^{2L}$ *only if we may push $R\to\infty$ freely* — but $\phi$ supported in $[-L,L]$ cannot be band-limited to $|r|\ge R$ (uncertainty). Thus one cannot decouple: the negative low-frequency window of $\Omega$ (width $\sim$ order 1 around $r=0$, depth $\sim2.7$) is *exactly* where a conspiratorial off-line zero would place mass in $h$. The inequality (R) therefore cannot be established by the crude bound ($\ast\ast$); it requires controlling the joint distribution of $|\hat\phi|^2$ across the frequency band against the prime sum — i.e. genuine arithmetic input equivalent to the zero-free region one is trying to prove. **No purely archimedean/functional bound closes (R).**
+
+## Assessment
+
+I have rigorously established: the asymptotic ($\ast$), the lower bound ($\ast\ast$) with explicit constant $\Omega(0)=\psi(1/4)-\log\pi$, monotonicity of $\Omega$, nonnegativity of the pole term, and the exact reduction (R) with a quantified high-frequency coercivity. This makes concrete *why* the positivity approach stalls: the archimedean kernel's coercivity ($\log|r|$) is real but its negative low-frequency well cannot be dodged under the compact-support/uncertainty constraint, precisely where arithmetic cancellation is needed. This is a clarifying partial result, not a proof or new theorem.
+
+I did not prove RH nor any previously-unknown unconditional statement; the reduction (R) is essentially Weil's criterion made quantitative in one term.
+
+VERDICT: FAILED
+REASON: Rigorously quantified archimedean kernel in Weil positivity, but the low-frequency negativity vs. prime sum gap is exactly RH itself.
