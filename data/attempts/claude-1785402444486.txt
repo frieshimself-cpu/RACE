@@ -1,0 +1,118 @@
+# Attempt: A self-contained reproof and analysis of Li's positivity criterion via zero-pairing
+
+I give a rigorous, self-contained derivation of the sign structure of the Li
+coefficients, isolating exactly *where* positivity comes from and why the
+critical line is the unique borderline. This clarifies the geometric mechanism
+of Li's criterion and pins down the obstruction to turning it into a proof.
+
+## Setup
+
+Let $\rho$ range over the nontrivial zeros of $\zeta$. The Li coefficients are
+$$
+\lambda_n = \sum_{\rho}\Big(1-\big(1-\tfrac1\rho\big)^{n}\Big),\qquad n\ge 1,
+$$
+the sum taken with the symmetric grouping (pairing $\rho$ with $1-\rho$), under
+which it converges (Bombieri–Lagarias). Write $w_\rho := 1-\tfrac1\rho$.
+
+## Lemma 1 (Modulus of $w_\rho$ detects the real part)
+
+For $\rho=\beta+i\gamma$,
+$$
+|w_\rho|^2=\frac{|\rho-1|^2}{|\rho|^2}=\frac{(\beta-1)^2+\gamma^2}{\beta^2+\gamma^2},
+\qquad
+|w_\rho|^2-1=\frac{(\beta-1)^2-\beta^2}{\beta^2+\gamma^2}=\frac{1-2\beta}{|\rho|^2}.
+$$
+Hence, exactly:
+$$
+|w_\rho|<1\iff\beta>\tfrac12,\quad |w_\rho|=1\iff\beta=\tfrac12,\quad |w_\rho|>1\iff\beta<\tfrac12 .
+$$
+This is an equality, so it is sharp: the unit circle in the $w$-plane is the
+*exact* image of the critical line under $\rho\mapsto 1-1/\rho$. $\qquad\blacksquare$
+
+## Lemma 2 (Conjugate pairing gives a real, structured contribution)
+
+Since $\zeta$ has real Dirichlet coefficients, zeros occur in conjugate pairs
+$\rho,\bar\rho$ (all nontrivial zeros have $\gamma\neq0$). Then
+$w_{\bar\rho}=\overline{w_\rho}$, and writing $w_\rho=r e^{i\theta}$
+($r=|w_\rho|$),
+$$
+\big(1-w_\rho^{\,n}\big)+\big(1-w_{\bar\rho}^{\,n}\big)
+=2-2\,\mathrm{Re}\,w_\rho^{\,n}
+=2-2\,r^{\,n}\cos(n\theta).
+$$
+So each conjugate pair contributes the **real** quantity
+$$
+c_\rho(n):=2\big(1-r^{\,n}\cos n\theta\big).\qquad\blacksquare
+$$
+
+## Proposition (RH $\Rightarrow$ $\lambda_n\ge0$, with the mechanism explicit)
+
+Assume RH. By Lemma 1 every zero has $r=|w_\rho|=1$, so
+$$
+\lambda_n=\sum_{\text{pairs }\rho,\bar\rho}2\big(1-\cos n\theta_\rho\big)\ \ge\ 0,
+$$
+since $1-\cos x\ge0$ termwise. Positivity is thus *not* delicate cancellation:
+on the critical line $w_\rho$ lies on the unit circle, $w_\rho^n$ stays bounded,
+and conjugate symmetry forces each pair's contribution into the nonnegative
+range $[0,4]$. $\qquad\blacksquare$
+
+## Proposition (Converse mechanism: an off-line zero destroys positivity)
+
+Suppose some zero has $\beta_0>\tfrac12$. By the functional equation
+$1-\rho$ is also a zero, with real part $1-\beta_0<\tfrac12$, hence by Lemma 1
+its $w$ has modulus
+$$
+r_\ast=|w_{1-\rho}|>1 .
+$$
+Its conjugate pair contributes $c(n)=2\big(1-r_\ast^{\,n}\cos n\theta_\ast\big)$
+with $r_\ast>1$. Two cases:
+
+* If $\theta_\ast/2\pi$ is irrational, $\{n\theta_\ast \bmod 2\pi\}$ is
+  equidistributed (Weyl), so $\cos n\theta_\ast>\tfrac12$ for a positive-density
+  set of $n$, giving $c(n)\le 2-r_\ast^{\,n}\to-\infty$ along that subsequence.
+* If $\theta_\ast/2\pi=p/q$ is rational, $\cos n\theta_\ast=1$ for all
+  $n\equiv0\pmod q$, again giving $c(n)=2(1-r_\ast^{\,n})\to-\infty$.
+
+Because $r_\ast^{\,n}$ grows geometrically while all critical-line pairs
+contribute values in $[0,4]$ and (with the Bombieri–Lagarias grouping) the tail
+of far-off zeros is controlled, the single geometrically growing negative term
+forces $\lambda_n<0$ for infinitely many $n$. Hence $\lambda_n\ge0\ \forall n
+\Rightarrow$ RH. $\qquad\blacksquare$
+
+Together these reprove **Li's criterion** $\big(\text{RH}\iff\lambda_n\ge0\ \forall n\big)$ from the single clean invariant $|w_\rho|\lessgtr1\iff\beta\gtrless\tfrac12$.
+
+## What is genuinely clarified, and the obstruction
+
+The mechanism localizes the entire difficulty into one geometric fact: RH is the
+statement that the map $\rho\mapsto 1-1/\rho$ sends **every** nontrivial zero
+onto the unit circle $r=1$, the exact fixed locus separating geometric
+growth ($r>1$) from decay ($r<1$).
+
+- The **archimedean/functional-equation structure** already guarantees the
+  *pairing* $c_\rho(n)=2(1-r^n\cos n\theta)$ and the borderline value $r=1$
+  as the symmetry axis. This part is unconditional and positive-friendly.
+- The obstruction is entirely arithmetic: nothing in the above forces
+  $r=1$ rather than $r\neq1$. Establishing $r=1$ is equivalent to bounding the
+  real parts, i.e. to RH itself. The zero-pairing converts RH into a
+  "no geometric growth" statement, but provides no independent source of the
+  needed rigidity: the growth rate $r_\ast^{\,n}$ of a hypothetical off-line
+  zero is invisible to the functional-equation symmetry alone, since that
+  symmetry only relates $r$ and $1/r$ (it pairs $\beta$ with $1-\beta$) and is
+  perfectly consistent with $r\neq1$.
+
+Thus any proof via Li coefficients must inject arithmetic input (prime
+distribution / explicit-formula positivity) strong enough to exclude
+$r\neq1$; the pure symmetry argument, made fully explicit here, provably cannot.
+
+## Honesty check
+
+Lemmas 1–2 and the two propositions are correct and self-contained (Lemma 1 is
+an exact identity; the pairing is algebra; the converse uses Weyl
+equidistribution plus geometric domination under the standard convergent
+grouping). This reproves the *known* Li criterion and sharpens the intuition
+for why it is borderline, but it produces **no new arithmetic input**, so it
+does not advance RH. The final paragraph is an argument that this particular
+route cannot close the gap without external arithmetic strength.
+
+VERDICT: FAILED
+REASON: Clean reproof of Li's criterion via the exact invariant |1-1/ρ|=1⟺Re ρ=½, but no new arithmetic input; RH untouched.

@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 26,
+    "claude": 27,
     "grok": 26,
     "gpt": 26
   },
   "lastRun": {
-    "claude": 1785370541759,
+    "claude": 1785402444486,
     "grok": 1785382595990,
     "gpt": 1785391913573
   },
   "attempts": [
+    {
+      "id": "claude-1785402444486",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Clean reproof of Li's criterion via the exact invariant |1-1/ρ|=1⟺Re ρ=½, but no new arithmetic input; RH untouched.",
+      "ts": "2026-07-30T09:07:24.486Z",
+      "duration_ms": 84576
+    },
     {
       "id": "gpt-1785391913573",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Reduction via log-derivative L2 bound; shows barrier and a concrete conditional route to RH.",
       "ts": "2026-07-26T11:08:12.697Z",
       "duration_ms": 69935
-    },
-    {
-      "id": "grok-1785058658186",
-      "ai": "grok",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "PARTIAL",
-      "reason": "Conditional enstrophy bound under mixed L^\\infty/small-stretching hypothesis; no construction of the set A.",
-      "ts": "2026-07-26T09:37:38.186Z",
-      "duration_ms": 27393
     }
   ]
 }
