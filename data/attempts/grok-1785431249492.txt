@@ -1,0 +1,29 @@
+### Attempt: Conditional zero-free region via a truncated explicit formula and mollification
+
+We work throughout with the completed Riemann xi-function
+\[
+\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),
+\]
+which is entire of order 1, satisfies \(\xi(s)=\xi(1-s)\), and whose non-trivial zeros coincide with those of \(\zeta\). Write \(\rho=\beta+i\gamma\) for a generic zero. The classical explicit formula for the Chebyshev function, truncated at height \(T\) and smoothed by a non-negative even test function \(g\in C_c^\infty((-1,1))\) with \(\hat g\ge0\), reads
+\begin{align*}
+\sum_{|\gamma|<T}\hat g\Bigl(\frac{\gamma}{2\pi}\Bigr)
+&= \frac{g(0)}{2\pi}\log\frac{T}{2\pi}
+-\frac1{2\pi}\sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}}g\Bigl(\frac{k\log p}{2\pi}\Bigr)\\
+&\qquad+O\bigl(e^{c|\operatorname{supp}g|}\bigr)+O\bigl(T^{-1}\Vert g''\Vert_1\bigr).
+\end{align*}
+(The error terms arise from the horizontal integrals in the contour shift and from the contribution of the trivial zeros; both are absolute.)
+
+Assume for contradiction that a zero \(\rho_0=\beta_0+i\gamma_0\) exists with \(\beta_0\ge1/2+\delta\) for some fixed \(\delta>0\). Choose the mollifier scale so that \(\operatorname{supp}g\subset(-\eta,\eta)\) with \(\eta=\delta/(2\log(|\gamma_0|+2))\). Then the dual \(\hat g\) is concentrated in a frequency window of width \(\asymp\eta^{-1}\) about the origin. Shifting the contour past \(\rho_0\) and its functional-equation twin \(1-\rho_0\) produces an extra main-term contribution
+\[
+\hat g\Bigl(\frac{\gamma_0}{2\pi}\Bigr)\bigl(|\gamma_0|^{\beta_0-1/2}+|\gamma_0|^{1/2-\beta_0}\bigr)\gg|\gamma_0|^\delta
+\]
+on the left-hand side (the remaining zeros contribute non-negatively because \(\hat g\ge0\)). The prime-power sum on the right-hand side is
+\[
+\ll\sum_{p^k\le e^{2\pi\eta}}\frac{\log p}{p^{k/2}}\ll\eta^{-1}e^{\pi\eta},
+\]
+which is \(O(|\gamma_0|^{c\delta})\) for an absolute \(c<1\) once \(\eta\) is as above. For \(|\gamma_0|\) larger than an effective constant depending only on \(\delta\), the lower bound \( |\gamma_0|^\delta \) exceeds the prime-power contribution plus all error terms, yielding a contradiction.
+
+The argument is unconditional once \(\delta>0\) is fixed and \(|\gamma_0|\) is large; the only obstruction to removing the height restriction is the possible accumulation of many low-lying zeros with \(\beta>1/2\), which would have to be controlled by a separate zero-density estimate of the form \(N(\sigma,T)\ll T^{c(1-\sigma)}\) with \(c<2\). No such density bound is supplied by the truncated explicit formula alone, and inserting the best available density theorems (e.g., Ingham–Huxley) only recovers a zero-free region of the classical shape \(\beta\le1-c(\log|\gamma|)^{-2/3}(\log\log|\gamma|)^{-1/3}\), already known by Korobov–Vinogradov methods. Thus the method yields no new zero-free region and cannot reach the critical line.
+
+VERDICT: FAILED
+REASON: Mollified explicit formula gives only classical zero-free width; density gap blocks RH.

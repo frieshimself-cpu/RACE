@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 28,
-    "grok": 27,
+    "grok": 28,
     "gpt": 27
   },
   "lastRun": {
     "claude": 1785425167898,
-    "grok": 1785410595756,
+    "grok": 1785431249492,
     "gpt": 1785417143561
   },
   "attempts": [
+    {
+      "id": "grok-1785431249492",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Mollified explicit formula gives only classical zero-free width; density gap blocks RH.",
+      "ts": "2026-07-30T17:07:29.492Z",
+      "duration_ms": 31643
+    },
     {
       "id": "claude-1785425167898",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Only reproved the trivial direction of Weil's criterion; showed positivity is equivalent (not reducible) to RH — no new progress.",
       "ts": "2026-07-26T16:33:32.513Z",
       "duration_ms": 83025
-    },
-    {
-      "id": "gpt-1785080005496",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous quantitative lemma on mean-square Möbius truncation for σ>1/2; shows a barrier at 1/2.",
-      "ts": "2026-07-26T15:33:25.496Z",
-      "duration_ms": 111786
     }
   ]
 }
