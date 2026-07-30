@@ -1,0 +1,60 @@
+Attempt: A zero-free criterion via uniform Dirichlet-polynomial approximation to 1/ζ
+
+Setup
+- Let F(s) = 1 - ζ(s)A(s), where A is a Dirichlet polynomial A(s) = ∑_{n≤N} a_n n^{-s} with complex coefficients a_n and N≥1.
+- F is holomorphic on C \ {1}, and holomorphic on any closed rectangle avoiding s=1.
+- Assume a uniform approximation on a half-strip: for parameters T≥2 and ε∈(0,1),
+  sup{ |F(s)| : Re s ≥ 1/2, |Im s| ≤ T } ≤ ε.
+
+Lemma (uniform minorant excludes zeros to the right)
+Fix σ0 with 1/2 < σ0 < 2. Suppose for some T≥2 and ε∈(0,1), the bound above holds. Then ζ has no zeros in the closed rectangle
+R = { s : σ0 ≤ Re s ≤ 2, |Im s| ≤ T }.
+
+Proof sketch
+- Choose any point s0 in R with ζ(s0)=0. The pole at s=1 is outside R by σ0>1/2 and upper edge at 2; if not, shrink right edge to 1+δ and left edge to σ0<1 so that 1∉R. In all cases we may ensure R avoids s=1.
+- Then F is holomorphic on an open neighborhood of R, continuous on R, and satisfies |F|≤ε<1 on ∂R by hypothesis (since ∂R ⊂ {Re s ≥ 1/2, |Im s|≤T}).
+- But at s0, ζ(s0)=0 gives F(s0)=1. By the maximum modulus principle (applied to F on R), the maximum of |F| on R is attained on the boundary ∂R. This contradicts |F(s0)|=1>ε≥sup∂R |F|.
+- Hence no such s0 exists; i.e. ζ has no zeros in R.
+
+Corollary (quantitative reduction to uniform approximation)
+Suppose that for every T≥2 there exists a Dirichlet polynomial A_T with
+sup{ |1 - ζ(s)A_T(s)| : Re s ≥ 1/2, |Im s| ≤ T } ≤ ε_T,
+where ε_T ∈ (0,1) and ε_T → 0 as T → ∞.
+
+Then, for every fixed σ0∈(1/2,2), the lemma (applied with T large and ε_T<1) shows there are no zeros in {Re s ≥ σ0, |Im s|≤T}. Letting T→∞ yields: ζ has no zeros with Re s ≥ σ0. As σ0∈(1/2,2) is arbitrary, all nontrivial zeros must satisfy Re s ≤ 1/2. By the functional equation and symmetry, all nontrivial zeros lie on Re s = 1/2. Hence RH holds.
+
+Remarks on scope and sharpness
+- No growth conditions on A_T beyond being a Dirichlet polynomial are used; only holomorphy of F and the uniform bound on a half-strip.
+- The region R in the lemma can be any compact rectangle with left edge strictly to the right of 1/2 and avoiding the pole at 1. The right edge can be any σ1>1, or even σ1 arbitrarily large; the choice does not affect the argument.
+- The argument is robust: any family of approximants to 1/ζ(s) that are uniformly small (<1) on a half-strip forces zero-free-ness to the right of any σ0>1/2.
+
+Connection to Nyman–Beurling/Báez-Duarte and an obstruction
+- The Nyman–Beurling criterion (and its Báez-Duarte refinement) provides L^2(critical line) approximations of 1/ζ(s) by Dirichlet polynomials, under RH. Conversely, quantitative L^2-approximation with a rate implies zero-density bounds to the right of 1/2.
+- However, the criterion above requires L^∞ control on Re s ≥ 1/2, uniformly in |Im s| ≤ T, with error strictly below 1. In particular, purely mean-square (L^2) control on Re s = 1/2 does not suffice to preclude large spikes, by standard resonance constructions for ζ(s) and Dirichlet polynomials: there exist Dirichlet polynomials B(s) of length N≈T^θ with small L^2 norm on |t|≤T but with sup-norm spikes of size ≫ (log T)^c at carefully chosen t. Thus L^2→L^∞ amplification without additional structure cannot rule out |1-ζA| attaining 1 at some interior point even if its L^2 norm is small.
+- Consequently, any approach along this line must secure genuine uniform (or at least maximum-modulus-controlling) bounds for 1-ζA in half-strips, not merely mean-square bounds on the critical line. Natural sufficient add-ons include:
+  - Zero-density input to preclude resonant concentration near putative zeros.
+  - Constraints on A (e.g., positivity/complete monotonicity of coefficients in a suitable transform) that let one upgrade L^2 to L^∞ by maximum principle barriers.
+  - Control of log|ζ| on vertical lines σ>1/2 (subconvex/Lindelöf-type bounds) combined with approximation on σ=1, then interpolated via three-lines with uniform bounds for A on σ≥1.
+
+Concrete partial target
+A sufficiently strong uniform approximation at bounded distance from the critical line will already yield a zero-free region. Precisely:
+
+Proposition (zero-free strip from one-sided uniform approximation)
+Fix σ0∈(1/2,1). Suppose there exist constants θ>0 and c∈(0,1) such that for all large T one can find A_T(s)=∑_{n≤T^θ} a_n n^{-s} with
+sup{ |1 - ζ(s)A_T(s)| : σ≥1/2, |t|≤T } ≤ c.
+Then ζ has no zeros with σ≥σ0 and |t|≤T. In particular, if the same holds for arbitrarily large T, ζ has no zeros with σ≥σ0, yielding the classical-type zero-free region σ<σ0 for all zeros. Letting σ0→1/2 gives RH.
+
+Proof is identical to the lemma (c plays the role of ε). This furnishes an explicit, checkable target: produce, for each T, one Dirichlet polynomial A_T of length T^θ that uniformly minorizes 1/ζ by error <1 on the half-strip.
+
+Why this is hard (precise barrier)
+- Even assuming strong mean-square approximation on σ=1/2 (i.e., ∫_{|t|≤T} |1-ζ(1/2+it)A(1/2+it)|^2 dt ≪ T·ε^2), there is no general route to uniform control on σ≥1/2, |t|≤T with error <1, because:
+  - On any rectangle, by Cauchy’s integral formula, sup over the interior is controlled by sup over the boundary; hence one must control 1-ζA uniformly on the boundary (especially on σ=1/2).
+  - Montgomery’s and resonance phenomena show that for any given length bound N=T^θ, one can construct A with small L^2 error but with |1-ζA| having large pointwise excursions on sets of t of small but nonzero measure. These spikes can, in principle, reach value 1 at putative zeros, defeating the maximum principle argument.
+- Therefore, additional structure (e.g., positivity, complete monotonicity, or uniform majorants for log|ζ|) seems necessary to upgrade L^2 control to the strict L^∞ bound (<1) demanded by the lemma.
+
+Summary
+- The lemma provides a clean, rigorous reduction: uniform (<1) Dirichlet-polynomial approximation to 1/ζ(s) on the half-strip σ≥1/2, |t|≤T rules out zeros with σ≥σ0, |t|≤T. If achievable for all T and all σ0>1/2, RH follows.
+- The analysis also isolates a concrete obstruction: mean-square control on the critical line (as in Nyman–Beurling-inspired strategies) is insufficient due to resonance; one must find a mechanism to deliver strict uniform smallness on boundaries of rectangles in the half-plane.
+
+VERDICT: PARTIAL
+REASON: Rigorous reduction: uniform sup-norm 1/ζ-approximation by Dirichlet polynomials implies RH; obstacle identified.

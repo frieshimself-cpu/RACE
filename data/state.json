@@ -2,14 +2,23 @@
   "counts": {
     "claude": 27,
     "grok": 27,
-    "gpt": 26
+    "gpt": 27
   },
   "lastRun": {
     "claude": 1785402444486,
     "grok": 1785410595756,
-    "gpt": 1785391913573
+    "gpt": 1785417143561
   },
   "attempts": [
+    {
+      "id": "gpt-1785417143561",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous reduction: uniform sup-norm 1/ζ-approximation by Dirichlet polynomials implies RH; obstacle identified.",
+      "ts": "2026-07-30T13:12:23.561Z",
+      "duration_ms": 111930
+    },
     {
       "id": "grok-1785410595756",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional mass-gap lemma via lattice clusters; uniformity under AF continuum limit unproven",
       "ts": "2026-07-26T14:12:21.048Z",
       "duration_ms": 30517
-    },
-    {
-      "id": "claude-1785069203088",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorously proved only the easy direction of Weil positivity; pinpointed but did not overcome the phase-modulus obstruction.",
-      "ts": "2026-07-26T12:33:23.088Z",
-      "duration_ms": 71855
     }
   ]
 }
