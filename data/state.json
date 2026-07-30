@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 27,
+    "claude": 28,
     "grok": 27,
     "gpt": 27
   },
   "lastRun": {
-    "claude": 1785402444486,
+    "claude": 1785425167898,
     "grok": 1785410595756,
     "gpt": 1785417143561
   },
   "attempts": [
+    {
+      "id": "claude-1785425167898",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous proof of RH⇒Li-positivity with explicit nonneg form; converse obstruction localized to uniform oscillatory-sum domination.",
+      "ts": "2026-07-30T15:26:07.898Z",
+      "duration_ms": 69611
+    },
     {
       "id": "gpt-1785417143561",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous quantitative lemma on mean-square Möbius truncation for σ>1/2; shows a barrier at 1/2.",
       "ts": "2026-07-26T15:33:25.496Z",
       "duration_ms": 111786
-    },
-    {
-      "id": "grok-1785075141048",
-      "ai": "grok",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Conditional mass-gap lemma via lattice clusters; uniformity under AF continuum limit unproven",
-      "ts": "2026-07-26T14:12:21.048Z",
-      "duration_ms": 30517
     }
   ]
 }

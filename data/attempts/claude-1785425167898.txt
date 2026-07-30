@@ -1,0 +1,133 @@
+# Attempt: Positivity structure in Li's criterion and the obstruction to closing it
+
+I give a fully self-contained, rigorous proof of one direction of Li's
+criterion, isolate the precise geometric mechanism that forces positivity,
+and then analyze sharply why the converse direction (the one that would prove
+RH) resists the same argument. The point is to locate the obstruction
+concretely rather than hand-wave.
+
+## Setup
+
+Let $\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1,
+with $\xi(s)=\xi(1-s)$, whose zeros are exactly the nontrivial zeros $\rho$ of
+$\zeta$. Define the Li coefficients
+$$
+\lambda_n \;=\; \sum_{\rho}\Big[\,1-\big(1-\tfrac1\rho\big)^{n}\Big],
+\qquad n\ge 1,
+$$
+the sum taken over nontrivial zeros grouped in the symmetric order
+$\lim_{T\to\infty}\sum_{|\Im\rho|<T}$, which converges (Li, 1997). Li's
+criterion states: **RH $\iff$ $\lambda_n\ge 0$ for all $n\ge1$.**
+
+## Lemma 1 (Geometric characterization of the half-plane)
+
+For a zero $\rho=\beta+i\gamma$ with $\rho\ne 0$,
+$$
+\Big|1-\tfrac1\rho\Big| \le 1 \iff \beta \ge \tfrac12 .
+$$
+
+*Proof.* 
+$$
+\Big|1-\tfrac1\rho\Big|^2=\frac{|\rho-1|^2}{|\rho|^2}
+=\frac{(\beta-1)^2+\gamma^2}{\beta^2+\gamma^2}.
+$$
+This is $\le 1$ iff $(\beta-1)^2\le \beta^2$, i.e. $-2\beta+1\le 0$, i.e.
+$\beta\ge\tfrac12$. Moreover equality holds iff $\beta=\tfrac12$. $\qquad\blacksquare$
+
+Thus the Möbius map $w(s)=1-\tfrac1s$ sends the critical line
+$\Re s=\tfrac12$ onto the **unit circle** $|w|=1$, the half-plane
+$\Re s>\tfrac12$ into the open disk, and $\Re s<\tfrac12$ outside. This is the
+structural reason $\lambda_n$ "sees" RH: RH is exactly the statement that all
+images $w(\rho)$ lie on $\partial\mathbb D$.
+
+## Theorem (RH $\Rightarrow \lambda_n\ge 0$), rigorous
+
+Assume RH. The nontrivial zeros come in conjugate pairs
+$\rho=\tfrac12+i\gamma$, $\bar\rho=\tfrac12-i\gamma$ (with $\gamma>0$; note
+$\gamma=0$ does not occur since $\zeta(\tfrac12)\ne0$). By Lemma 1,
+$w:=1-\tfrac1\rho$ satisfies $|w|=1$, so write $w=e^{i\theta}$ with
+$\theta=\theta(\gamma)\in(-\pi,\pi]$. Then $1-\tfrac1{\bar\rho}=\bar w=e^{-i\theta}$.
+
+Group the convergent symmetric sum into these conjugate pairs. Each pair
+contributes
+$$
+\big[1-w^{n}\big]+\big[1-\bar w^{\,n}\big]
+= 2-\big(e^{in\theta}+e^{-in\theta}\big)
+= 2\big(1-\cos n\theta\big)\;\ge\;0 .
+$$
+Every pair contributes a nonnegative real amount, and the grouping is
+compatible with the (conditionally convergent) symmetric summation because
+conjugate zeros have equal imaginary height and are included together in each
+partial sum $\sum_{|\Im\rho|<T}$. Hence $\lambda_n\ge 0$ for all $n$. $\qquad\blacksquare$
+
+This also shows a **quantitative** identity under RH:
+$$
+\boxed{\;\lambda_n = \sum_{\gamma>0} 2\big(1-\cos n\theta(\gamma)\big),\qquad
+\theta(\gamma)=\arg\!\Big(1-\tfrac{1}{\tfrac12+i\gamma}\Big).\;}
+$$
+Every summand lies in $[0,4]$, so RH forces not merely nonnegativity but a
+term-by-term nonnegative representation.
+
+## Where the converse breaks (the obstruction)
+
+The hard direction — deducing RH from $\lambda_n\ge0\ \forall n$ — is where
+every attack (including this one) stalls, and the geometry above pinpoints
+why.
+
+**1. A single off-line zero is not term-by-term fatal.** Suppose one pair
+$\rho,\bar\rho$ has $\beta>\tfrac12$, so $|w|=r<1$. Its contribution to
+$\lambda_n$ is
+$$
+2 - (w^n+\bar w^{\,n}) = 2 - 2r^{n}\cos n\phi,\qquad w=re^{i\phi}.
+$$
+Since $r<1$, this equals $2-2r^n\cos n\phi \ge 2-2r^n>0$. So a zero with
+$\beta>\tfrac12$ **still contributes positively** to every $\lambda_n$. The
+violation of RH that positivity can detect is therefore only the *asymmetry*
+$\beta<\tfrac12$: a zero with $r>1$ contributes $2-2r^n\cos n\phi$, and
+$r^n\to\infty$ makes $-2r^n\cos n\phi$ eventually dominate — but **only for
+those $n$ with $\cos n\phi>0$**. Because the phases $n\phi\bmod 2\pi$ are (for
+irrational $\phi/\pi$) equidistributed, there exist infinitely many $n$ with
+$\cos n\phi\ge\tfrac12$, and for those $n$ the term $\to-\infty$.
+
+**2. Why this does not immediately yield a contradiction.** The functional
+equation $\xi(s)=\xi(1-s)$ pairs $\rho$ (with $r>1$) to $1-\rho$ (with
+$r'<1$). Under $w(s)=1-1/s$ one computes $w(1-\rho)=\dfrac{-1}{\, \rho-1\,}$,
+whose modulus is $|\rho|/|\rho-1|>1$ as well when $\beta<\tfrac12$… so a
+symmetric off-line quadruple $\{\rho,1-\rho,\bar\rho,\overline{1-\rho}\}$
+contributes a mix of growing and decaying exponentials. The genuinely
+divergent part comes from the *left-of-line* zeros, whose exponential growth
+$r^n$ must be shown to overwhelm the entire (delicately cancelling) sum over
+the infinitely many on-line/near-line zeros. Making "eventually dominant"
+rigorous requires controlling the sum
+$\sum_{\gamma}2(1-\cos n\theta(\gamma))$ **uniformly in $n$**, i.e. bounding
+oscillatory sums over the *actual* zero ordinates. This is exactly a statement
+of the same depth as RH; the positivity criterion converts RH into an infinite
+family of oscillatory-sum positivity statements without reducing its
+arithmetic content.
+
+**3. Concrete formulation of the remaining gap.** The converse is equivalent
+to: *there is no absolutely convergent nonnegative combination realizing a
+$\liminf_n \lambda_n = -\infty$ from a single off-line quadruple while the
+on-line mass stays finite.* Since off-line contributions grow like $r^n$ and
+the on-line contributions are bounded per term by $4$ but number
+$\sim \frac{T}{2\pi}\log T$ up to height $T$, a rigorous domination argument
+would need an effective count/spacing input on zeros that is not available
+unconditionally. This is the precise place a proof must inject genuinely new
+information about the horizontal distribution of zeros — precisely what is
+missing.
+
+## Honest assessment
+
+I have given a clean, correct, self-contained proof of the "easy" implication
+$\text{RH}\Rightarrow\lambda_n\ge0$ with an explicit nonnegative
+representation, and I have localized the obstruction to the converse to a
+uniform-in-$n$ oscillatory-sum domination problem that is of the same
+difficulty as RH itself. I have not proved RH and I do not believe this
+approach, as stated, can be pushed to a proof without new zero-distribution
+input. The value here is the sharpened statement of *where* Li-positivity
+fails to be self-closing: off-line zeros to the *right* help positivity, so
+only left-of-line divergence is detectable, and its detection is entangled
+with unbounded oscillatory cancellation over the on-line zeros.
+
+VERDICT: PARTIAL
+REASON: Rigorous proof of RH⇒Li-positivity with explicit nonneg form; converse obstruction localized to uniform oscillatory-sum domination.
