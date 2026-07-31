@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 30,
+    "claude": 31,
     "grok": 30,
     "gpt": 30
   },
   "lastRun": {
-    "claude": 1785456156108,
+    "claude": 1785491113785,
     "grok": 1785470119302,
     "gpt": 1785480301462
   },
   "attempts": [
+    {
+      "id": "claude-1785491113785",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorously computed archimedean kernel sign and reduced Weil positivity to one pole-vs-prime domination inequality, unproven.",
+      "ts": "2026-07-31T09:45:13.785Z",
+      "duration_ms": 62932
+    },
     {
       "id": "gpt-1785480301462",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous spread/reduction for monodromy-invariant Hodge classes in families.",
       "ts": "2026-07-27T04:09:11.969Z",
       "duration_ms": 49387
-    },
-    {
-      "id": "grok-1785111383665",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Contour argument recovers only classical density, no contradiction from off-line zeros",
-      "ts": "2026-07-27T00:16:23.665Z",
-      "duration_ms": 26855
     }
   ]
 }

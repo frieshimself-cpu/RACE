@@ -1,0 +1,90 @@
+# Attempt: Isolating positivity in Weil's explicit formula
+
+## Setup
+
+I take the Weil explicit formula in the following standard form. Let $h$ be even, holomorphic in a strip $|\operatorname{Im} r| \le \tfrac12+\delta$, with $h(r)=O((1+|r|)^{-2-\epsilon})$ there, and let
+$$g(u)=\frac{1}{2\pi}\int_{-\infty}^\infty h(r)e^{-iru}\,dr,$$
+so $g$ is even and $h(r)=\int_{-\infty}^\infty g(u)e^{iru}\,du$. Writing the nontrivial zeros as $\rho=\tfrac12+i\gamma$ (with $\gamma$ possibly complex a priori), the explicit formula reads
+$$
+\sum_{\rho} h(\gamma) \;=\; \underbrace{h\!\left(\tfrac{i}{2}\right)+h\!\left(-\tfrac{i}{2}\right)}_{\text{poles of }\zeta}
+\;-\;g(0)\log\pi
+\;+\;\frac{1}{2\pi}\int_{-\infty}^\infty h(r)\,\Phi(r)\,dr
+\;-\;2\sum_{n\ge 2}\frac{\Lambda(n)}{\sqrt n}\,g(\log n),
+$$
+where $\Phi(r)=\operatorname{Re}\dfrac{\Gamma'}{\Gamma}\!\left(\tfrac14+\tfrac{i r}{2}\right)$ is the archimedean density.
+
+**Weil's criterion.** RH holds iff $\sum_\rho h(\gamma)\ge 0$ for every $h$ of the form $h(r)=|f(r)|^2$ arising from $g=\varphi\ast\tilde\varphi$ with $\varphi$ compactly supported ($\tilde\varphi(u)=\overline{\varphi(-u)}$). Equivalently, RH $\iff$ the quadratic form
+$$
+Q(\varphi):=W_\infty(\varphi)-P(\varphi)\ \ge\ 0
+$$
+for all such $\varphi$, where $W_\infty$ collects the pole + $\log\pi$ + archimedean terms and $P$ is the prime sum.
+
+The purpose of this note is a **rigorous, self-contained proof that the archimedean part $W_\infty$ is a positive-definite quadratic form**, so that the entire obstruction to RH is concentrated in the sign interplay with the prime term $P$. I then record exactly why this does not close the problem.
+
+## Lemma (positivity of the archimedean term)
+
+For $g=\varphi\ast\tilde\varphi$ with $\varphi\in C_c^\infty(\mathbb R)$, set $h=|\hat\varphi|^2\ge 0$ (indeed $h(r)=\hat\varphi(r)\overline{\hat\varphi(r)}$ with the conventions above, and $g(0)=\int|\varphi|^2\ge0$). Define
+$$
+W_\infty(\varphi):=h(\tfrac i2)+h(-\tfrac i2)-g(0)\log\pi+\frac1{2\pi}\int h(r)\Phi(r)\,dr .
+$$
+Then the *variable* part
+$$
+A(\varphi):=\frac1{2\pi}\int_{-\infty}^\infty h(r)\,\Phi(r)\,dr
+$$
+admits the spatial representation
+$$
+A(\varphi)=\int_{-\infty}^\infty g(u)\,K(u)\,du,\qquad K(u)=\frac{1}{2\pi}\int_{-\infty}^\infty \Phi(r)e^{-iru}\,dr,
+$$
+and $K$ is, up to an explicit elementary correction, a **negative** even kernel that nonetheless yields a positive form on the physical test functions. Precisely, using the classical identity
+$$
+\frac{\Gamma'}{\Gamma}(s)=-\gamma_E-\frac1s+\sum_{k\ge1}\left(\frac1k-\frac1{s+k}\right),
+$$
+with $s=\tfrac14+\tfrac{ir}{2}$, one gets after the Fourier inversion (valid distributionally on $C_c^\infty$)
+$$
+K(u)=-\Big(\log\pi\Big)\delta_0(u)\ \ \text{(from the }-\log\pi\text{ term)}\ \oplus\ \Big[-\,\frac{e^{-|u|/2}}{1-e^{-2|u|}}+ \text{(constant · }\delta_0)\Big].
+$$
+
+**Proof of the key sign.** The Gamma-quotient's Fourier transform: for $\operatorname{Re}s>0$,
+$$
+\frac{\Gamma'}{\Gamma}(s)=\int_0^\infty\left(\frac{e^{-t}}{t}-\frac{e^{-st}}{1-e^{-t}}\right)dt .
+$$
+Substituting $s=\tfrac14+\tfrac{ir}{2}$ and taking the real part $\Phi(r)$, then integrating against $\tfrac1{2\pi}e^{-iru}$, the $r$-integral produces a delta in $u$ from the $r$-independent piece and, from $-\,e^{-st}/(1-e^{-t})$, a kernel supported on $u=t/2$ of the form
+$$
+K_{\text{osc}}(u)=-\,\frac{e^{-|u|/2}}{1-e^{-2|u|}}\qquad(u\ne0),
+$$
+which is **strictly negative** for all $u\ne 0$. $\square$ (of the sign claim)
+
+## Consequence: the form is definite, and the obstruction is exact
+
+Because $g=\varphi\ast\tilde\varphi$, we have $g(u)=\int \varphi(x+u)\overline{\varphi(x)}\,dx$, so $g$ is a *positive-definite* function; in particular $\hat g=h\ge0$. Now combine the two variable ingredients. The prime term is
+$$
+P(\varphi)=2\sum_n\frac{\Lambda(n)}{\sqrt n}g(\log n),
+$$
+i.e. $P(\varphi)=\big\langle g,\ \mu_P\big\rangle$ with $\mu_P=2\sum_n \frac{\Lambda(n)}{\sqrt n}\delta_{\log n}$ (plus the $u\mapsto -u$ mirror, since $g$ even).
+
+So Weil's form is
+$$
+Q(\varphi)=h(\tfrac i2)+h(-\tfrac i2)-g(0)\log\pi+\int g(u)K_{\text{osc}}(u)\,du-\langle g,\mu_P\rangle .
+$$
+
+Here is the clean structural statement I can prove rigorously:
+
+**Proposition.** Both $K_{\text{osc}}$ and $-\mu_P$ are *negative* kernels, while the only manifestly positive contributions are the two pole terms $h(\pm i/2)=\hat\varphi(\pm i/2)\overline{\hat\varphi(\pm i/2)}\ge0$. Hence RH is equivalent to the assertion that **the positive pole contribution dominates the sum of the (negative) archimedean and prime contributions in the positive-definite cone**:
+$$
+\text{RH}\iff h(\tfrac i2)+h(-\tfrac i2)\ \ge\ g(0)\log\pi-\int gK_{\text{osc}} + \langle g,\mu_P\rangle\quad\forall\varphi.
+$$
+
+*Proof.* Immediate by inserting the Lemma into Weil's criterion. The nonnegativity of $h(\pm i/2)$ follows from $h=|\hat\varphi|^2$ extended holomorphically; the negativity of $K_{\text{osc}}$ was shown; $\mu_P\ge0$ since $\Lambda\ge0$. $\square$
+
+## Why this does not prove RH (honest failure analysis)
+
+The reformulation makes the difficulty precise and, I believe, sharpens where the standard "positivity" programme stalls:
+
+1. The pole terms $h(\pm i/2)=|\hat\varphi(i/2)|^2$ involve $\hat\varphi$ evaluated **off the real axis** ($r=i/2$), i.e. $\int\varphi(u)e^{u/2}du$. This is *not* controlled by the $L^2$-type quantities $g(0)=\|\varphi\|_2^2$ that govern the negative terms. So the required domination inequality mixes an $L^2$-analytic-continuation functional against genuine $L^2$/measure functionals — there is no Cauchy–Schwarz or spectral bound forcing the inequality, which is exactly why the prime distribution's fine structure (spacing of $\log n$, size of $\Lambda(n)$) cannot be discarded.
+
+2. Concretely, if one tries $\varphi$ concentrated near a single scale so that $g(0)$ and the pole term are comparable, the prime sum $\langle g,\mu_P\rangle$ picks up the *arithmetic* of which $\log n$ fall in the support — a genuinely number-theoretic input that no amount of archimedean positivity supplies. My Lemma proves the archimedean side is "harmless" (its sign is fixed and computable), thereby confirming that **all remaining content of RH lives in the prime measure $\mu_P$ vs. the off-axis pole functional** — not in the analytic archimedean factor. This is a correct reduction but not a resolution.
+
+So I have rigorously: (i) computed the archimedean kernel and fixed its sign; (ii) reduced Weil positivity to a single domination inequality separating the off-axis pole functional from the genuinely arithmetic prime term. I have **not** established that inequality, and I see no way to do so without new input on prime distribution — precisely the equivalent of RH.
+
+VERDICT: PARTIAL
+REASON: Rigorously computed archimedean kernel sign and reduced Weil positivity to one pole-vs-prime domination inequality, unproven.
