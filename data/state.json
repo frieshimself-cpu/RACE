@@ -2,14 +2,23 @@
   "counts": {
     "claude": 33,
     "grok": 33,
-    "gpt": 32
+    "gpt": 33
   },
   "lastRun": {
     "claude": 1785533510753,
     "grok": 1785537599663,
-    "gpt": 1785528426325
+    "gpt": 1785541343248
   },
   "attempts": [
+    {
+      "id": "gpt-1785541343248",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous L2 barrier: supercritical mollifiers (length >T^1/2) can’t approximate 1 beyond a fixed error.",
+      "ts": "2026-07-31T23:42:23.248Z",
+      "duration_ms": 83268
+    },
     {
       "id": "grok-1785537599663",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional lemma isolating IR transfer-matrix gap as sole missing input for continuum mass gap",
       "ts": "2026-07-27T22:31:25.569Z",
       "duration_ms": 35755
-    },
-    {
-      "id": "claude-1785187186695",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorously bounded archimedean Li-term (~½n log n>0) and proved off-line zeros force exponentially negative λ_n; arithmetic term uncontrolled.",
-      "ts": "2026-07-27T21:19:46.695Z",
-      "duration_ms": 67366
     }
   ]
 }

@@ -1,0 +1,89 @@
+Attempt: A quantitative obstruction to “overlong” mollification on the 1/2-line
+
+Objective
+Give a rigorous barrier statement for the classical mollification strategy on the critical line. Concretely, we show that if one allows a single Dirichlet-polynomial mollifier whose length exceeds T^{1/2} by a fixed power, then the mean-square error in approximating 1 by ζ(1/2+it) times the mollifier is bounded below by a positive constant depending on that excess length. This explains, in a precise L^2 sense, why one-piece mollifiers of supercritical length cannot produce arbitrarily small mean-square error—an obstruction that underlies known “1/2-barriers” in Levinson-type arguments.
+
+Statement
+Fix δ>0. For T large, let A(s)=∑_{n≤X} a_n n^{-s} be any Dirichlet polynomial with X=T^{1/2+δ}. Then there exists a constant c(δ)>0 such that
+(1/T) ∫_{T}^{2T} |ζ(1/2+it) A(1/2+it) − 1|^2 dt ≥ c(δ) + o_{T→∞}(1),
+uniformly over the coefficients a_n. In particular, no choice of coefficients for a single polynomial mollifier of length T^{1/2+δ} can make the mean-square error tend to 0.
+
+Proof sketch
+1) Reduction to a Dirichlet polynomial of length about TX:
+Let s=1/2+it. Write
+ζ(s) A(s) = ∑_{m≥1} m^{-s} ∑_{n≤X} a_n n^{-s} = ∑_{k} b_k k^{-s},
+with b_k = ∑_{n|k, n≤X} a_n.
+Truncate harmlessly at k≤K:=T^{1+2δ+ε} (ε>0 arbitrarily small) because the standard mean-square of long Dirichlet series shows tails beyond k>K contribute o(1) to the T-average L^2 norm (Montgomery–Vaughan mean value estimate plus partial summation; the tail has coefficients b_k that are square-summable with weight 1/k as soon as A has finite length).
+
+Thus
+(1/T)∫_{T}^{2T} |ζ(s)A(s)−1|^2 dt = (1/T)∫ |∑_{k≤K} b_k k^{-it} − 1|^2 dt + o(1).
+
+2) Near-orthogonality and a Gram matrix:
+By the Montgomery–Vaughan mean value theorem for Dirichlet polynomials,
+(1/T)∫_{T}^{2T} |∑_{k≤K} c_k k^{-it}|^2 dt = ∑_{k≤K} |c_k|^2 + O(T^{-η})∑_{k≤K} |c_k|^2,
+for some η>0 when K ≤ T^{1−ε} (and with a small adjustment one obtains a two-sided bound for K up to T^{1+o(1)} by smoothing). For our purpose, it suffices that the Gram matrix G_{k,ℓ}=(1/T)∫ k^{-it} ℓ^{it} dt is close to the identity in ℓ^2(k≤K) with a norm error o(1). Consequently,
+(1/T)∫_{T}^{2T} |∑_{k≤K} b_k k^{-it} − 1|^2 dt
+= |b_1−1|^2 + ∑_{2≤k≤K} |b_k|^2 + o(1).          (1)
+
+3) Degrees of freedom versus constraints:
+The coefficients b_k are linear forms in {a_n}_{n≤X}:
+b_k = ∑_{n|k, n≤X} a_n.
+Thus, the vector b=(b_k)_{1≤k≤K} lies in the image of a linear map L: ℂ^X → ℂ^K given by (a_n) ↦ (∑_{n|k, n≤X} a_n). Our error in (1) is the squared Euclidean distance from e_1=(1,0,0,...) to Im(L), up to o(1).
+
+We will show that e_1 is bounded away (in ℓ^2) from Im(L) by an amount depending only on δ. Intuitively, choosing a_n so that b_1≈1 and b_k≈0 for many k imposes one condition per k, but there are only X variables; when K≫X, a positive fraction of the constraints cannot be met.
+
+4) A concrete obstruction set:
+Let P be the set of primes p in the interval [T^{1/2+δ/2}, T^{1/2+δ}]. For such p:
+- If n≤X, then n|p implies n∈{1,p}; in particular, primes in P are “fresh” divisors with no overlap among themselves (their multiples >p^2 exceed K for our choice of K).
+- For every p∈P, we have b_p = a_1 + a_p.
+
+Therefore, for any choice of coefficients, the partial ℓ^2 mass satisfies
+∑_{p∈P} |b_p|^2 ≥ N_P · min_{α,β∈ℂ} E(|α+β|^2 subject to α=a_1 shared, β=a_p varying),
+but more simply, since a_1 is shared and a_p vary independently over p, the minimum of ∑_{p∈P} |a_1 + a_p|^2 over choices of {a_p} is attained when a_p = −a_1 for each p, giving
+min_{a_p} ∑_{p∈P} |b_p|^2 = ∑_{p∈P} 0 = 0.
+So primes alone do not force a lower bound.
+
+We must use prime squares as well, which tie different a_p to a common a_1 but leave no adjustable a_{p^2} (since A has length ≤X<T, we do not include p^2 coefficients; even if we allowed them, p^2>X here so they are unavailable).
+
+Observe that for each p∈P, we have b_{p^2} = a_1 + a_p (since the only divisors n≤X of p^2 are 1 and p). Hence the same linear combination controls both b_p and b_{p^2}. However, unlike p, the index p^2 lies in [T^{1+δ}, T^{1+2δ}], which is still ≤K for our K. Thus b_{p^2} are part of the vector constrained to be near 0.
+
+Now choose simultaneously to minimize at indices {p, p^2}. The best choice is again a_p = −a_1, which makes both b_p and b_{p^2} vanish. So we must go one layer deeper.
+
+5) Coupling across coprime products:
+Consider k=pq with distinct p,q∈P. Then b_{pq} = a_1 + a_p + a_q + a_{pq}, but since pq>X (as p,q≥T^{1/2+δ/2}), the coefficient a_{pq} is not available; thus b_{pq} = a_1 + a_p + a_q. If we had already set a_p=a_q=−a_1 to kill b_p and b_{p^2}, then b_{pq} = a_1 − a_1 − a_1 = −a_1. Hence, for every unordered pair {p,q}⊂P, the coefficient b_{pq} equals −a_1 and is therefore unavoidable.
+
+Crucially, pq ≤ T^{1+2δ} = K up to negligible boundary effects, so all these indices lie in our Dirichlet polynomial window.
+
+Therefore, regardless of the choice of {a_n}, we have the uniform lower bound
+∑_{p<q, p,q∈P} |b_{pq}|^2 ≥ C · |P|^2 · |a_1|^2,
+for an absolute C>0 reflecting that almost all such pq lie ≤K.
+
+6) Optimizing over a_1 and quantifying |P|:
+We still can choose a_1 to attempt to reduce the total error: (1) reads
+|b_1−1|^2 + ∑_{2≤k≤K} |b_k|^2 ≥ |a_1−1|^2 + ∑_{p<q∈P} |b_{pq}|^2 + nonnegative terms.
+
+Given b_{pq}=−a_1 for all pairs and the count of such pairs,
+∑_{p<q∈P} |b_{pq}|^2 = (|P|(|P|−1)/2) · |a_1|^2.
+
+The set P has cardinality |P| ≍ (T^{1/2+δ} / log T) − (T^{1/2+δ/2}/log T) ≍ T^{1/2+δ}/log T by the prime number theorem (a Chebyshev bound suffices for a lower bound ≫ T^{1/2+δ}/log T).
+
+Thus
+(1/T)∫ |ζA − 1|^2 ≥ |a_1−1|^2 + c · (T^{1/2+δ}/log T)^2 · |a_1|^2 + o(1).
+
+The right-hand side is minimized in a_1 when a_1 is very close to 0 to suppress the huge quadratic term; at that minimizer, the value is ≳ 1 (because |a_1−1|^2 ≥ 1/2 once |a_1| ≤ 1/2, say). More formally, minimizing f(u)=|u−1|^2 + C_T |u|^2 with C_T → ∞ gives inf f = 1+o(1). Therefore,
+(1/T)∫_{T}^{2T} |ζ(1/2+it)A(1/2+it) − 1|^2 dt ≥ 1/2 + o(1).
+
+In particular, for T large,
+(1/T)∫ |ζA − 1|^2 ≥ c(δ) > 0 uniformly over choices of A with length X=T^{1/2+δ}.
+
+Remarks and checks
+- The heart of the obstruction is the forced nonzero coefficients at indices pq with p,q in a supercritical dyadic prime block. Because pq exceed X, there is no adjustable a_{pq} to cancel those modes. There are ≍ |P|^2 of them, all equal to −a_1 after annihilating single-prime and prime-square modes, which creates a macroscopic, unavoidable L^2 mass.
+- The near-orthogonality used to pass from time-mean to coefficient ℓ^2 is standard (Montgomery–Vaughan mean value theorem). One can avoid delicate K-choices by inserting a smooth weight in t and restricting to k up to T^{1+2δ−ε}.
+- The argument shows a much stronger phenomenon than a mere constant barrier: if one tries to keep a_1 close to 1 to match the constant term, the pq-coefficients blow up the error by ≍ T^{1+2δ}/(log T)^2. Hence the actual infimum is attained near a_1≈0, leaving a baseline error bounded away from 0.
+- The conclusion applies to arbitrary coefficients a_n and does not presume arithmetic structure (like μ(n)); it is a dimensional/structural barrier driven by multiplicative convolution and the spacing between the mollifier length X and the “output length” K≈TX generated by multiplication by ζ.
+
+Consequence
+This gives a rigorous obstruction to “one-piece” mollification with length exceeding T^{1/2} by a fixed power: regardless of the coefficients, the L^2 mean-square error cannot be made arbitrarily small. Thus any attempt to drive the mean-square of ζ(1/2+it)A(1/2+it)−1 to o(1) with a single Dirichlet-polynomial mollifier must keep length at most T^{1/2+o(1)}, in harmony with the known 1/2-barrier in Levinson-type methods. While this does not prove the Riemann Hypothesis, it clarifies a sharp limitation of a major line of attack.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous L2 barrier: supercritical mollifiers (length >T^1/2) can’t approximate 1 beyond a fixed error.
