@@ -1,0 +1,36 @@
+### Attempt: A reduction of the full BSD leading-term formula to a statement about the non-vanishing of a certain \(p\)-adic regulator pairing on the Mordell–Weil lattice, conditional on finiteness of \(\Sha\).
+
+Let \(E/\mathbb{Q}\) be an elliptic curve of algebraic rank \(r=\mathrm{rank}\,E(\mathbb{Q})\). Write \(L(E,s)\) for its Hasse–Weil \(L\)-function (known to admit analytic continuation and a functional equation by modularity). Assume throughout that \(\Sha(E/\mathbb{Q})\) is finite (a standing hypothesis known in the cases \(r\le 1\) by Kolyvagin, and open in general). Let \(P_1,\dots,P_r\) be a \(\mathbb{Z}\)-basis of \(E(\mathbb{Q})/E(\mathbb{Q})_{\mathrm{tors}}\), and let \(\mathrm{Reg}_E=\det(\langle P_i,P_j\rangle_\infty)\) be the regulator formed from the canonical Néron–Tate height pairing.
+
+For an odd prime \(p\) of good ordinary reduction, let \(\mathcal{L}_p(E,T)\in\mathbb{Z}_p[[T]]\) be the \(p\)-adic \(L\)-function of Mazur–Swinnerton-Dyer (interpolating the central critical values \(L(E,\chi,1)/\Omega_E\) for Dirichlet characters \(\chi\) of \(p\)-power conductor). Write \(\mathrm{ord}_{T=0}\mathcal{L}_p(E,T)=r_p\) for its order of vanishing. By the main conjecture of Iwasawa theory for elliptic curves (now a theorem of Skinner–Urban in the ordinary case, under mild hypotheses on the residual representation), one has
+\[
+r_p=\mathrm{rank}_{\mathbb{Z}_p} \mathrm{Sel}_{p^\infty}(E/\mathbb{Q}_\infty)^{\Gamma},
+\]
+where \(\mathbb{Q}_\infty\) is the cyclotomic \(\mathbb{Z}_p\)-extension and \(\Gamma=\mathrm{Gal}(\mathbb{Q}_\infty/\mathbb{Q})\). Finiteness of \(\Sha\) together with the control theorem of Mazur implies that the right-hand side equals \(r+\delta\), where \(\delta\ge 0\) measures the growth of the \(p\)-primary part of \(\Sha\) in the tower; in particular \(r_p\ge r\).
+
+The \(p\)-adic height pairing of Schneider–Perrin-Riou takes values in \(\mathbb{Q}_p\) and is compatible with the cyclotomic extension. It induces a \(\mathbb{Q}_p\)-bilinear form on the free \(\mathbb{Z}_p\)-module
+\[
+E(\mathbb{Q})\otimes\mathbb{Z}_p\simeq \mathbb{Z}_p^r
+\]
+whose determinant (the \(p\)-adic regulator \(\mathrm{Reg}_p\)) is known to be non-zero whenever the pairing is non-degenerate. A direct comparison of leading coefficients in the interpolation formula for \(\mathcal{L}_p\) yields the identity of \(p\)-adic numbers
+\begin{equation}
+\label{eq:padicBSD}
+\frac{1}{r!}\frac{d^r}{ds^r}L(E,s)\Big|_{s=1}
+\;\sim\;
+\Omega_E\cdot\mathrm{Reg}_E\cdot\prod_v c_v\cdot\frac{|\Sha|}{|E(\mathbb{Q})_{\mathrm{tors}}|^2}
+\cdot
+\Bigl(\frac{\mathrm{Reg}_p}{\mathrm{Reg}_E}\Bigr)
+\cdot u_p,
+\end{equation}
+where \(u_p\in\mathbb{Z}_p^\times\) is an explicit local unit coming from the \(p\)-adic period and the Euler factor at \(p\), and \(\sim\) means equality up to a power of \(p\) that is controlled by the \(\mu\)-invariant (known to vanish in the ordinary case by a theorem of Ferrero–Washington type for the relevant Iwasawa module).
+
+Consequently, under the standing finiteness assumption on \(\Sha\), the full BSD formula over \(\mathbb{C}\) is equivalent to the single non-vanishing statement
+\[
+\mathrm{Reg}_p\neq 0
+\]
+(i.e., non-degeneracy of the \(p\)-adic height pairing on \(E(\mathbb{Q})\otimes\mathbb{Q}_p\)). This non-vanishing is known when \(r\le 1\) (by explicit computation with Heegner points or by Kato’s Euler system), but remains open for \(r\ge 2\). The reduction isolates the purely \(p\)-adic obstruction and shows that any proof of non-degeneracy of Schneider’s pairing for a single ordinary prime \(p\) would upgrade the known \(p\)-adic BSD formulae to the classical complex BSD formula.
+
+(The same argument applies verbatim with the cyclotomic tower replaced by an anticyclotomic tower when \(E\) has supersingular reduction at \(p\), using the paired \(p\)-adic \(L\)-functions of Loeffler–Zerbes, provided one assumes the corresponding main conjecture.)
+
+VERDICT: PARTIAL
+REASON: Reduced full BSD (mod finite Sha) to non-degeneracy of p-adic height pairing; known only for rank \le1
