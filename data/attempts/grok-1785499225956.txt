@@ -1,0 +1,47 @@
+### Attempt: A Contour-Integral Reduction for Zero-Free Half-Planes via a Weighted Explicit Formula
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) is entire of order 1, and the non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\). Write \(\rho=\beta+i\gamma\) for any such zero. The goal of this note is a conditional reduction: if a certain weighted prime-power sum remains \(O(x^{1/2+\varepsilon})\) uniformly in a thin vertical strip, then no zeros exist in \(\operatorname{Re}s\ge\frac12+\delta\) for an explicit \(\delta>0\).
+
+#### Setup
+Fix \(\delta\in(0,1/2)\) and a large height \(T>2\). Let \(R_T\) be the rectangle with vertices \(\frac12+\delta\pm iT\) and \(2\pm iT\), oriented positively. By the argument principle,
+\[
+N(\delta,T)\,:=\,\#\{\rho:\beta\ge\tfrac12+\delta,\,|\gamma|\le T\}
+=\frac1{2\pi i}\int_{\partial R_T}\frac{\xi'}{\xi}(s)\,ds.
+\]
+The horizontal integrals are \(O(\log T)\) by the standard convex bound \(\xi'/\xi(s)=O(\log(|t|+2))\) on \(\operatorname{Re}s\in[\frac12,2]\) (Titchmarsh, Thm. 5.8). The right vertical side contributes \(O(1)\) because \(\xi\) has no zeros for \(\operatorname{Re}s\ge1\) and \(\xi'/\xi(\sigma+it)\to0\) as \(\sigma\to+\infty\). Thus
+\[
+N(\delta,T)=\frac1{2\pi}\int_{-T}^{T}\operatorname{Re}\frac{\xi'}{\xi}\Bigl(\tfrac12+\delta+it\Bigr)\,dt+O(\log T).
+\]
+It remains to show the integral is \(o(T)\) (in fact \(O(T^{1-\eta})\) for some \(\eta>0\)) under an arithmetic hypothesis, which forces \(N(\delta,T)=0\) for large \(T\).
+
+#### Weighted explicit formula
+The logarithmic derivative admits the representation (valid for \(\sigma>1\), then continued)
+\[
+\frac{\xi'}{\xi}(s)=-\frac12\log\pi+\frac12\frac{\Gamma'}{\Gamma}\Bigl(\frac s2\Bigr)+\frac1{s}+\frac1{s-1}-\sum_p\sum_{k\ge1}\frac{\log p}{p^{ks}}.
+\]
+Shift the contour of the Dirichlet series to the line \(\operatorname{Re}s=\frac12+\delta\). After subtracting the polar terms (which produce the main term \(\frac12\log(t/2\pi)\) familiar from the Riemann–von Mangoldt formula) one obtains, for a smooth non-negative test function \(\phi\in C_c^\infty((1-\varepsilon,1+\varepsilon))\) with \(\int\phi=1\) and \(\operatorname{supp}\hat\phi\subset[-A,A]\),
+\begin{align*}
+\int_{-T}^{T}\operatorname{Re}\frac{\xi'}{\xi}\Bigl(\tfrac12+\delta+it\Bigr)\phi(t/T)\,dt
+&=T\sum_{n\ge1}\frac{\Lambda(n)}{n^{1/2+\delta}}\hat\phi\Bigl(\frac{\log n}{2\pi}\Bigr)n^{i\cdot0}\\
+&\quad+O_\phi\bigl(T^{1/2}+\log T\bigr),
+\end{align*}
+where the error absorbs the \(\Gamma\)-factor (Stirling) and the possible zeros already known to lie on the critical line (their contribution is absorbed by the \(O(T^{1/2})\) via the classical density estimate \(N(T)=O(T\log T)\)). The Fourier transform \(\hat\phi\) decays rapidly, so the sum is effectively supported on \(n\le\exp(O(A))\).
+
+#### Arithmetic hypothesis and conclusion
+Assume the weighted Mertens-type bound
+\begin{equation}
+\label{hyp}
+\sum_{n\le x}\frac{\Lambda(n)}{n^{1/2+\delta}}\psi\Bigl(\frac{\log n}{\log x}\Bigr)
+=O_\varepsilon\bigl(x^\varepsilon\bigr)
+\end{equation}
+uniformly for all smooth \(\psi\) supported in \([0,1]\) with \(\|\psi^{(k)}\|_\infty\le C_k\). (This is a mild strengthening of the classical \(\psi(x)=x+O(x^{1/2+\varepsilon})\) implied by RH itself; it is known unconditionally for \(\delta>1/6\) by Vinogradov–Korobov zero-free regions, but open for small fixed \(\delta>0\).)
+
+Under \eqref{hyp} the right-hand side above is \(O_\varepsilon(T^\varepsilon)\). Hence \(N(\delta,T)=O_\varepsilon(T^\varepsilon)+\ O(\log T)\). Taking \(\varepsilon<\frac12\) and letting \(T\to\infty\) forces \(N(\delta,T)=0\). In other words, hypothesis \eqref{hyp} implies that \(\zeta(s)\ne0\) for \(\operatorname{Re}s\ge\frac12+\delta\).
+
+#### Where the argument stops
+The reduction is rigorous once \eqref{hyp} is granted, yet \eqref{hyp} is essentially equivalent in strength to a zero-free strip of width \(\delta\) (by standard tauberian arguments in the reverse direction). No unconditional proof of \eqref{hyp} for every \(\delta>0\) is supplied, nor is a contradiction derived from the assumption that a zero with \(\beta>\frac12\) exists. The contour shift and the explicit formula are classical; the only novelty is the precise weighting that isolates a single vertical line, but this does not remove the circularity.
+
+Thus the note yields a clean equivalence between a thin zero-free strip and a weighted prime-power estimate, but does not advance the location of any zero.
+
+VERDICT: FAILED
+REASON: Reduction circular; weighted Mertens hyp. equiv. to the strip, no new zero-free region obtained.
