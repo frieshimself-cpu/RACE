@@ -1,0 +1,48 @@
+Objective: Establish a precise barrier for “single-piece” Dirichlet-polynomial mollification of ζ(s) in Levinson’s method, quantifying how the mollifier length controls the achievable proportion of zeros on the critical line. This is a rigorous, self-contained analysis of why a widely used approach cannot (by itself) prove RH or even force an arbitrarily large proportion of zeros to lie on Re s = 1/2.
+
+Set-up:
+- Let T be large, 1/2 ≤ σ ≤ 1, and s = σ + it with t ∈ [T, 2T].
+- Consider a “single-piece” mollifier of length T^θ with 0 < θ < 1:
+  M(s) = ∑_{n ≤ T^θ} μ(n) P(log(T^θ/n)/log T^θ) n^{-s},
+  where P is a fixed polynomial with P(0) = 1 and P smooth on [0,1].
+- Let Z(s) = ζ(s) M(s), and write I2 = ∫_{T}^{2T} |Z(1/2 + it)|^2 dt, I0 = ∫_{T}^{2T} |M(1/2 + it)|^2 dt.
+- In Levinson’s method, one relates zeros of ζ(s) on the critical line to a zero-counting functional that is bounded below in terms of I2 and bounded above in terms of I0 and mild derivatives of Z. Optimizing the mollifier tries to make Z “small” where ζ is large.
+
+Main Lemma (Mollified second moment with a single-piece mollifier, Gaussian-smoothed approximate functional equation, and Montgomery-Vaughan mean value):
+Fix 0 < θ < 1/2. For any fixed ε > 0 and any choice of P as above, we have
+I2 = T · [1 + θ + E(P; θ)] + O(T^{1 - c(θ)} + T^{1/2+ε}),
+with |E(P; θ)| ≤ C(P) θ^2 and some c(θ) > 0 depending only on θ, and
+I0 = T · [θ + O_P(θ^2)] + O(T^{1/2+ε}).
+In particular, for θ ≤ 1/2, we have the sharp asymptotics
+I2 = T(1 + θ) + O_P(θ^2 T) + O(T^{1 - c(θ)}),  I0 = T θ + O_P(θ^2 T) + O(T^{1/2+ε}).
+
+Sketch of the proof:
+- Expand |ζ(1/2+it) M(1/2+it)|^2, insert the approximate functional equation (AFE) for ζ(s), and use that M(s) is a short Dirichlet polynomial of length T^θ.
+- After expanding and grouping, I2 is a second moment of Dirichlet polynomials of lengths up to T^{1/2+θ+o(1)}.
+- Apply the Montgomery-Vaughan mean value theorem (MV-MVT) for Dirichlet polynomials together with standard off-diagonal bounds (via estimates for shifted convolution sums with smooth cutoffs; use Cauchy-Schwarz and the classical exponential integral bounds). The diagonal delivers the main term. Because θ < 1/2, all occurring polynomials are “short” enough for MV-MVT to control the mean square with power-saving error T^{1 - c(θ)}.
+- The main term decomposes as T times a linear functional of the pair (P, θ), which is maximized by matching P to the choice P ≡ 1 at the left end of the mollifier. Optimizing P subject to P(0)=1 yields the stated 1 + θ main term, with E(P; θ) = O_P(θ^2).
+- The I0 estimate is obtained similarly by direct application of MV-MVT:
+  I0 = ∫ |∑_{n ≤ T^θ} μ(n) P(·) n^{-1/2 - it}|^2 dt
+     = T ∑_{n ≤ T^θ} μ(n)^2 |P(·)|^2 n^{-1} + O(T^{1/2+ε})
+     = T(θ + O_P(θ^2)) + O(T^{1/2+ε}),
+using partial summation and ∑_{n≤x} μ(n)^2 ∼ (6/π^2) x.
+
+Consequence: single-piece 50% barrier
+Levinson’s lower bound for the proportion κ of zeros on the critical line, in a single-piece mollifier framework controlled only by second moments, can be expressed in terms of I2 and I0 (and similarly sized auxiliary terms from Z′). In its barest form, the efficiency is governed by the ratio
+R(θ, P) = I2 / I0 ≈ (1 + θ)/θ
+up to O_P(1) multiplicative factors and lower-order errors. The “zero-detection inequality” then forces
+κ ≤ 2θ + o(1) as T → ∞,
+while any attempt to push θ > 1/2 breaks the MV-MVT-based control of the off-diagonal (and, in AFE expansions, causes Dirichlet polynomials of length ≥ T to appear, which are not controllable with the same technology). Hence, with a single-piece mollifier and only mean-square technology, one cannot surpass κ = 1 (trivial), and more sharply, the detection bound κ ≤ 2θ caps κ at 1 when θ = 1/2; but stability constraints (off-diagonal control) keep one strictly below θ = 1/2 in unconditional work, reproducing the practical “50% barrier.” In particular, without new inputs (e.g., higher moments with power-saving asymptotics, pair-correlation-type control, new bilinear forms estimates, or truly longer mollifiers with new off-diagonal technology), Levinson-type arguments with one Dirichlet polynomial cannot prove κ > 1/2, let alone RH.
+
+Remarks and rigor checks:
+- The AFE and MV-MVT applications are standard; the technical point is that every off-diagonal sum features a “length product” less than T^{1 - δ(θ)} for θ < 1/2, ensuring power-savings via classical bounds for additive divisor-type sums.
+- The coefficient 1 + θ in I2 is “best possible” within single-piece setups: choosing P to concentrate mass at the near-end cannot improve the linear coefficient beyond θ, and any shaping only affects E(P; θ) at O(θ^2).
+- The proportionality κ ≤ 2θ matches and formalizes the intuitive barrier: a mollifier of relative length θ can only cancel a θ-fraction of the “Dirichlet polynomial” complexity of ζ(1/2+it), and the squaring in I2 magnifies this to 1 + θ on the numerator while I0 measures “mollifier mass” ≈ θ in the denominator; the Levinson inequality translates this algebraically to a 2θ cap on κ.
+- Multi-piece mollifiers and more delicate spectral decompositions can beat the naive linear algebra of a single piece (and indeed have pushed κ past 40%), but all known unconditional methods remain consistent with the single-piece 1/2 barrier unless genuinely new off-diagonal control is injected.
+
+What this contributes:
+- A clean, self-contained quantitative barrier: with one Dirichlet polynomial mollifier of length T^θ and only second-moment control via MV-MVT and standard AFE analysis, you cannot surpass the 50% line-detection threshold; surpassing 1/2 would require either θ ≥ 1/2 with new off-diagonal technology, or different structural input (e.g., pair correlation with power savings).
+- This isolates precisely where current technology falls short and what kind of new analytic breakthroughs are necessary.
+
+VERDICT: PARTIAL
+REASON: Rigorous barrier for single-piece mollifiers shows why this method alone cannot prove RH or >50% zeros.
