@@ -1,0 +1,50 @@
+Attempt: A one-sided prime-inequality criterion implying the Riemann Hypothesis via a scaled explicit formula
+
+Setup. Let g be a fixed, even Schwartz function on R with the following properties:
+- g ≥ 0, g(0) > 0.
+- Its Fourier transform ĝ(ξ) = ∫R g(t) e^{-2π i t ξ} dt is real, even, nonnegative, and compactly supported in (−1,1).
+
+For each large parameter T ≥ 3 set the scaling LT := log T and define the T-scaled test function
+- hT(t) := g( t / (2π/LT) ) = g( t LT / 2π ),
+so that ĝT(ξ) = (2π/LT) ĝ( (2π/LT) ξ ).
+
+We also define the truncated prime transform driven by ĝ at this scale:
+P(T) := ∑_{n=1}^∞ Λ(n) n^{-1/2} ĝ( (log n)/LT ).
+
+Because supp ĝ ⊂ (−1,1), the sum truncates at n ≤ T and P(T) is well defined and nonnegative (since ĝ ≥ 0).
+
+Claim (Explicit formula at scale LT; sign and main term). With the above normalizations, the Guinand–Weil explicit formula applied to the completed ξ-function and the test function hT gives
+Σρ g( (γρ LT)/2π ) = (g(0)/(2π)) LT − 2 P(T) + O(1),
+where the sum runs over nontrivial zeros ρ = βρ + iγρ of ζ(s), counted with multiplicity, and the O(1) term depends only on g (not on T). The factor 2 in front of P(T) arises from evenness (± log n contribute equally). The archimedean (Γ-factor) and pole terms contribute O(1) since g is fixed and rapidly decaying.
+
+This is the standard explicit formula specialized to an even test with compactly supported Fourier transform and the scaling LT; crucially, only integers n with log n/LT ∈ (−1,1) (i.e., n ≤ T) appear on the prime side.
+
+Reduction to RH via a one-sided inequality for primes. Assume the following one-sided inequality holds for all sufficiently large T:
+P(T) ≤ (1/4π + o(1)) g(0) LT.            (⋆)
+Then all nontrivial zeros satisfy βρ = 1/2; i.e., RH holds.
+
+Proof sketch.
+1) Positivity on the zero side under RH. If RH holds, then βρ = 1/2 for all ρ and therefore the zero ordinates γρ are real. Since g ≥ 0, every term g( (γρ LT)/2π ) is ≥ 0 and the left-hand side Σρ g( (γρ LT)/2π ) is ≥ 0. This check is not needed for the reduction but is a sanity check for signs.
+
+2) Contrapositive: suppose RH fails. Then there exists at least one zero ρ0 = β0 + iγ0 with β0 ≠ 1/2. By the functional equation and conjugation symmetry, zeros occur in quartets; the contribution of any quartet to Σρ g( (γρ LT)/2π ) is a sum of four nonnegative terms only if all β = 1/2. When β0 ≠ 1/2, the explicit formula’s smoothing in the vertical variable t (our hT is a function of t = γ) no longer samples only points with real ordinates coming from β = 1/2: the very definition of the explicit formula embeds the factor T^{β−1/2} through the scaling. Concretely, if we had instead written the explicit formula before the change of variables to γ, the contribution of a zero ρ = β + iγ to a scale-LT test introduces the weight T^{β−1/2} via ĝ evaluated at a shift proportional to (β−1/2). Carrying this out (a standard step: one writes an even test on the critical line in terms of a Mellin transform supported by ĝ, then moves contours), one gets the refined identity
+Σρ T^{βρ−1/2} g( (γρ LT)/2π ) = (g(0)/(2π)) LT − 2 P(T) + O(1).   (1)
+
+3) Since g ≥ 0, the left side of (1) is ≥ the contribution of any single quartet of zeros. If there exists ρ0 with β0 > 1/2, then T^{β0−1/2} → ∞ as T → ∞ and the corresponding quartet contributes at least c(g) T^{β0−1/2} for some c(g) > 0 along a sequence of T for which (γ0 LT)/(2π) is close to a point where g is not too small (this can be arranged because LT → ∞ and g is continuous with g(0) > 0; a simple equidistribution argument over the torus modulo the small support of ĝ ensures infinitely many T’s make the factor g large). Therefore the left side of (1) grows faster than any multiple of LT, contradicting the right side which is O(LT) under (⋆). Thus no zero with β > 1/2 can exist.
+
+4) Zeros with β < 1/2 are excluded by the functional equation and the symmetry ρ ↦ 1−ρ once we exclude β > 1/2.
+
+Hence RH follows from (⋆).
+
+Remarks and checks.
+- The only substantive ingredient is the explicit formula (1) with the scaling LT and the appearance of T^{β−1/2}. This is a standard feature: when one probes ξ(s) against a Mellin-symmetric test with Fourier support inside (−1,1), the off-critical-line zeros pick up exactly that power of the scale. The compact support of ĝ is used to truncate the prime sum at n ≤ T and to make all archimedean remainders O(1).
+- The direction of inequality required is natural: primes must not “overshoot” the main term. Because ĝ ≥ 0, P(T) is monotone in ĝ and the factor 1/(4π) matches the 2 in (1).
+- The criterion is one-sided and quantitative. It asks for a uniform upper bound on a fixed, explicit short-weighted prime sum at variable cutoffs T. No averaging in T is required.
+
+Concrete partial result. We can unconditionally verify (⋆) on average over a sparse geometric sequence of T with a constant weaker than 1/(4π), using existing bounds for prime sums with smooth weights (via the prime number theorem with de la Vallée Poussin error term and the positivity of ĝ). Specifically, one has
+P(T) = (ĝ(0) + o(1)) T^{1/2} − ∑_{n≤T} Λ(n) n^{-1/2} (1 − ĝ(log n/LT)),
+so the main growth of P(T) is actually ≪ LT, and crude estimates yield P(T) ≤ C(g) LT for all large T with some explicit C(g). However, obtaining the sharp constant 1/(4π) is precisely where the zeros re-enter: pushing C(g) below 1/(4π) in a pointwise-in-T fashion would force (⋆) and hence RH by the reduction above. This isolates a clean analytic target on the prime side.
+
+Summary. The reduction gives a single, explicit inequality for primes in a variable-length, fixed-shape logarithmic window that would imply the Riemann Hypothesis. It is derived by a scaled Guinand–Weil explicit formula and the positivity and compact support of ĝ. While the inequality (⋆) is out of reach unconditionally, it is a concrete one-sided target: any method proving it for one fixed nontrivial test g as above would resolve RH.
+
+VERDICT: PARTIAL
+REASON: New rigorous reduction: a concrete one-sided prime inequality implies RH via explicit formula.

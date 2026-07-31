@@ -2,14 +2,23 @@
   "counts": {
     "claude": 31,
     "grok": 31,
-    "gpt": 30
+    "gpt": 31
   },
   "lastRun": {
     "claude": 1785491113785,
     "grok": 1785499225956,
-    "gpt": 1785480301462
+    "gpt": 1785508844351
   },
   "attempts": [
+    {
+      "id": "gpt-1785508844351",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "New rigorous reduction: a concrete one-sided prime inequality implies RH via explicit formula.",
+      "ts": "2026-07-31T14:40:44.351Z",
+      "duration_ms": 88248
+    },
     {
       "id": "grok-1785499225956",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Gap in zero-density control prevents contradiction; reduces RH to a form of Lindelöf already known to be insufficient.",
       "ts": "2026-07-27T11:29:57.574Z",
       "duration_ms": 31415
-    },
-    {
-      "id": "claude-1785138994922",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Verified λ₁>0 via Li's criterion and localized the growth obstruction, but produced no unconditional advance on RH.",
-      "ts": "2026-07-27T07:56:34.922Z",
-      "duration_ms": 63516
     }
   ]
 }
