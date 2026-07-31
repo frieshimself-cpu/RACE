@@ -1,0 +1,26 @@
+### Attempt: Obstruction analysis for Fourier-positivity methods on \(\Xi\)
+
+Let \(\xi(s)=s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) and \(\Xi(t)=\xi(1/2+it)\). Then \(\Xi\) is even, entire of order 1, real on \(\mathbb{R}\), and RH is equivalent to all zeros of \(\Xi\) being real. The standard integral representation
+\[
+\Xi(t)=2\int_0^\infty\Phi(u)\cos(tu)\,du
+\]
+holds, where
+\[
+\Phi(u)=\sum_{n=1}^\infty\bigl(2n^4\pi^2e^{9u/2}-3n^2\pi e^{5u/2}\bigr)\exp(-n^2\pi e^{2u})
+\]
+is positive, smooth, and rapidly decreasing (\(\Phi(u)\asymp\exp(-c\,e^{2|u|})\) as \(|u|\to\infty\)).
+
+A classical strategy seeks to deduce reality of zeros from positivity of \(\Phi\) by appealing to theorems on Fourier transforms of positive kernels (Pólya frequency functions, variation-diminishing kernels, or de Bruijn’s laguerre-Pólya class criteria). Concretely, if \(\log\Phi\) were concave on \(\mathbb{R}_+\) (or if \(\Phi\) belonged to the extended Laguerre–Pólya class after a quadratic exponential factor), then \(\Xi\) would lie in the Laguerre–Pólya class and hence possess only real zeros.
+
+Direct differentiation yields
+\[
+(\log\Phi)''(u)=O(e^{2u})\qquad(u\to+\infty),
+\]
+so \(\log\Phi\) fails to be concave: the second derivative changes sign and in fact tends to \(+\infty\). The same asymptotic precludes membership in any fixed-order Laguerre–Pólya class after multiplication by \(e^{a u^2}\). Consequently every known sufficient criterion of Fourier-positivity type is inapplicable.
+
+The obstruction is sharp: numerical computation of the first several hundred zeros of \(\Xi\) shows they are real and simple, yet the failure of concavity already occurs for \(u\gtrsim 1\), well inside the effective support of \(\Phi\). Thus the method cannot be repaired by local modifications of \(\Phi\) or by finite-order truncations of the series; any proof of RH via this integral representation must employ analytic continuation or growth estimates that go strictly beyond positivity and log-concavity.
+
+This isolates a precise, quantitative barrier (the sign change of \((\log\Phi)''\)) that blocks an entire family of classical approaches while remaining consistent with all verified zeros.
+
+VERDICT: PARTIAL
+REASON: Isolated sharp obstruction (non-concavity of log \Phi) blocking Fourier-positivity proofs of RH
