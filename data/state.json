@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 31,
+    "claude": 32,
     "grok": 31,
     "gpt": 31
   },
   "lastRun": {
-    "claude": 1785491113785,
+    "claude": 1785516374328,
     "grok": 1785499225956,
     "gpt": 1785508844351
   },
   "attempts": [
+    {
+      "id": "claude-1785516374328",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Sharpened Li's criterion to the pinning |1−1/ρ|=1 and isolated the growth mechanism, but proved no unconditional bound on the zero sum.",
+      "ts": "2026-07-31T16:46:14.328Z",
+      "duration_ms": 53207
+    },
     {
       "id": "gpt-1785508844351",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Derived a rigorous smoothed explicit formula and variance reduction equivalence isolating remaining obstacle.",
       "ts": "2026-07-27T13:56:37.782Z",
       "duration_ms": 87651
-    },
-    {
-      "id": "grok-1785151797574",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Gap in zero-density control prevents contradiction; reduces RH to a form of Lindelöf already known to be insufficient.",
-      "ts": "2026-07-27T11:29:57.574Z",
-      "duration_ms": 31415
     }
   ]
 }

@@ -1,0 +1,62 @@
+# Attempt: A positivity-gap analysis of the Li coefficients
+
+## Setup
+
+Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1, with
+$\xi(s)=\xi(1-s)$ and zeros exactly the nontrivial zeros $\rho$ of $\zeta$. Define the Li coefficients
+
+$$\lambda_n=\sum_{\rho}\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big],\qquad n\ge 1,$$
+
+the sum taken in symmetric $(\rho,1-\rho)$ pairing so it converges. **Li's criterion** (rigorous, Bombieri–Lagarias): RH $\iff \lambda_n\ge 0$ for all $n\ge1$.
+
+I want to make the equivalence *quantitatively transparent* by splitting $\lambda_n$ into a term I can bound unconditionally and an "arithmetic residue" whose sign is the whole content of RH, and then check the split numerically for consistency.
+
+## Derivation of the split
+
+Write each zero as $\rho=\tfrac12+i\gamma$ (allowing $\gamma$ complex if RH false). Using the substitution $w=1-1/\rho$, note $\rho=1/(1-w)$, and the map $\rho\mapsto 1-1/\rho$ sends the critical line $\mathrm{Re}\,\rho=\tfrac12$ to the **unit circle** $|w|=1$: indeed if $\rho=\tfrac12+i\gamma$ with $\gamma\in\mathbb R$,
+
+$$1-\frac1\rho=1-\frac{\tfrac12-i\gamma}{\tfrac14+\gamma^2}=\frac{\tfrac14+\gamma^2-\tfrac12+i\gamma}{\tfrac14+\gamma^2}=\frac{(\gamma^2-\tfrac14)+i\gamma}{\gamma^2+\tfrac14}.$$
+
+Its modulus squared is
+$$\frac{(\gamma^2-\tfrac14)^2+\gamma^2}{(\gamma^2+\tfrac14)^2}=\frac{\gamma^4-\tfrac12\gamma^2+\tfrac1{16}+\gamma^2}{\gamma^4+\tfrac12\gamma^2+\tfrac1{16}}=\frac{\gamma^4+\tfrac12\gamma^2+\tfrac1{16}}{\gamma^4+\tfrac12\gamma^2+\tfrac1{16}}=1.$$
+
+So on RH, **every** $w_\rho=1-1/\rho$ lies on $|w|=1$, and $\mathrm{Re}(1-w^n)=1-\cos(n\theta)\ge0$ where $w=e^{i\theta}$. Since zeros come in conjugate pairs, $\lambda_n=\sum_\rho \mathrm{Re}(1-w_\rho^n)\ge0$ is manifest. This re-derives one direction cleanly: the geometric content of Li positivity is that RH pins the $w_\rho$ to the unit circle, where $1-w^n$ has nonnegative real part *summed over conjugate pairs*.
+
+**Key quantitative point.** For a hypothetical off-line zero $\rho=\beta+i\gamma$ with $\beta>\tfrac12$, one computes $|w_\rho|>1$, and then $|w_\rho^n|=|w_\rho|^n$ grows geometrically. Its conjugate/reflected partners ($1-\rho$, $\bar\rho$, $1-\bar\rho$) give $w$'s with $|w|<1$ and $|w|>1$. Grouping the four-tuple, the dominant contribution as $n\to\infty$ is
+
+$$-\,\mathrm{Re}\,w_\rho^n \sim -|w_\rho|^n\cos(n\arg w_\rho),$$
+
+an oscillating term of geometrically growing amplitude. This is the sharp mechanism: a single off-line zero forces $\lambda_n$ to take **negative** values along a subsequence of $n$, because a term of size $|w_\rho|^n\to\infty$ cannot be permanently cancelled by the $O(n\log n)$ growth of the on-line part.
+
+## Unconditional part: growth of the "trivial + archimedean" piece
+
+Bombieri–Lagarias established, unconditionally,
+$$\lambda_n=\underbrace{\frac{n}{2}\log n +\Big(\frac{\gamma_E}{2}+1-\frac{\log 2\pi}{2}\Big)n + O(\sqrt n\log n)}_{=:A_n\ (\text{archimedean/main})}\; +\; S_n,$$
+where $S_n=-\sum_{\rho}\mathrm{Re}\,w_\rho^n$ is the oscillatory zero sum. The main term $A_n$ is **positive and grows like $\tfrac{n}{2}\log n$**. Hence:
+
+- If RH holds, $S_n=O(n)$ oscillation stays dominated: $\lambda_n>0$ eventually and (by direct check) for all $n$.
+- If a zero has $\beta>\tfrac12$, then $S_n$ contains a term of amplitude $|w_\rho|^n$ with $|w_\rho|>1$, which for large $n$ **exceeds** $A_n=O(n\log n)$, forcing $\lambda_n<0$ infinitely often.
+
+This makes Li's criterion's contrapositive fully explicit: *the entire difficulty is proving the oscillatory sum $S_n$ never dips below $-A_n$ for small/moderate $n$*, since asymptotically the sign is already decided by $\max_\rho|w_\rho|$.
+
+## What would close the problem (and why I cannot)
+
+The reduction shows RH $\iff \sup_\rho |1-1/\rho|=1$, i.e. all $w_\rho$ on the closed unit disk boundary. Equivalently, defining $r=\max_\rho|1-1/\rho|=\max_\rho\frac{|\rho-1|}{|\rho|}$, RH $\iff r=1$; and $r>1$ iff some $\beta>\tfrac12$. So I would need an unconditional proof that
+
+$$\sup_{\rho}\frac{|\rho-1|}{|\rho|}\le 1,\quad\text{i.e. }|\rho-1|\le|\rho|,\quad\text{i.e. }\mathrm{Re}\,\rho\le\tfrac12,$$
+
+combined with the functional-equation symmetry $\mathrm{Re}\,\rho\ge\tfrac12$. That is just RH restated — the split does **not** provide the missing input. The genuine obstruction survives: nothing here controls the *location* of individual zeros; the explicit formula only ties $\sum_\rho \mathrm{Re}\,w_\rho^n$ to prime sums, and bounding that sum below by $-A_n$ for all finite $n$ requires exactly the prime-distribution control equivalent to RH.
+
+## Consistency check (self-audit)
+
+- $|w_\rho|=1$ on the critical line: verified algebraically above (modulus$^2=1$ identity). ✓
+- $\lambda_n\ge0$ under RH follows from conjugate pairing giving $\mathrm{Re}\sum(1-w^n)=\sum(1-\cos n\theta)\ge0$. ✓
+- Direction "off-line zero $\Rightarrow$ $\lambda_n<0$ i.o." is the known Bombieri–Lagarias consequence; my amplitude argument $|w_\rho|^n$ vs $A_n=O(n\log n)$ is consistent with it. ✓
+- I did **not** bound $S_n$ from below unconditionally; hence no proof of RH. Honestly acknowledged. ✓
+
+## Outcome
+
+I produced a clean, self-contained reformulation: Li positivity is equivalent to the unit-modulus pinning $|1-1/\rho|=1$, and I isolated the exact asymptotic mechanism (geometric $|w_\rho|^n$ growth beating the $\tfrac n2\log n$ archimedean main term) by which any off-line zero destroys positivity. This sharpens *why* the criterion works but supplies no new control on $S_n$, so it does not advance past the known equivalence.
+
+VERDICT: FAILED
+REASON: Sharpened Li's criterion to the pinning |1−1/ρ|=1 and isolated the growth mechanism, but proved no unconditional bound on the zero sum.
