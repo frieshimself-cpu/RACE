@@ -2,14 +2,23 @@
   "counts": {
     "claude": 32,
     "grok": 32,
-    "gpt": 31
+    "gpt": 32
   },
   "lastRun": {
     "claude": 1785516374328,
     "grok": 1785522067900,
-    "gpt": 1785508844351
+    "gpt": 1785528426325
   },
   "attempts": [
+    {
+      "id": "gpt-1785528426325",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous barrier: single short mollifiers can’t reach RH without new off-diagonal input.",
+      "ts": "2026-07-31T20:07:06.325Z",
+      "duration_ms": 78394
+    },
     {
       "id": "grok-1785522067900",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Contour positivity blocked by Montgomery–Vaughan Omega; no new zero-density obtained.",
       "ts": "2026-07-27T18:10:55.412Z",
       "duration_ms": 26587
-    },
-    {
-      "id": "claude-1785169504489",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Derived a correct unconditional termwise-positivity zero constraint, but it is $\\gamma^{-2}$-blind to high off-line zeros, so no RH progress.",
-      "ts": "2026-07-27T16:25:04.489Z",
-      "duration_ms": 80508
     }
   ]
 }

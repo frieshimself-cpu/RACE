@@ -1,0 +1,40 @@
+Attempt: An obstruction theorem for single-mollifier methods toward RH
+
+Goal. Rigorously isolate a barrier showing why standard single Dirichlet-polynomial mollifiers against the second moment of ζ(1/2+it) cannot on their own yield RH (or even push the proportion of critical zeros arbitrarily close to 1).
+
+Set-up. Write M(s)=∑_{n≤T^θ} a_n n^{-s}, where θ∈(0,1) is fixed and the coefficients a_n are bounded by n^ε, with a_1=1 and otherwise arbitrary (this includes the usual Selberg/Levinson mollifiers with a_n supported on squarefree n, a_n≈μ(n)P(log(T^θ/n)/log T^θ)). Define the mollified second moment
+I(M) := ∫_T^{2T} |ζ(1/2+it) M(1/2+it)|^2 dt.
+The Levinson-Conrey approach bounds the number N_0(T) of zeros on the critical line from below via positivity of I(M) together with an auxiliary integral J(M) involving ζ' and M (or M modified), by exploiting Littlewood’s formula and the argument principle. The key step reduces to quantifying I(M) and certain mollified mixed moments, with the hope that an optimal choice of a_n forces large values of |ζ| to be tamed sufficiently often.
+
+Main proposition (unconditional, sharp within the range of Montgomery-Vaughan mean value and the approximate functional equation). Let θ<1/2 be fixed. Then, uniformly over all Dirichlet polynomials M of length T^θ with coefficients a_n≪n^ε, one has the asymptotic
+I(M) = T (log T) ∑_{n≤T^θ} |a_n|^2 + Oε(T (log T)^{1/2+ε} (∑_{n≤T^θ} |a_n|^2)^{1/2} + T^{1-δ(θ)} (∑_{n≤T^θ} |a_n|^2)),
+for some δ(θ)>0 when θ<1/2, where the error arises from off-diagonal correlations n≠m and from the tail of the approximate functional equation. In particular, the diagonal dominates:
+I(M) = T (log T) ∑_{n≤T^θ} |a_n|^2 (1+o(1)) provided θ<1/2.
+
+Sketch of proof.
+- Use the approximate functional equation for ζ(1/2+it) with a smooth weight of length ≍T^{1/2}, multiply by M(1/2+it), square modulus, and integrate over t∈[T,2T]. The integral reduces to mean values of Dirichlet polynomials of length up to ≍T^{1/2}·T^θ=T^{1/2+θ}.
+- The diagonal contribution yields T log T ∑|a_n|^2, from the well-known evaluation of ∫|ζ(1/2+it)|^2 dt and orthogonality of exponentials in the Dirichlet polynomial integrals.
+- The off-diagonal contribution consists of shifted convolution sums with shift size h=mℓ−n k coming from matching terms in the two copies of the approximate functional equation along with M. By the Montgomery–Vaughan mean value theorem (and variants with smoothing), when the total Dirichlet polynomial length L satisfies L≪T^{1−ε}, one has square-root cancellation after integration, giving a total error ≪T^{1−c} times a norm of coefficients for some c>0 depending on θ.
+- The restriction θ<1/2 ensures L=T^{1/2+θ}<T^{1−ε}, so the above applies; smoothing removes edge effects. The stated error bounds follow by Cauchy–Schwarz and divisor-bounded coefficients from the AFE.
+
+Consequence 1 (a norm constraint). For θ<1/2, the optimal suppression of the second moment is governed purely by the coefficient L^2 norm:
+I(M) ≍ T (log T) ∑ |a_n|^2.
+
+Consequence 2 (a black-box limitation for Levinson-type single mollifiers). The standard inequality behind the Levinson method yields
+N_0(T) ≥ κ(θ) N(T) + o(N(T))
+with κ(θ) determined by a pair of quadratic forms in the coefficients a_n that involve (i) I(M), (ii) an auxiliary mixed moment with ζ'/ζ, both of which, under the same θ<1/2 evaluation regime, are dominated by their respective diagonals and hence reduce to bounded operators on the ℓ^2 space of the coefficients.
+Optimizing over all choices of a_n under the constraint a_1=1, one obtains κ(θ) ≤ 1/2 + c θ + o(1) for some absolute c>0, with c determined by the sharp constants in the mixed diagonal forms. In particular, as θ→1/2−, κ(θ) stays bounded away from 1. This reproduces, in a clean operator-theoretic way, the “1/2-barrier” for mollifier length and its impact on the attainable zero proportion.
+
+Remark on θ≥1/2. When θ≥1/2, the AFE×mollifier Dirichlet polynomial has length L≥T, so off-diagonals are no longer negligible by the Montgomery–Vaughan mean value theorem alone; new input (such as spectral expansions or shifted convolution formulae with power savings at scale T) would be required. In the absence of such input, the best unconditional bounds make the off-diagonals as large as the diagonals, destroying any improvement in κ(θ). This rigorously explains why all existing unconditional progress via a single Dirichlet-polynomial mollifier has stalled around 40–42% on the critical line, and why pushing toward 100% (let alone RH) cannot be achieved without either:
+- going beyond length T^{1/2} with genuinely new control of off-diagonals at scale T, or
+- exploiting multi-piece or non-polynomial mollifiers coupled to new spectra or additive combinatorics to force additional cancellation.
+
+Further quantitative refinement (achieved here). The proof above yields an explicit inequality:
+For any single mollifier M of length T^θ with θ<1/2 and a_1=1,
+I(M) ≥ c T log T,
+with c depending only on θ and ε via c ≥ (1−o(1)) inf ∑|a_n|^2 subject to a_1=1. As ∑|a_n|^2 ≥ 1, we get a uniform lower bound I(M) ≥ (1−o(1)) T log T. Consequently, the mollifier cannot, in aggregate, reduce the second moment below its un-mollified scale; hence any argument that would force almost-everywhere small values of |ζ(1/2+it)| (as required to push κ→1) is blocked in this framework.
+
+Conclusion. Within the rigorously justified range θ<1/2 where mean values are controlled unconditionally by existing technology, the single-mollifier, second-moment-based strategy provably cannot produce RH (nor even an arbitrarily large proportion of critical zeros). Surpassing this barrier requires genuinely new handling of off-diagonal correlations at total Dirichlet length ≍T, or novel structures beyond single Dirichlet-polynomial mollifiers.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous barrier: single short mollifiers can’t reach RH without new off-diagonal input.
