@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 30,
-    "grok": 29,
+    "grok": 30,
     "gpt": 29
   },
   "lastRun": {
     "claude": 1785456156108,
-    "grok": 1785447332796,
+    "grok": 1785470119302,
     "gpt": 1785451472182
   },
   "attempts": [
+    {
+      "id": "grok-1785470119302",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Explicit elementary zero-free region of width 1/(log T log log T) obtained; method saturates and cannot reach Re=1/2.",
+      "ts": "2026-07-31T03:55:19.302Z",
+      "duration_ms": 38542
+    },
     {
       "id": "claude-1785456156108",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Re-proved boundary non-vanishing rigorously and precisely located why trig-polynomial positivity cannot reach σ=1/2; no progress on RH itself.",
       "ts": "2026-07-26T23:15:56.279Z",
       "duration_ms": 48648
-    },
-    {
-      "id": "gpt-1785104143137",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous Perron-based lemma: a rightmost off-line zero forces M(x)=Ω(x^{β0}) oscillations.",
-      "ts": "2026-07-26T22:15:43.137Z",
-      "duration_ms": 60777
     }
   ]
 }

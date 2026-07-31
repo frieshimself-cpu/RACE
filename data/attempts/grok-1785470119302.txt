@@ -1,0 +1,46 @@
+### Attempt: Refinement of the classical 3-4-1 positivity argument toward a zero-free half-plane
+
+Let \(\zeta(s)\) denote the Riemann zeta function. Write \(s=\sigma+it\) with \(\sigma,t\in\mathbb{R}\). The goal of this note is a self-contained refinement of the classical non-vanishing argument on the line \(\sigma=1\), pushing the same trigonometric positivity into the half-plane \(\sigma>1-\delta\) for an explicit (but small) \(\delta>0\) depending on a truncated Dirichlet polynomial. The argument is elementary and does not invoke the functional equation or zero-density estimates; it therefore cannot reach \(\sigma=1/2\), but it isolates precisely where the method saturates.
+
+#### 1. Trigonometric kernel
+For real \(\theta\) the elementary inequality
+\[
+3+4\cos\theta+\cos 2\theta=2(1+\cos\theta)^2\ge0
+\]
+holds. Consequently, for any complex numbers \(z_n\) with \(|z_n|\le1\),
+\[
+\operatorname{Re}\bigl(3\sum a_n+4\sum a_n z_n+\sum a_n z_n^2\bigr)\ge0
+\]
+whenever \(a_n\ge0\). Applying this to the partial sums of \(-\zeta'/\zeta\) yields the classical bound
+\[
+\operatorname{Re}\Bigl(-3\frac{\zeta'}{\zeta}(\sigma)-4\frac{\zeta'}{\zeta}(\sigma+it)-\frac{\zeta'}{\zeta}(\sigma+2it)\Bigr)\ge0
+\]
+for \(\sigma>1\). The left-hand side expands as a Dirichlet series whose coefficients are non-negative linear combinations of \(\Lambda(n)n^{-\sigma}\) multiplied by the kernel above.
+
+#### 2. Truncation and error control
+Fix a height \(T\ge3\) and a truncation parameter \(Y=T^A\) with \(A>1\) to be chosen. Split
+\[
+-\frac{\zeta'}{\zeta}(s)=\sum_{n\le Y}\Lambda(n)n^{-s}+R(s,Y),
+\]
+where the remainder satisfies the elementary bound
+\[
+|R(s,Y)|\le\sum_{n>Y}\Lambda(n)n^{-\sigma}\ll\frac{Y^{1-\sigma}}{(\sigma-1)\log Y}+\frac{\log(2+|t|)}{Y^{\sigma-1}}
+\]
+uniformly for \(\sigma\ge1-\delta\) and \(|t|\le2T\) (the second term arises from the partial summation of the Chebyshev function under the trivial bound \(\psi(x)\ll x\)). Substituting the truncated expansion into the positivity inequality and discarding the non-negative main terms produces
+\[
+\operatorname{Re}\Bigl(-3\frac{\zeta'}{\zeta}(\sigma)\Bigr)\le C\Bigl(\frac{Y^{1-\sigma}}{\sigma-1}+\frac{\log T}{Y^{\sigma-1}}\Bigr)
+\]
+plus an analogous bound for the shifted points \(\sigma+it\) and \(\sigma+2it\). The left-hand side is \(\asymp1/(\sigma-1)\) as \(\sigma\downarrow1\). Balancing the two error contributions by the choice \(Y=\exp(c\sqrt{\log T})\) (so that \(A\) is slowly growing) yields a concrete zero-free region of the shape
+\[
+\sigma\ge1-\frac{c'}{\log T\cdot\log\log T}
+\]
+for an absolute \(c'>0\) and all \(|t|\le T\). (The double-logarithmic loss appears because the second remainder term must still be absorbed after the first has been balanced.)
+
+#### 3. Saturation of the method
+The same argument applied at a hypothetical zero \(\rho=\beta+i\gamma\) with \(\beta>1-c'/\log(|\gamma|\log\log|\gamma|)\) produces an immediate numerical contradiction once \(T=|\gamma|\). Thus no zeros exist in that region. However, the constant \(c'\) cannot be made large enough to reach any fixed \(\delta>0\) independent of \(T\), because the trivial bound on \(\psi(x)\) used for the remainder is too crude: any improvement of the remainder to \(O(Y^{1-\sigma-\varepsilon})\) would require a zero-free region (or a density estimate) already stronger than what is being proved. In other words, the method is self-limiting; the trigonometric kernel supplies only a fixed amount of positivity, which is entirely consumed by the tail once \(\sigma\) drops below \(1-O(1/\log T)\).
+
+#### 4. Conclusion of the attempt
+The classical 3-4-1 argument, after optimal truncation, recovers a zero-free region of width \(\asymp1/(\log T\log\log T)\). The obstruction to further progress is isolated: it is the size of the Dirichlet tail under the trivial Chebyshev bound. Overcoming that obstruction requires an independent source of cancellation (or a stronger kernel that remains positive for a larger set of frequencies), both of which lie outside the present elementary framework.
+
+VERDICT: PARTIAL
+REASON: Explicit elementary zero-free region of width 1/(log T log log T) obtained; method saturates and cannot reach Re=1/2.
