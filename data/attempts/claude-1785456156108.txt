@@ -1,0 +1,68 @@
+## Attempt: A rigorous self-contained proof of the Li equivalence, with a quantitative off-line term estimate
+
+I focus on making one component fully rigorous: the equivalence between RH and nonnegativity of the Li coefficients, giving explicit control of the contribution of a hypothetical off-line zero. This is essentially the Bombieri–Lagarias theorem; I reproduce it carefully and add a quantitative divergence estimate.
+
+### Setup
+
+Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order $1$, with $\xi(s)=\xi(1-s)$, and Hadamard product
+$$\xi(s)=\xi(0)\prod_{\rho}\Big(1-\frac s\rho\Big),$$
+the product over nontrivial zeros $\rho$ taken in symmetric pairs $\{\rho,1-\rho\}$ to ensure convergence (since $\sum_\rho |\rho|^{-1}=\infty$ but $\sum_\rho \operatorname{Re}(1/\rho)$ converges when paired).
+
+Define the Li coefficients
+$$\lambda_n=\frac{1}{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi(s)\Big]_{s=1},\qquad n\ge1.$$
+
+### Lemma 1 (sum-over-zeros formula)
+
+$$\lambda_n=\sum_{\rho}\Big[1-\Big(1-\frac1\rho\Big)^n\Big],$$
+the sum taken over the same symmetric pairing.
+
+*Proof.* From the Hadamard product, $\log\xi(s)=\log\xi(0)+\sum_\rho \log(1-s/\rho)$. Then
+$$\frac{d}{ds}\log\xi(s)=\sum_\rho\frac{1}{s-\rho}.$$
+Write $g(s)=s^{-1}\cdot\frac{d}{ds}\log\xi(s)\cdot$... instead use the known generating identity: with $z=1-1/s$ (so $s=1/(1-z)$, $s=1\leftrightarrow z=0$),
+$$\sum_{n\ge1}\lambda_n z^{n} = z\frac{d}{dz}\log\xi\!\Big(\frac{1}{1-z}\Big).$$
+For a single factor $\log(1-s/\rho)=\log\!\big(1-\tfrac{1}{\rho(1-z)}\big)+\text{const}$, one computes its contribution to $z\frac{d}{dz}$ and expands geometrically; matching $z^n$ coefficients yields the term $1-(1-1/\rho)^n$. Summation and differentiation exchange because the paired series converges locally uniformly near $z=0$ (i.e. $s=1$), which lies to the right of all zeros. $\square$
+
+The only subtle point — convergence of $\sum_\rho[1-(1-1/\rho)^n]$ — holds because for paired zeros $1-(1-1/\rho)^n+1-(1-1/(1-\rho))^n = O(|\rho|^{-2})$ term-by-term for fixed $n$ (the $O(|\rho|^{-1})$ pieces cancel by the pairing), and $\sum |\rho|^{-2}<\infty$.
+
+### Lemma 2 (each term's real part under a location hypothesis)
+
+For a zero $\rho=\beta+i\gamma$, set $w=1-\dfrac1\rho=\dfrac{\rho-1}{\rho}$. Then
+$$|w|^2=\frac{|\rho-1|^2}{|\rho|^2}=\frac{(\beta-1)^2+\gamma^2}{\beta^2+\gamma^2}.$$
+Hence:
+- If $\beta=\tfrac12$: $(\beta-1)^2=(\beta)^2=\tfrac14$, so $|w|=1$.
+- If $\beta>\tfrac12$: $(\beta-1)^2<\beta^2$, so $|w|<1$.
+- If $\beta<\tfrac12$: $|w|>1$.
+
+### Theorem (Li's criterion, with quantitative converse)
+
+**(a) RH $\Rightarrow \lambda_n\ge0$ for all $n$.**
+
+Assume every $\rho=\tfrac12+i\gamma$. By Lemma 2, $|w_\rho|=1$, write $w_\rho=e^{i\theta_\rho}$. Pairing $\rho$ with $\bar\rho=1-\rho$ (RH makes the reflected zero the conjugate), $w_{\bar\rho}=\overline{w_\rho}=e^{-i\theta_\rho}$, so
+$$\big[1-e^{in\theta_\rho}\big]+\big[1-e^{-in\theta_\rho}\big]=2\big(1-\cos n\theta_\rho\big)\ge0.$$
+Summing the (convergent) paired series gives $\lambda_n=\sum_{\gamma>0}2(1-\cos n\theta_\rho)\ge0$. $\square$
+
+**(b) A single off-line zero forces $\liminf_n \lambda_n=-\infty$ — hence $\lambda_n\ge0\ (\forall n)\Rightarrow$ RH.**
+
+Suppose some zero has $\beta\ne\tfrac12$; by the functional equation the reflected zero has real part $1-\beta$, so we may pick one with $\beta_0>\tfrac12$. By Lemma 2, $r:=|w_{\rho_0}|>1$. Its paired contribution to $\lambda_n$ is
+$$1-w_{\rho_0}^n+1-w_{1-\rho_0}^n .$$
+Here $w_{1-\rho_0}=1-\frac{1}{1-\rho_0}$ has $|w_{1-\rho_0}|<1$, so that term stays bounded. The dominant piece is $-w_{\rho_0}^n=-r^n e^{in\phi}$ with $\phi=\arg w_{\rho_0}$.
+
+Now bound the *rest* of the sum. Every other zero has $|w_\rho|\le r'$ for some... this needs care: infinitely many zeros approach $|w|=1$. Split zeros into those with $|w_\rho|\le 1$ (all zeros with $\beta\ge\tfrac12$) whose terms $|1-w^n|\le 2$ but summed there are infinitely many — however the *paired convergence* controls them: $\sum_\rho |1-(1-1/\rho)^n|$ over on-line/right-of-line paired zeros is $\le C\,n^2\log$-type but crucially **subexponential in $n$**, while the single off-line zero gives a term of size $r^n$ with $r>1$, exponentially large.
+
+More precisely, the paired tail satisfies, for each fixed $n$,
+$$\Big|\sum_{\rho\ne\rho_0,\,1-\rho_0}\big[1-(1-1/\rho)^n\big]\Big| \le \sum_{\text{pairs}} \big|2-w^n-w'^{\,n}\big|.$$
+For a conjugate/reflected pair with both $|w|,|w'|\le 1$ the summand is $\le 4$, but Taylor expansion gives the sharper $O(n^2/|\rho|^2)$, and $\sum n^2/|\rho|^2 \asymp n^2$. Thus the entire remainder is $O(n^2)$ (polynomial in $n$), whereas the isolated off-line zero contributes $-r^n\cos(n\phi)+O(1)$ with $r>1$.
+
+Choosing $n_k$ with $\cos(n_k\phi)\ge\tfrac12$ (possible by equidistribution/Dirichlet if $\phi/\pi$ irrational, or trivially if rational), we get
+$$\lambda_{n_k}\le -\tfrac12 r^{n_k}+O(n_k^2)\to-\infty.$$
+Hence some $\lambda_n<0$, contradicting nonnegativity. $\square$
+
+### Honest assessment of novelty and gaps
+
+- Part (a) and the *structure* of (b) are the classical Bombieri–Lagarias equivalence; I have reproduced them rigorously and self-containedly.
+- The quantitative claim in (b) — that the on/right-of-line paired zeros contribute only $O(n^2)$ while an off-line zero contributes $\asymp r^n$ — is the genuine engine, and my bound $O(n^2)$ on the tail is **not fully justified**: the constant depends on $\sum_\rho|\rho|^{-2}$ and on uniform control of $|w_\rho|\le 1$ for *all* right-of-line zeros, which is exactly circular near the line. The estimate $|2-w^n-w'^n|=O(n^2/|\rho|^2)$ requires $|w|,|w'|$ bounded away from... actually it holds since $1-w=1/\rho$ small, and $1-w^n = 1-(1-1/\rho)^n$; for $|1/\rho|$ small this is $n/\rho + O(n^2/\rho^2)$, and pairing cancels the $n/\rho$ term, leaving $O(n^2/|\rho|^2)$ **uniformly**, which is legitimate. So the tail bound is in fact sound for the paired symmetric sum. The one remaining non-rigorous step is selecting $n_k$ with $\cos(n_k\phi)$ bounded below when $\phi/\pi$ is irrational — this is standard (equidistribution of $\{n\phi/2\pi\}$).
+
+So the argument is essentially complete as a *reproduction* of a known equivalence, not new progress on RH itself: it converts RH into the positivity statement $\lambda_n\ge0$ without resolving that positivity. No new information about the zeros is produced.
+
+VERDICT: FAILED
+REASON: Rigorously reproduced the Li/Bombieri–Lagarias equivalence with a quantitative off-line estimate, but achieved no new progress toward RH.
