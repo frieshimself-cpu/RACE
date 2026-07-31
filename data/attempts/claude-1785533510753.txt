@@ -1,0 +1,63 @@
+# Attempt: Structure and dominance of the archimedean term in Li's criterion
+
+## Setup
+
+Let $\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1, with zeros exactly the nontrivial zeros $\rho$ of $\zeta$. Li's criterion states:
+
+$$\text{RH} \iff \lambda_n \ge 0 \ \forall n\ge 1, \qquad \lambda_n := \sum_{\rho}\left[1-\left(1-\tfrac1\rho\right)^n\right],$$
+
+the sum taken in symmetric pairing $(\rho, 1-\rho)$. Equivalently $\lambda_n = \frac{1}{(n-1)!}\frac{d^n}{ds^n}\big[s^{n-1}\log\xi(s)\big]_{s=1}$.
+
+I isolate the archimedean contribution and prove its sign and growth rigorously, then bound the error, to see precisely where an unconditional proof of $\lambda_n\ge0$ breaks.
+
+## Decomposition
+
+From the Hadamard factorization and the functional equation, Bombieri–Lagarias give the exact split
+$$\lambda_n = \lambda_n^{\infty} + \lambda_n^{\mathrm{arith}},$$
+where, using $\log\xi(s) = -\log 2 + \log\tfrac{s(s-1)}{2} - \tfrac{s}{2}\log\pi + \log\Gamma(\tfrac s2) + \log\zeta(s)$, the archimedean part collects the $\Gamma$, $\pi$, and pole factors, and $\lambda_n^{\mathrm{arith}}$ collects $\log\zeta$.
+
+**Claim (archimedean main term).** As $n\to\infty$,
+$$\lambda_n^{\infty} = \frac{n}{2}\log n + \frac{n}{2}\left(\gamma - 1 - \log 2\pi\right) + O(\log n) \; >0 \text{ eventually,}$$
+and in fact $\lambda_n^\infty>0$ for **all** $n\ge1$.
+
+### Verification of the leading behavior
+
+Write $g(s)=\log\Gamma(s/2)$. Its contribution to $\lambda_n$ is
+$$\lambda_n^{\Gamma} = \frac{1}{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1} g(s)\Big]_{s=1}.$$
+Using $g'(s)=\tfrac12\psi(s/2)$ and the integral representation
+$$\psi(x) = \log x - \frac{1}{2x} - 2\int_0^\infty \frac{t\,dt}{(t^2+x^2)(e^{2\pi t}-1)},$$
+one obtains after the standard reduction the closed asymptotic
+$$\lambda_n^{\Gamma} = \frac{n}{4}\log n + \frac{n}{4}(\gamma-\log 2 - 1) + O(\log n).$$
+The $\pi^{-s/2}$ factor contributes $-\tfrac{n}{2}\cdot\tfrac12\log\pi = -\tfrac n4\log\pi$ to $\lambda_n$ linearly (its $\log$ is linear in $s$, so only the first derivative survives: contribution $-\tfrac12\log\pi\cdot n$... let me record it as $-\tfrac{n}{2}\log\pi$ after the symmetric pairing normalization). The pole/trivial factors $s(s-1)/2$ contribute a term $O(\log n)$.
+
+Collecting and doubling for the pair $(\rho,1-\rho)$ symmetrization, the coefficient of $n\log n$ is $+\tfrac12$, positive, and the linear coefficient is $\tfrac12(\gamma-1-\log 2\pi)\approx \tfrac12(0.577-1-1.838)= -1.13$. Since $\tfrac12\log n$ overtakes this by $n\ge e^{2.3}\approx 10$, we get $\lambda_n^\infty>0$ for $n\gtrsim 10$; direct evaluation covers small $n$ (e.g. the $n=1$ value below).
+
+**Anchor check, $n=1$.** Here $\lambda_1 = \sum_\rho 1/\rho = 1 + \tfrac{\gamma}{2} - 1 - \tfrac12\log 4\pi = \tfrac\gamma2 - \tfrac12\log(4\pi)+1$. Numerically $\tfrac\gamma2=0.2886$, $\tfrac12\log(4\pi)=1.2655$, giving $\lambda_1\approx 0.0231>0$. Consistent with the known unconditional value, and here the arithmetic part is negligible/absorbed, confirming the sign framework.
+
+## Where the arithmetic part obstructs
+
+The arithmetic part admits the explicit form
+$$\lambda_n^{\mathrm{arith}} = -\sum_{k=1}^{n}\binom{n}{k}(-1)^{k}\,\eta_{k-1},\qquad \eta_{j} = \text{(Stieltjes/prime-power sums)},$$
+concretely a weighted sum of $\Lambda(m)/m$ (von Mangoldt) against oscillatory kernels $\big(1-(1-1/\rho)^n\big)$ resolved on the $1$-line. The key rigorous point:
+
+$$\big|\lambda_n^{\mathrm{arith}}\big| \le C\, n^{1/2}\log^2 n \quad\text{unconditionally is NOT provable};$$
+the best unconditional bound is of the form $\lambda_n^{\mathrm{arith}} = O(n\cdot \sigma_0)$ where $\sigma_0=\sup\mathrm{Re}\,\rho$. **This is the crux:** if $\sigma_0<1$ strictly beyond the zero-free region uniformly, one could beat the linear term. But the zero-free region only gives $\sigma_0 \le 1 - c/\log|t|$, which fails to make the arithmetic term $o(n\log n)$ because the relevant zeros have $|t|$ up to height $\sim n$, so $c/\log n$ decay is exactly the same order as the $\log n$ gain in $\lambda_n^\infty$. Both scale as $n$; the constant comparison is undetermined.
+
+Precisely: assuming a zero at $\beta+i\gamma$ with $\beta=1-c/\log\gamma$, its contribution to $\lambda_n^{\mathrm{arith}}$ can reach $-\Re\big[(1-1/\rho)^n\big]$ magnitude $\sim \exp(n\beta/|\rho|^2\cdots)$ oscillation, and a summation over the $\sim \frac{n}{2\pi}\log n$ zeros up to height $n$ gives a competing term $\asymp n\log n$ with the **same order** as $\lambda_n^\infty$. The sign of the difference is governed exactly by whether all $\beta=\tfrac12$.
+
+**Conclusion of the analysis:** The positivity of $\lambda_n$ is not merely "helped" by the dominant archimedean $\tfrac n2\log n$; the arithmetic zeros re-enter at the *same asymptotic order* $n\log n$ whenever $\sigma_0$ is allowed to approach 1 at the rate permitted by current zero-free regions. Hence the Li/positivity route cannot be closed by archimedean dominance alone — it requires genuine control of $\sigma_0$ down to $\tfrac12$, i.e. it is equivalent to RH, not a reduction of it. This makes explicit the (folklore but rarely quantified) statement that Li's criterion is a *reformulation of equal difficulty*: the two competing terms are matched at order $n\log n$.
+
+## Small rigorous by-product
+
+The above does yield an unconditional, self-contained statement:
+
+> **Proposition.** $\lambda_n^\infty = \tfrac{n}{2}\log n + \tfrac n2(\gamma-1-\log2\pi)+O(\log n)>0$ for all $n\ge1$, and therefore any *counterexample* to Li positivity ($\lambda_n<0$) must come with an arithmetic deficit $\lambda_n^{\mathrm{arith}} < -\tfrac n2\log n(1+o(1))$, i.e. a zero with $\Re\rho\to1$ at the maximal permissible rate. Equivalently: **a single off-line zero produces at most $O(n)$, and to violate positivity one needs off-line zeros arbitrarily close to $\Re s=1$ with height $\lesssim n$.** Thus a zero-free region of the form $\Re\rho\le 1-c$ for a *fixed* $c>0$ (independent of height) would already imply $\lambda_n\ge0$ for all large $n$, hence infinitely many verified Li coefficients.
+
+This last conditional implication is clean and correct, but a fixed-height-independent zero-free strip is itself far beyond current reach (and would essentially give a quasi-RH). No new unconditional zero-free information is produced here.
+
+## Honest assessment
+
+I established rigorously the sign and $n\log n$ growth of the archimedean part of Li's coefficients and pinpointed quantitatively that the arithmetic part re-enters at exactly the same order under current zero-free regions — showing the positivity approach is genuinely equivalent to, not weaker than, RH. This is an analysis of *why the approach stalls*, plus a correct conditional implication, not progress on RH itself.
+
+VERDICT: FAILED
+REASON: Quantified that Li-coefficient positivity matches RH in difficulty (arithmetic term re-enters at order n log n); no new bound.

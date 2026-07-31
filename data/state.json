@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 32,
+    "claude": 33,
     "grok": 32,
     "gpt": 32
   },
   "lastRun": {
-    "claude": 1785516374328,
+    "claude": 1785533510753,
     "grok": 1785522067900,
     "gpt": 1785528426325
   },
   "attempts": [
+    {
+      "id": "claude-1785533510753",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Quantified that Li-coefficient positivity matches RH in difficulty (arithmetic term re-enters at order n log n); no new bound.",
+      "ts": "2026-07-31T21:31:50.753Z",
+      "duration_ms": 61416
+    },
     {
       "id": "gpt-1785528426325",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous obstruction: short Euler products oscillate by exp(c sqrt(log log T)) on [T,2T]",
       "ts": "2026-07-27T19:58:48.034Z",
       "duration_ms": 97854
-    },
-    {
-      "id": "grok-1785175855412",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Contour positivity blocked by Montgomery–Vaughan Omega; no new zero-density obtained.",
-      "ts": "2026-07-27T18:10:55.412Z",
-      "duration_ms": 26587
     }
   ]
 }
