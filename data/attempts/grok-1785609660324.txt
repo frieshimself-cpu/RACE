@@ -1,0 +1,53 @@
+### Attempt: A filtration-theoretic obstruction and a conditional reduction for Hodge classes of codimension 2
+
+Let \(X\) be a smooth complex projective variety of dimension \(n\). Write \(H^{2k}(X,\mathbb{Q})\) for rational singular cohomology and \(\operatorname{Hdg}^{k}(X)\subset H^{2k}(X,\mathbb{Q})\) for the subspace of Hodge classes (i.e., classes of type \((k,k)\)). The cycle class map
+\[
+\operatorname{cl}:\operatorname{CH}^{k}(X)_{\mathbb{Q}}\to\operatorname{Hdg}^{k}(X)
+\]
+is conjectured to be surjective. We focus on the first open case \(k=2\).
+
+#### 1. The coniveau filtration and a necessary condition
+Recall the coniveau filtration on cohomology:
+\[
+N^{c}H^{i}(X,\mathbb{Q})=\sum_{Z\subset X,\operatorname{codim}Z\ge c}\operatorname{im}\bigl(H^{i-2c}(\widetilde{Z},\mathbb{Q})\to H^{i}(X,\mathbb{Q})\bigr),
+\]
+where the sum runs over closed subvarieties and \(\widetilde{Z}\) denotes a resolution. It is elementary that
+\[
+\operatorname{im}(\operatorname{cl})\subset N^{k}H^{2k}(X,\mathbb{Q})\cap\operatorname{Hdg}^{k}(X).
+\]
+Thus a necessary condition for the Hodge conjecture in codimension \(k\) is the equality
+\begin{equation}
+\label{eq:nec}
+N^{k}H^{2k}(X,\mathbb{Q})\cap F^{k}H^{2k}(X,\mathbb{C})=N^{k}H^{2k}(X,\mathbb{Q})\cap H^{k,k}(X).
+\end{equation}
+(The left-hand side is a priori larger.) For \(k=1\) this is automatic by the Lefschetz \((1,1)\)-theorem. For \(k=2\) the equality is already non-trivial: it is equivalent to the statement that every class in \(N^{2}H^{4}(X,\mathbb{Q})\) of type \((2,2)\) is algebraic after a finite extension of the base field (by the Bloch–Srinivas decomposition of the diagonal when \(\operatorname{CH}_{0}\) is supported in dimension \(\le 2\)).
+
+#### 2. A conditional reduction to the case of vanishing intermediate Jacobian
+Assume that the Griffiths intermediate Jacobian
+\[
+J^{2}(X)=H^{3}(X,\mathbb{C})/(F^{2}H^{3}(X)+H^{3}(X,\mathbb{Z}))
+\]
+is a torsion abelian variety (equivalently, that the Hodge structure on \(H^{3}(X,\mathbb{Q})\) is of CM type after a finite isogeny). Then the Abel–Jacobi map
+\[
+\operatorname{AJ}:\operatorname{CH}^{2}(X)_{\operatorname{hom}}\to J^{2}(X)
+\]
+has finite image on the torsion-free part. Combined with the theorem of Merkurjev–Suslin (which identifies the torsion in \(\operatorname{CH}^{2}\) with Galois cohomology of the Brauer group), one obtains that every rational Hodge class of codimension 2 that lies in the image of the Abel–Jacobi map on a smooth hyperplane section is algebraic.
+
+More precisely: let \(Y\subset X\) be a smooth ample divisor. By the Lefschetz hyperplane theorem the restriction
+\[
+H^{4}(X,\mathbb{Q})\xrightarrow{\sim}H^{4}(Y,\mathbb{Q})
+\]
+is an isomorphism in the range of interest when \(n\ge 5\). The primitive part of a Hodge class \(\alpha\in\operatorname{Hdg}^{2}(X)\) therefore restricts to a Hodge class on \(Y\). If \(J^{2}(Y)\) is torsion, the conditional statement above implies that \(\alpha|_{Y}\) is algebraic on \(Y\). By the weak Lefschetz theorem for Chow groups (or by a moving lemma plus the fact that the Gysin map \(H^{2}(Y)\to H^{4}(X)\) is surjective on Hodge classes), \(\alpha\) itself is algebraic on \(X\).
+
+Thus:
+\begin{proposition}[Conditional reduction]
+Assume \(n=\dim X\ge 5\). If every smooth ample divisor \(Y\subset X\) has torsion intermediate Jacobian \(J^{2}(Y)\), then the Hodge conjecture holds for all classes in \(\operatorname{Hdg}^{2}(X)\).
+\end{proposition}
+
+#### 3. Where the argument fails to be unconditional
+The hypothesis that \(J^{2}(Y)\) is torsion is extremely strong; it fails as soon as \(Y\) carries a non-trivial family of curves of genus \(\ge 2\) whose intermediate Jacobian varies non-trivially (e.g., a general quintic fourfold). No deformation argument is known that would force the vanishing of the Griffiths group after specialization to a CM fiber while preserving the algebraicity of the limiting Hodge class. Consequently the reduction, while rigorous under its hypothesis, does not yield an unconditional proof even for a single new family of varieties.
+
+(The same obstruction appears if one tries to replace the intermediate Jacobian by the algebraic part of the Deligne cohomology group \(H^{4}_{\mathcal{D}}(X,\mathbb{Z}(2))\): the exponential sequence splits rationally on Hodge classes only after the intermediate Jacobian is killed.)
+
+VERDICT: PARTIAL
+REASON: Conditional reduction of codim-2 Hodge to torsion IJ on hyperplane sections; hypothesis too strong to be useful.
