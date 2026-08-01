@@ -1,0 +1,46 @@
+### Attempt: Obstruction analysis for Euler-product/approximate-functional-equation approaches to RH
+
+Let \(\zeta(s)\) denote the Riemann zeta function. For \(\operatorname{Re}(s)>1\) one has the absolutely convergent Euler product
+\[
+\zeta(s)=\prod_p(1-p^{-s})^{-1},
+\]
+which is visibly zero-free in that half-plane. The functional equation
+\[
+\pi^{-s/2}\Gamma(s/2)\zeta(s)=\pi^{-(1-s)/2}\Gamma((1-s)/2)\zeta(1-s)
+\]
+supplies the meromorphic continuation, and the completed function
+\[
+\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)
+\]
+is entire of order one. The non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\), and RH asserts that they all lie on the critical line \(\operatorname{Re}(s)=\tfrac12\).
+
+A natural family of attacks proceeds by replacing the Euler product by a truncated product (or Dirichlet polynomial) and controlling the error via an approximate functional equation. Write, for \(s=\sigma+it\) with \(0<\sigma<1\) and \(t>0\) large,
+\[
+\zeta(s)=\sum_{n\le x}n^{-s}+\chi(s)\sum_{n\le y}n^{s-1}+R(x,y;s),
+\]
+where \(\chi(s)=\pi^{s-1/2}\Gamma((1-s)/2)/\Gamma(s/2)\) and the remainder \(R\) admits the standard bound
+\[
+R(x,y;s)\ll x^{-\sigma}+|t|^{1/2-\sigma}y^{\sigma-1}
+\]
+(under the usual balancing \(xy\asymp|t|\)). The first sum is essentially a partial Euler product; the second is its functional-equation dual. One hopes to show that the two main terms cannot cancel when \(\sigma\neq\tfrac12\), or that any zero off the line would force an implausibly large remainder.
+
+Suppose, for contradiction, that \(\rho=\beta+i\gamma\) is a zero with \(\beta>\tfrac12\) and \(\gamma\) large. Substituting into the approximate equation and using \(|\chi(\rho)|\asymp|\gamma|^{1/2-\beta}\) yields
+\[
+\Bigl|\sum_{n\le x}n^{-\rho}\Bigr|\asymp|\gamma|^{1/2-\beta}\Bigl|\sum_{n\le y}n^{\rho-1}\Bigr|+O\bigl(x^{-\beta}+|\gamma|^{1/2-\beta}y^{\beta-1}\bigr).
+\]
+Choosing \(x=y=|\gamma|^{1/2}\) makes the error \(O(|\gamma|^{-\beta/2}+|\gamma|^{\beta/2-1})\). The left-hand side is then a Dirichlet polynomial of length \(|\gamma|^{1/2}\). By the classical mean-value estimate
+\[
+\int_T^{2T}\Bigl|\sum_{n\le\sqrt{t}}n^{-\sigma-it}\Bigr|^2\,dt\ll T(\log T)^C
+\]
+(for any fixed \(\sigma\in(1/2,1)\)), such polynomials are typically of size \((\log|\gamma|)^{O(1)}\). The right-hand side, however, is of size \(|\gamma|^{1/2-\beta}\) times a dual polynomial of comparable length. For \(\beta-\tfrac12\gg(\log\log|\gamma|)/\log|\gamma|\) the factor \(|\gamma|^{1/2-\beta}\) is smaller than any negative power of \(\log|\gamma|\), forcing both Dirichlet polynomials to be abnormally small simultaneously. 
+
+The obstruction is that the required simultaneous smallness lies beyond the reach of existing large-value or mean-value technology for Dirichlet polynomials. The best available zero-density estimates (e.g., Ingham–Huxley) only recover a zero-free region of the shape
+\[
+\beta\le 1-c(\log|\gamma|)^{-2/3}(\log\log|\gamma|)^{-1/3},
+\]
+which is far weaker than the line \(\beta=\tfrac12\). Any improvement that would push the density exponent all the way to the critical line re-encounters precisely the same hybrid large-value problem for a pair of dual Dirichlet polynomials linked by \(\chi(s)\). In other words, the Euler-product intuition, once made quantitative via the approximate functional equation, reduces RH to a statement about the joint distribution of two dual Dirichlet polynomials that is of comparable arithmetic depth to RH itself; no cancellation or positivity mechanism is known that separates the \(\beta=\tfrac12\) case from the off-line case at the necessary level of precision.
+
+Thus the approach, while suggestive, contains a circular obstruction: the error terms and mean-value estimates that would be needed to rule out off-line zeros are essentially equivalent in strength to the Riemann hypothesis.
+
+VERDICT: FAILED
+REASON: Euler-product/AFE method reduces to unsolved hybrid large-value problem for dual Dirichlet polynomials
