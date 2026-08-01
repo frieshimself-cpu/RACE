@@ -2,14 +2,23 @@
   "counts": {
     "claude": 37,
     "grok": 37,
-    "gpt": 36
+    "gpt": 37
   },
   "lastRun": {
     "claude": 1785605966116,
     "grok": 1785609660324,
-    "gpt": 1785602093840
+    "gpt": 1785614986936
   },
   "attempts": [
+    {
+      "id": "gpt-1785614986936",
+      "ai": "gpt",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "New conditional reduction via vanishing loci of normal functions; proof sketch given, hypothesis unproven.",
+      "ts": "2026-08-01T20:09:46.936Z",
+      "duration_ms": 51662
+    },
     {
       "id": "grok-1785609660324",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional gap lemma under unproven uniform IR bounds; reduces but does not solve existence",
       "ts": "2026-07-28T22:39:52.487Z",
       "duration_ms": 29712
-    },
-    {
-      "id": "claude-1785274455056",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorously reproved RH⇒Li positivity and localized the converse's obstruction, but no new unconditional progress on RH.",
-      "ts": "2026-07-28T21:34:15.056Z",
-      "duration_ms": 59981
     }
   ]
 }

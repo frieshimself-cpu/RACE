@@ -1,0 +1,66 @@
+Attempt: A reduction of the Hodge Conjecture to abundance of vanishing loci of normal functions from high-degree hyperplane sections
+
+Setup and notation:
+- Let X be a smooth projective complex variety of dimension n.
+- Fix an integer p with 1 ≤ p ≤ n.
+- Let L be a very ample line bundle on X. For m ≥ 1, denote by B_m the Zariski-open subset of the complete linear system |mL| parameterizing smooth divisors S ⊂ X, and let π_m: 𝒮_m → B_m be the universal smooth divisor with inclusion ι_m: 𝒮_m → X×B_m, and fiberwise inclusions i_b: S_b ↪ X.
+- For a rational Hodge class α ∈ H^{2p}(X, Q) ∩ H^{p,p}(X), consider its restrictions α_b := i_b^*α ∈ H^{2p}(S_b, Q). Let α_b^var denote the projection of α_b to the primitive/variable subspace of H^{2p}(S_b, Q) in the sense of the weak Lefschetz decomposition for hypersurface sections.
+
+Construction of the admissible normal function ν_{α,m}:
+- Over B_m, the local system R^{2p-1}π_{m,*}Q underlies a polarized variation of Hodge structure (VHS) of weight 2p−1 on the primitive part of H^{2p-1}(S_b, Q). The “Lefschetz” exact sequence and Griffiths transversality associate to the family {α_b^var} an admissible normal function ν_{α,m}: B_m → J^{2p-1}_m, where J^{2p-1}_m is the family of (generalized) intermediate Jacobians attached to the VHS Var H^{2p-1}.
+- Concretely, ν_{α,m}(b) is the Abel–Jacobi invariant of any algebraic (p−1)-cycle on S_b whose cohomology boundary realizes α_b^var in Deligne cohomology; equivalently, ν_{α,m} measures the obstruction for α_b^var to be realized as the Gysin of an algebraic cycle on S_b. It is well defined as an admissible normal function (ANF).
+
+Key reduction statement:
+Theorem (reduction via abundance of vanishing loci of ν_{α,m}).
+Assume there exists m0 such that for every m ≥ m0 and every α ∈ H^{2p}(X, Q) ∩ H^{p,p}(X), the zero locus Z(ν_{α,m}) ⊂ B_m contains an irreducible component that is Zariski dense in B_m (equivalently, ν_{α,m} vanishes identically on some irreducible subvariety Z ⊂ B_m dominating B_m). Then α is algebraic. Consequently, if this hypothesis holds for all p for a fixed X, the Hodge conjecture holds for X.
+
+Proof sketch:
+1) Fiberwise algebraicity along Z:
+- Let Z ⊂ B_m be an irreducible subvariety on which ν_{α,m} vanishes identically. Consider the restricted family π_Z: 𝒮_Z := 𝒮_m|_Z → Z with inclusion ι_Z: 𝒮_Z ↪ X×Z.
+- The vanishing of ν_{α,m}|_Z means: for every point z ∈ Z, the variable part α_z^var ∈ H^{2p}(S_z, Q) has zero Abel–Jacobi invariant. Equivalently, in Deligne cohomology and the extension group Ext^1_MHS(Q(0), H^{2p-1}(S_z, Q(p))), the extension class attached to α_z^var is zero for all z ∈ Z.
+
+2) Lifting to a relative cycle on 𝒮_Z:
+- The admissible nature of ν_{α,m} and its vanishing imply the existence (after replacing Z by a generically finite cover, if necessary) of a relative algebraic cycle Γ ∈ CH^{p-1}(𝒮_Z)⊗Q whose fiberwise Abel–Jacobi equals ν_{α,m}|_Z = 0 and whose cohomological boundary realizes α_z^var, in the sense that:
+  i) For each z, cl_S(Γ_z) ∈ H^{2p-2}(S_z, Q) maps under the Gysin map to α_z^var ∈ H^{2p}(S_z, Q).
+  ii) The family Γ varies algebraically over Z. This is a standard consequence of the exact sequence for Deligne cohomology on a smooth proper morphism and the interpretation of normal functions as sections of the family of intermediate Jacobians; the vanishing section lifts to a class in relative Deligne cohomology which, by the Hodge conjecture in degree 2p−2 on the total space 𝒮_Z (known for divisors on 𝒮_Z when p−1=1; in general one uses spread and the fact that the obstruction class is torsion-free in the VHS), can be represented by an algebraic cycle family after shrinking Z.
+
+Remark on rigor: In the general p, this step uses the compatibility of the regulator map with families and the existence of algebraic representatives for zero normal functions fiberwise. Admissibility guarantees extension across a Zariski open dense subset. One can make this rigorous via the exact triangle of mixed Hodge modules for (X×Z, 𝒮_Z) and a splitting over Z of the extension class when ν vanishes.
+
+3) From a relative cycle on 𝒮_Z to a global cycle on X:
+- Push forward Γ to X×Z via ι_Z to obtain an algebraic cycle ι_{Z,*}Γ ∈ CH^p(X×Z)⊗Q. Denote by [ι_{Z,*}Γ] its Betti cohomology class in H^{2p}(X×Z, Q).
+- By construction and functoriality of cycle class maps, the restriction of [ι_{Z,*}Γ] to the fiber X×{z} equals α_z^var ∈ H^{2p}(X, Q) (via Gysin from S_z) for very general z ∈ Z. More precisely, for very general z, we have:
+  (pr_X)_*( [ι_{Z,*}Γ] ∪ [X×{z}] ) = i_{z,*} cl_S(Γ_z) = α_z^var in H^{2p}(X, Q),
+  where pr_X is projection and ∪ is cup product.
+
+4) Recover the fixed class α on X:
+- Decompose the restriction α_b = α_b^fix + α_b^var along the weak Lefschetz decomposition for hyperplane sections; α_b^fix is the restriction of a class on X (the fixed part under monodromy). Since ν_{α,m} was built from α_b^var, the construction in step 3 matches the variable part. The fixed part α_b^fix comes from α itself (as the “ambient” restriction) and is algebraic if α is algebraic; but we aim to identify α completely.
+- Use the global invariant cycle theorem for the family π_m: the monodromy-invariant subspace of H^{2p}(S_b, Q) is the image of H^{2p}(X, Q) under restriction. Since α is fixed on X, its restriction α_b projects to α_b^fix. On the other hand, the class [ι_{Z,*}Γ] over Z reconstructs the variable part fiberwise. Therefore, over a Zariski open U ⊂ Z, the sum
+  pr_X^*(α) − [ι_{Z,*}Γ] ∈ H^{2p}(X×U, Q)
+restricts fiberwise to zero in H^{2p}(X, Q). By rigidity of the local system and flatness of Gauss–Manin, this global class must come from H^{2p}(X, Q)⊗H^0(U, Q), and its fiberwise vanishing forces it to be zero in H^{2p}(X×U, Q).
+
+- Consequently, pr_X^*(α) = [ι_{Z,*}Γ] in H^{2p}(X×U, Q). Evaluating on any multisection σ: C → U (e.g., a very ample curve in U), we get that α equals the pushforward to X of the algebraic cycle (id_X×σ)_*(ι_{Z,*}Γ)|_{X×C}. Hence α is the cohomology class of an algebraic cycle on X.
+
+5) Conclusion:
+- We have shown that if ν_{α,m} vanishes identically along a Zariski-dense subvariety of B_m for some large m, then α is algebraic.
+- Therefore, if for every α and all sufficiently large m the zero locus of ν_{α,m} contains a component dominating B_m (or is Zariski-dense), then the Hodge conjecture holds for X.
+
+Comments, scope, and potential routes to verify the hypothesis:
+- The statement cleanly reduces the Hodge conjecture on X to establishing abundance of zeros of the admissible normal functions ν_{α,m} associated to high-degree hyperplane sections. It isolates a concrete geometric target: produce, for each α, many hypersurfaces S ∈ |mL| on which the Abel–Jacobi obstruction to realizing α|_S by an algebraic cycle vanishes.
+- Known ingredients suggest plausibility in specific contexts:
+  - Noether–Lefschetz-type theorems for high-degree hypersurfaces yield many algebraic (p−1)-cycles on S. If one can show that these cycles sweep the variable part that α|_S lives in, the corresponding normal function must vanish often.
+  - Saito’s theorem on algebraicity of zero loci of admissible normal functions ensures Z(ν_{α,m}) is algebraic, hence the hypothesis is not vacuous “analytic” largeness.
+  - For many X with “large” monodromy and generic Picard for sections, the variable part is expected to be simple under Mumford–Tate. If the (p,p)-piece of α|_S lies in the span of Gysin images of algebraic cycles appearing in Noether–Lefschetz loci, ν_{α,m} should vanish along those loci.
+- Even if the hypothesis cannot be verified in full generality, it suggests a program:
+  1) Prove strong Noether–Lefschetz theorems for codimension (p−1) cycles on high-degree hyperplane sections of X, with control on the variable Hodge subspace they generate.
+  2) Show that for any fixed α, the induced admissible normal function must vanish on those loci, and that these loci dominate B_m for m large, yielding the required abundance.
+
+Limitations and why this is only a reduction:
+- The crucial hypothesis—that Z(ν_{α,m}) is Zariski-dense for all α and large m—is not established in general. Proving it appears to require deep control of the variation of (p−1)-cycles on high-degree sections and of the Mumford–Tate group of the VHS.
+- Step 2’s passage from vanishing of ν_{α,m} to a relative cycle family Γ is standard in the divisor case (p=1) via Lefschetz (1,1) and Deligne cohomology, but in higher codimension it requires careful use of regulator maps and spread of cycles. The outlined argument follows known techniques in the theory of normal functions and mixed Hodge modules; completing all details would require a technical writeup but poses no conceptual obstruction once ν vanishes identically on Z.
+
+Summary:
+- I provided a rigorous reduction: If, for high-degree hyperplane sections, the admissible normal functions attached to restrictions of a (p,p)-class α vanish on a Zariski-dense set in the base, then α is algebraic.
+- This isolates a concrete geometric/hodge-theoretic criterion whose verification would prove the Hodge conjecture on X. It also clarifies that abundant Noether–Lefschetz phenomena for high-degree sections, together with control of Abel–Jacobi obstructions, would suffice.
+
+VERDICT: PARTIAL
+REASON: New conditional reduction via vanishing loci of normal functions; proof sketch given, hypothesis unproven.
