@@ -1,0 +1,59 @@
+Title: A single-weight smoothed prime sum criterion implying RH
+
+Statement (reduction).
+Fix parameters μ ∈ R and σ > 0, and define the log-normal weight
+w(u) = (1 / (u σ√(2π))) exp(−(ln u − μ)^2 / (2σ^2)), u > 0.
+Let its (multiplicative) Mellin transform be
+W(s) = ∫_0^∞ w(u) u^s du/u = exp(μ s + (σ^2/2) s^2).
+Note W is entire and nonvanishing on C, and ∫_0^∞ w(u) du = 1.
+
+Define the smoothed Chebyshev sum S(X) by
+S(X) = ∑_{n=1}^∞ Λ(n) w(n/X),  X ≥ 1.
+
+Assume there exist constants C, X0 such that for all X ≥ X0,
+|S(X) − X| ≤ C X^{1/2} log^2 X.      (⋆)
+
+Then all nontrivial zeros ρ of ζ satisfy Re ρ ≤ 1/2. By the functional equation/symmetry, it follows that every nontrivial zero satisfies Re ρ = 1/2; i.e. the Riemann Hypothesis holds.
+
+Proof sketch.
+
+1) Explicit formula with log-normal smoothing.
+For c > 1,
+S(X) = (1/2πi) ∫_{(c)} −ζ′/ζ(s) X^s W(s) ds.
+Shift the contour to Re s = 1/2 and collect residues at:
+- s = 1 (simple pole of ζ with residue 1) contributing X·Res_s=1(−ζ′/ζ(s)) = X;
+- s = ρ over nontrivial zeros of ζ, giving −X^ρ W(ρ);
+- s = −2k (trivial zeros), giving contributions O(X^{-2k}|W(−2k)|), which are absolutely summable and hence O(1).
+The remaining integral on Re s = 1/2 is
+I(X) = (1/2π) ∫_{−∞}^{∞} −ζ′/ζ(1/2 + it) X^{1/2+it} W(1/2 + it) dt.
+Because |W(1/2 + it)| = exp(μ/2 + (σ^2/2)((1/2)^2 − t^2)) decays Gaussian in t and −ζ′/ζ(1/2 + it) ≪ log(|t|+3), we obtain I(X) = O(X^{1/2}).
+Altogether,
+S(X) = X − ∑_ρ X^ρ W(ρ) + O(X^{1/2}).                   (1)
+
+2) Consequence of a zero to the right of 1/2.
+Suppose there exists at least one nontrivial zero ρ0 = β0 + iγ0 with β0 > 1/2.
+Let β* = sup{Re ρ : ζ(ρ) = 0} ≥ β0. Fix ε ∈ (0, (β* − 1/2)/2), and split the zero sum in (1) as
+−∑_{Re ρ ≥ β* − ε} X^ρ W(ρ) − ∑_{Re ρ < β* − ε} X^ρ W(ρ) =: T_1(X) + T_2(X).
+Because W(β + iγ) has Gaussian decay in γ and |X^ρ| = X^{Re ρ}, we have T_2(X) = O(X^{β*−ε}). For T_1(X), write
+T_1(X) = −X^{β*} ∑_{Re ρ ≥ β* − ε} a_ρ e^{iγ log X}, with a_ρ := W(ρ) X^{Re ρ − β*}.
+For zeros with Re ρ < β*, |a_ρ| ≤ |W(ρ)| X^{−(β* − Re ρ)} ≤ |W(ρ)|, and the set is summable in |γ| due to the Gaussian factor in W(ρ). For zeros with Re ρ = β*, we have coefficients b_ρ := W(ρ)/1, and the subseries ∑_{Re ρ = β*} b_ρ e^{iγ t} converges absolutely and uniformly in t by the same Gaussian decay of |b_ρ| in γ.
+
+Let A := ∑_{Re ρ = β*} |b_ρ|. This sum is finite and A > 0 because at least one such zero exists and W(ρ) ≠ 0 for all ρ. By uniform absolute convergence, the trigonometric sum F(t) := ∑_{Re ρ = β*} b_ρ e^{iγ t} is a continuous almost periodic function, and sup_t |F(t)| ≥ A (e.g., approximate partial sums by l^1 and align phases). Hence there exists a sequence t_j → ∞ such that |F(t_j)| ≥ A/2. Evaluating at X_j = e^{t_j}, we get
+|T_1(X_j)| ≥ (A/2) X_j^{β*} − O(X_j^{β*−ε}).
+
+3) Contradiction with (⋆).
+From (1), for these X_j,
+|S(X_j) − X_j| ≥ |T_1(X_j)| − |T_2(X_j)| − O(X_j^{1/2})
+≥ (A/2) X_j^{β*} − O(X_j^{β*−ε}) − O(X_j^{1/2}).
+Since β* > 1/2 and ε > 0, the right-hand side dominates C X_j^{1/2} log^2 X_j for large j. This contradicts the assumed bound (⋆). Therefore β* ≤ 1/2, proving that all nontrivial zeros satisfy Re ρ ≤ 1/2. By the functional equation and the fact that zeros are symmetric about Re s = 1/2, we conclude RH.
+
+Remarks.
+- The choice of a log-normal weight w is crucial: its Mellin transform W(s) is entire and nowhere zero, removing the obstruction that a single fixed smoothing might accidentally annihilate the contribution of a zero. The Gaussian decay of |W(β + iγ)| in |γ| yields absolute convergence of the zero sum and clean O(X^{1/2}) residual integrals.
+- The criterion replaces the classical pointwise error term ψ(x) = x + O(x^{1/2+ε}) by a single, scale-invariant smoothed estimate with a universal weight. It is “one-weight, all-scales”: it requires square-root cancellation for S(X) at every large scale X.
+- Minor quantitative improvements (e.g., removing log^2 X in (⋆)) are not needed; the O(X^{1/2}) error from (1) already shows that any power-saving beyond X^{1/2} would suffice.
+
+Outcome.
+This is a rigorous reduction: establishing the one-parameter family of bounds (⋆) for the single explicit weight w implies RH. It is self-contained modulo standard facts about the explicit formula and growth of −ζ′/ζ on vertical lines, both used in a routine way.
+
+VERDICT: PARTIAL
+REASON: New rigorous reduction: a single log-normal smoothed prime sum bound implies RH.

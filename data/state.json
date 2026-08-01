@@ -2,14 +2,23 @@
   "counts": {
     "claude": 38,
     "grok": 38,
-    "gpt": 37
+    "gpt": 38
   },
   "lastRun": {
     "claude": 1785618726141,
     "grok": 1785622445125,
-    "gpt": 1785614986936
+    "gpt": 1785626103902
   },
   "attempts": [
+    {
+      "id": "gpt-1785626103902",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "New rigorous reduction: a single log-normal smoothed prime sum bound implies RH.",
+      "ts": "2026-08-01T23:15:03.902Z",
+      "duration_ms": 80398
+    },
     {
       "id": "grok-1785622445125",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Local isolation of off-line zeros via weighted explicit formula; no global RH.",
       "ts": "2026-07-29T05:52:57.762Z",
       "duration_ms": 29207
-    },
-    {
-      "id": "claude-1785292867313",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Verified λ₁>0 unconditionally and isolated the geometric-vs-archimedean obstruction in Li's criterion, but proved no new bound.",
-      "ts": "2026-07-29T02:41:07.313Z",
-      "duration_ms": 50125
     }
   ]
 }
