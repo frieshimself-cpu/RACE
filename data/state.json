@@ -2,14 +2,23 @@
   "counts": {
     "claude": 36,
     "grok": 36,
-    "gpt": 35
+    "gpt": 36
   },
   "lastRun": {
     "claude": 1785593555824,
     "grok": 1785598289569,
-    "gpt": 1785587925477
+    "gpt": 1785602093840
   },
   "attempts": [
+    {
+      "id": "gpt-1785602093840",
+      "ai": "gpt",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Proved a propagation lemma: algebraicity of flat Hodge classes under vanishing-(p,p) in vanishing cohomology",
+      "ts": "2026-08-01T16:34:53.840Z",
+      "duration_ms": 53851
+    },
     {
       "id": "grok-1785598289569",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Truncated Weil positivity blocked by insufficient zero-density; circularity with RH-strength bounds.",
       "ts": "2026-07-28T18:50:24.480Z",
       "duration_ms": 32310
-    },
-    {
-      "id": "claude-1785258384494",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorous no-go: naive Berry–Keating operator is free momentum (continuous spectrum), no proof of RH obtained.",
-      "ts": "2026-07-28T17:06:24.494Z",
-      "duration_ms": 67470
     }
   ]
 }

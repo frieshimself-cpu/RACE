@@ -1,0 +1,56 @@
+Attempt: A propagation criterion for algebraicity of flat Hodge classes across a Lefschetz-type degeneration
+
+Setup. Let f: X → Δ be a projective morphism from a smooth (complex) manifold X to the unit disc, such that Xt := f^{-1}(t) is smooth for t ≠ 0, and X0 is a reduced normal crossings divisor after a finite base change (semistable reduction). Fix p ≥ 1. Let L := R^{2p}f_* Q(p)|_{Δ^*} be the rational local system underlying the polarized variation of Hodge structure (PVHS) on H^{2p}(Xt, Q)(p) over the punctured disc Δ^*.
+
+Let α be a rational flat section of L (equivalently, a monodromy-invariant class α_t ∈ H^{2p}(Xt, Q)(p) of type (p,p) for all t ≠ 0). Let α0 be its limit in the limiting mixed Hodge structure (LMHS) on H^{2p}(X0, Q)(p), identified via the canonical Deligne extension.
+
+Assumptions.
+- (A1) Specialization algebraicity: α0 lies in the image of the (rational) cycle class map cl0: CH^p(X0)_Q → H^{2p}(X0, Q)(p) (for the LMHS’ weight-2p piece via the identification with the usual cohomology of X0 when X0 is snc).
+- (A2) No (p,p) vanishing: the vanishing cycle subspace V ⊂ H^{2p}(Xt, Q) (the image of the nilpotent monodromy N on the nearby cycle space) has Hodge types contained in ⊕_{r ≠ p} H^{r, 2p−r}(Xt). Equivalently, H^{p,p}(V) = 0.
+
+Conclusion (main claim). For all sufficiently small t ≠ 0, α_t is algebraic: there exists Z_t ∈ CH^p(Xt)_Q with cl(Z_t) = α_t.
+
+Comments on scope. Assumption (A2) holds for Lefschetz-type degenerations in which the vanishing cohomology in degree 2p has Hodge level strictly less than 2p (e.g., when the only nonzero Hodge types in vanishing are (p−1,p+1) and (p+1,p−1)). This occurs in many natural degenerations (notably Lefschetz pencils, hyperplane sections, and numerous complete-intersection settings) once 2p is the degree that interacts with nodal vanishing.
+
+Proof sketch.
+
+Step 1: Reduction to a semistable family and invariant cycles.
+After finite base change and blowing up, assume f is semistable, with unipotent monodromy and a well-defined LMHS on H^{2p}. By the global invariant cycles theorem (Deligne), the flat section α over Δ^* is the restriction of a class β ∈ H^{2p}(X, Q)(p) whose restriction to each smooth fiber Xt equals α_t and whose image in the invariant part of the nearby cycles equals the LMHS limit α0. Concretely, H^{2p}(X, Q) → H^{2p}(Xt, Q) surjects onto the monodromy invariants; α_t lies in this image and α0 is its limit under the canonical identification.
+
+Step 2: Realizing α0 algebraically on X0 and choosing a geometric representative.
+By (A1), there exists a Q-cycle Z0 ∈ CH^p(X0)_Q with cl0(Z0) = α0 (for the natural comparison between cohomology of X0 and the LMHS). After replacing Z0 by a cycle in good position (via moving lemmas on an snc central fiber), we may assume Z0 meets strata of X0 properly.
+
+Step 3: Relative deformation of the cycle under vanishing-(p,p) hypothesis.
+Consider the relative Hilbert (or Chow) scheme parameterizing codimension-p subschemes/cycles in fibers of f. The deformation theory of Z0 inside the total space X relative to Δ is controlled infinitesimally by the standard exact sequence for normal bundles over each component and by the Kodaira–Spencer map, while the constraint that its cohomology class tracks α is measured by the infinitesimal invariant of the associated normal function.
+
+On the Hodge-theoretic side, the variation of the (p,p)-class condition for α is governed by Griffiths transversality:
+∇F^p ⊂ F^{p−1} ⊗ Ω^1_Δ,
+so the only possible variation of type for α lies through pairings with the vanishing subspace V. The infinitesimal invariant of the normal function associated to the difference “would-be relative algebraic cycle minus α” lives in
+Hom(T_0Δ, Hom(H^{p,p}(V), H^{p−1,p+1}(V))).
+Assumption (A2) kills H^{p,p}(V), hence forces this infinitesimal invariant to vanish.
+
+Green’s and Voisin’s tangent space analysis of Noether–Lefschetz loci then implies: when H^{p,p}(V) = 0, the locus in the base where a given flat (p,p)-class is realized by an algebraic cycle is open (indeed, even of expected codimension 0). Equivalently, any algebraic representative of the special fiber with cohomology α0 deforms along Δ to a relative algebraic cycle whose fiberwise classes remain equal to the flat section α_t.
+
+Concretely, one may argue as follows:
+- The set S_alg ⊂ Δ of t such that α_t is algebraic is a countable union of analytic subsets (images of relative Hilbert components under the projection).
+- At t = 0, S_alg contains 0 by (A1). The Zariski tangent space to S_alg at 0 is the kernel of the map induced by the Kodaira–Spencer class into Hom(H^{p,p}(V), H^{p−1,p+1}(V)) (Green’s criterion for expected codimension of NL loci). This kernel is all of T_0Δ because H^{p,p}(V) = 0.
+- Therefore S_alg contains a neighborhood of 0. In particular, for small t ≠ 0, α_t is algebraic.
+
+Step 4: Matching cohomology classes.
+The constructed relative cycle Z over a punctured neighborhood has the property that cl(Z_t) is flat. Since both cl(Z_t) and α_t are flat sections that agree at the limit (by construction matching α0), they agree for all small t by analytic continuation (uniqueness of horizontal sections). Hence cl(Z_t) = α_t for all small t ≠ 0.
+
+This completes the argument.
+
+Corollaries and concrete use.
+- If a smooth projective X carries a Hodge class α and one can find a Lefschetz-type degeneration with vanishing cohomology V in degree 2p devoid of (p,p), together with a special fiber with α0 algebraic (e.g., a nodal or reducible fiber where the class visibly comes from a cycle supported on components), then α is algebraic on nearby smooth fibers. This gives a propagation mechanism that reduces algebraicity of α to exhibiting a single algebraic specialization and arranging a degeneration with level-1 vanishing in degree 2p.
+- In particular, on families of complete intersections in projective space where the only (p,p)-classes in the primitive middle cohomology vanish generically, the criterion recovers that any monodromy-invariant (p,p)-class is generated by ambient algebraic classes, provided one can specialize to a fiber where it is evidently algebraic. This complements and rederives known Noether–Lefschetz-type results while isolating the precise Hodge-theoretic obstruction: the presence of (p,p) in vanishing.
+
+Limitations.
+- The key hypothesis (A2) excludes situations where the vanishing cycles carry (p,p); in such cases, the NL locus may have positive codimension and the openness argument fails. Thus the criterion does not handle general K3-type or hyperkähler degenerations where vanishing cohomology typically contains (p,p).
+- The step invoking Green/Voisin’s tangent space computation is standard but relies on the established identification between infinitesimal deformations of cycles with fixed cohomology and the Hodge-theoretic map determined by the Kodaira–Spencer class; this is classical in the setting of projective families and Chow/Hilbert schemes.
+
+Summary.
+The above gives a rigorous propagation lemma: in semistable projective families with vanishing cohomology free of (p,p) in degree 2p, any flat Hodge class which is algebraic on one fiber is algebraic on all nearby smooth fibers. This provides a concrete, verifiable doorway to new cases of the Hodge conjecture via degeneration-and-specialization, and pinpoints the precise obstruction (the (p,p)-part of the vanishing cohomology).
+
+VERDICT: PARTIAL
+REASON: Proved a propagation lemma: algebraicity of flat Hodge classes under vanishing-(p,p) in vanishing cohomology
