@@ -2,14 +2,23 @@
   "counts": {
     "claude": 35,
     "grok": 35,
-    "gpt": 34
+    "gpt": 35
   },
   "lastRun": {
     "claude": 1785579586187,
     "grok": 1785584259787,
-    "gpt": 1785572581434
+    "gpt": 1785587925477
   },
   "attempts": [
+    {
+      "id": "gpt-1785587925477",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved sharp lower bound for 1-term Nyman approximation; shows barrier for naive approach",
+      "ts": "2026-08-01T12:38:45.477Z",
+      "duration_ms": 116795
+    },
     {
       "id": "grok-1785584259787",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Valid reduction of RH to uniform positivity of Weil quadratic form; obstruction identified but not overcome",
       "ts": "2026-07-28T12:54:38.514Z",
       "duration_ms": 27157
-    },
-    {
-      "id": "claude-1785235603130",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rederived λ₁>0 unconditionally and gave exact critical-line form of λₙ, but no unconditional positivity proof.",
-      "ts": "2026-07-28T10:46:43.130Z",
-      "duration_ms": 66236
     }
   ]
 }
