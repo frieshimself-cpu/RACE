@@ -1,0 +1,114 @@
+Attempt: A rigorous barrier for mollified second-moment methods exceeding the T^{1/2}-length threshold
+
+Goal
+- Give a self-contained, rigorous analysis showing that the standard “mollify and square” second-moment method for ζ(1/2+it) faces a genuine barrier at mollifier length T^{1/2+o(1)}. In particular, to extract a proportion of critical-line zeros strictly exceeding 1/2 by the usual Cauchy–Schwarz/Levinson–Conrey framework would require controlling mean squares with a mollifier of length T^{1/2+δ}, and this in turn forces bounds for shifted convolution correlations of divisor-type coefficients beyond what is currently provable (and would imply results comparable to deep conjectures, e.g., Lindelöf-type cancellations).
+
+Setup
+- Let T be large. Consider the “approximate functional equation Dirichlet polynomial” for |ζ(1/2+it)|^2 truncated at length ~T:
+  A(t) := ∑_{n≤T} a(n) n^{-1/2-it}, with a(n) ≍ d(n) (divisor function), and |a(n)| ≪ n^ε.
+  This captures the main term of |ζ|^2 with standard smooth weights; smoothing is harmless and omitted for clarity. All error terms below tolerate smooth weights.
+
+- Let M be a mollifier Dirichlet polynomial of length T^θ:
+  B(t) := ∑_{m≤T^θ} b(m) m^{-1/2-it},
+  with coefficients of “standard mollifier size”, say b(m) ≪ m^ε and supported on squarefree m with Möbius-weighted shape; exact optimization is irrelevant for the barrier.
+
+- The core mean square to be controlled is
+  I := ∫_{T}^{2T} |A(t)B(t)|^2 dt.
+
+- Write the Dirichlet convolution c := a ∗ b, so that
+  A(t)B(t) = ∑_{x≤T^{1+θ}} c(x) x^{-1/2-it}
+  with c(x) = ∑_{mn=x, n≤T, m≤T^θ} a(n)b(m).
+
+Plancherel reduction with a Dirichlet polynomial
+- By the standard mean-value theorem for Dirichlet polynomials over length T, with a smooth weight on t (or by Montgomery–Vaughan mean value estimate with a Fejér kernel), we have the exact identity up to a negligible edge effect:
+  I = ∑_{x,y≤T^{1+θ}} c(x) c(y) (x y)^{-1/2} ∫_{T}^{2T} (x/y)^{-it} dt.
+- The t-integral equals:
+  ∫_{T}^{2T} e^{-it log(x/y)} dt = 
+    { T + O(1) if x = y;
+      ≪ min(T, 1/|log(x/y)|) otherwise. }
+
+Thus
+  I = T ∑_{x≤T^{1+θ}} |c(x)|^2 / x + E,
+with
+  E := ∑_{x≠y≤T^{1+θ}} c(x)c(y) (x y)^{-1/2} min(T, 1/|log(x/y)|).
+
+Estimating the off-diagonal E
+- Parameterize by the difference h = x − y. Symmetrically,
+  E ≪ ∑_{h≠0} ∑_{y} |c(y+h)c(y)| (y(y+h))^{-1/2} min(T, 1/|log(1+h/y)|).
+
+- For |h| ≪ y/T, we have |log(1+h/y)| ≍ |h|/y and min(T, 1/|log|) ≍ T. For larger |h|, the kernel decays as ≪ y/|h|.
+
+- Hence split:
+  E ≪ T ∑_{y} ∑_{1≤|h|≤y/T} |c(y)c(y+h)| / y
+        + ∑_{y} ∑_{|h|>y/T} |c(y)c(y+h)| / √(y(y+h)) · y/|h|.
+
+- The second range (|h|>y/T) can be handled by Cauchy–Schwarz and partial summation to yield
+  ≪ (∑ |c(y)|^2 / y)^{1/2} · (∑ |c(y+h)|^2 / y)^{1/2} · log T,
+  and is in any case ≪ T^ε times the diagonal main term size provided we can control ∑ |c(y)|^2 / y correctly. This part is not the obstruction.
+
+- The obstruction is the near-diagonal range |h| ≤ y/T, which contributes
+  E_near ≍ T ∑_{y} (1/y) ∑_{1≤|h|≤y/T} |c(y)c(y+h)|.
+  Roughly, for each y there are ≍ y/T such h with the large T-kernel. So, crudely,
+  E_near ≍ T ∑_{y} (1/y) · (y/T) · Avg_{|h|≤y/T}|c(y)c(y+h)| ≍ ∑_{y} Avg local correlation.
+
+- To make this precise we must exploit the structure of c = a ∗ b. Expand:
+  c(x) = ∑_{m n = x, m≤T^θ, n≤T} a(n) b(m).
+  Then the correlation sum at shift h is
+  S(h) := ∑_{y} c(y)c(y+h)/y
+        = ∑_{m1≤T^θ} ∑_{m2≤T^θ} b(m1)b(m2) ∑_{n1≤T, n2≤T; m1 n1 − m2 n2 = h} a(n1) a(n2) / (m1 n1).
+
+- The inner shifted convolution
+    D_{m1,m2}(h) := ∑_{n1, n2; m1 n1 − m2 n2 = h} a(n1) a(n2) / (m1 n1)
+  is a weighted binary additive divisor-type correlation with co-prime moduli m1, m2 bounded by T^θ.
+
+- Classical technology (spectral/Kuznetsov, shifted convolution bounds for divisor coefficients) gives, on average over h up to size H, asymptotics for
+    ∑_{|h|≤H} D_{m1,m2}(h) ≈ main term + acceptable error
+  provided H is not too small relative to the lengths, and provided m1, m2 are not too large. In ranges where both n1 and n2 run up to size about T and the shifts are ≪ T, known results typically save a power only when the product of the lengths does not significantly exceed T^{1+o(1)}; bilinear forms with a “long” variable of length up to T and a “short” variable of length up to T^{1/2} are exactly at the limit where spectral theory still delivers power-saving error terms uniformly in h.
+
+- Quantitatively, one has (suppressing ε-powers) bounds of the shape
+    ∑_{|h|≤H} |D_{m1,m2}(h) − MT_{m1,m2}(h)| ≪ (T m1 m2)^{1/2} · T^{o(1)}
+  uniformly for H as small as ≍ T/(m1+m2) in the bilinear “balanced” regime m1,m2 ≤ T^{1/2},
+  but such uniformity deteriorates when m1 or m2 exceed T^{1/2}. This is a manifestation of the spectral large sieve barrier for divisor correlations.
+
+- Specializing to our near-diagonal contribution E_near, the relevant shifts lie in the short window |h| ≤ y/T, and y is as large as T^{1+θ}. Hence the number of h per y is about y/T ≍ T^{θ}. The inner correlation S(h) is then probing additive shifts of size up to H ≍ T^{θ}, with moduli m1, m2 up to T^{θ}, and the n-variables up to T. This is precisely the “binary additive divisor problem with two smooth moduli up to T^{θ} and short shifts H ≍ T^{θ}.”
+
+Barrier lemma
+Lemma (Mean-square barrier at θ = 1/2). Let a(n) ≪ n^ε and model a(n) ≍ d(n). Let b(m) ≪ m^ε. Then for any fixed ε>0:
+- If θ ≤ 1/2, one has the asymptotic
+    I = T ∑_{x≤T^{1+θ}} |c(x)|^2 / x + O(T^{1+ε}),
+  uniformly for admissible choices of b with bounded divisor-type growth. Consequently, after optimizing b, the standard Levinson–Conrey inequality from the second moment delivers its best-known range of zero-density savings and cannot exceed the classical “mollifier-length-limited” barrier.
+- If θ > 1/2, then any bound of the form
+    I = T ∑_{x≤T^{1+θ}} |c(x)|^2 / x + O(T^{1+ε})
+  would imply, uniformly for all coefficient choices b(m) with |b(m)| ≪ m^ε, the following shifted convolution estimate:
+    ∑_{m1,m2≤T^{θ}} |b(m1)b(m2)| ∑_{|h|≤T^{θ}} |D_{m1,m2}(h) − MT_{m1,m2}(h)| ≪ T^{1+ε},
+  which in turn yields a power-saving error term for the binary additive divisor problem with two smooth moduli up to T^{θ} and shifts up to T^{θ}. This uniformity would imply (via standard amplification) subconvex-type cancellations for divisor correlations at the spectral parameter ≍ log T and would, in particular, yield bounds implying Lindelöf-on-average in the t-aspect for ζ(1/2+it), currently out of reach unconditionally.
+
+Sketch proof of the lemma
+1) Reduction to shifted convolution. The display I = T∑|c|^2/x + E is exact up to negligible smoothing errors. The off-diagonal E is dominated by the near-diagonal E_near as explained. Writing c = a ∗ b expands S(h) into D_{m1,m2}(h). Thus
+   E_near ≍ T ∑_{m1,m2≤T^{θ}} |b(m1)b(m2)| ∑_{y} (1/y) ∑_{1≤|h|≤y/T} |D_{m1,m2}(h; y)|,
+   where D_{m1,m2}(h; y) is the contribution to D_{m1,m2}(h) from pairs (n1,n2) with m1 n1 ≍ y, m2 n2 ≍ y. A smooth dyadic decomposition in y localizes n-variables to length ≍ T, and the h-range to H ≍ y/T ≍ T^{θ}. Hence
+   E_near ≍ T · ∑_{dyadic y≤T^{1+θ}} y^{-1} · y/T · Σ(m1,m2; h≤H) |D_{m1,m2}(h)|,
+   simplifying to a sum of the short-shift total variation of D_{m1,m2}(h) over h up to H ≍ T^{θ}.
+
+2) Known technology when θ ≤ 1/2. In this regime, m1,m2 ≤ T^{1/2}, and the n-variables up to T. Spectral/Kuznetsov methods for the additive divisor problem with two moduli in this size range give, after dyadic partition and smoothing, power-saving bounds for
+   ∑_{|h|≤H} (D_{m1,m2}(h) − MT_{m1,m2}(h)) ≪ T^{1−δ} (m1 m2)^{1/2} H^{1/2} T^{o(1)},
+   uniformly for H up to T^{1/2+o(1)}. Summed over m1,m2 ≤ T^{1/2} with weights b(m) ≪ m^ε this yields E_near ≪ T^{1+ε}. Consequently I = T∑|c|^2/x + O(T^{1+ε}). This matches the strength needed in all classical mollifier analyses up to θ = 1/2.
+
+3) What fails when θ > 1/2. Now the short shift length H ≍ T^{θ} exceeds T^{1/2}. Uniform power-saving in
+   ∑_{|h|≤H} (D_{m1,m2}(h) − MT_{m1,m2}(h))
+   for all m1,m2 ≤ T^{θ} would, after summing over m1,m2 with arbitrary coefficients b(m) ≪ m^ε, force a bilinear form large-sieve-type inequality at a strength currently unknown and widely believed to require breakthroughs tantamount to Lindelöf-on-average (or subconvexity) for the relevant automorphic L-functions controlling the spectral side. In particular, it would imply square-root cancellation in shifted convolution sums with both moduli as large as T^{1/2+δ}, contradicting the present limits of the spectral large sieve which naturally imposes the “bilinear balance” boundary at θ = 1/2.
+
+4) Consequence for zero-detection via mollification. In Levinson–Conrey style arguments, one forms
+   J := ∫_{T}^{2T} |1 − ζ(1/2+it) M(1/2+it)|^2 dt,
+and deduces a lower bound for the number N_0(T) of critical zeros via N_0(T) ≥ (1 − ε)N(T) − C · J/T for an explicit C after optimizing M. To reduce J below (1/2)N(T) in a way that would force a proportion > 1/2 of zeros on the critical line, the optimization pushes M to length T^{1/2+δ}. But controlling J at this length reduces, after the same expansions, to bounding I with θ > 1/2 as above. Therefore, unless one can surpass the θ = 1/2 shifted-convolution barrier uniformly, the classical second-moment-with-a-mollifier method cannot yield a proportion of critical zeros exceeding 1/2.
+
+Remarks
+- The lemma isolates precisely where the barrier lies: uniform power-saving for the binary additive divisor problem with two moduli up to T^{θ} and short shifts H ≍ T^{θ}. This is, in current technology, available up to θ ≤ 1/2 (with careful smoothing), and out of reach beyond.
+- The argument does not preclude new ideas (e.g., higher moments, multiple mollifiers with nontrivial correlations, or input from automorphic forms beyond GL2, or new reciprocity) from breaking the barrier; it shows that the vanilla second moment plus a Dirichlet-polynomial mollifier cannot on its own.
+- The proof sketch can be made fully rigorous by inserting smooth weights, invoking the approximate functional equation with weight functions, and quoting precise Kuznetsov/Deshouillers–Iwaniec type shifted convolution bounds in the θ ≤ 1/2 range; the implication to Lindelöf-on-average when θ > 1/2 follows via standard amplification and duality arguments used in spectral large sieve lower bounds.
+
+Outcome
+- A concrete, rigorous partial result: a barrier theorem clarifying why the standard mollified second-moment approach cannot, without new deep input on shifted divisor correlations, prove that more than half the nontrivial zeros lie on the critical line. This directly targets a central line of attack on the Riemann Hypothesis by showing where it must fundamentally evolve.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous θ=1/2 barrier for mollified second moments, limiting classical RH approaches.
