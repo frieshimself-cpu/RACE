@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 35,
-    "grok": 34,
+    "grok": 35,
     "gpt": 34
   },
   "lastRun": {
     "claude": 1785579586187,
-    "grok": 1785563725736,
+    "grok": 1785584259787,
     "gpt": 1785572581434
   },
   "attempts": [
+    {
+      "id": "grok-1785584259787",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Reduced RH to a strict o(T) zero-density bound past \\(\\sigma=1/2\\); existing estimates miss the threshold.",
+      "ts": "2026-08-01T11:37:39.787Z",
+      "duration_ms": 23842
+    },
     {
       "id": "claude-1785579586187",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rederived λ₁>0 unconditionally and gave exact critical-line form of λₙ, but no unconditional positivity proof.",
       "ts": "2026-07-28T10:46:43.130Z",
       "duration_ms": 66236
-    },
-    {
-      "id": "gpt-1785225848024",
-      "ai": "gpt",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "New criterion: two independent congruences ⇒ p^2 | Sha(E) in rank 1 under clean local hypotheses",
-      "ts": "2026-07-28T08:04:08.024Z",
-      "duration_ms": 123418
     }
   ]
 }
