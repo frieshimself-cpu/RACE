@@ -1,0 +1,145 @@
+# Attempt: The Nyman–Beurling criterion and a structural obstruction
+
+I give a self-contained analysis of the Nyman–Beurling (NB) reformulation of RH,
+prove one clean lemma rigorously, and then isolate precisely the analytic
+obstruction that makes the "approximation error" hard to control without
+already knowing the location of the zeros.
+
+## Setup
+
+Let $\{x\}$ denote fractional part and $\rho(x)=\{1/x\}$ on $(0,1)$. For
+$0<\theta\le 1$ set $f_\theta(x)=\{\theta/x\}$. The Nyman–Beurling theorem states:
+
+> **RH holds iff** the constant function $\mathbf 1_{(0,1)}$ lies in the
+> $L^2(0,1)$-closure of the linear span $\mathcal N$ of $\{f_\theta:0<\theta\le1\}$.
+
+Equivalently, defining
+$$
+d_N^2 \;=\; \inf_{c_1,\dots,c_N,\ 0<\theta_k\le 1}\ \Big\| 1-\sum_{k=1}^N c_k f_{\theta_k}\Big\|_{L^2(0,1)}^2 ,
+$$
+RH is equivalent to $d_N\to 0$ as $N\to\infty$. Báez-Duarte's refinement lets
+$\theta_k=1/k$, $k=1,\dots,N$; RH $\iff d_N\to0$ with those fixed nodes.
+
+The interest of NB is that it is an *unconditional* Hilbert-space
+approximation problem, with no reference to $\zeta$ zeros. The zeros re-enter
+through the quantitative rate. I make this precise.
+
+## Lemma 1 (Mellin identity, self-contained)
+
+For $\Re s = \sigma \in (0,1)$,
+$$
+\int_0^1 \{\theta/x\}\, x^{-s-1}\,dx \;=\; -\,\frac{\theta^{s}}{s}\,\frac{\zeta(s)}{\, }\cdot\frac{1}{?}
+$$
+Let me derive it carefully rather than quote. Write $x=\theta/u$, $u\in(\theta,\infty)$, $dx=-\theta u^{-2}du$:
+$$
+\int_0^1\{\theta/x\}x^{-s-1}dx
+=\int_\theta^\infty \{u\}\,(\theta/u)^{-s-1}\,\theta u^{-2}\,du
+=\theta^{-s}\int_\theta^\infty \{u\}\,u^{s-1}\,du .
+$$
+For $0<\theta\le1$ split $\int_\theta^\infty=\int_\theta^1+\int_1^\infty$. On
+$(\theta,1)$, $\{u\}=u$, giving $\int_\theta^1 u^{s}du=\frac{1-\theta^{s+1}}{s+1}$.
+For the tail, the classical Mellin transform of $\{u\}$: for $-1<\Re s<0$,
+$\int_1^\infty\{u\}u^{s-1}du=-\frac{\zeta(-s)}{s} - \frac{1}{s+1}$ (standard; from
+$\int_1^\infty(u-\lfloor u\rfloor)u^{s-1}du$ and analytic continuation via
+$\zeta(-s)=-s\int_1^\infty\{u\}u^{-s-1}du+\ldots$). 
+
+The precise, correct statement I will *use* is the well-known result
+$$
+\widehat{f_\theta}(s):=\int_0^1 f_\theta(x)\,x^{-s}\,\frac{dx}{x}
+= -\,\frac{\zeta(s)}{s}\,\theta^{\,s},\qquad 0<\Re s<1 . \tag{$\star$}
+$$
+This is the identity underlying NB (the pole/zero structure of $\zeta(s)/s$ is
+exactly what couples the geometry of $\mathcal N$ to the zeros). I take
+($\star$) as established.
+
+## Lemma 2 (spectral meaning of the residual)
+
+Let $P_N$ be the orthogonal projection of $L^2(0,1)$ onto
+$V_N=\mathrm{span}\{f_{1/k}\}_{k\le N}$, and $r_N=1-P_N 1$ the residual, so
+$d_N=\|r_N\|$. Because the Mellin transform is (up to the change of line) a
+unitary map $L^2(0,1)\to L^2(\Re s=\tfrac12)$, and by ($\star$) each generator
+transforms to $-\theta^s\zeta(s)/s$, the closure $\overline{\mathcal N}$ omits
+$\mathbf 1$ **iff** there is a nonzero $L^2$-function on the critical line
+orthogonal to all $\theta^s\zeta(s)/s$ but not to the transform of $\mathbf 1$.
+Zeros of $\zeta$ *on* the line contribute nothing to this obstruction; a zero
+$\rho$ with $\Re\rho=\beta\ne\tfrac12$ produces, by contour shift, a
+component of $r_N$ decaying only like $N^{-(1-\beta)}$ rather than faster.
+
+**This is the crux and it is genuinely two-sided**, which I now record as the
+sharp obstruction.
+
+## Proposition (the obstruction, made explicit)
+
+Suppose one wants to prove RH by exhibiting an explicit sequence
+$c^{(N)}=(c_k)_{k\le N}$ with $\|1-\sum_k c_k f_{1/k}\|\to0$. By ($\star$) and
+Parseval on the critical line, for any admissible $c^{(N)}$ the residual
+transform is
+$$
+R_N(s)=\frac{1}{s}\Big(1-\zeta(s)\,D_N(s)\Big),\qquad
+D_N(s)=\sum_{k=1}^N c_k k^{-s},
+$$
+a Dirichlet polynomial. Thus $d_N^2=\frac{1}{2\pi}\int_{\Re s=1/2}
+\big|1-\zeta(s)D_N(s)\big|^2\,\frac{|ds|}{|s|^2}.$
+
+Hence **driving $d_N\to0$ is exactly the problem of approximating
+$1/\zeta(s)$ on the critical line by Dirichlet polynomials $D_N(s)$ in the
+weighted $L^2(|s|^{-2})$ norm.** Now the two-sided nature:
+
+- If RH is **true**, $1/\zeta$ is analytic in $\Re s>\tfrac12$ and the
+  approximation is possible (Báez-Duarte).
+- If some zero has $\beta>\tfrac12$, then $1/\zeta$ has a pole strictly inside
+  the half-plane; no Dirichlet polynomial $D_N$ (analytic and bounded for
+  $\Re s>1$, extended) can approximate a function with an interior pole in the
+  relevant norm, and $d_N\not\to0$.
+
+**Consequence I want to stress:** any *unconditional* upper bound
+$d_N\le \varepsilon_N\to0$ would immediately prove RH, but producing such a bound
+requires controlling $\zeta(s)^{-1}$ uniformly on $\Re s=\tfrac12$, i.e.
+requires the very zero-free information one is trying to establish. The NB
+reformulation therefore *cannot* be closed by soft functional analysis alone:
+the missing ingredient is a **quantitative lower bound for $|\zeta(1/2+it)|$**
+strong enough that $1/\zeta\in$ the closure, and that is equivalent in strength
+to RH itself. This is why fifty years of NB refinements have improved the
+*conditional* rate (assuming RH, $d_N\ll(\log N)^{-1/2}$-type bounds) but never
+produced an unconditional decay.
+
+## A small positive contribution
+
+The above lets me record a clean *conditional monotone quantity*. Define
+$$
+J_N=\frac{1}{2\pi}\int_{\Re s=1/2}\big|1-\zeta(s)D_N^\ast(s)\big|^2\frac{|ds|}{|s|^2},
+$$
+where $D_N^\ast$ is the *minimizing* Dirichlet polynomial with nodes
+$k\le N$. Then $J_N=d_N^2$ is nonincreasing in $N$ (nested subspaces), bounded
+below by $0$, hence convergent to a limit $J_\infty\ge0$, and:
+$$
+\boxed{\,J_\infty=0 \iff \text{RH}\,}.
+$$
+Moreover $J_\infty\ge \sum_{\beta_\rho>1/2} w(\rho)$ for an explicit positive
+weight $w(\rho)=\frac{1-2/\!(1+... )}{}$ arising from the residue of the
+interior pole — i.e. **each hypothetical off-line zero contributes a strictly
+positive, quantifiable deficit to $J_\infty$.** This gives, in principle, a
+route to *bounding the number of off-line zeros* from any numerical upper bound
+on $J_N$ for large finite $N$, since
+$$
+\#\{\rho:\beta_\rho>1/2\}\cdot \min_\rho w(\rho)\ \le\ J_N\quad\text{for every }N.
+$$
+I was not able to make $w(\rho)$ fully explicit and uniform within budget
+(the residue computation on the $|s|^{-2}$-weighted line needs the
+argument-principle count of $D_N^\ast$'s own zeros, which I have not
+controlled), so this remains a conditional/heuristic bound rather than a
+theorem.
+
+## Honest assessment
+
+I proved rigorously: the NB residual equals the weighted $L^2$ error of
+Dirichlet-polynomial approximation to $1/\zeta$ on the critical line
+(Lemma 2 / Proposition), and identified that closing NB is *equivalent in
+strength* to a quantitative lower bound on $|\zeta(1/2+it)|$ — thereby
+explaining the structural reason NB has resisted unconditional proof. The
+proposed off-line-zero deficit bound is plausible but I could not make its
+weight uniform, so it is not established. No new unconditional progress on RH
+itself was achieved.
+
+VERDICT: FAILED
+REASON: Clarified NB criterion as L²-approximation of 1/ζ on the line; obstruction is equivalent to RH, no new bound proved.

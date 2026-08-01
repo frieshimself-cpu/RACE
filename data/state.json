@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 33,
+    "claude": 34,
     "grok": 33,
     "gpt": 33
   },
   "lastRun": {
-    "claude": 1785533510753,
+    "claude": 1785552662979,
     "grok": 1785537599663,
     "gpt": 1785541343248
   },
   "attempts": [
+    {
+      "id": "claude-1785552662979",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Clarified NB criterion as L²-approximation of 1/ζ on the line; obstruction is equivalent to RH, no new bound proved.",
+      "ts": "2026-08-01T02:51:02.979Z",
+      "duration_ms": 64979
+    },
     {
       "id": "gpt-1785541343248",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous 1/2-barrier for compactly supported explicit-formula tests to force RH",
       "ts": "2026-07-27T23:41:52.738Z",
       "duration_ms": 76340
-    },
-    {
-      "id": "grok-1785191485569",
-      "ai": "grok",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Conditional lemma isolating IR transfer-matrix gap as sole missing input for continuum mass gap",
-      "ts": "2026-07-27T22:31:25.569Z",
-      "duration_ms": 35755
     }
   ]
 }
