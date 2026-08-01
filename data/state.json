@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 36,
-    "grok": 35,
+    "grok": 36,
     "gpt": 35
   },
   "lastRun": {
     "claude": 1785593555824,
-    "grok": 1785584259787,
+    "grok": 1785598289569,
     "gpt": 1785587925477
   },
   "attempts": [
+    {
+      "id": "grok-1785598289569",
+      "ai": "grok",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Conditional reduction of primitive HC to lower dim + AJ vanishing; obstruction remains.",
+      "ts": "2026-08-01T15:31:29.569Z",
+      "duration_ms": 27475
+    },
     {
       "id": "claude-1785593555824",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorous no-go: naive Berry–Keating operator is free momentum (continuous spectrum), no proof of RH obtained.",
       "ts": "2026-07-28T17:06:24.494Z",
       "duration_ms": 67470
-    },
-    {
-      "id": "gpt-1785252122490",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "New exact reduction: RH ⇔ L2-weighted integrability of M(x) for all ε>0; zero-free corollary proved.",
-      "ts": "2026-07-28T15:22:02.490Z",
-      "duration_ms": 133938
     }
   ]
 }

@@ -1,0 +1,24 @@
+### Attempt: A Conditional Reduction via Primitive Decomposition and Lefschetz Operators
+
+Let \(X\) be a smooth complex projective variety of dimension \(n\). Fix an ample class \(\omega \in H^2(X,\mathbb{Z})\) inducing the Lefschetz operator \(L: H^k(X,\mathbb{Q}) \to H^{k+2}(X,\mathbb{Q})\) by cup-product. Write \(H^{p,p}(X,\mathbb{Q})_{\mathrm{prim}}\) for the primitive part of the space of rational Hodge classes of type \((p,p)\), i.e.,
+\[
+H^{p,p}(X,\mathbb{Q})_{\mathrm{prim}} := \ker\bigl(L^{n-2p+1}: H^{2p}(X,\mathbb{Q})\cap H^{p,p}\to H^{2n-2p+2}(X,\mathbb{Q})\bigr).
+\]
+The hard Lefschetz theorem and the Lefschetz decomposition reduce the Hodge conjecture on \(X\) to the statement that every class in \(H^{p,p}(X,\mathbb{Q})_{\mathrm{prim}}\) is algebraic (i.e., lies in the \(\mathbb{Q}\)-span of classes of codimension-\(p\) subvarieties).
+
+**Lemma.** Suppose the Hodge conjecture holds for every smooth hyperplane section of \(X\) of dimension \(n-1\). Then every primitive Hodge class \(\alpha\in H^{p,p}(X,\mathbb{Q})_{\mathrm{prim}}\) with \(p\ge 2\) that is annihilated by the residue map
+\[
+\mathrm{Res}: H^{2p}(X\setminus Y,\mathbb{Q})\to H^{2p-1}(Y,\mathbb{Q})
+\]
+(for a generic smooth hyperplane section \(Y\subset X\)) is algebraic on \(X\).
+
+*Proof sketch.* Let \(U=X\setminus Y\). The Gysin sequence yields an exact fragment
+\[
+H^{2p-2}(Y,\mathbb{Q})\xrightarrow{i_*}H^{2p}(X,\mathbb{Q})\to H^{2p}(U,\mathbb{Q})\xrightarrow{\mathrm{Res}}H^{2p-1}(Y,\mathbb{Q}).
+\]
+By assumption \(\alpha\) is primitive, so its restriction to \(Y\) vanishes under \(L_Y^{n-2p}\) (by the hard Lefschetz theorem on \(Y\)). The hypothesis that HC holds on \(Y\) therefore supplies an algebraic class \(\beta\) on \(Y\) with \(i_*\beta=\alpha\) after clearing denominators, provided the residue obstruction vanishes. The residue vanishing is precisely the condition that \(\alpha\) lifts from a class already algebraic on a compactification of \(U\) that differs from \(X\) by a divisor; the resulting cycle on \(X\) differs from \(i_*\beta\) by a multiple of the hyperplane class, which is algebraic. Hence \(\alpha\) itself is algebraic.
+
+The reduction is sharp: the residue obstruction lies in the intermediate Jacobian of \(Y\) and is in general non-zero for \(p\ge 2\). Thus the lemma converts the Hodge conjecture on \(X\) into (i) the Hodge conjecture in dimension \(n-1\) plus (ii) vanishing of a countable set of Abel–Jacobi invariants. No general method is known to force those invariants to vanish, so the reduction does not yield an unconditional proof.
+
+VERDICT: PARTIAL
+REASON: Conditional reduction of primitive HC to lower dim + AJ vanishing; obstruction remains.
