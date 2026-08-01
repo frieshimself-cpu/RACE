@@ -1,0 +1,72 @@
+# Attempt: Positivity of the first Li coefficient and its structural role
+
+I'll give a rigorous, self-contained computation of the first Li coefficient and analyze what it does and does not buy us, then isolate precisely the obstruction that makes the positivity approach hard.
+
+## Setup
+
+Let ξ(s) = ½ s(s−1) π^{−s/2} Γ(s/2) ζ(s), which is entire of order 1, real on the real axis, and satisfies ξ(s) = ξ(1−s). Its zeros are exactly the nontrivial zeros ρ of ζ. Define the Li coefficients
+
+  λ_n = (1/(n−1)!) · d^n/ds^n [ s^{n−1} log ξ(s) ] |_{s=1}.
+
+**Li's criterion (taken as known):** RH ⟺ λ_n ≥ 0 for all n ≥ 1. Equivalently λ_n = Σ_ρ [1 − (1 − 1/ρ)^n], summed in symmetric pairs (ρ, 1−ρ).
+
+## Lemma: λ_1 = 1 + γ/2 − ½ log(4π) > 0.
+
+**Proof.** Since λ_1 = d/ds log ξ(s)|_{s=1} = ξ'(1)/ξ(1), compute the logarithmic derivative term by term:
+
+  log ξ(s) = −log 2 + log s + log(s−1) − (s/2)log π + log Γ(s/2) + log ζ(s)... 
+
+wait, the factor ½ s(s−1): log ξ = log(½) + log s + log(s−1) − (s/2) log π + log Γ(s/2) + log ζ(s).
+
+Differentiate:
+
+  ξ'/ξ (s) = 1/s + 1/(s−1) − ½ log π + ½ ψ(s/2) + ζ'/ζ (s),
+
+where ψ = Γ'/Γ. The term 1/(s−1) and ζ'/ζ(s) each have a simple pole at s=1 (ζ has a simple pole there), and these cancel. Near s=1, ζ(s) = 1/(s−1) + γ + O(s−1), so
+
+  ζ'/ζ(s) = −1/(s−1) + γ + O(s−1) ... 
+
+let me be careful: ζ(s) = 1/(s−1) + γ + O(s−1). Then ζ'(s) = −1/(s−1)^2 + O(1), and
+
+  ζ'/ζ(s) = [−1/(s−1)^2 + O(1)] / [1/(s−1) + γ + O(s−1)]
+      = −1/(s−1) · [1 + O(s−1)] / [1 + γ(s−1) + O((s−1)^2)]
+      = −1/(s−1) · [1 − γ(s−1) + O((s−1)^2)]·[1+O(s-1)]
+      = −1/(s−1) + γ + O(s−1).
+
+So 1/(s−1) + ζ'/ζ(s) → γ as s→1. Meanwhile at s=1: 1/s = 1, ½ψ(1/2) = ½(−γ − 2 log 2) = −γ/2 − log 2, and −½ log π. Summing:
+
+  λ_1 = 1 + γ + (−½ log π) + (−γ/2 − log 2)
+    = 1 + γ/2 − ½ log π − log 2
+    = 1 + γ/2 − ½ log(4π).
+
+Numerically γ = 0.5772156649, so γ/2 = 0.2886078. And ½ log(4π) = ½ log(12.566370) = ½(2.5310242) = 1.2655121. Thus
+
+  λ_1 = 1 + 0.2886078 − 1.2655121 = 0.0230957 > 0. ∎
+
+## Interpretation and the sharp obstruction
+
+The positivity λ_1 > 0 is genuine but *fragile*: it exceeds zero by only ≈ 0.023. Writing λ_1 = Σ_ρ (1 − Re(1−1/ρ)·... ) in real form, one has the identity
+
+  λ_n = Σ_ρ [1 − (1 − 1/ρ)^n],
+
+and for n=1, λ_1 = Σ_ρ Re(1/ρ) = Σ_ρ 1/ρ (pairing ρ with 1−ρ = \barρ under RH). The key structural point:
+
+**Each individual summand 1 − (1−1/ρ)^n is NOT sign-definite** unless RH holds, because (1−1/ρ) has modulus < 1 exactly when Re ρ ... let us check: |1 − 1/ρ| < 1 ⟺ |ρ − 1| < |ρ| ⟺ Re ρ > 1/2. So:
+
+- If ρ is on the critical line (Re ρ = 1/2), then |1−1/ρ| = 1, and (1−1/ρ)^n stays on the unit circle; pairing ρ, \barρ gives 1 − cos(nθ) ≥ 0 for the pair — automatically nonnegative.
+- If ρ is off-line with Re ρ > 1/2, its partner 1−ρ has Re < 1/2, so |1 − 1/(1−ρ)| > 1, and (1−1/(1−ρ))^n **blows up geometrically in n**, driving λ_n → −∞ along a subsequence.
+
+This yields a clean, rigorous **reformulation of the failure mode**: *a single off-line zero forces λ_n < 0 for infinitely many n, with the negativity growing like R^n where R = max_ρ |1 − 1/ρ| > 1.* Concretely, if a zero ρ₀ has Re ρ₀ = ½ + δ (δ>0), then the partner term contributes −Re[(1−1/(1−ρ₀))^n] whose magnitude grows like (1 + c δ)^n for small δ. So Li-positivity is equivalent to the exact cancellation, for every n, of these geometric excursions by the aggregate of all on-line zeros.
+
+**Why this is hard (the real content):** The on-line zeros contribute Σ 1 − cos(nθ_ρ) whose *average* over n is Σ_ρ 1 (divergent, regularized), while an off-line pair contributes an exponentially growing but *equidistributing* oscillation. Proving λ_n ≥ 0 unconditionally therefore requires controlling the smooth main term
+
+  λ_n = (main archimedean term) + (oscillatory zero term)
+
+where the archimedean/main term grows like ½ n log n − (½)(1+γ−log 2π) n + ... (a known asymptotic), and one must show the oscillatory part never dips below this. The difficulty is not positivity of any finite computation — λ_n > 0 is verified for all n up to very large ranges — but the *uniform-in-n* domination of an n log n main term over sums of ~n(log n)/2π oscillatory terms of comparable individual size. No available tool controls this uniformly, which is exactly the barrier: it is equivalent to RH, so any unconditional proof of the domination would be a proof of RH, and the positivity margin (already only 0.023 at n=1) gives no slack to exploit.
+
+## Honest assessment
+
+The λ_1 computation is correct and rigorous, and the "geometric blow-up" characterization of the failure mode is a clean equivalent restatement — but it is a reformulation, not new leverage. I have not produced a mechanism to bound the oscillatory sum by the main term, which is the crux. No new progress toward the theorem itself.
+
+VERDICT: FAILED
+REASON: Rigorously recomputed λ_1>0 and sharpened the Li-positivity failure mode, but produced no new leverage on RH.
