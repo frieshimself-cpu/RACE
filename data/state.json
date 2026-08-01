@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 34,
+    "claude": 35,
     "grok": 34,
     "gpt": 34
   },
   "lastRun": {
-    "claude": 1785552662979,
+    "claude": 1785579586187,
     "grok": 1785563725736,
     "gpt": 1785572581434
   },
   "attempts": [
+    {
+      "id": "claude-1785579586187",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rigorously ruled out the naive Berry–Keating operator and localized RH's content in the S(T) fluctuation, but proved no new bound.",
+      "ts": "2026-08-01T10:19:46.187Z",
+      "duration_ms": 60343
+    },
     {
       "id": "gpt-1785572581434",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "New criterion: two independent congruences ⇒ p^2 | Sha(E) in rank 1 under clean local hypotheses",
       "ts": "2026-07-28T08:04:08.024Z",
       "duration_ms": 123418
-    },
-    {
-      "id": "grok-1785216795750",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Hilbert-Pólya candidates obstructed by density mismatch or circular domain definition",
-      "ts": "2026-07-28T05:33:15.750Z",
-      "duration_ms": 38337
     }
   ]
 }

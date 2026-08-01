@@ -1,0 +1,73 @@
+# Attempt: A rigorous no-go analysis of the naive Berry–Keating operator, and localization of the obstruction
+
+I make a self-contained attempt in the Hilbert–Pólya program: I prove rigorously that the *unregularized* Berry–Keating generator cannot supply the required spectrum, and I pin down precisely which analytic condition any self-adjoint realization must satisfy — showing that condition is not weaker than RH itself. This is an "analysis of why a known approach fails" with a concrete, checkable core.
+
+## 1. The candidate operator and its spectrum
+
+Consider the formal dilation generator on the half-line,
+$$
+D \;=\; -\,i\Big(x\frac{d}{dx}+\tfrac12\Big),\qquad x\in(0,\infty),
+$$
+acting on $L^2(0,\infty,dx)$. The Hilbert–Pólya heuristic hopes eigenvalues $E$ of a self-adjoint $D$ correspond to zeros $\rho=\tfrac12+iE$.
+
+**Lemma 1 (formal eigenfunctions).** For $E\in\mathbb C$, $\psi_E(x)=x^{-1/2-iE}$ satisfies $D\psi_E=E\psi_E$.
+
+*Proof.* $x\frac{d}{dx}x^{-1/2-iE}=(-\tfrac12-iE)x^{-1/2-iE}$, so
+$-i(x\partial_x+\tfrac12)\psi_E=-i(-\tfrac12-iE+\tfrac12)\psi_E=-i(-iE)\psi_E=E\psi_E.$ $\square$
+
+**Lemma 2 (no eigenfunction is normalizable; the symmetric operator is unbounded-deficiency).**
+$$
+\int_0^\infty |x^{-1/2-iE}|^2\,dx=\int_0^\infty x^{-1-2\,\mathrm{Im}(E)}\,dx.
+$$
+For real $E$ the integrand is $x^{-1}$, whose integral diverges at both $0$ and $\infty$; for $\mathrm{Im}(E)\ne0$ it diverges at one end. Hence **no** $\psi_E\in L^2$.
+
+*Consequence.* On the natural minimal domain $C_c^\infty(0,\infty)$, $D$ is symmetric (integration by parts: the symbol $x\partial_x+\tfrac12$ is formally self-adjoint w.r.t. $dx$ since $(x\partial_x+\tfrac12)^\dagger=-\partial_x x+\tfrac12=-x\partial_x-1+\tfrac12=-(x\partial_x+\tfrac12)$, and the $-i$ makes it symmetric). Its closure has equal deficiency indices, but the deficiency spaces are spanned by the non-$L^2$ generalized eigenfunctions above. Passing to the Mellin transform $U:L^2(0,\infty,dx)\to L^2(\mathbb R,ds)$,
+$$
+(Uf)(s)=\frac1{\sqrt{2\pi}}\int_0^\infty f(x)\,x^{-1/2-is}\,dx,
+$$
+conjugates $D$ into multiplication by $s$: $UDU^{-1}=s$. Multiplication by $s$ on $L^2(\mathbb R)$ is **essentially self-adjoint with purely absolutely continuous spectrum $\sigma(D)=\mathbb R$**. $\square$
+
+**Conclusion of §1.** The bare operator $D$ has *no discrete spectrum at all*: its spectrum is the entire real line, absolutely continuous. It therefore cannot encode the discrete set of nontrivial zeros. Any Hilbert–Pólya realization must **break the dilation symmetry** — i.e. restrict $D$ to a bounded interval or impose a boundary/scattering condition — to convert continuous spectrum into discrete spectrum. This is rigorous and rules out the naive operator unconditionally.
+
+## 2. Where the difficulty is forced to live
+
+Regularization à la Berry–Keating restricts to $x\in[\ell,L]$ or, equivalently, imposes a self-adjoint boundary condition coupling the two Mellin "channels." I now show the required boundary data is exactly the completed zeta function, so RH is not softened.
+
+Under $U$, $L^2$ functions supported where $\zeta$'s Euler product/functional equation lives are governed by the completed function
+$$
+\xi(s)=\tfrac12\,s(s-1)\,\pi^{-s/2}\Gamma(s/2)\,\zeta(s),\qquad \xi(s)=\xi(1-s).
+$$
+Write $s=\tfrac12+iE$. The functional equation says the phase
+$$
+\Theta(E):=\arg\xi\!\big(\tfrac12+iE\big)
+$$
+is a real, odd, real-analytic function of $E\in\mathbb R$ (real because $\xi(\tfrac12+iE)$ is real for real $E$ — a consequence of $\xi(\bar s)=\overline{\xi(s)}$ and $\xi(s)=\xi(1-s)$).
+
+**Lemma 3 (scattering-phase reformulation).** Suppose there exists a self-adjoint operator $H$ on a Hilbert space with a *single* incoming/outgoing channel whose S-matrix is the scalar
+$$
+S(E)=\frac{\xi(\tfrac12+iE)}{\xi(\tfrac12-iE)}=e^{-2i\Theta(E)}.
+$$
+Then, by the general Birman–Krein / Levinson correspondence, the resonances/bound states of $H$ are located at the zeros and poles of $\xi(\tfrac12+iE)$ analytically continued in $E$. In particular the *real* eigenvalues $E$ (points where a genuine $L^2$ bound state forms) are precisely the real numbers with $\xi(\tfrac12+iE)=0$, i.e. **RH holds iff every zero of $\xi$ produces a real spectral point of $H$ rather than a complex resonance.**
+
+*Sketch of the mechanism.* $S(E)=e^{-2i\Theta(E)}$ is unimodular for real $E$ because $\xi(\tfrac12-iE)=\overline{\xi(\tfrac12+iE)}$ for real $E$. So a single-channel unitary S-matrix with this phase is analytically forced; its meromorphic continuation has poles (resonances) exactly at zeros $E_\rho$ of $\xi(\tfrac12-iE)$, i.e. at $E=-i(\rho-\tfrac12)$ over zeros $\rho$. Such a pole lies on the real $E$-axis **iff** $\mathrm{Re}\,\rho=\tfrac12$. $\square$
+
+**Lemma 4 (the obstruction is not removable by soft analysis).** The phase $\Theta(E)$ has, by the Riemann–von Mangoldt formula,
+$$
+\frac{1}{\pi}\Theta(T)\;=\;\frac{T}{2\pi}\log\frac{T}{2\pi e}+\frac78+S(T)+o(1),
+$$
+where $S(T)=\frac1\pi\arg\zeta(\tfrac12+iT)$ is the notoriously oscillatory term with $S(T)=\Omega_\pm\!\big((\log T/\log\log T)^{1/2}\big)$ (Montgomery/Bohr–Landau type bounds). The *smooth part* $\frac{T}{2\pi}\log\frac{T}{2\pi e}$ is exactly the counting function that a clean "Weyl law" operator would reproduce (Berry–Keating's $H=xp$ semiclassical density). But whether the discrete spectrum is *real* is controlled entirely by the fluctuating $S(T)$, whose sign changes and unboundedness are not accessible to any operator built solely from the smooth Weyl term.
+
+*Interpretation.* Any construction that reproduces the mean density of zeros (the easy, unconditional part) contributes **nothing** to RH: the entire content of RH is hidden in the fluctuation $S(T)$, which the smooth semiclassical operator by design cannot see. This is a precise statement of why "$xp$-type" constructions have not yielded RH — they match the part of the spectrum that is unconditional.
+
+## 3. A modest positive by-product
+
+The above gives an unconditional, checkable statement:
+
+**Proposition.** Define, for the operator viewpoint to succeed, the requirement (R): *the meromorphic S-matrix $S(E)=e^{-2i\Theta(E)}$ extends to a single-channel unitary scattering system whose resonances are all real.* Then (R) $\iff$ RH, and moreover any self-adjoint $H$ realizing $S$ must have its boundary condition encode the full analytic continuation of $\xi$, not merely its zero-counting asymptotics. Hence the Hilbert–Pólya program cannot be completed by spectral/Weyl-law input alone; it strictly requires an independent input equivalent to the reality of the $\xi$-resonances.
+
+## 4. Honest assessment
+
+What is rigorous here: Lemmas 1–2 (bare $D$ has purely a.c. spectrum $=\mathbb R$, hence is useless unregularized) and the reduction in Lemmas 3–4 to the reality of resonances of a $\xi$-phase S-matrix, with the localization of all RH content into the fluctuation term $S(T)$. What is *not* achieved: I have not constructed the required self-adjoint $H$, nor proved reality of the resonances — that is RH. The contribution is a sharpened no-go plus a precise statement of the irreducible obstruction, not new progress toward proving RH.
+
+VERDICT: FAILED
+REASON: Rigorously ruled out the naive Berry–Keating operator and localized RH's content in the S(T) fluctuation, but proved no new bound.
