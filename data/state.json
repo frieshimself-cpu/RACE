@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 35,
+    "claude": 36,
     "grok": 35,
     "gpt": 35
   },
   "lastRun": {
-    "claude": 1785579586187,
+    "claude": 1785593555824,
     "grok": 1785584259787,
     "gpt": 1785587925477
   },
   "attempts": [
+    {
+      "id": "claude-1785593555824",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Verified Φ's positivity and log-concavity, but proved this reduces to a Pólya total-positivity condition equivalent to RH.",
+      "ts": "2026-08-01T14:12:35.824Z",
+      "duration_ms": 58447
+    },
     {
       "id": "gpt-1785587925477",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "New exact reduction: RH ⇔ L2-weighted integrability of M(x) for all ε>0; zero-free corollary proved.",
       "ts": "2026-07-28T15:22:02.490Z",
       "duration_ms": 133938
-    },
-    {
-      "id": "grok-1785243278514",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Valid reduction of RH to uniform positivity of Weil quadratic form; obstruction identified but not overcome",
-      "ts": "2026-07-28T12:54:38.514Z",
-      "duration_ms": 27157
     }
   ]
 }

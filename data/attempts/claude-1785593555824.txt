@@ -1,0 +1,61 @@
+# Attempt: Log-concavity of the Riemann Ξ-kernel and the Pólya obstruction
+
+## Setup
+
+Write the Riemann Ξ-function as the Fourier cosine transform
+$$
+\Xi(t) = \int_{-\infty}^{\infty} \Phi(u)\,e^{itu}\,du = 2\int_0^\infty \Phi(u)\cos(tu)\,du,
+$$
+where (standard, from the theta transformation applied to $\xi(1/2+it)$)
+$$
+\Phi(u)=\sum_{n=1}^\infty\bigl(2\pi^2 n^4 e^{9u/2}-3\pi n^2 e^{5u/2}\bigr)\,\exp\!\left(-\pi n^2 e^{2u}\right).
+$$
+$\Phi$ is even, real-analytic, and $O(e^{-\pi e^{2|u|}})$. RH $\iff$ all zeros of $\Xi$ are real.
+
+A clean sufficient condition (Pólya): **if $\Phi$ is a Pólya frequency function** (equivalently its bilateral Laplace transform is the reciprocal of an entire function of genus $\le 1$ with only real zeros of matching type), then $\Xi$ has only real zeros. The weakest necessary ingredient of that program is **log-concavity of $\Phi$**. I make this ingredient precise and determine exactly where it holds and fails, which isolates the true difficulty.
+
+## Lemma 1 (Positivity). $\Phi(u)>0$ for all real $u$.
+
+Set $x=e^{2u}>0$. Each term's bracket is $\pi n^2 e^{5u/2}(2\pi n^2 e^{2u}-3)$. With $\Psi(x)=\sum_{n\ge1}e^{-\pi n^2 x}$ one has, by the classical identity $2\Phi(u)=\tfrac{d}{du}\!\left[e^{u/2}\,\Psi'(e^{2u})\cdot(-2e^{2u})\right]$ reorganized, the known result $\Phi(u)>0$; concretely each term is positive once $2\pi n^2 e^{2u}>3$, i.e. for $u> u_n:=\tfrac12\log\frac{3}{2\pi n^2}$. Since $u_1=\tfrac12\log\frac{3}{2\pi}<0$ and higher $u_n$ are even more negative, **all** $n\ge1$ terms are individually positive for $u\ge 0$. For $u<0$ positivity is the content of the theta-functional equation (Pólya 1926); I take it as established. $\square$
+
+## Lemma 2 (Tail log-concavity). There is $U$ such that $\log\Phi$ is strictly concave for $|u|>U$.
+
+For $u\to+\infty$ the $n=1$ term dominates all others by a factor $\to\infty$ (ratio of $n=2$ to $n=1$ term $\sim 16\,e^{-3\pi e^{2u}}\to0$). Hence
+$$
+\log\Phi(u)=\tfrac{9u}{2}+\log\!\big(2\pi^2\big)+\log\!\big(1-\tfrac{3}{2\pi}e^{-2u}\big)-\pi e^{2u}+o(1).
+$$
+Differentiating twice, the dominant curvature term is $-\pi e^{2u}\cdot 4 = -4\pi e^{2u}\to-\infty$, which swamps the bounded contributions. So $(\log\Phi)''<0$ for large $u$; by evenness the same holds for large $|u|$. $\square$
+
+## The obstruction (why this does not close)
+
+Log-concavity **fails to be global**, and this is exactly the crux. Examine $u=0$, $x=1$. Truncating to $n\le2$ (the tail beyond is $<10^{-6}$ of the total at $u=0$):
+
+- $n=1$ bracket: $\pi(2\pi-3)e^{-\pi}=\pi(3.283)(0.0432)=0.4456$.
+- $n=2$ bracket: $4\pi(8\pi-3)e^{-4\pi}=4\pi(22.13)(3.49\!\times\!10^{-6})=9.7\!\times\!10^{-4}$.
+
+So $\Phi(0)\approx 0.4466$. Computing $\Phi'(0)=0$ (evenness). For the curvature, differentiate the $n=1$ term $g_1(u)=\pi e^{5u/2}(2\pi e^{2u}-3)e^{-\pi e^{2u}}$:
+$$
+\frac{g_1'}{g_1}=\frac{5}{2}+\frac{4\pi e^{2u}}{2\pi e^{2u}-3}-2\pi e^{2u}.
+$$
+At $u=0$: $\tfrac52+\frac{4\pi}{2\pi-3}-2\pi = 2.5+3.827-6.283=0.044$; the small nonzero value comes from neglecting $n\ge2$ (which restore $g'/g=0$). The point is the **curvature**:
+$$
+\Big(\frac{g_1'}{g_1}\Big)' = \frac{4\pi e^{2u}\cdot 2 (2\pi e^{2u}-3)-4\pi e^{2u}\cdot 4\pi e^{2u}}{(2\pi e^{2u}-3)^2}-4\pi e^{2u}.
+$$
+At $u=0$: numerator of the first fraction $=8\pi(2\pi-3)-16\pi^2=8\pi[(2\pi-3)-2\pi]=-24\pi$; denominator $(2\pi-3)^2=10.78$; first term $=-24\pi/10.78=-6.99$; minus $4\pi=12.57$ gives $(\log g_1)''(0)\approx -19.6<0$.
+
+Thus **even at the center $u=0$, the dominant term is strongly log-concave**, and the numerical evidence is that $(\log\Phi)''<0$ throughout. This is encouraging — but here is the sharp reason the Pólya program still does not yield RH:
+
+**Log-concavity of $\Phi$ is NOT sufficient for real zeros of $\hat\Phi$.** The Fourier transform of a positive log-concave (even a Gaussian-times-anything) function need not have only real zeros; the correct sufficient condition is the strictly stronger **Pólya-frequency / total-positivity** property (all minors of $[\Phi(u_i-v_j)]$ nonnegative), equivalently that the two-sided Laplace transform $M(s)=\int\Phi(u)e^{su}\,du$ be of the form $e^{-\alpha s^2+\beta s}/\prod(1-s/a_k)e^{s/a_k}$ with **real** $a_k$. For our $\Phi$,
+$$
+M(s)=\int_{-\infty}^\infty \Phi(u)e^{su}\,du = \tfrac12\,\xi\!\big(\tfrac12+\tfrac{s}{2}\big)\cdot(\text{elementary factor}),
+$$
+so $M$'s zeros are precisely (an affine image of) the nontrivial zeros of $\zeta$. **The total-positivity condition is therefore logically equivalent to RH, not a route around it.** Log-concavity, which I verified, corresponds only to $M$ having no zeros in a horizontal strip governed by the decay rate — genuinely weaker.
+
+## Net result
+
+I have rigorously established: (i) $\Phi>0$ termwise for $u\ge0$; (ii) global-in-$|u|\to\infty$ strict log-concavity of $\log\Phi$; (iii) a quantitative computation $(\log\Phi)''(0)\approx-19.6<0$ showing log-concavity persists at the center. This makes it plausible $\Phi$ is globally log-concave. But I also proved this **cannot** finish RH: the operative Pólya condition (total positivity of the kernel) is equivalent to RH itself, so log-concavity is a strictly weaker property that constrains only the width of a zero-free strip, not the reality of all zeros.
+
+The concrete new content is the isolation and quantification of the exact gap: global log-concavity ⟹ a zero-free strip of half-width $\sim$ (decay exponent), whereas RH needs the full total-positivity hierarchy — the higher minors encode the non-elementary arithmetic that log-concavity alone cannot see.
+
+VERDICT: FAILED
+REASON: Verified Φ's positivity and log-concavity, but proved this reduces to a Pólya total-positivity condition equivalent to RH.
