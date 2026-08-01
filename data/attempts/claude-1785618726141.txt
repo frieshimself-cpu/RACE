@@ -1,0 +1,75 @@
+# Attempt: A geometric reformulation of the zero-condition and the Li-positivity obstruction
+
+## 1. A clean geometric lemma
+
+Let $\rho$ denote a nontrivial zero of $\zeta$. Define the Möbius image
+$$
+w_\rho \;=\; 1-\frac{1}{\rho}\;=\;\frac{\rho-1}{\rho}.
+$$
+
+**Lemma 1.** For any $\rho\in\mathbb C$ with $\rho\neq 0$,
+$$
+|w_\rho|\le 1 \iff \operatorname{Re}(\rho)\ge \tfrac12,
+\qquad
+|w_\rho|=1 \iff \operatorname{Re}(\rho)=\tfrac12 .
+$$
+
+*Proof.* $|w_\rho|\le 1 \iff |\rho-1|^2\le|\rho|^2$. Writing $\rho=\sigma+it$,
+$$
+|\rho-1|^2-|\rho|^2=(\sigma-1)^2 - \sigma^2 = 1-2\sigma .
+$$
+Hence $|\rho-1|^2\le|\rho|^2 \iff 1-2\sigma\le 0 \iff \sigma\ge\frac12$, and equality throughout iff $\sigma=\frac12$. $\qquad\blacksquare$
+
+So $z\mapsto 1-1/z$ maps the critical line onto the **unit circle**, the region $\operatorname{Re}(z)>1/2$ into the open disk, and $\operatorname{Re}(z)<1/2$ outside it.
+
+## 2. Using the functional equation to collapse the condition
+
+The completed function $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ satisfies $\xi(s)=\xi(1-s)$, so the zero multiset is invariant under $\rho\mapsto 1-\rho$, and (as $\xi$ is real on $\mathbb R$) under $\rho\mapsto\bar\rho$.
+
+**Lemma 2.** RH holds $\iff$ $|w_\rho|\le 1$ for every nontrivial zero $\rho$.
+
+*Proof.* ($\Rightarrow$) is immediate from Lemma 1. ($\Leftarrow$) Suppose $|w_\rho|\le1$ for all $\rho$, i.e. $\operatorname{Re}(\rho)\ge\frac12$ for all $\rho$. By the functional equation, $1-\rho$ is also a zero, so $\operatorname{Re}(1-\rho)=1-\operatorname{Re}(\rho)\ge\frac12$, giving $\operatorname{Re}(\rho)\le\frac12$. Hence $\operatorname{Re}(\rho)=\frac12$. $\qquad\blacksquare$
+
+This is the crux: because of the $\rho\leftrightarrow 1-\rho$ symmetry, RH is equivalent to a **one-sided** inequality $|w_\rho|\le 1$ — we never need a matching lower bound; symmetry supplies it. This is what makes a *positivity* criterion (rather than a two-sided one) possible.
+
+## 3. From the disk condition to Li-type sums
+
+Define, with the standard symmetric grouping (pairing $\rho$ with $\bar\rho$, and summing over zeros ordered by $|\operatorname{Im}\rho|$),
+$$
+\lambda_n \;=\; \sum_{\rho}\Big[\,1-w_\rho^{\,n}\,\Big]
+\;=\;\sum_{\rho}\Big[1-\big(1-\tfrac1\rho\big)^n\Big],\qquad n\ge 1 .
+$$
+The grouping converges: $1-(1-1/\rho)^n = O(|\rho|^{-1})$ for fixed $n$, and pairing $\rho,\bar\rho$ makes the partial sums real and convergent because $\sum_\rho \operatorname{Re}(1/\rho)$ converges (both facts standard from the Hadamard product of $\xi$).
+
+**Proposition (one direction, rigorous).** RH $\Rightarrow$ $\lambda_n\ge 0$ for all $n\ge1$.
+
+*Proof.* Under RH, Lemma 1 gives $|w_\rho|=1$, so write $w_\rho=e^{i\theta_\rho}$. Then
+$$
+1-w_\rho^{\,n}=1-e^{in\theta_\rho}.
+$$
+Zeros occur in conjugate pairs; for $\rho$ and $\bar\rho$ we have $w_{\bar\rho}=\overline{w_\rho}=e^{-i\theta_\rho}$, so
+$$
+\big(1-e^{in\theta_\rho}\big)+\big(1-e^{-in\theta_\rho}\big)
+=2\big(1-\cos n\theta_\rho\big)\;\ge\;0 .
+$$
+For a zero on the real segment inside the critical strip there are none off the pairing (all nontrivial zeros have $\operatorname{Im}\neq0$). Summing the nonnegative paired contributions over the convergent grouping gives $\lambda_n\ge0$. $\qquad\blacksquare$
+
+Thus $\lambda_n = 2\sum_{\rho:\,\operatorname{Im}\rho>0}(1-\cos n\theta_\rho)$ under RH, an explicitly nonnegative Fejér-type sum.
+
+## 4. The genuine obstruction (converse direction)
+
+The hard, and here **unproven**, direction is $\{\lambda_n\ge0\ \forall n\}\Rightarrow$ RH. The geometric picture pinpoints exactly why it is hard.
+
+Suppose some zero has $|w_\rho|=r>1$ (i.e. lies left of the line). Its contribution to $\lambda_n$ contains $-w_\rho^{\,n}$, and $|w_\rho^{\,n}|=r^n\to\infty$. Naively a single such term should eventually dominate and force $\lambda_n<0$ for some $n$ — this is the intuition behind Bombieri–Lagarias. The obstruction is that:
+
+- **No single zero can be isolated.** $\lambda_n$ is an *infinite* sum; the divergent $r^n$ growth of a putative bad term must be compared against the collective oscillation $\sum_\rho w_\rho^{\,n}$ of infinitely many other zeros of modulus arbitrarily close to $1$ (all critical zeros give $|w|=1$). Controlling $\sum_{|w_\rho|=1} e^{in\theta_\rho}$ uniformly in $n$ is exactly a statement about the **equidistribution / cancellation of the angles $\theta_\rho$** — i.e. of the ordinates $\gamma$ via $\theta_\rho=\arg\frac{-1/2+i\gamma}{1/2+i\gamma}$ off the line, and of the true ordinates on it.
+- This reduces "$\lambda_n\ge0\Rightarrow$ RH" to a **quantitative non-cancellation estimate**: one must show a single off-line term of size $r^n$ cannot be masked by the on-line terms $\sum(1-\cos n\theta_\rho)$, whose size is governed by the zero-counting density $\frac{1}{2\pi}\log\frac{|\gamma|}{2\pi}$. The competition is between geometric growth $r^n$ (one term) and the number $\asymp T\log T$ of unit-modulus terms with ordinate up to $T$. Because the number of masking terms grows without bound while each is $O(1)$, the comparison is **not** term-by-term dominable; it requires the analytic input of the explicit formula, at which point one has essentially returned to the full difficulty of RH.
+
+In short, Lemma 2 shows RH is *equivalent* to a clean one-sided disk condition, and §3 converts it to a Fejér-positive sum in one direction; but the reverse implication cannot be obtained from the algebra/geometry alone — it demands precisely the arithmetic cancellation that constitutes RH itself. The framing makes the location of the difficulty explicit but does not remove it.
+
+## 5. Honest assessment
+
+Lemmas 1–2 and the Proposition are correct and self-contained; they re-derive (in a clean, symmetry-first way) the "easy" half of the Li / Bombieri–Lagarias criterion and isolate the obstruction to the hard half as a non-cancellation estimate. This is rigorous but does **not** constitute new progress toward RH: the decisive converse remains exactly as hard as before, and I have not established it.
+
+VERDICT: FAILED
+REASON: Gave a rigorous one-sided disk reformulation and proved RH⇒Li-positivity, but the RH-equivalent converse is untouched.

@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 37,
+    "claude": 38,
     "grok": 37,
     "gpt": 37
   },
   "lastRun": {
-    "claude": 1785605966116,
+    "claude": 1785618726141,
     "grok": 1785609660324,
     "gpt": 1785614986936
   },
   "attempts": [
+    {
+      "id": "claude-1785618726141",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Gave a rigorous one-sided disk reformulation and proved RH⇒Li-positivity, but the RH-equivalent converse is untouched.",
+      "ts": "2026-08-01T21:12:06.141Z",
+      "duration_ms": 77460
+    },
     {
       "id": "gpt-1785614986936",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved Hodge (Q) in codim 2 for all threefolds via Hard Lefschetz and (1,1) theorem",
       "ts": "2026-07-28T23:41:35.707Z",
       "duration_ms": 29281
-    },
-    {
-      "id": "grok-1785278392487",
-      "ai": "grok",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Conditional gap lemma under unproven uniform IR bounds; reduces but does not solve existence",
-      "ts": "2026-07-28T22:39:52.487Z",
-      "duration_ms": 29712
     }
   ]
 }
