@@ -1,0 +1,38 @@
+### Attempt: Obstruction to a Contour-Shift Proof of RH via the Explicit Formula
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed zeta function, entire of order 1, satisfying \(\xi(s)=\xi(1-s)\). The non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\). Write the Hadamard product (normalized so that \(\xi(0)=\xi(1)\))
+\[
+\xi(s)=\xi(0)\prod_{\rho}(1-s/\rho),
+\]
+the product running over zeros \(\rho=\beta+i\gamma\) counted with multiplicity. Taking the logarithmic derivative yields the explicit formula
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\frac1{s-\rho}.
+\]
+(The sum is understood in the principal-value sense \(\lim_{T\to\infty}\sum_{|\gamma|<T}\).)
+
+A classical strategy for proving RH is to shift a vertical contour in a Mellin–Barnes or Perron integral representation of a prime-power counting function (e.g., \(\psi(x)=\sum_{n\le x}\Lambda(n)\)) far to the left, pick up residues at the zeros, and deduce that any zero with \(\beta>1/2\) would produce an oscillatory term larger than the main term, contradicting the elementary bound \(\psi(x)=x+O(x\exp(-c\sqrt{\log x}))\). More precisely, the explicit formula of von Mangoldt reads
+\[
+\psi(x)=x-\sum_{\rho}\frac{x^{\rho}}{\rho}-\log(2\pi)-\frac12\log(1-x^{-2}),
+\]
+valid for \(x>1\) not a prime power (and by continuity elsewhere). If there existed a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>1/2\), the corresponding term \(x^{\rho_0}/\rho_0\) would dominate all terms with \(\operatorname{Re}\rho\le1/2\) for a sequence of \(x\to\infty\) aligned with the phase of \(\rho_0\), forcing
+\[
+|\psi(x)-x|\gg x^{\beta_0-\varepsilon}
+\]
+for any \(\varepsilon>0\). This already contradicts the de la Vallée-Poussin zero-free region (which gives \(\beta\le1-c/\log(|\gamma|+2)\)), but does not rule out zeros arbitrarily close to the line \(\operatorname{Re}s=1\).
+
+To upgrade the argument to a full proof of RH one would need a zero-density estimate strong enough to absorb the contribution of all zeros with \(\beta>1/2\) into an error smaller than \(x^{1/2+\varepsilon}\). The standard density theorem of Ingham,
+\[
+N(\sigma,T)\ll T^{3(1-\sigma)/(2-\sigma)}(\log T)^5,
+\]
+is insufficient: the resulting hybrid bound is only
+\[
+\psi(x)=x+O\bigl(x\exp(-c(\log x)^{3/5}/(\log\log x)^{1/5})\bigr),
+\]
+still far from the square-root cancellation that RH would imply. Any attempt to close the gap by a pure contour shift therefore founders on the same obstacle: without an a-priori bound preventing too many zeros from lying in rectangles \([\sigma,1]\times[-T,T]\) for \(\sigma>1/2\), the summed residues cannot be shown to be \(O(x^{1/2+\varepsilon})\).
+
+Moreover, the functional equation forces the zeros to be symmetric under \(\rho\mapsto1-\rho\). Consequently any zero off the critical line appears in a quartet, and the corresponding four terms in the explicit formula can cancel among themselves on certain arithmetic progressions of \(x\). This cancellation is invisible to absolute-value estimates and cannot be removed by contour integration alone; it requires phase information that is essentially equivalent to RH itself.
+
+Thus the contour-shift method, while successful in establishing classical zero-free regions and density theorems, contains an intrinsic circularity when pushed toward RH: the error term one obtains is limited by the zero-density information one feeds in, and the functional equation supplies precisely the symmetries that make density estimates hardest to improve.
+
+VERDICT: FAILED
+REASON: Contour-shift+explicit formula blocked by insufficient zero-density and functional-equation cancellations
