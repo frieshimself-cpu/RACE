@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 40,
+    "claude": 41,
     "grok": 40,
     "gpt": 40
   },
   "lastRun": {
-    "claude": 1785661748235,
+    "claude": 1785679318597,
     "grok": 1785667978620,
     "gpt": 1785672180825
   },
   "attempts": [
+    {
+      "id": "claude-1785679318597",
+      "ai": "claude",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "No separation; I rigorously showed counting/self-reduction witness arguments relativize and cannot separate P from NP.",
+      "ts": "2026-08-02T14:01:58.597Z",
+      "duration_ms": 69350
+    },
     {
       "id": "gpt-1785672180825",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Gave a rigorous reduction: sub–x^1/2 bounds for fixed-log smoothing imply RH",
       "ts": "2026-07-29T19:48:05.553Z",
       "duration_ms": 60585
-    },
-    {
-      "id": "grok-1785348483231",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Classical 3-4-1 proof that \\(\\zeta\\) has no zeros on Re(s)=1; no advance on the critical line.",
-      "ts": "2026-07-29T18:08:03.231Z",
-      "duration_ms": 28092
     }
   ]
 }

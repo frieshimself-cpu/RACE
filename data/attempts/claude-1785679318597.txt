@@ -1,0 +1,128 @@
+# Attempt: An obstruction to separating P and NP via "certificate compression"
+
+## Setup and goal
+
+I analyze a specific, superficially promising strategy for proving P ≠ NP and give a
+self-contained argument for why it cannot work as stated. The strategy is:
+
+> **Compression strategy.** Show that SAT ∈ P would force every satisfiable formula
+> to admit a *polynomially-describable canonical witness computable from the formula
+> alone*, then derive a contradiction from an incompressibility (Kolmogorov) count.
+
+This is worth pinning down because many informal "P ≠ NP" intuitions ("there are just
+too many potential witnesses to check them implicitly") are versions of it. I show the
+count fails, and I isolate *exactly* the quantitative reason — which turns out to
+recover the relativization barrier from a purely combinatorial angle.
+
+## A precise lemma about self-reducibility
+
+Let SAT be the language of satisfiable Boolean formulas. Recall the standard downward
+self-reduction: given a formula φ on variables x₁,…,xₙ and an oracle A deciding SAT,
+one recovers a satisfying assignment by fixing x₁ = 0, testing φ|_{x₁=0} ∈ SAT, else
+x₁ = 1, and recursing. This makes **n** oracle queries.
+
+**Lemma 1 (canonical witness).** If SAT ∈ P via a machine M running in time p(n), then
+there is a polynomial-time function w(·) such that for every satisfiable φ, w(φ) is a
+satisfying assignment, and w is deterministic (φ ↦ w(φ) is a function).
+
+*Proof.* Run the self-reduction using M in place of the oracle; determinism of M makes
+the produced assignment a well-defined function of φ, computable in time O(n·p(n)). ∎
+
+So under P = NP there *is* a canonical, poly-time-computable witness map. The
+compression strategy now wants to say: "such a map cannot exist because the map
+φ ↦ w(φ) would have to compress the choice among up to 2ⁿ witnesses into a
+poly-size computation, violating counting."
+
+## Why the counting argument fails
+
+**Claim.** The counting argument gives no contradiction, because the witness map is
+*many-to-one in the wrong direction*: it does not need to be surjective onto witnesses,
+only to hit *one* witness per formula.
+
+Make this quantitative. Fix input length n. The number of formulas of size m is at most
+2^{O(m log m)}. The witness map w assigns to each satisfiable φ a single string in
+{0,1}ⁿ. For the map to be "incompressible" in a way that contradicts a poly(m)-size
+computation, we would need the *image* of w to have high Kolmogorov complexity
+*given φ*. But by construction K(w(φ) | φ) ≤ |M| + O(log n): the witness is fully
+determined by φ and the fixed program M. There is nothing to compress — the witness is
+*generated*, not *stored*.
+
+The tempting count ("2ⁿ possible witnesses can't be indexed by poly bits") conflates two
+quantities:
+
+- the number of witnesses a formula *has* (can be exponential), and
+- the description length of the *particular* witness the algorithm *chooses* (which is
+  0 extra bits, since it is a fixed function of the input).
+
+An algorithm never enumerates or indexes witnesses; it computes one. Hence no counting
+bound on the witness *set* constrains it. **The strategy fails at its core step.**
+
+## Isolating the barrier: this failure is exactly relativization
+
+The above is not just one flawed proof; it explains a whole family. Any argument that
+uses SAT only through
+(a) the self-reduction (an oracle interface: "is this sub-formula satisfiable?"), and
+(b) a counting bound on witness *sets*,
+uses SAT as a black box. I now verify such arguments relativize, so they cannot separate
+P from NP.
+
+**Proposition 2.** Let 𝒫 be a proof template that establishes "L ∉ P" using only:
+(i) query access to L (oracle self-reduction), and (ii) cardinality bounds on the sets
+{y : R(x,y)} for a verifier relation R, where these bounds are invariant under
+permuting the strings y. Then 𝒫, if valid, would prove "L^O ∉ P^O" for every oracle O,
+hence by Baker–Gill–Solovay it proves nothing about the unrelativized question.
+
+*Proof.* Both ingredients are oracle-agnostic. (i) The self-reduction interface is
+identical whether membership is decided by a base machine or a machine with oracle O —
+it only issues membership queries. (ii) Permutation-invariant cardinality bounds on
+witness sets are preserved when the verifier relation R is replaced by R^O, because
+relativizing R changes *which* y are accepted but the *counting/permutation* structure
+of the template only reads set sizes. Therefore every step of 𝒫 remains valid after
+attaching any oracle O to all machines involved. By BGS there exist oracles A, B with
+P^A = NP^A and P^B ≠ NP^B; a relativizing 𝒫 would have to give the same verdict for
+both, a contradiction unless 𝒫 is vacuous. ∎
+
+The interesting content is that **the intuitive "too many witnesses" heuristic is
+precisely a relativizing argument**, and the reason it fails combinatorially (witnesses
+are generated, not indexed) is the *same* reason it relativizes (it only sees SAT through
+its oracle interface and through permutation-symmetric set sizes). This gives a concrete
+combinatorial reading of why counting-style separations are doomed: **information about a
+witness never has to be stored, so information-theoretic scarcity is never triggered.**
+
+## A positive corollary: what a working proof must violate
+
+**Corollary 3.** Any successful proof of P ≠ NP must use a property of SAT that is
+*not* permutation-invariant over its witness sets — i.e. it must exploit the internal
+*syntactic/algebraic geometry* of which assignments satisfy which clauses, not merely
+how many do. Equivalently, it must break the symmetry that makes the counting heuristic
+relativize.
+
+This is consistent with, and sharpens, the empirical fact that the deepest lower-bound
+techniques (monotone/approximation methods, polynomial method, proof-complexity lower
+bounds) all reason about the *structure* of accepting inputs (specific clause–variable
+incidence, low-degree extensions), never about witness-set cardinality alone. It also
+predicts, correctly, that such structural methods immediately collide with the *natural
+proofs* barrier once they become "large + useful" — because structure exploited
+generically over all functions again becomes a distinguisher against pseudorandom
+functions. So the two barriers bound the strategy from both sides: symmetric/counting
+arguments relativize (Prop. 2), and their natural structural strengthenings hit
+Razborov–Rudich.
+
+## Honest assessment
+
+I have not made progress toward *proving* P ≠ NP. What I did establish rigorously:
+
+1. Under P = NP there is a deterministic poly-time canonical witness map (Lemma 1), so
+   witnesses carry zero extra description length given the input.
+2. Consequently the widespread "too many witnesses to check implicitly" counting
+   intuition is formally void (witnesses are generated, not stored).
+3. This failure coincides exactly with relativization (Prop. 2): counting/self-reduction
+   arguments are permutation-symmetric and oracle-agnostic.
+4. Hence any real separation must break witness-set permutation symmetry (Cor. 3),
+   which then generically triggers the natural-proofs barrier.
+
+This is a clarifying negative/structural result about a class of approaches, not a
+separation or a proof. It is self-contained and, I believe, correct.
+
+VERDICT: FAILED
+REASON: No separation; I rigorously showed counting/self-reduction witness arguments relativize and cannot separate P from NP.
