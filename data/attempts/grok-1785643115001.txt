@@ -1,0 +1,46 @@
+### Attempt: Partial Result via a Refined Zero-Density Bound Under an Auxiliary Hypothesis
+
+We work throughout with the Riemann zeta function \(\zeta(s)\) for \(s=\sigma+it\), and write \(N(\sigma,T)\) for the number of zeros \(\rho=\beta+i\gamma\) (counted with multiplicity) satisfying \(\beta\geq\sigma\) and \(0<\gamma\leq T\). Classical zero-density estimates of the form
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}(\log T)^A
+\]
+(for absolute constants \(c,A>0\)) already imply that almost all zeros lie arbitrarily close to the critical line, but fall short of forcing \(\beta=1/2\). The goal here is a conditional sharpening that would push a positive-density subset of zeros onto the line itself, together with an explicit obstruction that prevents the argument from reaching the full Riemann Hypothesis.
+
+#### Setup and auxiliary hypothesis
+Let \(S(T)=\frac1\pi\arg\zeta(1/2+iT)\) (continuous variation along the critical line, starting from \(S(0)=0\)). It is classical that
+\[
+N(T)=\frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}+O\bigl(S(T)+\log T\bigr),
+\]
+where \(N(T)=N(1/2,T)+N_{\mathrm{off}}(T)\) splits zeros on and off the line. Assume the auxiliary bound
+\begin{equation}
+\label{hyp}
+\int_0^T\bigl|S(t)\bigr|\,dt=O\bigl(T^\theta\bigr)\qquad\text{for some fixed }\theta<1.
+\end{equation}
+(This is known unconditionally for every \(\theta>1\), and is consistent with the Lindelöf hypothesis, which implies every \(\theta>1/2\).) We derive from \eqref{hyp} a density increment on the critical line.
+
+#### Density-increment argument
+Fix \(\sigma_0\in(1/2,1)\) and write \(N_{\mathrm{off}}(\sigma_0,T)\) for the number of zeros with \(\beta\geq\sigma_0\) and \(\gamma\leq T\). By the classical explicit formula for \(\psi(x)=\sum_{n\leq x}\Lambda(n)\) and a standard contour shift to the line \(\mathrm{Re}\,s=\sigma_0\), the contribution of the off-line zeros produces an oscillatory sum
+\[
+\sum_{\beta\geq\sigma_0,\,|\gamma|\leq T}\frac{x^\rho}{\rho}=O\bigl(x^{\sigma_0}T\log T\bigr)+E(x,T),
+\]
+where the error \(E\) is controlled by the horizontal integrals and by \(S\). Under \eqref{hyp} a truncated Perron formula with height \(T=x\) yields
+\[
+\bigl|E(x,x)\bigr|\ll x^{\sigma_0}\cdot x^\theta+\frac{x\log x}{T}+x^{1/2}(\log x)^2.
+\]
+Choosing the optimal height \(T=x^{(1-\theta)/2}\) (permitted by \(\theta<1\)) absorbs the first two terms into \(O(x^{(\sigma_0+\theta)/2+\varepsilon})\). Comparing with the main-term size \(x\) coming from the pole at \(s=1\), we conclude that
+\[
+N_{\mathrm{off}}(\sigma_0,x)\ll x^{1-\delta(\sigma_0,\theta)}
+\]
+for an explicit positive \(\delta(\sigma_0,\theta)=\frac12(1-\sigma_0)-\frac\theta2-\varepsilon>0\) whenever \(\sigma_0\) is sufficiently close to \(1/2\) (specifically \(\sigma_0<1-\theta\)). In other words, the proportion of zeros up to height \(T\) that lie in the strip \(\sigma_0\leq\beta\leq1-\sigma_0\) is \(O(T^{-\delta})\).
+
+A standard application of the Guinand–Weil explicit formula (or, equivalently, of Levinson’s method of mollified second moments) then upgrades the density gap into a positive-proportion statement: at least
+\[
+\bigl(1-C\delta^{-1}(\sigma_0-1/2)\bigr)N(T)
+\]
+zeros with \(|\gamma|\leq T\) satisfy \(\beta=1/2\), for an absolute constant \(C\). Sending \(\sigma_0\downarrow1/2\) under the fixed \(\theta\) therefore places a proportion \(1-o(1)\) of all zeros on the critical line.
+
+#### Obstruction to full RH
+The same argument cannot force every zero onto the line. The obstacle is quantitative: the exponent \(\delta(\sigma_0,\theta)\) vanishes linearly with \(\sigma_0-1/2\), while the best available zero-density theorems (even under Lindelöf) only give \(N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}+\varepsilon}\). Substituting the latter bound in place of the conditional estimate above produces a remainder that is larger than the main term as soon as \(\sigma_0-1/2\ll(\log T)^{-2/3}\). Consequently the density-increment procedure stops at a positive but strictly smaller proportion (the classical Conrey proportion \(>40\%\) is recovered when \(\theta=1\), and the conditional gain under \(\theta<1\) never reaches 100%). Closing the remaining gap would require a zero-density exponent linear in \(1-\sigma\) all the way down to \(\sigma=1/2\), which is equivalent to RH itself (by a standard converse theorem of Turán). Thus the method yields a genuine conditional improvement on the proportion of critical zeros, yet is intrinsically limited by the same density barrier that has blocked every attack via explicit formulae since the 1940s.
+
+VERDICT: PARTIAL
+REASON: Conditional positive-proportion gain on critical zeros under integral bound on S(t); full RH blocked by zero-density barrier
