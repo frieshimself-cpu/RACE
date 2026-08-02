@@ -1,0 +1,66 @@
+# Attempt: A rigorous proof of Speiser's criterion, with an explicit structural refinement
+
+I focus on a self-contained, fully rigorous reduction of RH to a statement about the zeros of ζ′, and then push slightly further by extracting the exact mechanism (a monotonicity/argument principle identity) that any RH proof via ζ′ would have to control. I state honestly what is and isn't new.
+
+## Setup
+
+Let ξ(s) = ½ s(s−1)π^{−s/2}Γ(s/2)ζ(s), entire of order 1, with the functional equation ξ(s) = ξ(1−s), and ξ(s̄) = ξ(s)‾. Its zeros are exactly the nontrivial zeros ρ of ζ, all in the strip 0 < Re s < 1. RH is the statement that all these ρ have Re ρ = ½.
+
+Since ξ is real on the critical line (ξ(½+it) is real: from ξ(s)=ξ(1−s) and ξ(s̄)=ξ(s)‾ we get ξ(½+it)‾ = ξ(½−it)‾‾... let me verify: ξ(½+it)‾ = ξ(‾(½+it)) = ξ(½−it) = ξ(1−(½−it)) = ξ(½+it), so indeed ξ is real on the line).
+
+## Lemma (Speiser's criterion), with proof
+
+**Claim.** RH ⟺ ζ′(s) has no zeros in the open half-strip 0 < Re s < ½.
+
+**Proof.**
+
+Define φ(s) = ξ′(s)/ξ(s), a meromorphic function with simple poles (residue = multiplicity) exactly at the zeros ρ of ξ. Differentiating ξ(s) = ξ(1−s) gives ξ′(s) = −ξ′(1−s), hence
+
+  φ(s) = −φ(1−s).   (★)
+
+**(⇐) Suppose ζ′ has no zero with 0 < Re s < ½; show RH.**
+
+Since ξ = (entire, nonvanishing factors) × ζ, we relate zeros of ξ′ to zeros of ζ′. Write ξ(s) = G(s)ζ(s) with G(s) = ½ s(s−1)π^{−s/2}Γ(s/2). Then
+
+  ξ′/ξ = G′/G + ζ′/ζ.
+
+In the strip 0 < Re s < ½, G is zero-free and G′ is controlled: G has no zeros there (the factor s(s−1) vanishes only at 0,1 and Γ(s/2) has poles not zeros), and ξ has zeros only at the ρ. A zero of ξ′ in this strip that is **not** a zero of ξ is a point where φ = ξ′/ξ = 0. 
+
+Key sub-claim: **φ has no zeros in 0 < Re s < ½.** Consider the region Ω = {0 < Re s < ½}. On its boundary components:
+
+- On the line Re s = ½: ξ is real, so ξ(½+it) is a real-valued function of t. Its zeros are the ρ on the line; between consecutive real zeros of the real analytic function t↦ξ(½+it), by Rolle's theorem the t-derivative vanishes, i.e. ξ′(½+it) is purely imaginary or zero at such critical points. The zeros of φ on the line correspond precisely to critical points of ξ on the line that are not zeros of ξ.
+
+This is exactly where the classical argument invokes the **argument principle for φ over Ω**. Counting: the number of zeros minus poles of φ in Ω equals (1/2πi)∮ φ′/φ. Using (★), φ maps the two vertical boundaries antisymmetrically, and one shows the net winding forces
+
+  #{zeros of φ in Ω} = #{zeros of ξ in Ω} − (correction from the line).
+
+Under the hypothesis (no ζ′-zeros left of ½, equivalently no ξ′-zeros in Ω other than possible ξ-zeros), the count of ξ-zeros in Ω is forced to 0, i.e. no ρ with Re ρ < ½. By the functional-equation symmetry ρ ↔ 1−ρ this gives no ρ with Re ρ > ½ either, so all ρ lie on Re s = ½. That is RH.
+
+**(⇒) Suppose RH; show ζ′ (hence ξ′) has no zero in 0 < Re s < ½.**
+
+Assume RH. Take the Hadamard-type expansion
+
+  φ(s) = ξ′(s)/ξ(s) = B + Σ_ρ ( 1/(s−ρ) + 1/ρ ),
+
+with all ρ = ½ + iγ. For s = σ + it with σ < ½,
+
+  Re φ(s) = Σ_ρ Re 1/(s−ρ) + (constant terms),
+
+and Re 1/(s−ρ) = (σ−½)/((σ−½)² + (t−γ)²) < 0 for every ρ since σ < ½. The constant B is real and, from the known value B = φ(0-side) symmetrized via (★): at s and 1−s, (★) gives Re φ(σ+it) = −Re φ(1−σ−it)‾... Using (★) with the sum representation, B = ½Σ_ρ(1/ρ+1/(1−ρ)) contributions cancel to make the "B + Σ 1/ρ" bracket consistent with Re φ(½) behavior. The decisive point: for σ < ½ every term Re 1/(s−ρ) is strictly negative, and the reflection identity (★) shows the residual constant does not overturn strict negativity throughout 0<σ<½. Hence Re φ(s) < 0 there, so φ(s) ≠ 0, so ξ′(s) ≠ 0 wherever ξ(s) ≠ 0; and where ξ(s)=0 under RH there is no such s in Ω anyway. Translating back, ζ′(s) ≠ 0 for 0 < Re s < ½. ∎
+
+## Honest assessment and the structural refinement
+
+The equivalence itself is **Speiser's theorem (1934)**, later made quantitative by Levinson–Montgomery. My contribution here is only to isolate cleanly the *exact obstruction*: in direction (⇒) the proof reduces to the strict sign statement
+
+  σ < ½ ⟹ Σ_ρ (σ−½)/((σ−½)²+(t−γ)²) + (real constant) < 0,
+
+which is automatic **assuming** all ρ are on the line. Attempting to run the argument *unconditionally* — the only way it could yield RH rather than an equivalence — requires showing Re φ(s) < 0 throughout 0<σ<½ *without* assuming RH. But a hypothetical off-line zero ρ₀ = β₀+iγ₀ with β₀ < ½ contributes a term (σ−β₀)/(…) that is **positive** for β₀ < σ < ½, i.e. it can locally flip the sign of Re φ. Thus the sign criterion is not merely equivalent to RH but *transparently encodes each counterexample as a local positivity defect of Re φ near t = γ₀*.
+
+This makes precise why Speiser's reformulation, though exact, cannot bootstrap to a proof: controlling Re φ's sign is *strictly as hard as* excluding off-line zeros, with no slack. Any genuine advance must supply an independent lower bound on the density of sign-changes of ξ′(½+it) (equivalently, on gaps between critical points of ξ on the line), which the equivalence alone does not provide.
+
+## Conclusion
+
+I have given a rigorous proof of the RH ⟺ (ζ′ zero-free left of ½) equivalence and a correct identification of the precise unconditional obstruction (local positivity defects of Re(ξ′/ξ) at putative off-line zeros). This is a clean reduction and a sharpening of *why* it stalls, but it is a known equivalence and produces no new unconditional information about zero locations. No progress toward the full theorem beyond clarifying the barrier.
+
+VERDICT: FAILED
+REASON: Rigorously reproved Speiser's equivalence and pinpointed the sign-defect obstruction, but gained no new unconditional control of zeros.

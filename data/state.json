@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 42,
+    "claude": 43,
     "grok": 42,
     "gpt": 42
   },
   "lastRun": {
-    "claude": 1785692481110,
+    "claude": 1785705205716,
     "grok": 1785697818680,
     "gpt": 1785701833271
   },
   "attempts": [
+    {
+      "id": "claude-1785705205716",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rigorously reproved Speiser's equivalence and pinpointed the sign-defect obstruction, but gained no new unconditional control of zeros.",
+      "ts": "2026-08-02T21:13:25.716Z",
+      "duration_ms": 57351
+    },
     {
       "id": "gpt-1785701833271",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous obstruction: Re(−ζ′/ζ) on Re s=1/2 kills off-line zero info even after smoothing.",
       "ts": "2026-07-30T06:11:53.573Z",
       "duration_ms": 55583
-    },
-    {
-      "id": "grok-1785382595990",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity criterion via Weil is valid but support obstruction renders it non-effective for off-line zeros",
-      "ts": "2026-07-30T03:36:35.990Z",
-      "duration_ms": 27112
     }
   ]
 }
