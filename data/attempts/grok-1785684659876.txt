@@ -1,0 +1,55 @@
+### Attempt: Obstruction to a Positivity Proof of RH via the Weil Explicit Formula
+
+We work throughout with the completed zeta function
+\[
+\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),
+\]
+which is entire of order 1 and satisfies the functional equation \(\xi(s)=\xi(1-s)\). The non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\). The Riemann Hypothesis (RH) is equivalent to all zeros of \(\xi\) lying on the critical line \(\operatorname{Re}s=1/2\).
+
+Weil’s explicit formula relates a test function \(h\) (even, of rapid decay, with Fourier transform \(\hat h\) supported in \((-1,1)\)) to a sum over zeros:
+\[
+\sum_{\rho}h\bigl(\tfrac{\rho-1/2}{i}\bigr)
+=\frac1{2\pi}\int_{-\infty}^{\infty}h(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\bigl(\tfrac14+\tfrac{it}2\bigr)\,dt
++h\bigl(\tfrac i2\bigr)+h\bigl(-\tfrac i2\bigr)
+-\sum_{p^k}\frac{\log p}{p^{k/2}}\bigl(\hat h(k\log p)+\hat h(-k\log p)\bigr).
+\]
+(The precise normalization of the Fourier transform is the one in which the Plancherel measure is \(dt/2\pi\).) The left-hand side is a sum of \(h\) evaluated at the imaginary parts of the zeros (shifted by \(1/2\)).
+
+A classical strategy for proving RH is to produce a non-trivial even test function \(h\ge0\) whose Fourier transform satisfies
+\[
+\hat h(u)\le0\qquad\text{for all }|u|\ge\log2
+\]
+(and \(\hat h\) not identically zero). The prime-power sum on the right would then be non-positive, while the Gamma and pole terms are positive for a sufficiently concentrated \(h\). The resulting strict positivity of the right-hand side would force every zero contribution on the left to satisfy \(\operatorname{Im}(\rho-1/2)=0\), i.e., RH.
+
+#### Rigorous obstruction
+We show that no such test function exists in the Schwartz class (or even in the larger class of continuous compactly supported functions whose Fourier transforms are integrable). Suppose toward a contradiction that an even \(h\not\equiv0\) with \(h\ge0\) and \(\hat h(u)\le0\) for \(|u|\ge\log2\) exists. Then \(\hat h\) is continuous, real-valued and even, and the support condition on the negative part forces
+\[
+\int_{-\infty}^{\infty}\hat h(u)\,du=h(0)>0
+\]
+(the value \(h(0)\) is strictly positive because \(h\ge0\) is not identically zero and continuous). By Fourier inversion,
+\[
+h(0)=\int\hat h(u)\,du=\int_{|u|<\log2}\hat h(u)\,du+\int_{|u|\ge\log2}\hat h(u)\,du.
+\]
+The second integral is \(\le0\). Hence the first integral must be strictly larger than \(h(0)\). In particular \(\hat h\) cannot be of constant sign on \((-\log2,\log2)\).
+
+Now form the dilated family \(h_\lambda(t)=h(t/\lambda)\) for \(\lambda>0\). Then \(\hat h_\lambda(u)=\lambda\hat h(\lambda u)\), so the negative-support condition becomes \(\hat h_\lambda(u)\le0\) for \(|u|\ge(\log2)/\lambda\). Sending \(\lambda\to\infty\) makes the negative-support threshold tend to 0. The same integral identity yields
+\[
+h(0)=\int\hat h_\lambda=\int_{|u|<(\log2)/\lambda}\lambda\hat h(\lambda u)\,du+\text{(non-positive term)}.
+\]
+The first integral is bounded by \(\|\hat h\|_\infty\cdot2\log2\), independent of \(\lambda\). But for large \(\lambda\) the measure of the integration interval tends to 0 while the \(L^1\)-mass of \(\hat h\) on that interval must remain at least \(h(0)>0\), contradicting the continuity of \(\hat h\) at the origin (which forces \(\hat h(u)\to\hat h(0)\) and therefore the local mass to vanish). More quantitatively: if \(\hat h(0)=c\), then for every \(\varepsilon>0\) there is \(\delta>0\) such that \(|u|<\delta\) implies \(|\hat h(u)-c|<\varepsilon\). Choosing \(\lambda> (\log2)/\delta\) makes the positive-mass interval lie inside \((-\delta,\delta)\), whence
+\[
+\bigl|\tfrac1{\lambda}\int_{|u|<(\log2)/\lambda}\lambda\hat h(\lambda u)\,du-c\cdot\tfrac{2\log2}\lambda\bigr|<\varepsilon\cdot\tfrac{2\log2}\lambda.
+\]
+The left-hand side must stay \(\ge h(0)/\lambda>0\), which is impossible for small \(\varepsilon\) once \(\lambda\) is large.
+
+Thus no admissible test function exists. The obstruction is local at the origin of the Fourier side and is independent of the precise decay of \(h\); it already rules out all continuous compactly-supported candidates.
+
+#### Consequence
+Any proof of RH that proceeds by exhibiting a positivity certificate inside the Weil explicit formula must either
+- leave the classical Schwartz/test-function class (e.g., by allowing distributions or functions of exponential growth), or
+- replace the pointwise sign condition \(\hat h\le0\) outside a compact set by a weaker averaged or weighted condition that still forces the zero sum to be non-negative.
+
+Both routes remain open; the calculation above shows that the most direct positivity attack is blocked by a simple Fourier-analytic obstruction.
+
+VERDICT: FAILED
+REASON: Explicit Fourier obstruction kills the classical Weil-positivity approach; no new zero-free region or RH proof obtained.
