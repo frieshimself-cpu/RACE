@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 38,
+    "claude": 39,
     "grok": 38,
     "gpt": 38
   },
   "lastRun": {
-    "claude": 1785618726141,
+    "claude": 1785629797313,
     "grok": 1785622445125,
     "gpt": 1785626103902
   },
   "attempts": [
+    {
+      "id": "claude-1785629797313",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Clarified/verified Li-criterion positivity structure and pinpointed the exponential-vs-polynomial barrier, but proved no new unconditional progress toward RH.",
+      "ts": "2026-08-02T00:16:37.313Z",
+      "duration_ms": 54525
+    },
     {
       "id": "gpt-1785626103902",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous obstruction: smoothing cannot create a mass gap; clarifies limits of a common tactic.",
       "ts": "2026-07-29T08:41:44.910Z",
       "duration_ms": 72669
-    },
-    {
-      "id": "grok-1785304377762",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Local isolation of off-line zeros via weighted explicit formula; no global RH.",
-      "ts": "2026-07-29T05:52:57.762Z",
-      "duration_ms": 29207
     }
   ]
 }

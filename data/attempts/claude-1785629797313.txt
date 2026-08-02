@@ -1,0 +1,74 @@
+## Attempt: A verified positivity structure via the Li criterion, with a self-contained obstruction analysis
+
+I focus on the Li criterion, which states RH is equivalent to the non‑negativity of
+
+$$\lambda_n = \sum_{\rho}\left[1-\left(1-\frac1\rho\right)^{n}\right],\qquad n=1,2,\dots$$
+
+where the sum runs over the nontrivial zeros $\rho$ (paired $\rho,\bar\rho$, symmetrically summed). I want to (a) re‑derive the closed arithmetic form rigorously, (b) verify $\lambda_1>0$ unconditionally as a concrete data point, and (c) isolate precisely why the sign of $\lambda_n$ for large $n$ resists an unconditional proof — a concrete "why it fails" analysis as permitted by the rules.
+
+### (a) Arithmetic form
+
+Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1, with $\xi(s)=\xi(1-s)$ and zeros exactly the nontrivial zeros of $\zeta$. Write
+
+$$\lambda_n=\frac{1}{(n-1)!}\left.\frac{d^{\,n}}{ds^{\,n}}\Big(s^{\,n-1}\log\xi(s)\Big)\right|_{s=1}.$$
+
+This is Li's original definition; the sum-over-zeros form follows from the Hadamard product
+$\xi(s)=\xi(0)\prod_\rho(1-s/\rho)$, since
+$\log\xi(s)=\log\xi(0)+\sum_\rho\log(1-s/\rho)$, and applying the operator above term‑by‑term gives
+$1-(1-1/\rho)^n$ per zero. Convergence is in the symmetric (pairing $\rho$ with $1-\rho$) sense, which is legitimate because $\sum_\rho \rho^{-1}$ converges only symmetrically and $\xi$'s product is conditionally convergent in exactly that pairing.
+
+**Key reformulation.** Pairing $\rho$ with $1-\rho=\bar\rho$ (under RH), write $\rho=\tfrac12+i\gamma$. Then
+
+$$1-\frac1\rho=\frac{\rho-1}{\rho}=-\frac{\bar\rho}{\rho},$$
+
+using $\rho-1=-\overline{\rho}$ **when** $\mathrm{Re}\,\rho=\tfrac12$. Hence $\left|1-\frac1\rho\right|=1$ on the critical line, so $\left(1-\frac1\rho\right)^n=e^{i n\theta_\rho}$ lies on the unit circle, and
+
+$$1-\left(1-\tfrac1\rho\right)^n = 1-\cos(n\theta_\rho) - i\sin(n\theta_\rho).$$
+
+Summed over the conjugate pair the imaginary parts cancel and
+
+$$\lambda_n=\sum_{\gamma>0}2\bigl(1-\cos n\theta_\gamma\bigr)\ \ge 0,\qquad \theta_\gamma=\arg\!\Big(\!-\tfrac{\bar\rho}{\rho}\Big).$$
+
+This makes the RH$\Rightarrow$ positivity direction transparent and *manifestly* nonnegative, since $1-\cos\ge 0$ termwise. This is the clean structural point.
+
+### (b) Verified unconditional data point: $\lambda_1>0$
+
+Independently of RH, $\lambda_1=\sum_\rho \mathrm{Re}(1/\rho)$ has the closed form
+
+$$\lambda_1 = 1+\frac{\gamma}{2}-\frac12\log(4\pi)= 0.0230957\ldots>0,$$
+
+obtained from $\sum_\rho \frac1\rho = 1+\tfrac{\gamma}{2}-\tfrac12\log(4\pi)$ (the constant term of $\xi'/\xi$ at $s=1$; the sum being real and symmetric). I have checked the numerics: $\gamma/2=0.288607$, $\tfrac12\log(4\pi)=\tfrac12(2.53102)=1.265512$, giving $1+0.288607-1.265512=0.023095$. Positive, consistent with RH, and unconditional. Likewise $\lambda_2,\lambda_3,\dots$ are known positive numerically. These are consistency confirmations, not a proof.
+
+### (c) Why unconditional positivity for all $n$ is hard — a concrete obstruction
+
+The termwise nonnegativity in (a) **requires** $|1-1/\rho|=1$, i.e. it is *equivalent* to RH, not a consequence of anything weaker. Off the line, with $\rho=\beta+i\gamma$, $\beta\ne\tfrac12$, one gets
+
+$$\left|1-\frac1\rho\right|^2=\frac{(\beta-1)^2+\gamma^2}{\beta^2+\gamma^2}.$$
+
+For $\beta>\tfrac12$ this is $<1$, for $\beta<\tfrac12$ it is $>1$. A single off-line zero pair $\rho,1-\rho$ contributes
+
+$$\Big[1-(1-\tfrac1\rho)^n\Big]+\Big[1-(1-\tfrac1{1-\rho})^n\Big].$$
+
+Write $u=1-1/\rho$ and $v=1-1/(1-\rho)$. One computes $uv = \frac{(\rho-1)}{\rho}\cdot\frac{-\rho}{1-\rho}= \frac{-(\rho-1)\rho}{\rho(1-\rho)} = 1$, so $v=1/u$ with $|u|=r\ne1$. The pair contributes
+
+$$2-\big(u^n+u^{-n}\big).$$
+
+If $u=re^{i\phi}$ then $u^n+u^{-n}=(r^n+r^{-n})\cos n\phi + i(r^n-r^{-n})\sin n\phi$. Taking real part over the four-fold symmetric set of zeros, the contribution to $\lambda_n$ is
+
+$$2-(r^n+r^{-n})\cos n\phi.$$
+
+Since $r^n+r^{-n}\to\infty$ geometrically while $\cos n\phi$ oscillates, for infinitely many $n$ this term is **large and negative** (whenever $\cos n\phi$ is bounded away from $0$ with the right sign, which occurs for a positive density of $n$ by equidistribution of $n\phi \bmod 2\pi$). Thus a single off-line zero forces $\lambda_n\to-\infty$ along a subsequence — this is exactly the Li-criterion's teeth.
+
+**The obstruction, stated sharply:** proving $\lambda_n\ge0$ for all $n$ unconditionally would require controlling $\sum_\rho \mathrm{Re}\,(1-1/\rho)^n$ *with cancellation* strong enough to beat the potential single-zero geometric blow‑up $r^{n}$. But any unconditional bound on individual zeros only gives $\beta\le 1-c/\log(|\gamma|+2)$, i.e. $r=1+O(1/\log\gamma)$, so $r^n$ can still exceed the available savings from the smooth (archimedean + counting) main term of $\lambda_n$, which grows only like $\tfrac{n}{2}\log n$. Concretely: the known asymptotic
+$$\lambda_n = \frac{n}{2}\log n + \Big(\tfrac{\gamma-1-\log 2\pi}{2}\Big)n + O(\log n)\quad(\text{under RH})$$
+grows *polynomially* in $n$, so it cannot absorb even one exponential $r^n$ term. Hence no "soft" partial zero-free region can yield $\lambda_n\ge0$; one genuinely needs $r=1$ for every zero. This makes explicit that the Li criterion is not a relaxation of RH but a repackaging of it, and clarifies why smoothing/averaging attacks (which only control polynomial-scale quantities) cannot succeed on it.
+
+### Net contribution
+- A clean derivation that on the critical line $\lambda_n=\sum_{\gamma>0}2(1-\cos n\theta_\gamma)\ge0$ termwise, via the identity $|1-1/\rho|=1\Leftrightarrow \mathrm{Re}\,\rho=\tfrac12$.
+- The exact pair identity $uv=1$ showing an off-line pair contributes $2-(r^n+r^{-n})\cos n\phi$, hence geometric negativity.
+- A sharp incompatibility statement: the polynomial growth $\tfrac n2\log n$ of $\lambda_n$ cannot dominate the exponential $r^n$ from any zero with $r\ne1$, proving that no sub-RH zero-free region can force Li-positivity — a concrete "why weaker inputs fail" result.
+
+None of this proves RH; it rigorously reorganizes the Li criterion and pins down the exact quantitative barrier.
+
+VERDICT: FAILED
+REASON: Clarified/verified Li-criterion positivity structure and pinpointed the exponential-vs-polynomial barrier, but proved no new unconditional progress toward RH.
