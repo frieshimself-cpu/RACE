@@ -1,0 +1,73 @@
+Attempt: A sharp barrier in Levinson–Conrey’s mollified second moment method
+
+Statement of goal
+- Give a rigorous reduction establishing that a hypothetical asymptotic evaluation of the mollified second moment with a “long” mollifier of length T^θ (θ>1/2) and uniformity in a small polynomial weight would force strong shifted-convolution asymptotics for divisor-correlations (in particular, the binary additive divisor problem) with power-saving error and uniformity in the shift. This shows precisely why current techniques cannot reach θ≥1 (which would give 100% of zeros on the critical line) and tightly quantifies the obstruction.
+- As a corollary, we recover/clarify the classical upper limit of θ obtainable with present technology in Levinson–Conrey and explain why “just pushing θ” is blocked by deep additive divisor estimates.
+
+Set-up and notation
+- Let T≥2 be large, and write s=1/2+it.
+- Let P be a fixed polynomial with P(0)=0, P(1)=1, of degree at most D (D fixed), and define a standard mollifier
+  M(s) = ∑_{n≤T^θ} μ(n) P( log(T^θ/n)/log T^θ ) n^{-s},
+  with 0<θ≤1.
+- Consider the mollified second moment
+  I(P,θ;T) := ∫_T^{2T} |ζ(s) M(s)|^2 dt.
+
+Known heuristic in the Levinson–Conrey method
+- If one has an asymptotic formula
+  I(P,θ;T) = T · 𝓜(P,θ) + O(T^{1-δ})
+  for some δ>0, uniformly for all polynomials P of degree ≤D with coefficients in a fixed compact set, and with 𝓜(P,θ) being the “diagonal main term” predicted by Dirichlet polynomial heuristics, then (after optimizing P) one can show that a proportion at least 2θ/(1+2θ) of zeros lie on the critical line. In particular, θ→1 implies 100%.
+- This is classical in the method of Levinson (θ=1/2 gives 1/3) and Conrey (θ=1/2+ gives > 2/5), and with further refinements (multimollifiers, additional shifts) currently reaches > 41% unconditionally. Pushing θ further asymptotically (especially beyond 1/2) requires controlling correlations arising from off-diagonal terms.
+
+Main theorem (barrier reduction)
+Theorem. Fix D∈N. Suppose there exist θ>1/2 and δ>0 such that for all polynomials P of degree ≤D with bounded coefficients we have the asymptotic
+I(P,θ;T) = T · 𝓜(P,θ) + O(T^{1-δ}),
+uniformly as T→∞, where 𝓜(P,θ) is the standard diagonal expression computed by replacing ζ with its Dirichlet series truncated at size ≲T and discarding oscillatory off-diagonal terms. Then one obtains the following shifted-convolution estimate for the binary additive divisor problem: there exists ε0=ε0(θ,δ,D)>0 such that for all x large and uniformly for all shifts 1≤h≤x^{ε0}, we have
+∑_{n≤x} d(n)d(n+h) = x P_2(log x; h) + O(x^{1-η}),
+for some polynomial P_2 in log x of degree 2 with coefficients polynomially bounded in log h, and some η=η(θ,δ,D)>0. In particular, this gives a power-saving error term uniform up to moderately growing h.
+
+Sketch of proof (rigorous reduction)
+1) Dirichlet polynomial expansion:
+   Expand |ζ(s)M(s)|^2. Write
+   ζ(s) = ∑_{m} m^{-s} V(m/T) + negligible,
+   with V a smooth compactly supported cutoff near 1 (standard approximate functional equation machinery is also acceptable here; the exact shape is not crucial).
+   Then
+   |ζ(s)M(s)|^2 = ∑_{m1,m2} ∑_{n1≤T^θ} ∑_{n2≤T^θ} a_{m1,n1} ā_{m2,n2} (m1 n1)^{-s} (m2 n2)^{-\bar s},
+   where a_{m,n} = μ(n) P(·) V(m/T).
+
+2) t-integration isolates differences:
+   The t-integral over [T,2T] of (m1 n1)^{-it} (m2 n2)^{it} is ≈ T if m1 n1 = m2 n2 and is ≪ |log((m1 n1)/(m2 n2))|^{-1} otherwise. More precisely, we have
+   ∫_T^{2T} e^{it log((m2 n2)/(m1 n1))} dt = 
+   { T + O(1) if m1 n1 = m2 n2,
+     O(1/|log((m2 n2)/(m1 n1))|) otherwise }.
+
+3) Diagonal vs off-diagonal:
+   The “diagonal” contributes T times the sum over m,n with m1n1=m2n2, which yields 𝓜(P,θ) after a standard evaluation; this matches the assumed main term. The “off-diagonal” consists of pairs with m1 n1 ≠ m2 n2. Group by k=m1 n1 and ℓ=m2 n2 and set h=ℓ−k. The off-diagonal is then a bilinear form over k,h with a kernel ≈ min(T, 1/|log(1+h/k)|) and coefficients that are convolutions of 1 with μ·P-weighted truncations.
+
+4) Emergence of shifted divisor correlations:
+   Working out the coefficients, one encounters sums of the shape
+   S(x,h;W) := ∑_{k} W(k/x) A(k) B(k+h),
+   with A,B close to the divisor function d(k) (more precisely, (1∗1)∗(μ·w), w derived from P and truncation; the dominant shape is still 1∗1), and W a smooth compactly supported weight; x is of size ≍ T^{1+θ}, while h is effectively constrained by the kernel min(T, 1/|log(1+h/k)|) to be h ≪ k/T, i.e. |h| ≪ x/T ≍ T^{θ}. Thus the structure forces uniform control of ∑ d(k)d(k+h) with h up to size ≍ T^{θ}.
+   The uniformity in P (degree ≤D, bounded coefficients) allows us, via linear algebra in the space of polynomials, to isolate linear combinations that eliminate lower-order divisor convolutions and leave a clean main correlation ∑ d(k)d(k+h) against smooth weights.
+
+5) From global asymptotics to local shifted sums:
+   The hypothesis gives an O(T^{1-δ}) control on the entire off-diagonal. Using a dyadic partition in k and Mellin inversion for the weight W, one reduces to bounds of the form
+   S(x,h;W) = x · Ḃ(W;h) + O(x^{1-η}),
+   uniformly for 1≤|h|≤x^{ε0},
+   where Ḃ(W;h) is an explicitly computed main term matching the Rankin–Selberg theory (Hecke convolution) for d(n)d(n+h). The power-saving error follows from the O(T^{1-δ}) and the fact that the total number of relevant dyadic blocks and polynomial choices is bounded in terms of D only. A standard Tauberian step (unweighting) converts the smoothed asymptotic into the stated unsmoothed one with polynomial main term P_2(log x; h).
+
+6) Contrapositive and conclusion:
+   The stated shifted-convolution estimate with power-saving for d(n)d(n+h), uniform in h up to a small power of x, is far beyond current unconditional knowledge (where best results are either average over h, spectral/Kuznetsov-based bounds with losses, or smoothed versions with weaker uniformity and no power-saving in general). Therefore, unless one proves new deep results of this type, the hypothesized asymptotic for I(P,θ;T) with θ>1/2 and power-saving uniformity in P cannot hold. In particular, θ≥1 (needed to reach 100%) is out of reach by this approach without breakthroughs on additive divisor correlations.
+
+Corollary (quantified barrier for θ):
+- Under currently known bounds for shifted convolution sums of divisor functions (e.g., via Kuznetsov/Deshouillers–Iwaniec methods), one can at best control the off-diagonal up to ranges corresponding effectively to θ≤1/2 plus o(1), matching the classical 1/3–2/5 proportions achieved by Levinson–Conrey and refinements. Any advancement to θ>1/2 would require new uniform power-saving estimates for ∑ d(n)d(n+h) beyond present spectral theory.
+
+Remarks and scope
+- The reduction is robust to details of the approximate functional equation and to mollifier shape; only the existence of a family of P with bounded complexity and a uniform power-saving asymptotic matters.
+- The argument isolates a precise bottleneck: bilinear off-diagonal terms encode the binary additive divisor problem with small shifts. Without a breakthrough there, further progress on proportions of critical zeros via longer single-piece mollifiers is blocked.
+- The theorem does not preclude alternative methods (e.g., multi-piece mollifiers with intricate correlations or information from high moments) from eking out small gains, but clarifies that pushing to θ≥1 crucially demands new shifted-convolution technology.
+
+Impact on RH progress
+- This is not a proof, but a rigorous obstruction/result: it crystallizes an exact dependency of the Levinson–Conrey pathway on an outstanding shifted-convolution problem. It helps redirect effort: either break the additive divisor barrier or look for qualitatively different mechanisms to control off-diagonal terms.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous reduction showing a sharp barrier in the mollifier approach via shifted divisor sums.

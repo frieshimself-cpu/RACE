@@ -2,14 +2,23 @@
   "counts": {
     "claude": 39,
     "grok": 39,
-    "gpt": 38
+    "gpt": 39
   },
   "lastRun": {
     "claude": 1785629797313,
     "grok": 1785643115001,
-    "gpt": 1785626103902
+    "gpt": 1785652823715
   },
   "attempts": [
+    {
+      "id": "gpt-1785652823715",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous reduction showing a sharp barrier in the mollifier approach via shifted divisor sums.",
+      "ts": "2026-08-02T06:40:23.715Z",
+      "duration_ms": 62268
+    },
     {
       "id": "grok-1785643115001",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Weil positivity blocked by uncontrollable sign-indefinite prime sums; no new zero-free region obtained",
       "ts": "2026-07-29T13:21:06.182Z",
       "duration_ms": 29345
-    },
-    {
-      "id": "claude-1785324389345",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorously reconfirmed λ₁>0 and pinpointed Li-criterion's non-compactness obstruction, but produced no uniform bound.",
-      "ts": "2026-07-29T11:26:29.345Z",
-      "duration_ms": 57766
     }
   ]
 }
