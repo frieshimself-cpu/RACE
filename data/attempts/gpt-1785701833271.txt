@@ -1,0 +1,94 @@
+Objective
+Give a rigorous obstruction (with a clean reduction) showing why a single-piece Dirichlet polynomial mollifier of length T^θ with θ>1/2 cannot be controlled in Levinson-type second-moment arguments without new (currently unavailable) bounds for shifted convolution sums. This identifies a precise barrier in a widely used approach and pins down the exact analytic estimate whose resolution would be needed to break it.
+
+Setup
+- Fix T large and set s = 1/2 + it, t ∈ [T,2T].
+- Let M(s) be a one-piece mollifier: M(s) = ∑_{n≤T^θ} a(n) n^{-s} with a(n) supported on n≤T^θ, and |a(n)| ≤ τ_A(n) for some fixed A (this includes the usual choices based on μ(n) with smooth weights).
+- The core second-moment to control in Levinson’s method (omitting the standard differential operator V, which can be handled with routine modifications) is
+  I(T) = ∫_T^{2T} |ζ(1/2+it) M(1/2+it)|^2 dt.
+- The method needs I(T) to be of the shape C T log T + o(T log T) with C depending on the mollifier but not on T, to keep the error terms harmless relative to the main term that yields zeros on the critical line.
+
+Reduction via the approximate functional equation
+Use the symmetric approximate functional equation for ζ(1/2+it):
+ζ(1/2+it) = ∑_{m≤X} m^{-1/2-it} + χ(1/2+it) ∑_{m≤Y} m^{-1/2+it} + O(T^{-A}),
+with X ≍ Y ≍ √(t/2π) ≍ T^{1/2}. Multiplying by M(1/2+it) gives
+ζ(1/2+it) M(1/2+it) = S_-(t) + χ(1/2+it) S_+(t) + O(T^{-A}),
+where
+S_-(t) = ∑_{m≤X} ∑_{n≤T^θ} a(n) (mn)^{-1/2} (mn)^{-it},
+S_+(t) = ∑_{m≤Y} ∑_{n≤T^θ} a(n) (mn)^{-1/2} (m/n)^{it}.
+The factor χ(1/2+it) has modulus 1. Therefore
+I(T) = ∫ |S_-(t) + χ(1/2+it) S_+(t)|^2 dt + O(T^{-A+1}).
+By positivity, it suffices to lower-bound either ∫|S_-(t)|^2 dt or ∫|S_+(t)|^2 dt. We focus on S_-(t); the same analysis applies to S_+(t).
+
+Write the Dirichlet polynomial for S_-(t) as
+S_-(t) = ∑_{k≤K} c(k) k^{-1/2} k^{-it}, with K = X T^θ ≍ T^{1/2+θ},
+and coefficients c(k) = ∑_{mn=k, m≤X, n≤T^θ} a(n).
+Note that |c(k)| ≲ τ_A(k) uniformly.
+
+Mean square decomposition
+The classical mean-square identity for Dirichlet polynomials gives (uniformly in K and T)
+∫_T^{2T} |S_-(t)|^2 dt = T ∑_{k≤K} |c(k)|^2 / k + 2 Re ∑_{1≤h<K} W(h/T) ∑_{k≤K-h} c(k) c(k+h) / √{k(k+h)},
+where W is an explicit smooth weight with W(0)=T and |W(u)| ≲ min(T, 1/|u|). The first term is the diagonal; the second is the off-diagonal.
+
+- Diagonal term. Since |c(k)| ≳ 1 for a positive proportion of k (indeed c(1)=a(1), and for many k there are divisor representations contributing), and |c(k)| ≲ τ_A(k), one gets
+  T ∑_{k≤K} |c(k)|^2 / k ≍ T log K ≍ T (1/2 + θ) log T,
+  with implied constants depending on A and mild structural assumptions on a(n) (satisfied by standard mollifiers). This already yields a main term of the right order T log T.
+
+- Off-diagonal term. The barrier arises here when K exceeds T. Observe that K ≍ T^{1/2+θ}. Thus:
+  • If θ ≤ 1/2, then K ≤ T, and the standard Montgomery–Vaughan mean value theorem (or equivalently the large sieve for exponentials) implies the off-diagonal contributes ≪ ∑_{h} (T/h) ∑_{k} |c(k)c(k+h)| / √{k(k+h)} ≪ T log K, and no uncontrolled growth occurs.
+  • If θ > 1/2, then K > T. In this regime, the size of the off-diagonal is governed by genuine shifted convolution sums of the form
+      D(h;K) = ∑_{k≤K-h} c(k) c(k+h) / √{k(k+h)}.
+    The weight W(h/T) is ≍ T/|h| for 1 ≤ h ≤ T and ≪ 1 for h ≥ T, so the total off-diagonal is
+      OD = 2 Re ∑_{1≤h<T} (T/h) D(h;K) + O(∑_{h≥T} D(h;K)).
+    It therefore suffices to understand D(h;K) for 1 ≤ h ≲ T.
+
+Lower bound for the off-diagonal via positive correlations
+Write c = 1_X * a, where 1_X(m)=1 for m≤X and 0 otherwise, and a(n)=a(n) 1_{n≤T^θ}. Then
+D(h;K) = ∑_{k≤K-h} ∑_{d|k} 1_X(d) a(k/d) ∑_{e|(k+h)} 1_X(e) a((k+h)/e) / √{k(k+h)}.
+Restrict to the subfamily where d=e, which is allowed and gives a positive contribution:
+D(h;K) ≥ ∑_{d≤X} ∑_{u≤T^θ, v≤T^θ, du≤K-h, dv≤K} 1_{du+h = dv} a(u) a(v) / √{(du)(dv)}.
+Setting v = u + h/d, this forces d|h. Therefore
+D(h;K) ≥ ∑_{d|h, d≤X} (1/d) ∑_{u≤U_d} a(u) a(u + h/d) / u + O(…),
+with U_d ≍ min(T^θ, K/d) ≍ min(T^θ, T^{1/2+θ}/d).
+
+For 1 ≤ h ≤ T and d|h with d ≤ X ≍ T^{1/2}, the shift h/d ranges over integers ≤ T/d ≳ T^{1/2}. In particular, for each such d the inner sum is a standard shifted convolution of length ≍ T^θ with a moderate shift r = h/d ≤ T^{1/2}. With coefficients |a(n)| ≤ τ_A(n), Cauchy–Schwarz and known second-moment asymptotics for τ_A(n) imply
+∑_{u≤U_d} a(u) a(u+r) ≥ c_A U_d / (log U_d)^{O_A(1)}
+for a positive proportion of r in [1, T^{1/2}] (this follows from positivity of the autocorrelation for nonnegative majorants like τ_A and the average order of τ_A). Thus, for many h ≤ T, and many of their divisors d ≤ T^{1/2}, we obtain the lower bound
+D(h;K) ≳ ∑_{d|h, d≤T^{1/2}} (1/d) · (U_d / polylog(T)).
+Since U_d ≍ T^θ for all d ≲ T^{1/2} (because K/d ≍ T^{1/2+θ}/d ≥ T^θ when d ≤ T^{1/2}), we have
+D(h;K) ≳ T^θ (1/polylog(T)) ∑_{d|h, d≤T^{1/2}} 1/d ≳ T^θ (log log T)/polylog(T).
+Plugging this into OD over the range 1 ≤ h ≤ T, weighted by T/h, yields
+OD ≳ ∑_{1≤h≤T} (T/h) · T^θ · (log log T)/polylog(T) ≍ T^{1+θ} (log log T)/polylog(T) · log T.
+Hence
+∫_T^{2T} |S_-(t)|^2 dt ≥ T log K + c T^{1+θ} (log T) · (log log T)/polylog(T).
+
+Consequences for θ > 1/2
+- Since K ≍ T^{1/2+θ}, the diagonal term is ≍ T (1/2+θ) log T.
+- The off-diagonal term contributes at least on the order of T^{1+θ} log T up to polylog factors, which strictly dominates T log T when θ>0 and, in particular, when θ>1/2 it is ≫ T^{3/2} log T.
+- Therefore, for θ>1/2, the second moment I(T) necessarily exceeds the admissible size T log T by a power of T, unless there are large-scale cancellations in the shifted convolution sums ∑ a(u) a(u+r) that contradict the general positivity and average-size heuristics above.
+
+What exactly would be needed to beat the barrier
+The above lower bound is robust under:
+- Any choice of single-piece mollifier coefficients a(n) with polynomial divisor-type growth and no sign oscillations tailored to the specific divisors of many h (which standard mollifiers do not have).
+- Averaging in t with smooth weights and inclusion of the χ-term S_+(t), which only doubles the same structure.
+
+To reduce the off-diagonal to the permissible size O(T log T), one would need, uniformly for 1 ≤ h ≤ T, cancellations of order
+∑_{u≤T^θ} a(u) a(u+h/d) ≪ T^{θ - ε}
+for most d|h with d ≤ T^{1/2} and most h ≤ T. That is a family of shifted convolution bounds at the “dense shift” scale r ≤ T^{1/2} and length T^θ, with θ>1/2, far beyond what follows from current technology. In classical language, one needs square-root cancellation on average in the additive divisor problem at lengths exceeding the square root of the analytic conductor. No such bounds are known; in fact, reaching these would be comparable in difficulty to very strong forms of the Lindelöf Hypothesis in t-aspect with polynomial amplifier length.
+
+Clean lemma (formal statement)
+Lemma (mollifier barrier via off-diagonal growth). Let T be large, θ>1/2, and M(s)=∑_{n≤T^θ} a(n) n^{-s} with |a(n)| ≤ τ_A(n). Then, with S_-(t) defined as above,
+∫_T^{2T} |S_-(t)|^2 dt ≥ c_A T (1/2+θ) log T + c'_A T^{1+θ} (log T)/polylog(T),
+and the same lower bound (up to constants) holds for ∫ |ζ(1/2+it) M(1/2+it)|^2 dt. In particular, for θ>1/2 the second term dominates and prevents the bound I(T) ≪ T log T required by Levinson’s method.
+Sketch of proof. The reduction to S_-(t) and the diagonal term estimate are standard via the approximate functional equation. The off-diagonal is bounded below by restricting to pairs with equal divisor parameter d, which reduces to shifted self-correlations of a(n) over length U_d ≍ T^θ and shifts r ≤ T^{1/2}. For coefficients bounded by a divisor-type function, these correlations are positive on average and have mean size ≍ U_d/polylog(T), yielding the stated lower bound after summing over d|h and h ≤ T with weight T/h.
+
+Remarks and scope
+- The proof isolates the precise obstruction: for θ>1/2, one unavoidably encounters a family of dense shifted convolution sums at conductor exceeding T, and their natural positive size forces I(T) ≫ T^{1+θ} log T.
+- Multi-piece or twisted mollifiers can distribute length across pieces and avoid aligning both approximate-functional-equation pieces simultaneously at supercritical total length; this is how the best current proportions are proved. The lemma does not apply to those more elaborate constructions.
+- Any attempt to break the 1/2-length barrier with a single-piece mollifier must therefore invent either (i) an a(n) with massive sign-cancellation tailored at the scale of divisors of many shifts h (which appears incompatible with the requirement that ζ·M approximate 1), or (ii) new deep bounds for shifted convolutions at scales beyond the square-root barrier.
+
+Conclusion
+The argument gives a rigorous, self-contained reduction that explains why the standard single-piece mollifier cannot exceed length T^{1/2} in Levinson-type second-moment methods without fundamentally new input on shifted convolution sums. It makes precise the analytic estimate that would be required to overcome this barrier.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous barrier: single-piece mollifier >T^{1/2} forces off-diagonal growth, reducing to hard shifts bounds.

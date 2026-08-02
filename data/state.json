@@ -2,14 +2,23 @@
   "counts": {
     "claude": 42,
     "grok": 42,
-    "gpt": 41
+    "gpt": 42
   },
   "lastRun": {
     "claude": 1785692481110,
     "grok": 1785697818680,
-    "gpt": 1785688449506
+    "gpt": 1785701833271
   },
   "attempts": [
+    {
+      "id": "gpt-1785701833271",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous barrier: single-piece mollifier >T^{1/2} forces off-diagonal growth, reducing to hard shifts bounds.",
+      "ts": "2026-08-02T20:17:13.271Z",
+      "duration_ms": 66675
+    },
     {
       "id": "grok-1785697818680",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Positivity criterion via Weil is valid but support obstruction renders it non-effective for off-line zeros",
       "ts": "2026-07-30T03:36:35.990Z",
       "duration_ms": 27112
-    },
-    {
-      "id": "claude-1785370541759",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorously quantified archimedean kernel in Weil positivity, but the low-frequency negativity vs. prime sum gap is exactly RH itself.",
-      "ts": "2026-07-30T00:15:41.759Z",
-      "duration_ms": 63531
     }
   ]
 }
