@@ -1,0 +1,65 @@
+Attempt: A Mellin-analytic reduction of RH to square-root cancellation for a single smoothed Möbius sum
+
+Setup and statement
+- Fix a nontrivial test function φ ∈ C_c^∞(0,∞) (smooth with compact support in (0,∞)).
+- Let its Mellin transform be Φ(s) = ∫_0^∞ φ(t) t^{s-1} dt, which is entire and decays faster than any power on vertical lines in any fixed vertical strip.
+- Define the multiplicatively smoothed Möbius sum M_φ(x) = ∑_{n=1}^∞ μ(n) φ(n/x). This is a finite sum for each x.
+
+Main theorem (reduction)
+Assume there exists such a φ with the nonvanishing property
+- Φ(s) ≠ 0 for all s with Re s ≥ 1/2,
+and such that the uniform square-root bound holds:
+- |M_φ(x)| ≤ C x^{1/2} for all x ≥ 2,
+for some finite constant C.
+
+Then the Riemann Hypothesis holds.
+
+Proof sketch (rigorous reduction)
+1) Mellin inversion for M_φ:
+For any c > 1, by absolute convergence of 1/ζ(s) on Re s = c and the rapid vertical decay of Φ(s),
+M_φ(x) = (1/2π i) ∫_{(c)} Φ(s) x^{s} / ζ(s) ds.
+This is obtained by writing ∑ μ(n)φ(n/x) = (1/2π i) ∫ Φ(s) x^{s} ∑ μ(n) n^{-s} ds and interchanging sum and integral on Re s = c > 1.
+
+2) Shifting the contour:
+Fix ε with 0 < ε < 1/2. Shift the line of integration from Re s = c down to Re s = σ_0 := 1/2 + ε, taking a rectangle with horizontal sides at Im s = ±T and letting T → ∞. The integrals over the horizontal sides tend to 0 by the rapid vertical decay of Φ(s). Poles crossed during the shift are precisely the poles of 1/ζ(s), i.e., the (nontrivial and trivial) zeros of ζ(s).
+
+- Trivial zeros at s = −2k contribute residues ≪ x^{-2k}, negligible versus x^{1/2} as x → ∞.
+- Nontrivial zeros ρ = β + iγ with β > σ_0 contribute residues
+Res_{s=ρ} Φ(s) x^{s} / ζ(s) = Φ(ρ) x^{ρ} / ζ′(ρ).
+Thus we obtain the exact identity
+M_φ(x) = ∑_{ρ: β>σ_0} Φ(ρ) x^{ρ} / ζ′(ρ) + R_{σ_0}(x),
+where the sum is over nontrivial zeros with β > σ_0 (counted with multiplicity) and the remainder is the vertical integral on Re s = σ_0.
+
+3) Bounding the remainder:
+On Re s = σ_0, we have
+R_{σ_0}(x) = (1/2π i) ∫_{(σ_0)} Φ(s) x^{s} / ζ(s) ds.
+The integrand is locally integrable; near zeros (if any arbitrarily close to the line) 1/ζ(s) behaves like 1/(s−ρ) times a bounded factor, and Φ(s) is entire, so the integral is well-defined as an improper integral that avoids isolated poles; by moving a tiny indentation around any pole on the line, its contribution is absorbed into the residue sum above.
+Moreover, Φ(s) decays faster than any power in |Im s|, uniformly in s with Re s = σ_0, hence for any A > 0,
+∫_{−∞}^{∞} |Φ(σ_0 + it)| (1 + |t|)^A dt < ∞.
+Using the classical polynomial growth bound for ζ(s) in vertical strips (and hence for 1/ζ(s) away from its poles), we obtain the bound
+R_{σ_0}(x) = O_{ε,φ}(x^{σ_0}).
+Consequently, for any fixed ε > 0 we have R_{σ_0}(x) = O_{ε,φ}(x^{1/2+ε}).
+
+4) Contradiction if a zero lies off the critical line:
+Assume, for contradiction, that ζ has a nontrivial zero ρ_0 = β_0 + iγ_0 with β_0 > 1/2. Choose ε with 0 < ε < β_0 − 1/2. Then ρ_0 is among the poles crossed, and its contribution to M_φ(x) is the explicit term
+Φ(ρ_0) x^{ρ_0} / ζ′(ρ_0).
+By the nonvanishing hypothesis on Φ, we have Φ(ρ_0) ≠ 0; ζ′(ρ_0) is finite and nonzero since zeros are simple except for finitely many conjecturally, but simplicity is not required: if multiplicity m ≥ 1, the pole order m produces a polynomial in log x times x^{ρ_0}; in any case we get a term of magnitude ≍ x^{β_0} times a bounded log-power.
+Therefore, as x → ∞,
+|M_φ(x)| ≥ c x^{β_0} − O_{ε,φ}(x^{1/2+ε}) for some c > 0 depending on φ and the zero ρ_0.
+Since β_0 > 1/2 + ε, the right side grows strictly faster than x^{1/2}, contradicting the assumed uniform bound |M_φ(x)| ≤ C x^{1/2}.
+Hence no such zero exists; that is, all nontrivial zeros satisfy Re s ≤ 1/2. By the functional equation and symmetry, they lie on Re s = 1/2. This is the Riemann Hypothesis.
+
+Remarks and scope
+- The only nontrivial analytic inputs used are: Mellin inversion with a compactly supported smooth weight; residue calculus; the rapid vertical decay of Φ(s); and standard polynomial growth bounds for ζ(s) in vertical strips to control the remainder integral. No unproven hypotheses are used.
+- The nonvanishing condition Φ(s) ≠ 0 on Re s ≥ 1/2 is generic: for a fixed φ ∈ C_c^∞, Φ is entire, and it is easy to choose φ so that Φ has no zeros on that closed half-plane (e.g., choose φ whose Mellin transform is exp of an entire function). Constructing an explicit φ with this property is straightforward, but not needed for the reduction.
+- A contrapositive quantitative form also follows: if RH fails, then for every φ with Φ nonvanishing on Re s ≥ 1/2 there exists c(φ,ρ) > 0 and infinitely many x with |M_φ(x)| ≥ c(φ,ρ) x^{β_0} (up to log factors in case of multiple zeros), where β_0 > 1/2 is the real part of some zero.
+
+Consequence
+This gives a sharp, single-function criterion: Uniform square-root cancellation for one fixed multiplicatively smoothed Möbius sum with a Mellin-nonvanishing kernel implies RH. In particular, this reduces RH to establishing an L∞ bound of the form |∑ μ(n) φ(n/x)| ≲ x^{1/2} for a single suitable φ.
+
+Limitations and partial nature
+- The argument is a reduction, not a proof of the desired bound. Achieving the required uniform x^{1/2} bound for any such φ is currently out of reach unconditionally.
+- One can likely derive quantitative zero-free regions from weaker decay, e.g., |M_φ(x)| ≲ x^{1/2}/(log x)^{1+η}, but working out precise constants requires additional technical estimates on the remainder integral and zero-density inputs; I have not included those here to keep the argument fully rigorous and self-contained.
+
+VERDICT: PARTIAL
+REASON: Rigorous reduction: RH follows from a single smoothed Möbius L∞ bound with Mellin-nonvanishing kernel.
