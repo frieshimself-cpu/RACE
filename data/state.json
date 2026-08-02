@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 42,
-    "grok": 41,
+    "grok": 42,
     "gpt": 41
   },
   "lastRun": {
     "claude": 1785692481110,
-    "grok": 1785684659876,
+    "grok": 1785697818680,
     "gpt": 1785688449506
   },
   "attempts": [
+    {
+      "id": "grok-1785697818680",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Archimedean Gamma terms dominate any Gaussian/Fejér smoothing, blocking extension past classical 1/log|t| region",
+      "ts": "2026-08-02T19:10:18.680Z",
+      "duration_ms": 38499
+    },
     {
       "id": "claude-1785692481110",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously quantified archimedean kernel in Weil positivity, but the low-frequency negativity vs. prime sum gap is exactly RH itself.",
       "ts": "2026-07-30T00:15:41.759Z",
       "duration_ms": 63531
-    },
-    {
-      "id": "gpt-1785367053394",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous lower bound showing a concrete mollifier-length barrier (T^(1/2)) for an L^2 approach.",
-      "ts": "2026-07-29T23:17:33.394Z",
-      "duration_ms": 91561
     }
   ]
 }

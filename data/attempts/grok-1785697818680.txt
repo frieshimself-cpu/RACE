@@ -1,0 +1,45 @@
+### Attempt: Extending the Classical Zero-Free Region via a Weighted Trigonometric Inequality
+
+The classical de la Vallée Poussin/Mertens argument establishing \(\zeta(1+it)\neq0\) (hence the prime-number theorem) rests on the elementary inequality
+\[
+3+4\cos\theta+\cos2\theta=2(1+\cos\theta)^2\geq0
+\]
+and the non-negative Dirichlet series
+\[
+\operatorname{Re}\bigl(3(-\zeta'/\zeta)(\sigma)+4(-\zeta'/\zeta)(\sigma+it)+(-\zeta'/\zeta)(\sigma+2it)\bigr)\geq0
+\]
+for \(\sigma>1\). Letting \(\sigma\downarrow1\) produces a contradiction if \(\zeta(1+it)=0\).  
+
+We attempt a quantitative extension that would rule out zeros in a thin region \(\sigma\geq1/2+\delta\) for large \(|t|\). Fix \(\delta\in(0,1/2)\) and a large height \(T\). Suppose \(\rho=\beta+i\gamma\) is a zero with \(\beta\geq1/2+\delta\) and \(|\gamma|\leq T\). Consider the smoothed non-negative kernel
+\[
+K_\varepsilon(\theta)=\bigl(1+\cos\theta\bigr)^2e^{-\varepsilon\theta^2},\qquad\varepsilon>0,
+\]
+whose Fourier transform \(\widehat K_\varepsilon\) is positive and rapidly decaying. Form the weighted combination
+\begin{align*}
+\Phi_\varepsilon(\sigma,t)
+&=\int_{-\infty}^\infty K_\varepsilon(\theta)\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+i(t+\theta))\Bigr)\,d\theta\\
+&= \sum_n\frac{\Lambda(n)}{n^\sigma}\widehat K_\varepsilon\bigl(\tfrac{\log n}{2\pi}\bigr)\cos(t\log n).
+\end{align*}
+The left-hand side admits the explicit representation
+\[
+\Phi_\varepsilon(\sigma,t)=\sum_\rho\operatorname{Re}\int\frac{K_\varepsilon(\theta)}{\sigma-\beta+i(t+\theta-\gamma)}\,d\theta
++\text{(archimedean and polar terms)},
+\]
+where the sum runs over all non-trivial zeros. The contribution of a single zero \(\rho=\beta+i\gamma\) with \(\beta\geq1/2+\delta\) is asymptotically
+\[
+\sim\frac{\pi}{\sqrt{\varepsilon}}\,e^{-c\varepsilon(\beta-1/2)^2}
+\]
+when \(t=\gamma\) and \(\varepsilon\) is small. All other zeros contribute \(O(\log T)\) by the standard zero-density bound \(N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}\log^C T\) after integration against the Gaussian decay of \(\widehat K_\varepsilon\).
+
+Choosing \(\varepsilon=c'\delta^2/\log T\) makes the main-term contribution larger than the collective error provided
+\[
+\delta\gg(\log\log T)/\log T.
+\]
+This would yield \(\Phi_\varepsilon(\beta,\gamma)<0\), contradicting non-negativity of the Dirichlet series side.  
+
+**Obstruction.** The archimedean contribution arising from the Gamma factor in the completed zeta function is of size \(\asymp\log(|t|+2)\) and is not cancelled by the Gaussian smoothing; after the choice of \(\varepsilon\) above it remains larger than the putative main term by a factor \(\asymp\log T\). Refining the kernel to a higher-order Fejér-type polynomial (degree \(k\)) improves the zero-density error but worsens the archimedean term to \(\asymp k\log(|t|)\), so the same obstruction persists for every fixed \(k\). Thus the method recovers only a zero-free region of classical width \(c/\log T\), already known, and cannot reach any fixed \(\delta>0\).
+
+The calculation shows that any successful positivity argument in the critical strip must cancel or absorb the Stirling contribution of the Gamma factor at the same time as it isolates off-line zeros—an essentially new analytic ingredient not present in the classical trigonometric polynomials.
+
+VERDICT: FAILED
+REASON: Archimedean Gamma terms dominate any Gaussian/Fejér smoothing, blocking extension past classical 1/log|t| region
