@@ -1,0 +1,46 @@
+### Attempt: Partial Unconditional Zero-Free Region via Refined Explicit Formula and Weighted Möbius Sums
+
+Let \(\zeta(s)\) denote the Riemann zeta function, and write \(s=\sigma+it\). Let \(\Lambda\) be the von Mangoldt function. The classical explicit formula of von Mangholtz–Guinand–Weil relates primes to zeros:
+\[
+\sum_{n\le x}\Lambda(n)n^{-s}=\frac{x^{1-s}}{1-s}-\sum_{\rho}\frac{x^{\rho-s}}{\rho-s}+O\bigl(x^{-\sigma}\bigr)
+\]
+(for \(\sigma>0\), \(x\ge2\), \(t\) fixed away from ordinates of zeros, the sum over non-trivial zeros \(\rho=\beta+i\gamma\) understood in the principal-value sense). We work throughout with a smoothed variant to justify absolute convergence. Fix a non-negative even Schwartz test function \(\phi\) whose Fourier transform \(\hat\phi\) is supported in \([-1,1]\) and satisfies \(\hat\phi(0)=1\), \(\hat\phi\ge0\). For \(T\ge2\) and \(1/2\le\sigma_0\le1\) define the weighted sum
+\[
+S(T,\sigma_0):=\sum_{n\ge1}\frac{\Lambda(n)}{n^{\sigma_0}}\phi\bigl(\tfrac{\log n}{\log T}\bigr).
+\]
+By Mellin inversion and the functional equation the sum admits the representation
+\[
+S(T,\sigma_0)=\frac{T^{1-\sigma_0}}{(1-\sigma_0)\log T}\hat\phi\bigl(\tfrac{1-\sigma_0}{\log T}\bigr)
+-\sum_{\rho}\frac{T^{\rho-\sigma_0}}{(\rho-\sigma_0)\log T}\hat\phi\bigl(\tfrac{\rho-\sigma_0}{\log T}\bigr)
++O\bigl(T^{-\sigma_0}\bigr).
+\]
+(The contribution of the trivial zeros is absorbed in the error after one integration by parts.)
+
+**Lemma (conditional cancellation).** Suppose that every zero with \(|\gamma|\le T\log T\) satisfies \(\beta\le\sigma_0\). Then
+\[
+\bigl|S(T,\sigma_0)\bigr|\ll_{\phi}T^{1-\sigma_0}(\log T)^{-1}+T^{\sigma_0-1/2}(\log T)^{O(1)}.
+\]
+In particular, if \(\sigma_0>1/2\) is fixed then the right-hand side is \(o(T^{1-\sigma_0}/\log T)\) as soon as \(T\to\infty\).
+
+*Proof sketch of the lemma.* Truncate the zero sum at height \(T\log T\). The hypothesis forces \(\operatorname{Re}(\rho-\sigma_0)\le0\), so each term is bounded by \(T^{\operatorname{Re}(\rho-\sigma_0)}\ll1\). The number of zeros up to height \(H\) is \(\ll H\log H\), and \(\hat\phi\) cuts the sum off at \(|\operatorname{Im}(\rho)|\ll\log T\). Standard zero-density estimates (Ingham) therefore bound the whole zero contribution by \(T^{\sigma_0-1/2}(\log T)^{O(1)}\). The pole term is exactly the main term displayed above. The error from the trivial zeros and from the tail of \(\phi\) is absorbed as claimed.
+
+**Attempted bootstrap.** The left-hand side \(S(T,\sigma_0)\) can also be estimated from the prime side. Write
+\[
+S(T,\sigma_0)=\sum_{p\le T}\frac{\log p}{p^{\sigma_0}}\phi\bigl(\tfrac{\log p}{\log T}\bigr)+O\bigl(T^{1/2}\bigr).
+\]
+By the prime-number theorem with classical zero-free region one has
+\[
+\sum_{p\le y}\log p=y+O\bigl(y\exp(-c\sqrt{\log y})\bigr).
+\]
+Partial summation therefore yields
+\[
+S(T,\sigma_0)=\frac{T^{1-\sigma_0}}{(1-\sigma_0)\log T}+O\bigl(T^{1-\sigma_0}\exp(-c\sqrt{\log T})\bigr)
+\]
+uniformly for \(\sigma_0\le1-\delta\). Comparing the two expressions for \(S\) forces every zero of height \(\le T\log T\) to satisfy \(\beta\le\sigma_0\) once \(\sigma_0\) is larger than the classical zero-free abscissa (Vinogradov–Korobov). This merely recovers a region already known; no enlargement of the zero-free region is obtained.
+
+**Obstruction.** The obstruction is quantitative: the error term arising from the prime-number theorem is larger than the secondary main term \(T^{\sigma_0-1/2}\) that would be produced by a zero with \(\beta>\sigma_0\). Any attempt to push \(\sigma_0\) below the Vinogradov–Korobov line re-introduces a circular dependence on a stronger zero-free region (or on a zero-density estimate stronger than Huxley’s). The same circularity appears if one replaces \(\phi\) by a longer-support kernel: the resulting zero sum then includes ordinates far outside the range controlled by the prime-number theorem error term.
+
+Thus the method yields a self-contained re-derivation of a classical zero-free region but cannot be bootstrapped further without an independent improvement on either prime gaps or zero density. This isolates a precise analytic bottleneck rather than a conceptual gap.
+
+VERDICT: FAILED
+REASON: Recovers only classical zero-free region; circularity blocks any enlargement beyond Vinogradov–Korobov.

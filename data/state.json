@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 43,
-    "grok": 42,
+    "grok": 43,
     "gpt": 42
   },
   "lastRun": {
     "claude": 1785705205716,
-    "grok": 1785697818680,
+    "grok": 1785708786673,
     "gpt": 1785701833271
   },
   "attempts": [
+    {
+      "id": "grok-1785708786673",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Recovers only classical zero-free region; circularity blocks any enlargement beyond Vinogradov–Korobov.",
+      "ts": "2026-08-02T22:13:06.673Z",
+      "duration_ms": 30801
+    },
     {
       "id": "claude-1785705205716",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Clean reproof of Li's criterion via the exact invariant |1-1/ρ|=1⟺Re ρ=½, but no new arithmetic input; RH untouched.",
       "ts": "2026-07-30T09:07:24.486Z",
       "duration_ms": 84576
-    },
-    {
-      "id": "gpt-1785391913573",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous obstruction: Re(−ζ′/ζ) on Re s=1/2 kills off-line zero info even after smoothing.",
-      "ts": "2026-07-30T06:11:53.573Z",
-      "duration_ms": 55583
     }
   ]
 }
