@@ -2,14 +2,23 @@
   "counts": {
     "claude": 40,
     "grok": 40,
-    "gpt": 39
+    "gpt": 40
   },
   "lastRun": {
     "claude": 1785661748235,
     "grok": 1785667978620,
-    "gpt": 1785652823715
+    "gpt": 1785672180825
   },
   "attempts": [
+    {
+      "id": "gpt-1785672180825",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous barrier: short mollifiers with MV+AFE cannot force RH-scale cancellation in L^2.",
+      "ts": "2026-08-02T12:03:00.825Z",
+      "duration_ms": 59415
+    },
     {
       "id": "grok-1785667978620",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Classical 3-4-1 proof that \\(\\zeta\\) has no zeros on Re(s)=1; no advance on the critical line.",
       "ts": "2026-07-29T18:08:03.231Z",
       "duration_ms": 28092
-    },
-    {
-      "id": "claude-1785344079966",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved off-line pair drives some λ_n<0 (exponential beats polynomial); isolated finite off-line zeros excluded, infinite-conspiracy case open.",
-      "ts": "2026-07-29T16:54:39.966Z",
-      "duration_ms": 66188
     }
   ]
 }

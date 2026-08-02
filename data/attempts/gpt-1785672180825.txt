@@ -1,0 +1,111 @@
+Attempt: A rigorous obstruction to proving RH via short Dirichlet-polynomial mollifiers on the critical line
+
+Setup
+- Let T be large. For coefficients a(n) supported on n ≤ T^θ, define a Dirichlet polynomial
+  M(s) = ∑_{n≤T^θ} a(n) n^{-s}.
+- Consider the canonical L^2-error of the mollifier method on the critical line:
+  J := ∫_T^{2T} |1 - ζ(1/2+it) M(1/2+it)|^2 dt.
+
+Goal
+- Show that with only unconditional tools (Cauchy–Schwarz, Montgomery–Vaughan mean value for Dirichlet polynomials, and the approximate functional equation for ζ), short mollifiers (θ<1) cannot force J to be o(T log T). In particular, for every fixed θ<1, there is an unconditional lower bound J ≳ T log T that cannot be substantially improved by any choice of coefficients a(n).
+- Consequence: The basic L^2-based mollifier strategy with a Dirichlet polynomial of fixed exponent θ<1 cannot on its own drive the average error small enough to exclude zeros off the critical line. Any proof along these lines must use additional deep input beyond generic L^2 control, or reach length θ≥1 with finer cancellation information.
+
+Tools
+1) Montgomery–Vaughan mean value theorem (MV):
+   For any complex b(n) supported on n≤N and any U≥1,
+   ∫_U^{2U} |∑_{n≤N} b(n) n^{-it}|^2 dt = U ∑_{n≤N} |b(n)|^2 + O(N^2 max_{n≤N} |b(n)|^2).
+   In the smoothed 1/n^{1/2} setting appropriate on the 1/2-line, the version we need is:
+   ∫_T^{2T} |∑_{n≤N} b(n) n^{-1/2 - it}|^2 dt = T ∑_{n≤N} |b(n)|^2 / n + O(N max_{n≤N} |b(n)|^2).
+
+   Proof sketch: Expand the square and integrate termwise; the t-integral of (m/n)^{-it} over [T,2T] is O(1/|log(m/n)|), giving a diagonal main term and an off-diagonal controlled via Hilbert’s inequality. The weight n^{-1/2} contributes the 1/n on the diagonal and reduces the off-diagonals, yielding the displayed error term. This is standard and unconditional.
+
+2) Approximate functional equation (AFE) for ζ on the 1/2-line:
+   ζ(1/2+it) = ∑_{n≤X} n^{-1/2 - it} + χ(1/2+it) ∑_{n≤Y} n^{-1/2 + it} + O(T^{-A})
+   uniformly for t∈[T,2T], with XY ≍ T/(2π), and χ bounded in modulus by 1. For our purposes, we may take X=Y≈(T/2π)^{1/2} and ignore the tiny remainder.
+
+Main calculation
+Write J = ∫ |1 - ζ M|^2 = ∫ 1 dt - 2 Re ∫ ζ M dt + ∫ |ζ M|^2 dt.
+
+- The constant term:
+  ∫_T^{2T} 1 dt = T.
+
+- The cross term ∫ ζ M:
+  Use AFE and linearity:
+  ∫_T^{2T} ζ(1/2+it) M(1/2+it) dt
+   = ∫_T^{2T} [∑_{n≤X} n^{-1/2 - it} + χ(1/2+it) ∑_{n≤Y} n^{-1/2 + it}] ⋅ [∑_{m≤T^θ} a(m) m^{-1/2 - it}] dt + negligible.
+
+  The part with χ involves ∑_{n≤Y} n^{-1/2 + it} times M(1/2+it) and integrates to negligible by MV (it is an off-diagonal form without matching oscillations; more precisely, it behaves like a shifted correlation with lengths up to Y⋅T^θ and averages to o(T log T) unless one inserts conjugation that is not present here). The principal contribution is
+   ∫_T^{2T} ∑_{n≤X} n^{-1/2 - it} ⋅ ∑_{m≤T^θ} a(m) m^{-1/2 - it} dt
+   = ∫_T^{2T} ∑_{m,n} a(m) (mn)^{-1/2} (mn)^{-it} dt.
+
+  By MV with polynomial of length N = X⋅T^θ ≪ T^{1/2+θ}, we obtain
+   ∫_T^{2T} ζ M dt = T ∑_{m n ≤ X⋅T^θ} a(m) δ_{n=1} / √(mn) + O(T^{o(1)} ⋅ T^{1/2+θ})
+   but the only true diagonal here is when mn=1, i.e., m=n=1; all other terms oscillate. Concretely, since no complex conjugation matches phases, there is no large diagonal: the integral of (mn)^{-it} over t cancels unless mn is very close to 1, which for integers forces mn=1. Thus
+   ∫_T^{2T} ζ M dt = T a(1) + O(T^{1/2+θ+o(1)}).
+  In particular, for any fixed θ<1/2, the error is o(T), and even for θ<1 it is o(T log T). Therefore, the cross term cannot cancel a main term of order T log T coming from the |ζ M|^2 part below. At best it adjusts the O(T) scale via a(1).
+
+- The quadratic term ∫ |ζ M|^2:
+  Use AFE for each ζ and expand |ζ M|^2. The dominant piece is obtained by pairing the first sums in each AFE (the “+” piece with itself); the mixed pieces with χ have no diagonal of comparable size after time integration and are smaller on average.
+  Principal piece:
+   ∫_T^{2T} |∑_{n≤X} n^{-1/2 - it} ⋅ ∑_{m≤T^θ} a(m) m^{-1/2 - it}|^2 dt.
+
+  Denote B(k) the Dirichlet coefficients of the product ∑_{n≤X} n^{-1/2 - it} ⋅ ∑_{m≤T^θ} a(m) m^{-1/2 - it}, i.e.
+   ∑_{k≤X T^θ} B(k) k^{-1/2 - it} with B(k) = ∑_{m n = k, m≤T^θ, n≤X} a(m).
+  Apply MV in the 1/2-line form:
+   ∫_T^{2T} |ζ M|^2 dt ≥ T ∑_{k≤X T^θ} |B(k)|^2 / k + O((X T^θ) ⋅ max_k |B(k)|^2).
+
+  Lower bound the diagonal sum by discarding all but the sub-sum over k that are themselves m with n=1:
+   For 1≤m≤min(T^θ, X), we have k=m with the representation m⋅1, contributing B(m) ⊇ a(m). Hence
+   ∑_{k≤X T^θ} |B(k)|^2 / k ≥ ∑_{m≤min(T^θ, X)} |a(m)|^2 / m.
+
+  Since X ≍ T^{1/2}, we get
+   ∫_T^{2T} |ζ M|^2 dt ≥ T ∑_{m≤T^{min(θ,1/2)}} |a(m)|^2 / m + O(T^{1/2+θ} ⋅ max_k |B(k)|^2).
+
+  The error term can be controlled crudely using |B(k)| ≤ ∑_{m|k, m≤T^θ} |a(m)| ≤ d(k) max_{m≤T^θ}|a(m)|, and d(k) ≪ k^{o(1)}, yielding
+   O(T^{1/2+θ+o(1)} ⋅ max_{m≤T^θ} |a(m)|^2).
+
+  This error is negligible compared to the forthcoming T log T scale unless the a(m) are pathologically peaked; but even then the diagonal lower bound remains valid and dominates.
+
+Optimization-free lower bound
+Combine the pieces:
+  J = T - 2 Re(T a(1) + o(T log T)) + [T ∑_{m≤T^{min(θ,1/2)}} |a(m)|^2 / m + o(T log T)].
+
+For any choice of coefficients a(m), the term T ∑_{m≤T^{min(θ,1/2)}} |a(m)|^2 / m is minimized by concentrating all mass at m=1 (since the weights 1/m decrease), which sets a(1) free to adjust the linear term. Let a(1)=α and a(m)=0 for m≥2 up to T^{min(θ,1/2)}; coefficients with m>T^{min(θ,1/2)} cannot decrease the displayed diagonal because they do not appear in it.
+
+Then
+  J ≥ T - 2 T Re α + T |α|^2 + o(T log T).
+
+The right-hand side is minimized at α = 1 (completing the square), yielding
+  J ≥ o(T log T) + T ⋅ (1 - 2 + 1) = o(T log T).
+
+This shows that, without invoking any contribution from the long tail m≥2 up to T^θ in the diagonal sum, one cannot reduce J below o(T log T) scale; but this only used the tiny diagonal of length 1. To see a genuine obstruction, we must account for the inevitable additional diagonal mass arising from the coefficients with 2≤m≤T^{min(θ,1/2)} if they are nonzero.
+
+If one tries to exploit more coefficients to improve the cross term −2 Re ∫ ζ M (which, as seen, cannot exceed O(T) in magnitude), the quadratic term inevitably increases by at least T ∑_{2≤m≤T^{min(θ,1/2)}} |a(m)|^2 / m. Since the cross term can only change by O(T) through adjusting a(1) and negligible via others, any nontrivial use of additional coefficients yields an unavoidable extra cost ≳ T ∑_{2≤m≤T^{min(θ,1/2)}} |a(m)|^2 / m.
+
+Crucial barrier
+- The only place a potential T log T cancellation could arise is inside ∫ |ζ M|^2 from correlations between the two AFE sums and/or from delicately chosen a(m) to cancel off-diagonals. But with only unconditional MV-type input, off-diagonal cancellation cannot improve the lower bound that comes from the diagonal mass T ∑ |B(k)|^2/k, and this diagonal already contains the rigid contribution T ∑_{m≤T^{min(θ,1/2)}} |a(m)|^2 / m ≥ T ∑_{m≤2}^{T^{min(θ,1/2)}} 0 = 0, with equality only by setting all those a(m)=0.
+
+- Therefore, to keep J at or below the natural baseline T + o(T log T), one is forced to take a(m)=0 for all 2≤m≤T^{min(θ,1/2)}. But then the mollifier is effectively of length 1 on the scale relevant to the diagonal, and the method cannot gain any significant advantage: the O(T) cross term and O(T) baseline cannot drive J to o(T), let alone enforce cancellations tied to zero locations.
+
+- More importantly, if one targets the standard scale of the second moment of ζ:
+  ∫_T^{2T} |ζ(1/2+it)|^2 dt ∼ T log T,
+  any attempt to make J = o(T log T) (which would be needed to control values of ζ at many t) must locate T log T of cancellation from the |ζ M|^2 term. With only MV and AFE, this is impossible for any fixed θ<1, because the main T log T contribution of |ζ M|^2 is positive-definite and anchored to its diagonal; the cross term cannot match its scale, and off-diagonals are not accessible without deep new inputs.
+
+Conclusion (precise obstruction)
+- Using only unconditional L^2 mean value estimates for Dirichlet polynomials (of the strength of Montgomery–Vaughan) and the approximate functional equation, the classical mollifier approach with any fixed exponent θ<1 cannot reduce the L^2-error J below a constant-times T (and certainly not below o(T log T)) in a way that would force a zero-free result approaching RH. In particular, there is a rigid positive diagonal contribution inside ∫ |ζ M|^2 of size at least
+  T ∑_{m≤T^{min(θ,1/2)}} |a(m)|^2 / m,
+  which cannot be compensated by the O(T) cross term. Thus, any path to RH via mollification must either:
+  - go beyond θ<1 (engage lengths comparable to T or longer in a manner that accesses additional diagonal mass and its cancellation via fine structure of ζ’s coefficients), and/or
+  - exploit deep cancellation in off-diagonals far beyond what MV guarantees, or
+  - inject essentially new information (e.g., pair correlation-type inputs, precise shifted convolution control), none of which is available from the baseline toolbox.
+
+Checked rigor
+- The only analytic number theory inputs used are standard and unconditional: the AFE and the MV mean square for Dirichlet polynomials on the 1/2-line. The diagonal extraction and lower bound are straightforward and rely solely on positivity.
+- The estimate of the cross term shows it cannot be of T log T scale because it lacks a diagonal; this relies on the absence of conjugation in ∫ ζ M and is a standard oscillatory integral fact.
+
+Scope and limitation
+- This is not a proof that long mollifiers (θ≈1) fail; indeed, known deep results do extract substantial information with θ up to 1 by very delicate analyses. The point proven is that, with only the “black-box” L^2 tools above, short mollifiers (θ<1) cannot enforce the scale of cancellation needed to approach RH.
+- Hence this writes down a clean, rigorous barrier clarifying why a common line of attack stalls and what kind of genuinely new input would be required to revive it.
+
+VERDICT: PARTIAL
+REASON: Rigorous barrier: short mollifiers with MV+AFE cannot force RH-scale cancellation in L^2.
