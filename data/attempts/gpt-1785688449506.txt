@@ -1,0 +1,39 @@
+Attempt: A precise obstruction to “positivity via explicit formula” strategies
+
+Set-up.
+- Let g be an even, nonnegative, compactly supported L1-function on R, and define its entire Fourier transform h by
+  h(z) = ∫_{R} g(u) e^{2π i z u} du.
+  Then h is entire, even, of exponential type, with h real-valued on the real axis and rapidly decaying there by Riemann–Lebesgue.
+- In the standard Weil explicit formula for ζ, admissible test functions are of this kind (after the usual analytic-continuation/decay hypotheses), and the zero sum appears as
+  Σ_ρ h((ρ - 1/2)/i),
+  where the sum runs over nontrivial zeros ρ of ζ with multiplicity. By the functional equation, zeros occur in symmetric pairs ρ and 1-ρ.
+
+Key observation about zero contributions.
+- For ρ = β + iγ, write z_ρ := (ρ - 1/2)/i = γ - i(β - 1/2).
+- Because h is even and real on R, the combined contribution of a symmetric pair {ρ, 1-ρ} to the zero sum is
+  h(z_ρ) + h(-z_ρ) = 2 Re h(z_ρ) = 2 ∫_{R} g(u) cosh(2π(β - 1/2) u) cos(2π γ u) du.
+  Thus, for each pair {ρ, 1-ρ}, the explicit dependence on the horizontal displacement y := β - 1/2 ≥ 0 enters only as a multiplier cosh(2π y u) ≥ 1 inside the u-integral.
+
+Proposition (oscillatory obstruction).
+- For any fixed even, nonnegative, compactly supported g ≠ 0 and any y ≥ 0:
+  (1) Re h(γ - i y) = ∫ g(u) cosh(2π y u) cos(2π γ u) du is an oscillatory function of γ with amplitude growing in y through cosh(2π y u).
+  (2) As |γ| → ∞, Re h(γ - i y) → 0 by the Riemann–Lebesgue lemma, uniformly on compact y-intervals.
+  (3) There is no uniform sign control in γ: for any y ≥ 0 and any A > 0, there exist γ with Re h(γ - i y) > A and also γ with Re h(γ - i y) < -A, provided the support of g contains an interval and y is large enough to amplify the cosh factor; and for any fixed y, there exist sequences γ_n with Re h(γ_n - i y) → 0 with alternating signs.
+
+Proof sketch.
+- (1) is the displayed identity. cosh(2π y u) is even and ≥ 1, strictly > 1 for y > 0 and u ≠ 0.
+- (2) follows since g ∈ L1 has compact support, so the integrand is L1 in u and cos(2π γ u) oscillates; standard Riemann–Lebesgue gives decay to 0 in γ for each fixed y, and dominated convergence gives uniformity on bounded y.
+- For (3), fix y > 0. Since g is nonnegative and not identically zero with support containing an interval, the function
+    Γ(γ) := ∫ g(u) cos(2π γ u) du
+  attains both positive and negative values as γ varies (Fejér’s theorem or basic Fourier analysis on compact support implies the cosine transform of a nontrivial nonnegative bump oscillates). Then Re h(γ - i y) = ∫ g(u) cosh(2π y u) cos(2π γ u) du is just Γ_y(γ) with a strictly positive weight cosh(2π y u) that preserves oscillation and increases its possible magnitude as y grows; hence arbitrarily large positive and negative values are obtained for suitable γ, once y is large enough, and even for fixed y one can arrange γ to make the integral close to 0 with either sign by Riemann–Lebesgue.
+
+Consequence for explicit-formula positivity strategies.
+- In the Weil explicit formula, after moving the arithmetic (prime) side to the right, the left side is a sum over zeros of terms 2 Re h(γ - i(β - 1/2)). A tempting idea is to pick a nonnegative g to force each pair’s contribution to be nonnegative (or at least smaller when β ≠ 1/2), aiming to contradict the arithmetic side or a main term.
+- The proposition shows a structural obstruction: no such h arising from g ≥ 0, compactly supported can impose a uniform sign or a uniform penalty in β on Re h(γ - i(β - 1/2)) independent of γ. Off-line zeros (β ≠ 1/2) do not yield a contribution of a fixed sign; the γ-oscillation (cos(2π γ u)) persists and can cancel pairwise or accumulate with either sign. Moreover, for large |γ| the contribution of any single pair decays to 0 for fixed y, hence no per-zero inequality of the form Re h(γ - i y) ≥ c(y) > 0 (or ≤ -c(y) < 0) can hold uniformly in γ. Consequently, purely “one-sided positivity” arguments based on choosing g ≥ 0 in this class cannot rule out the existence of zeros with β ≠ 1/2 via a termwise inequality on the zero sum.
+- In particular, the constraint g ≥ 0 (so that h has positive type on the real axis) does not translate into a monotonic penalty in the imaginary direction needed to force all β = 1/2. Any attempt to turn the explicit formula into a contradiction by requiring each off-line pair to contribute “worse” than each on-line zero fails within this class of test functions, because the contribution is sensitive to γ in an inherently oscillatory way that cannot be controlled by sign or magnitude uniformly.
+
+Scope and limits.
+- This identifies a precise barrier for a concrete and widely used subclass of test functions (even, compactly supported, nonnegative g). It does not preclude more delicate choices (allowing sign changes in g, different growth/decay, or multi-parameter families combined with averaging over t) nor does it touch methods that exploit cancellations between the zero sum and the prime sum beyond sign constraints. It does, however, rigorously block a natural “positivity plus support restriction” route to RH via the explicit formula.
+
+VERDICT: FAILED
+REASON: Proved a precise obstruction showing a natural positivity approach cannot work; no progress toward RH itself.

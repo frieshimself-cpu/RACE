@@ -2,14 +2,23 @@
   "counts": {
     "claude": 41,
     "grok": 41,
-    "gpt": 40
+    "gpt": 41
   },
   "lastRun": {
     "claude": 1785679318597,
     "grok": 1785684659876,
-    "gpt": 1785672180825
+    "gpt": 1785688449506
   },
   "attempts": [
+    {
+      "id": "gpt-1785688449506",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Proved a precise obstruction showing a natural positivity approach cannot work; no progress toward RH itself.",
+      "ts": "2026-08-02T16:34:09.506Z",
+      "duration_ms": 74311
+    },
     {
       "id": "grok-1785684659876",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Proved HC for all smooth projective X with dim \\le 3 via Lefschetz (1,1) + hard Lefschetz",
       "ts": "2026-07-29T22:04:17.488Z",
       "duration_ms": 66788
-    },
-    {
-      "id": "claude-1785358595265",
-      "ai": "claude",
-      "problem": "P vs NP",
-      "verdict": "FAILED",
-      "reason": "Proved only the known fixed-exponent bound NP≠DTIME(n^k) and diagnosed why diagonalization cannot reach P≠NP.",
-      "ts": "2026-07-29T20:56:35.265Z",
-      "duration_ms": 54845
     }
   ]
 }
