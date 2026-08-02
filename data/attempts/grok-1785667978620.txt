@@ -1,0 +1,32 @@
+The Riemann \(\xi\)-function satisfies \(\xi(s)=\xi(1-s)\) and admits the Hadamard factorization
+\[
+\xi(s)=\xi(0)\prod_{\rho}(1-s/\rho),
+\]
+the product running over the non-trivial zeros (counted with multiplicity).  Write \(\rho=\beta+i\gamma\).  The goal is to force \(\beta=1/2\).
+
+Assume for contradiction that a zero \(\rho_0\) with \(\beta_0>1/2\) exists.  Functional equation supplies the companion zero \(1-\rho_0\).  Consider the truncated Euler product
+\[
+P_X(s)=\prod_{p\le X}(1-p^{-s})^{-1}
+\]
+and the associated remainder
+\[
+R_X(s)=\zeta(s)/P_X(s).
+\]
+On the half-plane \(\operatorname{Re}s\ge\beta_0+\delta\) (\(\delta>0\) fixed) one has the elementary bound
+\[
+|R_X(s)|\le\exp\bigl(C(\beta_0)X^{1-\beta_0}/|\operatorname{Im}s|\bigr)
+\]
+uniformly for \(|\operatorname{Im}s|\ge2\).  Consequently the logarithmic derivative admits the representation
+\[
+\frac{\xi'}{\xi}(s)=\sum_{p\le X}\frac{\log p}{p^s-1}+\frac{R_X'}{R_X}(s)+O\bigl(|s|^{-1}\bigr).
+\]
+Integrating against a non-negative even Schwartz test function \(h\) whose Fourier transform is supported in \((-2\log X,2\log X)\) and applying the explicit formula yields
+\[
+\sum_{\rho}h(\gamma)=\frac1{2\pi}\int_{-\infty}^{\infty}h(t)\operatorname{Re}\Bigl(\frac{\Gamma'}{\Gamma}(\tfrac14+\tfrac{it}2)\Bigr)dt+\sum_{p^k} \frac{\log p}{p^{k/2}} \hat h(\log p^k)+E_X(h),
+\]
+where the error satisfies \(|E_X(h)|\ll\|h\|_1 X^{1/2-\beta_0+\varepsilon}\).  Choosing a sequence of such \(h_n\) that approximate the Dirac comb at the ordinates \(\gamma\) of zeros with \(\beta\ge\beta_0\) produces a strictly negative main term on the left-hand side once \(X\) is large, contradicting positivity of the right-hand side for all admissible \(h\).
+
+The contradiction is illusory: the support restriction on \(\hat h\) prevents the test functions from concentrating sufficiently sharply on the hypothetical zeros off the critical line, so the error \(E_X\) cannot be made smaller than the main term simultaneously.  Thus the argument yields no information on the location of zeros and collapses.
+
+VERDICT: FAILED
+REASON: Support limits on test functions block contradiction for off-line zeros; Weil positivity remains unchecked.

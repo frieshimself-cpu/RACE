@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 40,
-    "grok": 39,
+    "grok": 40,
     "gpt": 39
   },
   "lastRun": {
     "claude": 1785661748235,
-    "grok": 1785643115001,
+    "grok": 1785667978620,
     "gpt": 1785652823715
   },
   "attempts": [
+    {
+      "id": "grok-1785667978620",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Support limits on test functions block contradiction for off-line zeros; Weil positivity remains unchecked.",
+      "ts": "2026-08-02T10:52:58.620Z",
+      "duration_ms": 23964
+    },
     {
       "id": "claude-1785661748235",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Proved off-line pair drives some λ_n<0 (exponential beats polynomial); isolated finite off-line zeros excluded, infinite-conspiracy case open.",
       "ts": "2026-07-29T16:54:39.966Z",
       "duration_ms": 66188
-    },
-    {
-      "id": "gpt-1785339193434",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved an L2 Möbius criterion implying no zeros for Re s>1/2, a concrete conditional path to RH.",
-      "ts": "2026-07-29T15:33:13.434Z",
-      "duration_ms": 113291
     }
   ]
 }
