@@ -1,0 +1,53 @@
+## Attempt: Exact Mellin structure of the Nyman–Beurling system, and where positivity fails
+
+I work in $L^2(0,1)$ with the Nyman–Beurling / Báez-Duarte functions
+$$\rho_\theta(t) = \{\theta/t\},\qquad 0<\theta\le 1,\ t\in(0,1),$$
+where $\{x\}$ is the fractional part. RH is equivalent to $\chi_{(0,1)}\equiv 1$ lying in the closed span of $\{\rho_\theta\}$. I give a fully self-contained computation of the Mellin transform of $\rho_\theta$, isolate the exact algebraic structure, and pin down the precise obstruction to turning it into a positivity/orthogonality argument.
+
+### Lemma (exact Mellin identity)
+For $0<\theta\le 1$ and $0<\operatorname{Re}s<1$,
+$$
+M_\theta(s):=\int_0^1 \rho_\theta(t)\,t^{s-1}\,dt \;=\; -\,\frac{\theta}{1-s}\;-\;\frac{\theta^{s}\,\zeta(s)}{s}.
+$$
+
+**Proof.** Substitute $u=\theta/t$, so $t=\theta/u$, $dt=-\theta u^{-2}du$, and $t\in(0,1)\Leftrightarrow u\in(\theta,\infty)$:
+$$
+M_\theta(s)=\int_\theta^\infty \{u\}\,(\theta/u)^{s-1}\,\theta u^{-2}\,du=\theta^{s}\int_\theta^\infty \{u\}\,u^{-s-1}\,du .
+$$
+Split the tail integral at $u=1$. On $[\theta,1)$ we have $\{u\}=u$, so
+$$
+\int_\theta^1 u\cdot u^{-s-1}\,du=\int_\theta^1 u^{-s}\,du=\frac{1-\theta^{1-s}}{1-s}.
+$$
+On $[1,\infty)$ use the classical identity (valid for $\operatorname{Re}s>0$)
+$$
+\zeta(s)=\frac{s}{s-1}-s\int_1^\infty \{u\}\,u^{-s-1}\,du
+\quad\Longrightarrow\quad
+\int_1^\infty \{u\}\,u^{-s-1}\,du=\frac{1}{s-1}-\frac{\zeta(s)}{s}.
+$$
+Adding,
+$$
+\int_\theta^\infty\{u\}u^{-s-1}du=\frac{1-\theta^{1-s}}{1-s}+\frac{1}{s-1}-\frac{\zeta(s)}{s}
+=-\frac{\theta^{1-s}}{1-s}-\frac{\zeta(s)}{s}.
+$$
+Multiplying by $\theta^s$ gives the claim. $\qquad\blacksquare$
+
+### Structural consequence
+Write a finite approximant $f=\sum_j c_j\rho_{\theta_j}$. By linearity,
+$$
+\widehat f(s):=\int_0^1 f(t)t^{s-1}dt
+= -\frac{1}{1-s}\underbrace{\Big(\sum_j c_j\theta_j\Big)}_{=:A}
+\;-\;\frac{\zeta(s)}{s}\underbrace{\Big(\sum_j c_j\theta_j^{\,s}\Big)}_{=:D(s)} .
+$$
+The target $\chi_{(0,1)}$ has $\widehat{\chi}(s)=1/s$. So the whole problem "$1\in\overline{\operatorname{span}}$" becomes: **can $-A/(1-s)-\zeta(s)D(s)/s$ approximate $1/s$ in the Mellin–Plancherel $L^2$ norm on the line $\operatorname{Re}s=\tfrac12$?** Here $D(s)$ is an arbitrary generalized Dirichlet polynomial in the "frequencies" $\log\theta_j$, and $A$ is one extra scalar degree of freedom carrying a fixed function $1/(1-s)$.
+
+Two clean observations follow:
+
+1. **The zero set enters only through $D$.** The factor $\zeta(s)/s$ multiplies the tunable Dirichlet polynomial. On $\operatorname{Re}s=\tfrac12$, $|\zeta/s|$ can be small but is a.e. nonzero, so the closure of $\{\zeta(s)D(s)/s\}$ is governed by whether $\{\theta^s\}$ (equivalently $\{k^{-s}\}$ for Báez-Duarte's $\theta=1/k$) can synthesize $1/s + A/(1-s)$ after dividing by $\zeta$. The requisite division $\big(1/s+A/(1-s)\big)/\zeta(s)$ is holomorphic in the half-plane $\operatorname{Re}s>\tfrac12$ **iff** $\zeta$ has no zeros there — this is exactly the RH mechanism, now visible as an *analytic-continuation/no-pole* condition rather than a positivity condition.
+
+2. **Why a naive orthogonality certificate fails.** A hypothetical off-line zero $s_0$, $\operatorname{Re}s_0>\tfrac12$, kills the second term: $M_{\theta}(s_0)=-\theta/(1-s_0)$. One is tempted to use $h(t)=t^{\overline{s_0}-1}$ (which lies in $L^2(0,1)$ precisely because $\operatorname{Re}s_0>\tfrac12$) as a linear functional annihilating the span. But $\langle\rho_\theta,h\rangle=M_\theta(s_0)=-\theta/(1-s_0)\neq0$, so $h$ is **not** orthogonal to the system — the residual first term $-\theta/(1-s)$ obstructs it. This residual is rank-one in $\theta$ (it depends on $\theta$ only through the scalar $A=\sum c_j\theta_j$), so it *can* be cancelled within the span, but only in the limit, not by a single bounded functional. This is the exact reason the equivalence is a boundary (non-tangential $L^2$-limit) statement and cannot be upgraded to a finite orthogonality/positivity certificate: point-evaluation at $s_0$ is not a bounded functional on $L^2(\operatorname{Re}s=\tfrac12)$.
+
+### Net assessment
+The computation reduces RH, sharply, to the solvability of a *division problem*: $1/s+A/(1-s)$ must be approximable by $\zeta(s)\cdot(\text{Dirichlet polynomial in } \theta^s)/s$ on the critical line, i.e. the meromorphic function $\big(1/s+A/(1-s)\big)/\zeta(s)$ must extend without poles to $\operatorname{Re}s>\tfrac12$. This is a correct, self-contained re-encoding, and it makes transparent why positivity-style certificates stall (the obstructing rank-one term $\theta/(1-s)$, plus unboundedness of off-line evaluation). It does not, however, produce the extension itself — which is the whole difficulty — so it is not new progress toward proving RH, only a clarified reduction with an explicit identity.
+
+VERDICT: FAILED
+REASON: Derived exact Mellin identity $M_\theta(s)=-\theta/(1-s)-\theta^s\zeta(s)/s$, clarifying the Nyman–Beurling barrier but proving nothing new.
