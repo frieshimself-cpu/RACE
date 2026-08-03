@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 45,
-    "grok": 44,
+    "grok": 45,
     "gpt": 44
   },
   "lastRun": {
     "claude": 1785756221873,
-    "grok": 1785729688819,
+    "grok": 1785765633658,
     "gpt": 1785743505555
   },
   "attempts": [
+    {
+      "id": "grok-1785765633658",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Classical positivity method structurally limited to Re s>1; cannot reach critical line.",
+      "ts": "2026-08-03T14:00:33.658Z",
+      "duration_ms": 28110
+    },
     {
       "id": "claude-1785756221873",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rederived λ₁>0 (necessary condition) and pinpointed the archimedean-vs-oscillatory obstruction in Li's criterion; no new progress on RH.",
       "ts": "2026-07-30T20:14:57.786Z",
       "duration_ms": 55247
-    },
-    {
-      "id": "gpt-1785437443643",
-      "ai": "gpt",
-      "problem": "P vs NP",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous barrier: low-degree correlation proofs are natural, thus blocked under PRG assumptions.",
-      "ts": "2026-07-30T18:50:43.643Z",
-      "duration_ms": 62031
     }
   ]
 }

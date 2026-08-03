@@ -1,0 +1,24 @@
+The classical zero-free region for \(\zeta(s)\) is obtained from the non-negative trigonometric polynomial
+\[
+3+4\cos\theta+\cos 2\theta=2(1+\cos\theta)^2\ge0.
+\]
+Taking the real part of \(-\zeta'/\zeta\) at the three points \(\sigma\), \(\sigma+it\) and \(\sigma+2it\) and inserting the Euler product therefore yields
+\[
+3\Bigl(-\frac{\zeta'}{\zeta}(\sigma)\Bigr)+4\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+it)\Bigr)+\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+2it)\Bigr)\ge0.
+\]
+A zero \(\rho=\beta+i\gamma\) with \(\beta\) close to 1 forces the middle term to be large and negative, contradicting the inequality once \(\sigma>1-c/\log(|\gamma|+2)\).  
+
+The same formal argument cannot be pushed down to the critical line. Any trigonometric polynomial
+\[
+\sum_{k=0}^N a_k\cos(k\theta)\ge0,\qquad a_k\ge0,
+\]
+that one might substitute produces only a zero-free region of the shape
+\[
+\sigma>1-c_N/\log(|t|+2)
+\]
+whose constant \(c_N\) remains bounded as \(N\to\infty\). The obstruction is structural: the coefficients \(a_k\) weight only a fixed number of vertical translates, while the functional equation relates values at \(s\) and \(1-s\) through the rapidly oscillating factor \(\pi^{-s/2}\Gamma(s/2)\). That factor is invisible to any finite trigonometric combination supported on the half-plane \(\operatorname{Re}s>1\), so the resulting inequality never “sees” the critical strip and cannot force \(\beta\le1/2\).
+
+Thus every proof that stays inside the classical Euler-product-plus-positivity framework is confined to a neighborhood of the line \(\operatorname{Re}s=1\) and is incapable of establishing the Riemann hypothesis.
+
+VERDICT: FAILED
+REASON: Classical positivity method structurally limited to Re s>1; cannot reach critical line.
