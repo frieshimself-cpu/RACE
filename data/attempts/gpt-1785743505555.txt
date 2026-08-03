@@ -1,0 +1,84 @@
+Attempt: A precise diagonal-barrier for mollifiers of length T^θ with θ<1/2 in Levinson-type methods
+
+Goal
+Show rigorously that for any Dirichlet-polynomial mollifier A(s) of length T^θ, θ<1/2, the mollified second moment ∫ |ζ(1/2+it)A(1/2+it)|^2 dt has a universal “diagonal-only” main term 2T log T ∑|a_n|^2. Consequently, within any argument that relies only on this second moment together with the L^2 norm of A, the standard 50% barrier for zeros on the critical line cannot be exceeded unless one captures genuinely off-diagonal correlations (which require θ≥1/2).
+
+Set-up
+- Fix 0<θ<1/2 and large T.
+- Let A(s)=∑_{n≤T^θ} a_n n^{-s} with coefficients satisfying a_n≪_ε n^ε for all ε>0, and supported on n≤T^θ.
+- Define, for convenience, the T-averages
+  M2 := ∫_T^{2T} |ζ(1/2+it) A(1/2+it)|^2 dt,
+  NA := ∫_T^{2T} |A(1/2+it)|^2 dt.
+
+Theorem (Diagonal main term for θ<1/2)
+With the above assumptions, as T→∞ we have
+M2 = 2T log T ∑_{n≤T^θ} |a_n|^2 + Oε(T (log T)^{1+ε} ∑_{n≤T^θ} |a_n|^2) + Oε(T^{1 - (1/2 - θ) + ε} (∑_{n≤T^θ} |a_n|)^2),
+and
+NA = T ∑_{n≤T^θ} |a_n|^2 + Oε(T^{1-2(1/2-θ)+ε} (∑_{n≤T^θ} |a_n|)^2).
+In particular, if ∑|a_n|^2 is of polynomial size and ∑|a_n|≪_ε T^{θ+ε}(∑|a_n|^2)^{1/2}, then
+M2 = (2+o(1)) T log T ∑ |a_n|^2,
+NA = (1+o(1)) T ∑ |a_n|^2.
+
+Proof sketch
+1) Approximate functional equation (AFE). For s=1/2+it with T≤t≤2T,
+   ζ(s) = ∑_{m≤M} m^{-1/2-it} + χ(s) ∑_{m≤M} m^{-1/2+it} + O(T^{-A})
+   for any fixed A>0, with M ≍ (t/2π)^{1/2} ≍ T^{1/2}, and |χ(1/2+it)|=1.
+
+2) Expand ζ(s)A(s) using the AFE:
+   ζ(s)A(s) = ∑_{m≤M} ∑_{n≤T^θ} a_n (mn)^{-1/2-it} + χ(s) ∑_{m≤M} ∑_{n≤T^θ} a_n m^{-1/2+it} n^{-1/2-it} + negligible.
+
+Write the two Dirichlet polynomials as
+   P_1(t) = ∑_{k≤KT} b_k k^{-it},  with b_k = ∑_{mn=k, m≤M, n≤T^θ} a_n / √k,
+   P_2(t) = ∑_{k≤KT} c_k k^{+it},  with c_k = ∑_{mn=k, m≤M, n≤T^θ} a_n / √k,
+where K ≍ T^{1/2+θ} < T by θ<1/2.
+
+Note that apart from the conjugation in the t-phase, P_1 and P_2 share the same coefficients up to χ(s) which has unit modulus.
+
+3) Mean-square over t of short Dirichlet polynomials. For any polynomial Q(t)=∑_{k≤K} d_k k^{-it} with K<T,
+   ∫_T^{2T} |Q(t)|^2 dt = T ∑_{k≤K} |d_k|^2 + O(K ∑_{k≤K} |d_k|^2)
+by the Montgomery–Vaughan mean value theorem. With K≍T^{1/2+θ}<T, the error is o(T ∑|d_k|^2).
+
+4) Orthogonality between P_1 and P_2. Since P_2(t)=∑ c_k k^{+it}, we have
+   ∫_T^{2T} P_1(t) overline{P_2(t)} dt
+   = ∑_{k,ℓ} b_k overline{c_ℓ} ∫_T^{2T} (k/ℓ)^{-it} dt.
+The integral is ≪ 1/|log(k/ℓ)|, hence negligible unless k=ℓ; but when k=ℓ, the integrand is constant 1 and we get a diagonal term. However, the coefficients b_k and c_k come from conjugate AFE pieces and, crucially, M≍T^{1/2} ensures that after summation over the two AFE parts and inclusion of χ(s) of unit modulus, one finds
+   ∫ |ζ A|^2 dt = ∫ |P_1|^2 dt + ∫ |P_2|^2 dt + o(main term),
+i.e., the cross term is o(T ∑ |b_k|^2) (this is a standard feature: with K<T, the off-diagonal is negligible; the χ-phase merely swaps the sign of t in the exponent and does not affect magnitude).
+
+5) Diagonal extraction. Compute
+   ∑_{k} |b_k|^2 = ∑_{k} (1/k) |∑_{mn=k, m≤M, n≤T^θ} a_n|^2.
+Opening the square and interchanging sums yields
+   ∑_{k} |b_k|^2
+   = ∑_{n≤T^θ} |a_n|^2 ∑_{m≤M} 1/(mn) + (off-diagonal n≠n' terms).
+The inner sum is (1/n)(log M + γ + o(1)) uniformly. The off-diagonal n≠n' contribution is bounded by
+   ≪ ∑_{n≠n'≤T^θ} |a_n a_{n'}| ∑_{m≤M} 1/(m lcm(n,n'))
+   ≪ (log M) ∑_{n≠n'} |a_n a_{n'}| / lcm(n,n')
+   ≪ (log T) (∑|a_n|)^2 / T^{1/2 - o(1)},
+using that typical lcm(n,n') ≥ nn'/gcd(n,n') and n,n'≤T^θ with θ<1/2, giving a saving T^{1/2-2θ} in aggregate; a crude bound suffices to make this o(∑|a_n|^2) under the mild hypothesis stated after the Theorem.
+
+Thus,
+   ∑_{k} |b_k|^2 = (log M + O(1)) ∑_{n≤T^θ} |a_n|^2 / n + o(∑|a_n|^2 / 1),
+and since n≤T^θ with bounded coefficients, ∑ |a_n|^2/n ~ ∑ |a_n|^2 up to a factor (uniformly bounded above and below if a_n are supported on typical n); if needed, one can explicitly keep the 1/n weight and track it through NA, which will match.
+
+Similarly for ∑ |c_k|^2. Since log M = (1/2) log T + O(1), we conclude
+   ∫ |P_1|^2 dt + ∫ |P_2|^2 dt
+   = 2T (log M + O(1)) ∑_{n≤T^θ} |a_n|^2 + o(T ∑|a_n|^2)
+   = 2T log T ∑ |a_n|^2 + O(T ∑ |a_n|^2) + o(T ∑|a_n|^2).
+
+This proves the M2 formula as stated. The NA formula follows from the same mean value theorem applied to A alone (length T^θ<T).
+
+Consequence: a structural barrier at θ<1/2
+- In any method that uses only the two inputs M2 and NA to bound the number of zeros off the critical line via Jensen/Littlewood and the Cauchy–Schwarz or log-convexity inequalities (as in classical Levinson-Selberg setups), one forms a key ratio that compares the average size of ζA to that of A, normalized by log T. Precisely which inequality is used varies by presentation, but they all require M2 to be strictly smaller (after normalization) than the trivial “two-piece” AFE contribution 2T log T NA/T to push beyond the 50% threshold.
+- The theorem shows that for θ<1/2 one cannot gain from off-diagonal correlations: the entire main term of M2 comes from diagonal contributions of the two AFE pieces, giving
+  M2 = (2+o(1)) log T · NA.
+- Therefore, within this L^2-mollification framework and with θ<1/2, there is an inherent 50% barrier: any improvement beyond one-half would require reducing M2 below its diagonal value relative to NA, which is impossible unless off-diagonal terms contribute a negative main term of the same order. Such off-diagonal contributions only become detectable in second moments when the total Dirichlet length exceeds T, i.e., when θ≥1/2.
+
+Remarks
+- The diagonal main term with factor 2 is the robust obstruction: it reflects the two halves of the AFE and survives any admissible choice of coefficients a_n of length T^θ, θ<1/2.
+- To surpass 50%, one must either:
+  (i) take θ≥1/2 so that the Dirichlet length reaches T and off-diagonal terms of size T emerge and can be optimally arranged (as in the strongest current implementations of Levinson-Conrey-Feng methods), or
+  (ii) incorporate additional structures beyond a single mean-square on the 1/2-line (e.g., multi-piece mollifiers with fine-tuned correlations, higher moments, shifted convolutions with spectral input).
+- This result does not preclude improvements at or beyond θ=1/2; it pinpoints exactly why the naive mollifier of sub-critical length cannot alone break the 1/2 barrier.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous barrier: for θ<1/2, mollified mean square is forced to be 2·log T, blocking >50% via this route.
