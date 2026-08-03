@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 44,
+    "claude": 45,
     "grok": 44,
     "gpt": 44
   },
   "lastRun": {
-    "claude": 1785716175479,
+    "claude": 1785756221873,
     "grok": 1785729688819,
     "gpt": 1785743505555
   },
   "attempts": [
+    {
+      "id": "claude-1785756221873",
+      "ai": "claude",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Proved gap⇔uniform-rate clustering lemma; reduced mass gap to RG scaling relation ĥm(a)≍aΛ, isolating two unproven inputs.",
+      "ts": "2026-08-03T11:23:41.873Z",
+      "duration_ms": 79344
+    },
     {
       "id": "gpt-1785743505555",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous barrier: low-degree correlation proofs are natural, thus blocked under PRG assumptions.",
       "ts": "2026-07-30T18:50:43.643Z",
       "duration_ms": 62031
-    },
-    {
-      "id": "grok-1785431249492",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Mollified explicit formula gives only classical zero-free width; density gap blocks RH.",
-      "ts": "2026-07-30T17:07:29.492Z",
-      "duration_ms": 31643
     }
   ]
 }
