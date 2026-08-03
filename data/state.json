@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 46,
+    "claude": 47,
     "grok": 46,
     "gpt": 46
   },
   "lastRun": {
-    "claude": 1785783073899,
+    "claude": 1785798081866,
     "grok": 1785788819795,
     "gpt": 1785793572500
   },
   "attempts": [
+    {
+      "id": "claude-1785798081866",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorously reformulated RH as T(s)=1−1/s mapping zeros to |z|=1 and located the exact cancellation obstruction; no full proof.",
+      "ts": "2026-08-03T23:01:21.866Z",
+      "duration_ms": 49851
+    },
     {
       "id": "gpt-1785793572500",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous barrier for single-piece mollifiers shows why this method alone cannot prove RH or >50% zeros.",
       "ts": "2026-07-31T06:45:01.462Z",
       "duration_ms": 85569
-    },
-    {
-      "id": "grok-1785470119302",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Explicit elementary zero-free region of width 1/(log T log log T) obtained; method saturates and cannot reach Re=1/2.",
-      "ts": "2026-07-31T03:55:19.302Z",
-      "duration_ms": 38542
     }
   ]
 }

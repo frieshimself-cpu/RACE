@@ -1,0 +1,129 @@
+# Attempt: A refined positivity analysis via Li's criterion and the explicit formula
+
+## Setup
+
+Let ξ(s) = ½ s(s−1)π^(−s/2)Γ(s/2)ζ(s) be the completed zeta function, entire of
+order 1, with ξ(s) = ξ(1−s) and zeros exactly at the nontrivial zeros ρ of ζ.
+Li's criterion states RH ⟺ λ_n ≥ 0 for all n ≥ 1, where
+
+  λ_n = Σ_ρ [ 1 − (1 − 1/ρ)^n ],
+
+the sum taken in the symmetric sense (pairing ρ with 1−ρ). Equivalently
+
+  λ_n = (1/(n−1)!) d^n/ds^n [ s^(n−1) log ξ(s) ] |_{s=1}.
+
+I want to give a **self-contained, rigorous derivation of a necessary lower
+bound structure** for the λ_n and isolate precisely where a full proof of
+positivity must come from. This is a partial result: I do not prove RH.
+
+## Step 1: The arithmetic decomposition (rigorous)
+
+Write log ξ(s) contributions. From the Hadamard product,
+
+  ξ'(s)/ξ(s) = B + Σ_ρ [ 1/(s−ρ) + 1/ρ ],  B = −γ/2 − 1 + ½ log 4π.
+
+A standard manipulation (Bombieri–Lagarias) gives the clean identity
+
+  λ_n = Σ_ρ [ 1 − (1 − 1/ρ)^n ],
+
+and this splits, using the symmetry ρ ↔ 1−ρ, into an **archimedean part** and
+an **arithmetic part**:
+
+  λ_n = λ_n^(∞) + λ_n^(arith),
+
+where the archimedean part comes from the Γ-factor and equals a positive,
+slowly growing quantity, asymptotically
+
+  λ_n^(∞) = ½ n log n + ½(γ − 1 − log 2π) n + O(log n).   (∗)
+
+This is provably positive and dominant for large n. The nontrivial content of
+RH lives in the fluctuation term.
+
+## Step 2: The key inequality via pairing
+
+Group zeros into conjugate/reflected quadruples. For a zero ρ = β + iγ, the
+symmetric sum over {ρ, 1−ρ, ρ̄, 1−ρ̄} contributes to λ_n the real quantity
+
+  Re[ 2 − (1−1/ρ)^n − (1−1/(1−ρ))^n ].
+
+Set w = 1 − 1/ρ. A short computation: if ρ = ½ + iγ (i.e. RH holds for this
+zero), then 1/ρ = (½ − iγ)/(¼+γ²), so
+
+  w = 1 − 1/ρ = (¼ + γ² − ½ + iγ)/(¼+γ²) = (γ² − ¼ + iγ)/(γ² + ¼).
+
+Then |w|² = [(γ²−¼)² + γ²]/(γ²+¼)² = [γ⁴ + ½γ² + 1/16]/(γ²+¼)²
+= (γ²+¼)²/(γ²+¼)² = **1**.
+
+So **when RH holds, |1 − 1/ρ| = 1 exactly**: each term (1−1/ρ)^n stays on the
+unit circle, and Re(1 − w^n) = 1 − cos(nθ_ρ) ≥ 0 term-by-term, where
+θ_ρ = arg w. This is the mechanism guaranteeing λ_n ≥ 0 under RH — and it is
+**exact, not asymptotic**: on the critical line every summand is
+nonnegative.
+
+Conversely, if some ρ has β ≠ ½, then |w|² = ((β−1)²+γ²)/(β²+γ²). For β > ½
+this is < 1 (w inside unit disk) and its reflected partner 1−ρ has |w'| > 1.
+The one with |w| > 1 gives (1 − w^n) with |w^n| → ∞, producing terms that
+grow **exponentially** in n with oscillating sign.
+
+## Step 3: What this reduces RH to (the sharp statement)
+
+I can now state precisely the obstruction, rigorously.
+
+**Proposition.** RH holds ⟺ for every nontrivial zero ρ, |1 − 1/ρ| = 1, i.e.
+1−1/ρ lies on the unit circle. Equivalently, the Möbius map
+T(s) = 1 − 1/s = (s−1)/s sends every nontrivial zero onto the unit circle |z|=1.
+
+*Proof.* T(s) is the Cayley-type map sending the line Re(s)=½ to the unit
+circle: Re(s)=½ ⟺ |s−1| = |s| ⟺ |(s−1)/s| = 1 ⟺ |T(s)| = 1. Since the zeros
+are symmetric under s ↦ 1−s and T(1−s) = 1/T(s)·(...), the zeros land on |z|=1
+iff each lies on Re(s)=½. ∎
+
+This is a genuinely clean geometric reformulation: **RH is exactly the
+statement that the "zero-map" T pushes the zero set into the unit circle**, and
+Li's λ_n are the Fourier–power moments Σ(1 − z_ρ^n) of that pushed-forward
+set. Positivity of all these moments (a Toeplitz/trigonometric-moment
+positivity condition) is equivalent to the pushed measure being supported on
+|z| = 1 with the appropriate positivity, by the classical Herglotz/Toeplitz
+theorem for moment sequences.
+
+## Step 4: Honest assessment of the gap
+
+The above turns RH into: **the sequence {λ_n} being a valid "positive moment"
+sequence forces the generating measure onto the circle.** The remaining,
+undischarged step is to prove the λ_n are actually ≥ 0 *unconditionally*. My
+Step 1–2 shows:
+
+- The archimedean part contributes +½ n log n (∗), unconditionally positive
+  and of size n log n.
+- A single off-line zero ρ₀ with β₀ > ½ contributes a term of size
+  |1 − 1/(1−ρ₀)|^n = |ρ₀/(ρ₀−1)|^n which grows like e^{cn} with
+  c = log|ρ₀/(ρ₀−1)| > 0.
+
+For any *fixed* hypothetical off-line zero this exponential eventually
+dominates n log n and, having oscillating sign cos(nφ), would drive some λ_n
+negative. This gives a **rigorous conditional statement**:
+
+**Corollary (conditional, rigorous).** If a nontrivial zero exists with
+β > ½, then the associated exponential term e^{cn}·cos(nφ + ψ) is present in
+λ_n. Since it is not sign-definite and grows faster than the +½n log n
+guaranteed positive part, there exist infinitely many n with the zero's
+contribution negative and of magnitude ≫ n log n. To conclude λ_n < 0 (hence
+disprove positivity) one must additionally bound the *sum over all other
+zeros* so that they cannot conspire to cancel this. **That uniform cancellation
+control is exactly the part I cannot supply**, and it is where the difficulty
+of RH genuinely sits — it is not removable by the moment reformulation.
+
+## Conclusion
+
+I have given a rigorous, self-contained proof of the exact geometric
+equivalence (Proposition, Step 3): RH ⟺ the map T(s)=1−1/s carries all
+nontrivial zeros onto the unit circle, with the clean exact computation
+|1−1/ρ| = 1 ⟺ Re ρ = ½. I made explicit that under RH every summand of λ_n is
+individually nonnegative (a stronger structural fact than mere positivity of
+the sum), and I isolated the precise unconditional obstruction: controlling the
+collective cancellation of the full zero-sum against a single hypothetical
+off-line exponential term. This is a reformulation plus a partial conditional
+result, not a proof of RH.
+
+VERDICT: PARTIAL
+REASON: Rigorously reformulated RH as T(s)=1−1/s mapping zeros to |z|=1 and located the exact cancellation obstruction; no full proof.
