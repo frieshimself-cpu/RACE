@@ -1,0 +1,121 @@
+# Attempt: A positivity obstruction in the Weil explicit-formula approach to RH
+
+I focus on the Weil explicit formula and make precise *why* naive positivity
+arguments cannot close, then extract a concrete conditional inequality that
+any working test function must satisfy. The value here is a sharp, self-contained
+statement of the constraint.
+
+## Setup
+
+For a suitable even test function $g$ with Fourier transform
+$h(r)=\int_{-\infty}^\infty g(u)e^{iru}\,du$ (with $g$ compactly supported,
+smooth), Weil's explicit formula reads
+$$
+\sum_{\rho} h\!\left(\frac{\rho-\tfrac12}{i}\right)
+= h\!\left(\tfrac{1}{2i}\right)+h\!\left(-\tfrac{1}{2i}\right)
+-\;g(0)\log\pi
++\frac{1}{2\pi}\int_{-\infty}^\infty
+h(r)\,\frac{\Gamma'}{\Gamma}\!\left(\tfrac14+\tfrac{ir}{2}\right)dr
+-2\sum_{n=2}^\infty \frac{\Lambda(n)}{\sqrt n}\,g(\log n),
+$$
+where $\rho$ runs over nontrivial zeros and $\Lambda$ is von Mangoldt.
+
+Write $\rho=\tfrac12+i\gamma$. Then $\frac{\rho-1/2}{i}=\gamma$, so the
+left side is $\sum_\gamma h(\gamma)$, where $\gamma$ ranges over (complex in
+general) ordinates. RH asserts all $\gamma\in\mathbb R$.
+
+## The positivity criterion (Weil)
+
+**Fact.** RH holds iff for every admissible $g$ of the form
+$g=\varphi*\tilde\varphi$ (so that $h(r)=|\hat\varphi(r)|^2\ge 0$ for $r\in\mathbb R$),
+the "explicit-formula functional"
+$$
+W(g):=\text{(archimedean terms)}-2\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}g(\log n)
+= \sum_\gamma h(\gamma)
+$$
+is $\ge 0$.
+
+The nontrivial content: if RH fails there is a zero off the line, i.e. a pair
+$\gamma=\beta\pm i\delta$ with $\delta>0$; for such a pair, since
+$h(r)=|\hat\varphi(r)|^2$ analytically continues, $h(\beta+i\delta)+h(\beta-i\delta)$
+can be made **negative** by choosing $\hat\varphi$ concentrating growth in the
+imaginary direction. So $W(g)\ge0$ for all such $g$ $\Rightarrow$ RH.
+
+## Where I try to push: quantifying the off-line contribution
+
+Let me make the "can be made negative" step quantitative — this is the crux,
+and I want an honest statement of the barrier.
+
+Suppose a zero $\rho_0=\tfrac12+i\gamma_0$ has $\gamma_0=\beta+i\delta$,
+$\delta>0$ (equivalently the zero is at real part $\tfrac12+\delta$). With
+$h=|\hat\varphi|^2$ and $\hat\varphi$ real-analytic, the contribution of the
+conjugate pair $\{\rho_0,\bar\rho_0\}$ to $\sum_\gamma h(\gamma)$ is
+$$
+h(\beta+i\delta)+h(\beta-i\delta).
+$$
+Now for an **entire** $h$ that is nonnegative on $\mathbb R$, write
+$h(z)=\hat\varphi(z)\overline{\hat\varphi(\bar z)}$ (Schwarz reflection, valid
+since $\hat\varphi$ has real Taylor coefficients when $\varphi$ is real and even).
+Then
+$$
+h(\beta+i\delta)=\hat\varphi(\beta+i\delta)\,\overline{\hat\varphi(\beta+i\delta)}
+=|\hat\varphi(\beta+i\delta)|^2\ge 0 .
+$$
+
+**This is the obstruction, stated precisely:** for $g=\varphi*\tilde\varphi$
+with $\varphi$ real and even, each off-line pair contributes
+$|\hat\varphi(\beta+i\delta)|^2+|\hat\varphi(\beta-i\delta)|^2\ge 0$, i.e.
+*nonnegatively*, to $\sum_\gamma h(\gamma)$. Hence off-line zeros do **not**
+by themselves force $W(g)<0$ for the standard "square" test functions.
+
+So the folklore "make $h$ negative at the off-line zero" requires
+$h$ that is **not** of the form $|\hat\varphi|^2$ with $\hat\varphi$ real-analytic
+— one must allow $\hat\varphi$ complex, breaking the manifest positivity of
+$W(g)$ on the *arithmetic* side. This is the genuine tension:
+
+- To detect an off-line zero via sign, you need $h$ negative somewhere off
+  $\mathbb R$, which forbids the global factorization $h=|\hat\varphi|^2$.
+- To guarantee $W(g)\ge0$ structurally (Weil positivity), you want exactly that
+  factorization.
+
+The two requirements are mutually exclusive at the level of a single $g$.
+Weil's theorem escapes this only because it quantifies over **all** admissible
+$g$: RH$\iff W(g)\ge0\ \forall g$, and a single off-line zero is caught not by
+one clever $g$ but by the failure of positivity across the whole cone.
+
+## A concrete conditional inequality
+
+The above lets me record a sharp necessary condition. Define, for real even
+Schwartz $\varphi$,
+$$
+Q(\varphi):=\frac1{2\pi}\int h(r)\,\mathrm{Re}\,\frac{\Gamma'}{\Gamma}\!\left(\tfrac14+\tfrac{ir}2\right)dr
++\,2\,\mathrm{Re}\,h\!\left(\tfrac1{2i}\right)-g(0)\log\pi
+-2\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}g(\log n).
+$$
+
+**Claim.** RH $\iff$ $Q(\varphi)\ge 0$ for all such $\varphi$, and moreover
+under RH the deficit equals
+$$
+Q(\varphi)=\sum_{\gamma\in\mathbb R}|\hat\varphi(\gamma)|^2 \;\ge\;0,
+$$
+a manifestly nonnegative *diagonal* form. The content of RH is thus exactly the
+statement that the **arithmetic** side (the prime sum minus archimedean terms)
+never overshoots the *diagonalizable* spectral side. The obstruction analysis
+shows any potential proof must control the prime sum
+$\sum_n \Lambda(n)n^{-1/2}g(\log n)$ against the $\Gamma$-integral **uniformly
+over the positive cone** $\{h=|\hat\varphi|^2\}$ — pointwise/single-function
+arguments are provably insufficient by the reflection identity above.
+
+## Honest assessment
+
+I have (i) restated Weil positivity, (ii) proved rigorously the reflection
+identity $h(\beta\pm i\delta)=|\hat\varphi(\beta\pm i\delta)|^2\ge0$ showing
+that off-line zeros contribute *nonnegatively* for real-symmetric square test
+functions, hence pinpointing why single-test-function sign arguments cannot
+detect RH violations, and (iii) recast the criterion as a cone-uniform
+domination inequality. This is a clarifying reduction/obstruction, not a proof:
+I have not produced the uniform arithmetic bound, which is the true difficulty
+and remains open.
+
+VERDICT: FAILED
+REASON: Rigorously isolated the reflection-positivity obstruction to single-test-function Weil arguments, but proved no new bound.

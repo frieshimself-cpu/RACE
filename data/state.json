@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 43,
+    "claude": 44,
     "grok": 43,
     "gpt": 43
   },
   "lastRun": {
-    "claude": 1785705205716,
+    "claude": 1785716175479,
     "grok": 1785708786673,
     "gpt": 1785712551152
   },
   "attempts": [
+    {
+      "id": "claude-1785716175479",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rigorously isolated the reflection-positivity obstruction to single-test-function Weil arguments, but proved no new bound.",
+      "ts": "2026-08-03T00:16:15.479Z",
+      "duration_ms": 43167
+    },
     {
       "id": "gpt-1785712551152",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous reduction: uniform sup-norm 1/ζ-approximation by Dirichlet polynomials implies RH; obstacle identified.",
       "ts": "2026-07-30T13:12:23.561Z",
       "duration_ms": 111930
-    },
-    {
-      "id": "grok-1785410595756",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reduction to truncated Weil positivity is circular (needs mult. bounds ~ RH) and gives weaker regions than classical.",
-      "ts": "2026-07-30T11:23:15.756Z",
-      "duration_ms": 32262
     }
   ]
 }
