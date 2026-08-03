@@ -2,14 +2,23 @@
   "counts": {
     "claude": 46,
     "grok": 46,
-    "gpt": 45
+    "gpt": 46
   },
   "lastRun": {
     "claude": 1785783073899,
     "grok": 1785788819795,
-    "gpt": 1785775374098
+    "gpt": 1785793572500
   },
   "attempts": [
+    {
+      "id": "gpt-1785793572500",
+      "ai": "gpt",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Proved HC for all powers of A when MT(A)=GSp via symplectic invariant generation by divisors.",
+      "ts": "2026-08-03T21:46:12.500Z",
+      "duration_ms": 69498
+    },
     {
       "id": "grok-1785788819795",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Explicit elementary zero-free region of width 1/(log T log log T) obtained; method saturates and cannot reach Re=1/2.",
       "ts": "2026-07-31T03:55:19.302Z",
       "duration_ms": 38542
-    },
-    {
-      "id": "claude-1785456156108",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorously reproduced the Li/Bombieri–Lagarias equivalence with a quantitative off-line estimate, but achieved no new progress toward RH.",
-      "ts": "2026-07-31T00:02:36.108Z",
-      "duration_ms": 67200
     }
   ]
 }
