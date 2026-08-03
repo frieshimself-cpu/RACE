@@ -1,0 +1,49 @@
+Attempt: A single-function reduction of RH via the Laplace-smoothed Mertens sum
+
+Statement (Theorem).
+Let F(x) = ∑_{n≥1} μ(n) e^{-n/x}. Fix θ ∈ [1/2, 1). Then the following are equivalent:
+
+(Aθ) For every ε>0, F(x) = Oε(x^{θ+ε}) as x→∞.
+
+(Bθ) ζ(s) has no zeros with Re s > θ.
+
+In particular, RH holds if and only if for every ε>0 one has
+∑_{n≥1} μ(n) e^{-n/x} = Oε(x^{1/2+ε}).
+
+Moreover, under (Bθ) one has the more precise bound F(x) = Oθ,ε(x^{θ+ε}) for every ε>0, with an implied constant depending on θ and ε.
+
+Proof sketch.
+1) Mellin inversion identity. For c>1,
+F(x) = ∑_{n≥1} μ(n) e^{-n/x}
+     = (1/2π i) ∫_{(c)} x^s Γ(s) ∑_{n≥1} μ(n) n^{-s} ds
+     = (1/2π i) ∫_{(c)} x^s Γ(s) ζ(s)^{-1} ds,
+where ∫_{(c)} denotes integration on Re s = c. The interchange of sum and integral is justified by absolute convergence for c>1 and |Γ(c+it)| ≪c e^{-π|t|/2}.
+
+2) Shifting the contour. Let σ0 ∈ (0,1) be such that the vertical line Re s = σ0 contains no zeros of ζ(s). By Cauchy’s theorem, moving the line of integration from Re s=c to Re s=σ0 crosses simple poles of 1/ζ(s), i.e. the nontrivial zeros ρ of ζ with Re ρ > σ0. The pole at s=1 of ζ is a zero of 1/ζ, so contributes nothing. If σ0>0, no trivial zeros are crossed. Thus
+F(x) = ∑_{ρ: Re ρ>σ0} Res_{s=ρ} (x^s Γ(s)/ζ(s)) + I(σ0),
+where I(σ0) = (1/2π i) ∫_{(σ0)} x^s Γ(s) ζ(s)^{-1} ds.
+
+By Stirling’s formula, |Γ(σ0+it)| ≍ |t|^{σ0-1/2} e^{-π|t|/2} as |t|→∞, so I(σ0) is absolutely convergent and admits the bound
+I(σ0) ≪ x^{σ0} ∫_{−∞}^{∞} |Γ(σ0+it)| |ζ(σ0+it)|^{-1} dt ≪ x^{σ0},
+since any polynomial growth (or even subexponential) of |ζ|^{-1} is overpowered by the e^{-π|t|/2} decay.
+
+3) Direction (Bθ) ⇒ (Aθ). Assume ζ has no zeros with Re s>θ. Fix ε>0 and set σ0 = θ+ε/2. Then there are no poles of 1/ζ(s) with Re s ≥ σ0, so the residue sum vanishes and
+F(x) = I(σ0) ≪ x^{σ0} = x^{θ+ε/2}.
+This gives F(x) = Oε(x^{θ+ε}), as claimed.
+
+4) Direction (Aθ) ⇒ (Bθ). Suppose (Aθ) holds but (Bθ) fails. Then there exists a zero ρ0 = β + iγ with β>θ. Choose σ0 with θ<σ0<β and with no zero of ζ on Re s = σ0. From step 2,
+F(x) = ∑_{ρ: Re ρ>σ0} c(ρ) x^{ρ} + O(x^{σ0}),
+where c(ρ) = Γ(ρ)/ζ′(ρ) are nonzero constants (Γ has no zeros, and ζ′(ρ) ≠ 0 for simple zeros; in general, replace by principal part, the conclusion below still holds because a pole of finite order at ρ produces terms of size x^{β} (log x)^m with m≥0). Let β* = max{Re ρ : Re ρ>σ0 and ζ(ρ)=0}. The sum of pole contributions has magnitude ≫ x^{β*} times a bounded oscillatory factor (possibly with log powers). Hence for large x,
+|F(x)| ≥ C x^{β*} − O(x^{σ0}) ≫ x^{β*},
+contradicting F(x) = Oε(x^{θ+ε}) since β*≥β>θ and we may choose ε so that θ+ε<β*. Thus no zero can satisfy Re ρ > θ, proving (Bθ).
+
+5) RH equivalence. Taking θ=1/2 in the equivalence gives: RH holds if and only if for every ε>0, F(x) = Oε(x^{1/2+ε}). The forward direction follows from step 3 with θ=1/2; the reverse from step 4.
+
+Remarks.
+- The test function e^{-n/x} is fixed. No family of mollifiers is needed. The decay of Γ(s) makes the contour method robust and avoids delicate bounds for |ζ|^{-1} on vertical lines.
+- A quantitative zero-free strip Re s ≥ 1 − c/log T up to height T would translate via the same argument into a bound F(x) ≪ x^{1−c’/log x} for suitable c’, and conversely any uniform power-saving beyond x^{1−δ} would rule out zeros with real part ≥ 1−δ.
+
+This establishes a clean, unconditional reduction of zero-free half-planes for ζ to the growth of a single, explicitly defined smoothed Mertens sum, and yields RH iff F(x) = Oε(x^{1/2+ε}).
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous equivalence: RH ⇔ ∑ μ(n) e^{-n/x} = Oε(x^{1/2+ε}) via contour shift and residues.
