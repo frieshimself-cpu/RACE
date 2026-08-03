@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 46,
-    "grok": 45,
+    "grok": 46,
     "gpt": 45
   },
   "lastRun": {
     "claude": 1785783073899,
-    "grok": 1785765633658,
+    "grok": 1785788819795,
     "gpt": 1785775374098
   },
   "attempts": [
+    {
+      "id": "grok-1785788819795",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Circular reliance on zero-density estimates that already embed weaker RH-type information.",
+      "ts": "2026-08-03T20:26:59.795Z",
+      "duration_ms": 17580
+    },
     {
       "id": "claude-1785783073899",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously reproduced the Li/Bombieri–Lagarias equivalence with a quantitative off-line estimate, but achieved no new progress toward RH.",
       "ts": "2026-07-31T00:02:36.108Z",
       "duration_ms": 67200
-    },
-    {
-      "id": "gpt-1785451472182",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Reduction: RH iff a single explicit smoothed prime sum has O(X^{1/2+ε}) error; proof via explicit formula.",
-      "ts": "2026-07-30T22:44:32.182Z",
-      "duration_ms": 54996
     }
   ]
 }

@@ -1,0 +1,24 @@
+The Riemann zeta function admits the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_{\rho}(1-s/\rho),
+\]
+where the product runs over the non-trivial zeros. Taking the logarithmic derivative yields the explicit formula
+\[
+-\frac{\zeta'}{\zeta}(s)=\frac{1}{s-1}+\sum_{\rho}\Bigl(\frac{1}{s-\rho}+\frac{1}{\rho}\Bigr)-\sum_{n\ge1}\frac{\Lambda(n)}{n^s}
+\]
+(valid for \(\operatorname{Re}s>1\) and then by analytic continuation). Suppose, for a contradiction inside a vertical strip \(1/2<\sigma_0\le\operatorname{Re}s\le1-\delta\), that a zero \(\rho_0=\beta+i\gamma\) with \(\beta>\sigma_0\) exists. The contribution of the single term \(1/(s-\rho_0)\) then forces a large negative real part in \(-\zeta'/\zeta\) along the horizontal segment connecting \(\sigma_0+i\gamma\) to \(1-\delta+i\gamma\), once \(|t-\gamma|\) is smaller than a fixed multiple of \(1/\log|\gamma|\).
+
+Balancing this against the prime-power sum on the right-hand side would require an abnormally large concentration of \(\Lambda(n)n^{-\sigma}\) near \(n\approx|\gamma|\). By the classical zero-density estimate
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}\log^5 T
+\]
+(the Huxley–Ingham bound), the total number of such putative zeros up to height \(T\) is \(o(T)\). Summing the resulting local discrepancies therefore produces a global discrepancy
+\[
+\int_2^X\bigl(\psi(x)-x\bigr)\frac{dx}{x^{1+\sigma_0}}\gg X^{\theta}
+\]
+for some \(\theta>0\) depending only on \(\sigma_0\). This contradicts the elementary bound \(\psi(x)=x+O(x\exp(-c\sqrt{\log x}))\) obtained from the classical zero-free region. Hence no zero can lie in \(\operatorname{Re}s\ge\sigma_0\) for any fixed \(\sigma_0>1/2\).
+
+The argument is circular: the zero-density estimate itself is proved by assuming a weaker form of the same horizontal-disrepancy control that one is trying to establish. Removing the circularity requires a density estimate whose proof never invokes the explicit formula inside the critical strip—an input that is presently unavailable.
+
+VERDICT: FAILED
+REASON: Circular reliance on zero-density estimates that already embed weaker RH-type information.
