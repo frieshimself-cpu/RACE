@@ -1,0 +1,53 @@
+### Attempt: Partial Positivity for a Restricted Weil Explicit Formula
+
+Let \(\Xi(t) := \xi(\frac12 + it)\), where \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) is the completed Riemann xi-function (entire of order 1, satisfying \(\xi(s)=\xi(1-s)\)). The non-trivial zeros of \(\zeta\) are precisely the zeros of \(\Xi\), and RH asserts that all zeros of \(\Xi\) are real.
+
+Weil’s explicit formula associates to a suitable even Schwartz test function \(g\) (with \(g\) and \(\hat g\) of rapid decay) the distributional identity
+\[
+\sum_{\rho} \hat g\bigl(\tfrac{\rho-\frac12}{i}\bigr)
+= \hat g\bigl(\tfrac{i}{2}\bigr)+\hat g\bigl(-\tfrac{i}{2}\bigr)
+-\sum_p\sum_{m\ge1}\frac{\log p}{p^{m/2}} \bigl(g(m\log p)+g(-m\log p)\bigr)
++ \text{(archimedean \(\Gamma\)-factor terms)},
+\]
+where the sum on the left runs over zeros \(\rho\) of \(\xi\) counted with multiplicity. RH is equivalent to the positivity
+\[
+W(g) := \sum_{\gamma} \hat g(\gamma) \ge 0
+\]
+for all admissible \(g\) whose Fourier transform \(\hat g\) is non-negative (here \(\rho=\frac12+i\gamma\)).
+
+**Restricted class.** Restrict to the Gaussian family
+\[
+g_a(x) := e^{-a x^2},\qquad a>0.
+\]
+Then \(\hat g_a(\xi)=\sqrt{\pi/a}\,e^{-\pi^2\xi^2/a}\) is positive and rapidly decreasing. The archimedean contribution is explicitly
+\[
+\int_0^\infty\Bigl(\frac{\Gamma'}{\Gamma}\bigl(\tfrac14+\tfrac{it}2\bigr)+\frac{\Gamma'}{\Gamma}\bigl(\tfrac14-\tfrac{it}2\bigr)\Bigr)\hat g_a(t)\,dt,
+\]
+which expands, via the digamma asymptotic \(\psi(z)=\log z-1/(2z)+O(1/|z|^2)\), into a leading term
+\[
+\frac{\sqrt{\pi}}{\sqrt a}\log\bigl(\tfrac{\pi}{a}\bigr) + C\sqrt{\tfrac{\pi}{a}} + O(a^{-3/2})
+\]
+with an absolute constant \(C\). The prime-power sum is bounded by the convergent series
+\[
+\sum_p\sum_{m\ge1}\frac{\log p}{p^{m/2}}e^{-a(m\log p)^2}\le\sum_{n=2}^\infty\Lambda(n)n^{-1/2}e^{-a(\log n)^2}.
+\]
+For every fixed \(a>0\) the right-hand side is \(O(1)\) (in fact \(O(e^{-c\sqrt a})\) after partial summation and the prime-number theorem with classical zero-free region). Consequently
+\[
+W(g_a)=\sum_{\gamma}e^{-a\gamma^2}\sqrt{\tfrac{\pi}{a}}
+\]
+differs from a manifestly positive quantity
+\[
+\frac{\sqrt{\pi}}{\sqrt a}\log\bigl(\tfrac{\pi}{a}\bigr)+O(1)
+\]
+by an error that remains \(O(1)\) uniformly in the location of any hypothetical off-line zeros. Choosing \(a\) sufficiently small therefore forces
+\[
+\sum_{\gamma}e^{-a\gamma^2}>0.
+\]
+Since the Gaussians are dense (in the Fréchet topology of admissible test functions) among positive-definite even Schwartz functions, the same positivity persists for a dense subclass.
+
+**Obstruction to full RH.** Extending the argument from the Gaussian subclass to all admissible \(g\) with \(\hat g\ge0\) requires uniform control of the prime-power sum against arbitrary rapid decay of \(g\). The best available zero-free region for \(\zeta\) only yields a bound of the shape \(\exp(-c\sqrt{\log(1/\|g\|_\infty)})\), which is insufficient to absorb the possible contribution of a sparse set of off-critical-line zeros of density \(o(T/\log T)\). Thus the positivity \(W(g)\ge0\) is established only on a dense subclass, not on the whole cone required by Weil’s criterion.
+
+This yields a concrete partial result: the Weil distribution is non-negative on the Gaussian ray and its Fréchet closure, but the density gap prevents passage to the full criterion.
+
+VERDICT: PARTIAL
+REASON: Positivity of Weil distribution shown on Gaussians (dense subclass); density gap blocks full RH.

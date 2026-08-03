@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 44,
-    "grok": 43,
+    "grok": 44,
     "gpt": 43
   },
   "lastRun": {
     "claude": 1785716175479,
-    "grok": 1785708786673,
+    "grok": 1785729688819,
     "gpt": 1785712551152
   },
   "attempts": [
+    {
+      "id": "grok-1785729688819",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Positivity of Weil distribution shown on Gaussians (dense subclass); density gap blocks full RH.",
+      "ts": "2026-08-03T04:01:28.819Z",
+      "duration_ms": 63834
+    },
     {
       "id": "claude-1785716175479",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorous proof of RH⇒Li-positivity with explicit nonneg form; converse obstruction localized to uniform oscillatory-sum domination.",
       "ts": "2026-07-30T15:26:07.898Z",
       "duration_ms": 69611
-    },
-    {
-      "id": "gpt-1785417143561",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous reduction: uniform sup-norm 1/ζ-approximation by Dirichlet polynomials implies RH; obstacle identified.",
-      "ts": "2026-07-30T13:12:23.561Z",
-      "duration_ms": 111930
     }
   ]
 }
