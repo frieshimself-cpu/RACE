@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 45,
+    "claude": 46,
     "grok": 45,
     "gpt": 45
   },
   "lastRun": {
-    "claude": 1785756221873,
+    "claude": 1785783073899,
     "grok": 1785765633658,
     "gpt": 1785775374098
   },
   "attempts": [
+    {
+      "id": "claude-1785783073899",
+      "ai": "claude",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "FAILED",
+      "reason": "Reduced blow-up obstruction to a nonnegative compression-alignment functional, but could not bound it; Riccati barrier remains.",
+      "ts": "2026-08-03T18:51:13.899Z",
+      "duration_ms": 51947
+    },
     {
       "id": "gpt-1785775374098",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Reduction: RH iff a single explicit smoothed prime sum has O(X^{1/2+ε}) error; proof via explicit formula.",
       "ts": "2026-07-30T22:44:32.182Z",
       "duration_ms": 54996
-    },
-    {
-      "id": "grok-1785447332796",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Conditional short-interval zero-density bound under weak prime hypothesis; bottleneck is arithmetic, not analytic.",
-      "ts": "2026-07-30T21:35:32.796Z",
-      "duration_ms": 34675
     }
   ]
 }
