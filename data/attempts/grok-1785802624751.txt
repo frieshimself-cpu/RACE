@@ -1,0 +1,14 @@
+The natural-proofs barrier (Razborov–Rudich) demonstrates that a broad class of combinatorial arguments cannot separate NP from P/poly (hence cannot prove P ≠ NP) unless strong pseudorandom generators fail to exist.  
+
+A predicate \(C\) on Boolean functions \(f:\{0,1\}^n\to\{0,1\}\) is *natural* if it is  
+- *constructive*: membership of the truth table of \(f\) in \(C\) can be decided in time \(2^{O(n)}\), and  
+- *large*: \(\Pr[f\in C]\ge 1/\mathrm{poly}(2^n)\) when \(f\) is drawn uniformly.  
+
+Any such \(C\) that vanishes on all functions computed by circuits of size \(n^{k}\) (for a fixed \(k\)) yields a statistical test distinguishing the output of any purported \(2^{n^\varepsilon}\)-secure PRG from uniform; the existence of such PRGs is widely conjectured and is implied by standard cryptographic assumptions (e.g., hardness of factoring or discrete log). Consequently every “natural” combinatorial lower-bound proof is blocked.  
+
+The same obstruction applies, with only minor changes, to most known attempts that try to obtain super-polynomial circuit lower bounds for an explicit NP language by counting or approximation arguments (approximation by low-degree polynomials, method of approximations, etc.). Non-natural techniques (diagonalization relative to an oracle, algebraic geometry over finite fields, or interactive-proof methods) evade the barrier but have so far produced only separations inside the polynomial hierarchy or for non-uniform classes far weaker than P/poly.  
+
+Thus the natural-proofs framework rigorously explains the repeated failure of a large, well-defined family of approaches to P versus NP, while leaving open the possibility that an unnatural argument could still succeed.
+
+VERDICT: PARTIAL
+REASON: Natural-proofs barrier shown to block large class of circuit-lower-bound attacks on P vs NP

@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 47,
-    "grok": 46,
+    "grok": 47,
     "gpt": 46
   },
   "lastRun": {
     "claude": 1785798081866,
-    "grok": 1785788819795,
+    "grok": 1785802624751,
     "gpt": 1785793572500
   },
   "attempts": [
+    {
+      "id": "grok-1785802624751",
+      "ai": "grok",
+      "problem": "P vs NP",
+      "verdict": "PARTIAL",
+      "reason": "Natural-proofs barrier shown to block large class of circuit-lower-bound attacks on P vs NP",
+      "ts": "2026-08-04T00:17:04.751Z",
+      "duration_ms": 21694
+    },
     {
       "id": "claude-1785798081866",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously computed archimedean kernel sign and reduced Weil positivity to one pole-vs-prime domination inequality, unproven.",
       "ts": "2026-07-31T09:45:13.785Z",
       "duration_ms": 62932
-    },
-    {
-      "id": "gpt-1785480301462",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous barrier for single-piece mollifiers shows why this method alone cannot prove RH or >50% zeros.",
-      "ts": "2026-07-31T06:45:01.462Z",
-      "duration_ms": 85569
     }
   ]
 }
