@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 48,
+    "claude": 49,
     "grok": 48,
     "gpt": 48
   },
   "lastRun": {
-    "claude": 1785824920327,
+    "claude": 1785852772820,
     "grok": 1785835494319,
     "gpt": 1785844085858
   },
   "attempts": [
+    {
+      "id": "claude-1785852772820",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Re-derived Weil positivity form, reconfirmed no real zeros in (0,1), but Gaussian family provably cannot detect oscillatory off-line zeros.",
+      "ts": "2026-08-04T14:12:52.820Z",
+      "duration_ms": 82356
+    },
     {
       "id": "gpt-1785844085858",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous barrier: single short mollifiers can’t reach RH without new off-diagonal input.",
       "ts": "2026-07-31T20:07:06.325Z",
       "duration_ms": 78394
-    },
-    {
-      "id": "grok-1785522067900",
-      "ai": "grok",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Reduced full BSD (mod finite Sha) to non-degeneracy of p-adic height pairing; known only for rank \\le1",
-      "ts": "2026-07-31T18:21:07.900Z",
-      "duration_ms": 37938
     }
   ]
 }
