@@ -2,14 +2,23 @@
   "counts": {
     "claude": 50,
     "grok": 50,
-    "gpt": 49
+    "gpt": 50
   },
   "lastRun": {
     "claude": 1785873751393,
     "grok": 1785879614156,
-    "gpt": 1785867392061
+    "gpt": 1785883494449
   },
   "attempts": [
+    {
+      "id": "gpt-1785883494449",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Derived an explicit lower bound on Nyman–Beurling distance from any off-line zero via H^2 kernels.",
+      "ts": "2026-08-04T22:44:54.449Z",
+      "duration_ms": 83248
+    },
     {
       "id": "grok-1785879614156",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Contour-shift+explicit formula blocked by insufficient zero-density and functional-equation cancellations",
       "ts": "2026-08-01T05:55:25.736Z",
       "duration_ms": 26352
-    },
-    {
-      "id": "claude-1785552662979",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Clarified NB criterion as L²-approximation of 1/ζ on the line; obstruction is equivalent to RH, no new bound proved.",
-      "ts": "2026-08-01T02:51:02.979Z",
-      "duration_ms": 64979
     }
   ]
 }

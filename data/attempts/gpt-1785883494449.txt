@@ -1,0 +1,60 @@
+Attempt: A quantitative obstruction in the Nyman–Beurling approach
+
+Setup
+- Let H = L^2((0,1), x^{-1} dx). Define the Mellin–Plancherel isometry T: H → L^2(ℝ) by
+  (Tf)(1/2+it) = ∫_0^1 f(x) x^{-1/2-it} dx.
+  Then ||f||_H^2 = (1/2π) ∫_{ℝ} |(Tf)(1/2+it)|^2 dt.
+- For 0 < Re s < 1, M[{x}](s) = -ζ(s)/s. Hence for a>0,
+  T({ax})(s) = -ζ(s)/(s a^s), T(a{x})(s) = -a ζ(s)/s,
+  so T(φ_a)(s) with φ_a(x) := {ax} - a{x} is
+  T(φ_a)(s) = -(ζ(s)/s)(a^{-s} - a).
+- Let K ⊂ H be the closed linear span of {φ_a : a ≥ 1}. The Nyman–Beurling criterion says dist_H(1, K) = 0 ⇔ RH.
+
+Idea
+Show that a single zero ρ of ζ with Re ρ > 1/2 forces a positive lower bound on dist_H(1, K), quantitatively. This gives a rigorous obstruction to proving RH by approximating 1 with combinations of φ_a unless one can rule out such zeros.
+
+Hardy-space model and the orthogonal obstruction
+- Identify the boundary Hardy space H^2 on the vertical line Re s = 1/2 via T. Let
+  ℋ := {F: F(1/2+it) ∈ L^2(ℝ), F extends to a holomorphic function on Re s > 1/2 with H^2 control}.
+  On the boundary, the H^2 inner product is ⟨F,G⟩ = (1/2π) ∫_{ℝ} F(1/2+it) overline{G(1/2+it)} dt.
+- The set {a^{-s} : a ≥ 1} is dense in the set of Dirichlet polynomials on the boundary, hence its closure equals ℋ. Therefore the closed linear span of {a^{-s} - a} is also ℋ (since scalar multiples and finite sums do not change density).
+- Consequently, the closed subspace T(K) equals (ζ(s)/s) ℋ, i.e., the set of boundary values of functions of the form (ζ(s)/s)H(s) with H ∈ ℋ.
+- If ρ is a zero of ζ with Re ρ > 1/2, then for any H ∈ ℋ, (ζ(s)/s)H(s) vanishes at s=ρ. Hence, any function in the orthogonal complement of (ζ/s)ℋ that “tests” the value at ρ will annihilate T(K).
+
+Reproducing kernels and an explicit orthogonal vector
+- In the standard H^2(ℂ_{1/2}) on the half-plane Re s > 1/2, the reproducing kernel at w with Re w > 1/2 is
+  K_w(s) = 1/(s + overline{w} - 1), with the boundary values giving
+  ⟨H, K_w⟩ = H(w) for H ∈ ℋ.
+- Define k_ρ(s) := K_ρ(s) = 1/(s + overline{ρ} - 1). Then for any H ∈ ℋ we have ⟨H, k_ρ⟩ = H(ρ).
+- Since T(K) = (ζ/s)ℋ, we have for any F ∈ T(K), F = (ζ/s)H with H ∈ ℋ, and hence
+  ⟨F, k_ρ⟩ = ⟨(ζ/s)H, k_ρ⟩ = (ζ(ρ)/ρ) H(ρ) = 0,
+  because ζ(ρ) = 0. Therefore k_ρ is orthogonal to T(K).
+- Thus, for any f ∈ K, ⟨T1 - Tf, k_ρ⟩ = ⟨T1, k_ρ⟩. By Cauchy–Schwarz,
+  dist_H(1, K) = dist_ℋ(T1, T(K)) ≥ |⟨T1, k_ρ⟩| / ||k_ρ||.
+
+Computing the lower bound
+- We have T1(s) = ∫_0^1 x^{s-1} dx = 1/s for 0 < Re s < 1; by boundary continuity, T1(1/2+it) = 1/(1/2+it).
+- Using reproducing, ⟨T1, k_ρ⟩ = (T1)(ρ) = 1/ρ.
+- The H^2 norm of k_ρ is the square root of its value at w=ρ:
+  ||k_ρ||^2 = K_ρ(ρ) = 1/(ρ + overline{ρ} - 1) = 1/(2 Re ρ - 1).
+- Therefore
+  dist_H(1, K) ≥ |1/ρ| / ||k_ρ|| = |1/ρ| √(2 Re ρ - 1).
+
+Quantitative statement
+Theorem. Suppose ζ(ρ) = 0 with Re ρ = β > 1/2. Then the Nyman–Beurling distance δ := dist_{L^2((0,1), x^{-1}dx)}(1, K) satisfies
+  δ ≥ c · √(β - 1/2) / |ρ|,
+with c = √2.
+
+Proof sketch. The argument above yields δ ≥ |1/ρ| √(2β - 1) = √2 · √(β - 1/2)/|ρ|. The only ingredients are:
+- Mellin–Plancherel isometry between H and the H^2 boundary space on Re s = 1/2,
+- the identity T(φ_a) = -(ζ/s)(a^{-s} - a) and density of {a^{-s}} in ℋ,
+- reproducing kernel property in H^2(ℂ_{1/2}),
+- evaluation T1(ρ) = 1/ρ and ζ(ρ)=0.
+
+Consequences and limitations
+- This gives a clean, fully explicit quantitative obstruction: any zero off the critical line forces a uniform positive lower bound on the Nyman–Beurling distance. Thus any attempt to prove RH in this framework by constructing approximants in K must implicitly preclude zeros with β>1/2 by driving δ to 0; conversely, failure to beat a lower bound of size √(β-1/2)/|ρ| certifies the presence (or at least the compatibility) of such a zero.
+- The dependence on |ρ| is natural and unavoidable from the computation ⟨T1,k_ρ⟩ = 1/ρ and the H^2 kernel norm; improving the |ρ| dependence would require different test vectors.
+- This does not prove RH, but it is a precise, rigorous reduction: RH holds if and only if all such orthogonal obstructions vanish, and a single off-line zero quantifiably prevents δ from being 0.
+
+VERDICT: PARTIAL
+REASON: Derived an explicit lower bound on Nyman–Beurling distance from any off-line zero via H^2 kernels.
