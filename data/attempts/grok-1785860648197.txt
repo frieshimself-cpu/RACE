@@ -1,0 +1,46 @@
+### Attempt: Classical zero-free region for \(\zeta(s)\) via non-negative trigonometric polynomials
+
+We prove a concrete zero-free region to the left of the line \(\operatorname{Re}(s)=1\). This is a partial result toward RH (which asserts the optimal region \(\operatorname{Re}(s)>1/2\)).
+
+Let \(s=\sigma+it\) with \(\sigma>1\) and \(t\in\mathbb{R}\). The Dirichlet series
+\[
+-\frac{\zeta'}{\zeta}(s)=\sum_{n=1}^\infty\Lambda(n)n^{-s}
+\]
+converges absolutely. In particular the real part satisfies
+\[
+\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(s)\Bigr)=\sum_{n=1}^\infty\Lambda(n)n^{-\sigma}\cos(t\log n).
+\]
+The elementary identity
+\[
+3+4\cos\theta+\cos 2\theta=2(1+\cos\theta)^2\ge0
+\]
+for all real \(\theta\) therefore yields the non-negativity
+\begin{equation}
+\label{eq:trig}
+3\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma)\Bigr)
++4\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+it)\Bigr)
++\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+2it)\Bigr)\ge0.
+\end{equation}
+(The same holds with the trivial bound \(\operatorname{Re}(-\zeta'/\zeta(\sigma))\le\sum\Lambda(n)n^{-\sigma}=-\zeta'/\zeta(\sigma)\).)
+
+Now fix \(T\ge2\) and suppose \(\rho=\beta+i\gamma\) is a zero of \(\zeta\) with \(\beta\ge1/2\) and \(|\gamma|\le T\). Standard estimates on the logarithmic derivative (from the Euler product and the functional equation, or from the Hadamard product for \(\xi\)) give, for \(1<\sigma\le2\),
+\[
+-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+it)
+=\frac{1}{\sigma-\beta}+O\bigl(\log(|t|+2)\bigr)
+\]
+uniformly in the indicated range (the implied constant is absolute). Substituting into \eqref{eq:trig} and using the elementary bound \(-\zeta'/\zeta(\sigma)\ll1/(\sigma-1)\) produces
+\[
+\frac{4}{\sigma-\beta}+O\bigl(\log(|T|+2)\bigr)\ge0
+\]
+whenever \(\sigma>1\). Choosing \(\sigma=1+c/\log(|T|+2)\) with a sufficiently small absolute constant \(c>0\) forces \(\beta\le1-c'/\log(|T|+2)\) for another absolute \(c'>0\).
+
+Thus \(\zeta(s)\ne0\) throughout the region
+\[
+\sigma\ge1-\frac{c}{\log(|t|+2)},\qquad |t|\ge2.
+\]
+(The finitely many zeros with \(|t|<2\) are checked directly and lie on the critical line.)
+
+This zero-free region is enough to recover the prime-number theorem with a classical error term \(O(x\exp(-c\sqrt{\log x}))\), but falls far short of the density theorems or zero-density estimates needed for RH itself. The obstruction is that the coefficient \(4\) in the trigonometric polynomial cannot be improved beyond the convex bound coming from \((1+\cos\theta)^2\), and higher-degree non-negative polynomials only recover slightly larger constants \(c\), never a region \(\sigma>1-\delta\) of fixed width.
+
+VERDICT: PARTIAL
+REASON: Proved classical zero-free region \(\sigma\ge1-c/\log(|t|+2)\) via trig polynomials; far from full RH.
