@@ -1,0 +1,50 @@
+### Analysis of the classical positivity method and its obstruction to RH
+
+Let \(s=\sigma+it\) with \(\sigma>1\). The logarithmic derivative admits the absolutely convergent Dirichlet series
+\[
+-\frac{\zeta'}{\zeta}(s)=\sum_{n=1}^\infty\Lambda(n)n^{-s},
+\]
+so that
+\[
+-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+it)=\sum_{n=1}^\infty\Lambda(n)n^{-\sigma}\cos(t\log n).
+\]
+The elementary trigonometric identity
+\[
+3+4\cos\theta+\cos 2\theta=2(1+\cos\theta)^2\ge0
+\]
+therefore yields the non-negativity relation
+\begin{equation}
+\label{eq:pos}
+3\Bigl(-\frac{\zeta'}{\zeta}(\sigma)\Bigr)
++4\Bigl(-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+it)\Bigr)
++\Bigl(-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+2it)\Bigr)\ge0
+\end{equation}
+for every real \(t\) and every \(\sigma>1\).
+
+Suppose, for a contradiction, that \(\zeta(1+it_0)=0\) for some \(t_0\neq0\). The simple pole of \(\zeta\) at \(s=1\) forces
+\[
+-\frac{\zeta'}{\zeta}(\sigma)\sim\frac1{\sigma-1}\qquad(\sigma\downarrow1),
+\]
+while a zero at \(1+it_0\) produces a simple pole of \(-\zeta'/\zeta\) with residue \(-1\). Substituting into \eqref{eq:pos} and letting \(\sigma\downarrow1\) makes the left-hand side tend to \(-\infty\), contradicting non-negativity. The same argument with \(2t_0\) rules out a zero at \(1+2it_0\). Hence \(\zeta(s)\neq0\) on the line \(\operatorname{Re}s=1\).
+
+#### Obstruction inside the critical strip
+The identity \eqref{eq:pos} continues to make formal sense for \(\sigma\le1\), but the underlying Dirichlet series for \(-\zeta'/\zeta\) diverges throughout the half-plane \(\operatorname{Re}s\le1\). Consequently the non-negativity that follows from absolute convergence is unavailable. Any attempt to restore positivity by analytic continuation of \(-\zeta'/\zeta\) immediately re-introduces the unknown zeros of \(\zeta\) themselves (via the Hadamard product), rendering the argument circular.
+
+A natural repair is to replace the sharp cut-off at height \(T\) by a smooth non-negative weight \(w\) whose Fourier transform is supported in a short interval, and to work with the integrated form
+\[
+\int_{-\infty}^\infty\Bigl(3\Bigl(-\frac{\zeta'}{\zeta}(\sigma)\Bigr)
++4\Bigl(-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+it)\Bigr)
++\cdots\Bigr)w(t)\,dt.
+\]
+The resulting expression can be rewritten, via the explicit formula, as a sum over primes plus a sum over zeros. The prime sum remains non-negative for \(\sigma>1/2\) if \(w\) is chosen with sufficiently rapid decay, but the zero sum contributes a main term of size roughly
+\[
+\sum_{\rho}w\bigl(\operatorname{Im}(\rho)\bigr)\frac{\sigma-\beta}{(\sigma-\beta)^2+(\gamma-t)^2},
+\]
+where \(\rho=\beta+i\gamma\). When a zero with \(\beta>1/2\) is present, this term becomes large and negative precisely in the region where one hoped to obtain a contradiction. No choice of compactly supported \(w\) cancels the contribution without already knowing that all \(\beta\le1/2\). Thus the method cannot cross the critical line.
+
+(The same circularity appears in every variant that begins from a finite Euler product or a truncated Dirichlet series: the error committed by truncation is of the same order as the contribution of a hypothetical zero with real part \(>1/2\).)
+
+This obstruction is sharp: the identical positivity device, once the Dirichlet series is restored by working in \(\operatorname{Re}s>1\), recovers the classical zero-free region \(\sigma\ge1-c/\log(|t|+2)\), but the constant \(c\) cannot be improved to push the boundary all the way to \(\sigma=1/2\) without new input on the distribution of prime gaps or on the horizontal distribution of zeros.
+
+VERDICT: FAILED
+REASON: Classical positivity (3-4-1) cannot enter the strip; Dirichlet series diverges and repairs become circular.

@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 50,
-    "grok": 49,
+    "grok": 50,
     "gpt": 49
   },
   "lastRun": {
     "claude": 1785873751393,
-    "grok": 1785860648197,
+    "grok": 1785879614156,
     "gpt": 1785867392061
   },
   "attempts": [
+    {
+      "id": "grok-1785879614156",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Classical positivity (3-4-1) cannot enter the strip; Dirichlet series diverges and repairs become circular.",
+      "ts": "2026-08-04T21:40:14.156Z",
+      "duration_ms": 43780
+    },
     {
       "id": "claude-1785873751393",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Clarified NB criterion as L²-approximation of 1/ζ on the line; obstruction is equivalent to RH, no new bound proved.",
       "ts": "2026-08-01T02:51:02.979Z",
       "duration_ms": 64979
-    },
-    {
-      "id": "gpt-1785541343248",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous L2 barrier: supercritical mollifiers (length >T^1/2) can’t approximate 1 beyond a fixed error.",
-      "ts": "2026-07-31T23:42:23.248Z",
-      "duration_ms": 83268
     }
   ]
 }
