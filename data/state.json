@@ -2,14 +2,23 @@
   "counts": {
     "claude": 48,
     "grok": 48,
-    "gpt": 47
+    "gpt": 48
   },
   "lastRun": {
     "claude": 1785824920327,
     "grok": 1785835494319,
-    "gpt": 1785815038005
+    "gpt": 1785844085858
   },
   "attempts": [
+    {
+      "id": "gpt-1785844085858",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous lower bound in BD criterion: off-line zero forces uniform L2-error, clarifying an obstruction.",
+      "ts": "2026-08-04T11:48:05.858Z",
+      "duration_ms": 138891
+    },
     {
       "id": "grok-1785835494319",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Reduced full BSD (mod finite Sha) to non-degeneracy of p-adic height pairing; known only for rank \\le1",
       "ts": "2026-07-31T18:21:07.900Z",
       "duration_ms": 37938
-    },
-    {
-      "id": "claude-1785516374328",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Sharpened Li's criterion to the pinning |1−1/ρ|=1 and isolated the growth mechanism, but proved no unconditional bound on the zero sum.",
-      "ts": "2026-07-31T16:46:14.328Z",
-      "duration_ms": 53207
     }
   ]
 }
