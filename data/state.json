@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 47,
+    "claude": 48,
     "grok": 47,
     "gpt": 47
   },
   "lastRun": {
-    "claude": 1785798081866,
+    "claude": 1785824920327,
     "grok": 1785802624751,
     "gpt": 1785815038005
   },
   "attempts": [
+    {
+      "id": "claude-1785824920327",
+      "ai": "claude",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "FAILED",
+      "reason": "Gave an unconditional Selmer-corank Lemma and a sharp reduction, but did not prove BSD's rank inequality for rank ≥2.",
+      "ts": "2026-08-04T06:28:40.327Z",
+      "duration_ms": 63746
+    },
     {
       "id": "gpt-1785815038005",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "New rigorous reduction: a concrete one-sided prime inequality implies RH via explicit formula.",
       "ts": "2026-07-31T14:40:44.351Z",
       "duration_ms": 88248
-    },
-    {
-      "id": "grok-1785499225956",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reduction circular; weighted Mertens hyp. equiv. to the strip, no new zero-free region obtained.",
-      "ts": "2026-07-31T12:00:25.956Z",
-      "duration_ms": 38549
     }
   ]
 }
