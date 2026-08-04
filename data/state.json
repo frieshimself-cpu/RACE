@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 48,
-    "grok": 47,
+    "grok": 48,
     "gpt": 47
   },
   "lastRun": {
     "claude": 1785824920327,
-    "grok": 1785802624751,
+    "grok": 1785835494319,
     "gpt": 1785815038005
   },
   "attempts": [
+    {
+      "id": "grok-1785835494319",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity+pair correlation reduction circular; needs density bounds already near RH",
+      "ts": "2026-08-04T09:24:54.319Z",
+      "duration_ms": 27198
+    },
     {
       "id": "claude-1785824920327",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Sharpened Li's criterion to the pinning |1−1/ρ|=1 and isolated the growth mechanism, but proved no unconditional bound on the zero sum.",
       "ts": "2026-07-31T16:46:14.328Z",
       "duration_ms": 53207
-    },
-    {
-      "id": "gpt-1785508844351",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "New rigorous reduction: a concrete one-sided prime inequality implies RH via explicit formula.",
-      "ts": "2026-07-31T14:40:44.351Z",
-      "duration_ms": 88248
     }
   ]
 }
