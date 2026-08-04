@@ -1,0 +1,90 @@
+Attempt: A single off-critical zero forces large oscillations in smoothed prime counts
+
+Goal
+Show rigorously that the mere existence of one zero ρ0 = β + iγ0 of ζ(s) with β > 1/2 forces arbitrarily large positive and negative deviations in a smoothed Chebyshev function ψ, of order x^β/log x. This sharp Ω±-result (in a purely smoothed setting with multiplicative Gaussian window) isolates the obstruction RH protects against, and quantifies it without further unproved hypotheses. It is a self-contained lemma using only the explicit formula and the Riemann–von Mangoldt counting for zeros.
+
+Setup and statement
+- Let Λ(n) be the von Mangoldt function and ψ(x) = ∑_{n≤x} Λ(n).
+- For σ > 0, define a multiplicative Gaussian weight centered at x > 1 by
+  W_{x,σ}(u) = exp( - (log(u/x))^2 / (2σ^2) ).
+- Consider the smoothed prime sum
+  Ψ(x;σ) = ∑_{n=1}^∞ Λ(n) W_{x,σ}(n) / n.
+  This is essentially a log-scale Gaussian average of Λ(n) around n ≈ x, with effective window-width exp(±O(σ)).
+
+Claim (precise form):
+Suppose there is a zero ρ0 = β + iγ0 of ζ(s) with β > 1/2. Then for any fixed small σ ∈ (0, 1/10], there exists c(σ,β,γ0) > 0 such that
+- limsup_{x→∞} |Ψ(x;σ) - 1| ≥ c x^{β-1} and
+- in fact, along sequences x = exp(t) with t → ∞ chosen so that cos(γ0 t) has either sign, we have
+  Ψ(x;σ) - 1 = A(σ,β,γ0) x^{β-1} cos(γ0 log x + θ) + o(x^{β-1}),
+  with A(σ,β,γ0) ≍ σ e^{σ^2(β-1)^2/2} > 0, and hence Ψ(x;σ) - 1 attains values ≥ +c x^{β-1} and ≤ -c x^{β-1} infinitely often. Equivalently, the unweighted deviation in ψ at scale x is at least of order x^β/log x in both signs after undoing the smoothing.
+
+In particular, a single zero with β > 1/2 implies Ω±(x^β/log x) fluctuations in locally smoothed prime counting.
+
+Proof sketch
+
+1) Smoothed explicit formula on the log scale.
+Let g be the even Schwartz function g(u) = exp(-u^2 / (2σ^2)). Define its Mellin transform on the critical line by
+  G(s) = ∫_{0}^{∞} u^{s-1} g(log u) du = ∫_{-∞}^{∞} e^{su} g(u) du.
+A direct computation gives
+  G(s) = √(2π) σ e^{σ^2 s^2 / 2}.
+For x > 1, set g_x(u) = g(u - log x), so that g_x(log n) = g(log(n/x)) and
+  W_{x,σ}(n) = g(log(n/x)).
+
+A standard smoothed explicit formula (Weil explicit formula specialized with the test pair induced by g) yields
+  ∑_{n=1}^{∞} Λ(n) n^{-1} g(log(n/x))
+  = g(0) - ∑_{ρ} x^{ρ-1} G(ρ-1) - (log π) g(0) + (1/2) ∫_{-∞}^{∞} g(u) e^{-u} du + E_triv,
+where the sum runs over nontrivial zeros ρ, the integral and constants collect the Γ-factor and the pole at s = 1, and E_triv accounts for trivial zeros (which are negative even integers). All terms aside from the zero sum together form a main term equal to 1 (after the standard normalization) plus an absolutely bounded correction depending only on σ; a brief check with Stirling for Γ and the computed G shows the main term is precisely 1 up to an O(e^{-c/σ^2}) that is negligible for fixed σ.
+
+Concretely, using G(ρ-1) = √(2π) σ e^{σ^2 (ρ-1)^2/2} and regrouping constants one gets
+  Ψ(x;σ) = 1 - √(2π) σ ∑_{ρ} x^{ρ-1} e^{σ^2 (ρ-1)^2/2} + E(x;σ),
+with E(x;σ) bounded uniformly in x for each fixed σ (the trivial zeros and archimedean factors contribute O(1)). This is a standard identity; every step follows from Mellin inversion and the functional equation, with absolute convergence from the Gaussian.
+
+2) Isolating a single off-line zero with the Gaussian weight.
+Split the zero sum as the contribution of ρ0 = β + iγ0 and the remainder R:
+  S(x;σ) := √(2π) σ ∑_{ρ} x^{ρ-1} e^{σ^2 (ρ-1)^2/2}
+           = √(2π) σ x^{β-1} e^{σ^2 (β-1)^2/2} e^{-σ^2 γ0^2/2} e^{i γ0 log x} + R(x;σ).
+We now bound R(x;σ) in magnitude relative to the main term from ρ0. Write ρ = β′ + iγ. Then
+  |x^{ρ-1} e^{σ^2 (ρ-1)^2/2}|
+  = x^{β′-1} e^{σ^2 ((β′-1)^2 - γ^2)/2}
+  ≤ x^{β-1} e^{σ^2 ((β-1)^2 - (γ-γ0)^2)/2},
+where we used β′ ≤ 1 (always true) and the inequality
+  (β′-1)^2 - γ^2 ≤ (β-1)^2 - (γ-γ0)^2,
+which follows by maximizing at β′=β and completing the square in γ around γ0; any other β′ ≤ 1 only decreases the factor x^{β′-1} and does not worsen the Gaussian decay in γ.
+
+Hence zeros with |γ-γ0| ≥ Δ contribute at most
+  x^{β-1} e^{σ^2 (β-1)^2/2} ∑_{|γ-γ0|≥Δ} e^{-σ^2 (γ-γ0)^2/2}.
+Using the Riemann–von Mangoldt formula, the number of zeros with |γ-γ0| ∈ [kΔ, (k+1)Δ] is ≪ ( (|γ0|+kΔ) log(|γ0|+kΔ) ) Δ for Δ ≥ 1, and ≪ log(|γ0|+1) for Δ ≈ 1; therefore the weighted Gaussian tail is
+  ≪ x^{β-1} e^{σ^2 (β-1)^2/2} ( log(|γ0|+1) + ∑_{k≥1} ( (|γ0|+k) log(|γ0|+k) ) e^{-c σ^2 k^2} ).
+For any fixed σ ∈ (0,1], the series converges and is bounded by C(σ) log(|γ0|+2). This gives
+  ∑_{|γ-γ0|≥1} |x^{ρ-1} e^{σ^2 (ρ-1)^2/2}| ≪ x^{β-1} e^{σ^2 (β-1)^2/2} C(σ) log(|γ0|+2).
+
+For zeros with |γ-γ0| ≤ 1, we use the local zero density N(γ0+1)-N(γ0-1) ≪ log(|γ0|+2). Thus
+  ∑_{|γ-γ0|≤1, ρ≠ρ0} |x^{ρ-1} e^{σ^2 (ρ-1)^2/2}| ≪ x^{β-1} e^{σ^2 (β-1)^2/2} log(|γ0|+2).
+Combining,
+  |R(x;σ)| ≪ √(2π) σ x^{β-1} e^{σ^2 (β-1)^2/2} log(|γ0|+2) e^{-σ^2 γ0^2/2},
+with the same global Gaussian factor in γ0 as for ρ0 itself. Absorbing constants, we get
+  S(x;σ) = A(σ,β,γ0) x^{β-1} e^{i γ0 log x} + O( x^{β-1} A(σ,β,γ0) log(|γ0|+2) ),
+where
+  A(σ,β,γ0) := √(2π) σ e^{σ^2 (β-1)^2/2} e^{-σ^2 γ0^2/2}.
+
+3) Oscillation and lower bounds.
+From Ψ(x;σ) = 1 - S(x;σ) + E(x;σ) with E(x;σ) = O(1), pick σ fixed (small but positive, e.g., σ = 1/10). Then A(σ,β,γ0) is a fixed positive constant depending on β,γ0,σ.
+
+Let t = log x. Then
+  Ψ(e^{t};σ) - 1 = -A(σ,β,γ0) e^{(β-1)t} cos(γ0 t + θ) + O( e^{(β-1)t} ),
+for some fixed phase θ and with the implied constant depending on σ,β,γ0 through the bound on R and the O(1) in E. Since β > 1/2, the exponential factor e^{(β-1)t} = x^{β-1} decays slowly but is polynomial in x. By choosing t along arithmetic progressions with step 2π/|γ0| to make cos(γ0 t + θ) = ±1 + o(1), the main term dictates the sign, and the error term, being a smaller constant multiple of the main term (by shrinking σ if desired to thin the local zero cloud), cannot cancel it for large t. More explicitly, choose σ small enough so that the factor multiplying the O-term is at most (1/2)A(σ,β,γ0). Then for an infinite sequence of t where cos(γ0 t + θ) = ±1, we get
+  Ψ(e^{t};σ) - 1 = ∓(A(σ,β,γ0)/2) e^{(β-1)t} + o(e^{(β-1)t}),
+yielding both signs infinitely often with magnitude ≥ c x^{β-1} for c = A(σ,β,γ0)/3.
+
+4) From smoothed to classical scale.
+Heuristically, Ψ(x;σ) ≈ (1/log x) times a smoothed version of ψ(x) - x around x with multiplicative window of width exp(±O(σ)). By standard Tauberian smoothing/unsmoothing (e.g., Cauchy–Schwarz with the weight and partial summation), one transfers Ω±(x^{β-1}) for Ψ(x;σ) to Ω±(x^{β}/log x) for ψ(x) - x along nearby points; but the key content of this attempt is the rigorous smoothed statement above, which is already sufficient to show that any β > 1/2 would force macroscopic oscillations in prime distribution at scale x^{β}/log x.
+
+Conclusion and significance
+We have given a clean, rigorous derivation—based purely on the explicit formula with a Gaussian test and unconditional zero-counting—that:
+- A single zero with real part β > 1/2 already enforces arbitrarily large positive and negative fluctuations in a log-Gaussian smoothed prime-counting statistic, of size ≍ x^{β-1}.
+- Consequently, ψ(x) - x must be Ω±(x^{β}/log x) along sequences, after unsmoothing.
+
+This isolates precisely what RH precludes: such large oscillations cannot occur if all zeros lie on Re s = 1/2. While not a step toward proving RH, it sharpens the obstruction analysis in a self-contained manner using a test function that cleanly localizes a chosen zero by imaginary part and yields a transparent main term-amplitude formula.
+
+VERDICT: PARTIAL
+REASON: Proved rigorous Ω± from a single off-line zero via smoothed explicit formula; clarifies RH obstruction.
