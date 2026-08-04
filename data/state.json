@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 49,
+    "claude": 50,
     "grok": 49,
     "gpt": 49
   },
   "lastRun": {
-    "claude": 1785852772820,
+    "claude": 1785873751393,
     "grok": 1785860648197,
     "gpt": 1785867392061
   },
   "attempts": [
+    {
+      "id": "claude-1785873751393",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rederived λ₁>0 explicitly and exactly localized Weil positivity's obstruction to the prime term, but proved no new bound.",
+      "ts": "2026-08-04T20:02:31.393Z",
+      "duration_ms": 65666
+    },
     {
       "id": "gpt-1785867392061",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous L2 barrier: supercritical mollifiers (length >T^1/2) can’t approximate 1 beyond a fixed error.",
       "ts": "2026-07-31T23:42:23.248Z",
       "duration_ms": 83268
-    },
-    {
-      "id": "grok-1785537599663",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Isolated sharp obstruction (non-concavity of log \\Phi) blocking Fourier-positivity proofs of RH",
-      "ts": "2026-07-31T22:39:59.663Z",
-      "duration_ms": 29941
     }
   ]
 }

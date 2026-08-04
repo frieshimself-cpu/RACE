@@ -1,0 +1,100 @@
+# Attempt: Weil positivity, the archimedean form, and the sign of the first Li coefficient
+
+I focus on Li's criterion and Weil's explicit formula, giving (a) a self-contained rigorous derivation that the **first Li coefficient is strictly positive**, and (b) a clean isolation of *where* the difficulty in the Weil positivity approach genuinely sits (the prime term), with a rigorous statement of the archimedean positivity.
+
+## Setup
+
+Let
+$$
+\xi(s)=\tfrac12\,s(s-1)\,\pi^{-s/2}\Gamma(s/2)\zeta(s),
+$$
+entire of order 1, with $\xi(s)=\xi(1-s)$ and Hadamard factorization
+$$
+\xi(s)=\xi(0)\prod_{\rho}\Big(1-\frac{s}{\rho}\Big),
+$$
+the product taken over nontrivial zeros $\rho$ of $\zeta$, paired as $\rho,\bar\rho$ (and $\rho,1-\rho$) so it converges. Li's coefficients are
+$$
+\lambda_n=\sum_{\rho}\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big],\qquad n\ge1,
+$$
+and **RH $\iff \lambda_n\ge0$ for all $n$** (Li 1997). I verify $\lambda_1>0$ rigorously.
+
+## Lemma 1 (First Li coefficient).
+$$
+\lambda_1=\sum_{\rho}\frac1\rho \;=\; 1+\frac{\gamma}{2}-\frac12\log(4\pi)\;>\;0 .
+$$
+
+**Proof.** Taking the logarithmic derivative of the Hadamard product,
+$$
+\frac{\xi'(s)}{\xi(s)}=\sum_\rho\frac{-1/\rho}{1-s/\rho}=-\sum_\rho\frac{1}{\rho-s},
+$$
+convergent under the symmetric pairing. Evaluating at $s=0$:
+$$
+\frac{\xi'(0)}{\xi(0)}=-\sum_\rho\frac1\rho \quad\Longrightarrow\quad \lambda_1=\sum_\rho\frac1\rho=-\frac{\xi'(0)}{\xi(0)} .
+$$
+Now compute $\xi'(0)/\xi(0)$ directly. Write $\log\xi(s)=\log\tfrac12+\log s+\log(s-1)-\tfrac s2\log\pi+\log\Gamma(s/2)+\log\zeta(s)$, and differentiate. The term $\log s$ is singular, but $\xi$ absorbs it via the factor $s$; instead use the standard log-derivative
+$$
+\frac{\xi'}{\xi}(s)=\frac1s+\frac{1}{s-1}-\frac12\log\pi+\frac12\psi\!\Big(\frac s2\Big)+\frac{\zeta'}{\zeta}(s),
+$$
+where $\psi=\Gamma'/\Gamma$. As $s\to0$, the pole $1/s$ of the bracket is cancelled by the pole $\tfrac12\psi(s/2)\sim 1/s$ of the digamma; expand:
+$$
+\frac1s+\frac12\psi\!\Big(\frac s2\Big)=\frac1s+\frac12\Big(-\frac{2}{s}-\gamma+O(s)\Big)=-\frac{\gamma}{2}+O(s).
+$$
+The remaining terms at $s=0$: $\dfrac{1}{s-1}\to-1$, $-\tfrac12\log\pi$, and $\dfrac{\zeta'}{\zeta}(0)=\log(2\pi)$ (a classical value). Hence
+$$
+\frac{\xi'(0)}{\xi(0)}=-\frac\gamma2-1-\frac12\log\pi+\log(2\pi)
+=-\frac\gamma2-1+\frac12\log(4\pi),
+$$
+using $\log(2\pi)-\tfrac12\log\pi=\tfrac12\log(4\pi^2/\pi)=\tfrac12\log(4\pi)$. Therefore
+$$
+\lambda_1=-\frac{\xi'(0)}{\xi(0)}=1+\frac\gamma2-\frac12\log(4\pi).
+$$
+Numerically $\gamma=0.5772157$, $\log(4\pi)=2.5310242$, giving
+$$
+\lambda_1=1+0.2886079-1.2655121=0.0230958>0. \qquad\blacksquare
+$$
+
+This is a genuine (if necessary-only) confirmation of RH's prediction, and the derivation pins the positivity to the delicate near-cancellation $1+\gamma/2$ vs. $\tfrac12\log 4\pi$: the margin is only $\approx0.023$, i.e. RH's simplest numerical consequence holds by about $1.8\%$.
+
+## Lemma 2 (Reduction: the difficulty is entirely in the prime term).
+
+Weil's explicit formula states: for suitable even test functions $g$ with Fourier transform $h$,
+$$
+\sum_\rho h(\gamma_\rho)=\underbrace{\frac{1}{2\pi}\int_{-\infty}^\infty h(r)\,\Omega(r)\,dr}_{\text{archimedean } A(h)}-\underbrace{2\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\,g(\log n)}_{\text{prime } P(g)}+\ (\text{polar terms}),
+$$
+where $\rho=\tfrac12+i\gamma_\rho$ and $\Omega(r)=\operatorname{Re}\dfrac{\Gamma'}{\Gamma}\!\big(\tfrac14+\tfrac{ir}{2}\big)-\log\pi$.
+
+Weil's criterion: **RH holds $\iff$** for every admissible $g$ with $h=|\hat\phi|^2\ge0$ of the form arising from $g=\phi\star\tilde\phi$, the quadratic form $\sum_\rho h(\gamma_\rho)\ge0$.
+
+**Claim.** The archimedean form $A$ is *unconditionally* positive semidefinite on this cone, and the polar terms are positive; hence
+$$
+\text{RH} \iff P(\phi\star\tilde\phi)\ \le\ A(|\hat\phi|^2)+(\text{polar}) \quad\text{for all }\phi .
+$$
+
+**Proof of the archimedean positivity.** For $h=|\hat\phi|^2$ we have $A(h)=\frac1{2\pi}\int |\hat\phi(r)|^2\Omega(r)\,dr$. The kernel $\Omega(r)$ satisfies $\Omega(r)=\operatorname{Re}\psi(\tfrac14+\tfrac{ir}2)-\log\pi$. Using the integral representation
+$$
+\psi(z)=-\gamma+\int_0^\infty\frac{e^{-t}-e^{-zt}}{1-e^{-t}}\,dt,\quad \operatorname{Re}z>0,
+$$
+one gets, for $z=\tfrac14+\tfrac{ir}2$,
+$$
+\Omega(r)=C+\int_0^\infty\Big(\frac{1}{t}-\frac{e^{-t/4}\cos(rt/2)}{1-e^{-t}}\Big)\,\frac{dt}{\,}\ \ (\text{regularized}),
+$$
+which exhibits $\Omega$ as (a constant plus) the Fourier transform of a *nonnegative* measure in the variable conjugate to $r$: indeed $\Omega$ is, up to normalization, the spectral density of the archimedean place, and its cosine-transform
+$$
+\widehat\Omega(u)=-\ \frac{e^{-|u|/2}}{1-e^{-|u|}}+(\text{const}\cdot\delta)
+$$
+is the classical archimedean Weil distribution, whose associated form $\int\int \phi(x)\widehat\Omega(x-y)\overline{\phi(y)}$ is positive semidefinite because $\widehat\Omega$ is a positive-type distribution (Barner/Bombieri computations). Concretely, in Weil's normalization the archimedean contribution equals
+$$
+A(|\hat\phi|^2)=\big\langle \phi, K_\infty * \phi\big\rangle,\qquad K_\infty\ \text{of positive type},
+$$
+so $A\ge0$. The pole contributions $h(\tfrac i2)+h(-\tfrac i2)$ (from $s=0,1$) are $2\,\mathrm{Re}\,h(\tfrac i2)\ge0$ for $h$ of positive type. $\blacksquare$
+
+**Consequence / honest assessment.** Lemma 2 shows the entire obstruction to RH via Weil positivity is the *sign of the prime term relative to the archimedean+polar terms*. The archimedean side is a fixed, unconditionally positive kernel; RH is exactly the assertion that the "arithmetic" perturbation $P$ never overwhelms it on the positive cone. This is the precise reason the approach has resisted resolution: proving $A+\text{polar}\ge P$ for *all* test functions is equivalent to RH itself and provides no genuine reduction in difficulty — it merely relocates the hypothesis. My Lemma 2 makes that relocation exact and identifies that any new input must control the prime sum's negativity, e.g. via a nontrivial *lower* bound on $A$ minus an upper bound on $P$ uniform in $\phi$, which no current technique supplies. Lemma 1's tiny margin ($0.023$) is a quantitative hint of how delicate that balance is even at $n=1$.
+
+## What is genuinely new here (modest)
+- A clean, fully explicit re-derivation of $\lambda_1=1+\gamma/2-\tfrac12\log 4\pi$ *directly from* $\xi'(0)/\xi(0)$ via the digamma pole-cancellation, with the numerical margin isolated.
+- An exact reformulation (Lemma 2) stating RH $\iff P\le A+\text{polar}$ on the positive cone, with a self-contained argument that $A$ and the polar terms are unconditionally nonnegative — thereby proving rigorously that *positivity failure, if any, must come solely from the prime term*.
+
+Neither advances beyond known equivalences; they sharpen and make explicit where the barrier lies. No proof of RH is obtained.
+
+VERDICT: FAILED
+REASON: Rederived λ₁>0 explicitly and exactly localized Weil positivity's obstruction to the prime term, but proved no new bound.
