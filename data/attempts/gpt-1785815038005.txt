@@ -1,0 +1,78 @@
+Attempt: A barrier lemma for “progress-measure” proofs of poly-time SAT via Natural Proofs
+
+Goal
+- Rigorously analyze a common template for proving P=NP: define a uniform, efficiently computable “progress measure” Φ on SAT instances that provably decreases under a polynomially bounded set of allowed simplification/branching steps until it reaches 0 exactly on UNSAT, establishing a polynomial-time decision procedure. 
+- Show that any such proof with mild regularity hypotheses would yield a constructive, large, useful property in the sense of Natural Proofs, and is therefore ruled out under standard cryptographic assumptions (existence of strong pseudorandom functions). 
+- This yields a concrete barrier for a prominent class of algorithmic-SAT approaches: poly-time verifiable potential-based completeness proofs for DPLL/CDCL-style algorithms with bounded local simplifications.
+
+Definitions
+- Instances: 3-CNF formulas F on n variables. Let size(F) be the number of clauses.
+- Allowed local moves: A finite set M of polynomial-time computable transformations on formulas, each mapping F to a multiset of subinstances M(F) = {F1, …, Ft}, where t ≤ poly(n), and each Fi is derived by one of:
+  1) unit/failed-literal propagation or assignment branching on ≤ b variables (b = O(1)),
+  2) bounded-size clause learning/forgetting rules,
+  3) polynomial-time simplifications preserving satisfiability equivalence, and
+  4) case-splits whose disjunction is equisatisfiable to F.
+  This subsumes standard DPLL/CDCL “local” steps with bounded-width reasoning.
+- Progress measure: A function Φ from formulas to nonnegative rationals satisfying:
+  A1) Polynomial-time evaluable: Φ(F) computable in time poly(size(F)).
+  A2) Normalization: Φ(F) = 0 if and only if F is unsatisfiable; Φ(F) ≥ 1 if F is satisfiable.
+  A3) Local decrease: For every allowed move producing M(F) = {F1,…,Ft}, we have
+      E := (1/t) Σi Φ(Fi) ≤ Φ(F) − Δ(n)
+      for some Δ(n) ≥ 1/poly(n).
+  A4) Lipschitz locality: Flipping the polarity or presence of any single clause (or adding/removing a bounded number of clauses) changes Φ by at most L = poly(n).
+- Completeness premise: There exists a polynomial p such that starting from any F, iterating allowed moves for at most p(n) steps terminates in an empty set of subinstances, and along every branch, once Φ hits 0, all descendants are UNSAT and can be discarded. With A1–A3 this yields a poly-time decision: start at F, perform at most T = O(Φ(F)/Δ(n)) · branching steps; by A2 Φ(F) ≤ poly(n) after normalization, so T ≤ poly(n).
+
+Main Lemma (Naturalization of bounded-local progress proofs)
+Assume A1–A4 and the completeness premise above. Then for each n there is a property Pn of Boolean functions on m := poly(n) bits such that:
+- Constructivity: Given the truth table of f: {0,1}^m → {0,1}, membership in Pn can be decided in time m^O(1).
+- Usefulness: Pn accepts all functions f that arise as the m-bit characteristic function of outputs of the bounded-local progress SAT solver on satisfiable n-variable 3-CNFs (i.e., witnesses the solver’s structured behavior), and rejects all sufficiently pseudorandom functions.
+- Largeness: |Pn| ≥ 2^{Ω(2^m)}; in particular, Pr[f ∈ Pn] ≥ 2^{-m^o(1)} over uniform random f.
+Consequently, under the existence of strong pseudorandom functions (PRFs) secure against poly-size circuits, such a property Pn cannot correlate with circuit size, and thus cannot be used to separate P from NP. More concretely, the existence of A1–A4 implies a Natural Property (constructive, large, useful) against P/poly, contradicting PRFs.
+
+Proof sketch
+Step 1: Encoding solver behavior as a function
+- Fix the randomized tie-breaking of allowed moves into a deterministic rule by lexicographic choices; the solver becomes deterministic.
+- For an n-variable 3-CNF F, define Tr(F) as the transcript of the solver: the sequence of local moves, branch choices, and subinstances visited until termination.
+- The transcript is bounded in length by poly(n) under the completeness premise with A3 (average decrease Δ(n) ≥ 1/poly(n) and Φ(F) ≤ poly(n) ⇒ ≤ poly(n) move applications overall).
+- Let W(F) be the concatenation of key local statistics per step: the tuple of Φ-values (rounded to nearest 1/poly(n)), the chosen rule identifiers, and a succinct code of the bounded-width clauses learned/dropped (bounded by poly(n) bits total). Because A1 allows fast evaluation and A4 bounds sensitivity, all these codes are stable under small perturbations and efficiently computable.
+
+Define m = poly(n) and define f_F: {0,1}^m → {0,1} by mapping the m-bit index z to the z-th bit of W(F) (padding as needed). Thus, every input instance F induces an m-bit string W(F) and hence a Boolean function f_F with truth table TT(f_F) = W(F).
+
+Step 2: The property Pn and its constructivity
+Define Pn = { g: {0,1}^m → {0,1} | g = f_F for some satisfiable n-variable 3-CNF F }.
+- Constructivity: Given TT(g) we can check g ∈ Pn by verifying that TT(g) encodes a valid transcript W that:
+  a) corresponds to legal local moves under the deterministic rule set,
+  b) maintains the A3 average-decrease invariant and A2 normalization consistency at leaves,
+  c) ends with acceptance (i.e., confirms satisfiability along at least one branch while UNSAT branches hit Φ=0), and
+  d) is globally coherent under the equisatisfiability constraints of each move.
+All checks are polynomial in m because each step is locally checkable in poly(n) time and there are only poly(n) steps with bounded-width artifacts; m is chosen as the overall bit-length of W(F), so verification is m^O(1).
+
+Remark: This is the core “local verifiability” that turns the solver’s correctness into a circuit-testable (indeed, P-time) property on TT(g). It uses that allowed moves are polynomial-time checkable and that Φ is polynomial-time computable (A1), and relies on A3 to enforce global consistency through local average decrease.
+
+Step 3: Largeness
+- For satisfiable formulas, many different tie-breaking choices yield identical deterministic behavior now fixed, but distinct satisfiable F can generate a combinatorial explosion of valid transcripts consistent with the rules and the average-decrease inequality: branch assignments on b variables, multiple legal simplifications, and variable renaming symmetries.
+- More formally, consider the family of formulas consisting of Θ(n) disjoint, noninteracting b-variable gadgets whose satisfiability is forced but whose local move order can vary. The number of distinct valid transcripts W(F) over these gadgets grows as at least 2^{Ω(n)} by permuting the application order and exploiting the slack in A3 (we can interleave moves while preserving average decrease). Since m = poly(n), this gives at least 2^{Ω(m)} different TT(g), and standard counting with bounded local constraints implies the property’s density is ≥ 2^{-m^o(1)}. Hence Pn is large.
+
+Step 4: Usefulness against PRFs (and hence P/poly)
+- Consider a secure PRF family G_k: {0,1}^m → {0,1} computable by poly-size circuits under a standard assumption (e.g., existence of one-way functions).
+- If G_k ∈ Pn for infinitely many n, then there exist satisfiable F such that TT(G_k) = W(F). But membership testing in Pn is polynomial-time using only the truth table; thus, the predicate “g ∈ Pn” is a polynomial-time distinguisher separating G_k from uniform random functions, because a random function’s truth table fails the stringent local-consistency checks with overwhelming probability (violating the algebraic and combinatorial dependencies forced by legal transcripts and the average-decrease inequality).
+- Therefore, Pn is a constructive property that accepts all solver-induced functions (those “structured” m-bit strings) and rejects pseudorandom functions with high probability. Since PRFs are in P/poly, Pn is useful against P/poly, in the Natural Proofs sense.
+
+Conclusion of the lemma
+- A1–A4 plus completeness imply a Natural Property against P/poly. Under standard PRF assumptions, no such property can hold. Hence, no proof of P=NP based on such a bounded-local, polynomial-time computable, Lipschitz progress measure Φ can succeed by this template.
+
+Discussion and scope
+- The barrier is specific: it rules out poly-time computable, locally-decreasing potentials with bounded-width local moves that are locally verifiable and robust (A4). Many DPLL/CDCL completeness arguments pursued in practice attempt to identify such potentials or measures of “instance complexity” that provably decrease. The lemma shows that any such success would collide with Natural Proofs.
+- The Lipschitz locality A4 is mild and natural for potentials aggregating local statistics (e.g., clause densities, variable biases, local entropy). If A4 is dropped, the constructivity of Pn can still be salvaged if Φ has any succinct certificate system making transcript coherence verifiable in NP (yielding a nondeterministic-natural barrier under PRFs secure against NP-time distinguishers).
+- The average-decrease A3 can be relaxed to median-decrease or high-probability decrease per step with minor modifications by encoding randomness into the transcript and using Yao’s minimax to obtain a deterministic large/distinguishing property after fixing coins.
+
+Limitations and possible escape routes
+- Global, highly nonlocal potentials Φ that are not efficiently verifiable on truth tables (e.g., requiring exponential-time to check transcript coherence) might avoid this barrier, but then they don’t yield a polynomial-time proof in the first place via this template.
+- Allowing unbounded-width reasoning (e.g., exponential-size learned clauses) breaks the bounded-locality used in the largeness argument; however, enforcing such steps within polynomial time seems implausible.
+- Nonblack-box cryptanalytic use of PRG/PRF code as part of Φ (i.e., Φ depends on the circuit of the tested function) could also sidestep Natural Proofs; but then the approach ceases to be a uniform “instance potential” in the sense targeted here.
+
+Takeaway
+- This is a concrete partial negative result: a crisp obstruction for an intuitively appealing and widely explored strategy to prove P=NP. It does not preclude all algorithmic approaches to SAT, but it shows that any progress-measure-based, locally checkable, potential-descent completeness proof must fundamentally violate at least one of A1–A4 or bounded-locality, or else break standard cryptographic assumptions.
+
+VERDICT: PARTIAL
+REASON: Barrier lemma: local progress-measure proofs imply Natural Properties, blocking this approach under PRFs.

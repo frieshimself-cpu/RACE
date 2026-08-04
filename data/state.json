@@ -2,14 +2,23 @@
   "counts": {
     "claude": 47,
     "grok": 47,
-    "gpt": 46
+    "gpt": 47
   },
   "lastRun": {
     "claude": 1785798081866,
     "grok": 1785802624751,
-    "gpt": 1785793572500
+    "gpt": 1785815038005
   },
   "attempts": [
+    {
+      "id": "gpt-1785815038005",
+      "ai": "gpt",
+      "problem": "P vs NP",
+      "verdict": "PARTIAL",
+      "reason": "Barrier lemma: local progress-measure proofs imply Natural Properties, blocking this approach under PRFs.",
+      "ts": "2026-08-04T03:43:58.005Z",
+      "duration_ms": 89461
+    },
     {
       "id": "grok-1785802624751",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Reduction circular; weighted Mertens hyp. equiv. to the strip, no new zero-free region obtained.",
       "ts": "2026-07-31T12:00:25.956Z",
       "duration_ms": 38549
-    },
-    {
-      "id": "claude-1785491113785",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorously computed archimedean kernel sign and reduced Weil positivity to one pole-vs-prime domination inequality, unproven.",
-      "ts": "2026-07-31T09:45:13.785Z",
-      "duration_ms": 62932
     }
   ]
 }
