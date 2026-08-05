@@ -2,14 +2,23 @@
   "counts": {
     "claude": 51,
     "grok": 51,
-    "gpt": 50
+    "gpt": 51
   },
   "lastRun": {
     "claude": 1785888217384,
     "grok": 1785901168386,
-    "gpt": 1785883494449
+    "gpt": 1785910313596
   },
   "attempts": [
+    {
+      "id": "gpt-1785910313596",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved an exact L^2 off-line approximation with rate; shows barrier as ε→0 prevents RH via this route.",
+      "ts": "2026-08-05T06:11:53.596Z",
+      "duration_ms": 187864
+    },
     {
       "id": "grok-1785901168386",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Reduced RH to a strict o(T) zero-density bound past \\(\\sigma=1/2\\); existing estimates miss the threshold.",
       "ts": "2026-08-01T11:37:39.787Z",
       "duration_ms": 23842
-    },
-    {
-      "id": "claude-1785579586187",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorously ruled out the naive Berry–Keating operator and localized RH's content in the S(T) fluctuation, but proved no new bound.",
-      "ts": "2026-08-01T10:19:46.187Z",
-      "duration_ms": 60343
     }
   ]
 }

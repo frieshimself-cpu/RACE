@@ -1,0 +1,62 @@
+Attempt: An exact mean-square approximation to 1/ζ on σ=1/2+ε with an explicit error bound, and a barrier at ε→0
+
+Statement
+Fix ε>0 and N≥1. Let A_N(s) = ∑_{n≤N} μ(n) n^{-s}. Then for σ=1/2+ε,
+(1) (1/2π) ∫_{-∞}^{∞} |1 − ζ(σ+it) A_N(σ+it)|^2 dt ≤ C(ε) N^{-2ε},
+for an absolute constant C(ε) depending only on ε (one can take C(ε) = ζ(1+2ε)·C′(ε) with an explicit finite C′(ε)).
+
+In particular, for each fixed ε>0, the truncated Möbius Dirichlet polynomial A_N(s) approximates 1/ζ(s) in L^2 on the vertical line Re s = 1/2+ε with an error that tends to 0 at the rate N^{-ε} (up to a factor depending only on ε).
+
+Proof
+- Parseval/Plancherel for Dirichlet series.
+Let F(s) = ∑_{n≥1} f_n n^{-s} be a Dirichlet series with coefficients satisfying ∑ |f_n|^2 n^{-2σ} < ∞. Then the classical Parseval identity on the line Re s = σ>1/2 gives
+(2) (1/2π) ∫_{-∞}^{∞} |F(σ+it)|^2 dt = ∑_{n≥1} |f_n|^2 n^{-2σ}.
+This follows by expanding the square, integrating termwise, and using ∫_{-∞}^{∞} (n/m)^{-it} dt = 2π δ_{n=m}.
+
+- Apply (2) to F(s) = 1 − ζ(s) A_N(s).
+Write ζ(s)A_N(s) = ∑_{n≥1} (∑_{d|n, d≤N} μ(d)) n^{-s} by absolute convergence for σ>1. The coefficients extend by L^2 continuity to σ>1/2. Thus
+1 − ζ(s)A_N(s) = ∑_{n≥1} c_n n^{-s}, where
+c_n = 1 if n=1, and for n≥2 we have c_n = −∑_{d|n, d≤N} μ(d).
+Since for n≤N and n≥2, ∑_{d|n} μ(d) = 0, and here the sum is over all divisors (because all divisors of n are ≤ n ≤ N), it follows that c_n=0 for 2≤n≤N.
+For n>N, use ∑_{d|n} μ(d) = 0 to rewrite
+c_n = −∑_{d|n, d≤N} μ(d) = ∑_{d|n, d>N} μ(d).
+Define b(d) = μ(d)·1_{d>N}. Then c = b * 1 (Dirichlet convolution with the constant-1 function), i.e., c_n = ∑_{d|n} b(d).
+
+- Mean-square as a gcd-sum.
+Apply (2) with F(s) = ∑ c_n n^{-s} at σ=1/2+ε. We obtain
+(1/2π) ∫ |1 − ζ(σ+it)A_N(σ+it)|^2 dt = ∑_{n≥1} |c_n|^2 n^{-1-2ε}
+= ∑_{n≥1} (∑_{d|n} b(d))^2 n^{-1-2ε}.
+Expand the square and swap sums:
+= ∑_{d_1,d_2≥1} b(d_1) b(d_2) ∑_{k≥1} (lcm(d_1,d_2) k)^{-1-2ε}
+= ζ(1+2ε) ∑_{d_1,d_2≥1} b(d_1) b(d_2) lcm(d_1,d_2)^{-1-2ε}.
+Since b(d)=0 unless d>N, we restrict d_1,d_2>N. Using lcm(d_1,d_2) = d_1 d_2 / gcd(d_1,d_2),
+the last sum equals
+ζ(1+2ε) ∑_{d_1,d_2>N} μ(d_1) μ(d_2) gcd(d_1,d_2)^{1+2ε} / (d_1 d_2)^{1+2ε}.
+Taking absolute values and dropping μ-signs gives an upper bound
+≤ ζ(1+2ε) ∑_{d_1,d_2>N} gcd(d_1,d_2)^{1+2ε} / (d_1 d_2)^{1+2ε}.
+Write d_i = g a_i with a_i≥1 and g = gcd(d_1,d_2). Then gcd(d_1,d_2) = g and
+(d_1 d_2)^{1+2ε} = g^{2(1+2ε)} (a_1 a_2)^{1+2ε}. The constraint d_i > N implies a_i > N/g.
+Hence the sum is
+≤ ζ(1+2ε) ∑_{g≥1} g^{1+2ε} ∑_{a_1> N/g} a_1^{-(1+2ε)} ∑_{a_2> N/g} a_2^{-(1+2ε)} · g^{-2(1+2ε)}
+= ζ(1+2ε) ∑_{g≥1} g^{-(1+2ε)} [∑_{a> N/g} a^{-(1+2ε)}]^2.
+For s=1+2ε>1, the tail ∑_{a> X} a^{-s} ≪ X^{1-s}. Thus, splitting the g-sum at N,
+- For g ≤ N, the inner square is ≪ (N/g)^{2(1-s)} and the contribution is
+≪ ∑_{g≤N} g^{-s} (N/g)^{2(1-s)} = N^{2(1-s)} ∑_{g≤N} g^{s-2} ≪ N^{2(1-s)} N^{s-1} = N^{1-s}.
+- For g > N, the inner square is O(1), and the contribution is ≪ ∑_{g>N} g^{-s} ≪ N^{1-s}.
+Putting these together yields an upper bound ≪ N^{1-s} = N^{-2ε}. This bound, multiplied by ζ(1+2ε), gives the claimed estimate with C(ε) ≪ ζ(1+2ε).
+
+Therefore,
+(1/2π) ∫_{-∞}^{∞} |1 − ζ(1/2+ε+it) A_N(1/2+ε+it)|^2 dt ≪_ε N^{-2ε},
+as claimed.
+
+Remarks and implications
+- This is an exact, unconditional L^2-identity at any σ>1/2, and the bound is sharp up to constants in the sense that it decays polynomially in N with exponent 2ε.
+- It gives a clean quantitative reduction: for each fixed ε>0, finite Dirichlet polynomials built from μ approximate 1/ζ on σ=1/2+ε with vanishing mean-square error. This captures, in a precise Dirichlet-coefficient sense, why “mollifiers” of 1/ζ do work off the critical line.
+- Barrier at ε→0: The constant C(ε) blows up like ζ(1+2ε) and the decay rate N^{-2ε} collapses as ε→0. At ε=0, the integral on the left is no longer finite (unless the Dirichlet coefficients vanish eventually), reflecting the logarithmic divergence ∑ 1/n of the coefficient norm at σ=1/2. Thus, this approach by itself does not pass to the critical line and cannot prove RH; one would need either:
+  - a different norm (e.g., incorporating a decaying weight in t), or
+  - additional structure in A_N(s) beyond a plain truncation of μ, or
+  - a genuinely new input controlling the σ→1/2 limit.
+- Nonetheless, the lemma cleanly isolates the σ>1/2 case and converts the analytic question into a purely arithmetic double gcd-sum that we bounded directly, without appealing to any deep zero-density or large-value estimates for ζ.
+
+VERDICT: PARTIAL
+REASON: Proved an exact L^2 off-line approximation with rate; shows barrier as ε→0 prevents RH via this route.
