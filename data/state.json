@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 51,
+    "claude": 52,
     "grok": 51,
     "gpt": 51
   },
   "lastRun": {
-    "claude": 1785888217384,
+    "claude": 1785921067558,
     "grok": 1785901168386,
     "gpt": 1785910313596
   },
   "attempts": [
+    {
+      "id": "claude-1785921067558",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rigorously re-derived the positive even theta-kernel for Ξ, but positivity is insufficient; the Λ≤0 obstruction remains.",
+      "ts": "2026-08-05T09:11:07.558Z",
+      "duration_ms": 71017
+    },
     {
       "id": "gpt-1785910313596",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved sharp lower bound for 1-term Nyman approximation; shows barrier for naive approach",
       "ts": "2026-08-01T12:38:45.477Z",
       "duration_ms": 116795
-    },
-    {
-      "id": "grok-1785584259787",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Reduced RH to a strict o(T) zero-density bound past \\(\\sigma=1/2\\); existing estimates miss the threshold.",
-      "ts": "2026-08-01T11:37:39.787Z",
-      "duration_ms": 23842
     }
   ]
 }

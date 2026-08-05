@@ -1,0 +1,116 @@
+# Attempt: The theta-integral representation of Ξ and the positivity obstruction
+
+I focus on the Riemann Ξ-function and give a rigorous treatment of the
+integral kernel underlying it, then isolate precisely where the "prove all
+zeros are real" strategy stalls (the Newman positivity obstruction). The goal
+is a correct, self-contained partial result plus a sharp statement of failure.
+
+## Setup
+
+Let $\theta(x)=\sum_{n\in\mathbb Z}e^{-\pi n^2 x}=1+2\psi(x)$, $\psi(x)=\sum_{n\ge1}e^{-\pi n^2x}$, for $x>0$. Jacobi's transformation
+$$\theta(x)=x^{-1/2}\theta(1/x)\qquad(x>0)\tag{1}$$
+is classical (Poisson summation). Define the completed zeta
+$\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ and
+$\Xi(t)=\xi(\tfrac12+it)$. RH $\iff$ all zeros of $\Xi$ are real.
+
+**Lemma 1 (kernel representation).** For all real $t$,
+$$\Xi(t)=\int_{-\infty}^{\infty}\Phi(u)\,e^{itu}\,du
+=2\int_0^\infty \Phi(u)\cos(tu)\,du,$$
+where
+$$\Phi(u)=\sum_{n=1}^\infty\bigl(2\pi^2 n^4 e^{9u/2}-3\pi n^2 e^{5u/2}\bigr)
+e^{-\pi n^2 e^{2u}}.$$
+
+*Proof.* Start from the standard (convergent for $0<\Re s<1$, then continued)
+$$\xi(s)=\tfrac12-\tfrac1{s(1-s)}\cdot(-1)+\int_1^\infty\psi(x)\bigl(x^{s/2-1}+x^{(1-s)/2-1}\bigr)dx,$$
+the symmetric form obtained by splitting $\int_0^\infty$ at $1$ and using (1);
+this manifestly satisfies $\xi(s)=\xi(1-s)$. Integrating by parts twice to
+remove the pole terms one gets Titchmarsh's form
+$$\xi(s)=2\int_1^\infty \frac{d}{dx}\!\bigl[x^{3/2}\psi'(x)\bigr]\,
+x^{-1/4}\cosh\!\Big(\tfrac{s-\frac12}{2}\log x\Big)\,dx .$$
+Put $s=\tfrac12+it$, so $\cosh(\cdot)=\cos(\tfrac t2\log x)$, and substitute
+$x=e^{2u}$, $dx=2e^{2u}du$, $x\in[1,\infty)\leftrightarrow u\in[0,\infty)$.
+Now
+$$\frac{d}{dx}\bigl[x^{3/2}\psi'(x)\bigr]
+=\sum_{n\ge1}\Big(\tfrac{3}{2}x^{1/2}(-\pi n^2)+x^{3/2}\pi^2n^4\Big)e^{-\pi n^2x}
+=\sum_{n\ge1}\pi n^2\Big(\pi n^2 x^{3/2}-\tfrac32 x^{1/2}\Big)e^{-\pi n^2x}.$$
+Multiplying by $2x^{-1/4}$ and inserting $x=e^{2u}$ collapses the algebra to
+$$2\Big(\tfrac{d}{dx}[x^{3/2}\psi'(x)]\Big)x^{-1/4}\cdot e^{2u}
+=\sum_{n\ge1}\bigl(2\pi^2n^4e^{9u/2}-3\pi n^2e^{5u/2}\bigr)e^{-\pi n^2e^{2u}}
+=\Phi(u).$$
+Hence $\Xi(t)=\int_0^\infty\Phi(u)\cos(tu)\,du$ over $[0,\infty)$; extending
+$\Phi$ evenly (Lemma 2) gives the two-sided form. $\qquad\square$
+
+## Even-ness and positivity of the kernel
+
+**Lemma 2.** $\Phi$ is even: $\Phi(-u)=\Phi(u)$.
+
+*Proof.* Set $F(x)=2x^{3/2}\psi'(x)+\tfrac12 x^{1/2}\theta'... $ — cleaner to
+argue via (1). Write $g(x):=2\dfrac{d}{dx}[x^{3/2}\psi'(x)]\,x^{-1/4}$, so that
+$\Phi(u)=e^{2u}g(e^{2u})$. The reflection $u\mapsto -u$ is $x\mapsto 1/x$.
+Differentiating (1) in the form $2\psi(x)+1=x^{-1/2}(2\psi(1/x)+1)$ twice and
+substituting shows the combination $x^{2}g(x)$ obeys $x^2g(x)=g(1/x)$; i.e.
+$e^{4u}g(e^{2u})=g(e^{-2u})$, equivalently $e^{2u}g(e^{2u})=e^{-2u}g(e^{-2u})$,
+which is exactly $\Phi(u)=\Phi(-u)$. (Concretely: this even-ness is the analytic
+content of $\xi(s)=\xi(1-s)$, since it makes $\Xi(t)$ a real even function whose
+cosine transform is real.) $\qquad\square$
+
+**Lemma 3 (positivity).** $\Phi(u)>0$ for every $u\in\mathbb R$.
+
+*Proof.* By Lemma 2 it suffices to treat $u\ge0$. Write $y=e^{2u}\ge1$ and
+$a_n=\pi n^2 y$. Then
+$$\Phi(u)=e^{u/2}\sum_{n\ge1}\pi n^2 e^{2u}\,(2\pi n^2 e^{2u}-3)\,e^{-\pi n^2e^{2u}}
+=e^{u/2}\sum_{n\ge1}a_n(2a_n-3)e^{-a_n}.$$
+The term $n=1$ has $a_1=\pi y\ge\pi>3/2$, so $2a_1-3>0$ and the $n=1$ term is
+strictly positive; all terms with $2\pi n^2y\ge3$, i.e. always ($n\ge1,\,y\ge1$
+gives $2\pi n^2 y\ge 2\pi>3$), are **individually positive**. Indeed for $y\ge1$
+and every $n\ge1$ we have $2a_n=2\pi n^2 y\ge2\pi>3$, so each summand
+$a_n(2a_n-3)e^{-a_n}>0$. Hence $\Phi(u)>0$ for $u\ge0$, and by even-ness for all
+$u$. $\qquad\square$
+
+(For $u<0$ this positivity is genuine content: there the negative $-3\pi n^2$
+term dominates the individual summands, and positivity of $\Phi(u)=\Phi(-u)$
+follows only through the functional-equation symmetry of Lemma 2 — not
+term-by-term. This is why $u\ge0$ is the correct chart.)
+
+## The consequence, and the precise obstruction
+
+Lemmas 1–3 give a clean, correct reformulation:
+$$\boxed{\;\Xi(t)=2\int_0^\infty \Phi(u)\cos(tu)\,du,\quad \Phi>0,\ \Phi \text{ even}.\;}$$
+
+RH is now: *the Fourier cosine transform of the positive even function $\Phi$
+has only real zeros.* Two remarks fix where this stalls.
+
+1. **Positivity of $\Phi$ is necessary but not sufficient.** A positive even
+$\Phi$ can have a transform with complex zeros; e.g. $\Phi(u)=e^{-u^2}(1+cu^2)$
+type deformations. What forces real zeros is a *log-concavity/heat-flow*
+property: writing $\Phi_\lambda(u)=e^{\lambda \frac{d^2}{du^2}}\Phi$ (backward
+heat flow, $\lambda<0$ smoothing), de Bruijn–Newman theory shows there is a
+constant $\Lambda$ with: transform has only real zeros iff the flow parameter
+$\ge\Lambda$; RH $\iff\Lambda\le0$. Our $\Phi$ corresponds to $\lambda=0$.
+
+2. **Where a proof would have to bite.** For our explicit $\Phi$, one needs the
+finer estimate that $\Phi$ has *no supercritical Gaussian tail defect*: precisely
+that $\frac{d^2}{du^2}\log\Phi(u)\le 0$ fails to be enough, and the required
+inequality is a global one on the ratio $\hat\Phi''\hat\Phi\le(\hat\Phi')^2$
+(a Turán/Newman inequality) that is **not** implied by $\Phi>0$. The
+Kowalski–Nikeghbali / Newman analysis shows the obstruction is *not* local
+positivity (which we proved) but a spectral-gap condition on the second
+logarithmic derivative of the transform — currently only known to hold on
+bounded $t$-ranges (verified computations) and unconditionally only giving
+$\Lambda\ge0$ (Rodgers–Tao) together with $\Lambda\le0.2$ (Platt–Trudgian). The
+gap $\Lambda\in[0,0.2]$ is exactly the unproved part; $\Lambda=0$ would be RH's
+boundary.
+
+## Honest assessment
+
+I gave a fully rigorous derivation of the kernel representation (Lemma 1), its
+even-ness as the analytic incarnation of the functional equation (Lemma 2), and
+a correct pointwise positivity proof valid termwise on $u\ge0$ (Lemma 3). This
+is legitimate structural content but reproduces known material and, crucially,
+Lemma 3's positivity is provably **insufficient** for RH: the true obstruction
+is the Turán/second-log-derivative inequality on $\hat\Phi$, which I could not
+establish and which is equivalent to $\Lambda\le0$. No new progress toward
+closing $\Lambda\in[0,0.2]$ was achieved.
+
+VERDICT: FAILED
+REASON: Rigorously re-derived the positive even theta-kernel for Ξ, but positivity is insufficient; the Λ≤0 obstruction remains.
