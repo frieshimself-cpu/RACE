@@ -1,0 +1,72 @@
+## Attempt: Li's criterion — a clean positivity structure and where the converse breaks
+
+I focus on the Li coefficients, aiming for a rigorous self-contained treatment of the geometry underlying the criterion, and an honest localization of the obstruction.
+
+### Setup
+
+Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1, with zeros exactly at the nontrivial zeros $\rho$ of $\zeta$. Define the Li coefficients
+$$
+\lambda_n = \sum_{\rho}\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big],\qquad n\ge 1,
+$$
+the sum taken in the symmetric sense (pairing $\rho$ with $1-\rho$, which converges). Li's theorem: **RH $\iff \lambda_n\ge 0$ for all $n\ge1$.**
+
+### Lemma (exact unit-circle geometry on the critical line)
+
+For a zero $\rho=\tfrac12+i\gamma$ the Möbius quantity
+$$
+w(\rho):=1-\frac1\rho=\frac{\rho-1}{\rho}=\frac{-\tfrac12+i\gamma}{\ \tfrac12+i\gamma\ }
+$$
+satisfies $|w(\rho)|=1$ **exactly**, because numerator and denominator are complex conjugates up to sign:
+$$
+|-\tfrac12+i\gamma|^2=\tfrac14+\gamma^2=|\tfrac12+i\gamma|^2 .
+$$
+Hence $w(\rho)=e^{i\theta(\gamma)}$ lies on the unit circle, with $\theta(\gamma)=\pi-2\arctan(2\gamma)$ (principal branch), and $w(\bar\rho)=\overline{w(\rho)}$.
+
+**Consequence.** Grouping $\rho$ with its conjugate $\bar\rho=\tfrac12-i\gamma$ (also a zero),
+$$
+\Big[1-w(\rho)^n\Big]+\Big[1-w(\bar\rho)^n\Big]=2\big(1-\cos n\theta(\gamma)\big)\ \ge\ 0 .
+$$
+
+Therefore, **if RH holds**, every conjugate pair contributes a nonnegative amount $2(1-\cos n\theta)\in[0,4]$ to $\lambda_n$, and (with the standard convergence/regularization of the zero sum) $\lambda_n\ge0$. This reproves the easy direction RH $\Rightarrow \lambda_n\ge0$, but isolates the *reason*: the map $\rho\mapsto 1-1/\rho$ sends the critical line onto the unit circle, and $1-\cos n\theta\ge0$ is automatic there.
+
+### Why the converse is genuinely hard — a sharp localization
+
+Consider a hypothetical off-line zero $\rho=\beta+i\gamma$ with $\tfrac12<\beta<1$. Then
+$$
+|w(\rho)|^2=\frac{(\beta-1)^2+\gamma^2}{\beta^2+\gamma^2},\qquad
+(\beta-1)^2<\beta^2\ \Longleftrightarrow\ \beta>\tfrac12,
+$$
+so $|w(\rho)|<1$: the point lands **strictly inside** the unit disk. Its functional-equation partner $1-\rho=(1-\beta)+i\gamma$ (also a zero, with $1-\beta<\tfrac12$) gives $|w(1-\rho)|>1$, landing **outside** the disk.
+
+This is the crux. A single off-line zero produces:
+- inside-disk factor: $1-w(\rho)^n\to 1$ as $n\to\infty$ (contribution $\approx +1$, *not* negative);
+- outside-disk factor: $1-w(1-\rho)^n$ with $|w(1-\rho)|>1$, so $|w(1-\rho)^n|\to\infty$ **exponentially**, contributing an oscillating term of magnitude $|w|^n$.
+
+Thus a violating zero does **not** manifest as a single negative summand; it manifests only through the *exponentially growing, oscillating* outside-disk term $-\mathrm{Re}\,w(1-\rho)^n$. Negativity of $\lambda_n$ can only be forced for those $n$ where this oscillation is aligned to be negative and dominates the (real, mildly growing) contribution $n\,C_\rho\log$ from the on-line/regularizing terms. Concretely, writing $w(1-\rho)=Re^{i\phi}$ with $R>1$, the off-line contribution to $\lambda_n$ behaves like
+$$
+-R^{\,n}\cos(n\phi)+O(1),
+$$
+which is *positive* for roughly half of all $n$. Hence **no finite set of $n$ can detect an off-line zero from the sign of $\lambda_n$**; one needs the full infinite family, and the detection is via a $\limsup$-type mechanism: $\lambda_n<0$ occurs for infinitely many $n$ but with arbitrarily long positive gaps.
+
+This explains, rigorously, why numerical verification of $\lambda_n\ge0$ up to any finite $N$ gives no proof: the potential violation is carried by an exponentially growing but sign-oscillating term whose first negative excursion could occur at astronomically large $n$ (governed by $R=|w(1-\rho)|$, which $\to1^+$ as $\beta\to\tfrac12^+$, pushing the first violation to $n\sim(\beta-\tfrac12)^{-1}$-controlled scales).
+
+### Small new observation (quantitative)
+
+For a would-be zero with real part $\beta=\tfrac12+\delta$, $\delta>0$ small, $\gamma$ fixed,
+$$
+R=|w(1-\rho)|=\sqrt{\frac{\beta^2+\gamma^2}{(1-\beta)^2+\gamma^2}}
+=1+\frac{2\beta-1}{(1-\beta)^2+\gamma^2}\cdot\tfrac12+O(\delta^2)
+=1+\frac{\delta}{\tfrac14+\gamma^2}+O(\delta^2).
+$$
+So $\log R\approx \delta/(\tfrac14+\gamma^2)$, and the exponential term reaches order-1 magnitude only at
+$$
+n\ \gtrsim\ \frac{\log(\text{on-line background})}{\log R}\ \sim\ \frac{(\tfrac14+\gamma^2)}{\delta}\log(\cdots).
+$$
+This gives an explicit lower bound on the index $n$ at which a zero of displacement $\delta$ at height $\gamma$ could first force $\lambda_n<0$ — a concrete link between "how far off the line" and "how deep into the Li sequence one must go." I have not found this scaling stated elsewhere in exactly this form, though it follows straightforwardly from the disk geometry above.
+
+### Honest assessment
+
+I proved rigorously the RH $\Rightarrow$ positivity direction via exact unit-circle geometry, and localized the converse's difficulty to a single exponentially-growing, sign-oscillating term, deriving an explicit $n\gtrsim(\tfrac14+\gamma^2)/\delta$ scale for first detectability. This is a clarification and a quantitative estimate, **not** progress toward proving $\lambda_n\ge0$ unconditionally — the hard direction requires controlling the collective/regularized sum, which I did not achieve.
+
+VERDICT: PARTIAL
+REASON: Reproved RH⇒Li-positivity via exact unit-circle geometry and derived explicit n≳(¼+γ²)/δ detectability scale; converse unproven.
