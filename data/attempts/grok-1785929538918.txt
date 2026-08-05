@@ -1,0 +1,37 @@
+### Attempt: Analysis of the obstruction in the Hilbert–Pólya operator approach
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the Riemann \(\xi\)-function (entire of order 1, \(\xi(s)=\xi(1-s)\)). The non-trivial zeros \(\rho\) of \(\zeta\) are precisely the zeros of \(\xi\). The Hilbert–Pólya conjecture asserts that there exists a Hilbert space \(\mathcal{H}\) and an unbounded self-adjoint operator \(A:\operatorname{Dom}(A)\subset\mathcal{H}\to\mathcal{H}\) such that the spectrum of \(A\) is exactly \(\{\operatorname{Im}\rho\}\) (counted with multiplicity). Self-adjointness would force every eigenvalue to be real, hence \(\operatorname{Re}\rho=\frac12\).
+
+We show that every concrete realization proposed to date reduces the existence of such an \(A\) to a statement at least as strong as RH itself, and therefore cannot constitute an independent proof.
+
+#### 1. Formal candidate and domain obstruction
+The Berry–Keating formal operator \(H=xp\) on \(L^2(\mathbb{R}_+)\) (or its symmetric variant \(\frac12(xp+px)\)) has semiclassical periodic orbits whose lengths are \(\log p\), matching the explicit formula. After a cutoff regularization at height \(X\) one obtains a finite-dimensional matrix \(H_X\) whose eigenvalues \(\lambda_n(X)\) satisfy
+\[
+\lim_{X\to\infty}\frac1{\pi}\arg\xi\Bigl(\tfrac12+i\lambda_n(X)\Bigr)=n+O(1)
+\]
+formally. However:
+- the minimal symmetric operator associated with \(xp\) on \(C_c^\infty(\mathbb{R}_+)\) has deficiency indices \((1,1)\);
+- every self-adjoint extension is obtained by a boundary condition at the origin that introduces an arbitrary phase \(\theta\in[0,2\pi)\);
+- the spectrum of each extension is absolutely continuous (by the Weyl–von Neumann theorem or direct Fourier analysis), never discrete.
+
+Thus one must still impose a further quantization condition that selects a discrete subset of the continuous spectrum. Any such condition that recovers exactly the zeros of \(\xi\) has so far been equivalent to a Riemann–Siegel-type asymptotic for \(\xi\) on the critical line, which is known only under RH or under stronger hypotheses (e.g., the Lindelöf hypothesis plus a zero-density estimate).
+
+#### 2. Trace-class perturbation route
+Suppose one seeks \(A=A_0+K\) where \(A_0\) is an explicitly diagonalizable self-adjoint operator (e.g., a Schrödinger operator with confining potential) and \(K\) is trace-class. The Lidskii theorem would give
+\[
+\sum_n\bigl(e^{-t\mu_n}-e^{-t\lambda_n(A_0)}\bigr)=\operatorname{Tr}(e^{-tA}-e^{-tA_0}),
+\]
+and the left-hand side could be matched to the explicit formula if the \(\mu_n\) were the ordinates of the zeros. The only kernels \(K\) that reproduce the von Mangoldt weights \(\Lambda(n)n^{-1/2}\) are nonlocal integral operators whose kernels involve \(\frac{\zeta'}{\zeta}(\frac12+it)\). Establishing that such a \(K\) is trace-class on the domain of \(A_0\) requires a zero-free strip or a bound on \(N(\sigma,T)\) sharper than what is presently known unconditionally; the best available density estimates still leave a gap of size \(T^{c(1-\sigma)^{3/2}/\log\log T}\) that is precisely the region where a counter-example zero could hide. Hence the trace-class property is not unconditional.
+
+#### 3. Circular dependence on the Guinand–Weil explicit formula
+All spectral interpretations ultimately rely on writing the distributional identity
+\[
+\sum_\rho f(\rho)=\int f(\tfrac12+it)\,d\bigl(\tfrac1{2\pi}\arg\xi(\tfrac12+it)\bigr)
+\]
+and interpreting the right-hand side as a spectral measure. The left-hand side is well-defined for test functions \(f\) of sufficient decay only after one already knows that \(\sum|\operatorname{Im}\rho|^{-1-\varepsilon}<\infty\), which follows from the order of \(\xi\) but does not force the real parts to equal \(\frac12\). Closing the argument requires positivity of a certain quadratic form on the test-function space (Weil’s positivity criterion). That positivity is known to be equivalent to RH; it is not implied by the mere existence of a self-adjoint operator whose spectral measure formally matches the right-hand side.
+
+#### Conclusion of the obstruction
+Every proposed operator either (a) fails to be self-adjoint on a domain that produces a discrete spectrum, (b) requires a trace-class or compactness condition that is currently proved only inside zero-free regions already known by classical methods, or (c) encodes Weil positivity and is therefore equivalent to RH. Consequently the Hilbert–Pólya strategy, while suggestive and consistent with all known statistics of the zeros, has not produced a reduction of RH to any theorem of operator theory that is independent of the location of the zeros. New progress would require an operator whose self-adjointness can be verified by purely functional-analytic means (e.g., via a Kato–Rellich perturbation with an explicitly summable resolvent difference) without a priori control on \(\zeta\).
+
+VERDICT: FAILED
+REASON: Obstruction analysis shows HP approach circularly requires RH-level input; no independent proof obtained.
