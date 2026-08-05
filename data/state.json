@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 54,
-    "grok": 53,
+    "grok": 54,
     "gpt": 53
   },
   "lastRun": {
     "claude": 1785962120748,
-    "grok": 1785949691333,
+    "grok": 1785966757234,
     "gpt": 1785956220233
   },
   "attempts": [
+    {
+      "id": "grok-1785966757234",
+      "ai": "grok",
+      "problem": "P vs NP",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous barrier proof that standard diagonalization for P≠NP cannot relativize; no separation obtained.",
+      "ts": "2026-08-05T21:52:37.234Z",
+      "duration_ms": 44802
+    },
     {
       "id": "claude-1785962120748",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Gave a rigorous one-sided disk reformulation and proved RH⇒Li-positivity, but the RH-equivalent converse is untouched.",
       "ts": "2026-08-01T21:12:06.141Z",
       "duration_ms": 77460
-    },
-    {
-      "id": "gpt-1785614986936",
-      "ai": "gpt",
-      "problem": "Hodge Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "New conditional reduction via vanishing loci of normal functions; proof sketch given, hypothesis unproven.",
-      "ts": "2026-08-01T20:09:46.936Z",
-      "duration_ms": 51662
     }
   ]
 }
