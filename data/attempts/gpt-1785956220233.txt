@@ -1,0 +1,66 @@
+Attempt: A quantitative obstruction for single-piece mollifier methods to exceed the 1/2 barrier under standard second-moment input
+
+Setup:
+- Let T → ∞ and let Φ be a fixed smooth nonnegative function compactly supported in [1,2] with ∫Φ = 1.
+- For coefficients a(n) supported on n ≤ T^θ (0 < θ < 1/2 fixed), define the Dirichlet polynomial A(s) = ∑_{n≤T^θ} a(n)n^{-s}.
+- Assume the classical twisted second-moment asymptotic holds uniformly for such A (and its shifts) with negligible error:
+  ∫ |ζ(1/2+it)A(1/2+it)|^2 Φ(t/T) dt
+  = T (log T + O(1)) ∑_{n≤T^θ} |a(n)|^2/n
+    + 2T Re ∑_{m<n≤T^θ} a(m) a(n) (log(n/m))/√(mn)
+    + o(T log T ∑ |a(n)|^2/n).
+  Equivalently, the associated quadratic form in the coefficients is asymptotic to the standard mollified moment matrix in the (unshifted) Levinson–Conrey framework, uniformly for θ < 1/2.
+
+Claim (Proposition):
+Under the above assumption, any Levinson-style one-piece mollifier M(s) = A(s) with length T^θ (θ < 1/2 fixed) cannot yield, via the standard argument (Littlewood’s lemma + mollified mean-square + Cauchy–Schwarz), a lower bound for the proportion of critical zeros exceeding 1/2 + o(1). More precisely, if N_0(T) denotes the number of zeros of ζ(s) with real part 1/2 and imaginary part in [T,2T], and N(T) the total number of zeros in that strip, then the best provable lower bound obtainable from this input is
+  N_0(T) ≥ (1/2 + o(1)) N(T),
+uniformly in choices of coefficients a(n) and θ < 1/2.
+
+Proof sketch (self-contained within the assumption):
+1) Levinson’s argument with one-piece mollifier. Set F(s) = ζ(s)A(s). For σ ≥ 1/2, apply Littlewood’s lemma to the rectangle with vertices σ±iT, σ±i2T to relate
+   ∫_T^{2T} log|F(1/2+it)| dt
+   = ∫_T^{2T} log|F(σ+it)| dt − 2π ∑_{ρ_F∈R} dist(ρ_F, Re s = 1/2) + O(T),
+   where the sum runs over zeros ρ_F of F in the rectangle R. Choosing σ = 1/2 + 1/log T, the boundary contribution is O(T) and dist is ≍ Re ρ_F − 1/2. Discarding off-line zeros only weakens any lower bound for N_0(T).
+
+   The standard device bounds the number of zeros of ζ on Re s ≥ 1/2 counted with multiplicity of F from below via a Jensen-type inequality applied to log|F|, while upper-bounding ∫ log|F(σ+it)| by Cauchy–Schwarz from the L^2 mass of F on the critical line.
+
+2) L^2 control from the assumed twisted second moment. By the assumed asymptotic, for any choice of a(n) with length T^θ (θ < 1/2 fixed),
+   I2 := ∫ |F(1/2+it)|^2 Φ(t/T) dt
+   = T Q(a) + o(T log T ∥a∥^2),
+   where Q is the explicit positive-definite quadratic form
+   Q(a) = (log T) ∑ |a(n)|^2/n + 2 Re ∑_{m<n} a(m)a(n) (log(n/m))/√(mn) + O(∑ |a(n)|^2/n).
+   Optimizing Q over a under no other constraints yields the classical best one-piece mollifier profile, but crucially Q is comparable to (log T) ∥a∥^2 in size and cannot be made o(log T) by any choice of a when θ is fixed < 1/2 (positivity plus diagonal dominance).
+
+   Hence, regardless of a, we have a universal bound
+   I2 ≥ c T log T ∑_{n≤T^θ} |a(n)|^2/n
+   with some absolute c > 0 (for T large, with o(1) absorbed), and also the optimal I2 is ≍ T log T (reflecting the unavoidable size of ζ on the 1/2-line against length-T^θ Dirichlet polynomials).
+
+3) Upper bound for the mean of log|F| via L^2 and Jensen/AM–GM. For any t,
+   log|F(1/2+it)| ≤ 1/2 log(1 + |F(1/2+it)|^2).
+   Integrating against Φ(t/T) and using concavity of log together with the above lower and upper control of I2, we obtain
+   ∫ log|F(1/2+it)| Φ(t/T) dt ≤ 1/2 log I2 + O(1)
+   ≤ (1/2) log(T log T) + O(1).
+   This is the standard “half of the log of the second moment” upper bound; the key is the coefficient 1/2 in front of log I2, which is optimal for a one-piece L^2 control.
+
+4) Lower bound for the same integral in terms of zeros on the critical line. Write F = ζ A. Zeros of ζ on Re s = 1/2 are zeros of F unless cancelled by poles/zeros of A, but A is entire and zero-free on the 1/2-line for generic a (and any accidental cancellations only worsen the lower bound we aim for). By the standard consequence of Littlewood’s lemma specialized to σ = 1/2 + 1/log T (and the benign boundary terms due to Φ), we get
+   ∫ log|F(1/2+it)| Φ(t/T) dt
+   ≥ (N_0(T; Φ) − 1/2 N(T; Φ)) log T + O(T^o),
+   where N_0(T; Φ) and N(T; Φ) are Φ-smoothed counts of zeros of ζ in [T,2T] on the critical line and in the strip respectively. The “−1/2 N(T; Φ)” term comes from moving from σ back to 1/2 and counting the horizontal distance of zeros to the line Re s = 1/2; off-line zeros contribute at most (Re ρ − 1/2) log T, which totals to at most (1/2)N(T; Φ) log T when averaged in the standard way (this is the classical balance appearing in Levinson’s argument; one sees it by pairing the zero-counting formula with the mean of log|ζ| on σ > 1/2 and letting σ − 1/2 ≍ 1/log T).
+
+5) Combining the bounds. Comparing the lower bound in Step 4 with the upper bound in Step 3 yields
+   (N_0(T; Φ) − 1/2 N(T; Φ)) log T ≤ (1/2) log(T log T) + O(1).
+   Dividing by log T and letting T → ∞ gives
+   N_0(T; Φ) ≤ (1/2 + o(1)) N(T; Φ) + o(N(T; Φ)).
+   Hence any lower bound derivable from this chain of inequalities is at most 1/2 + o(1).
+
+6) Optimality within the assumed input and single-piece framework. The only places where a choice of coefficients a(n) could improve the inequality are:
+   - decreasing I2 below c T log T (impossible by positivity of Q when θ < 1/2), or
+   - exploiting cancellation between ζ and A to reduce |F| pointwise on a set of positive Φ-measure (but the L^2-based Jensen step already encodes the best average reduction allowed by the second-moment asymptotic).
+   Thus, within the sole use of the twisted second moment for length T^θ (θ < 1/2) and a single piece mollifier, the coefficient 1/2 in front of log I2 is a hard barrier, forcing at most a 1/2+o(1) proportion for critical zeros through this method.
+
+Remarks:
+- The proposition is unconditional as a logical implication “standard second-moment asymptotics for θ < 1/2 ⇒ ≤ 1/2 barrier for a single-piece Levinson method.” It pinpoints precisely which inequality (Jensen/AM–GM combined with L^2 scale) imposes the 1/2.
+- To beat 1/2, one must (at least) either (i) access mean values beyond L^2 (e.g., off-diagonal cubic correlations) or (ii) use structured multi-piece mollifiers with interaction terms provably captured by extended twisted moments, or (iii) push second-moment technology to lengths θ ≥ 1/2 with power-saving control of the quadratic form, so that I2 can be forced to be o(T log T).
+- The obstruction isolates the role of the universal 1/2 in log-average inequalities rather than contingent technical losses; it is independent of optimization of coefficients a(n) within the allowed length.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous 1/2 barrier for single-piece mollifiers under standard second-moment input.

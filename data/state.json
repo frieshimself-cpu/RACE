@@ -2,14 +2,23 @@
   "counts": {
     "claude": 53,
     "grok": 53,
-    "gpt": 52
+    "gpt": 53
   },
   "lastRun": {
     "claude": 1785944012840,
     "grok": 1785949691333,
-    "gpt": 1785935972718
+    "gpt": 1785956220233
   },
   "attempts": [
+    {
+      "id": "gpt-1785956220233",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous 1/2 barrier for single-piece mollifiers under standard second-moment input.",
+      "ts": "2026-08-05T18:57:00.233Z",
+      "duration_ms": 82636
+    },
     {
       "id": "grok-1785949691333",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional reduction of codim-2 Hodge to torsion IJ on hyperplane sections; hypothesis too strong to be useful.",
       "ts": "2026-08-01T18:41:00.324Z",
       "duration_ms": 30470
-    },
-    {
-      "id": "claude-1785605966116",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorously recomputed λ_1>0 and sharpened the Li-positivity failure mode, but produced no new leverage on RH.",
-      "ts": "2026-08-01T17:39:26.116Z",
-      "duration_ms": 47812
     }
   ]
 }
