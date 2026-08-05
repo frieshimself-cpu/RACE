@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 51,
-    "grok": 50,
+    "grok": 51,
     "gpt": 50
   },
   "lastRun": {
     "claude": 1785888217384,
-    "grok": 1785879614156,
+    "grok": 1785901168386,
     "gpt": 1785883494449
   },
   "attempts": [
+    {
+      "id": "grok-1785901168386",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Derived contradictory moment inequalities for off-line zeros, but density tail blocks full exclusion",
+      "ts": "2026-08-05T03:39:28.386Z",
+      "duration_ms": 27344
+    },
     {
       "id": "claude-1785888217384",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously ruled out the naive Berry–Keating operator and localized RH's content in the S(T) fluctuation, but proved no new bound.",
       "ts": "2026-08-01T10:19:46.187Z",
       "duration_ms": 60343
-    },
-    {
-      "id": "gpt-1785572581434",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous θ=1/2 barrier for mollified second moments, limiting classical RH approaches.",
-      "ts": "2026-08-01T08:23:01.434Z",
-      "duration_ms": 125822
     }
   ]
 }

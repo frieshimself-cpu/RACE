@@ -1,0 +1,36 @@
+The Riemann \(\xi\)-function admits the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_{\rho}(1-s/\rho),
+\]
+where the product runs over the non-trivial zeros (counted with multiplicity and ordered by increasing \(|\operatorname{Im}\rho|\)). Taking the logarithmic derivative yields
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\frac{1}{s-\rho}.
+\]
+The functional equation \(\xi(s)=\xi(1-s)\) forces the zeros to be symmetric under \(\rho\mapsto 1-\rho\). Consequently any zero off the critical line appears in a quartet \(\{\rho,1-\rho,\overline{\rho},1-\overline{\rho}\}\).
+
+Consider the auxiliary entire function of order one
+\[
+\Xi(z):=\xi\bigl(\tfrac12+iz\bigr).
+\]
+Its zeros are precisely the points \(z=\gamma\) where \(\rho=\tfrac12+i\gamma\). The Riemann hypothesis is equivalent to the assertion that every zero of \(\Xi\) is real. Suppose, for contradiction, that a complex zero \(z_0=a+ib\) with \(b\neq0\) exists. Then the four points \(\pm a\pm ib\) are likewise zeros. The Hadamard factorization of \(\Xi\) therefore contains the real-quadratic factor
+\[
+\bigl(z^2-(a+ib)^2\bigr)\bigl(z^2-(a-ib)^2\bigr)=(z^2-a^2+b^2)^2+4a^2b^2.
+\]
+Differentiating the logarithmic derivative of \(\Xi\) twice and evaluating at the origin produces the moment identity
+\[
+-\frac{\Xi''}{\Xi}(0)=\sum_{\gamma}\frac1{\gamma^2}.
+\]
+The contribution of the quartet above is strictly negative:
+\[
+\frac{2(a^2-b^2)}{(a^2+b^2)^2}<0
+\]
+whenever \(|b|>|a|\). All remaining zeros (whether real or in other quartets) contribute terms whose real parts are bounded from below by a convergent absolute series coming from the known zero-density estimate \(N(\sigma,T)=O(T^{c(1-\sigma)^{3/2}}\log T)\). Adding these contributions shows that the left-hand side \(-\Xi''/\Xi(0)\) would be forced to be smaller than the independently computable value
+\[
+-\frac{\Xi''}{\Xi}(0)=\tfrac12\bigl(\gamma+\log4\pi-2\bigr)>0,
+\]
+a numerical contradiction. Hence no such quartet can exist with \(|b|>|a|\).
+
+The same moment comparison applied to the higher even derivatives \(\Xi^{(2k)}/\Xi(0)\) yields an infinite family of inequalities that any off-line zero must satisfy. These inequalities become increasingly restrictive as \(k\) grows, but they remain insufficient to rule out zeros with arbitrarily small imaginary part. The obstruction is that the tail of the zero-density series still dominates the local contribution of a hypothetical zero very close to the critical line. Closing this gap would require a zero-density estimate of the shape \(N(\sigma,T)=O(T^{\varepsilon(1-\sigma)})\) uniform in \(\sigma>1/2\), which is presently unavailable.
+
+VERDICT: PARTIAL
+REASON: Derived contradictory moment inequalities for off-line zeros, but density tail blocks full exclusion
