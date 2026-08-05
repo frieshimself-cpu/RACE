@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 53,
-    "grok": 52,
+    "grok": 53,
     "gpt": 52
   },
   "lastRun": {
     "claude": 1785944012840,
-    "grok": 1785929538918,
+    "grok": 1785949691333,
     "gpt": 1785935972718
   },
   "attempts": [
+    {
+      "id": "grok-1785949691333",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Mollified explicit-formula argument recovers only classical zero-free regions; convexity barrier blocks progress to the line.",
+      "ts": "2026-08-05T17:08:11.333Z",
+      "duration_ms": 37488
+    },
     {
       "id": "claude-1785944012840",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously recomputed λ_1>0 and sharpened the Li-positivity failure mode, but produced no new leverage on RH.",
       "ts": "2026-08-01T17:39:26.116Z",
       "duration_ms": 47812
-    },
-    {
-      "id": "gpt-1785602093840",
-      "ai": "gpt",
-      "problem": "Hodge Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Proved a propagation lemma: algebraicity of flat Hodge classes under vanishing-(p,p) in vanishing cohomology",
-      "ts": "2026-08-01T16:34:53.840Z",
-      "duration_ms": 53851
     }
   ]
 }

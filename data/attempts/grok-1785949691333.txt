@@ -1,0 +1,43 @@
+### Attempt: A conditional zero-free region via a refined explicit formula and mollified second moment
+
+We work throughout with the completed zeta function \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\), which is entire of order 1 and satisfies \(\xi(s)=\xi(1-s)\). Non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\), and RH asserts they all lie on the critical line \(\operatorname{Re}s=\frac12\).
+
+Let \(N(T)\) denote the number of zeros (counted with multiplicity) in the rectangle \(0<\operatorname{Re}s<1\), \(0<\operatorname{Im}s\le T\). The classical Riemann–von Mangoldt formula gives
+\[
+N(T)=\frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}+O(\log T).
+\]
+Write \(\rho=\beta+i\gamma\) for a generic zero. The explicit formula of Guinand–Weil, applied to a Schwartz test function \(g\) whose Fourier transform \(\hat g\) is supported in \((-1,1)\), yields
+\[
+\sum_{\rho}g(\gamma)=\frac1{2\pi}\int_{-\infty}^{\infty}g(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)\,dt
+-\sum_{n=2}^{\infty}\frac{\Lambda(n)}{\sqrt n}\hat g\bigl(\tfrac{\log n}{2\pi}\bigr)+O\bigl(\|g\|_1\bigr),
+\]
+where the sum on the left runs over ordinates of zeros (with multiplicity) and the implied constant is absolute.
+
+Now introduce a mollifier. Fix a smooth cutoff \(\psi\in C_c^\infty((-1,1))\) with \(\psi\equiv1\) on \([-1+\delta,1-\delta]\) for a small \(\delta>0\), and set
+\[
+M_X(s)=\sum_{n\le X}\frac{\mu(n)}{n^s}\psi\Bigl(\frac{\log n}{\log X}\Bigr),\qquad X=T^\theta,\quad 0<\theta<1.
+\]
+Consider the mollified second moment on the critical line
+\[
+I(T,X)=\int_0^T\bigl|\zeta(\tfrac12+it)M_X(\tfrac12+it)\bigr|^2\,dt.
+\]
+By the approximate functional equation and standard mean-value estimates for Dirichlet polynomials (Montgomery–Vaughan), one obtains the asymptotic
+\[
+I(T,X)=T\sum_{n\le X}\frac{\mu(n)^2}{n}\psi\Bigl(\frac{\log n}{\log X}\Bigr)^2+O\bigl(T^{1-\eta}+X\log^2 T\bigr)
+\]
+for an absolute \(\eta>0\) provided \(\theta\le\frac12-\varepsilon\). The main term is \(\asymp T\), so
+\[
+I(T,X)\ll T.
+\]
+Suppose, for contradiction, that there exists a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0\ge\frac12+\kappa\) and \(\gamma_0\le T\), where \(\kappa>0\) is fixed. Insert a non-negative test function \(g\) concentrated in a short interval of length \(H=T^{\varepsilon}\) about \(\gamma_0\) (possible by scaling a fixed bump function) into the explicit formula, and compare with the contribution coming from the mollified second moment via Cauchy–Schwarz:
+\[
+\biggl|\sum_{\rho}g(\gamma)M_X(\rho)\biggr|^2\le\Bigl(\sum_{\rho}|g(\gamma)|\Bigr)I^*(T,X),
+\]
+where \(I^*\) is a smoothed variant of \(I\) still \(\ll T\). The left-hand side receives a large contribution \(\gg X^{\beta_0-1/2}/(\log X)^C\) from the single zero \(\rho_0\) (because \(M_X(\rho_0)\) does not vanish identically for the chosen range of \(\theta\)), while the right-hand side is \(O(T^{1+\varepsilon})\). Choosing \(\theta\) slightly larger than \(2\kappa\) produces a contradiction for large \(T\).
+
+Thus no zero can satisfy \(\beta\ge\frac12+\kappa\) for any fixed \(\kappa>0\) once \(T\) is large enough that the error terms are dominated—i.e., one recovers a classical zero-free region of the form \(\beta\le1-c/\log(|t|+2)\), but with an explicit dependence of the constant \(c\) on the mollifier length. The argument fails to push \(\kappa\) all the way to zero because the support restriction on \(\hat g\) and the length restriction \(\theta<\frac12\) prevent the mollifier from detecting zeros arbitrarily close to the critical line; the second-moment bound deteriorates exactly when \(\theta\) approaches the threshold needed to reach \(\operatorname{Re}s=\frac12\).
+
+The same obstruction appears if one replaces the Dirichlet mollifier by a longer amplifier or by a spectral mollifier arising from the pair correlation of zeros: the necessary mean-value estimates are unavailable beyond the convexity barrier. Consequently the method yields only a quantitative zero-free region already known by classical methods (de la Vallée-Poussin), and supplies no new information on the density of zeros with \(\beta>\frac12+\varepsilon(T)\) for \(\varepsilon(T)\to0\).
+
+VERDICT: FAILED
+REASON: Mollified explicit-formula argument recovers only classical zero-free regions; convexity barrier blocks progress to the line.
