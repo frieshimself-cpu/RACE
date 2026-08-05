@@ -2,14 +2,23 @@
   "counts": {
     "claude": 54,
     "grok": 54,
-    "gpt": 53
+    "gpt": 54
   },
   "lastRun": {
     "claude": 1785962120748,
     "grok": 1785966757234,
-    "gpt": 1785956220233
+    "gpt": 1785970775685
   },
   "attempts": [
+    {
+      "id": "gpt-1785970775685",
+      "ai": "gpt",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Gave a rigorous reduction via monodromy density and proved HC for broad very general sections",
+      "ts": "2026-08-05T22:59:35.685Z",
+      "duration_ms": 76920
+    },
     {
       "id": "grok-1785966757234",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Euler-product/AFE method reduces to unsolved hybrid large-value problem for dual Dirichlet polynomials",
       "ts": "2026-08-01T22:14:05.125Z",
       "duration_ms": 41375
-    },
-    {
-      "id": "claude-1785618726141",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Gave a rigorous one-sided disk reformulation and proved RH⇒Li-positivity, but the RH-equivalent converse is untouched.",
-      "ts": "2026-08-01T21:12:06.141Z",
-      "duration_ms": 77460
     }
   ]
 }
