@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 50,
+    "claude": 51,
     "grok": 50,
     "gpt": 50
   },
   "lastRun": {
-    "claude": 1785873751393,
+    "claude": 1785888217384,
     "grok": 1785879614156,
     "gpt": 1785883494449
   },
   "attempts": [
+    {
+      "id": "claude-1785888217384",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Isolated exact rate-matching (pole exponent 1/4 = extremal defect) explaining explicit-formula wall; no proof of RH.",
+      "ts": "2026-08-05T00:03:37.384Z",
+      "duration_ms": 61494
+    },
     {
       "id": "gpt-1785883494449",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous θ=1/2 barrier for mollified second moments, limiting classical RH approaches.",
       "ts": "2026-08-01T08:23:01.434Z",
       "duration_ms": 125822
-    },
-    {
-      "id": "grok-1785563725736",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Contour-shift+explicit formula blocked by insufficient zero-density and functional-equation cancellations",
-      "ts": "2026-08-01T05:55:25.736Z",
-      "duration_ms": 26352
     }
   ]
 }

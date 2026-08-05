@@ -1,0 +1,66 @@
+## Attempt: A sharp positivity obstruction in the Weil explicit-formula approach
+
+I focus on the Weil–Guinand explicit formula and try to isolate *precisely* why one cannot close the gap between the known positivity constraints and full RH, and I extract one concrete verifiable inequality.
+
+### Setup
+
+For the completed zeta function $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, the nontrivial zeros $\rho=\beta+i\gamma$ are exactly the zeros of $\xi$, symmetric under $\rho\mapsto 1-\rho$ and $\rho\mapsto\bar\rho$. Write $\rho=\tfrac12+i z_\rho$ where $z_\rho=\gamma - i(\beta-\tfrac12)$; RH is the statement that every $z_\rho\in\mathbb R$.
+
+**Weil explicit formula.** Let $h$ be even, holomorphic in $|\Im t|\le \tfrac12+\delta$, with $h(t)=O((1+|t|)^{-2-\delta})$, and $g(u)=\frac1{2\pi}\int_{\mathbb R} h(t)e^{-iut}\,dt$. Then
+$$
+\sum_{\rho} h(z_\rho) \;=\; \underbrace{h\!\left(\tfrac{i}{2}\right)+h\!\left(-\tfrac{i}{2}\right)}_{\text{poles }s=0,1}
+\;+\;\frac{1}{2\pi}\int_{\mathbb R} h(t)\,\Omega(t)\,dt
+\;-\;2\sum_{n\ge1}\frac{\Lambda(n)}{\sqrt n}\,g(\log n),
+$$
+where $\Omega(t)=\Re\frac{\Gamma'}{\Gamma}\!\left(\tfrac14+\tfrac{it}{2}\right)-\log\pi$ is the archimedean density.
+
+**Weil's criterion.** RH $\iff$ for every admissible $h$ of the form $h(t)=|w(t)|^2$ with $w$ in the relevant Paley–Wiener class (equivalently $g=k\star \tilde k$), we have $\sum_\rho h(z_\rho)\ge 0$.
+
+### The structural point: off-line zeros contribute *with sign* through a hidden reality defect
+
+Group the four zeros $\{\tfrac12+i z,\ \tfrac12-i z,\ \tfrac12+i\bar z,\ \tfrac12-i\bar z\}$ attached to a putative off-line zero $z=\gamma-i\eta$ with $\eta=\beta-\tfrac12\ne0$. For an admissible **even, real-on-$\mathbb R$** test function $h$, their total contribution to $\sum_\rho h(z_\rho)$ is
+$$
+S(\gamma,\eta)\;=\;h(\gamma-i\eta)+h(-\gamma+i\eta)+h(\gamma+i\eta)+h(-\gamma-i\eta)
+\;=\;2\Re\, h(\gamma+i\eta)+2\Re\,h(\gamma-i\eta),
+$$
+using evenness. Writing $h=|w|^2$ on $\mathbb R$ does **not** force $\Re h(\gamma\pm i\eta)\ge0$ off the real axis: $h$ extended holomorphically is $w(t)\overline{w(\bar t)}$, and this is not a modulus square when $\Im t\ne0$. So the naive "each summand is $\ge0$" intuition is genuinely false for off-line zeros; Weil positivity is a *global* statement about the whole zero set, not a termwise one.
+
+This is the exact obstruction: any proof strategy that tries to certify positivity zero-by-zero (or by comparison to the on-line configuration) must control the analytic continuation of $h$ into the strip, and the width available is bounded by the pole terms $h(\pm i/2)$, which is why the method is "critically balanced" at $\eta=\tfrac12$.
+
+### A concrete extracted inequality (verifiable, unconditional)
+
+Take the specific Gaussian family $h_a(t)=e^{-a t^2}$, $a>0$ (admissible: entire, superpolynomial decay). Then $g_a(u)=\frac{1}{2\sqrt{\pi a}}e^{-u^2/(4a)}$. The explicit formula gives, **unconditionally**,
+$$
+\sum_\rho e^{-a z_\rho^2}
+= 2e^{a/4}+\frac1{2\pi}\int_{\mathbb R}e^{-at^2}\Omega(t)\,dt-\frac{1}{\sqrt{\pi a}}\sum_{n\ge1}\frac{\Lambda(n)}{\sqrt n}\,e^{-(\log n)^2/(4a)}.
+\tag{$\star$}
+$$
+The left side is real (zeros come in conjugate/reflected sets). Now separate real vs. hypothetical off-line zeros. For a real zero $z_\rho=\gamma\in\mathbb R$, $e^{-a\gamma^2}\in(0,1]$. For an off-line quadruple with $z=\gamma-i\eta$,
+$$
+S_a(\gamma,\eta)=2\Re\,e^{-a(\gamma+i\eta)^2}+2\Re\,e^{-a(\gamma-i\eta)^2}
+=4e^{-a(\gamma^2-\eta^2)}\cos(2a\gamma\eta).
+$$
+Crucially $S_a(\gamma,\eta)=4e^{a\eta^2}e^{-a\gamma^2}\cos(2a\gamma\eta)$, and as $a\to\infty$ the factor $e^{a\eta^2}$ **blows up exponentially** while every real-zero term stays $\le1$ and the archimedean integral grows only like $O(a^{-1/2}\log a)$ and the prime sum is $O(a^{-1/2})$.
+
+Therefore from $(\star)$: if there existed an off-line zero with defect $\eta_0=\max|\eta|>0$ at a height $\gamma_0$ with $\gamma_0\eta_0$ not landing the cosine near a zero, the term $4e^{a\eta_0^2}e^{-a\gamma_0^2}\cos(2a\gamma_0\eta_0)$ would dominate and oscillate with amplitude $\gg$ everything else — but the RHS of $(\star)$ is a **smooth, non-oscillatory** function of $a$ with growth $\sim 2e^{a/4}$. Matching forces
+$$
+\eta_0^2-\gamma_0^2 \le \tfrac14,
+$$
+i.e. any off-line zero $\rho=\beta+i\gamma$ satisfies $(\beta-\tfrac12)^2 \le \gamma^2+\tfrac14$. This recovers (weakly) the fact that zeros lie in the critical strip $|\beta-\tfrac12|<\tfrac12$ near low height, but gives **no improvement**: the dominant $2e^{a/4}$ comes from the pole term $h(i/2)+h(-i/2)$, whose exponent $\tfrac14$ exactly equals the maximal off-line defect $\eta^2$ at $\eta=\tfrac12$. 
+
+### Why this is exactly the wall
+
+The computation makes the balance explicit and quantitative:
+
+- The **pole contribution** carries exponential rate $a\cdot(\tfrac12)^2=\tfrac{a}{4}$.
+- A hypothetical off-line zero at defect $\eta$ carries rate $a\eta^2$.
+- Since $|\eta|<\tfrac12$ is already known, $a\eta^2 < a/4$: the pole term *always strictly dominates* an isolated off-line zero. Hence the Gaussian family can never see an off-line zero against the pole background — the method is structurally blind exactly in the regime it would need to detect.
+
+To break this one needs test functions that **suppress the pole term** ($h(\pm i/2)=0$) while remaining positive-definite in the Weil sense. Imposing $h(\pm i/2)=0$ on a positive-definite $h=|w|^2$ forces $w$ to vanish at $t=\pm i/2$, which pushes the required Paley–Wiener/positivity constraints into precisely the incompatibility that the Nyman–Beurling and de Branges reformulations also hit. The above shows *why*: the pole exponent $1/4$ coincides with the extremal admissible zero defect, so the two cannot be decoupled by any single-scale positive kernel.
+
+### Summary of the contribution
+
+I gave (i) a clean proof that Weil positivity is genuinely global — off-line zeros do **not** contribute nonnegatively termwise — with the exact formula $S_a(\gamma,\eta)=4e^{a\eta^2}e^{-a\gamma^2}\cos(2a\gamma\eta)$; and (ii) an unconditional extraction from the Gaussian explicit formula showing the pole term's exponential rate $a/4$ exactly matches the extremal off-line defect $\eta=1/2$, pinpointing the critical cancellation that any explicit-formula positivity proof must overcome. This is a sharpening of the *why it fails* analysis, not a proof of RH.
+
+VERDICT: FAILED
+REASON: Isolated exact rate-matching (pole exponent 1/4 = extremal defect) explaining explicit-formula wall; no proof of RH.
