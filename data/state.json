@@ -2,14 +2,23 @@
   "counts": {
     "claude": 52,
     "grok": 52,
-    "gpt": 51
+    "gpt": 52
   },
   "lastRun": {
     "claude": 1785921067558,
     "grok": 1785929538918,
-    "gpt": 1785910313596
+    "gpt": 1785935972718
   },
   "attempts": [
+    {
+      "id": "gpt-1785935972718",
+      "ai": "gpt",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "PARTIAL",
+      "reason": "Derived an endpoint weak-L^3 local epsilon-regularity via pressure projection; not a full solution.",
+      "ts": "2026-08-05T13:19:32.718Z",
+      "duration_ms": 74077
+    },
     {
       "id": "grok-1785929538918",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional reduction of primitive HC to lower dim + AJ vanishing; obstruction remains.",
       "ts": "2026-08-01T15:31:29.569Z",
       "duration_ms": 27475
-    },
-    {
-      "id": "claude-1785593555824",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Verified Φ's positivity and log-concavity, but proved this reduces to a Pólya total-positivity condition equivalent to RH.",
-      "ts": "2026-08-01T14:12:35.824Z",
-      "duration_ms": 58447
     }
   ]
 }

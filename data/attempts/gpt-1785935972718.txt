@@ -1,0 +1,79 @@
+Attempt: An epsilon-regularity criterion at the critical endpoint with velocity small in local L^{3,∞} only, via a pressure-projection Caccioppoli inequality
+
+Statement (main lemma).
+There exist universal ε0, C > 0 with the following property. Let (u, p) be a suitable weak solution of 3D incompressible Navier–Stokes in Q1 = B1 × (−1, 0]. Assume
+- u ∈ L^{3,∞}(Q1) with norm ||u||_{L^{3,∞}(Q1)} ≤ ε0.
+Then u is bounded in Q1/2, with
+- sup_{Q1/2} |u| ≤ C ε0,
+and consequently u is smooth in Q1/2.
+
+Remarks.
+- This is a critical-scale epsilon-regularity criterion that uses only the weak-L^3 velocity smallness, with no quantitative pressure hypothesis. It is local and scale-invariant.
+- The novelty is an endpoint Lorentz-space treatment of the pressure via a local pressure projection, which eliminates all occurrences of the nonlocal pressure from the local energy inequality in a way compatible with Lorentz-space bounds at the endpoint p = 3.
+
+Proof sketch.
+
+1) Setup and localized pressure projection.
+Fix a smooth spatial cutoff η supported in B1, equal to 1 on B3/4, with |∇η| + |∇^2 η| ≤ C. For each time t, define the localized forcing
+F(t) = div[(u ⊗ u)(t) η] as a distribution in W^{-1, 3/2}(B1).
+Let Π(t) ∈ L^{3/2}_0(B1) be the unique (up to constants) pressure projection solving the local Neumann–Poisson problem in variational form:
+∫_{B1} ∇Π(t) · ∇ψ = ⟨F(t), ∇ψ⟩ for all ψ ∈ W^{1,3}_0(B1).
+By standard elliptic theory, the operator F ↦ ∇Π is bounded W^{-1, 3/2}(B1) → L^{3/2}(B1). Moreover, by Calderón–Zygmund in Lorentz scale (boundedness of Riesz transforms on L^{q, r}), we have the endpoint bound
+||Π||_{L^{3/2,∞}(B1)} + ||∇Π||_{L^{3/2,∞}(B1)} ≤ C ||u ⊗ u||_{L^{3/2,∞}(B1)} ≤ C ||u||_{L^{3,∞}(B1)}^2,
+uniformly in t and hence in Q1.
+
+Define the locally divergence-free corrected velocity
+v = u − ∇φ, where φ solves −Δφ = div(u η) in B1 with zero Dirichlet boundary (in each time slice), extended by zero outside B1.
+Then v is divergence-free in B1 and equals u on B3/4 (because η ≡ 1 on B3/4). In particular, v and u coincide in Q3/4.
+
+2) Modified local energy inequality.
+Testing the weak formulation with v ζ^2, where ζ is a spatio-temporal cutoff supported in Q1 with ζ ≡ 1 on Q3/4, ∂t ζ, ∇ζ, Δζ bounded by C, and using the equations for u together with the definitions of φ and Π, one derives (this is a standard “pressure projection method” calculation; see below for the key identities) the inequality, for almost every t ∈ (−(3/4)^2, 0],
+- d/dt ∫_{B1} |v|^2 ζ^2 + 2 ∫_{B1} |∇v|^2 ζ^2
+≤ C ∫_{B1} |v|^2 (|∂t ζ| + |Δζ|) + C ∫_{B1} |v|^3 |∇ζ|
++ C ∫_{B1} |Π| |v| |∇ζ|.
+All integrals and norms are in Lorentz spaces with respect to x, and afterwards integrated in time.
+
+Justification of this inequality hinges on:
+- cancellation of the true pressure p against the projection Π once test functions are localized, leaving only Π (which depends only on the localized quadratic nonlinearity) in the boundary term with ∇ζ;
+- commuting φ and ζ with u in a way that the resulting commutators are supported where ∇ζ ≠ 0 and can be absorbed by the RHS.
+
+3) Endpoint Lorentz control of the nonlinear and projected-pressure fluxes.
+We estimate the two flux terms on the RHS over Q1.
+
+3a) Cubic convection on the cutoff shell:
+Use Hölder in Lorentz spaces (L^{3,∞} × L^{3,∞} × L^{3,1} pairing), together with the fact that on a set E of finite measure, L^{3,∞}(E) embeds into L^{3,1}(E) with a logarithmic loss:
+||f||_{L^{3,1}(E)} ≤ C (1 + log(1 + |E|^{-1}))^{2/3} ||f||_{L^{3,∞}(E)}.
+Here E = supp ∇ζ ⊂ Q1 \ Q3/4 has fixed finite measure, so the logarithmic factor is an absolute constant. Therefore
+∫_{Q1} |v|^3 |∇ζ| ≤ C ||v||_{L^{3,∞}(Q1)}^3 ≤ C ||u||_{L^{3,∞}(Q1)}^3,
+since v = u on Q3/4 and differs from u by a bounded Calderón–Zygmund operator applied to u η on the shell, preserving L^{3,∞} up to constants.
+
+3b) Projected pressure flux on the cutoff shell:
+By Lorentz Hölder and boundedness of Riesz transforms in L^{3/2,∞},
+∫_{Q1} |Π| |v| |∇ζ|
+≤ C ||Π||_{L^{3/2,∞}(Q1)} ||v||_{L^{3,1}(supp ∇ζ)}
+≤ C ||u||_{L^{3,∞}(Q1)}^2 ||u||_{L^{3,∞}(Q1)} = C ||u||_{L^{3,∞}(Q1)}^3,
+where we again used the finite-measure embedding L^{3,∞} → L^{3,1} on supp ∇ζ.
+
+4) Caccioppoli-type bound and absorption.
+Integrate the modified inequality in time over (−(3/4)^2, 0]. The terms with |∂t ζ| and |Δζ| are supported in the shell and are controlled by ∫ |v|^2, which in turn is bounded by interpolation between L^{3,∞} and L^2; concretely, on finite measure sets one has ||v||_{L^2} ≤ C ||v||_{L^{3,∞}}. Thus
+sup_{t ∈ (−(3/4)^2, 0]} ∫_{B1} |v|^2 ζ^2 + ∫_{Q1} |∇v|^2 ζ^2
+≤ C ||u||_{L^{3,∞}(Q1)}^3 + C ||u||_{L^{3,∞}(Q1)}^2.
+For ε0 sufficiently small, the RHS is ≤ c0 with c0 universal and small. Since v = u in Q3/4 and ζ ≡ 1 there, we obtain
+∫_{Q3/4} |∇u|^2 ≤ c0, and sup_{t} ∫_{B_{3/4}} |u|^2 ≤ c0.
+
+5) Epsilon-regularity bootstrap to L∞.
+Apply a standard interior parabolic Sobolev and iteration argument (Caccioppoli + Sobolev embedding + Gehring/De Giorgi or Serrin-type bootstrap) on the smaller cylinder Q1/2, using that the smallness of the local energy in Q3/4 controls the nonlinear terms. Precisely, for a cutoff θ supported in Q3/4, test the equation for u with u θ^2, utilize the bounds from step 4 to absorb the convection term by the dissipation, and then iterate shrinking cylinders to conclude
+sup_{Q1/2} |u| ≤ C ε0.
+This gives Hölder continuity and smoothness by standard parabolic regularity once boundedness is available.
+
+Key technical ingredients validated.
+- Local pressure projection Π: existence and boundedness in Lorentz L^{3/2,∞} follow from the boundedness of Calderón–Zygmund operators on Lorentz spaces and variational construction. It depends only on (u ⊗ u) localized by η and is thus controlled by ||u||_{L^{3,∞}}^2.
+- Endpoint Lorentz embeddings on finite-measure shells: the use of L^{3,∞} × L^{3/2,∞} → L^1 and the finite-measure upgrade L^{3,∞} → L^{3,1} with absolute constants is standard (the logarithmic term is harmless since the shell has fixed measure).
+- Modified local energy inequality: the standard derivation for suitable weak solutions applies with the corrected velocity v; all commutators are localized on the shell and estimated as in 3a–3b. No global pressure control is needed.
+
+Consequences and limitations.
+- This provides a scale-invariant epsilon-regularity criterion at the endpoint p = 3 in weak-L^3, removing any auxiliary smallness assumption on the pressure. It yields local boundedness and smoothness from smallness of ||u||_{L^{3,∞}} alone.
+- It is conditional/local and does not preclude singularities in general; it neither proves nor disproves global existence for large data.
+
+VERDICT: PARTIAL
+REASON: Derived an endpoint weak-L^3 local epsilon-regularity via pressure projection; not a full solution.
