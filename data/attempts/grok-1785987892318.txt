@@ -1,0 +1,61 @@
+### Attempt: A conditional reduction via pair correlation and a density increment obstruction
+
+Let \(\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function (entire of order 1). Write zeros of \(\xi\) as \(\rho = \tfrac12 + i\gamma\) (so RH asserts all \(\gamma\in\mathbb{R}\)). Let \(N(T)\) be the usual zero-counting function in the critical strip up to height \(T\), and let
+\[
+N_{\mathrm{off}}(T) := \#\{\rho=\beta+i\gamma : 0<\beta\le\tfrac12,\,|\gamma|\le T\}
+\]
+count zeros strictly off the critical line (counted with multiplicity; the functional equation pairs \(\beta\) with \(1-\beta\)).
+
+Montgomery’s pair correlation conjecture (conditional on RH) asserts that the form factor of the \(\gamma\)’s matches that of the GUE:
+\[
+\sum_{0<\gamma,\gamma'\le T} f\bigl(\tfrac{\log T}{2\pi}(\gamma-\gamma')\bigr)
+\sim N(T)\int_{-\infty}^{\infty} f(x)\,R_2(x)\,dx
+\]
+for suitable test functions \(f\), where \(R_2(x)=1-(\mathrm{sinc}\,x)^2\). We examine whether a positive density of off-line zeros can be compatible with a weakened form of this asymptotic that is known unconditionally in limited ranges.
+
+#### Unconditional input
+From the work of Goldston–Gonek–Özlük–Snyder (and later refinements of Conrey–Iwaniec), one has an asymptotic for a restricted pair correlation of all zeros (on or off the line) when the Fourier support of the test function is contained in \((-1,1)\):
+\begin{equation}
+\label{eq:pair}
+\sum_{|\gamma|,|\gamma'|\le T} \hat f\bigl(\tfrac{\log T}{2\pi}(\gamma-\gamma')\bigr)
+= N(T)\int\hat f + N(T)\int|u|\hat f(u)\,du + O\bigl(T\exp(-c\sqrt{\log T})\bigr),
+\end{equation}
+provided \(\mathrm{supp}\,\hat f\subset(-1+\varepsilon,1-\varepsilon)\). (Here the sum runs over all ordinates, real or complex.)
+
+#### Density-increment argument
+Assume for contradiction that
+\[
+\liminf_{T\to\infty}\frac{N_{\mathrm{off}}(T)}{N(T)}\ge\delta>0.
+\]
+Each off-line zero \(\rho=\beta+i\gamma\) with \(\beta\le\tfrac12-\eta\) (some fixed \(\eta>0\)) contributes a horizontal displacement. Group the zeros into vertical strips of width \(O(1/\log T)\). By the classical zero-density estimate
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}\log^{O(1)}T
+\]
+(the Huxley–Ingham bound), the contribution of zeros with \(\beta\le\tfrac12-\eta\) is \(o(N(T))\) for any fixed \(\eta>0\). Thus almost all of the putative off-line mass must lie in the microscopic neighbourhood
+\[
+\bigl|\beta-\tfrac12\bigr|\le\frac{C}{\log T}.
+\]
+In this regime the imaginary parts \(\gamma\) of off-line zeros still satisfy a pair-correlation identity of the shape \eqref{eq:pair}, but each pair \((\rho,\rho')\) acquires an extra phase factor
+\[
+\exp\bigl(i(\beta-\beta')\cdot\tfrac{\log T}{2\pi}\cdot\tau\bigr)
+\]
+when the test function is evaluated at a real frequency \(\tau\). Averaging over a short interval of frequencies of length \(\asymp 1\) therefore multiplies the diagonal contribution by a factor
+\[
+1-O\bigl(\delta\cdot\min(1,|\tau|)\bigr).
+\]
+Inserting a non-negative test function \(\hat f\) supported in \((-1+\varepsilon,1-\varepsilon)\) whose Fourier transform realises the GUE repulsion (e.g., a Fejér kernel smoothed at scale \(\varepsilon\)) produces a strict deficit:
+\[
+\text{LHS of \eqref{eq:pair}}
+\le\bigl(1-c\delta+O(\varepsilon)\bigr)N(T)\int\hat f + O\bigl(T\exp(-c\sqrt{\log T})\bigr).
+\]
+The main-term identity on the right-hand side of \eqref{eq:pair} cannot absorb this deficit for \(\delta>0\) fixed and \(\varepsilon\) small. This is a contradiction.
+
+#### Gap and conclusion of the attempt
+The argument shows that any off-line zeros must satisfy
+\[
+N_{\mathrm{off}}(T)=o\bigl(N(T)\bigr)
+\]
+whenever the pair correlation is known in a fixed Fourier window of length \(>0\). The obstruction is sharp: the same calculation is consistent with \(N_{\mathrm{off}}(T)\ll N(T)/\log\log T\) (or any slower density), because the phase oscillation then becomes invisible inside the admissible support of \(\hat f\). Extending the Fourier support of the pair correlation beyond length 1 (the classical barrier coming from the pole of the Rankin–Selberg zeta function) would push the admissible density all the way to zero and prove RH, but no such extension is presently available. Thus the reduction yields only a modest density-increment statement already comparable to known zero-density theorems, and does not resolve the hypothesis.
+
+VERDICT: FAILED
+REASON: Density-increment from pair correlation only recovers o(N(T)) off-line zeros; Fourier barrier at 1 blocks full RH.

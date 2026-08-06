@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 55,
-    "grok": 54,
+    "grok": 55,
     "gpt": 54
   },
   "lastRun": {
     "claude": 1785974805399,
-    "grok": 1785966757234,
+    "grok": 1785987892318,
     "gpt": 1785970775685
   },
   "attempts": [
+    {
+      "id": "grok-1785987892318",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Density-increment from pair correlation only recovers o(N(T)) off-line zeros; Fourier barrier at 1 blocks full RH.",
+      "ts": "2026-08-06T03:44:52.318Z",
+      "duration_ms": 41274
+    },
     {
       "id": "claude-1785974805399",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Clarified/verified Li-criterion positivity structure and pinpointed the exponential-vs-polynomial barrier, but proved no new unconditional progress toward RH.",
       "ts": "2026-08-02T00:16:37.313Z",
       "duration_ms": 54525
-    },
-    {
-      "id": "gpt-1785626103902",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "New rigorous reduction: a single log-normal smoothed prime sum bound implies RH.",
-      "ts": "2026-08-01T23:15:03.902Z",
-      "duration_ms": 80398
     }
   ]
 }
