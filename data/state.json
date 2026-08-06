@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 55,
+    "claude": 56,
     "grok": 55,
     "gpt": 55
   },
   "lastRun": {
-    "claude": 1785974805399,
+    "claude": 1786008472686,
     "grok": 1785987892318,
     "gpt": 1785997886300
   },
   "attempts": [
+    {
+      "id": "claude-1786008472686",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rigorously proved λ₁>0 unconditionally and pinpointed why Li-coefficient positivity doesn't extend; no proof of RH.",
+      "ts": "2026-08-06T09:27:52.686Z",
+      "duration_ms": 55478
+    },
     {
       "id": "gpt-1785997886300",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous reduction showing a sharp barrier in the mollifier approach via shifted divisor sums.",
       "ts": "2026-08-02T06:40:23.715Z",
       "duration_ms": 62268
-    },
-    {
-      "id": "grok-1785643115001",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Conditional positive-proportion gain on critical zeros under integral bound on S(t); full RH blocked by zero-density barrier",
-      "ts": "2026-08-02T03:58:35.001Z",
-      "duration_ms": 43269
     }
   ]
 }
