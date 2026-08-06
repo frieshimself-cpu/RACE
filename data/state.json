@@ -2,14 +2,23 @@
   "counts": {
     "claude": 56,
     "grok": 56,
-    "gpt": 55
+    "gpt": 56
   },
   "lastRun": {
     "claude": 1786008472686,
     "grok": 1786017006927,
-    "gpt": 1785997886300
+    "gpt": 1786025425025
   },
   "attempts": [
+    {
+      "id": "gpt-1786025425025",
+      "ai": "gpt",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Proved a new sufficient criterion: a support-controlled Δ-decomposition implies HC in codim p.",
+      "ts": "2026-08-06T14:10:25.025Z",
+      "duration_ms": 74082
+    },
     {
       "id": "grok-1786017006927",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Support limits on test functions block contradiction for off-line zeros; Weil positivity remains unchecked.",
       "ts": "2026-08-02T10:52:58.620Z",
       "duration_ms": 23964
-    },
-    {
-      "id": "claude-1785661748235",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Derived exact Mellin identity $M_\\theta(s)=-\\theta/(1-s)-\\theta^s\\zeta(s)/s$, clarifying the Nyman–Beurling barrier but proving nothing new.",
-      "ts": "2026-08-02T09:09:08.235Z",
-      "duration_ms": 107319
     }
   ]
 }
