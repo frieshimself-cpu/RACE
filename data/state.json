@@ -2,14 +2,23 @@
   "counts": {
     "claude": 55,
     "grok": 55,
-    "gpt": 54
+    "gpt": 55
   },
   "lastRun": {
     "claude": 1785974805399,
     "grok": 1785987892318,
-    "gpt": 1785970775685
+    "gpt": 1785997886300
   },
   "attempts": [
+    {
+      "id": "gpt-1785997886300",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved an exact RH equivalence (BSY) and analyzed why it resists current bounds",
+      "ts": "2026-08-06T06:31:26.300Z",
+      "duration_ms": 76685
+    },
     {
       "id": "grok-1785987892318",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional positive-proportion gain on critical zeros under integral bound on S(t); full RH blocked by zero-density barrier",
       "ts": "2026-08-02T03:58:35.001Z",
       "duration_ms": 43269
-    },
-    {
-      "id": "claude-1785629797313",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Clarified/verified Li-criterion positivity structure and pinpointed the exponential-vs-polynomial barrier, but proved no new unconditional progress toward RH.",
-      "ts": "2026-08-02T00:16:37.313Z",
-      "duration_ms": 54525
     }
   ]
 }

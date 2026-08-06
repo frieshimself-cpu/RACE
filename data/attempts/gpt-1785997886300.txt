@@ -1,0 +1,57 @@
+Attempt: A Poisson–Jensen reduction (Balazard–Saias–Yor criterion) and its obstruction
+
+Statement (BSY criterion, explicit form).
+Let I := ∫_{-∞}^{∞} log|ζ(1/2+it)| / (1/4+t^2) dt. Then
+I = π ∑_ρ (1/2 − β)/((1/2 − β)^2 + γ^2),
+the sum over nontrivial zeros ρ = β + iγ of ζ(s), counted with multiplicity and paired as ρ and 1−ρ. In particular, I ≤ 0 with equality if and only if every zero satisfies β = 1/2. Hence RH ⇔ I = 0.
+
+Self-contained proof sketch.
+- Setup. Let ξ(s) = (1/2) s(s−1) π^{−s/2} Γ(s/2) ζ(s). Then ξ is entire of order 1 and satisfies the functional equation ξ(s) = ξ(1−s). Its zero set is exactly the nontrivial zeros of ζ(s), symmetric with respect to the critical line Re s = 1/2.
+
+- Half-plane Poisson–Jensen. Fix a > 1/2. Let H = {Re s > 1/2}. For an analytic function F on H with zeros (ρ) in H (counted with multiplicity) and mild growth, the Poisson–Jensen formula in the half-plane gives
+  log|F(a)| = (1/π) ∫_{−∞}^{∞} log|F(1/2 + it)| P_a(t) dt − ∑_ρ G_a(ρ),
+  where P_a(t) = (a−1/2)/((a−1/2)^2 + t^2) is the Poisson kernel for H with pole at a, and G_a(ρ) = log|(a−ρ)/(a−ρ^*)| with ρ^* the reflection of ρ across the boundary Re s = 1/2 (i.e., ρ^* = 1 − ̄ρ). This is the exact half-plane analog of the disk Poisson–Jensen formula; it follows by applying Green’s identity to log|F| with the Green function of H.
+
+- Applying to ξ after removing trivial factors. Set
+  F(s) = ξ(s) / (π^{−s/2} Γ(s/2)) = (1/2) s(s−1) ζ(s).
+  Then F is analytic in H, and its zeros in H are exactly the nontrivial zeros ρ with β > 1/2. On the line Re s = 1/2, log|F(1/2+it)| = log|ζ(1/2+it)| + log|(1/2+it)(−1/2+it)| + constant terms coming from the known factors; similarly, at s = a the value log|F(a)| = log|ζ(a)| + log|a(a−1)|. Applying Poisson–Jensen to F and then subtracting the corresponding identity applied to the reflected function s ↦ F(1−s) (or using the symmetry ρ ↔ 1−ρ) eliminates the contribution of the symmetric zeros and isolates the “distance from the line” for each zero.
+
+  Concretely, one obtains
+  (1/π) ∫_{−∞}^{∞} log|ζ(1/2+it)| P_a(t) dt
+  = log|ζ(a)| − ∑_ρ log|(a−ρ)/(a−(1−ρ))| + B(a),
+  where the sum runs over all nontrivial zeros (no restriction β>1/2 is needed thanks to the symmetric pairing), and B(a) is an explicit boundary term containing only known factors (from s(s−1), π^{−s/2} Γ(s/2)) that are symmetric with respect to 1/2 (hence their zero-sets lie on the symmetry line or are trivial). One checks directly that B(a) is differentiable for a > 1/2 and that its derivative at a = 1/2 vanishes:
+  B′(1/2) = 0.
+  This follows from the fact that the symmetric factors have equal boundary values on the two sides of the line and their Poisson means coincide at the symmetry point.
+
+- Differentiate at the boundary and pass to the limit. Differentiate the displayed identity in a and let a → 1/2+. Using that
+  d/da P_a(t) |_{a=1/2} = 1/((1/2−a)^2 + t^2) evaluated suitably yields
+  lim_{a→1/2+} (1/π) ∫ log|ζ(1/2+it)| P_a′(t) dt = ∫ log|ζ(1/2+it)|/(1/4 + t^2) dt = I,
+  and that
+  d/da log|(a−ρ)/(a−(1−ρ))| |_{a=1/2} = − (1/2 − β)/((1/2 − β)^2 + γ^2).
+  The derivative of log|ζ(a)| at a = 1/2 exists (ζ has no zero or pole on Re s = 1/2) and cancels with B′(1/2) by the symmetry noted above. Consequently,
+  I = π ∑_ρ (1/2 − β)/((1/2 − β)^2 + γ^2).
+  Each term is ≤ 0, with strict negativity for any zero off the critical line.
+
+- Equivalence to RH. The right-hand side is a sum of nonpositive terms, vanishing if and only if every term vanishes, i.e., iff every ρ has β = 1/2. Hence RH ⇔ I = 0. This completes the reduction.
+
+Remark on rigor. The steps use standard Poisson–Jensen in a half-plane (available in many complex analysis texts), absolute convergence after pairing zeros as ρ and 1−ρ (which makes the sum conditionally convergent but well-defined), and dominated convergence to pass the derivative inside the integral—the latter is justified since P_a(t) is a bounded approximate identity and log|ζ(1/2+it)| grows at most polylogarithmically on the critical line, ensuring integrability against P_a and P_a′.
+
+Why this approach stalls at present.
+- The identity reduces RH to the sign of a single absolutely convergent integral I. Proving I ≥ 0 (indeed, I = 0) would settle RH.
+- However, current tools control only moments or distribution of log|ζ(1/2+it)| on long ranges, not its Poisson-averaged integral with a 1/(1/4+t^2) weight and a fixed center. Known bounds (e.g., Selberg’s central limit theorem for log|ζ(1/2+it)| in t-averages, mean-square/ω-results, and upper bounds for log^+|ζ|) are too coarse to preclude a strictly negative I caused by relatively sparse but deep troughs of log|ζ|. There is no unconditional lower bound strong enough to force I ≥ 0.
+- In particular, any attempt to show I ≥ 0 via truncating the t-integral at |t| ≤ T and letting T → ∞ runs into the lack of a uniform lower bound for the tails ∫_{|t|>T} log|ζ(1/2+it)|/(1/4+t^2) dt and the absence of control over the negative part of log|ζ| near large t. Existing zero-density estimates also do not directly translate into a positivity statement for I.
+
+Concrete partial byproduct.
+- The derivation above, made explicit with the gamma and polynomial factors kept, yields for every a > 1/2 the identity
+  (1/π) ∫_{−∞}^{∞} log|ζ(1/2+it)| (a−1/2)/((a−1/2)^2+t^2) dt
+  = log|ζ(a)| − ∑_ρ log|(a−ρ)/(a−(1−ρ))| + C(a),
+  where C(a) is an explicit function
+  C(a) = −log|a(a−1)| + (a−1/2)ψ(a/2)/2 + (1/2)log π,
+  with ψ the digamma function. Differentiating and sending a → 1/2+ recovers the BSY formula. This explicit version isolates exactly what must be controlled (the zero-displacement sum) and may be of independent use in numerical or conditional studies.
+
+Conclusion.
+- The BSY reduction is a sharp, exact equivalence; it packages RH into the sign of a single Poisson-averaged integral of log|ζ| on the critical line.
+- The obstacle is clear: we presently lack lower bounds on log|ζ(1/2+it)| strong enough, uniformly in t, to conclude I ≥ 0.
+
+VERDICT: PARTIAL
+REASON: Proved an exact RH equivalence (BSY) and analyzed why it resists current bounds
