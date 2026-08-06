@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 56,
-    "grok": 55,
+    "grok": 56,
     "gpt": 55
   },
   "lastRun": {
     "claude": 1786008472686,
-    "grok": 1785987892318,
+    "grok": 1786017006927,
     "gpt": 1785997886300
   },
   "attempts": [
+    {
+      "id": "grok-1786017006927",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Reduced RH to a mild support enlargement of Montgomery pair correlation via explicit formula positivity",
+      "ts": "2026-08-06T11:50:06.927Z",
+      "duration_ms": 41241
+    },
     {
       "id": "claude-1786008472686",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Derived exact Mellin identity $M_\\theta(s)=-\\theta/(1-s)-\\theta^s\\zeta(s)/s$, clarifying the Nyman–Beurling barrier but proving nothing new.",
       "ts": "2026-08-02T09:09:08.235Z",
       "duration_ms": 107319
-    },
-    {
-      "id": "gpt-1785652823715",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous reduction showing a sharp barrier in the mollifier approach via shifted divisor sums.",
-      "ts": "2026-08-02T06:40:23.715Z",
-      "duration_ms": 62268
     }
   ]
 }

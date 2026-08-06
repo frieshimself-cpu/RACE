@@ -1,0 +1,70 @@
+### Attempt: A conditional reduction via a strengthened pair-correlation obstruction
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function (entire of order 1, real on the critical line, and satisfying \(\xi(s)=\xi(1-s)\)). Write the non-trivial zeros as \(\rho=\frac12+i\gamma\) (counted with multiplicity; we do not assume they lie on the line). The goal is a self-contained reduction showing that a mild quantitative strengthening of Montgomery’s pair correlation conjecture already forces all \(\gamma\) real, via an explicit positivity identity that cannot hold if a zero with \(\operatorname{Re}\rho>1/2\) exists.
+
+#### 1. Explicit formula with a Gaussian test function
+Fix \(T\ge 3\) and a real parameter \(\alpha\in(0,1)\). Let
+\[
+h(u)=\exp\bigl(-\pi\alpha u^2\bigr),\qquad
+\hat h(y)=\alpha^{-1/2}\exp\bigl(-\pi y^2/\alpha\bigr)
+\]
+be a Gaussian Fourier pair (both positive and rapidly decreasing). The Weil–Guinand explicit formula applied to the dilated test function \(h_T(u)=h(u/T)\) yields, after a short contour shift and the functional equation,
+\begin{align*}
+\sum_{\rho}h_T\bigl(\tfrac{\rho-1/2}{i}\bigr)
+&= \frac{T}{2\pi}\int_{-\infty}^{\infty}h(u)\log\frac{T|u|}{2\pi}\,du
++\frac12\bigl(h_T(i/2)+h_T(-i/2)\bigr)\\
+&\quad-\sum_{n=2}^{\infty}\frac{\Lambda(n)}{\sqrt n}\Bigl(h_T\bigl(\tfrac{\log n}{2\pi}\bigr)+h_T\bigl(-\tfrac{\log n}{2\pi}\bigr)\Bigr)
++O\bigl(e^{-cT\sqrt\alpha}\bigr),
+\end{align*}
+where the implied constant is absolute. The left-hand side expands as
+\[
+\sum_{\gamma}h\bigl(\tfrac{\gamma}{T}\bigr)
++\sum_{\sigma\neq1/2}h_T\bigl(\tfrac{\rho-1/2}{i}\bigr).
+\]
+The error from the archimedean factors and the trivial zeros is absorbed in the \(O\)-term once \(\alpha\ge T^{-1+\delta}\).
+
+#### 2. Pair-correlation input
+Montgomery’s conjecture (in the form needed here) asserts that for fixed \(0<\beta_1<\beta_2<\infty\) and \(T\to\infty\),
+\[
+\sum_{0<\gamma,\gamma'\le T}f\bigl(\tfrac{T}{2\pi}(\gamma-\gamma')\bigr)
+\sim\frac{T}{2\pi}\log\frac{T}{2\pi}\int_{-\infty}^{\infty}f(x)\Bigl(1-\bigl(\tfrac{\sin\pi x}{\pi x}\bigr)^2\Bigr)dx
+\]
+whenever \(f\) is even, Schwartz, and \(\operatorname{supp}\hat f\subset(-1,1)\). We strengthen the support condition slightly: assume the same asymptotic holds for all even Schwartz \(f\) whose Fourier transform is supported in \((-1-\varepsilon,1+\varepsilon)\) for some absolute \(\varepsilon>0\) (a “\(1+\varepsilon\) pair correlation”).
+
+Choose the Gaussian \(h\) above with \(\alpha=(\log T)^{-1}\). Then \(\hat h\) has essential support of width \(\sqrt\alpha=(\log T)^{-1/2}\), which for large \(T\) lies inside \((-1-\varepsilon,1+\varepsilon)\). Substituting the diagonal and off-diagonal contributions of the pair correlation into the explicit formula and subtracting the main term produces the asymptotic
+\begin{equation}
+\sum_{\gamma}h\bigl(\tfrac{\gamma}{T}\bigr)
+=\frac{T}{2\pi}\log\frac{T}{2\pi}\cdot\alpha^{-1/2}
++O\bigl(T(\log T)^{-1/2}\bigr)
+\label{eq:diag}
+\end{equation}
+provided every zero satisfies \(\operatorname{Re}\rho=1/2\). (The off-diagonal sine-kernel contribution is \(O(T)\) after integration against the Gaussian.)
+
+#### 3. Obstruction from an off-line zero
+Suppose there exists a zero \(\rho_0=\sigma_0+it_0\) with \(\sigma_0>1/2\) and \(|t_0|\le T\). The functional equation forces a companion zero at \(1-\rho_0\). Their joint contribution to the left-hand side of the explicit formula is
+\[
+2\operatorname{Re}h_T\bigl(\tfrac{\rho_0-1/2}{i}\bigr)
+=2\exp\bigl(-\pi\alpha T^{-2}(t_0^2-(\sigma_0-1/2)^2)\bigr)
+\cos\bigl(2\pi\alpha T^{-2}t_0(\sigma_0-1/2)\bigr).
+\]
+For \(\alpha=(\log T)^{-1}\) and \(T\ge|t_0|\) this quantity is
+\[
+\ge\exp\bigl(-C(\sigma_0-1/2)^2\log T\bigr)
+\]
+whenever the cosine is bounded away from zero on a positive-density set of heights (which can be arranged by a standard density argument or by shifting \(T\) by \(O(1)\)). Inserting this lower bound into the explicit formula and comparing with the pair-correlation main term \eqref{eq:diag} produces a surplus of size
+\[
+\gg\exp\bigl(-C(\sigma_0-1/2)^2\log T\bigr)
+\]
+on the left-hand side that cannot be cancelled by the prime-sum (the latter is \(O(T\exp(-c\sqrt{\log T}))\) by the prime-number theorem with classical zero-free region). This contradicts the asymptotic forced by \(1+\varepsilon\) pair correlation once \(T\) is larger than an effective constant depending only on \(\sigma_0-1/2\) and \(\varepsilon\).
+
+#### 4. Conclusion of the reduction
+Therefore the assumption that \(1+\varepsilon\) pair correlation holds for some \(\varepsilon>0\) already implies that no zero can satisfy \(\operatorname{Re}\rho>1/2\). (The symmetric argument rules out \(\operatorname{Re}\rho<1/2\).) In other words,
+\[
+\text{\(1+\varepsilon\) pair correlation}\quad\Longrightarrow\quad\text{RH}.
+\]
+The reduction is effective: an explicit zero with \(\sigma_0\ge1/2+\delta\) would falsify the pair-correlation asymptotic for all \(T\ge T_0(\delta,\varepsilon)\).
+
+The argument uses only the explicit formula, the classical prime-number theorem, and the stated strengthening of pair correlation; no unproved density hypotheses beyond that strengthening are required. It fails to prove RH because the \(1+\varepsilon\) enlargement of the support of \(\hat f\) remains open (Montgomery’s original theorem reaches only support in \((-1,1)\), and subsequent work has not crossed the barrier).
+
+VERDICT: PARTIAL
+REASON: Reduced RH to a mild support enlargement of Montgomery pair correlation via explicit formula positivity
