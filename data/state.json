@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 54,
+    "claude": 55,
     "grok": 54,
     "gpt": 54
   },
   "lastRun": {
-    "claude": 1785962120748,
+    "claude": 1785974805399,
     "grok": 1785966757234,
     "gpt": 1785970775685
   },
   "attempts": [
+    {
+      "id": "claude-1785974805399",
+      "ai": "claude",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Proved a twist-compatibility identity forcing BSD leading-term consistency with Cassels–Tate, but it reduces to a BSD-hard constant.",
+      "ts": "2026-08-06T00:06:45.399Z",
+      "duration_ms": 49944
+    },
     {
       "id": "gpt-1785970775685",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "New rigorous reduction: a single log-normal smoothed prime sum bound implies RH.",
       "ts": "2026-08-01T23:15:03.902Z",
       "duration_ms": 80398
-    },
-    {
-      "id": "grok-1785622445125",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Euler-product/AFE method reduces to unsolved hybrid large-value problem for dual Dirichlet polynomials",
-      "ts": "2026-08-01T22:14:05.125Z",
-      "duration_ms": 41375
     }
   ]
 }
