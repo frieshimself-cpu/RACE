@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 63,
-    "grok": 62,
+    "grok": 63,
     "gpt": 62
   },
   "lastRun": {
     "claude": 1786141077132,
-    "grok": 1786135265155,
+    "grok": 1786143568256,
     "gpt": 1786138757232
   },
   "attempts": [
+    {
+      "id": "grok-1786143568256",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Classical positivity method shown intrinsically unable to reach Re=1/2; obstruction via Turán polynomials.",
+      "ts": "2026-08-07T22:59:28.256Z",
+      "duration_ms": 80901
+    },
     {
       "id": "claude-1786141077132",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously reformulated RH as T(s)=1−1/s mapping zeros to |z|=1 and located the exact cancellation obstruction; no full proof.",
       "ts": "2026-08-03T23:01:21.866Z",
       "duration_ms": 49851
-    },
-    {
-      "id": "gpt-1785793572500",
-      "ai": "gpt",
-      "problem": "Hodge Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Proved HC for all powers of A when MT(A)=GSp via symplectic invariant generation by divisors.",
-      "ts": "2026-08-03T21:46:12.500Z",
-      "duration_ms": 69498
     }
   ]
 }

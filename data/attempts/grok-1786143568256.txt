@@ -1,0 +1,41 @@
+### Attempt: Limitation analysis of positivity methods for zero-free regions
+
+Consider the classical approach to zero-free regions for \(\zeta(s)\) via non-negative trigonometric polynomials. For \(\sigma>1\) one has the identity
+\[
+-\frac{\zeta'}{\zeta}(s)=\sum_{n=1}^\infty\Lambda(n)n^{-s}.
+\]
+Taking real parts yields
+\[
+-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+it)=\sum_{n=1}^\infty\Lambda(n)n^{-\sigma}\cos(t\log n).
+\]
+Let \(T(\theta)=\sum_{k=0}^N a_k\cos(k\theta)\) be any trigonometric polynomial with \(a_k\ge0\) and \(T(\theta)\ge0\) for all real \(\theta\). (The prototype is \(T(\theta)=3+4\cos\theta+\cos2\theta=2(1+\cos\theta)^2\).) Then, for every \(\sigma>1\) and every real \(t\),
+\begin{equation}
+\label{eq:pos}
+\sum_{k=0}^N a_k\Bigl(-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+ikt)\Bigr)\ge0.
+\end{equation}
+On the other hand the partial-fraction expansion
+\[
+-\frac{\zeta'}{\zeta}(s)=\frac1{s-1}+\sum_\rho\Bigl(\frac1{s-\rho}+\frac1\rho\Bigr)-\sum_{n=1}^\infty\Bigl(\frac1{s+2n}+\frac1{2n}\Bigr)
+\]
+(sum over non-trivial zeros \(\rho\)) implies that a zero \(\rho=\beta+i\gamma\) with \(\beta\) close to 1 and \(\gamma\approx t\) produces a large positive spike of size \(\asymp a_1/(\sigma-\beta)\) on the left-hand side of \eqref{eq:pos}. Balancing this spike against the contribution of the pole at \(s=1\) and the remaining zeros forces
+\[
+\beta\le1-\frac{c_T}{\log(|t|+2)},
+\]
+where the positive constant \(c_T\) depends only on the coefficients of \(T\). Optimizing over all admissible \(T\) of degree \(N\) recovers the classical de la Vallée-Poussin zero-free region (and its later logarithmic-power improvements).
+
+This method cannot reach the critical line. To see the obstruction rigorously, suppose there existed a fixed trigonometric polynomial \(T\) (or even a sequence of such polynomials with degrees growing arbitrarily slowly) for which the associated inequality \eqref{eq:pos} implied \(\beta\le1/2\) for all zeros. Then the same linear combination of logarithmic derivatives would remain non-negative down to \(\sigma=1/2+\varepsilon\). But the explicit formula expresses any such combination as a sum over primes of the form
+\[
+\sum_k a_k\sum_n\Lambda(n)n^{-\sigma}\cos(kt\log n)=\int_{-\infty}^\infty T(\theta)\,dS_\sigma(\theta),
+\]
+where \(S_\sigma\) is a pure point measure supported on the points \(\{\pm\log n\}\). For \(\sigma\le1\) the measure \(S_\sigma\) is no longer positive, and Turán’s power-sum theory produces Dirichlet polynomials
+\[
+D(s)=\sum_{n\le X}a_n n^{-s},\qquad a_n\ge0,
+\]
+for which \(\operatorname{Re}D(\sigma+it)\) becomes arbitrarily negative inside every half-plane \(\sigma>1/2\). Consequently the left-hand side of \eqref{eq:pos} can be driven negative while a zero still sits at height \(t\) with real part \(>1/2\). This contradiction shows that no positivity argument of the shape \eqref{eq:pos} can force all non-trivial zeros onto the line \(\operatorname{Re}s=1/2\).
+
+(The same obstruction persists for the more elaborate Weil–Guinand explicit-formula positivity criteria: the associated quadratic forms are positive-definite on the critical line if and only if RH holds, but verifying definiteness requires information equivalent in strength to RH itself.)
+
+Thus the method, while capable of producing effective zero-free regions of width \(\asymp1/\log|t|\), is intrinsically limited to a neighborhood of the line \(\operatorname{Re}s=1\) and supplies no pathway to the Riemann hypothesis.
+
+VERDICT: FAILED
+REASON: Classical positivity method shown intrinsically unable to reach Re=1/2; obstruction via Turán polynomials.
