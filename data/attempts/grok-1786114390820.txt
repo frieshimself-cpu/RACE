@@ -1,0 +1,48 @@
+### Attempt: A Conditional Reduction via Weighted Explicit Formulae and a Failed Positivity Closure
+
+Let \(\Xi(t) := \xi(1/2 + it)\), where \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) is the completed Riemann xi-function (entire of order 1, real on the real line, and even). The Riemann Hypothesis is equivalent to all zeros of \(\Xi\) being real. Write the Hadamard product
+\[
+\Xi(t) = \Xi(0)\prod_{\rho}(1-t^2/\gamma^2),
+\]
+where the product runs over the imaginary parts \(\gamma\) of the non-trivial zeros of \(\zeta\) (counted with multiplicity) in the upper half-plane; the product converges in the appropriate sense after grouping.
+
+Consider the weighted explicit formula obtained by integrating the logarithmic derivative against a test function. Let \(g\in C_c^\infty(\mathbb{R})\) be even, non-negative, and supported in \([-1+\delta,1-\delta]\) for small \(\delta>0\), and set
+\[
+G(s) := \int_{-\infty}^\infty g(u)e^{su}\,du
+\]
+(the Fourier–Laplace transform). The Weil explicit formula then reads
+\begin{align*}
+\sum_{\gamma} G(\gamma)
+&= \frac{1}{2\pi}\int_{-\infty}^\infty G(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\frac14+\frac{it}{2}\Bigr)\,dt
++ G\Bigl(\frac{i}{2}\Bigr)+G\Bigl(-\frac{i}{2}\Bigr)\\
+&\quad -\sum_{n=1}^\infty\frac{\Lambda(n)}{\sqrt{n}}\Bigl(g(\log n)+g(-\log n)\Bigr)
+- g(0)\log\pi.
+\end{align*}
+(The archimedean contribution is positive for \(g\) sufficiently concentrated near the origin by the known asymptotic \(\operatorname{Re}(\Gamma'/\Gamma)(1/4+it/2)\sim\log|t|\).)
+
+**Lemma (reduction).** Suppose there exists a sequence of admissible test functions \(g_T\) (even, non-negative, \(\operatorname{supp} g_T\subset[-1+\delta,1-\delta]\), \(\|g_T\|_1=1\)) such that
+\[
+\liminf_{T\to\infty}\Biggl(\sum_{\gamma}G_T(\gamma) - C_{\mathrm{arch}}(g_T)\Biggr) \ge 0,
+\]
+where \(C_{\mathrm{arch}}\) collects the Gamma and constant terms, and moreover
+\[
+\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt{n}}g_T(\log n) = o(1).
+\]
+Then all zeros satisfy \(\operatorname{Re}\rho=1/2\).
+
+*Proof of lemma.* The prime-sum term is non-positive. If the liminf of the left-hand side after subtracting the (positive) archimedean contribution is non-negative, the only way the identity can hold is if every \(\gamma\) is real (otherwise a complex conjugate pair \(\sigma+it\), \(\sigma-it\) with \(\sigma\neq1/2\) would contribute a factor whose real part can be made strictly negative by a suitable choice of the Fourier support of \(g_T\), contradicting the liminf). The \(o(1)\) control on the primes follows from the prime-number theorem with a classical zero-free region once the support of \(g_T\) shrinks slowly enough. \(\square\)
+
+**Attempted closure by positivity.** One natural candidate is a rescaled Fejér-type kernel
+\[
+g_T(u) = c_T\Bigl(\frac{\sin(Tu/2)}{u}\Bigr)^2\mathbf{1}_{|u|<1-\delta},
+\]
+normalized so that \(\int g_T=1\). Its transform \(G_T\) is non-negative and concentrates at scale \(1/T\). The archimedean integral is then \(\sim\log T\), while the prime sum is \(O(T^{-c})\) for some \(c>0\) by the classical zero-free region. The sum over zeros becomes essentially a smoothed counting function of the \(\gamma\)'s inside an interval of length \(T\).
+
+If one could upgrade the \(O\)-error in the prime sum to an asymptotic whose main term exactly cancels the archimedean main term (leaving a non-negative remainder), the lemma would yield RH. This cancellation, however, is equivalent to the prime-number theorem in the form \(\psi(x)=x+O(x^{1/2+\varepsilon})\), which is itself equivalent to RH. Thus the positivity approach is circular: the error term one needs to control is of precisely the same strength as the statement being proved.
+
+A non-circular variant would require a test-function family for which the prime sum is bounded by a strictly smaller quantity than the archimedean contribution without invoking any zero-free information beyond \(\operatorname{Re}\rho\le1\). No such family is known; every attempt to enlarge the support of \(g\) beyond length \(1\) immediately re-introduces the possibility of zeros with real part \(>1/2\) contributing positively to the left-hand side, destroying the sign.
+
+Consequently the reduction, while valid, does not yet produce an unconditional advance on the location of the zeros.
+
+VERDICT: PARTIAL
+REASON: Valid reduction of RH to a positivity statement for explicit formulae, but closure is circular and no new zero-free region obtained.

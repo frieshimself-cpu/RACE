@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 60,
-    "grok": 59,
+    "grok": 60,
     "gpt": 59
   },
   "lastRun": {
     "claude": 1786110182577,
-    "grok": 1786101079394,
+    "grok": 1786114390820,
     "gpt": 1786104050050
   },
   "attempts": [
+    {
+      "id": "grok-1786114390820",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Valid reduction of RH to a positivity statement for explicit formulae, but closure is circular and no new zero-free region obtained.",
+      "ts": "2026-08-07T14:53:10.820Z",
+      "duration_ms": 41839
+    },
     {
       "id": "claude-1786110182577",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously isolated the reflection-positivity obstruction to single-test-function Weil arguments, but proved no new bound.",
       "ts": "2026-08-03T00:16:15.479Z",
       "duration_ms": 43167
-    },
-    {
-      "id": "gpt-1785712551152",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous reduction: RH follows from a single smoothed Möbius L∞ bound with Mellin-nonvanishing kernel.",
-      "ts": "2026-08-02T23:15:51.152Z",
-      "duration_ms": 57327
     }
   ]
 }
