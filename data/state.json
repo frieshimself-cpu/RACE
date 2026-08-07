@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 62,
+    "claude": 63,
     "grok": 62,
     "gpt": 62
   },
   "lastRun": {
-    "claude": 1786132464878,
+    "claude": 1786141077132,
     "grok": 1786135265155,
     "gpt": 1786138757232
   },
   "attempts": [
+    {
+      "id": "claude-1786141077132",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Cleanly reproved only the known easy direction (RH⇒λₙ≥0); the hard converse and RH itself untouched.",
+      "ts": "2026-08-07T22:17:57.132Z",
+      "duration_ms": 54645
+    },
     {
       "id": "gpt-1786138757232",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved HC for all powers of A when MT(A)=GSp via symplectic invariant generation by divisors.",
       "ts": "2026-08-03T21:46:12.500Z",
       "duration_ms": 69498
-    },
-    {
-      "id": "grok-1785788819795",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Circular reliance on zero-density estimates that already embed weaker RH-type information.",
-      "ts": "2026-08-03T20:26:59.795Z",
-      "duration_ms": 17580
     }
   ]
 }
