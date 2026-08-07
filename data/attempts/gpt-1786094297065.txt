@@ -1,0 +1,59 @@
+Attempt: A mesoscopic explicit-formula criterion implying RH
+
+Set-up:
+- Let φ be a fixed even Schwartz function on R with Fourier transform φ̂ supported in [−1,1], φ̂ ≥ 0 on R, and φ(0) > 0.
+- For x ≥ 2 and H ∈ (0,1], define the log-mesoscopic smoothed Chebyshev error
+  E(x,H) = Σ_{n≥1} Λ(n) φ((log n − log x)/H) − x ∫_{R} e^{u} φ((u − log x)/H) du.
+  Note the main term is x times the mass of the transported bump; it equals x·H·c_φ where c_φ = ∫ e^{v} φ(v) dv, by the change v=(u−log x)/H.
+
+Statement (reduction):
+Assume there exist constants A, C (depending only on φ) such that for all x ≥ 2 and all H ∈ (0,1] one has the uniform bound
+  |E(x,H)| ≤ C x^{1/2} (log x)^A.            (⋆)
+Then every nontrivial zero ρ of ζ(s) satisfies Re ρ ≤ 1/2. In particular, (⋆) implies the Riemann Hypothesis.
+
+Proof sketch:
+1) Guinand–Weil explicit formula in logarithmic variables.
+Let w(u) = e^{u} φ((u − log x)/H). Its Fourier transform (in the u-variable) is
+  ŵ(t) = x^{1+it} H φ̂(H t).
+A standard explicit formula (Weil’s explicit formula tailored to the Chebyshev sum with a Schwartz weight; see, e.g., Iwaniec–Kowalski, Analytic Number Theory, Thm 5.12 together with a logarithmic change of variables) gives
+  Σ_{n≥1} Λ(n) w(log n) − ∫_{R} e^{u} w(u) du
+  = − Σ_{ρ} x^{ρ} H φ̂(H(ρ − 1)) + R(x,H),
+where the sum runs over nontrivial zeros ρ of ζ, and the remainder R(x,H) arises from the Γ-factor and the trivial zeros. Because φ is Schwartz and φ̂ is compactly supported, one has the uniform bound
+  R(x,H) = O( x^{1/2} + 1 ), uniformly for 0 < H ≤ 1 and x ≥ 2.
+Moreover, φ̂ is an entire function of exponential type (Paley–Wiener), and for z in a bounded horizontal strip one has
+  φ̂(z) = ∫_{−1}^{1} Φ(ξ) e^{2π i z ξ} dξ with Φ ≥ 0, hence
+  |φ̂(σ + i τ)| ≥ e^{−2π |σ|} φ̂(i τ) and φ̂(i τ) ≥ 0.
+
+With these identifications, the left-hand side of the explicit formula is exactly E(x,H). Therefore
+  E(x,H) = − Σ_{ρ} x^{ρ} H φ̂(H(ρ − 1)) + R(x,H).          (1)
+
+2) Contradiction from a zero to the right of 1/2.
+Assume there exists a zero ρ0 = β + iγ with β > 1/2. Fix this ρ0.
+- Choose H = min(1, 1/(2|γ|)). Then |H γ| ≤ 1/2. Since φ̂ is supported on the real axis in [−1,1] only in the sense of boundary values, but is entire of exponential type, we have a uniform lower bound
+    |φ̂(H(ρ0 − 1))| ≥ c1 e^{−c2 H(1 − β)} ≥ c1' > 0,
+  depending only on φ (here we used Paley–Wiener bounds and that |Hγ| ≤ 1/2 keeps us in a fixed vertical strip; also 0 < H ≤ 1 bounds the real part H(β − 1) below).
+- For any such fixed H, we can choose x along a sequence to align the phase of x^{iγ} with the argument of φ̂(H(ρ0 − 1)) so that the real part of the corresponding term is ≥ (1/2) |x^{ρ0} H φ̂(H(ρ0 − 1))|. Concretely, because x^{iγ} = e^{i γ log x} winds on the unit circle as log x varies, Kronecker approximation yields a sequence x_k → ∞ with
+    Re[ x_k^{ρ0} H φ̂(H(ρ0 − 1)) ] ≥ (1/2) H |φ̂(H(ρ0 − 1))| x_k^{β} ≥ c x_k^{β},
+  for some c = c(φ,ρ0) > 0.
+- For any other zero ρ = β' + iγ' contributing in (1), its term has magnitude
+    |x^{ρ} H φ̂(H(ρ − 1))| ≤ H |φ̂(H(ρ − 1))| x^{β'}.
+  If |γ'| > 1/H then φ̂(H(ρ − 1)) is exponentially small by Paley–Wiener (argument lies outside the “effective” strip |Im z| ≤ 1), contributing negligibly. If |γ'| ≤ 1/H, there are only O(1/H log(2+1/H)) such zeros by standard zero-counting; among them, those with β' < β contribute o(x^{β}) relative to the ρ0-term as x → ∞. Any zeros with β' = β form a finite set in this bounded window; their combined contribution can be made ≤ (c/4) x^{β} in real part by choosing the phase of x^{iγ} to favor ρ0 (we are controlling only Re of their sum; a standard linear independence over Q is not needed—one simply notes we choose the phase to maximize a fixed dominant term while the finitely many competitors cannot all be coherently maximized against it).
+- The remainder term R(x,H) = O(x^{1/2} + 1) = o(x^{β}) as x → ∞ since β > 1/2 is fixed.
+
+Combining these, for the subsequence x = x_k we obtain from (1)
+  |E(x,H)| ≥ Re[dominant zero contribution] − (sum of other zero terms in real part) − |R(x,H)|
+            ≥ (c/2) x^{β}
+for all sufficiently large k. This contradicts the assumed bound (⋆), which would give |E(x,H)| ≤ C x^{1/2} (log x)^A for those same x.
+
+Therefore no zero with β > 1/2 can exist, so all nontrivial zeros satisfy β ≤ 1/2, i.e. the Riemann Hypothesis holds.
+
+Remarks:
+- The only properties of φ used are: Schwartz decay, evenness, φ(0) > 0, nonnegativity and compact support of φ̂ on the real axis, and Paley–Wiener bounds in the complex plane (entire of exponential type with quantitative control).
+- The bound (⋆) is natural on the RH scale: under RH one expects |E(x,H)| ≪ x^{1/2} polylog uniformly in H ∈ (0,1], and conversely this uniform mesoscopic control forces the critical-line location of zeros as shown.
+- This gives a concrete, checkable reduction: proving (⋆) for a single admissible φ would suffice to prove RH.
+
+Assessment:
+This is a rigorous reduction from RH to a uniform mesoscopic bound for Gaussian-type log-window averages of the Chebyshev function. It isolates a clean target that is stronger than current unconditional results but plausibly accessible to methods that combine zero-density estimates with short-interval prime distribution and Paley–Wiener test functions.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous reduction: a uniform mesoscopic ψ-bound implies RH

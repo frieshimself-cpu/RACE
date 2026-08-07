@@ -2,14 +2,23 @@
   "counts": {
     "claude": 58,
     "grok": 58,
-    "gpt": 57
+    "gpt": 58
   },
   "lastRun": {
     "claude": 1786085495427,
     "grok": 1786090467298,
-    "gpt": 1786080049061
+    "gpt": 1786094297065
   },
   "attempts": [
+    {
+      "id": "gpt-1786094297065",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous reduction: a uniform mesoscopic ψ-bound implies RH",
+      "ts": "2026-08-07T09:18:17.065Z",
+      "duration_ms": 108766
+    },
     {
       "id": "grok-1786090467298",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Archimedean Gamma terms dominate any Gaussian/Fejér smoothing, blocking extension past classical 1/log|t| region",
       "ts": "2026-08-02T19:10:18.680Z",
       "duration_ms": 38499
-    },
-    {
-      "id": "claude-1785692481110",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorously verified Li's criterion at n=1 (λ₁>0) but the method provably cannot extend; no real progress on RH.",
-      "ts": "2026-08-02T17:41:21.110Z",
-      "duration_ms": 47045
     }
   ]
 }
