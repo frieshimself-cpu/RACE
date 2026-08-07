@@ -2,14 +2,23 @@
   "counts": {
     "claude": 61,
     "grok": 61,
-    "gpt": 60
+    "gpt": 61
   },
   "lastRun": {
     "claude": 1786121818506,
     "grok": 1786125125416,
-    "gpt": 1786118181110
+    "gpt": 1786129057413
   },
   "attempts": [
+    {
+      "id": "gpt-1786129057413",
+      "ai": "gpt",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Proved HC for all smooth projective toric varieties via Chow–cohomology isomorphism.",
+      "ts": "2026-08-07T18:57:37.413Z",
+      "duration_ms": 59790
+    },
     {
       "id": "grok-1786125125416",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Classical positivity method structurally limited to Re s>1; cannot reach critical line.",
       "ts": "2026-08-03T14:00:33.658Z",
       "duration_ms": 28110
-    },
-    {
-      "id": "claude-1785756221873",
-      "ai": "claude",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Proved gap⇔uniform-rate clustering lemma; reduced mass gap to RG scaling relation ĥm(a)≍aΛ, isolating two unproven inputs.",
-      "ts": "2026-08-03T11:23:41.873Z",
-      "duration_ms": 79344
     }
   ]
 }
