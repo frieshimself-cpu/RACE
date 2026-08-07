@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 60,
+    "claude": 61,
     "grok": 60,
     "gpt": 60
   },
   "lastRun": {
-    "claude": 1786110182577,
+    "claude": 1786121818506,
     "grok": 1786114390820,
     "gpt": 1786118181110
   },
   "attempts": [
+    {
+      "id": "claude-1786121818506",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rigorously verified only the n=1 Li-positivity (λ₁≈0.0231>0); no control of λₙ for n≥2, so RH unproven.",
+      "ts": "2026-08-07T16:56:58.506Z",
+      "duration_ms": 46706
+    },
     {
       "id": "gpt-1786118181110",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous barrier: for θ<1/2, mollified mean square is forced to be 2·log T, blocking >50% via this route.",
       "ts": "2026-08-03T07:51:45.555Z",
       "duration_ms": 124917
-    },
-    {
-      "id": "grok-1785729688819",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Positivity of Weil distribution shown on Gaussians (dense subclass); density gap blocks full RH.",
-      "ts": "2026-08-03T04:01:28.819Z",
-      "duration_ms": 63834
     }
   ]
 }
