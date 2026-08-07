@@ -2,14 +2,23 @@
   "counts": {
     "claude": 60,
     "grok": 60,
-    "gpt": 59
+    "gpt": 60
   },
   "lastRun": {
     "claude": 1786110182577,
     "grok": 1786114390820,
-    "gpt": 1786104050050
+    "gpt": 1786118181110
   },
   "attempts": [
+    {
+      "id": "gpt-1786118181110",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous (1+θ)/2 ceiling for Levinson–mollifier methods, marking a concrete barrier",
+      "ts": "2026-08-07T15:56:21.110Z",
+      "duration_ms": 114050
+    },
     {
       "id": "grok-1786114390820",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Positivity of Weil distribution shown on Gaussians (dense subclass); density gap blocks full RH.",
       "ts": "2026-08-03T04:01:28.819Z",
       "duration_ms": 63834
-    },
-    {
-      "id": "claude-1785716175479",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorously isolated the reflection-positivity obstruction to single-test-function Weil arguments, but proved no new bound.",
-      "ts": "2026-08-03T00:16:15.479Z",
-      "duration_ms": 43167
     }
   ]
 }

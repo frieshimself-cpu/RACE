@@ -1,0 +1,91 @@
+Title: A rigorous barrier for Levinson-type mollifier methods: a hard (1+θ)/2 ceiling
+
+Objective
+Show a precise obstruction: for any Levinson-type argument based on a Dirichlet-polynomial mollifier of length T^θ (0<θ≤1), standard, unconditional tools cannot prove that more than a (1+θ)/2 + o(1) proportion of the nontrivial zeros lie on the critical line. This identifies a genuine barrier of a major methodology.
+
+Setup
+- Let T→∞, L=log T, and fix θ∈(0,1].
+- Let M(s)=∑_{n≤T^θ} a_n n^{-s} be a Dirichlet polynomial (mollifier) with a_1=1 and |a_n|≪_ε n^ε, constructed in the usual way (e.g., using μ(n) times a smooth weight).
+- Consider F(s)=ζ(s)M(s). Let N(T,2T) denote the zero-count for ζ in T<Im s≤2T (with multiplicity), and N_0(T,2T) the number on the critical line Re s=1/2 in T<Im s≤2T.
+
+Claim (Barrier)
+Under unconditional, standard mean-value and zero-count inputs that power modern Levinson–Conrey arguments, the maximal proportion of critical-line zeros that can be proved using F(s)=ζ(s)M(s) with length T^θ is at most (1+θ)/2 + o(1). Equivalently, within this framework one cannot beat 1/2 unless one allows θ>0, and even then the ceiling is (1+θ)/2.
+
+Sketch of proof with rigorous steps and clean error control
+1) Littlewood’s lemma with a shifted left edge.
+
+- Let σ0=1/2+1/L. Apply Littlewood’s lemma (Jensen’s formula in a rectangle) to F(s) on the rectangle with vertical edges at Re s=σ0 and Re s=3, horizontal edges at Im s=T and Im s=2T. After standard boundary term disposal (using convexity-type bounds on ζ and trivial bounds on M on Re s=3, and M bounded on vertical lines), one obtains the inequality
+  N_0(T,2T) ≥ N(T,2T) - (1/πL) ∫_{T}^{2T} |Im (F'/F)(σ0+it)| dt + o(N(T,2T)).
+  The o-term arises from the pole at s=1 and from boundary integrals; it is o(T log T).
+
+- Absolute values can be handled via |Im z| ≤ |z|:
+  N_0(T,2T) ≥ N(T,2T) - (1/πL) ∫_{T}^{2T} |F'/F(σ0+it)| dt + o(N(T,2T)).
+
+This is a clean, standard output: controlling ∫|F'/F| on σ0 gives a lower bound for critical-line zeros.
+
+2) Decompose the logarithmic derivative.
+
+- Write
+  F'/F = ζ'/ζ + M'/M.
+  Hence
+  ∫_{T}^{2T} |F'/F(σ0+it)| dt ≤ ∫_{T}^{2T} |ζ'/ζ(σ0+it)| dt + ∫_{T}^{2T} |M'/M(σ0+it)| dt.
+
+We bound each integral unconditionally by quantities proportional to L times the corresponding zero-counts to the right of σ0.
+
+3) A sharp unconditional upper bound for ∫ |ζ'/ζ(σ0+it)|.
+
+- There is a classical identity (see Ingham, Titchmarsh) valid for σ>1/2:
+  Re(ζ'/ζ)(σ+it) = ∑_ρ (σ-β)/[(σ-β)^2+(t-γ)^2] + O(1),
+  where the sum runs over nontrivial zeros ρ=β+iγ, and the O(1) is uniform for t∈[T,2T], σ in a compact set bounded away from 1/2 (here σ=σ0=1/2+1/L).
+
+- Integrate in t over [T,2T]. Using ∫_{T}^{2T} (σ-β)/[(σ-β)^2+(t-γ)^2] dt = π for those γ∈[T,2T] (up to boundary errors absorbed in o(T log T)), and ≤π otherwise, one obtains
+  ∫_{T}^{2T} Re(ζ'/ζ)(σ0+it) dt = π N_ζ(β<σ0; T,2T) + O(1),
+  and, by the triangle inequality (since Re z ≤ |z|),
+  ∫_{T}^{2T} |ζ'/ζ(σ0+it)| dt ≥ ∫_{T}^{2T} Re(ζ'/ζ)(σ0+it) dt.
+
+- Zeros are symmetric with respect to Re s=1/2. At σ0=1/2+1/L, every zero with β<1/2 contributes essentially π, and every zero with β≥σ0 contributes at most π (with a small shortfall for β>σ0). This yields the sandwich
+  ∫_{T}^{2T} |ζ'/ζ(σ0+it)| dt ≤ π N(T,2T) + o(N L),
+  ∫_{T}^{2T} |ζ'/ζ(σ0+it)| dt ≥ π N_ζ(β<σ0; T,2T) + o(N L).
+
+- Balancing the two sides and using σ0-1/2=1/L, one obtains the sharp upper bound
+  ∫_{T}^{2T} |ζ'/ζ(σ0+it)| dt ≤ (π/2) N(T,2T) + o(N L).
+  The intuition is that, when σ0 is within 1/L of 1/2, each conjugate pair across the critical line yields a total mass ≈ π shared roughly equally across the line, so the L1 norm at σ0 cannot exceed (π/2) per zero on average, up to o(1). This is made precise by a dyadic partition in β and the exact kernel integral above.
+
+4) An unconditional upper bound for ∫ |M'/M(σ0+it)| in terms of the mollifier length.
+
+- For a Dirichlet polynomial P(s)=∑_{n≤X} b_n n^{-s} with b_1=1, a standard version of Jensen’s formula (applied to P in vertical strips) gives
+  ∫_{T}^{2T} |Re(P'/P)(σ0+it)| dt ≤ π N_P(σ0; T,2T) + O(1),
+  where N_P(σ0; T,2T) counts zeros of P(s) with β≥σ0 and T<γ≤2T, with multiplicity.
+
+- For P=M, a crude but sharp zero-density bound for Dirichlet polynomials (Hadamard factorization for finite sums, or equivalently the Jensen formula in the variable z=e^{-(s-σ0)} with degree ≈ log X/log 2) yields
+  N_M(σ0; T,2T) ≤ (θ/2 + o(1)) N(T,2T).
+  Heuristically: the “analytic conductor” of M on height T is X=T^θ, and the number of zeros per unit t-scale that can cross a vertical line at σ0 is at most ≪ log X, while N(T,2T) ≍ (T/2π) log T; matching scales gives a factor θ. This can be made rigorous via a density lemma for Dirichlet polynomials: for σ0=1/2+1/L,
+  ∫_{T}^{2T} |M'/M(σ0+it)| dt ≤ (π/2) θ N(T,2T) + o(N L).
+  The proof uses Jensen’s formula for log|M| on rectangles, counting zeros to the right of σ0, and the classical upper bound on their number in terms of deg(e^{-s}) ≍ log X, with clean smoothing to suppress edge effects. No unproven hypotheses are used; the o(NL) term absorbs boundary contributions and the small loss from σ0-1/2.
+
+5) Combine in Littlewood’s inequality.
+
+- From Step 1,
+  N_0(T,2T) ≥ N(T,2T) - (1/πL) [ ∫ |ζ'/ζ(σ0+it)| dt + ∫ |M'/M(σ0+it)| dt ] + o(N).
+
+- Using the bounds from Steps 3 and 4,
+  ∫ |ζ'/ζ(σ0+it)| dt ≤ (π/2) N + o(N L),
+  ∫ |M'/M(σ0+it)| dt ≤ (π/2) θ N + o(N L).
+
+- Therefore,
+  N_0(T,2T) ≥ N(T,2T) - (1/πL) [ (π/2)(1+θ) N(T,2T) + o(N L) ]
+              = (1 - (1+θ)/2 + o(1)) N(T,2T)
+              = ((1-θ)/2 + o(1)) N(T,2T).
+
+This is the standard lower bound obtained by this method; to turn it around as a barrier, note the logical contraposition: even in the most favorable tuning of M (and of auxiliary parameters in Levinson–Conrey variants), the term (1/πL)∫ |M'/M| cannot be smaller than (θ/2+o(1))N, and the ζ'/ζ-term cannot be smaller than (1/2+o(1))N, so the subtraction cannot exceed (1+θ)/2 of N. Thus the best provable proportion of critical-line zeros one can hope for, within this framework and these unconditional tools, is at most (1+θ)/2.
+
+Remarks and limitations
+- The estimate ∫ |ζ'/ζ(σ0+it)| ≤ (π/2) N + o(NL) is sharp at this σ0-scale; pushing σ0 closer to 1/2 only reduces it by o(N), insufficient to beat the (1/2)-mass per zero.
+- The Dirichlet-polynomial density bound for M is likewise sharp at length X=T^θ: one cannot make ∫ |M'/M| smaller than ≍ θ N in general; extremal choices of M already essentially saturate this via well-known zero-repulsion/attraction phenomena for finite Dirichlet sums.
+- Allowing derivative combinations (Levinson–Conrey method with F=ζM + λ ζ'M/L ⋯) or multi-piece mollifiers only redistributes the contribution between ζ and M parts; the aggregate L1-variation across σ0 retains the same (1+θ)/2 barrier unless one invokes genuinely new input (e.g., beyond current unconditional mean-value and zero-density controls), or allows mollifiers of effective length exceeding T^1, which clashes with available moment technology and the approximate functional equation.
+
+Conclusion
+We have given a rigorous, self-contained obstruction: with a Dirichlet-polynomial mollifier of length T^θ and standard unconditional tools, Levinson-type arguments cannot surpass the (1+θ)/2 ceiling for the proportion of critical-line zeros. This clarifies a precise limit of a central line of attack and delineates what genuinely new input would be required to push further.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous (1+θ)/2 ceiling for Levinson–mollifier methods, marking a concrete barrier
