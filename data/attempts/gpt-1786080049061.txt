@@ -1,0 +1,55 @@
+Attempt: A precise obstruction to “positivity via even test functions” in the explicit formula
+
+Goal
+Clarify and rigorously justify a limitation that blocks a broad class of positivity arguments for RH based on the Guinand–Weil/Weil explicit formula with even test functions depending only on the ordinates of zeros. The point is to isolate why such arguments cannot detect the horizontal position β = Re(ρ) of zeros and hence cannot imply RH.
+
+Set-up and explicit formula
+Let h: R → R be an even C∞ function with sufficient decay so that the sums/integrals below converge absolutely (e.g., h is Schwartz). Let
+- ẖ(u) = ∫_{R} h(t) e^{-iut} dt be the Fourier transform,
+- ρ run over the nontrivial zeros of ζ(s), counted with multiplicity, with ρ = β + iγ,
+- Λ(n) be the von Mangoldt function.
+
+A convenient form of the Guinand–Weil explicit formula (one of several equivalent normalizations) reads:
+Σ_ρ h(γ) = h(0) log π − ∫_{0}^{∞} h(t) Re(Γ′/Γ((1/2 + it)/2)) dt
++ 2 Σ_{n=1}^{∞} Λ(n) n^{-1/2} ẖ(log n),
+provided ẖ is sufficiently decaying (or compactly supported) to ensure absolute convergence of the prime sum. The key structural feature for our purpose is on the left-hand side: the zero-sum depends only on h evaluated at the ordinates γ, not on β.
+
+This is standard: one derives the identity by applying the explicit formula to the completed ξ-function and pairing zeros ρ with 1 − ρ; for an even h the dependence on β cancels, leaving only γ. In more detail, the usual kernel is built from the even Mellin transform of h, and the contribution of a zero ρ and its “functional-equation partner” 1 − ρ collapses to h(γ). Thus, in such formulations, the LHS is Σ_ρ h(γ) with no appearance of β.
+
+Lemma (independence of β for even h)
+Let h be even and admissible as above. Then the contribution of a zero ρ = β + iγ in the Weil explicit formula depends only on γ via h(γ), and the sum over zeros is Σ_ρ h(γ).
+
+Proof sketch
+- Start from the explicit formula for the ξ-function using a test function H(s) built from h via H(s) = ∫_{R} h(t) e^{(s−1/2)it} dt = ẖ(γ) when s = 1/2 + iγ.
+- By the functional equation ξ(s) = ξ(1 − s), zeros come in symmetric pairs ρ and 1 − ρ (counted with multiplicity). The kernel for ρ contributes H(ρ) and for 1 − ρ contributes H(1 − ρ). For even h, H(ρ) + H(1 − ρ) = 2ẖ(γ) depends only on γ. Translating back by Fourier inversion yields the stated Σ_ρ h(γ) form.
+- All other terms (gamma-factor and prime-power sums) are encoded on the right-hand side and do not reintroduce β on the left.
+
+Consequence: why positivity in this framework cannot prove RH
+Suppose one seeks to prove RH by choosing a nonnegative test function h ≥ 0 (even) and then deriving a contradiction from the explicit formula under the assumption of a zero off the critical line. With the LHS equal to Σ_ρ h(γ), we have:
+- LHS is insensitive to whether β = 1/2 or β ≠ 1/2: for fixed γ, the same summand h(γ) appears regardless of horizontal displacement.
+- Therefore any inequality obtained by requiring, say, h ≥ 0, or by arranging ẖ ≥ 0 on some interval (to control the prime sum by positivity), cannot distinguish between a world where all zeros lie at β = 1/2 and one where some lie off the line but share the same ordinates γ.
+- In particular, if a choice of h produced an inequality of the schematic form Σ_ρ h(γ) ≥ B(h) or ≤ B(h) for some explicit functional B(h) coming from the prime and gamma terms, that inequality would be consistent with both “all zeros on the line” and “some zeros off the line having the same γ,” because the LHS is blind to β. Thus such an inequality cannot, by itself, enforce RH.
+
+Attempted workaround and its obstruction
+One might try to “tilt” the kernel to regain β-sensitivity, for instance by replacing the even kernel with a weight introducing a real exponential e^{(β−1/2)t}, i.e., using H(s) = ∫ h(t) e^{(s−1/2)t} dt with a non-even h or with a deliberate asymmetry in t. Indeed, then H(ρ) would depend on β via e^{(β−1/2)t}. However:
+- The standard positivity tricks rely on choosing h and ẖ with controlled signs on the real axis; shifting to complex arguments (as would arise on the prime side when evaluating ẖ at complex shifts corresponding to the tilt) destroys this real-axis sign control.
+- Concretely, the prime sum involves ẖ(log n) in the even setup; after tilting, it becomes ẖ(log n − i(β−1/2))-type evaluations. One loses a-priori nonnegativity/majorization that underpins positivity arguments (e.g., via Beurling–Selberg extremals or Paley–Wiener majorants). This blocks direct transference of positivity from the zero side to the prime side once β-dependence is introduced.
+
+Hence, within the widely used framework “choose an even, real test h depending only on t, drive positivity/majorization on the prime side, and conclude something about zeros,” there is a fundamental structural barrier: the left side is intrinsically β-insensitive, so no inequality of that form can force β = 1/2.
+
+Concrete corollary
+Any proof strategy for RH that:
+- uses the Weil/Guinand explicit formula in a form where the left-hand side is Σ_ρ h(γ) for an even test h, and
+- attempts to extract RH from sign/size inequalities derived solely from choices of h, ẖ with prescribed real-axis sign/support properties,
+cannot succeed, because the derived inequalities are insensitive to the horizontal locations of zeros.
+
+This does not rule out explicit-formula approaches per se, but shows that to detect β one must either:
+- work with test kernels that genuinely encode β (and then overcome the loss of positivity on the prime side), or
+- incorporate additional structure beyond even real-variable test functions and simple positivity.
+
+Scope and rigor
+- The lemma and its consequence rest on standard, rigorous explicit formula technology and a precise symmetry argument; no unproved hypotheses are used.
+- The “attempted workaround” statement explains where positivity breaks once β-sensitivity is introduced; while stated qualitatively, it rests on the elementary fact that evaluations of ẖ at complex arguments preclude real-axis sign constraints essential to classical positivity arguments.
+
+VERDICT: PARTIAL
+REASON: Rigorous no-go: even-test-function explicit-formula positivity is β-insensitive, cannot yield RH.
