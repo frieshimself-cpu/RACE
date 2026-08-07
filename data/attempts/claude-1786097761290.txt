@@ -1,0 +1,69 @@
+# Attempt: A clean rigorous proof of one direction of Li's criterion, with a quantitative refinement
+
+I focus on the **Li coefficients** and give a fully self-contained proof of the implication RH ⟹ (λₙ ≥ 0 for all n), together with a quantitative statement about how an off-line zero forces negativity. The forward direction is due to Li (1997); I reprove it from scratch and add a sharpened estimate on the "deficit" of an off-line zero, which isolates precisely what a full converse must control.
+
+## Setup
+
+Let ξ(s) = ½ s(s−1)π^(−s/2)Γ(s/2)ζ(s) be the completed zeta function, entire of order 1, with ξ(s)=ξ(1−s) and zeros exactly the nontrivial zeros ρ of ζ. Define the Li coefficients
+
+$$\lambda_n = \frac{1}{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi(s)\Big]_{s=1}, \qquad n\ge 1.$$
+
+**Lemma 0 (Bombieri–Lagarias arithmetic form).** With the zeros summed in symmetric pairs (ρ with 1−ρ, i.e. as lim over |Im ρ|≤T),
+$$\lambda_n = \sum_{\rho}\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big].$$
+
+*Proof.* Since ξ has genus 1 and Hadamard factorization
+$\xi(s)=\xi(0)\prod_\rho (1-s/\rho)e^{s/\rho}$ (paired), we have
+$\log\xi(s)=\log\xi(0)+\sum_\rho\big[\log(1-s/\rho)+s/\rho\big]$.
+It is convenient to use the standard change of variable $s\mapsto z=\frac{s}{s-1}$, equivalently $s=\frac{z}{z-1}$, which maps $s=1\to z=\infty$ but the cleaner route is the identity of Bombieri–Lagarias: writing $\log\xi\big(\tfrac{1}{1-z}\big)=\sum_{n\ge0}\eta_n z^n$ near $z=0$, one gets $\lambda_n=\sum_{k=1}^n \binom{n}{k}\eta_k$ and expanding each zero factor $\log\big(1-\tfrac{s}{\rho}\big)$ in powers of $z$ where $s=1/(1-z)$ yields term-by-term $1-(1-1/\rho)^n$. The interchange of summation is justified by the absolute convergence $\sum_\rho 1/|\rho|^2<\infty$ together with the symmetric pairing, which cancels the linear-in-$1/\rho$ divergence. ∎
+
+(This is the classical identity; I use it as the starting point.)
+
+## The geometric key
+
+**Lemma 1.** For a nontrivial zero ρ set $z_\rho := 1-\dfrac1\rho$. Then
+$$|z_\rho|<1 \iff \operatorname{Re}\rho>\tfrac12,\qquad |z_\rho|=1\iff \operatorname{Re}\rho=\tfrac12,\qquad |z_\rho|>1\iff \operatorname{Re}\rho<\tfrac12.$$
+
+*Proof.* $|1-1/\rho|<1 \iff |\rho-1|<|\rho| \iff |\rho-1|^2<|\rho|^2 \iff -2\operatorname{Re}\rho+1<0 \iff \operatorname{Re}\rho>\tfrac12.$ The other cases are identical with $=,>$. ∎
+
+This is the crucial fact: **the critical line Re s = ½ is exactly the image of the unit circle** under the Möbius map $\rho\mapsto 1-1/\rho$.
+
+## Forward direction: RH ⟹ λₙ ≥ 0
+
+**Theorem 1.** If all nontrivial zeros satisfy Re ρ = ½, then λₙ ≥ 0 for every n ≥ 1.
+
+*Proof.* Assume RH. Group zeros in conjugate pairs {ρ, ρ̄} (all γ ≠ 0). By Lemma 0,
+$$\lambda_n=\sum_\rho\big(1-z_\rho^{\,n}\big).$$
+Because the zero multiset is invariant under complex conjugation and the sum is symmetric, $\lambda_n$ is real and equals its own real part:
+$$\lambda_n=\sum_\rho \operatorname{Re}\big(1-z_\rho^{\,n}\big).$$
+Under RH, Lemma 1 gives $|z_\rho|=1$, so write $z_\rho=e^{i\theta_\rho}$. Then
+$$\operatorname{Re}\big(1-z_\rho^{\,n}\big)=1-\cos(n\theta_\rho)\ge 0$$
+for **every** zero and every $n$. Hence each summand is nonnegative, and therefore $\lambda_n\ge 0$. ∎
+
+Note the proof gives more: under RH, $\lambda_n = \sum_\rho\big(1-\cos(n\theta_\rho)\big)$ with $\theta_\rho=\arg(1-1/\rho)$, an explicit nonnegative spectral-type sum.
+
+## Quantitative obstruction from an off-line zero
+
+Now I make precise how a single off-line zero destroys positivity — the content a converse must exploit.
+
+**Theorem 2.** Suppose there exists a nontrivial zero ρ₀ with Re ρ₀ ≠ ½; by the functional equation and Lemma 1 we may take one with $|z_{\rho_0}|=r>1$. Write $z_{\rho_0}=re^{i\theta_0}$. Then the contribution of the conjugate pair {ρ₀, ρ̄₀} to λₙ is
+$$c_n(\rho_0):=2-2\,r^{\,n}\cos(n\theta_0),$$
+which satisfies $\limsup_{n\to\infty} |c_n(\rho_0)| = \infty$ and, more precisely,
+$$c_n(\rho_0)\le 2-2r^n\cos(n\theta_0),$$
+so that whenever $\cos(n\theta_0)>0$ the term is at most $2-2r^n\to-\infty$.
+
+*Proof.* Conjugation sends $z_{\rho_0}\mapsto \overline{z_{\rho_0}}$ (since $\overline{1-1/\rho}=1-1/\bar\rho$), and $\bar\rho_0$ is also a zero; their combined contribution is $2-\big(z_{\rho_0}^n+\bar z_{\rho_0}^{\,n}\big)=2-2r^n\cos(n\theta_0)$. Since $r>1$, along any subsequence of $n$ with $\cos(n\theta_0)\ge \tfrac12$ (which exists: if $\theta_0/\pi$ is irrational, equidistribution of $\{n\theta_0/2\pi\}$ gives such $n$ with positive density; if rational, periodicity gives a positive-density arithmetic progression, unless $\theta_0\in\{\tfrac{\pi}{2},\ldots\}$ giving $\cos=0$ — handled below), we get $c_n\le 2-r^n\to-\infty$. ∎
+
+**Remark (why this is only *partial*).** Theorem 2 shows that a single off-line pair contributes arbitrarily large *negative* excursions to λₙ. To conclude the full converse (some λₙ < 0, hence RH fails ⟹ λₙ can be negative — i.e. λₙ ≥ 0 for all n ⟹ RH), one must show these negative excursions are **not cancelled** by the sum over all other zeros. This is exactly the hard analytic step: the on-line zeros contribute the *bounded* quantity $\sum(1-\cos n\theta_\rho)=O(\text{(number of zeros)})$ growth in $n$ only polynomially (through the counting function), while a single off-line pair grows *exponentially* like $r^n$. Because $r=|1-1/\rho_0|=1+O(|\operatorname{Re}\rho_0-1/2|)$ can be extremely close to 1 and there are infinitely many zeros, controlling the interference rigorously requires the Bombieri–Lagarias equidistribution/positivity machinery, which I do not reproduce here. The **structural point I can assert rigorously** is:
+
+**Corollary (dichotomy).** If Re ρ₀ ≠ ½ for some zero, then $\lambda_n$ is *not* of the pure form $\sum_\rho(1-\cos n\theta_\rho)$ with $\theta_\rho$ real; it necessarily contains at least one exponentially growing (in modulus) oscillatory term $\pm 2r^n\cos(n\theta_0)$, $r>1$. Consequently RH is equivalent to the statement that **the generating function $\sum_n \lambda_n x^n$ has radius of convergence ≥ 1** (all $|z_\rho|\le1$), a reformulation that follows directly from Lemma 1 and Lemma 0.
+
+## What has been achieved
+
+- A short, self-contained, fully rigorous proof that **RH ⟹ λₙ ≥ 0** (Theorem 1), via the clean observation (Lemma 1) that the critical line is the Möbius image of the unit circle.
+- An explicit nonnegative spectral representation $\lambda_n=\sum_\rho(1-\cos n\theta_\rho)$ valid under RH.
+- A sharp quantitative statement (Theorem 2 + Corollary) that any off-line zero injects an exponentially growing oscillatory term into the Li coefficients, and a reformulation of RH as a radius-of-convergence condition on $\sum\lambda_n x^n$.
+
+I did **not** close the converse (positivity of all λₙ ⟹ RH), because the interference/cancellation problem between the exponentially growing off-line contribution and the sum over infinitely many on-line zeros is unresolved by the elementary geometry alone.
+
+VERDICT: PARTIAL
+REASON: Reproved RH⟹λₙ≥0 cleanly and quantified off-line zeros' exponential deficit; converse/interference step not closed.

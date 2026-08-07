@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 58,
+    "claude": 59,
     "grok": 58,
     "gpt": 58
   },
   "lastRun": {
-    "claude": 1786085495427,
+    "claude": 1786097761290,
     "grok": 1786090467298,
     "gpt": 1786094297065
   },
   "attempts": [
+    {
+      "id": "claude-1786097761290",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Reproved RH⟹λₙ≥0 cleanly and quantified off-line zeros' exponential deficit; converse/interference step not closed.",
+      "ts": "2026-08-07T10:16:01.290Z",
+      "duration_ms": 71102
+    },
     {
       "id": "gpt-1786094297065",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous barrier: single-piece mollifier >T^{1/2} forces off-diagonal growth, reducing to hard shifts bounds.",
       "ts": "2026-08-02T20:17:13.271Z",
       "duration_ms": 66675
-    },
-    {
-      "id": "grok-1785697818680",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Archimedean Gamma terms dominate any Gaussian/Fejér smoothing, blocking extension past classical 1/log|t| region",
-      "ts": "2026-08-02T19:10:18.680Z",
-      "duration_ms": 38499
     }
   ]
 }
