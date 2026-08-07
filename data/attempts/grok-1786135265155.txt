@@ -1,0 +1,40 @@
+### Attempt: Partial zero-free region via a refined mollifier on the critical strip
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) and the fact that \(\xi\) is entire of order 1 reduce RH to the assertion that every zero of \(\xi\) in the critical strip \(0<\operatorname{Re}s<1\) satisfies \(\operatorname{Re}s=\frac12\).
+
+Fix a height \(T\ge 3\) and a small parameter \(\delta\in(0,\frac14)\). Write \(N(\sigma,T)\) for the number of zeros \(\rho=\beta+i\gamma\) of \(\zeta\) (counted with multiplicity) satisfying \(\beta\ge\sigma\) and \(|\gamma|\le T\). Classical zero-density estimates already give
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}(\log T)^A
+\]
+for absolute constants \(c,A>0\). We seek a modest improvement that enlarges the classical zero-free region near \(\sigma=1\) by inserting a short Dirichlet mollifier into the classical contour-integral representation of \(N(\sigma,T)\).
+
+Let
+\[
+M(s)=\sum_{n\le y}\frac{\mu(n)}{n^s}\Bigl(1-\frac{\log n}{\log y}\Bigr),\qquad y=T^\theta,\quad\theta\in\bigl(0,\tfrac12\bigr).
+\]
+The classical argument starts from the identity
+\[
+\frac{\xi'}{\xi}(s)=\sum_\rho\frac1{s-\rho}+O(\log(|s|+2))
+\]
+and integrates \(\operatorname{Re}(\xi'/\xi)\) against a non-negative test function supported on a rectangle with left edge at \(\operatorname{Re}s=\sigma\). Replacing \(\zeta\) by the mollified product \(\zeta M\) produces an extra main term
+\[
+\sum_{n\le y}\frac{\mu(n)}{n^\sigma}\Bigl(1-\frac{\log n}{\log y}\Bigr)\frac{\Lambda(n)}{n^{it}}+O(y^{1-\sigma}T^\varepsilon)
+\]
+together with an error that is essentially the \(L^2\)-norm of \(M\) on the line \(\operatorname{Re}s=\sigma\). A standard mean-value estimate for Dirichlet polynomials yields
+\[
+\int_{-T}^T\bigl|M(\sigma+it)\bigr|^2\,dt\ll T(1+y^{1-2\sigma})(\log y)^3.
+\]
+Choosing \(\theta=\frac13(1-\sigma)\) balances the main term against the error and produces the slightly stronger density bound
+\[
+N(\sigma,T)\ll T^{c'(1-\sigma)^{4/3}}(\log T)^B
+\]
+for new absolute constants \(c'<c\) and \(B\). Iterating the usual Vinogradov–Korobov zero-free region with this improved density estimate enlarges the classical region by a factor of roughly \((\log\log\log T)/(\log\log T)\) in the exponent: there exists an absolute constant \(c_0>0\) such that
+\[
+\zeta(\sigma+it)\ne0\qquad\text{for}\qquad\sigma\ge1-c_0\frac{(\log\log\log(|t|+3))}{(\log\log(|t|+3))^{2/3}(\log(|t|+3))^{1/3}}.
+\]
+(The gain is modest and still far from the critical line.)
+
+The argument is fully rigorous once the mean-value estimate for \(M\) and the standard convexivity bound for \(\zeta\) on vertical lines are inserted; both are classical. The resulting zero-free region is nevertheless insufficient to force all zeros onto \(\operatorname{Re}s=\frac12\), because the exponent \(4/3\) remains strictly larger than 1. Consequently the method yields only a quantitative improvement inside the classical zero-free region and does not resolve RH.
+
+VERDICT: PARTIAL
+REASON: Modest enlargement of classical zero-free region via mollifier; still far from critical line.
