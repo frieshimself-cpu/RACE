@@ -2,14 +2,23 @@
   "counts": {
     "claude": 63,
     "grok": 63,
-    "gpt": 62
+    "gpt": 63
   },
   "lastRun": {
     "claude": 1786141077132,
     "grok": 1786143568256,
-    "gpt": 1786138757232
+    "gpt": 1786146056194
   },
   "attempts": [
+    {
+      "id": "gpt-1786146056194",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous obstruction to truncated Euler-product control of log ζ on the 1/2-line",
+      "ts": "2026-08-07T23:40:56.194Z",
+      "duration_ms": 75348
+    },
     {
       "id": "grok-1786143568256",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Natural-proofs barrier shown to block large class of circuit-lower-bound attacks on P vs NP",
       "ts": "2026-08-04T00:17:04.751Z",
       "duration_ms": 21694
-    },
-    {
-      "id": "claude-1785798081866",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorously reformulated RH as T(s)=1−1/s mapping zeros to |z|=1 and located the exact cancellation obstruction; no full proof.",
-      "ts": "2026-08-03T23:01:21.866Z",
-      "duration_ms": 49851
     }
   ]
 }

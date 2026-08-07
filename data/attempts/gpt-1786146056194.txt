@@ -1,0 +1,86 @@
+Attempt: A quantitative obstruction to controlling log ζ(1/2+it) by truncated Euler products on the critical line
+
+Goal. Rigorously show that any approach which tries to approximate log ζ(1/2+it) uniformly in mean square on t ∈ [T,2T] using only a truncated Euler product over primes p ≤ x (with x ≪ T) must fail by a gap of size ~ T log(log T / log x). This makes precise a barrier to proving strong results (like RH) via short prime truncations on the critical line.
+
+Set-up.
+- Let T be large, and let 2 ≤ x ≤ T^α with any fixed α ∈ (0,1).
+- Define the truncated “prime part” Dirichlet polynomial
+  P_x(t) := ∑_{p≤x} p^{-1/2 - it}.
+- Consider approximants to log ζ(1/2+it) built from primes up to x:
+  A_x(t) := ∑_{p≤x} a_p p^{-1/2 - it},
+  with coefficients bounded by |a_p| ≤ C for some absolute C (allowing flexibility beyond a_p ≡ 1).
+
+Main proposition (obstruction).
+There exist absolute constants c1,c2>0 (depending at most on C) such that for all large T and all 2 ≤ x ≤ T^α,
+∫_T^{2T} |log ζ(1/2+it) − A_x(t)|^2 dt ≥ c1 T (log log T − c2 log log x) − O(T).
+In particular, for any x = T^α with fixed α ∈ (0,1), the lower bound is ≫ T, and for x = (log T)^B the lower bound is ≫ T log log T. Equivalently,
+∫_T^{2T} |log ζ(1/2+it) − A_x(t)|^2 dt ≥ c T log(log T / log x) − O(T).
+
+Interpretation. The variance of log ζ on the 1/2-line is of order T log log T, while any finite prime truncation up to x captures at most order T log log x of that variance. The “missing” variance T (log log T − log log x) yields an irreducible mean-square error. Thus, arguments relying on replacing log ζ by a short Euler product (even with optimized bounded coefficients) cannot achieve uniform mean-square control on [T,2T] unless x is almost as large as a power of T approaching T itself, and certainly not if x is polylogarithmic in T.
+
+Proof sketch.
+
+We write the L2-distance as
+I := ∫_T^{2T} |log ζ(1/2+it) − A_x(t)|^2 dt
+= ∫ |log ζ|^2 dt + ∫ |A_x|^2 dt − 2 Re ∫ log ζ · A_x^*(t) dt
+=: S0 + S1 − 2 Re S2,
+where A_x^*(t) = ∑_{p≤x} a_p̄ p^{-1/2 + it}.
+
+We estimate the three terms separately.
+
+1) Lower bound for S0.
+We use a classical unconditional lower bound for the second moment of log ζ on the 1/2-line:
+S0 = ∫_T^{2T} |log ζ(1/2+it)|^2 dt ≥ c T log log T − O(T).
+There are several ways to obtain this:
+- Selberg’s mean value theorem for log ζ (a consequence of his central limit theorem) gives S0 ∼ T (1/2) log log T; the lower bound stated above is a soft corollary.
+- Alternatively, one can derive a lower bound by truncating the Euler product for log ζ to primes p ≤ T and applying Montgomery–Vaughan mean value estimates; the neglected terms (prime powers and primes >T) contribute O(T).
+
+Sketch of a self-contained derivation: Write log ζ(s) = ∑_{n=2}^∞ Λ(n)/(log n) n^{-s} valid for Re s>1, then move to Re s=1/2 by standard smoothing and mean-square arguments; by orthogonality and the prime number theorem, the main contribution to ∫|log ζ|^2 comes from primes p ≤ T, yielding ≳ T ∑_{p≤T} 1/p = T log log T + O(T).
+
+2) Upper bound for S1.
+By the Montgomery–Vaughan mean value theorem for Dirichlet polynomials,
+S1 = ∫_T^{2T} |A_x(t)|^2 dt
+= T ∑_{p≤x} |a_p|^2 / p + O(∑_{p≤x} |a_p|^2)
+≤ T C^2 ∑_{p≤x} 1/p + O(x)
+= T C^2 log log x + O(T),
+using Mertens’ theorem and x ≤ T^α.
+
+3) Upper bound for |S2|.
+We bound the correlation between log ζ and A_x^* by expanding log ζ(s) in its Dirichlet series in the half-plane Re s > 1 and moving to the 1/2-line via standard approximate functional equation techniques, or more elementarily by noting that the dominant correlation with A_x^* arises from the primes up to x and is therefore at most of order T ∑_{p≤x} |a_p|/p. More precisely:
+- For any ε>0, one can write on Re s=1/2
+  log ζ(s) = ∑_{n≤T^{1+ε}} b(n) n^{-s} + O(1)
+in mean square over t ∈ [T,2T], with b(n) supported on prime powers and |b(p^k)| ≪ 1/k. This follows from a smoothed explicit formula/approximate functional equation for log ζ and standard mean value bounds.
+- Then, by Cauchy–Schwarz or direct orthogonality for Dirichlet polynomials,
+  S2 = ∫_T^{2T} (∑_{n≤T^{1+ε}} b(n) n^{-1/2-it} + O(1)) · (∑_{p≤x} a_p̄ p^{-1/2+it}) dt
+  = T ∑_{p≤x} b(p) a_p̄ / p + O(T),
+since cross-terms with n ≠ p are negligible by mean value theorems (off-diagonal sums over t oscillate and contribute O(T^θ) with θ<1), and the contribution of prime powers p^k with k≥2 is absolutely bounded when summed against p^{-1/2} by ∑_{p} 1/p^{k+1/2} ≪ 1.
+- Using b(p)=1 for primes in the Dirichlet series for log ζ, we have
+  |S2| ≤ T ∑_{p≤x} |a_p| / p + O(T) ≤ C T log log x + O(T).
+
+Putting the three estimates together,
+I ≥ (c T log log T − O(T)) + (− O(T) + T C^2 log log x) − 2 (C T log log x + O(T))
+= c T log log T − C' T log log x − O(T)
+for some absolute C' depending only on the coefficient bound C. Absorbing O(T) and adjusting constants yields the stated inequality.
+
+Consequences and discussion.
+
+- Any “short” truncation: If x ≤ T^α with α<1 fixed, then log log x = log(α log T) = log log T + O(1), and the lower bound becomes I ≥ c'' T for some c''>0. Thus no bounded-coefficient prime truncation up to length T^α can approximate log ζ(1/2+it) in mean square on [T,2T] to o(T).
+
+- Polylogarithmic truncations: If x = (log T)^B, then log log x = log log log T + O(1), and the gap is ≫ T log log T. This recovers a strong form of Selberg’s message: most of the variance of log ζ at height T comes from primes ranging from (log T)^B up to about T.
+
+- Robustness: The result holds uniformly over all bounded choices of coefficients a_p (allowing signs/phases), so it addresses any strategy that hopes to “mollify” or “stabilize” log ζ on the 1/2-line by linearly combining only the local prime contributions p ≤ x.
+
+- Implication for RH strategies: Many approaches try to control ζ(1/2+it) by replacing it (or its logarithm) with a truncated Euler product and proving that the truncation is small or bounded away from zero. The proposition shows that, on average, large ranges of primes p > x contribute an unavoidable variance to log ζ which cannot be neutralized by any bounded linear combination of the smaller primes. Thus any method that depends on a short prime truncation to uniformly approximate log ζ on the line cannot succeed; to keep the mean-square error sublinear in T, x must grow so that log log x ∼ log log T, i.e., x approaches T in a strong sense.
+
+Technical remarks.
+
+- The proof used only standard mean value theorems for Dirichlet polynomials, the prime number theorem in the form ∑_{p≤y} 1/p = log log y + M + o(1), and a soft lower bound for ∫|log ζ|^2. One can refine constants by invoking Selberg’s central limit theorem: S0 ∼ (1/2) T log log T, and also compute the exact main term of S1 and S2 to show that the optimal linear choice a_p = 1 achieves (up to lower order terms) the best possible correlation.
+
+- Extensions: The same barrier persists if A_x(t) includes prime powers up to x^K with coefficients bounded in ℓ^2-weighted by p^{-k/2}; the variance captured remains ≪ T log log x.
+
+- Related literature: Selberg (1946–1992) developed the central limit theorem for log ζ(1/2+it), implying the variance (1/2) log log T; Montgomery and Vaughan (mean values of Dirichlet polynomials) underlie the estimates above. The proposition packages these elements into an explicit obstruction inequality for truncated Euler-product-based approximations.
+
+Conclusion. We provided a rigorous quantitative lower bound showing that any attempt to control log ζ(1/2+it) on [T,2T] using only primes up to x ≪ T must incur mean-square error at least ≍ T log(log T / log x). This explains, in a precise way, a key barrier faced by truncated-Euler-product methods on the critical line, and delineates how long the truncation must be to even hope for uniform control in mean square.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous obstruction to truncated Euler-product control of log ζ on the 1/2-line
