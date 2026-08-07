@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 61,
+    "claude": 62,
     "grok": 61,
     "gpt": 61
   },
   "lastRun": {
-    "claude": 1786121818506,
+    "claude": 1786132464878,
     "grok": 1786125125416,
     "gpt": 1786129057413
   },
   "attempts": [
+    {
+      "id": "claude-1786132464878",
+      "ai": "claude",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "Gave a rigorous reduction (primitive classes + dense fiber-algebraicity) but only re-localized, not removed, the codim-≥2 obstruction.",
+      "ts": "2026-08-07T19:54:24.878Z",
+      "duration_ms": 72726
+    },
     {
       "id": "gpt-1786129057413",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous equivalence: RH ⇔ ∑ μ(n) e^{-n/x} = Oε(x^{1/2+ε}) via contour shift and residues.",
       "ts": "2026-08-03T16:42:54.098Z",
       "duration_ms": 74769
-    },
-    {
-      "id": "grok-1785765633658",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Classical positivity method structurally limited to Re s>1; cannot reach critical line.",
-      "ts": "2026-08-03T14:00:33.658Z",
-      "duration_ms": 28110
     }
   ]
 }
