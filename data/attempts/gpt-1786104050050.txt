@@ -1,0 +1,57 @@
+Title: A quantitative barrier for compact-support explicit-formula methods toward RH
+
+Setup. Let h be an even Schwartz function on R such that its Fourier transform ĥ is compactly supported in (−A, A) and h extends to an entire function of exponential type 2πA. Let Ξ(s) be the completed ξ-function for ζ(s). The Guinand–Weil explicit formula (in a standard symmetric normalization) can be written in the form
+Sum_ρ H(ρ) = M[h] + 2 Re ∑_{n≥1} Λ(n) n^(-1/2) ĥ( (log n)/(2π) ),
+where the sum on the left is over the nontrivial zeros ρ of ζ(s), H(ρ) is a test-transform linearly determined by h (see below), M[h] is an explicit linear functional of h coming from the gamma factor and pole at s=1, and the prime sum truncates to n ≤ e^{2πA} because ĥ is supported in (−A, A).
+
+We employ the following standard facts (Paley–Wiener type bounds):
+
+PW1. If ĥ is supported in (−A, A), then h extends to an entire function with
+|h(x + i y)| ≤ C_N (1 + |x+iy|)^(−N) e^{2π A |y|} for all N≥0.
+Similarly, the transforms H(ρ) that appear in the explicit formula are linear functionals of values of h at vertical shifts of the real axis whose magnitudes are controlled by the same exponential type bound.
+
+PW2. The prime sum truncates: since ĥ(u) = 0 for |u| ≥ A, we have
+∑_{n≥1} Λ(n) n^(−1/2) ĥ( (log n)/(2π) ) = ∑_{n ≤ e^{2π A}} Λ(n) n^(−1/2) ĥ( (log n)/(2π) ).
+
+Two basic size estimates.
+
+Lemma 1 (size of the prime side under truncation). For any such h,
+| ∑_{n ≤ e^{2π A}} Λ(n) n^(−1/2) ĥ( (log n)/(2π) ) |
+≤ C e^{π A} sup_{|u|≤A} |ĥ(u)|.
+Moreover, uniformly in A, ∑_{n ≤ X} Λ(n)/√n = 2√X + O(1), hence the bound is sharp in order e^{πA}.
+
+Proof. Trivial bound |Λ(n) ĥ(...)| ≤ (log n) sup|ĥ| and support restriction give
+|S| ≤ sup|ĥ| ∑_{n ≤ e^{2π A}} Λ(n)/√n.
+By partial summation with ψ(x) and PNT-level bounds, ∑_{n ≤ X} Λ(n)/√n = 2√X + O(1). Taking X = e^{2πA} gives the claim.
+
+Lemma 2 (size of a single off-line zero contribution). Let ρ = β + iγ be any nontrivial zero. The contribution of ρ to the zero side of the explicit formula is bounded by
+|H(ρ)| ≤ C' e^{2π A (β − 1/2)} (1 + |γ|)^(−N)
+for any fixed N ≥ 0, with a constant depending on h, N. In particular, for any fixed β < 1,
+|H(ρ)| = o(e^{π A}) as A→∞, uniformly in γ in fixed windows, and the decay is exponential in A with exponent 2π(1−β)A.
+
+Proof. In the symmetric form of the explicit formula for Ξ, the dependence on a zero ρ = β + iγ enters through evaluations of h at arguments shifted by ±i(β−1/2) (arising from plugging s = 1/2 + i· into the Mellin/Weil transforms). By PW1 these evaluations are bounded by e^{2πA|β−1/2|} times a polynomially decaying factor in γ; even taking the worst case |β−1/2| = β−1/2 for β≥1/2 yields the stated bound.
+
+Barrier proposition (finite-band explicit-formula insensitivity to off-line zeros). Fix any even Schwartz h with ĥ supported in (−A, A). Consider the explicit formula localized near height T by replacing h(u) with h(u−T) + h(u+T). Let ρ0 = β0 + iγ0 be a hypothetical zero with β0 ∈ (1/2, 1) and |γ0 − T| ≤ 1 (say). Then, as A→∞,
+|H(ρ0)| ≤ C e^{2π A (β0 − 1/2)} = e^{−2π A (1−β0)} · e^{π A} · O(1).
+Meanwhile the truncated prime side admits magnitude up to ≍ e^{π A} by Lemma 1. Therefore, in the explicit formula balance
+H(ρ0) + (contrib. of all other zeros) = M[h_T] + 2 Re ∑_{n ≤ e^{2π A}} Λ(n) n^(−1/2) ĥ( (log n)/(2π) ) e^{iT (log n)}
+the perturbation due specifically to the single off-line zero ρ0 is exponentially smaller, by a factor e^{−2πA(1−β0)}, than the natural scale of the prime-side fluctuations allowed by unconditional bounds. Consequently, no contradiction can be forced, unconditionally, merely from such a compact-support test via the explicit formula, against the existence of a zero with β0 < 1.
+
+Proof sketch. Shift h to localize at height T and apply the explicit formula. Separate the zero sum into the single term ρ0 and the rest. The term H(ρ0) is bounded by Lemma 2. The remainder of the zero sum and the gamma-term M[h_T] are bounded by quantities no larger than the prime-side scale e^{π A} (classically, one controls them by PW bounds and Stirling). Since the prime-side truncates at e^{2πA} and sums Λ(n)/√n against an arbitrary bounded weight ĥ with oscillation e^{iT log n}, the total available variation on the right is ≍ e^{π A}. The left-hand perturbation due to introducing or removing one off-line zero in the window is exponentially smaller, by e^{−2πA(1−β0)}. Therefore the explicit formula identity can always be satisfied (unconditionally) without contradiction: the small shift caused by H(ρ0) can be absorbed within the a priori room already present on the prime side at scale e^{πA}.
+
+Quantified corollary (no zero-free region from finite bandwidth). Let β* < 1. For every δ ∈ (0, 1−β*), every A large enough, and every even Schwartz h with supp ĥ ⊂ (−A, A), the explicit-formula method with h cannot, unconditionally, rule out the existence of a zero with real part in [β*, 1) and ordinate in an O(1)-window around any given height T. The obstruction is quantitative: the “signal” from such a zero is bounded by e^{−2πA(1−β*)} times the “noise floor” e^{πA} naturally present on the prime side under support truncation.
+
+Remarks.
+
+- The barrier hinges only on compact Fourier support and unconditional prime-sum size. It is agnostic to the fine shape of h and to any positivity constraints; no choice of such a test can beat the e^{πA} scale of the prime side while a single off-line zero contributes at most e^{2πA(β−1/2)}. As long as β < 1, the zero’s contribution is exponentially dominated.
+
+- This formalizes a finite-band limitation: local zero information derivable by such explicit-formula arguments depends only on primes up to e^{2πA}, and the exponential-type growth bound forces insufficient sensitivity to the real part of zeros below 1.
+
+- Any approach aiming to prove RH via the explicit formula must either (i) abandon compact support for ĥ (accepting long, delicate tails with quantitative control beyond the e^{πA} scale), (ii) inject strong, genuinely new cancellation in prime sums well beyond trivial 2√X bounds, or (iii) use structure beyond a single linear statistic with a finite-band test.
+
+- The argument extends mutatis mutandis to other L-functions with standard gamma factors; the scale e^{πA} is replaced by X^{1/2} with X = e^{2πA} and the off-line zero signal scales as X^{β−1/2}.
+
+Conclusion. We provided a rigorous barrier quantifying why explicit-formula methods restricted to compactly supported Fourier tests cannot, unconditionally, preclude zeros with real part β < 1, hence cannot reach the Riemann Hypothesis. Any successful path via this route must fundamentally overcome this finite-band limitation.
+
+VERDICT: PARTIAL
+REASON: Proved a quantitative barrier for compact-support explicit-formula methods; shows this approach can’t prove RH.

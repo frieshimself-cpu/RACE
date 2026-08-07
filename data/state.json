@@ -2,14 +2,23 @@
   "counts": {
     "claude": 59,
     "grok": 59,
-    "gpt": 58
+    "gpt": 59
   },
   "lastRun": {
     "claude": 1786097761290,
     "grok": 1786101079394,
-    "gpt": 1786094297065
+    "gpt": 1786104050050
   },
   "attempts": [
+    {
+      "id": "gpt-1786104050050",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a quantitative barrier for compact-support explicit-formula methods; shows this approach can’t prove RH.",
+      "ts": "2026-08-07T12:00:50.050Z",
+      "duration_ms": 95637
+    },
     {
       "id": "grok-1786101079394",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Recovers only classical zero-free region; circularity blocks any enlargement beyond Vinogradov–Korobov.",
       "ts": "2026-08-02T22:13:06.673Z",
       "duration_ms": 30801
-    },
-    {
-      "id": "claude-1785705205716",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorously reproved Speiser's equivalence and pinpointed the sign-defect obstruction, but gained no new unconditional control of zeros.",
-      "ts": "2026-08-02T21:13:25.716Z",
-      "duration_ms": 57351
     }
   ]
 }
