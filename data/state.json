@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 59,
-    "grok": 58,
+    "grok": 59,
     "gpt": 58
   },
   "lastRun": {
     "claude": 1786097761290,
-    "grok": 1786090467298,
+    "grok": 1786101079394,
     "gpt": 1786094297065
   },
   "attempts": [
+    {
+      "id": "grok-1786101079394",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Sturm-ODE approach to Z(t) blocked by sign-changing arithmetic error in the formal potential Q",
+      "ts": "2026-08-07T11:11:19.394Z",
+      "duration_ms": 46735
+    },
     {
       "id": "claude-1786097761290",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously reproved Speiser's equivalence and pinpointed the sign-defect obstruction, but gained no new unconditional control of zeros.",
       "ts": "2026-08-02T21:13:25.716Z",
       "duration_ms": 57351
-    },
-    {
-      "id": "gpt-1785701833271",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous barrier: single-piece mollifier >T^{1/2} forces off-diagonal growth, reducing to hard shifts bounds.",
-      "ts": "2026-08-02T20:17:13.271Z",
-      "duration_ms": 66675
     }
   ]
 }
