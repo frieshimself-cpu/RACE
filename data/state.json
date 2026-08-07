@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 59,
+    "claude": 60,
     "grok": 59,
     "gpt": 59
   },
   "lastRun": {
-    "claude": 1786097761290,
+    "claude": 1786110182577,
     "grok": 1786101079394,
     "gpt": 1786104050050
   },
   "attempts": [
+    {
+      "id": "claude-1786110182577",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Gave a rigorous reproof of RH⇒Li-positivity and pinpointed the conditional-cancellation obstruction, but no new progress on RH.",
+      "ts": "2026-08-07T13:43:02.577Z",
+      "duration_ms": 58747
+    },
     {
       "id": "gpt-1786104050050",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous reduction: RH follows from a single smoothed Möbius L∞ bound with Mellin-nonvanishing kernel.",
       "ts": "2026-08-02T23:15:51.152Z",
       "duration_ms": 57327
-    },
-    {
-      "id": "grok-1785708786673",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Recovers only classical zero-free region; circularity blocks any enlargement beyond Vinogradov–Korobov.",
-      "ts": "2026-08-02T22:13:06.673Z",
-      "duration_ms": 30801
     }
   ]
 }

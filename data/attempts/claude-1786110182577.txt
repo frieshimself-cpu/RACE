@@ -1,0 +1,38 @@
+## Attempt: a rigorous geometric proof of the positivity (RH ⟹ Li) direction, and an honest obstruction analysis for the converse
+
+I focus on **Li's criterion**, which states RH ⟺ λₙ ≥ 0 for all n ≥ 1, where
+$$\lambda_n = \sum_{\rho}\Big[1-\Big(1-\tfrac1\rho\Big)^{n}\Big],$$
+the sum over nontrivial zeros ρ of ζ, counted with multiplicity and taken in the symmetric (paired) sense that Li/Bombieri–Lagarias proved to be convergent. I give a fully checked proof of the "easy" direction, isolate the exact geometric fact it rests on, and then argue concretely why the reverse (the part that would actually prove RH) resists the same method.
+
+### Lemma (Möbius geometry of the critical line)
+For any zero ρ = σ + it with ρ ≠ 0, set w_ρ = 1 − 1/ρ. Then
+$$|w_\rho|<1 \iff \sigma>\tfrac12,\qquad |w_\rho|=1\iff \sigma=\tfrac12,\qquad |w_\rho|>1\iff \sigma<\tfrac12.$$
+
+**Proof.** 
+$$|w_\rho|^2=\Big|\frac{\rho-1}{\rho}\Big|^2=\frac{(\sigma-1)^2+t^2}{\sigma^2+t^2}.$$
+Since σ² + t² > 0,
+$$|w_\rho|^2 - 1 = \frac{(\sigma-1)^2 - \sigma^2}{\sigma^2+t^2}=\frac{1-2\sigma}{\sigma^2+t^2}.$$
+The sign of this is the sign of (1 − 2σ), giving all three equivalences. ∎
+
+This is exact and unconditional; it is the map φ(ρ) = 1 − 1/ρ sending the half-plane {σ > ½} to the open unit disk and the critical line to the unit circle.
+
+### Proposition (RH ⟹ λₙ ≥ 0)
+Assume all nontrivial zeros satisfy σ = ½. Then λₙ ≥ 0 for every n ≥ 1.
+
+**Proof.** Nontrivial zeros come in conjugate pairs {ρ, ρ̄} (since ζ(s̄) = ζ(s)̄ and no zeros are real in the critical strip). By the Lemma, under RH each w_ρ lies on the unit circle, so write w_ρ = e^{iθ} with w_{ρ̄} = 1 − 1/ρ̄ = (1 − 1/ρ)̄ = e^{−iθ}. The paired contribution to λₙ is
+$$\big(1-w_\rho^{\,n}\big)+\big(1-w_{\bar\rho}^{\,n}\big)=2-\big(e^{in\theta}+e^{-in\theta}\big)=2-2\cos(n\theta)\ge 0.$$
+Summing over conjugate pairs in the symmetric order (which is exactly the order in which Bombieri–Lagarias establish absolute-in-blocks convergence of the defining series) yields λₙ ≥ 0. Each block is nonnegative, so the limit is nonnegative. ∎
+
+The proof is rigorous given the (established) convergence of the symmetric sum; nothing above uses more than the Lemma and conjugate pairing.
+
+### Where the converse — the direction that would prove RH — breaks
+
+The clean sign 2 − 2cos(nθ) ≥ 0 is a *pointwise* consequence of |w_ρ| = 1. To go the other way one needs: if some zero has σ > ½ (hence, by the functional equation, a mirror zero at 1 − σ < ½ with the same t), then some λₙ < 0. For a single mirror pair ρ, 1 − ρ one computes with w = 1 − 1/ρ (|w| < 1) and w' = 1 − 1/(1−ρ) (|w'| > 1) a paired term
+$$2 - w^n - w'^n .$$
+Because |w'| > 1, the term −w'ⁿ grows like |w'|ⁿ and *must eventually dominate*, forcing λₙ → −∞ along that pair alone — this is the heart of the converse. **The obstruction is not this single pair but the interchange of the two limits:** λₙ is a conditionally convergent sum over *all* zeros, and the growing negative contribution of an off-line pair could in principle be masked, for every fixed n, by cancellation against the infinitely many on-line zeros before the off-line term "wins." Making the converse rigorous requires a *uniform* growth-vs-cancellation estimate — precisely the arithmetic input (via the explicit formula: λₙ = archimedean terms + a sum over prime powers) that no purely geometric argument supplies. This is the concrete reason the Möbius geometry gives one direction for free but yields **no** unconditional leverage on RH: the disk/circle dichotomy is local in ρ, while RH is a statement about a globally conditionally convergent spectral sum whose sign is governed by prime distribution, not by the trivial pointwise inequality.
+
+### Honest assessment
+The Lemma and Proposition are correct and self-contained, but they reprove a known implication (RH ⇒ Li positivity). The genuinely hard direction reduces, as shown, to controlling conditional cancellation in the zero-sum uniformly in n — which is equivalent in difficulty to RH itself and is not advanced here. No new unconditional progress toward RH is obtained.
+
+VERDICT: FAILED
+REASON: Gave a rigorous reproof of RH⇒Li-positivity and pinpointed the conditional-cancellation obstruction, but no new progress on RH.
