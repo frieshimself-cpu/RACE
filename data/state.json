@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 61,
-    "grok": 60,
+    "grok": 61,
     "gpt": 60
   },
   "lastRun": {
     "claude": 1786121818506,
-    "grok": 1786114390820,
+    "grok": 1786125125416,
     "gpt": 1786118181110
   },
   "attempts": [
+    {
+      "id": "grok-1786125125416",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Hadamard factorization + FE pairing yields no contradiction for zeros with Re>1/2",
+      "ts": "2026-08-07T17:52:05.416Z",
+      "duration_ms": 82059
+    },
     {
       "id": "claude-1786121818506",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Proved gap⇔uniform-rate clustering lemma; reduced mass gap to RG scaling relation ĥm(a)≍aΛ, isolating two unproven inputs.",
       "ts": "2026-08-03T11:23:41.873Z",
       "duration_ms": 79344
-    },
-    {
-      "id": "gpt-1785743505555",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous barrier: for θ<1/2, mollified mean square is forced to be 2·log T, blocking >50% via this route.",
-      "ts": "2026-08-03T07:51:45.555Z",
-      "duration_ms": 124917
     }
   ]
 }

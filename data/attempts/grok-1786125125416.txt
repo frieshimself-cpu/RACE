@@ -1,0 +1,24 @@
+### Attempt: Failure analysis of a Hadamard-product approach to excluding zeros off the critical line
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\).  It is entire of order 1, satisfies the functional equation \(\xi(s)=\xi(1-s)\), and admits the Hadamard factorization
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+where the product runs over the non-trivial zeros (counted with multiplicity) and is understood in the usual entire-function sense (grouped to ensure convergence).
+
+Assume for contradiction that there exists a zero \(\rho_0=\sigma_0+it_0\) with \(\sigma_0>1/2\).  The functional equation forces \(\xi(1-\rho_0)=0\) as well, so the factor
+\[
+\Bigl(1-\frac{s}{\rho_0}\Bigr)\Bigl(1-\frac{s}{1-\rho_0}\Bigr)
+\]
+appears in the product.  Expanding the quadratic factor yields a monic polynomial whose coefficients are real and whose roots are symmetric with respect to the critical line.  Because \(\xi\) is of order 1, the Weierstrass primary factors remain of genus 0 after this pairing, and the resulting infinite product still converges uniformly on compact subsets of \(\mathbb{C}\) (the exponent of convergence of the zeros is already known to be 1, independently of their real parts).  The growth estimate
+\[
+\log|\xi(s)|\ll |s|\log|s|
+\]
+continues to hold, and the functional equation is preserved term-by-term.  Consequently the assumption \(\sigma_0>1/2\) produces no inconsistency with the analytic continuation, the order, or the functional equation of \(\xi\).
+
+The same conclusion follows from the completed Euler product: the Dirichlet series for \(-\xi'/\xi\) differs from that of \(-\zeta'/\zeta\) only by elementary gamma and polynomial terms; a zero off the line merely contributes a pair of simple poles symmetric about \(\operatorname{Re}s=1/2\), which is compatible with the known meromorphic continuation.
+
+Thus the Hadamard factorization, while correctly encoding the zeros, supplies no obstruction to their lying off the critical line.
+
+VERDICT: FAILED
+REASON: Hadamard factorization + FE pairing yields no contradiction for zeros with Re>1/2
