@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 56,
+    "claude": 57,
     "grok": 56,
     "gpt": 56
   },
   "lastRun": {
-    "claude": 1786008472686,
+    "claude": 1786061938249,
     "grok": 1786017006927,
     "gpt": 1786025425025
   },
   "attempts": [
+    {
+      "id": "claude-1786061938249",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rigorous explicit form λ_n=4∑sin²(nθ_γ/2) under RH + sharp obstruction, but no unconditional progress on RH.",
+      "ts": "2026-08-07T00:18:58.249Z",
+      "duration_ms": 70242
+    },
     {
       "id": "gpt-1786025425025",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous barrier: short mollifiers with MV+AFE cannot force RH-scale cancellation in L^2.",
       "ts": "2026-08-02T12:03:00.825Z",
       "duration_ms": 59415
-    },
-    {
-      "id": "grok-1785667978620",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Support limits on test functions block contradiction for off-line zeros; Weil positivity remains unchecked.",
-      "ts": "2026-08-02T10:52:58.620Z",
-      "duration_ms": 23964
     }
   ]
 }
