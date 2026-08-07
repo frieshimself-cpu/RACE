@@ -1,0 +1,52 @@
+Attempt: A reduction for codimension-2 Hodge classes on X × E via generic exclusion of the mixed Künneth summand
+
+Setup. Let X be a smooth projective complex variety. Consider Y = X × E where E is an elliptic curve. In degree 4,
+H^4(Y, Q) ≅ H^4(X, Q) ⊕ (H^3(X, Q) ⊗ H^1(E, Q)) ⊕ (H^2(X, Q) ⊗ H^2(E, Q)).
+
+The Hodge conjecture in codimension 2 on Y asks whether H^{2,2}(Y) ∩ H^4(Y, Q) is spanned by classes of algebraic codimension-2 cycles on Y. The summands H^4(X) ⊗ H^0(E) and H^2(X) ⊗ H^2(E) are algebraic if HC holds for H^4(X) (pullback) and by Lefschetz (1,1) on both factors (products of divisors), respectively. The only potentially new obstruction is the mixed Künneth summand H^3(X) ⊗ H^1(E).
+
+Main claim. For a very general elliptic curve E, the intersection
+H^{2,2}(Y) ∩ (H^3(X, Q) ⊗ H^1(E, Q)) = 0.
+Consequently, for very general E the rational Hodge conjecture in codimension 2 holds for X × E if and only if it holds for X in codimension 2.
+
+Precise statement.
+
+Proposition. Fix a smooth projective complex variety X. There is a countable union Σ of proper algebraic subsets in the j-line A^1 (the moduli of elliptic curves) such that for any elliptic curve E with j(E) ∉ Σ,
+H^{2,2}(X × E) ∩ (H^3(X, Q) ⊗ H^1(E, Q)) = 0.
+Hence, for such E, every rational Hodge class in H^4(X × E, Q) is a sum of a pullback of a class in H^4(X, Q) and a product of divisor classes from X and E. In particular, HC in codimension 2 holds for X × E iff it holds for X in codimension 2.
+
+Proof sketch.
+
+1) Identification of the problematic summand with a Hom of Hodge structures.
+Twisting by Q(1), we have a canonical isomorphism of Q-Hodge structures of weight 0:
+H^3(X, Q) ⊗ H^1(E, Q) ≅ Hom_Q(H^1(E, Q), H^3(X, Q)) ⊗ Q(−1).
+A class in H^{2,2} inside H^3(X) ⊗ H^1(E) is a Hodge (0,0)-class after twisting by Q(1), i.e., a Hodge morphism of Q-Hodge structures
+φ: H^1(E, Q) → H^3(X, Q)(1).
+Thus
+H^{2,2}(X × E) ∩ (H^3(X, Q) ⊗ H^1(E, Q))
+≅ Hom_HS(H^1(E, Q), H^3(X, Q)(1)).
+
+2) Weight-1 structure and deformation of E.
+The Q-Hodge structure W := H^3(X, Q)(1) has weight 1 and Hodge decomposition W_C = W^{1,0} ⊕ W^{0,1} with dim W^{1,0} = h^{2,1}(X). For fixed W, consider the functor from elliptic curves E to Hom_HS(H^1(E, Q), W). Nontriviality of this Hom is equivalent to existence of a rational Hodge tensor in H^1(E, Q) ⊗ W^* of type (0,0).
+
+3) Generic vanishing of Hom via Mumford–Tate/Cattani–Deligne–Kaplan.
+Let MT(W) be the Mumford–Tate group of W. For E varying in moduli, the generic Mumford–Tate group of H^1(E) is GL(H^1(E)) (equivalently, End_Q H^1(E) = Q). For any fixed W, the set of E such that Hom_HS(H^1(E), W) ≠ 0 is a Hodge locus in the period domain for weight-1 Hodge structures on H^1(E, Q). By the theorem of Cattani–Deligne–Kaplan, Hodge loci are countable unions of proper algebraic subvarieties. Concretely: a nonzero Hom_HS corresponds to a nonzero rational tensor t ∈ H^1(E, Q) ⊗ W^* that is Hodge of type (0,0); the condition “t is of type (0,0)” imposes a proper algebraic condition on the period of E since W is fixed. Therefore there is a countable union Σ of proper algebraic subsets in the j-line such that for j(E) ∉ Σ one has
+Hom_HS(H^1(E, Q), W) = 0.
+Equivalently, the mixed Künneth Hodge classes in H^3(X) ⊗ H^1(E) vanish.
+
+4) Conclusion for Hodge classes and algebraicity on X × E (very general E).
+For j(E) ∉ Σ, any rational Hodge class in H^4(X × E, Q) thus lies in
+H^4(X, Q) ⊗ H^0(E, Q) ⊕ H^2(X, Q) ⊗ H^2(E, Q).
+- The second summand is spanned by products of divisor classes on X and E (Lefschetz (1,1) on both factors).
+- The first summand is the pullback of Hodge classes from H^4(X, Q).
+Therefore, for such E, the rational Hodge conjecture in codimension 2 on X × E holds if and only if it holds on X in codimension 2. The “if” direction follows by taking pullbacks and products of algebraic cycles; the “only if” direction follows by restricting along the inclusion X ≅ X × {p} ↪ X × E, which on cohomology projects H^4(X × E) to H^4(X).
+
+Remarks.
+- The same argument works verbatim replacing E by any simple abelian variety A with generic Mumford–Tate group, yielding generic vanishing of H^{p,p} classes inside H^{2p−1}(X) ⊗ H^1(A) and analogous reductions in codimension p+1 on X × A.
+- The proof crucially uses only the generic Mumford–Tate property of H^1(E) and CDK on Hodge loci; no assumptions on X beyond smooth projective are needed.
+
+Scope of progress.
+- This gives a clean, verifiable reduction: for very general elliptic E, codimension-2 HC on X × E is equivalent to codimension-2 HC on X. It removes the mixed Künneth summand as a possible source of counterexamples or new phenomena on X × E and may simplify testing HC on products with curves.
+
+VERDICT: PARTIAL
+REASON: Proved a generic reduction: HC^2(X×E) ⇔ HC^2(X) by killing mixed Künneth Hodge classes via MT/CDK.

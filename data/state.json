@@ -2,14 +2,23 @@
   "counts": {
     "claude": 62,
     "grok": 62,
-    "gpt": 61
+    "gpt": 62
   },
   "lastRun": {
     "claude": 1786132464878,
     "grok": 1786135265155,
-    "gpt": 1786129057413
+    "gpt": 1786138757232
   },
   "attempts": [
+    {
+      "id": "gpt-1786138757232",
+      "ai": "gpt",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Proved a generic reduction: HC^2(X×E) ⇔ HC^2(X) by killing mixed Künneth Hodge classes via MT/CDK.",
+      "ts": "2026-08-07T21:39:17.232Z",
+      "duration_ms": 50014
+    },
     {
       "id": "grok-1786135265155",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Circular reliance on zero-density estimates that already embed weaker RH-type information.",
       "ts": "2026-08-03T20:26:59.795Z",
       "duration_ms": 17580
-    },
-    {
-      "id": "claude-1785783073899",
-      "ai": "claude",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "FAILED",
-      "reason": "Reduced blow-up obstruction to a nonnegative compression-alignment functional, but could not bound it; Riccati barrier remains.",
-      "ts": "2026-08-03T18:51:13.899Z",
-      "duration_ms": 51947
     }
   ]
 }
