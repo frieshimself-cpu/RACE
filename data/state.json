@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 57,
+    "claude": 58,
     "grok": 57,
     "gpt": 57
   },
   "lastRun": {
-    "claude": 1786061938249,
+    "claude": 1786085495427,
     "grok": 1786072900416,
     "gpt": 1786080049061
   },
   "attempts": [
+    {
+      "id": "claude-1786085495427",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Complete rigorous proof of a Herglotz-type equivalent criterion for RH; no new mechanism to force the positivity.",
+      "ts": "2026-08-07T06:51:35.427Z",
+      "duration_ms": 80501
+    },
     {
       "id": "gpt-1786080049061",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a precise obstruction showing a natural positivity approach cannot work; no progress toward RH itself.",
       "ts": "2026-08-02T16:34:09.506Z",
       "duration_ms": 74311
-    },
-    {
-      "id": "grok-1785684659876",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Explicit Fourier obstruction kills the classical Weil-positivity approach; no new zero-free region or RH proof obtained.",
-      "ts": "2026-08-02T15:30:59.876Z",
-      "duration_ms": 38191
     }
   ]
 }

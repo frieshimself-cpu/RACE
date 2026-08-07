@@ -1,0 +1,102 @@
+# A rigorous equivalent criterion via the logarithmic derivative of ξ
+
+I give a self-contained, fully proved reformulation of RH in terms of the sign
+of the real part of ξ′/ξ on the right half-plane. I am candid that this
+equivalence is close in spirit to the Hermite–Biehler / Herglotz viewpoint and
+so is unlikely to be new to experts; but I prove it completely and note exactly
+what obstruction it exposes.
+
+## Setup
+
+Let ξ(s) = ½ s(s−1)π^{−s/2}Γ(s/2)ζ(s) be Riemann's entire function. It is
+order-1, real on the real axis (real Taylor coefficients), and satisfies
+ξ(s) = ξ(1−s). Its zeros are exactly the nontrivial zeros ρ = β+iγ of ζ, and
+they are symmetric under both ρ ↦ 1−ρ (functional equation) and ρ ↦ ρ̄ (real
+coefficients).
+
+By the Hadamard factorization, ξ(s) = ξ(0)∏_ρ(1 − s/ρ), the product taken with
+the symmetric pairing of ρ and ρ̄ so that it converges. Differentiating
+logarithmically (each factor gives d/ds log(1−s/ρ) = 1/(s−ρ)):
+
+  ξ′/ξ(s) = Σ_ρ 1/(s−ρ),  (paired sum).
+
+## Convergence of the real part
+
+Write s = σ+it and ρ = β+iγ. Then
+
+  Re 1/(s−ρ) = (σ−β) / ((σ−β)² + (t−γ)²).
+
+For a **fixed** s (not a zero), β ∈ [0,1] so |σ−β| is bounded, while the number
+of zeros with |γ| ≤ T grows like (T/2π)log T and the term size is O(1/γ²) for
+large |γ|. Hence
+
+  **Re ξ′/ξ(σ+it) = Σ_ρ (σ−β) / ((σ−β)² + (t−γ)²)   (absolutely convergent).**  (★)
+
+This identity is the whole engine.
+
+## Theorem (equivalent criterion)
+
+> RH holds ⟺ Re ξ′/ξ(s) ≥ 0 for every s with Re(s) > ½ that is not a zero.
+
+### Proof, direction (⇒).
+
+Assume RH: every zero has β = ½. Fix σ > ½. In (★) each numerator equals
+σ − ½ > 0 and each denominator is positive, so every term is positive and
+
+  Re ξ′/ξ(σ+it) = Σ_ρ (σ−½)/((σ−½)² + (t−γ)²) > 0.
+
+Thus the inequality holds (strictly). ∎
+
+### Proof, direction (⇐).
+
+Assume Re ξ′/ξ(s) ≥ 0 throughout {σ > ½} minus zeros. Suppose, for
+contradiction, that some zero ρ₀ = β₀ + iγ₀ has β₀ > ½; let m ≥ 1 be its
+multiplicity.
+
+Consider the horizontal approach s = σ + iγ₀ with ½ < σ < β₀ and σ → β₀⁻.
+
+- **Contribution of ρ₀ (and any zeros at the same point).** The zero(s) located
+  exactly at β₀+iγ₀ contribute, in (★), the term
+  m(σ−β₀)/((σ−β₀)²+0) = m/(σ−β₀), which → −∞ as σ → β₀⁻.
+
+- **All other zeros.** Every other zero ρ ≠ ρ₀ is a point of ℂ distinct from
+  β₀+iγ₀. The map s ↦ (σ−β)/((σ−β)²+(t−γ)²) is continuous (finite) at
+  s = β₀+iγ₀ for such ρ, and by absolute convergence in (★) the sum of these
+  remaining terms is continuous there; in particular it stays **bounded** as
+  σ → β₀⁻. (There are only finitely many zeros at height near γ₀, so we may also
+  choose the σ-sequence to avoid the finitely many other zeros on the segment.)
+
+Adding: Re ξ′/ξ(σ+iγ₀) = m/(σ−β₀) + O(1) → −∞ as σ → β₀⁻.
+
+Hence Re ξ′/ξ(s) < 0 for some admissible s with Re(s) > ½, contradicting the
+hypothesis. Therefore no zero has β > ½.
+
+By the functional-equation symmetry ρ ↦ 1−ρ, a zero with β < ½ would force a
+zero with real part 1−β > ½, already excluded. Hence every zero has β = ½,
+i.e. RH holds. ∎
+
+## What this exposes (and why it does not resolve RH)
+
+The criterion says exactly: **RH ⟺ the meromorphic function ξ′/ξ maps the open
+right half-plane {Re s > ½} into the closed right half-plane {Re w ≥ 0}.**
+Equivalently, −ξ′/ξ is a Herglotz/Nevanlinna-type function on {Re s < ½} after
+the reflection s ↦ 1−s. This places RH inside the theory of functions with
+nonnegative real part on a half-plane, a class with a rich integral-
+representation structure.
+
+The genuine obstruction made concrete by (★): the sign of Re ξ′/ξ at
+σ+it is Σ_ρ (σ−½ + (½−β))·(positive weight). If RH is false, a single
+off-line zero produces a **localized pole-driven sign change** near that zero,
+detectable arbitrarily close to the critical line. So RH is equivalent to a
+*global positivity* of a signed sum whose individual terms already know the
+answer — the difficulty is precisely that we have no independent handle forcing
+Σ_ρ(σ−β)·wᵨ ≥ 0 without assuming β = ½. The criterion converts RH into a
+positivity/Herglotz statement but supplies no mechanism enforcing that
+positivity; that missing mechanism is the crux that all analytic approaches run
+into.
+
+This is a correct, complete proof of an equivalence, not progress toward the
+positivity itself.
+
+VERDICT: PARTIAL
+REASON: Complete rigorous proof of a Herglotz-type equivalent criterion for RH; no new mechanism to force the positivity.
