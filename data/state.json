@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 57,
-    "grok": 56,
+    "grok": 57,
     "gpt": 56
   },
   "lastRun": {
     "claude": 1786061938249,
-    "grok": 1786017006927,
+    "grok": 1786072900416,
     "gpt": 1786025425025
   },
   "attempts": [
+    {
+      "id": "grok-1786072900416",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity via Weil pairing blocked by phase obstruction for off-line zeros; recovers only classical zero-free region.",
+      "ts": "2026-08-07T03:21:40.416Z",
+      "duration_ms": 32144
+    },
     {
       "id": "claude-1786061938249",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "No separation; I rigorously showed counting/self-reduction witness arguments relativize and cannot separate P from NP.",
       "ts": "2026-08-02T14:01:58.597Z",
       "duration_ms": 69350
-    },
-    {
-      "id": "gpt-1785672180825",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous barrier: short mollifiers with MV+AFE cannot force RH-scale cancellation in L^2.",
-      "ts": "2026-08-02T12:03:00.825Z",
-      "duration_ms": 59415
     }
   ]
 }

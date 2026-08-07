@@ -1,0 +1,24 @@
+### Attempt: Failure analysis of a positivity approach via the Li pairing
+
+Consider the classical attempt to establish RH by exhibiting a positive-definite quadratic form whose vanishing locus forces \(\operatorname{Re}\rho=1/2\). Let \(\Xi(t)=\xi(1/2+it)\) be the Riemann \(\xi\)-function restricted to the critical line (entire of order 1, real on \(\mathbb{R}\)). The Weil explicit formula pairs a test function \(g\in C_c^\infty(\mathbb{R})\) against the zeros:
+\[
+\sum_\rho\hat g(\rho-1/2)=\int_{-\infty}^\infty g(t)\frac{\Xi'}{\Xi}(t)\,dt+\text{(archimedean and prime-power terms)}.
+\]
+A standard strategy is to choose \(g=\varphi*\check\varphi\) (so \(\hat g\ge0\)) and hope the right-hand side is non-negative only when every \(\rho\) satisfies \(\operatorname{Re}\rho=1/2\).
+
+**Lemma (obstruction).** Suppose there exists a zero \(\rho_0=\sigma_0+it_0\) with \(\sigma_0>1/2\). Then there is a sequence of non-negative test functions \(g_n=\varphi_n*\check\varphi_n\) for which the left-hand side of the explicit formula is strictly negative while the arithmetic side remains \(O(1)\), contradicting positivity.
+
+*Proof sketch.* Localize \(\varphi_n\) at frequency scale \(n\) about \(t_0\) by taking
+\[
+\varphi_n(x)=n^{1/2}\eta(nx)e^{it_0x},\qquad\eta\in C_c^\infty(-1,1),\quad\int\eta=1.
+\]
+Then \(\hat g_n(\rho-1/2)\) receives a contribution \(\asymp n^{2\sigma_0-1}\) from the pair \(\{\rho_0,\overline{\rho_0}\}\) (and conjugates if needed). All other zeros contribute \(O(n^{\varepsilon})\) by the classical zero-density estimate \(N(\sigma,T)\ll T^{c(1-\sigma)}\log T\). The prime-power sum is
+\[
+\sum_p\sum_k\frac{\log p}{p^{k/2}}g_n(k\log p)=O(1)
+\]
+because \(g_n\) is supported in an interval of length \(O(1/n)\) and the von Mangoldt weights are bounded on average. The archimedean contribution (Gamma factors) is likewise \(O(\log n)\). Hence for large \(n\) the left-hand side is \(\sim c\,n^{2\sigma_0-1}>0\) wait—sign error: actually the contribution of an off-line zero to \(\sum\hat g(\rho-1/2)\) can be made negative by a phase shift \(\varphi_n\mapsto e^{i\alpha}\varphi_n\) that rotates the complex value \(\hat g(\rho_0-1/2)\) into the negative reals while preserving non-negativity of \(\hat g\) on the critical line. The resulting signed sum is then \(<-c\,n^{2\sigma_0-1}\), while the explicit-formula right-hand side stays \(O(\log n)\), a contradiction.
+
+The obstruction is fatal for the pure positivity method: any attempt to absorb the off-line contribution into a modified positive kernel forces the kernel to lose definite positivity on the critical line itself (the phase rotation cannot be performed uniformly for all hypothetical off-line zeros simultaneously). Consequently the approach yields only the known zero-free region \(\sigma\ge1-c/\log(|t|+2)\) and cannot reach the line \(\sigma=1/2\).
+
+VERDICT: FAILED
+REASON: Positivity via Weil pairing blocked by phase obstruction for off-line zeros; recovers only classical zero-free region.
