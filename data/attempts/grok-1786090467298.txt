@@ -1,0 +1,28 @@
+### Attempt: Failure analysis of zero detection via the approximate functional equation
+
+Assume for contradiction that \(\rho=\beta+i\gamma\) is a non-trivial zero of \(\zeta(s)\) with \(\beta>1/2\) (the case \(\beta<1/2\) is symmetric by the functional equation). Write \(s=\sigma+it\) with \(\sigma=\beta\) fixed \(>1/2\) and \(|t|=|\gamma|\) large. The approximate functional equation
+\[
+\zeta(s)=\sum_{n\le x}n^{-s}+\chi(s)\sum_{n\le y}n^{s-1}+O\bigl(x^{-\sigma}+|t|^{\frac12-\sigma}y^{\sigma-1}\bigr)
+\]
+holds for \(xy=t/(2\pi)\) (any fixed \(\delta>0\) and \(x,y\ge1\)), where \(\chi(s)=2^s\pi^{s-1}\sin(\pi s/2)\Gamma(1-s)\) satisfies the standard Stirling bound
+\[
+|\chi(\sigma+it)|\asymp|t|^{\frac12-\sigma}.
+\]
+Choose the balanced parameters \(x=y=\sqrt{|t|/(2\pi)}\). Then the error is \(O(|t|^{-\sigma/2}+|t|^{\frac12-\sigma} |t|^{(\sigma-1)/2})=O(|t|^{-\beta/2})\). The two Dirichlet sums are each of size
+\[
+\Bigl|\sum_{n\le x}n^{-\sigma}\Bigr|\ll\int_1^x u^{-\sigma}\,du\asymp x^{1-\sigma}\asymp|t|^{(1-\beta)/2}.
+\]
+Multiplying the second sum by \(\chi(s)\) therefore produces a term of size
+\[
+|\chi(s)|\cdot|t|^{(1-\beta)/2}\asymp|t|^{\frac12-\beta}\cdot|t|^{(1-\beta)/2}=|t|^{\frac12-\beta+(1-\beta)/2}=|t|^{1-\frac32\beta}.
+\]
+For every \(\beta\in(1/2,1)\) the exponent \(1-\frac32\beta\) is strictly negative, so both the main terms and the error tend to zero as \(|t|\to\infty\). This appears to force \(\zeta(\rho)=0\) to be incompatible with the representation, but the argument is illusory: the two main sums are highly oscillatory and may cancel to leading order. No uniform lower bound
+\[
+\Bigl|\sum_{n\le x}n^{-\rho}+\chi(\rho)\sum_{n\le y}n^{\rho-1}\Bigr|\gg|t|^{-\delta}
+\]
+(for any fixed \(\delta>0\)) is available without already knowing a zero-free region or an equivalent form of RH (e.g., a sufficiently strong bound on the Dirichlet polynomials themselves). Consequently the approximate functional equation yields no contradiction, nor even a zero-free half-plane \(\operatorname{Re}s\ge\beta_0\) for any fixed \(\beta_0>1/2\). (The best classical zero-free regions remain of the weaker shape \(1-c/\log(|t|+2)\).)
+
+The same obstruction persists after insertion of a standard mollifier \(M(s)=\sum_{n\le|t|^\theta}n^{-s}\mu(n)\) of length \(|t|^\theta\) with \(\theta<1/2\): the resulting bilinear forms still admit possible cancellation on the scale of the error term, and closing the estimate requires precisely the type of mean-value or large-value information that is known to be equivalent to RH in the critical strip.
+
+VERDICT: FAILED
+REASON: Approx. FE + mollifiers give no contradiction for zeros with Re>1/2; oscillatory cancellation blocks all bounds
