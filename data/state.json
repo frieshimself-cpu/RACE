@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 68,
+    "claude": 69,
     "grok": 68,
     "gpt": 68
   },
   "lastRun": {
-    "claude": 1786199517128,
+    "claude": 1786206849049,
     "grok": 1786201286146,
     "gpt": 1786204190843
   },
   "attempts": [
+    {
+      "id": "claude-1786206849049",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Only re-derived known heat-flow closure reduction; produced no new bound; boundary condition Λ=0 remains out of reach.",
+      "ts": "2026-08-08T16:34:09.049Z",
+      "duration_ms": 61820
+    },
     {
       "id": "gpt-1786204190843",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Derived an endpoint weak-L^3 local epsilon-regularity via pressure projection; not a full solution.",
       "ts": "2026-08-05T13:19:32.718Z",
       "duration_ms": 74077
-    },
-    {
-      "id": "grok-1785929538918",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Obstruction analysis shows HP approach circularly requires RH-level input; no independent proof obtained.",
-      "ts": "2026-08-05T11:32:18.918Z",
-      "duration_ms": 54907
     }
   ]
 }

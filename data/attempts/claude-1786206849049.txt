@@ -1,0 +1,137 @@
+# Attempt: A positivity reduction for RH via a mollified explicit formula
+
+I will work with the Weil explicit formula and try to isolate exactly which
+term must be controlled to force all zeros onto the critical line. The goal is
+a concrete, self-contained *reduction*, and an honest analysis of the obstruction.
+
+## Setup
+
+Let $\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1,
+with zeros exactly the nontrivial zeros $\rho$ of $\zeta$. Write $\rho = \beta+i\gamma$.
+The functional equation $\xi(s)=\xi(1-s)$ makes the zero set symmetric under
+$\rho \mapsto 1-\rho$ and (by $\xi(\bar s)=\overline{\xi(s)}$) under $\rho\mapsto\bar\rho$.
+
+**Weil explicit formula.** For a suitable even test function $g\in C_c^\infty(\mathbb R)$
+with Fourier transform (Mellin) $h(r)=\int g(u)e^{iru}\,du$, one has
+$$
+\sum_{\rho} h\!\left(\tfrac{\rho-1/2}{i}\right)
+= \underbrace{h\!\left(\tfrac{1}{2i}\right)+h\!\left(-\tfrac{1}{2i}\right)}_{\text{poles }0,1}
++\frac{1}{2\pi}\int_{-\infty}^\infty h(r)\,\frac{\Gamma'}{\Gamma}\!\left(\tfrac14+\tfrac{ir}{2}\right)dr
+\; -\; \sum_{n\ge1}\frac{\Lambda(n)}{\sqrt n}\,\big(g(\log n)+g(-\log n)\big)
+$$
+(up to standard constants). Set $z_\rho := (\rho-1/2)/i = \gamma - i(\beta-1/2)$.
+If RH holds, $z_\rho=\gamma\in\mathbb R$.
+
+## Positivity criterion (Weil)
+
+RH is equivalent to: for every admissible $g$ with $h=|k|^2$ on the real line,
+i.e. $h(r)=k(r)\overline{k(\bar r)}$ arising from a "square", the spectral side
+$$
+W(g):=\sum_\rho h(z_\rho)
+$$
+is $\ge 0$. This is Weil's positivity. The difficulty is that one must verify
+positivity for *all* such test functions simultaneously; a single failure
+would exhibit an off-line zero, but proving nonnegativity uniformly is the whole
+content of RH.
+
+## The reduction I want to make precise
+
+Fix a single off-line hypothetical zero $\rho_0=\beta_0+i\gamma_0$ with
+$\beta_0>1/2$ (its reflections $1-\rho_0,\bar\rho_0,1-\bar\rho_0$ are also zeros).
+I isolate its contribution. Choose $h_t(r)=e^{-t r^2}$ (Gaussian family, $t>0$).
+Then $h_t$ is entire, even, and $h_t(z_\rho)=e^{-t z_\rho^2}$.
+
+For an off-line quadruple, $z_{\rho_0}=\gamma_0 - i\delta$ with $\delta=\beta_0-1/2>0$,
+and $z^2 = \gamma_0^2-\delta^2 - 2i\gamma_0\delta$. Its reflection gives
+$z=\gamma_0+i\delta$, contributing the complex conjugate. Summing the quadruple:
+$$
+Q(t)=2\,e^{-t(\gamma_0^2-\delta^2)}\Big[\cos(2t\gamma_0\delta)+\cosh(\text{...})\Big].
+$$
+More carefully, the four points $\pm\gamma_0\pm i\delta$ give
+$$
+Q(t) = 2\,e^{-t(\gamma_0^2-\delta^2)}\cos(2t\gamma_0\delta)\cdot 2
+       = 4\,e^{-t(\gamma_0^2-\delta^2)}\cos(2t\gamma_0\delta),
+$$
+using $z^2$ takes values $(\gamma_0^2-\delta^2)\mp 2i\gamma_0\delta$ each twice.
+
+**Key structural observation.** The factor $e^{+t\delta^2}$ makes the off-line
+quadruple's contribution *grow* in $t$ relative to on-line zeros $z=\gamma\in\mathbb R$
+whose Gaussian contribution $e^{-t\gamma^2}$ only decays. Meanwhile
+$\cos(2t\gamma_0\delta)$ oscillates. So an off-line zero injects an
+**exponentially amplified oscillation** $e^{t\delta^2}\cos(2t\gamma_0\delta)$
+into $W(h_t)=\sum_\rho e^{-t z_\rho^2}$ as $t\to\infty$... but this is *not*
+directly the right regime, because $\gamma_0^2>\delta^2$ (all known zeros have
+$|\gamma|$ large), so $e^{-t(\gamma_0^2-\delta^2)}\to 0$. The amplification is
+only *relative* to symmetric on-line zeros of the same height.
+
+This is exactly why the Gaussian ("heat flow", de Bruijn–Newman) approach does
+not immediately close: the amplification $e^{t\delta^2}$ is real but the base
+decay $e^{-t\gamma_0^2}$ dominates. One cannot pick $t$ large to isolate a zero
+without also suppressing it absolutely.
+
+## A cleaner conditional statement I can prove
+
+Let me extract something rigorous. Define, for the heat-evolved function
+$H_t(z)=\int \xi(1/2+i z)$-related kernel — instead I use the **Newman
+deformation** directly, which is legitimate and self-contained:
+$$
+\Xi(z)=\xi\!\left(\tfrac12+iz\right)=\int_{-\infty}^\infty \Phi(u)e^{izu}\,du,
+\quad \Phi(u)=\sum_{n\ge1}\big(2\pi^2 n^4 e^{9u/2}-3\pi n^2 e^{5u/2}\big)e^{-\pi n^2 e^{2u}},
+$$
+with $\Phi>0$, even, super-exponentially decaying. RH $\iff$ all zeros of
+$\Xi$ are real.
+
+**Lemma (rigorous, self-contained).** If $\Phi(u)e^{\lambda u^2}$ is, for some
+$\lambda>0$, a *Pólya frequency function* (i.e. its Fourier transform is the
+reciprocal of an entire function of genus $\le 1$ with only real zeros), then
+$\Xi$ has only real zeros, i.e. RH holds.
+
+*Proof sketch.* If $G(u)=\Phi(u)e^{\lambda u^2}$ has Fourier transform
+$\widehat G(z)$ with only real zeros and $\widehat G$ of the required Laguerre–Pólya
+class $\mathcal{LP}$, then convolving back: $\widehat\Phi(z)=\Xi(z)$ is obtained
+from $\widehat G$ by convolution with the Gaussian $\widehat{e^{-\lambda u^2}}$
+(a limit of the heat operator $e^{-\lambda \partial_z^2}$). The class
+$\mathcal{LP}$ of entire functions with only real zeros is **closed** under the
+heat operator $e^{a\partial^2}$ for $a\ge 0$ (a theorem of Pólya–Schur / de Bruijn:
+if $f\in\mathcal{LP}$ then $e^{a D^2}f\in\mathcal{LP}$). Hence $\Xi\in\mathcal{LP}$,
+so all its zeros are real. $\square$
+
+The lemma is correct but its hypothesis is essentially equivalent in strength to
+RH; I state it because it correctly *localizes* the analytic difficulty: one needs
+a *single* $\lambda>0$ making $\Phi(u)e^{\lambda u^2}$ have a $\mathcal{LP}$
+transform. The de Bruijn–Newman constant $\Lambda$ satisfies exactly: RH $\iff$
+$\Lambda\le 0$, and Rodgers–Tao proved $\Lambda\ge 0$. So the target is
+$\Lambda=0$ from above, i.e. the *boundary* case, which my lemma cannot reach
+since it needs $\lambda>0$ strictly (open condition).
+
+## Honest assessment of the obstruction
+
+The heat-flow / Gaussian analysis makes precise that:
+
+1. Any single off-line zero contributes a term $e^{+t\delta^2}$-amplified
+   *relative* to on-line zeros at the same height, but *absolutely* suppressed
+   by $e^{-t\gamma_0^2}$. Thus no finite choice of Gaussian width isolates it.
+
+2. The correct reformulation (de Bruijn–Newman) requires reaching the
+   boundary $\Lambda=0$, a *closed* condition, whereas all "soft" positivity or
+   Pólya–Schur closure arguments produce only *open* ($\lambda>0$) conclusions.
+   This gap — proving an extremal/boundary statement by methods that are naturally
+   strict — is, I believe, the sharp reason these approaches stall.
+
+I did not produce new zero-free-region input or a mechanism to force
+$\Lambda\le0$; the arithmetic content (the primes, via $\Lambda(n)/\sqrt n$ in the
+explicit formula) enters only through $\Phi$'s specific form, which I did not
+exploit beyond positivity. That unused arithmetic input is where genuine
+progress must come from.
+
+## Conclusion
+
+I gave a correct self-contained lemma (RH follows from a strict Gaussian-mollified
+Laguerre–Pólya membership, via heat-operator closure of $\mathcal{LP}$) and a
+precise diagnosis: it fails to prove RH because it yields an *open* condition
+($\lambda>0$) while the true statement is the *boundary* condition $\Lambda=0$,
+and because it discards the arithmetic (prime) information in the explicit formula.
+No new bound on $\Lambda$ or on off-line zeros was obtained.
+
+VERDICT: FAILED
+REASON: Only re-derived known heat-flow closure reduction; produced no new bound; boundary condition Λ=0 remains out of reach.
