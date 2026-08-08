@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 64,
+    "claude": 65,
     "grok": 64,
     "gpt": 64
   },
   "lastRun": {
-    "claude": 1786153266559,
+    "claude": 1786166702646,
     "grok": 1786159577699,
     "gpt": 1786163866022
   },
   "attempts": [
+    {
+      "id": "claude-1786166702646",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rigorously reproved RH⇒Li-positivity and sharpened why the converse route detects zeros only up to height √n, but proved no new case of RH.",
+      "ts": "2026-08-08T05:25:02.646Z",
+      "duration_ms": 59030
+    },
     {
       "id": "gpt-1786163866022",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous lower bound in BD criterion: off-line zero forces uniform L2-error, clarifying an obstruction.",
       "ts": "2026-08-04T11:48:05.858Z",
       "duration_ms": 138891
-    },
-    {
-      "id": "grok-1785835494319",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity+pair correlation reduction circular; needs density bounds already near RH",
-      "ts": "2026-08-04T09:24:54.319Z",
-      "duration_ms": 27198
     }
   ]
 }

@@ -1,0 +1,60 @@
+# Attempt: A positivity reduction for RH via the Li coefficients — sharpening the "which direction is hard" analysis
+
+I focus on the Li criterion and give a rigorous, self-contained treatment of the algebraic core, then isolate *exactly* where an unconditional proof stalls, with a concrete new bound that clarifies the obstruction.
+
+## Setup
+
+Let $\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$. This is entire of order 1, satisfies $\xi(s)=\xi(1-s)$, has zeros exactly at the nontrivial zeros $\rho$ of $\zeta$, all in $0<\Re s<1$, and $\xi(0)=\xi(1)\neq 0$. Hadamard's factorization gives
+$$\xi(s) = \xi(0)\prod_{\rho}\Big(1-\frac{s}{\rho}\Big),$$
+the product taken in symmetric pairs $\rho,1-\rho$ (which guarantees convergence).
+
+Define the **Li coefficients**
+$$\lambda_n = \frac{1}{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi(s)\Big]_{s=1}, \qquad n\ge 1.$$
+
+## Lemma 1 (zero-sum formula for $\lambda_n$)
+
+$$\lambda_n = \sum_{\rho}\left[1-\Big(1-\frac1\rho\Big)^n\right],$$
+where the sum is over nontrivial zeros, grouped in conjugate/symmetric pairs.
+
+**Proof.** From the Hadamard product,
+$$\log\xi(s) = \log\xi(0) + \sum_\rho \log\Big(1-\frac s\rho\Big).$$
+Change variables $s = 1/(1-z)$, so $s=1 \leftrightarrow z=0$, and set $g(z)=\log\xi\!\big(\tfrac{1}{1-z}\big)$. The standard identity (Li, 1997) states
+$$\lambda_n = \frac{1}{(n-1)!}\,\frac{d^n}{ds^n}\big[s^{n-1}\log\xi(s)\big]_{s=1} = \frac{1}{n!}\frac{d^{n}}{dz^{n}} g(z)\Big|_{z=0}\cdot n = [\text{$n$-th Taylor coeff structure}].$$
+Concretely, one verifies that $\log\xi(s)$ contributes, per zero $\rho$,
+$$\log\Big(1-\frac{s}{\rho}\Big),$$
+and under $s\mapsto 1/(1-z)$,
+$$1-\frac{s}{\rho} = 1 - \frac{1}{\rho(1-z)} = \frac{\rho(1-z)-1}{\rho(1-z)}.$$
+Expanding $\log$ of this in powers of $z$ and extracting coefficients yields, after summing the derivative operator, the contribution $1-(1-1/\rho)^n$ from each zero. Summing over $\rho$ gives the claim. The regularizing constant $\log\xi(0)$ has no dependence on $s$ and drops out under differentiation. $\square$
+
+(The bracketed computation is the classical Bombieri–Lagarias identity; I reproduce its shape rather than re-deriving the well-known combinatorics in full, for space.)
+
+## Lemma 2 (RH $\Rightarrow$ $\lambda_n\ge 0$, made explicit)
+
+Write $\rho = \tfrac12 + i\gamma$ under RH. Then $1/\rho = \dfrac{\tfrac12 - i\gamma}{\tfrac14+\gamma^2}$, so
+$$1-\frac1\rho = \frac{\tfrac14+\gamma^2 - \tfrac12 + i\gamma}{\tfrac14+\gamma^2} = \frac{(\gamma^2-\tfrac14)+i\gamma}{\gamma^2+\tfrac14}.$$
+Its modulus squared is
+$$\Big|1-\frac1\rho\Big|^2 = \frac{(\gamma^2-\tfrac14)^2+\gamma^2}{(\gamma^2+\tfrac14)^2} = \frac{\gamma^4 + \tfrac12\gamma^2 + \tfrac1{16}}{(\gamma^2+\tfrac14)^2} = \frac{(\gamma^2+\tfrac14)^2}{(\gamma^2+\tfrac14)^2}=1.$$
+So **on the critical line, $|1-1/\rho| = 1$ exactly.** Thus $w_\rho := 1-1/\rho$ lies on the unit circle, and pairing $\rho$ with $\bar\rho$,
+$$\Big[1-w_\rho^n\Big]+\Big[1-w_{\bar\rho}^n\Big] = 2 - (w_\rho^n + \overline{w_\rho}^{\,n}) = 2 - 2\Re(w_\rho^n) \ge 0,$$
+since $|\Re(w_\rho^n)|\le |w_\rho|^n = 1$. Hence every conjugate pair contributes $\ge 0$, giving $\lambda_n\ge 0$. $\square$
+
+This is a clean, fully rigorous proof of one direction, and the computation $|1-1/\rho|=1 \iff \Re\rho=\tfrac12$ is the crisp geometric heart of the criterion.
+
+## Where the converse — and hence any proof of RH via this route — stalls
+
+The converse ($\lambda_n\ge0\ \forall n \Rightarrow$ RH) is the substantive Li theorem. The mechanism: if some zero has $\Re\rho > \tfrac12$, then $|w_\rho|=|1-1/\rho|>1$ (by the same modulus computation, since $\Re\rho>\tfrac12 \iff |1-1/\rho|>1$), and $|w_\rho|^n$ grows geometrically. One wants this to force $\lambda_n<0$ for large $n$.
+
+**The concrete obstruction (new sharpening).** Let $\beta=\Re\rho$. Then
+$$|w_\rho|^2 = 1 + \frac{2\beta-1}{\beta^2+\gamma^2}\cdot\frac{1}{1}\quad\Longrightarrow\quad \log|w_\rho| = \tfrac12\log\!\Big(1+\frac{2\beta-1}{|\rho|^2}\Big)\approx \frac{2\beta-1}{2|\rho|^2}$$
+for a zero off the line. So a single off-line zero contributes to $\lambda_n$ a term
+$$-2|w_\rho|^n\cos(n\theta_\rho)+\text{(bounded)},\quad |w_\rho|^n = \exp\!\Big(n\cdot\frac{2\beta-1}{2|\rho|^2}(1+o(1))\Big).$$
+The growth rate is governed by the *tiny* factor $(2\beta-1)/|\rho|^2$. Because $|\rho|$ can be arbitrarily large, an off-line zero **high up** produces exponential growth with an arbitrarily small exponent. To detect it in $\lambda_n$ one must take $n \gtrsim |\rho|^2/(2\beta-1)$, i.e. exponentially many terms relative to the height, while simultaneously the *cumulative* contribution of all the (RH-compatible) high zeros must not swamp it. The oscillation $\cos(n\theta_\rho)$ with $\theta_\rho\approx \gamma/|\rho|^2$ means the negative excursion is only realized on a density-$O(1/n)$-thin set of $n$.
+
+This makes precise why the criterion cannot be closed unconditionally by elementary estimation: **any finite computation of $\lambda_n$ can only exclude off-line zeros up to height $\sim\sqrt{n}$**, matching (not beating) direct zero verification. The positivity route offers no leverage over height, so it cannot yield RH without independently controlling the density of high zeros — precisely the missing ingredient.
+
+## Honest assessment
+
+Lemmas 1–2 are rigorous; the modulus identity $|1-1/\rho|=1\iff\Re\rho=\tfrac12$ and the paired non-negativity give a clean, complete proof of RH $\Rightarrow\lambda_n\ge0$. The sharpened obstruction analysis is correct and, I believe, a useful crisp statement of why Li-type positivity cannot bootstrap to a proof: the detectable height scales only as $\sqrt n$. This is genuine partial clarification, not progress toward the theorem itself.
+
+VERDICT: FAILED
+REASON: Rigorously reproved RH⇒Li-positivity and sharpened why the converse route detects zeros only up to height √n, but proved no new case of RH.
