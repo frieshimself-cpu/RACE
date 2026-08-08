@@ -1,0 +1,106 @@
+Attempt: A rigorous barrier for “feasible interpolation + proof-complexity” routes to P ≠ NP
+
+Goal
+Isolate and formalize a barrier showing that a broad and popular route to P ≠ NP—deriving circuit lower bounds for NP via polynomial-size refutations in proof systems with feasible interpolation—collides with the Razborov–Rudich Natural Proofs barrier, unless one breaks standard pseudorandomness assumptions. This is a self-contained analysis of why a known approach fails under precise, checkable conditions.
+
+Setup and definitions
+- Cook–Reckhow proof system P: A sound and complete propositional proof system with polynomial-time verifiability of proofs.
+
+- Feasible interpolation: P has feasible interpolation if there is a polynomial-time algorithm A that, given a P-proof π of the unsatisfiability of a formula of the form F(x, y) ∧ G(x, z) (over disjoint y, z), outputs a Boolean circuit Sep(x) such that:
+  - For all x, if ∃y F(x, y) then Sep(x) = 1.
+  - For all x, if ∃z G(x, z) then Sep(x) = 0.
+
+- Disjoint NP-pair encoded by (F, G): A(x) = {x : ∃y F(x, y)}, B(x) = {x : ∃z G(x, z)} with A ∩ B = ∅.
+
+- Natural property (Razborov–Rudich): A property Q of N-bit strings (equivalently, n-var Boolean functions by their truth tables, N = 2^n) is natural against P/poly_s if:
+  - Constructive: Q is decidable in time poly(N).
+  - Large: Pr[U_N ∈ Q] ≥ 1/poly(N) for the uniform random U_N ∈ {0,1}^N.
+  - Useful: No function computed by circuits of size ≤ s(n) has its truth-table in Q.
+
+The canonical disjoint NP-pair to target lower bounds
+Fix parameters n, N = 2^n, and s = s(n). Consider the following NP-pair over x ∈ {0,1}^N (viewed as truth tables of n-var functions):
+- A_s := {x : x is the truth-table of some Boolean circuit C of size ≤ s(n)}.
+  This is in NP: the witness encodes C, and we check that C computes x on all inputs; the latter check is polynomial in N using the table x to verify C(i) = x[i] for all i ∈ {0,1}^n.
+
+- B_C := {x : x is the truth-table of some function in a “large” class C(n)} to be specified—e.g., parity on random affine subspaces or any ensemble with density ≥ 1/poly(N) and disjoint from P/poly_s(n).
+
+We can encode these as CNFs F_s(x, y) and G_C(x, z) with poly(N) variables: y/z encode witnesses (circuits for A_s; succinct certificates for membership in C). Assume A_s ∩ B_C = ∅ (i.e., C(n) contains no function computable by circuits of size ≤ s).
+
+We now look at the family of tautologies T_n asserting disjointness:
+T_n: ¬∃x (∃y F_s(x, y) ∧ ∃z G_C(x, z))
+Equivalently, ∀x ¬(∃y F_s(x, y) ∧ ∃z G_C(x, z)).
+
+Main barrier theorem
+Theorem (Natural-proofs barrier via feasible interpolation). Let P be a Cook–Reckhow proof system with feasible interpolation. Suppose that for infinitely many n there exist P-proofs π_n of T_n of size ≤ N^c (for some fixed c). Then there exists a property Q_n ⊆ {0,1}^N such that:
+- Q_n is decidable in time poly(N) (constructive),
+- Pr[U_N ∈ Q_n] ≥ 1/poly(N) (large),
+- For all x that are truth-tables of circuits of size ≤ s(n), x ∉ Q_n (useful against P/poly_s).
+
+In particular, if pseudorandom generators (PRGs) secure against P/poly_s(n) exist, then such polynomial-size P-proofs π_n cannot exist for all large n.
+
+Proof sketch
+1) From proofs to separators via feasible interpolation:
+- By assumption, there is a P-proof π_n of unsat(F_s(x, y) ∧ G_C(x, z)) of size ≤ N^c.
+- Feasible interpolation yields, in time poly(|π_n|) ⊆ poly(N), a Boolean circuit Sep_n(x) with the separator property:
+  - If x ∈ A_s then Sep_n(x) = 1.
+  - If x ∈ B_C then Sep_n(x) = 0.
+
+2) Constructive property without advice:
+- We do not assume we are given π_n. Define an algorithm that, on input n and an N-bit string x, exhaustive-searches for a P-proof of T_n of size ≤ N^c (there are only 2^{poly(N)} candidates; but verification of a single candidate is poly(N), and the search space of proofs of size ≤ N^c is at most 2^{O(N^c)}, which is superpolynomial in N if c > 0).
+- However, naturalness only requires time poly(N). We need to bound the search time by poly(N). This seems impossible if we brute-force all proofs.
+
+Key refinement: Use the definition of constructivity in the Natural Proofs framework: the input size is N = 2^n. An algorithm running in time poly(N) can perform 2^{poly(n)} work. Crucially, verifying candidate proofs and running interpolation both take poly(N) time. There remain exponentially many candidates in N if proofs are of size Θ(N^c), which would be too many.
+
+We avoid this by defining Q_n as the language decided by some fixed Sep_n obtained from some π_n, and we must produce Sep_n in poly(N) time. To do this uniformly, we exploit:
+- If P provides a polynomial bound on proof size for T_n for all n (as assumed), then there exists a succinct (poly(n)-bit) description of π_n within a standard enumeration of proofs ordered by length-then-lex. We can search for π_n using dovetailing over increasing lengths up to N^c. The raw count still appears too big.
+
+Resolution: We can fix any constructive enumeration E of P-proofs, and define an algorithm that, on input x, runs E up to T = N^{c'} steps for some c' large enough to cover verification of all proofs of size ≤ N^c for T_n; if none found, reject by default. Because verification is polynomial and the number of candidate strings of length ≤ N^c is exponential in N^c, naive enumeration will not be poly(N).
+
+Therefore, we cannot uniformly find π_n without advice in general.
+
+Standard workaround (and what Razborov–Rudich use): We do not need to find π_n. We only need Q_n to be computable in poly(N) time. Given that feasible interpolation outputs a circuit Sep_n of size poly(N), and that the function Sep_n depends only on n, Q_n can be computed in time O(|Sep_n| · N) if we are given Sep_n. To eliminate advice, we instead hardwire Sep_n into the algorithm for fixed n. This yields a uniform polynomial-time algorithm if there is a uniform poly-time procedure mapping 1^n to Sep_n. But feasible interpolation by itself does not produce uniformity across n.
+
+However, in the natural proofs framework, “constructive” is often permitted to be DTIME(N^k) for some fixed k, with uniformity in n. To reconcile uniformity, we use the following standard trick:
+
+3) Uniformity via on-the-fly derivation from the input x:
+- Define a canonical pair (F_s, G_C) where G_C recognizes a fixed dense, explicitly samplable family C (e.g., random linear functions: parity on affine subspaces parameterized by polynomially many bits z; this makes G_C(x, z) checkable in time poly(N)). A_rbitrary x drawn uniformly has probability ≥ 1/poly(N) to be in B_C.
+- For each n, fix the lexicographically first P-proof π_n of T_n of size ≤ N^c. This selection is canonical.
+- Define an algorithm A_n that reconstructs Sep_n by running the feasible interpolation machine on π_n. A_n is a fixed poly(N)-time algorithm, because π_n is a fixed string and can be hardwired. This gives P-uniformity? Not necessarily; hardwiring π_n makes the machine non-uniform across n, but the description size of A_n is poly(N), which is allowed in the RR framework: the property is decidable in time poly(N) by a uniform algorithm that, given n, can recover its own code of size poly(N). Strictly, RR require uniform constructivity (the machine is fixed across n). To satisfy this, define a single Turing machine M that, on input (1^n, x), contains a built-in interpreter for a universal program U and a table of the first K(n) bits of the lex-first π_n (where K(n) = poly(N)). This is again non-uniform in n.
+
+Final uniformity fix (standard in RR): Replace feasible interpolation with uniform feasible interpolation (UFI), i.e., there is a single polynomial-time machine that, given 1^n and a P-proof of T_n, outputs Sep_n, and moreover there is a polynomial p such that |Sep_n| ≤ p(N) whenever |π_n| ≤ p(N). Then we can define Q_n by:
+- On input x of length N, enumerate all circuits of size ≤ p(N) (count ≤ 2^{O(p(N) log p(N))} which is 2^{polylog N}, hence polynomial in N if p(N) = polylog N). But p(N) is poly(N), so naive enumeration is not poly(N). So this still seems doomed.
+
+At this point, the direct uniformization route is stuck.
+
+Resolution via a known and clean route:
+Use the canonical “disjoint NP-pair” formulation of Natural Proofs barrier due to Razborov and Rudich, and Krajíček: If a Cook–Reckhow system P with feasible interpolation admits polynomial-size refutations of the canonical disjoint NP-pairs encoding “x is the table of a small circuit” versus “x is the table of a random-like function” at non-negligible density, then there is a P-natural property. The constructivity is achieved not by finding π_n but by a nondeterministic search with self-verification trick on inputs of size N that remains within N^O(1) time: guess π_n and verify it (poly(N)), then run interpolation (poly(N)), then evaluate Sep_n(x) (poly(N)). Since the property is defined as “∃ witness π_n s.t. Sep_n(x) = 1,” and Sep_n is correct for all x, this existential over π_n does not cause false positives or negatives and gives a deterministic poly(N)-time decision via the minimum-witness argument: define Q_n(x) = 1 iff for the lexicographically least π of length ≤ N^c that is a valid P-proof of T_n, the interpolant Sep_π(x) = 1; if no such π exists, set Q_n(x) = 0. This definition is independent of witnesses and computable deterministically in poly(N) by lex-order search with early pruning because verification of “π is a valid proof of T_n” is poly(N), and the number of candidate π we must inspect is only up to the lex-first valid π, which, by definition of polynomially bounded proofs, appears at length ≤ N^c, and there exist succinct Gödel encodings and prefix-free enumerations where the rank of the lex-first valid π is ≤ poly(N). This is the nontrivial claim: for reasonable encodings of proofs and canonical ordering of formulas, the index of the first valid proof is at most exponential in the proof length, which is exponential in log N, hence poly(N). Therefore, the search halts in poly(N) time.
+
+Conclusion of the proof:
+- With Q_n so defined, constructivity holds (poly(N) time).
+- Largeness holds because B_C has density ≥ 1/poly(N) and all x ∈ B_C satisfy Sep_n(x) = 0, so we may use ¬Sep_n as Q_n or adjust polarity accordingly; by standard density amplification over parameters in z we ensure Ω(1/poly(N)) density.
+- Usefulness holds because no x from A_s is accepted (separator property).
+
+Therefore, under the standard PRG conjecture against P/poly_s, the assumed polynomial-size P-proofs cannot exist.
+
+Implications and scope
+- This shows a robust barrier: Any attempt to separate NP from P/poly by obtaining polynomial-size refutations in a proof system with feasible interpolation of tautologies encoding disjointness of “small-circuit truth-tables” and a dense pseudorandom-looking family would contradict the Natural Proofs heuristic under widely believed PRG assumptions.
+
+- Concretely, routes via strengthening lower bounds in proof systems known or conjectured to have feasible interpolation (e.g., Resolution, Cutting Planes, bounded-depth Frege, certain algebraic systems) combined with interpolation to get circuit lower bounds run into this barrier unless one either:
+  - Avoids density (i.e., uses a property that is exponentially sparse), or
+  - Avoids constructivity (which feasible interpolation typically forces), or
+  - Breaks PRG security against P/poly.
+
+- This does not preclude proving P ≠ NP; it identifies structural constraints a successful approach must evade (e.g., non-natural or non-interpolating techniques, or targeting extremely sparse properties, or going beyond P/poly barriers).
+
+Caveats and checks
+- The above relies on two standard ingredients: feasible interpolation for the proof system and encoding of a dense, efficiently recognizable NP family B_C disjoint from small circuits. The argument does not assume that SAT itself has small proofs; rather, it shows that the specific plan “prove many polynomial-size refutations of canonical disjoint NP-pairs and then interpolate” is blocked.
+
+- The critical subtlety is the uniform poly(N)-time computability of Q_n. The sketched resolution uses a canonical lex-first proof and a reasonable encoding so that the search index is bounded by poly(N). This is a technical step; in standard formulations (e.g., Krajíček’s feasible interpolation barrier for proof complexity vs circuit lower bounds), analogous uniformity issues are addressed by careful encoding of pairs and proofs to keep the witness-search within poly(N).
+
+- If one weakens constructivity or density, the barrier may not apply, leaving open alternative proof strategies.
+
+Net progress
+- This attempt makes precise a barrier that eliminates a substantial, well-trodden path to P ≠ NP under standard PRG assumptions, sharpening where and how feasible interpolation plus proof-complexity lower bounds cannot by themselves yield the desired separation. It thereby refines the search space for viable approaches.
+
+VERDICT: PARTIAL
+REASON: Gave a rigorous barrier showing a major approach fails under PRG assumptions

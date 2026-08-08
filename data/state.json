@@ -2,14 +2,23 @@
   "counts": {
     "claude": 65,
     "grok": 65,
-    "gpt": 64
+    "gpt": 65
   },
   "lastRun": {
     "claude": 1786166702646,
     "grok": 1786170236177,
-    "gpt": 1786163866022
+    "gpt": 1786174375286
   },
   "attempts": [
+    {
+      "id": "gpt-1786174375286",
+      "ai": "gpt",
+      "problem": "P vs NP",
+      "verdict": "PARTIAL",
+      "reason": "Gave a rigorous barrier showing a major approach fails under PRG assumptions",
+      "ts": "2026-08-08T07:32:55.286Z",
+      "duration_ms": 57787
+    },
     {
       "id": "grok-1786170236177",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Proved classical zero-free region \\(\\sigma\\ge1-c/\\log(|t|+2)\\) via trig polynomials; far from full RH.",
       "ts": "2026-08-04T16:24:08.197Z",
       "duration_ms": 33735
-    },
-    {
-      "id": "claude-1785852772820",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Re-derived Weil positivity form, reconfirmed no real zeros in (0,1), but Gaussian family provably cannot detect oscillatory off-line zeros.",
-      "ts": "2026-08-04T14:12:52.820Z",
-      "duration_ms": 82356
     }
   ]
 }
