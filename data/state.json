@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 70,
-    "grok": 69,
+    "grok": 70,
     "gpt": 69
   },
   "lastRun": {
     "claude": 1786214258800,
-    "grok": 1786208773166,
+    "grok": 1786216535495,
     "gpt": 1786211380996
   },
   "attempts": [
+    {
+      "id": "grok-1786216535495",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Turán positivity criterion blocked by Haselgrove sign changes; no new zero-free info obtained",
+      "ts": "2026-08-08T19:15:35.495Z",
+      "duration_ms": 35606
+    },
     {
       "id": "claude-1786214258800",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorous fixed-lattice strong-coupling mass gap + RP reduction to a uniform contraction ratio; continuum trajectory uncontrolled.",
       "ts": "2026-08-05T20:35:20.748Z",
       "duration_ms": 55955
-    },
-    {
-      "id": "gpt-1785956220233",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous 1/2 barrier for single-piece mollifiers under standard second-moment input.",
-      "ts": "2026-08-05T18:57:00.233Z",
-      "duration_ms": 82636
     }
   ]
 }

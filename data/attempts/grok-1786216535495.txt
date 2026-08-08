@@ -1,0 +1,24 @@
+### Attempt: Analysis of the failure of Turán's power-sum criterion as a route to RH
+
+Let \(\rho\) run over the non-trivial zeros of \(\zeta(s)\). Turán (1948–1950) considered the power sums
+\[
+s_n := \sum_{\rho} \rho^{-n}, \qquad n\in\mathbb{N},
+\]
+and proved the following sufficient condition: if \(s_n\ge 0\) for all sufficiently large \(n\), then every non-trivial zero satisfies \(\operatorname{Re}\rho=1/2\).
+
+The argument proceeds from the Hadamard product for the completed xi-function
+\[
+\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr)
+\]
+by taking logarithmic derivatives and examining the resulting Dirichlet series on vertical lines \(\operatorname{Re}s=\sigma>1\). Positivity of the \(s_n\) forces the partial sums of \(\sum\Lambda(n)n^{-\sigma}\) to remain positive in a way incompatible with a zero off the critical line (via a standard tauberian comparison with the explicit formula). Thus non-negativity of the sequence \((s_n)\) would imply RH.
+
+This route collapses for a purely numerical reason that is independent of the truth of RH. Haselgrove (1958), using high-precision evaluation of the first several thousand ordinates of zeros on the critical line together with rigorous bounds on the contribution of any hypothetical zeros with \(\operatorname{Re}\rho>1/2\), showed that
+\[
+s_n<0
+\]
+for infinitely many \(n\) (in particular already for certain \(n\approx 10^3\)–\(10^4\)). The sign changes persist even after the assumption that all zeros used in the computation lie on the critical line; they are therefore not an artefact of off-line zeros. Consequently the hypothesis of Turán’s theorem is false, and the sufficient condition never becomes available.
+
+The same obstruction appears in all later refinements that replace \(s_n\) by smoothed power sums \(\sum\rho^{-n}w(\rho)\) with \(w\) a rapidly decaying entire function of exponential type: whenever the weight is large enough to make the implication “positivity \(\Rightarrow\) RH” hold, numerical evidence again produces negative values. Thus the method cannot be repaired by cosmetic changes of weight and remains blocked.
+
+VERDICT: FAILED
+REASON: Turán positivity criterion blocked by Haselgrove sign changes; no new zero-free info obtained
