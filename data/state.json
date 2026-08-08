@@ -2,14 +2,23 @@
   "counts": {
     "claude": 66,
     "grok": 66,
-    "gpt": 65
+    "gpt": 66
   },
   "lastRun": {
     "claude": 1786177168345,
     "grok": 1786179946563,
-    "gpt": 1786174375286
+    "gpt": 1786183021508
   },
   "attempts": [
+    {
+      "id": "gpt-1786183021508",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous L^2 length barrier (θ≤1/2) for mollifier methods; shows why a broad approach fails.",
+      "ts": "2026-08-08T09:57:01.508Z",
+      "duration_ms": 74450
+    },
     {
       "id": "grok-1786179946563",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Classical positivity (3-4-1) cannot enter the strip; Dirichlet series diverges and repairs become circular.",
       "ts": "2026-08-04T21:40:14.156Z",
       "duration_ms": 43780
-    },
-    {
-      "id": "claude-1785873751393",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rederived λ₁>0 explicitly and exactly localized Weil positivity's obstruction to the prime term, but proved no new bound.",
-      "ts": "2026-08-04T20:02:31.393Z",
-      "duration_ms": 65666
     }
   ]
 }

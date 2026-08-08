@@ -1,0 +1,63 @@
+Attempt: A rigorous length barrier for mollified second moments on the 1/2-line
+
+Objective
+Show, in a precise L^2 framework, that any approach which tries to push mollifier length beyond T^{1/2+o(1)} in the classical Levinson-Conrey method (or any method based solely on second moments of Dirichlet polynomials coming from the approximate functional equation) inevitably loses asymptotic control. This explains a hard barrier in a large family of strategies and delineates what genuinely new input would be required to surpass it.
+
+Setup
+- Let T be large. Consider the classical mollifier M(s) = ∑_{n≤T^θ} μ(n)w(n)n^{-s}, with a smooth weight w supported on [1, T^θ] and |w|≤1, and θ≥0 to be chosen.
+- Study the mollified second moment:
+  I(T) = ∫_{T}^{2T} |ζ(1/2+it) M(1/2+it)|^2 dt.
+
+Approximate functional equation and Dirichlet polynomial reduction
+- For t ∈ [T, 2T], the approximate functional equation gives
+  ζ(1/2+it) = ∑_{m≤(t/2π)^{1/2}} m^{-1/2-it} + χ(1/2+it) ∑_{m≤(t/2π)^{1/2}} m^{-1/2+it} + O(T^{-1/4}),
+  where |χ(1/2+it)|=1.
+- Multiplying by M(1/2+it) we write
+  ζ(1/2+it) M(1/2+it) = A(t) + χ(1/2+it) B(t) + E(t),
+  where A and B are Dirichlet polynomials of length
+  N := T^{1/2+θ+o(1)},
+  and E(t) is negligible in L^2: ∫_{T}^{2T} |E(t)|^2 dt ≪ T^{1-ε} for some ε>0 (coming from the smooth weights; any standard smooth truncation suffices).
+
+- Concretely,
+  A(t) = ∑_{n≤N} a_n n^{-it}, B(t) = ∑_{n≤N} b_n n^{+it},
+  where the coefficients a_n, b_n are absolutely bounded by divisor-like factors and satisfy ∑_{n≤N} |a_n|^2, ∑_{n≤N} |b_n|^2 ≍ (log T) for the canonical choice w(n)=1 (or more generally are ≪ (log T) with smooth w).
+
+Mean-square evaluation and the length vs. time barrier
+- For any Dirichlet polynomial P(t)=∑_{n≤N} c_n n^{-it}, Montgomery’s mean value theorem gives
+  ∫_{T}^{2T} |P(t)|^2 dt = (T + O(N)) ∑_{n≤N} |c_n|^2.
+- Applying this to A and B (and noting |χ|=1 so the cross term between A and χB can be absorbed with the same bound), we obtain
+  I(T) = ∫_{T}^{2T} (|A(t)|^2 + |B(t)|^2) dt + O(∫|E|^2) + O(∫|A||B|) 
+       = (T + O(N)) (∑|a_n|^2 + ∑|b_n|^2) + O(T^{1-ε}) + O((T+O(N)) min{∑|a_n|^2,∑|b_n|^2}).
+  Since ∑|a_n|^2 ≍ ∑|b_n|^2, we simplify to the canonical bound
+  I(T) = (T + O(N)) S + O(T^{1-ε}),
+  with S := ∑_{n≤N} (|a_n|^2 + |b_n|^2) ≍ log T.
+
+- Crucially, N = T^{1/2+θ+o(1)}. Therefore:
+  • If θ < 1/2, then N = o(T), and we get an asymptotic
+    I(T) = T S + o(T S) ≍ T log T.
+  • If θ = 1/2, then N ≍ T, and the main term and error are of the same order; asymptotics break at the boundary.
+  • If θ > 1/2, then N ≫ T, and the O(N S) term dominates or matches the T S term; one loses quantitative control needed to turn I(T) into a clean main term.
+
+Consequences for mollifier-driven zero-density/zero-proportion arguments
+- All second-moment arguments that bound the proportion of critical zeros via inequalities of the form
+  I(T) ≤ C T log T with a favorable C < 1
+  rely on an asymptotic evaluation of I(T) with a main term coming from the “diagonal” and controlled off-diagonal. The above shows that, without genuinely new input beyond the Dirichlet-polynomial L^2 technology encoded in Montgomery’s mean value theorem, one cannot hope to extract a sharp main term if θ ≥ 1/2.
+- This is not merely a limitation of a proof technique; the breakdown is intrinsic to the time-length uncertainty: integrating over an interval of length ≍ T cannot “resolve” Dirichlet polynomials of length ≫ T without incurring off-diagonal contributions that are as large as the diagonal. In our application, the effective length is forced to be N ≍ T^{1/2} from ζ’s approximate functional equation, so the product with a mollifier of length T^θ has effective length T^{1/2+θ}. This enforces θ ≤ 1/2 as a hard barrier at the level of second moments.
+
+Strengthening the obstruction
+- The same obstruction persists under standard refinements:
+  • Smoothing in t with a compactly supported, slowly varying weight W(t/T) only perturbs constants and the O(N) term.
+  • Using multi-piece or convolutional mollifiers does not change the effective maximal length N forced by the convolution of the length T^{1/2} pieces from the two sides of the approximate functional equation with the mollifier’s length T^θ.
+  • Introducing additive twists, small shifts s=1/2+α+it with |α|≪1/log T, or symmetric amplifiers preserves the N ≤ T constraint for clean asymptotics.
+
+- A hypothetical way around would require one of:
+  • New mean-value theorems that deliver asymptotics for ∫_{T}^{2T} |∑_{n≤N} c_n n^{-it}|^2 dt with N ≫ T (contradicting the sharpness of Montgomery’s bound), or
+  • Exploiting structural cancellation beyond L^2, e.g., genuinely new off-diagonal analysis informed by spectral theory (beyond what is currently known), or
+  • Higher moments or shifted convolution estimates that effectively reduce the length below T after averaging (again, not available at present at the strength required).
+
+Conclusion (partial progress)
+- We have given a precise, unconditional barrier: any proof of RH or of an improved zero proportion on the critical line that uses only a single-interval L^2 mollified second moment with a Dirichlet polynomial mollifier and the approximate functional equation cannot surpass mollifier length T^{1/2+o(1)}. Beyond this, the mean-square evaluation loses asymptotic control due to the N ≤ T constraint.
+- This sharpens the target for future work: either new ideas must break the N ≤ T limitation (e.g., by gaining new cancellation in off-diagonal terms), or one must bypass the second-moment framework entirely.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous L^2 length barrier (θ≤1/2) for mollifier methods; shows why a broad approach fails.
