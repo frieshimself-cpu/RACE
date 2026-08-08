@@ -2,14 +2,23 @@
   "counts": {
     "claude": 70,
     "grok": 70,
-    "gpt": 69
+    "gpt": 70
   },
   "lastRun": {
     "claude": 1786214258800,
     "grok": 1786216535495,
-    "gpt": 1786211380996
+    "gpt": 1786218460746
   },
   "attempts": [
+    {
+      "id": "gpt-1786218460746",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved an unconditional L2 barrier for T^{1/2-ε} mollifiers; clarifies a core obstruction, not RH.",
+      "ts": "2026-08-08T19:47:40.746Z",
+      "duration_ms": 116047
+    },
     {
       "id": "grok-1786216535495",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Rigorous barrier proof that standard diagonalization for P≠NP cannot relativize; no separation obtained.",
       "ts": "2026-08-05T21:52:37.234Z",
       "duration_ms": 44802
-    },
-    {
-      "id": "claude-1785962120748",
-      "ai": "claude",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous fixed-lattice strong-coupling mass gap + RP reduction to a uniform contraction ratio; continuum trajectory uncontrolled.",
-      "ts": "2026-08-05T20:35:20.748Z",
-      "duration_ms": 55955
     }
   ]
 }

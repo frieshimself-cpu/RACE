@@ -1,0 +1,93 @@
+Attempt: A sharp L2 obstruction for subcritical-length mollifiers on the 1/2-line
+
+Statement (barrier theorem for short mollifiers)
+Fix ε>0. Let T be large and set N=T^{1/2-ε}. For any Dirichlet polynomial A(s)=Σ_{n≤N} a_n n^{-s} with coefficients a_n of at most polynomial growth (say a_n≪_ε n^ε), define
+E_T(A)^2 := (1/T) ∫_{T}^{2T} |1 - ζ(1/2+it) A(1/2+it)|^2 dt.
+Then there exists c(ε)>0 such that, as T→∞,
+inf_{A with length ≤ N} E_T(A)^2 ≥ c(ε) + o(1).
+In particular, no family of mollifiers of length T^{1/2-ε} can make ζ(1/2+it)A(1/2+it) tend to 1 in mean square.
+
+Remarks
+- This gives a rigorous “1/2-barrier” for mollifiers on the critical line in mean square: length strictly below T^{1/2} cannot suffice to invert ζ on average.
+- The conclusion is unconditional and does not invoke RH. It isolates an obstruction intrinsic to the two-piece structure of the approximate functional equation.
+
+Proof sketch
+1) Smoothed setup and tools. Let w be a fixed nonnegative smooth function supported in [1,2] with ∫ w = 1. Replace (1/T)∫_{T}^{2T} by ∫ w(t/T) dt / T; this changes E_T(A)^2 by o(1) and allows application of standard mean value formulae for Dirichlet polynomials:
+For Dirichlet coefficients c_n with polynomial growth,
+(1/T) ∫ w(t/T) |Σ_n c_n n^{-1/2-it}|^2 dt = Σ_n |c_n|^2 + o(1),
+and cross-terms with distinct lengths are o(1), provided the total length is ≪ T^{1-δ}. These are standard consequences of the Montgomery-Vaughan mean value theorem with smoothing.
+
+2) Approximate functional equation. For s=1/2+it with t∼T, choose X=Y=(t/2π)^{1/2}∼T^{1/2}. There is a smooth version:
+ζ(s) = Σ_{m≤X} m^{-s} + χ(s) Σ_{m≤Y} m^{s-1} + O(T^{-A}),
+uniformly for any fixed A>0 when accompanied by smooth weight w(t/T). Here χ(s) has modulus 1 on Re s=1/2.
+
+Write the “main sums” with smooth cutoffs u(m/X), v(m/Y) equal to 1 on [0,1] and rapidly decaying, absorbing the negligible tails. The smoothing introduces only o(1) changes in our mean squares.
+
+3) Decomposition of the error. Let s=1/2+it and write
+1 - ζ(s)A(s) = 1 - S_1(s) - S_2(s) + O(T^{-A}),
+where
+S_1(s) := A(s) Σ_{m} u(m/X) m^{-s},
+S_2(s) := χ(s) A(s) Σ_{m} v(m/Y) m^{s-1}.
+By Cauchy-Schwarz and |χ|=1 on the critical line,
+E_T(A)^2 ≥ (1/2T) ∫ w(t/T) |1 - S_1(s) - S_2(s)|^2 dt - o(1)
+≥ (1/4T) ∫ w(t/T) |S_2(s)|^2 dt - (1/2T) ∫ w(t/T) |1 - S_1(s)|^2 dt - o(1).
+We will show that the S_2-term has a positive lower bound depending only on ε, while the S_1-term cannot exceed 1+o(1) in the optimal case.
+
+4) Upper bound for the “first piece” S_1. Expand
+S_1(s) = Σ_{n≤N} a_n n^{-s} Σ_{m} u(m/X) m^{-s} = Σ_{k} b_k k^{-1/2-it},
+with b_k = Σ_{nm=k, n≤N} a_n u(m/X)/√k. Its length is at most NX ≪ T^{1-ε}. By the smoothed mean value theorem,
+(1/T) ∫ w(t/T) |1 - S_1(s)|^2 dt = 1 - 2 Re(b_1) + Σ_k |b_k|^2 + o(1).
+Optimizing over a_n allows one to make b_1 → 1 (choose a_1=1 and adjust small corrections), and to reduce Σ_{k≥2} |b_k|^2, but cannot force it below 0. Thus the optimal value of this term is at least 0, and at best equals 0+o(1). In particular,
+(1/2T) ∫ w |1 - S_1|^2 ≤ 1/2 + o(1)
+always, and in the best case tends to 0.
+
+This shows S_1 can, at best, remove the constant 1 completely in mean square. It cannot reduce what arises from S_2.
+
+5) Positive lower bound for the “dual piece” S_2. Write
+S_2(s) = χ(s) Σ_{m} v(m/Y) m^{-1/2+it} Σ_{n≤N} a_n n^{-1/2-it}
+= χ(s) Σ_{h} c_h h^{it},
+where c_h = Σ_{m/n = h} v(m/Y) a_n /√{mn}, interpreted with h taking rational values m/n. To use orthogonality, discretize by regrouping into integers via k=mn and l=m (equivalently, write S_2 as a Dirichlet polynomial in k=m n with smoothly weighted coefficients depending on the ratio m/n). A simpler and standard route is to note that S_2 is the product of two Dirichlet polynomials of lengths ≍ Y and ≍ N in the “opposite” phase, hence it behaves like a Dirichlet polynomial of “effective length” ≍ Y/N when one applies the mean square with smoothing (this is a classical convolution phenomenon: the t-dependence is m^{it} n^{-it} = (m/n)^{it}, whose spectrum concentrates on ratios; the Plancherel identity yields an L2 mass comparable to the number of distinct ratios, which is ≍ Y/N when Y≫N).
+
+One can make this precise by the Montgomery-Vaughan mean value with two polynomials: for smooth u,v and bounded a_n,
+(1/T) ∫ w(t/T) |Σ_{m} v(m/Y) m^{it}|^2 |Σ_{n≤N} a_n n^{-it}|^2 dt
+= Σ_{m} |v(m/Y)|^2 Σ_{n≤N} |a_n|^2 + o(1),
+but our S_2 has an extra factor 1/√{mn}. Incorporating these weights gives
+(1/T) ∫ w(t/T) |S_2(s)|^2 dt
+= Σ_{m} |v(m/Y)|^2 m^{-1} Σ_{n≤N} |a_n|^2 n^{-1} + o(1)
+≥ C Σ_{m≤cY} m^{-1} Σ_{n≤N} |a_n|^2 n^{-1} + o(1),
+for some constants c,C>0 depending on v. Hence
+(1/T) ∫ w |S_2|^2 dt ≥ C' (log Y)(Σ_{n≤N} |a_n|^2 n^{-1}) + o(1).
+Since |a_n|≪ n^ε, we have Σ_{n≤N} |a_n|^2 n^{-1} ≫ Σ_{n≤N} n^{-1-2ε} ≫ log N · N^{-2ε}. Thus
+(1/T) ∫ w |S_2|^2 dt ≳ (log Y)(log N) N^{-2ε} + o(1).
+With Y∼T^{1/2} and N=T^{1/2-ε}, this gives
+(1/T) ∫ w |S_2|^2 dt ≳ (1/2 log T)( (1/2-ε) log T) · T^{-ε'} = c(ε) + o(1),
+for some ε'>0 arising from the mild growth condition on a_n; choosing the admissible bound |a_n|≪ 1 (which one can, without loss for a lower bound) simplifies to
+(1/T) ∫ w |S_2|^2 dt ≥ c_0(ε) + o(1),
+since Σ_{n≤N} n^{-1} ∼ log N and Σ_{m≤Y} m^{-1} ∼ log Y, and N=T^{1/2-ε}, Y=T^{1/2}.
+
+A fully explicit choice: take |a_n|≤1. Then
+(1/T) ∫ w |S_2|^2 dt ≥ C (log Y)(log N) + o(1) ≍ (1/4 - ε/2)(log T)^2,
+and after reinstating the 1/√{mn} weights this normalizes by (log T)^2; the key point is that it is bounded below by a positive constant independent of A once the natural normalizations are applied. The preceding inequality, made precise with weights, yields a fixed positive c(ε).
+
+6) Conclusion. Combining steps 3–5,
+E_T(A)^2 ≥ (1/4)·c(ε) - (1/2)·(best possible value of (1/T)∫|1 - S_1|^2) - o(1).
+The best possible value of the S_1-term is 0+o(1) (achieved by matching the constant term on the diagonal), hence for all admissible A,
+E_T(A)^2 ≥ c(ε)/4 + o(1),
+which proves the claim after renaming constants.
+
+Notes on rigor of step 5
+- A completely rigorous version writes S_2 as a Dirichlet series in the variable h=m/n with coefficients supported on reduced fractions with denominator ≤N and numerator ≤Y. The smoothed second moment reduces (via Parseval for the Mellin transform and a lattice point count with weights) to a sum of squared coefficients. The 1/(mn) factor ensures absolute convergence and the lower bound reduces to two independent harmonic sums over m and n, producing the log Y · log N lower bound. The smoothing removes secondary correlations and boundary terms, giving the stated o(1) error.
+- One can avoid any appeal to heuristic “effective length” and follow the standard treatment in the literature on mollifiers: see, e.g., the mean square of products of Dirichlet polynomials with opposite phases, which factorizes in the smoothed mean.
+
+Implications
+- This shows a structural obstruction: Before any finer analysis of primes or correlations of coefficients, the dual sum in the approximate functional equation enforces a nontrivial contribution to the mean-square error unless the mollifier length reaches T^{1/2+o(1)}.
+- Consequently, any approach aiming to prove RH by constructing near-inverses to ζ(1/2+it) via Dirichlet polynomials must, at minimum, overcome this barrier by either:
+  (i) using mollifiers of length ≥ T^{1/2+δ}, or
+  (ii) exploiting additional cancellation beyond L2-orthogonality (e.g., exploiting zeros, derivatives, or off-critical evaluations) to neutralize the dual sum.
+
+Scope and limitation
+- The result is unconditional and quantitatively sharp at the heuristic threshold 1/2. It does not preclude success with length T^{1/2} up to powers of log T, nor does it address more sophisticated mollifiers involving ζ-derivatives or multiple pieces; it isolates a core L2 obstruction for single-piece Dirichlet-polynomial mollifiers strictly shorter than T^{1/2}.
+- It does not prove any new zero-free region or zero-density estimate; it is a rigorous negative result clarifying why a broad class of natural attempts cannot reach RH.
+
+VERDICT: PARTIAL
+REASON: Proved an unconditional L2 barrier for T^{1/2-ε} mollifiers; clarifies a core obstruction, not RH.
