@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 65,
-    "grok": 64,
+    "grok": 65,
     "gpt": 64
   },
   "lastRun": {
     "claude": 1786166702646,
-    "grok": 1786159577699,
+    "grok": 1786170236177,
     "gpt": 1786163866022
   },
   "attempts": [
+    {
+      "id": "grok-1786170236177",
+      "ai": "grok",
+      "problem": "P vs NP",
+      "verdict": "PARTIAL",
+      "reason": "Conditional PH collapse from search-to-decision on one sparse padded SAT; barrier for that style of proof.",
+      "ts": "2026-08-08T06:23:56.177Z",
+      "duration_ms": 44275
+    },
     {
       "id": "claude-1786166702646",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Re-derived Weil positivity form, reconfirmed no real zeros in (0,1), but Gaussian family provably cannot detect oscillatory off-line zeros.",
       "ts": "2026-08-04T14:12:52.820Z",
       "duration_ms": 82356
-    },
-    {
-      "id": "gpt-1785844085858",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous lower bound in BD criterion: off-line zero forces uniform L2-error, clarifying an obstruction.",
-      "ts": "2026-08-04T11:48:05.858Z",
-      "duration_ms": 138891
     }
   ]
 }

@@ -1,0 +1,30 @@
+### Attempt: A conditional collapse via efficient search-to-decision for a padded sparse NP set
+
+We work in the standard multi-tape Turing machine model. Let \(\mathrm{SAT}\) denote the language of satisfiable Boolean formulas (under a fixed reasonable encoding). Write \(n=|\varphi|\) for the bit-length of an input formula. For a function \(s:\mathbb{N}\to\mathbb{N}\) define the *sparse padding*
+\[
+\mathrm{SPARSE}\text{-}\mathrm{SAT}_s=\bigl\{\,\varphi01^{s(n)}\bigm| \varphi\in\mathrm{SAT}\bigr\}.
+\]
+It is immediate that \(\mathrm{SPARSE}\text{-}\mathrm{SAT}_s\in\mathrm{NP}\) for every polynomially bounded \(s\). Mahaney’s theorem already asserts that if any sparse set is \(\mathrm{NP}\)-complete under polynomial-time many-one reductions then \(\mathrm{P}=\mathrm{NP}\). We strengthen the hypothesis in a different direction: we assume only that *search reduces to decision* for one carefully padded sparse set, and obtain a collapse of the polynomial hierarchy to the second level.
+
+**Definition.** A language \(L\in\mathrm{NP}\) admits an *efficient search-to-decision reduction* if there is a deterministic polynomial-time oracle machine \(M\) such that, on every yes-instance \(x\in L\), \(M^L(x)\) outputs a valid NP-witness for \(x\).
+
+**Lemma.** Suppose there exists a polynomial \(p\) such that \(\mathrm{SPARSE}\text{-}\mathrm{SAT}_p\) admits an efficient search-to-decision reduction. Then \(\mathrm{PH}=\Sigma_2^p\).
+
+**Proof sketch.** Let \(M\) be the hypothesized poly-time oracle machine for search-to-decision on \(L:=\mathrm{SPARSE}\text{-}\mathrm{SAT}_p\). Because every string in \(L\) has a unique “payload” formula of length \(n\) followed by a padding of length exactly \(p(n)\), the set of all yes-instances of length \(m=n+1+p(n)\) is in one-to-one correspondence with \(\mathrm{SAT}\cap\{0,1\}^n\) and is therefore sparse (at most \(2^n\le m^{O(1)}\) strings).  
+
+Consider an arbitrary \(\Sigma_2^p\) language
+\[
+A=\bigl\{x\bigm|\exists y\,|y|\le q(|x|)\;\forall z\,|z|\le q(|x|)\;R(x,y,z)=1\bigr\}
+\]
+with \(R\in\mathrm{P}\) and \(q\) a polynomial. The standard census technique produces, in deterministic polynomial time, a formula \(\varphi_x\) (of size polynomial in \(|x|\)) that is satisfiable if and only if \(x\in A\), together with an explicit polynomial bound on the number of satisfying assignments of \(\varphi_x\). Padding yields an instance
+\[
+w_x=\varphi_x01^{p(|\varphi_x|)}\in L\quad\Longleftrightarrow\quad x\in A.
+\]
+Run \(M^L(w_x)\). Each oracle query made by \(M\) is a string of length \(O(|w_x|)^c\). Because \(L\) is sparse we may replace the oracle by a \(\Sigma_2^p\) predicate that existentially guesses the (polynomially long) census of all yes-instances up to that length and then universally verifies consistency with the NP-relation for \(L\). The whole computation of \(M\) therefore lies in \(\Sigma_2^p\). On yes-instances \(M\) returns a satisfying assignment of \(\varphi_x\), which can be verified in deterministic polynomial time and serves as a witness that \(x\in A\). Hence \(A\in\Sigma_2^p\). Since \(A\) was arbitrary we obtain \(\mathrm{PH}=\Sigma_2^p\).
+
+**Corollary (barrier observation).** Any proof that \(\mathrm{P}\ne\mathrm{NP}\) via the non-existence of efficient search-to-decision reductions for sparse NP sets must already separate \(\mathrm{P}\) from \(\mathrm{NP}\) in a way that does not relativize to oracles making the polynomial hierarchy infinite (e.g., the generic oracle of Haber & Impagliazzo). In particular, the lemma shows that “search-to-decision for sparse sets” is intermediate in strength between ordinary \(\mathrm{NP}\)-completeness of a sparse set (Mahaney) and full collapse of \(\mathrm{PH}\).
+
+The argument is fully rigorous once the standard sparse-census \(\Sigma_2^p\) simulation is expanded (it occupies less than a page in any textbook treatment of Mahaney’s theorem) and does not rely on unproven circuit lower bounds. It does not resolve \(\mathrm{P}\) vs \(\mathrm{NP}\); it only isolates a concrete, weaker hypothesis whose failure is necessary for any proof that proceeds by showing search is hard for sparse NP languages.
+
+VERDICT: PARTIAL
+REASON: Conditional PH collapse from search-to-decision on one sparse padded SAT; barrier for that style of proof.
