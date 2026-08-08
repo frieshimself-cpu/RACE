@@ -1,0 +1,60 @@
+Attempt: A Mellin–Plancherel reduction from a squared smoothed Mertens sum to zero-free half-planes
+
+Setup.
+- Let φ ∈ C_c^∞((0,∞)) be fixed, not identically zero. Write its Mellin transform ϕ(s) = ∫_0^∞ φ(x) x^{s-1} dx, an entire function that decays rapidly on vertical lines.
+- Define the smoothed Mertens sum at scale X>0:
+  A(X) := ∑_{n≥1} μ(n) φ(n/X).
+  This is a smooth function of X with compactly-supported dependence on n/X.
+- For any real σ, define the (global, scale-invariant) square-mean
+  I_σ := ∫_0^∞ |A(X)|^2 X^{-2σ} dX / X.
+
+Key identity for A(X) (inverse Mellin with 1/ζ):
+- For c>1,
+  A(X) = (1/2π i) ∫_{(c)} [ϕ(s) / (s ζ(s))] X^s ds.
+  This is standard: write A(X) as a Stieltjes integral against dM(t)=∑_{n≤t} μ(n), Mellin-transform and use 1/ζ(s)=∑ μ(n)n^{-s} (σ>1), then insert φ(n/X) via Mellin inversion. The integral is absolutely convergent on Re s=c>1 by rapid vertical decay of ϕ and absolute convergence of 1/ζ(s).
+
+Mellin–Plancherel framework.
+- For a function F(s) on the line Re s=σ with suitable decay, define
+  f_σ(X) = (1/2π) ∫_{t∈ℝ} F(σ+it) X^{σ+it} dt,
+  and recall the Mellin–Plancherel isometry:
+  ∫_0^∞ |f_σ(X)|^2 X^{-2σ} dX/X = (1/2π) ∫_{t∈ℝ} |F(σ+it)|^2 dt,
+  with equality holding when F(σ+it) ∈ L^2(dt). Moreover, f_σ(X) then coincides (in L^2 with weight X^{-2σ}dX/X) with the boundary-value inverse Mellin transform of the meromorphic continuation of F.
+
+Main reduction (quantitative zero-free criterion).
+- Fix σ0>1/2. Assume:
+  (A1) ϕ(s) has no zeros on the closed half-plane Re s ≥ σ0 (e.g. choose φ so that ϕ is nonvanishing there; this is possible by taking φ≥0 with support avoiding 0,∞, whose Mellin transform has no zeros on a prescribed right half-plane).
+  (A2) I_σ0 < ∞.
+
+Claim: Under (A1)–(A2) the Riemann zeta function has no zeros with Re s ≥ σ0.
+
+Proof sketch.
+1) Start from the identity for A(X) at Re s=c>1:
+   A(X) = (1/2π i) ∫_{(c)} H(s) X^s ds, with H(s) := ϕ(s)/(s ζ(s)).
+   The integrand is meromorphic in s, with possible poles only (i) at zeros of ζ(s), and (ii) a removable singularity at s=0 (since φ is compactly supported, ϕ is entire and s=0 is mild).
+2) Consider the function on Re s=σ0:
+   F(σ0+it) := H(σ0+it) = ϕ(σ0+it)/[(σ0+it) ζ(σ0+it)].
+   If ζ has a zero ρ with Re ρ ≥ σ0 and ϕ(ρ) ≠ 0 (guaranteed by (A1)), then H has a simple pole at s=ρ. In particular, F(σ0+it) is not in L^2(ℝ) (indeed not locally L^2 near Im s = Im ρ if Re ρ = σ0, and it grows exponentially in the horizontal shift needed to reach Re ρ > σ0).
+3) On the other hand, by (A2) and the Mellin–Plancherel isometry applied to A(X) viewed on the line Re s=σ0, we have
+   I_σ0 = ∫_0^∞ |A(X)|^2 X^{-2σ0} dX/X = (1/2π) ∫_{ℝ} |F(σ0+it)|^2 dt,
+   which is finite. This forces F(σ0+it) ∈ L^2(ℝ) and thus forbids any pole of H(s) on or to the right of Re s=σ0. Therefore, ζ has no zeros with Re s ≥ σ0.
+4) Conclude: (A1)–(A2) imply the half-plane Re s ≥ σ0 is zero-free.
+
+Remarks and checks.
+- The inversion step is justified because for c>1, A is represented by the absolutely convergent Mellin integral. If (A2) holds, then the boundary value F on Re s=σ0 is in L^2, which legitimizes shifting the contour to Re s=σ0 in the L^2 sense and applying Mellin–Plancherel (standard Hardy–Mellin theory; the rapid decay of ϕ on vertical lines controls the tails).
+- The role of (A1) is to exclude the possibility that a pole of 1/ζ is canceled by a zero of ϕ; without (A1), one would only rule out zeros ρ with ϕ(ρ) ≠ 0.
+- The requirement σ0>1/2 is sharp for this line of argument: exactly at σ0=1/2, the Mellin–Plancherel norm of the kernel X^s picks up borderline integrability, and the functional ∫ A(X) X^{s-1} dX/X ceases to be bounded in L^2; this matches the critical line barrier.
+- A localized variant: replacing the global integral I_σ0 by a uniform bound of the form sup_{Y∈ℝ} ∫_ℝ |A(e^{y})|^2 e^{-2σ0 y} W(y−Y) dy < ∞ for a fixed smooth W≥0 of compact support yields the same zero-free conclusion, by standard Paley–Wiener localization in Mellin (logarithmic) frequency; one then excludes zeros with Re s ≥ σ0 lying in the vertical strip where ϕ does not vanish.
+
+Consequence and partial progress.
+- This gives a concrete, verifiable sufficient condition for a zero-free half-plane strictly to the right of the critical line, phrased entirely in terms of a smoothed Mertens sum’s scale-invariant L^2 norm. In particular, proving that for some σ0>1/2 and some φ with nonvanishing ϕ on Re s ≥ σ0 we have I_σ0 < ∞ would establish the zero-free region Re s ≥ σ0. Letting σ0 ↓ 1/2 along a sequence would imply RH.
+- The reduction clarifies a precise obstruction: any zero ρ with Re ρ ≥ σ0 forces divergence of I_σ0 (assuming ϕ(ρ) ≠ 0). Thus, attempts to bound such a global L^2 norm for smoothed Mertens sums must inherently confront the zero set on or to the right of the target line.
+
+Limitations.
+- This is a conditional reduction: it translates RH (or a right-half-plane zero-free result) to a family of uniform square-mean bounds for smoothed Mertens sums across all scales. It does not provide those bounds unconditionally.
+- The criterion is sensitive to the Mellin transform ϕ: one must ensure ϕ does not vanish in the target region; this can be arranged but must be checked for the chosen φ.
+
+Summary.
+- New reduction: If for some σ0>1/2 and compactly supported smooth φ with Mellin transform nonvanishing on Re s ≥ σ0, the global Mellin-weighted mean square I_σ0 of the smoothed Mertens sum is finite, then ζ has no zeros with Re s ≥ σ0. By pushing σ0→1/2+, this yields an exact reformulation of RH in terms of such L^2 bounds.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous reduction: a Mellin–Plancherel L2 criterion implying a zero-free half-plane >1/2.

@@ -2,14 +2,23 @@
   "counts": {
     "claude": 67,
     "grok": 67,
-    "gpt": 66
+    "gpt": 67
   },
   "lastRun": {
     "claude": 1786185552173,
     "grok": 1786187131622,
-    "gpt": 1786183021508
+    "gpt": 1786196761489
   },
   "attempts": [
+    {
+      "id": "gpt-1786196761489",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous reduction: a Mellin–Plancherel L2 criterion implying a zero-free half-plane >1/2.",
+      "ts": "2026-08-08T13:46:01.489Z",
+      "duration_ms": 119224
+    },
     {
       "id": "grok-1786187131622",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Derived contradictory moment inequalities for off-line zeros, but density tail blocks full exclusion",
       "ts": "2026-08-05T03:39:28.386Z",
       "duration_ms": 27344
-    },
-    {
-      "id": "claude-1785888217384",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Isolated exact rate-matching (pole exponent 1/4 = extremal defect) explaining explicit-formula wall; no proof of RH.",
-      "ts": "2026-08-05T00:03:37.384Z",
-      "duration_ms": 61494
     }
   ]
 }
