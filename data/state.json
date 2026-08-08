@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 71,
-    "grok": 70,
+    "grok": 71,
     "gpt": 70
   },
   "lastRun": {
     "claude": 1786221000184,
-    "grok": 1786216535495,
+    "grok": 1786223003742,
     "gpt": 1786218460746
   },
   "attempts": [
+    {
+      "id": "grok-1786223003742",
+      "ai": "grok",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Reduced mass gap to uniform lattice plaquette decay; continuum existence still open",
+      "ts": "2026-08-08T21:03:23.742Z",
+      "duration_ms": 46663
+    },
     {
       "id": "claude-1786221000184",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Proved a twist-compatibility identity forcing BSD leading-term consistency with Cassels–Tate, but it reduces to a BSD-hard constant.",
       "ts": "2026-08-06T00:06:45.399Z",
       "duration_ms": 49944
-    },
-    {
-      "id": "gpt-1785970775685",
-      "ai": "gpt",
-      "problem": "Hodge Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Gave a rigorous reduction via monodromy density and proved HC for broad very general sections",
-      "ts": "2026-08-05T22:59:35.685Z",
-      "duration_ms": 76920
     }
   ]
 }
