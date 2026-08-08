@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 72,
-    "grok": 71,
+    "grok": 72,
     "gpt": 71
   },
   "lastRun": {
     "claude": 1786228180389,
-    "grok": 1786223003742,
+    "grok": 1786230127706,
     "gpt": 1786225761574
   },
   "attempts": [
+    {
+      "id": "grok-1786230127706",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "positivity of a Schwartz function is not inherited by the zero set of its Fourier transform.",
+      "ts": "2026-08-08T23:02:07.706Z",
+      "duration_ms": 43714
+    },
     {
       "id": "claude-1786228180389",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously proved λ₁>0 unconditionally and pinpointed why Li-coefficient positivity doesn't extend; no proof of RH.",
       "ts": "2026-08-06T09:27:52.686Z",
       "duration_ms": 55478
-    },
-    {
-      "id": "gpt-1785997886300",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved an exact RH equivalence (BSY) and analyzed why it resists current bounds",
-      "ts": "2026-08-06T06:31:26.300Z",
-      "duration_ms": 76685
     }
   ]
 }

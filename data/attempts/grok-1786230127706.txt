@@ -1,0 +1,48 @@
+### Attempt: Analysis of the Failure of Pólya’s Fourier Approach to RH
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) and the fact that \(\xi\) is entire of order 1 imply that the Riemann Hypothesis is equivalent to all zeros of the entire function
+\[
+\Xi(t):=\xi\bigl(\tfrac12+it\bigr)
+\]
+being real. (The function \(\Xi\) is even and real-valued on the real line.)
+
+Riemann’s explicit formula yields the Fourier representation
+\[
+\Xi(t)=\int_{-\infty}^{\infty}\Phi(u)\,e^{itu}\,du,
+\]
+where the kernel admits the rapidly convergent expression
+\[
+\Phi(u)=2\sum_{n=1}^\infty\bigl(2\pi^2 n^4 e^{9u/2}-3\pi n^2 e^{5u/2}\bigr)\exp(-\pi n^2 e^{2u})
+\]
+for all real \(u\). Direct inspection of the series shows \(\Phi(u)>0\) for every \(u\in\mathbb{R}\) and \(\Phi(u)=\Phi(-u)\). Moreover \(\Phi\) decays faster than any exponential: \(\Phi(u)=O\bigl(\exp(-c e^{2|u|})\bigr)\) as \(|u|\to\infty\).
+
+A classical hope (Pólya, 1926) is that positivity and rapid decay of \(\Phi\) force the Fourier transform \(\Xi\) to have only real zeros. The hope is false for a elementary reason: positivity of a Schwartz function is not inherited by the zero set of its Fourier transform.
+
+#### Counter-example (explicit)
+Define
+\[
+\Psi(u)=\exp(-u^2)+\tfrac12\exp\bigl(-(u-a)^2\bigr)+\tfrac12\exp\bigl(-(u+a)^2\bigr),\qquad a=3.
+\]
+Then \(\Psi>0\), \(\Psi\in\mathcal{S}(\mathbb{R})\), and its Fourier transform is
+\[
+\widehat\Psi(\xi)=\sqrt\pi\,e^{-\xi^2/4}\Bigl(1+\cos(a\xi)\Bigr).
+\]
+The factor \(1+\cos(a\xi)\) vanishes at the non-real points
+\[
+\xi=\frac{(2k+1)\pi}{a}+i\,y,\qquad y\neq0,
+\]
+for every integer \(k\) (the Gaussian factor never vanishes). Hence \(\widehat\Psi\) possesses zeros off the real axis.
+
+The same construction can be smoothed by an arbitrarily small positive mollifier while preserving both positivity and the existence of complex zeros (by Rouché’s theorem on compact sets away from the real axis). Consequently the mere positivity of \(\Phi\) supplies no obstruction to complex zeros of \(\Xi\).
+
+#### Why the obstruction cannot be removed by decay
+Any attempt to restore reality of zeros by imposing stronger decay on \(\Phi\) collides with the fact that the map
+\[
+\Phi\mapsto\Xi
+\]
+is an isomorphism of the Schwartz class. The set of Fourier transforms of positive Schwartz functions is dense (in the topology of uniform convergence on compacta) in the set of all even Schwartz functions that are positive-definite; the latter set contains functions with complex zeros (e.g., \(\operatorname{sech}(\pi\xi/2)+\varepsilon\operatorname{sech}(\pi(\xi-i))^2\) for small \(\varepsilon>0\)). Density therefore precludes any decay-plus-positivity criterion that would force all zeros onto the real line.
+
+Thus the Fourier-positivity approach, while elegant, is intrinsically incapable of proving the Riemann Hypothesis: the analytic properties that are visible from the explicit formula for \(\Phi\) are shared by functions whose Fourier transforms violate RH.
+
+VERDICT: FAILED
+REASON: Positivity of Riemann’s kernel Φ does not force real zeros of its Fourier transform (explicit counterexamples).
