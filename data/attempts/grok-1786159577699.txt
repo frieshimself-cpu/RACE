@@ -1,0 +1,65 @@
+### Attempt: A conditional a priori bound via controlled vortex stretching in the enstrophy cascade
+
+We work throughout with the incompressible Navier–Stokes equations on \(\mathbb{R}^3\times[0,T)\),
+\[
+\partial_t u+(u\cdot\nabla)u=\nu\Delta u-\nabla p,\qquad\operatorname{div}u=0,
+\]
+with smooth, divergence-free initial data \(u_0\in H^s(\mathbb{R}^3)\) for \(s>5/2\). Let \(\omega=\operatorname{curl}u\) be the vorticity. The enstrophy
+\[
+\mathcal{E}(t)=\int_{\mathbb{R}^3}|\omega(x,t)|^2\,dx
+\]
+satisfies the exact identity
+\[
+\frac12\frac{d}{dt}\mathcal{E}(t)=-\nu\|\nabla\omega\|_{L^2}^2+\int_{\mathbb{R}^3}\omega_i\omega_j\partial_j u_i\,dx.
+\]
+The goal is to obtain a closed differential inequality for \(\mathcal{E}\) under a mild structural hypothesis on the stretching term that is weaker than the classical Beale–Kato–Majda integrability of \(\|\omega\|_\infty\).
+
+#### Lemma (Localized stretching control)
+Suppose there exists a measurable function \(\lambda(x,t)\ge0\) and a constant \(C_0<\infty\) such that, for almost every \((x,t)\),
+\[
+\bigl|\omega_i(x,t)\omega_j(x,t)\partial_j u_i(x,t)\bigr|\le\lambda(x,t)|\omega(x,t)|^2
+\]
+and
+\[
+\int_0^T\bigl(\|\lambda(\cdot,t)\|_{L^\infty}+\|\lambda(\cdot,t)\|_{L^{3/2}}\bigr)\,dt\le C_0.
+\]
+Then \(\mathcal{E}(t)\) remains finite on \([0,T]\) and, moreover,
+\[
+\sup_{t\in[0,T]}\mathcal{E}(t)+\nu\int_0^T\|\nabla\omega\|_{L^2}^2\,dt\le\mathcal{E}(0)\exp\bigl(C C_0\bigr).
+\]
+
+#### Proof of the lemma
+Decompose the stretching integral by Hölder:
+\begin{align*}
+\biggl|\int\omega_i\omega_j\partial_j u_i\,dx\biggr|
+&\le\int\lambda|\omega|^2\,dx
+\le\|\lambda\|_{L^\infty}\|\omega\|_{L^2}^2+\|\lambda\|_{L^{3/2}}\|\omega\|_{L^6}^2.
+\end{align*}
+The Sobolev embedding \(H^1\hookrightarrow L^6\) together with the Biot–Savart law (which gives \(\|\nabla u\|_{L^2}\lesssim\|\omega\|_{L^2}\)) yields
+\[
+\|\omega\|_{L^6}^2\le C\bigl(\|\omega\|_{L^2}^2+\|\nabla\omega\|_{L^2}\|\omega\|_{L^2}\bigr).
+\]
+Absorbing the viscous dissipation via Young’s inequality therefore produces
+\[
+\frac{d}{dt}\mathcal{E}\le C\bigl(\|\lambda\|_\infty+\|\lambda\|_{L^{3/2}}\bigr)\mathcal{E}+\frac\nu2\|\nabla\omega\|_{L^2}^2.
+\]
+Gronwall’s inequality immediately closes the claimed bound. \(\square\)
+
+#### Reduction to a geometric condition on the vorticity direction
+Write \(\xi=\omega/|\omega|\) (where \(\omega\neq0\)). The stretching term is exactly
+\[
+\omega_i\omega_j\partial_j u_i=|\omega|^2\,S\xi\cdot\xi,\qquad S=\tfrac12(\nabla u+(\nabla u)^T).
+\]
+Thus the hypothesis of the lemma holds whenever the symmetric strain satisfies
+\[
+|S\xi\cdot\xi|\le\lambda
+\]
+with \(\lambda\) obeying the stated space-time integrability. In particular, if the vorticity direction \(\xi\) remains Hölder continuous with exponent \(\alpha>0\) in regions where \(|\omega|\) is large (in the sense of Constantin–Fefferman–Majda), then \(S\xi\cdot\xi\) is controlled by a singular integral of \(\omega\) that can be estimated in \(L^\infty+L^{3/2}\) by standard Calderón–Zygmund theory, recovering global regularity.
+
+#### Obstruction and partial character
+The lemma does not remove the possibility that \(\xi\) becomes discontinuous precisely where \(|\omega|\) concentrates. In that case \(\lambda\) may fail to be integrable and the argument stops. No quantitative modulus of continuity on \(\xi\) is derived from the NS dynamics themselves; the reduction therefore remains conditional. Numerical evidence and the known partial-regularity theory (Caffarelli–Kohn–Nirenberg) are consistent with the possibility that any hypothetical singularity must force exactly such a breakdown of directional coherence, but this has not been turned into a contradiction.
+
+Consequently the argument yields a new (albeit still conditional) a-priori bound and isolates the geometric obstruction more sharply than the classical BKM criterion, yet falls short of an unconditional proof of global regularity.
+
+VERDICT: PARTIAL
+REASON: Conditional enstrophy bound under integrable strain alignment; geometric obstruction not ruled out.

@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 64,
-    "grok": 63,
+    "grok": 64,
     "gpt": 63
   },
   "lastRun": {
     "claude": 1786153266559,
-    "grok": 1786143568256,
+    "grok": 1786159577699,
     "gpt": 1786146056194
   },
   "attempts": [
+    {
+      "id": "grok-1786159577699",
+      "ai": "grok",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "PARTIAL",
+      "reason": "Conditional enstrophy bound under integrable strain alignment; geometric obstruction not ruled out.",
+      "ts": "2026-08-08T03:26:17.699Z",
+      "duration_ms": 29020
+    },
     {
       "id": "claude-1786153266559",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Gave an unconditional Selmer-corank Lemma and a sharp reduction, but did not prove BSD's rank inequality for rank ≥2.",
       "ts": "2026-08-04T06:28:40.327Z",
       "duration_ms": 63746
-    },
-    {
-      "id": "gpt-1785815038005",
-      "ai": "gpt",
-      "problem": "P vs NP",
-      "verdict": "PARTIAL",
-      "reason": "Barrier lemma: local progress-measure proofs imply Natural Properties, blocking this approach under PRFs.",
-      "ts": "2026-08-04T03:43:58.005Z",
-      "duration_ms": 89461
     }
   ]
 }
