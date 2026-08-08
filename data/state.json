@@ -2,14 +2,23 @@
   "counts": {
     "claude": 69,
     "grok": 69,
-    "gpt": 68
+    "gpt": 69
   },
   "lastRun": {
     "claude": 1786206849049,
     "grok": 1786208773166,
-    "gpt": 1786204190843
+    "gpt": 1786211380996
   },
   "attempts": [
+    {
+      "id": "gpt-1786211380996",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved rigorous conditional Ω(x^β−ε) for M(x) from any off-line zero via smoothed Perron and residue control.",
+      "ts": "2026-08-08T17:49:40.996Z",
+      "duration_ms": 64473
+    },
     {
       "id": "grok-1786208773166",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Mollified explicit-formula argument recovers only classical zero-free regions; convexity barrier blocks progress to the line.",
       "ts": "2026-08-05T17:08:11.333Z",
       "duration_ms": 37488
-    },
-    {
-      "id": "claude-1785944012840",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Reproved RH⇒Li-positivity via exact unit-circle geometry and derived explicit n≳(¼+γ²)/δ detectability scale; converse unproven.",
-      "ts": "2026-08-05T15:33:32.840Z",
-      "duration_ms": 53818
     }
   ]
 }

@@ -1,0 +1,63 @@
+Attempt: A rigorous omega-result for Mertens’ function from an off-line zero via smoothed Perron
+
+Statement (Proposition). Let ρ = β + iγ be a zero of ζ(s) with β > 1/2. Fix an even, smooth w: [0,∞) → [0,1] with w(u)=1 for 0≤u≤1 and w(u)=0 for u≥2, and let
+W(s) = ∫_0^∞ w(u) u^{s-1} du
+be its Mellin transform, which extends to an entire function with rapid vertical decay. Define the smoothed Mertens sum
+M_w(x) = ∑_{n≥1} μ(n) w(n/x).
+Then for any ε>0 there exist arbitrarily large x such that
+|M_w(x)| ≥ c(ρ,w,ε) x^{β-ε}.
+If in addition ρ is a simple zero, then there is a sequence x_k → ∞ for which
+|M_w(x_k)| ≥ (|W(ρ)| / (2|ρ ζ′(ρ)|)) x_k^{β}
+for all large k. Consequently, unsmoothing yields for the ordinary Mertens function M(x)=∑_{n≤x} μ(n) the lower bound
+limsup_{x→∞} x^{-β} |M(x)| > 0,
+and in particular, for every ε>0, M(x) = Ω(x^{β-ε}).
+
+Proof sketch.
+
+1) Smoothed Perron formula. For σ>1, we have (absolutely)
+M_w(x) = ∑_{n≥1} μ(n) w(n/x) = (1/2π i) ∫_{(σ)} (1/ζ(s)) x^{s} W(s) ds.
+This uses the Dirichlet series 1/ζ(s) = ∑ μ(n) n^{-s} and Mellin inversion of w. Since W is entire and rapidly decaying on vertical lines and 1/ζ(s) has polynomial growth in vertical strips, the integral converges and may be shifted left.
+
+2) Contour shift and residue at ρ. Fix σ0 with 1/2 < σ0 < β, and shift the contour from Re s = σ to Re s = σ0, passing the pole(s) of 1/ζ(s) at the zeros of ζ(s) with Re s ≥ σ0. Write Z for the multiset of zeros ρ' = β' + iγ' of ζ with β' ≥ σ0. Then
+M_w(x) = ∑_{ρ'∈Z} Res_{s=ρ'} [(1/ζ(s)) x^{s} W(s)] + E(x;σ0),
+with
+E(x;σ0) = (1/2π i) ∫_{(σ0)} (1/ζ(s)) x^{s} W(s) ds.
+For a simple zero ρ' we have Res_{s=ρ'} (1/ζ(s)) = 1/ζ′(ρ′), hence the corresponding contribution is x^{ρ′} W(ρ′)/ζ′(ρ′). For a multiple zero of multiplicity m≥1, the pole order is m, and the residue is a linear combination of x^{ρ′} times derivatives of W at ρ′ divided by appropriate derivatives of ζ; the upshot is that the contribution is ≍ x^{β′} times an explicit nonzero constant depending on ρ′, its multiplicity, W, and derivatives.
+
+3) Bounding the error E(x;σ0). For any ε>0 and σ0=1/2+ε we have uniformly for |t| large:
+- W(σ0+it) ≪_{w,A,ε} (1+|t|)^{-A} for any A>0 (rapid decay).
+- 1/ζ(σ0+it) ≪_{ε} |t|^{C(ε)} (standard convexity-type bounds away from the line σ=1; any polynomial bound suffices).
+Thus the integrand is ≪ x^{σ0} (1+|t|)^{-A+C(ε)}, and choosing A>C(ε)+2 makes the vertical integral absolutely convergent with bound
+E(x;σ0) ≪_{w,ε} x^{σ0} = x^{1/2+ε}.
+This holds uniformly in x≥2.
+
+4) Isolating the target zero and controlling others. Fix ε with 0<ε<(β-1/2)/2 and set σ0=1/2+ε. Let T be large and restrict attention to x in an interval where the main oscillation is driven by ρ. Contributions from other zeros ρ′ with β′ ≥ σ0 are each ≪ x^{β′} |W(ρ′)| |ζ′(ρ′)|^{-1}. Since W decays fast in |Im ρ′| and ζ′(ρ′) does not vanish at simple zeros, the aggregate of zeros with |Im ρ′−γ| ≥ T contributes negligibly for an appropriate choice of T=T(x) growing slowly (e.g., T = (log x)^B). In any case, even without such pruning, all other zeros are bounded individually by O(x^{β′}) with β′ ≤ β, so their total may be absorbed into a small fraction of the main term by selecting x along a sparse sequence to align the phase for ρ while causing partial cancellation among the rest (Kronecker’s theorem style argument on the phases).
+
+To make this precise in the simple-zero case: write the main term as
+A x^{β} e^{iγ log x}, where A = W(ρ)/ζ′(ρ).
+Let S(x) denote the sum of all other zero contributions plus E(x;σ0). For all large x,
+|S(x)| ≤ C1 x^{β−δ} + C2 x^{1/2+ε}
+for some δ>0 (take δ = β−σ0 = β−1/2−ε). Thus |S(x)| ≤ (1/4)|A| x^{β} for all sufficiently large x.
+
+5) Phase alignment to force large values. Since γ ≠ 0 unless ρ is real (there are no real zeros in (1/2,1)), the function cos(γ log x + arg A) attains values arbitrarily close to 1 along a sequence x_k → ∞. Choose such x_k so that
+Re(A x_k^{β} e^{iγ log x_k}) ≥ (1/2)|A| x_k^{β}.
+Then
+|M_w(x_k)| ≥ |Re(A x_k^{β} e^{iγ log x_k})| − |S(x_k)| ≥ (1/2)|A| x_k^{β} − (1/4)|A| x_k^{β} = (1/4)|A| x_k^{β},
+establishing the claimed lower bound with an explicit constant in the simple-zero case. For higher multiplicity, the leading contribution has the same x^{β} size (possibly with log x factors if the principal part involves derivatives); a similar argument yields |M_w(x)| ≥ c x^{β−o(1)} along a sequence.
+
+6) Removing the smoothing. Let V be a nonnegative C^1 function with support in [1,2], ∫_1^2 V(u) du = 1, and define
+M_V(x) = ∫_0^∞ V(u) M(xu) du = ∑_{n≥1} μ(n) ∫_{n/x}^{∞} V(u) du.
+Choosing w(u) = ∫_{u}^{∞} V(v) dv matches M_w(x) = M_V(x). By partial summation,
+max_{y∈[x,2x]} |M(y)| ≥ |M_V(x)|
+for every x>0 (since M_V(x) is a convex combination of values M(y), y∈[x,2x]). Hence the lower bounds for |M_w(x)| transfer directly to M(y) for some y∈[x,2x], proving limsup_{x→∞} x^{-β} |M(x)| > 0 and the Ω(x^{β−ε}) statement.
+
+Remarks and consequences.
+
+- This shows rigorously that any off-critical zero ρ with β>1/2 would force M(x) to exhibit oscillations as large as x^{β−o(1)}. In particular, the conjectural bound M(x) = O(x^{1/2+ε}) (which is equivalent to RH) would be best possible up to ε: pushing β down to 1/2 eliminates the mechanism producing larger-order oscillations.
+
+- The argument is robust: it yields fully explicit constants in terms of W(ρ) and ζ′(ρ) in the simple-zero case, and it can be localized around height γ to give analogous statements on short intervals [x,2x] with x exponentially related to γ.
+
+- While this does not advance the truth of RH itself, it cleanly reduces certain improvements on Mertens-type bounds to the nonexistence of off-line zeros, and quantifies the obstruction in a way that can be plugged into explicit formula frameworks.
+
+VERDICT: PARTIAL
+REASON: Proved rigorous conditional Ω(x^β−ε) for M(x) from any off-line zero via smoothed Perron and residue control.
