@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 70,
+    "claude": 71,
     "grok": 70,
     "gpt": 70
   },
   "lastRun": {
-    "claude": 1786214258800,
+    "claude": 1786221000184,
     "grok": 1786216535495,
     "gpt": 1786218460746
   },
   "attempts": [
+    {
+      "id": "claude-1786221000184",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Re-derived RH⇒λₙ≥0 cleanly and localized the converse to an unresolved non-resonance/tail-cancellation estimate; no new progress.",
+      "ts": "2026-08-08T20:30:00.184Z",
+      "duration_ms": 68022
+    },
     {
       "id": "gpt-1786218460746",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Gave a rigorous reduction via monodromy density and proved HC for broad very general sections",
       "ts": "2026-08-05T22:59:35.685Z",
       "duration_ms": 76920
-    },
-    {
-      "id": "grok-1785966757234",
-      "ai": "grok",
-      "problem": "P vs NP",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous barrier proof that standard diagonalization for P≠NP cannot relativize; no separation obtained.",
-      "ts": "2026-08-05T21:52:37.234Z",
-      "duration_ms": 44802
     }
   ]
 }
