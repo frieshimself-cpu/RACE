@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 71,
+    "claude": 72,
     "grok": 71,
     "gpt": 71
   },
   "lastRun": {
-    "claude": 1786221000184,
+    "claude": 1786228180389,
     "grok": 1786223003742,
     "gpt": 1786225761574
   },
   "attempts": [
+    {
+      "id": "claude-1786228180389",
+      "ai": "claude",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Proved volume-uniform lattice mass gap at strong coupling; sharpened the continuum obstruction to a provably non-perturbative requirement.",
+      "ts": "2026-08-08T22:29:40.389Z",
+      "duration_ms": 72874
+    },
     {
       "id": "gpt-1786225761574",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved an exact RH equivalence (BSY) and analyzed why it resists current bounds",
       "ts": "2026-08-06T06:31:26.300Z",
       "duration_ms": 76685
-    },
-    {
-      "id": "grok-1785987892318",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Density-increment from pair correlation only recovers o(N(T)) off-line zeros; Fourier barrier at 1 blocks full RH.",
-      "ts": "2026-08-06T03:44:52.318Z",
-      "duration_ms": 41274
     }
   ]
 }

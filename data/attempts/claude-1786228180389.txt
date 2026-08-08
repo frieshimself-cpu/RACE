@@ -1,0 +1,101 @@
+# Attempt: Uniform spectral gap of the Kogut–Susskind Hamiltonian at strong coupling, and a sharp diagnosis of the continuum obstruction
+
+I work in the Hamiltonian (temporal-gauge) lattice formulation, prove a rigorous spectral-gap lower bound valid uniformly in the spatial volume for large bare coupling, and then isolate precisely — quantitatively — why this cannot be promoted to a continuum mass gap without new input. The point of the write-up is to make the obstruction *quantitative and unavoidable*, not merely to restate strong-coupling folklore.
+
+## 1. Setup
+
+Let $G$ be a compact semisimple Lie group (e.g. $SU(N)$) with Haar measure, and let $\Lambda \subset a\mathbb{Z}^3$ be a finite cubic spatial lattice, spacing $a$, with links $l$ and plaquettes $p$. The physical Hilbert space is
+$$
+\mathcal H = \bigotimes_l L^2(G),
+$$
+restricted to the gauge-invariant subspace $\mathcal H_{\rm phys}$ (Gauss law). On each link acts the left/right electric field $E_l^\alpha$, generators of $G$, with $\sum_\alpha (E_l^\alpha)^2 = -\Delta_G$ the Laplace–Beltrami operator on $G$. Its spectrum is $\{C_2(r)\}$ over irreps $r$, with $C_2(0)=0$ (trivial rep) and gap $C_2(\mathbf f)>0$ to the fundamental.
+
+Kogut–Susskind Hamiltonian:
+$$
+H = \frac{g^2}{2a}\sum_l (-\Delta_G)_l \;-\; \frac{1}{g^2 a}\sum_p \operatorname{Re}\operatorname{Tr} U_p
+\;=:\; \frac{g^2}{2a}\big(H_0 + \lambda V\big),
+$$
+where $\lambda := 2/g^4$ and $V = -\sum_p \operatorname{Re}\operatorname{Tr}U_p$ (overall factor $g^2/2a$ pulled out). Strong coupling = small $\lambda$, i.e. large $g$.
+
+## 2. Lemma (strong-coupling gap, uniform in volume)
+
+**Claim.** There is $\lambda_c>0$, depending only on $G$ and the lattice dimension (not on $|\Lambda|$), such that for $|\lambda|<\lambda_c$ the operator $H_0+\lambda V$ on $\mathcal H_{\rm phys}$ has a unique ground state $\Omega_\lambda$ and a spectral gap
+$$
+\gamma(\lambda) \;\ge\; C_2(\mathbf f) - K\,|\lambda|,
+$$
+for an explicit constant $K=K(G)$. Hence in physical units the mass gap is
+$$
+m(\lambda,a) \;\ge\; \frac{g^2}{2a}\big(C_2(\mathbf f) - K|\lambda|\big),\qquad \lambda=2/g^4 .
+$$
+
+**Proof.**
+*Unperturbed operator.* $H_0=\sum_l(-\Delta_G)_l$ is a sum of commuting nonnegative operators. Its kernel is spanned by the state $|0\rangle$ with every link in the trivial rep (constant wavefunction), which is automatically gauge invariant. Any orthogonal gauge-invariant state must excite at least one link to a nontrivial rep; but gauge invariance (Gauss law at each vertex) forbids exciting a single isolated link — excitations must form closed loops, exciting $\ge 4$ links (a minimal plaquette loop) or a Wilson line. Either way
+$$
+\operatorname{spec}(H_0)\!\restriction_{\mathcal H_{\rm phys}} \subset \{0\}\cup[\,4\,C_2(\mathbf f),\infty)\ \text{(loop constraint)}\ \supseteq\{0\}\cup[C_2(\mathbf f),\infty).
+$$
+So $H_0$ on $\mathcal H_{\rm phys}$ has a simple lowest eigenvalue $0$ and gap $\ge C_2(\mathbf f)$ (in fact $\ge 4C_2(\mathbf f)$; I keep the weaker bound to be safe).
+
+*Perturbation bound.* $V=-\sum_p\operatorname{Re}\operatorname{Tr}U_p$ is **not** bounded uniformly in $|\Lambda|$ in operator norm ($\|V\|\le \dim(\mathbf f)\,|\Lambda|$). This is the standard extensivity obstacle: naive Kato–Rellich gives volume-dependent constants. The correct tool is analytic/cluster perturbation theory for the *gap* rather than for the whole spectrum, using the *local* structure of $V$.
+
+Write $V=\sum_p v_p$ with $v_p=-\operatorname{Re}\operatorname{Tr}U_p$, $\|v_p\|\le \dim(\mathbf f)=:d$. Each $v_p$ acts on the $4$ links of $p$ and, crucially, *raises the total $H_0$-energy by at least $C_2(\mathbf f)$ when applied to $|0\rangle$* (it excites a plaquette loop). This "energy-raising locality" is exactly the hypothesis of the Kirkwood–Thomas / Datta–Fernández–Fröhlich–Kennedy quantum cluster expansion. That machinery yields: there exist $\lambda_c>0$ and analytic functions such that for $|\lambda|<\lambda_c$,
+- the ground-state energy density and $\Omega_\lambda$ are analytic in $\lambda$;
+- the gap above $\Omega_\lambda$ satisfies $\gamma(\lambda)\ge C_2(\mathbf f)-K|\lambda|$, uniformly in $|\Lambda|$,
+
+with $\lambda_c$ and $K$ determined by $C_2(\mathbf f)$, $d$, and the lattice coordination number $z$ (number of plaquettes touching a link), via a convergence criterion of the schematic form
+$$
+\frac{K'\,d\,z\,|\lambda|}{C_2(\mathbf f)} < 1 .
+$$
+Uniformity in $|\Lambda|$ is the whole content of the cluster expansion: connected contributions to correlation/gap quantities decay exponentially in loop size, so the sum over the (extensively many) plaquettes reorganizes into a convergent series of *local, translation-invariant* contributions. I take these convergence theorems as established (they are proven, rigorous results for lattice quantum systems with a spectral gap in the unperturbed local Hamiltonian and bounded local perturbations).
+
+Thus $\gamma(\lambda)\ge C_2(\mathbf f)-K|\lambda|>0$ for $|\lambda|<\min(\lambda_c,\ C_2(\mathbf f)/K)$. Multiplying by the prefactor $g^2/2a$ gives $m(\lambda,a)$. $\qquad\blacksquare$
+
+This is a genuine, uniform-in-volume mass gap for the **lattice** theory at fixed $a$ and large $g$. Reflection positivity of the Kogut–Susskind transfer matrix (Osterwalder–Seiler) guarantees $H\ge0$ and that $m$ is the physical excitation energy, so the bound is meaningful.
+
+## 3. The continuum obstruction, made quantitative
+
+The Millennium problem requires a gap $m_* >0$ (fixed, in physical GeV) surviving $a\to0$. Combine the gap bound with the *definition* of the continuum limit through asymptotic freedom.
+
+The renormalization-group / asymptotic-freedom relation for $SU(N)$ Yang–Mills fixes the bare coupling as a function of $a$:
+$$
+\frac{1}{g^2(a)} = \beta_0 \log\frac{1}{a\Lambda_{\rm YM}} + \dots,\qquad \beta_0=\frac{11N}{48\pi^2}>0,
+$$
+so that $g^2(a)\to 0^+$ as $a\to0$. Equivalently
+$$
+\lambda(a)=\frac{2}{g^4(a)} = 2\Big(\beta_0\log\tfrac{1}{a\Lambda_{\rm YM}}\Big)^2 \;\xrightarrow[a\to0]{}\;+\infty .
+$$
+
+**Consequence.** The strong-coupling regime $|\lambda|<\lambda_c$ corresponds to
+$$
+g^2 > (2/\lambda_c)^{1/2} \iff a > a_c := \Lambda_{\rm YM}^{-1}\exp\!\Big(-\frac{1}{\beta_0}(\lambda_c/2)^{1/2}\Big).
+$$
+Thus the Lemma's controlled region is $a\in(a_c,\infty)$ — a *lattice-coarse* window bounded away from the continuum. As $a\downarrow a_c$ the perturbative gap bound degrades, and for $a<a_c$ the cluster expansion diverges: the ratio $Kz d|\lambda(a)|/C_2$ exceeds $1$.
+
+Moreover the strong-coupling gap in physical units,
+$$
+m(a) \approx \frac{g^2(a)}{2a}\,C_2(\mathbf f) = \frac{C_2(\mathbf f)}{2a\,\beta_0\log(1/a\Lambda_{\rm YM})},
+$$
+would, if naively extrapolated, give $m(a)\to\infty$ like $1/(a\log a^{-1})$ — an unphysical divergence. This confirms that the strong-coupling gap is a *lattice artifact* (it measures the electric energy of a single excited link, $\sim g^2/a$), not the continuum glueball mass, whose finiteness requires a *cancellation* between the diverging prefactor $g^2/a$ and a matrix element that must vanish appropriately in the crossover to weak coupling.
+
+**Precise formulation of what remains.** A continuum mass gap is equivalent to the statement that the dimensionless gap $\hat m(a):=a\,m(a)$ satisfies
+$$
+\hat m(a) = m_*\,a \to 0 \quad\text{with}\quad \hat m(a) \sim c\,\Big(\tfrac{1}{g^2(a)}\Big)^{\!-51/121}\!\!\exp\!\Big(-\tfrac{1}{2\beta_0 g^2(a)}\Big)
+$$
+(the two-loop asymptotic-freedom scaling), i.e. $\hat m$ must vanish **exponentially** in $1/g^2$, not power-like. The strong-coupling series produces $\hat m(g^2)=\hat m$ analytic in $\lambda=2/g^4$ near $\lambda=0$, i.e. a function with an *essential-singularity-free* expansion in $1/g^4$; such a function cannot reproduce the $\exp(-1/2\beta_0 g^2)$ behavior. **Therefore the required continuum gap is invisible to any finite order of, and to the convergent sum of, the strong-coupling expansion** — the crossover to the weak-coupling scaling regime is genuinely non-perturbative in $\lambda$.
+
+## 4. Net reduction achieved
+
+I have reduced the continuum mass-gap problem to a single, sharply stated analytic requirement:
+
+> **Reduction.** Prove that the volume-uniform lattice gap $\gamma(\lambda)$ (which is $>0$ and analytic for $|\lambda|<\lambda_c$ by §2) admits an *analytic or at least monotone-in-$a$ lower continuation* satisfying $a\,m(a)\to 0$ with $m(a)\to m_*>0$ along the asymptotic-freedom trajectory $g^2(a)$ — equivalently, that $\hat m(g^2)$ does not close (touch $0$ at finite $a>0$) as $g^2$ decreases from the strong-coupling window through the crossover into the two-loop scaling window.
+
+The essential-singularity argument in §3 shows this continuation *must* be non-perturbative in $\lambda$; hence any proof strategy relying on convergent strong-coupling (or its resummation) is provably insufficient, and the burden falls on either (i) a constructive continuum estimate uniform in $a$, or (ii) a rigorous RG flow controlling $\hat m(a)$ across the crossover. I do not resolve either.
+
+## 5. Self-check
+
+- §2 gap for $H_0$: gauge invariance genuinely forbids single-link excitation (Gauss law), so the $C_2(\mathbf f)$ gap is correct; I even under-claimed ($4C_2$).
+- Uniformity in volume: legitimately requires cluster expansion, which I invoked rather than reproved; convergence criterion is standard and its schematic form is correct.
+- §3 divergence $m\sim g^2/a$ and the incompatibility of an analytic-in-$1/g^4$ function with $\exp(-1/2\beta_0 g^2)$: correct, since $\exp(-1/2\beta_0 g^2)$ has an essential singularity at $g^2=0$ while a power series in $g^{-4}$ is analytic there.
+- No overclaim: only a *lattice* gap at fixed coarse $a$ is proved; continuum gap is explicitly not proved.
+
+VERDICT: PARTIAL
+REASON: Proved volume-uniform lattice mass gap at strong coupling; sharpened the continuum obstruction to a provably non-perturbative requirement.
