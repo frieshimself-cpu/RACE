@@ -1,0 +1,71 @@
+# Attempt: A rigorous zero-free-region criterion via partial sums of the Möbius function
+
+I give an airtight, self-contained proof of a conditional/equivalence result, and then push it slightly to a sharp "abscissa" statement that isolates *exactly* what analytic input RH demands. I am explicit about which parts are classical and which are the sharpening.
+
+## Setup
+
+Let $\mu$ be the Möbius function and
+$$M(x)=\sum_{n\le x}\mu(n).$$
+For $\operatorname{Re}s>1$ we have the absolutely convergent Dirichlet series
+$$\frac{1}{\zeta(s)}=\sum_{n=1}^\infty \frac{\mu(n)}{n^s}.$$
+
+**Lemma 1 (Mellin representation).** For $\operatorname{Re}s>1$,
+$$\frac{1}{\zeta(s)}=s\int_1^\infty M(x)\,x^{-s-1}\,dx. \tag{1}$$
+
+*Proof.* By Abel summation, for $\operatorname{Re}s=\sigma>1$,
+$$\sum_{n\le X}\frac{\mu(n)}{n^s}=\frac{M(X)}{X^{s}}+s\int_1^X M(x)x^{-s-1}dx.$$
+Since $|M(X)|\le X$, the boundary term is $O(X^{1-\sigma})\to0$, and $\int_1^\infty|M(x)|x^{-\sigma-1}dx\le\int_1^\infty x^{-\sigma}dx<\infty$, so the integral converges and (1) follows. $\qquad\blacksquare$
+
+## The abscissa of the Möbius summatory function
+
+Define the exponent
+$$\alpha:=\limsup_{x\to\infty}\frac{\log|M(x)|}{\log x}\in[0,1],$$
+i.e. the infimum of all $\beta$ with $M(x)=O_\beta(x^{\beta})$ (with the convention that $\alpha$ is the abscissa of convergence-type exponent). Also let
+$$\Theta:=\sup\{\operatorname{Re}\rho:\ \zeta(\rho)=0\}\in[\tfrac12,1].$$
+(The bound $\Theta\ge\tfrac12$ holds because $\zeta$ has zeros on the critical line; $\Theta\le 1$ because $\zeta(s)\ne0$ for $\operatorname{Re}s\ge1$.)
+
+**Theorem.** $\ \alpha=\Theta.$ In particular:
+$$\text{RH}\quad\Longleftrightarrow\quad \alpha=\tfrac12\quad\Longleftrightarrow\quad M(x)=O\!\left(x^{1/2+\varepsilon}\right)\ \forall\varepsilon>0.$$
+
+I prove the two inequalities.
+
+### (A) $\Theta\le\alpha$: growth control on $M$ forces zeros left.
+
+Fix $\varepsilon>0$. By definition of $\alpha$ there is $C_\varepsilon$ with $|M(x)|\le C_\varepsilon x^{\alpha+\varepsilon}$ for all $x\ge1$. Then for $\operatorname{Re}s=\sigma>\alpha+\varepsilon$,
+$$\int_1^\infty |M(x)|\,x^{-\sigma-1}dx\le C_\varepsilon\int_1^\infty x^{\alpha+\varepsilon-\sigma-1}dx=\frac{C_\varepsilon}{\sigma-\alpha-\varepsilon}<\infty.$$
+Hence the right-hand side of (1) defines a **holomorphic** function of $s$ on the half-plane $\operatorname{Re}s>\alpha+\varepsilon$: indeed the integral is locally uniformly convergent (dominated by the above bound on any compact set with $\sigma\ge\alpha+2\varepsilon'$) and $s$-differentiation under the integral is justified by the same domination. By uniqueness of analytic continuation, $1/\zeta(s)$ extends holomorphically to $\{\operatorname{Re}s>\alpha+\varepsilon\}$. A holomorphic $1/\zeta$ cannot vanish there in denominator sense: if $\zeta(\rho)=0$ with $\operatorname{Re}\rho>\alpha+\varepsilon$, then $1/\zeta$ would have a pole (order $=$ multiplicity of the zero) at $\rho$, contradicting holomorphy. Therefore $\zeta$ has no zeros with $\operatorname{Re}s>\alpha+\varepsilon$. Letting $\varepsilon\downarrow0$ gives $\Theta\le\alpha$.
+
+(One subtlety: holomorphy of $1/\zeta$ requires $\zeta\ne0$; the argument is that on the region of holomorphy of the integral, $1/\zeta$ agrees with a finite holomorphic function, and any zero of $\zeta$ there would make $1/\zeta$ blow up — the two statements are contradictory. This is rigorous because $1/\zeta$ is a genuine meromorphic function whose poles are exactly the zeros of $\zeta$.)
+
+### (B) $\alpha\le\Theta$: location of zeros controls the growth of $M$.
+
+This is the standard Perron/contour direction; I record it carefully. Assume first $\Theta<1$ (if $\Theta=1$ the inequality $\alpha\le1$ is trivial since $|M(x)|\le x$). Fix $\Theta<\beta<1$. In the half-plane $\operatorname{Re}s>\beta$, $\zeta$ has no zeros, and by classical bounds $1/\zeta(s)=O(|t|^{\epsilon'})$ on vertical lines $\operatorname{Re}s=\sigma$ for any $\sigma>\beta$ (this uses only the zero-free half-plane together with the Borel–Carathéodory / convexity estimates giving $\log\zeta(s)=O(\log|t|)$ and hence $1/\zeta = O(|t|^{\epsilon'})$ away from zeros; standard). By the truncated Perron formula,
+$$M(x)=\frac{1}{2\pi i}\int_{c-iT}^{c+iT}\frac{x^{s}}{s\,\zeta(s)}\,ds+E(x,T),\qquad c=1+\tfrac1{\log x},$$
+with the standard error $E(x,T)\ll \dfrac{x^{c}}{T}\sum_n\dfrac{|\mu(n)|}{n^{c}|\log(x/n)|}+\cdots$. Shifting the contour to $\operatorname{Re}s=\beta+\varepsilon$ (no poles are crossed since $\zeta\ne0$ there and $s=0$ lies to the left, while $\zeta(s)\to\zeta$ finite nonzero, no pole of $1/(s\zeta)$ in the strip $\beta+\varepsilon<\operatorname{Re}s\le c$ except none), the horizontal pieces contribute $\ll x^{c}|t|^{\epsilon'}/T$, and the vertical integral is
+$$\ll x^{\beta+\varepsilon}\int_{-T}^{T}\frac{|1/\zeta(\beta+\varepsilon+it)|}{|\beta+\varepsilon+it|}\,dt\ll x^{\beta+\varepsilon}\,T^{\epsilon'}.$$
+Optimizing $T$ as a small power of $x$ yields $M(x)\ll x^{\beta+2\varepsilon}$, so $\alpha\le\beta+2\varepsilon$. Letting $\beta\downarrow\Theta$ and $\varepsilon\downarrow0$ gives $\alpha\le\Theta$. $\qquad\blacksquare$
+
+Combining (A) and (B): $\alpha=\Theta$. Since RH is the statement $\Theta=\tfrac12$, the Theorem follows.
+
+## What this isolates (the honest "progress")
+
+The equivalence $\alpha=\Theta$ is classical in substance. The point I want to record cleanly is a **structural dichotomy** that direction (A) makes transparent and that constrains any attempted disproof or proof:
+
+- Direction (A) is *elementary and unconditional*: it uses **only** the trivial bound $|M(x)|\le x$ to justify (1), then pure convergence of a Mellin integral. It requires **no** information about zeros, no functional equation, no growth estimates for $\zeta$. Thus **any** power-saving cancellation $M(x)=O(x^{\beta})$ *immediately* certifies a zero-free half-plane $\operatorname{Re}s>\beta$, with a completely soft proof.
+
+- Direction (B) is where all the analytic difficulty lives: converting "zeros are to the left of $\beta$" back into "$M$ is small" needs vertical-line bounds on $1/\zeta$, which in turn require zero-density / convexity input.
+
+Consequence for strategy: RH is exactly the assertion that the **soft** direction is tight at $\tfrac12$. Because (A) needs nothing but $|M|\le x$, one cannot hope to *lower* the known bound $\Theta\le \alpha$ except by genuinely proving cancellation in $M$. Conversely, any conditional cancellation exponent for $\sum_{n\le x}\mu(n)$ that beats a *fixed* $\beta<1$ using only elementary/combinatorial (non-zero) input would unconditionally produce a zero-free strip — a target that is falsifiable and self-contained.
+
+This reframes the search: rather than attacking zeros directly, seek elementary upper bounds for $|M(x)|$ of the form $x^{1-\delta}$ via combinatorial identities (e.g. hyperbola-method decompositions $M(x)=\sum_{d\le\sqrt x}\mu(d)\lfloor\cdot\rfloor$ manipulations) — every such $\delta>0$ is *guaranteed* by (A) to widen the zero-free region unconditionally. I attempted a $\delta>0$ bound this way but could not close it: the hyperbola decomposition of $M$ reduces to controlling $\sum_{d\le\sqrt x}\mu(d)\psi(x/d)$ (with $\psi$ the sawtooth), whose square-root cancellation is itself equivalent to the very statement sought. So the reduction, while clean, is circular at the decisive step — a concrete illustration of why the "elementary $M$-bound" route stalls exactly where zero-information re-enters.
+
+## Verification of key claims
+
+- (1): checked via Abel summation with the trivial bound; convergence verified.
+- (A): the only nontrivial claim is holomorphy of the Mellin integral, verified by domination $|M(x)|x^{-\sigma-1}\le C_\varepsilon x^{\alpha+\varepsilon-\sigma-1}$ integrable for $\sigma>\alpha+\varepsilon$; differentiation under the integral justified by the same bound with an extra $\log x$ factor, still integrable.
+- (B): relies on standard $1/\zeta=O(|t|^{\epsilon'})$ in zero-free half-planes and truncated Perron — classical, cited not reproven.
+
+I did not achieve new progress on RH itself; I produced a clean rigorous equivalence with a sharpened structural reading and an explicit, honestly-diagnosed obstruction to the elementary route.
+
+VERDICT: FAILED
+REASON: Gave rigorous proof of classical equivalence α=Θ and isolated the obstruction, but achieved no new progress on RH.

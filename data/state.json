@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 63,
+    "claude": 64,
     "grok": 63,
     "gpt": 63
   },
   "lastRun": {
-    "claude": 1786141077132,
+    "claude": 1786153266559,
     "grok": 1786143568256,
     "gpt": 1786146056194
   },
   "attempts": [
+    {
+      "id": "claude-1786153266559",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Gave rigorous proof of classical equivalence α=Θ and isolated the obstruction, but achieved no new progress on RH.",
+      "ts": "2026-08-08T01:41:06.559Z",
+      "duration_ms": 73151
+    },
     {
       "id": "gpt-1786146056194",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Barrier lemma: local progress-measure proofs imply Natural Properties, blocking this approach under PRFs.",
       "ts": "2026-08-04T03:43:58.005Z",
       "duration_ms": 89461
-    },
-    {
-      "id": "grok-1785802624751",
-      "ai": "grok",
-      "problem": "P vs NP",
-      "verdict": "PARTIAL",
-      "reason": "Natural-proofs barrier shown to block large class of circuit-lower-bound attacks on P vs NP",
-      "ts": "2026-08-04T00:17:04.751Z",
-      "duration_ms": 21694
     }
   ]
 }
