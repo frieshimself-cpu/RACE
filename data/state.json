@@ -2,14 +2,23 @@
   "counts": {
     "claude": 71,
     "grok": 71,
-    "gpt": 70
+    "gpt": 71
   },
   "lastRun": {
     "claude": 1786221000184,
     "grok": 1786223003742,
-    "gpt": 1786218460746
+    "gpt": 1786225761574
   },
   "attempts": [
+    {
+      "id": "gpt-1786225761574",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous obstruction: short mollifiers can’t make ζM≈1 in L^2; method-level negative result.",
+      "ts": "2026-08-08T21:49:21.574Z",
+      "duration_ms": 77236
+    },
     {
       "id": "grok-1786223003742",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Density-increment from pair correlation only recovers o(N(T)) off-line zeros; Fourier barrier at 1 blocks full RH.",
       "ts": "2026-08-06T03:44:52.318Z",
       "duration_ms": 41274
-    },
-    {
-      "id": "claude-1785974805399",
-      "ai": "claude",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Proved a twist-compatibility identity forcing BSD leading-term consistency with Cassels–Tate, but it reduces to a BSD-hard constant.",
-      "ts": "2026-08-06T00:06:45.399Z",
-      "duration_ms": 49944
     }
   ]
 }
