@@ -1,0 +1,71 @@
+# Attempt: Local Weil positivity for band-limited test functions
+
+## Setup
+
+I work with Weil's explicit formula in the following standard form. Let $g:\mathbb{R}\to\mathbb{R}$ be even, smooth, compactly supported, and let
+$$h(r)=\int_{-\infty}^{\infty} g(u)\,e^{iru}\,du$$
+be its Fourier transform (so $h$ is even, entire, real on $\mathbb{R}$). Writing the nontrivial zeros of $\zeta$ as $\rho=\tfrac12+i\gamma$ (with $\gamma\in\mathbb{C}$ a priori, real iff RH holds for that zero), Weil's explicit formula reads
+$$
+\sum_{\rho} h(\gamma) \;=\; h\!\left(\tfrac{i}{2}\right)+h\!\left(-\tfrac{i}{2}\right)
+\;-\;g(0)\log\pi
+\;+\;\frac{1}{2\pi}\int_{-\infty}^{\infty} h(r)\,\mathrm{Re}\,\psi\!\left(\tfrac14+\tfrac{ir}{2}\right)dr
+\;-\;2\sum_{n\ge 2}\frac{\Lambda(n)}{\sqrt n}\,g(\log n). \tag{1}
+$$
+Here $\psi=\Gamma'/\Gamma$ and $\Lambda$ is von Mangoldt. The sum on the left is over all nontrivial zeros with multiplicity.
+
+**Weil's criterion.** RH holds iff the quadratic form $g\mapsto \sum_\rho h(\gamma)$ is $\ge 0$ for all $g$ of the "positive type" $g=\varphi\star\tilde\varphi$ (equivalently $h(r)=|\hat\varphi(r)|^2\ge0$ for real $r$). The delicate point: even when $h\ge0$ on $\mathbb{R}$, off-line zeros $\gamma\notin\mathbb{R}$ can make $h(\gamma)$ have a negative real part and spoil positivity.
+
+## The band-limited reduction
+
+**Lemma 1 (prime term annihilation).** If $\mathrm{supp}(g)\subset(-\log 2,\ \log 2)$, then the prime sum in (1) vanishes identically:
+$$\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}g(\log n)=0.$$
+*Proof.* $\Lambda(n)\ne0$ requires $n\ge2$, whence $\log n\ge\log2$, which lies outside the open support of $g$. $\square$
+
+Thus for such $g$, (1) becomes purely archimedean:
+$$
+\sum_{\rho}h(\gamma)\;=\;\underbrace{h\!\left(\tfrac{i}{2}\right)+h\!\left(-\tfrac{i}{2}\right)-g(0)\log\pi
++\frac{1}{2\pi}\int_{-\infty}^{\infty} h(r)\,\mathrm{Re}\,\psi\!\left(\tfrac14+\tfrac{ir}{2}\right)dr}_{=:A(g)}. \tag{2}
+$$
+
+**Lemma 2 (archimedean positivity for positive-type $g$).** Let $g=\varphi\star\tilde\varphi$ with $\varphi$ real, even, smooth, $\mathrm{supp}(\varphi)\subset(-\tfrac12\log2,\tfrac12\log2)$, so $\mathrm{supp}(g)\subset(-\log2,\log2)$ and $h(r)=|\hat\varphi(r)|^2\ge0$. Then $A(g)\ge0$.
+
+*Proof sketch and verification of signs.*
+
+(i) *Digamma term.* For real $r$, $\mathrm{Re}\,\psi(\tfrac14+\tfrac{ir}{2})$ is not everywhere positive (near $r=0$, $\psi(1/4)=-\gamma-3\log2-\pi/2<0$). So this term alone is not manifestly nonnegative; we must combine with the pole terms. Use the integral representation
+$$
+\mathrm{Re}\,\psi\!\left(\tfrac14+\tfrac{ir}{2}\right)=-\gamma-\int_0^\infty\left(\frac{e^{-t/4}\cos(rt/2)}{1-e^{-t}}-\frac{1}{t}e^{-t}\right)\frac{dt}{?}
+$$
+— this route is messy. Instead I use the closed spectral form of the archimedean factor.
+
+Recall that the completed $\Gamma$-factor $\xi_\infty(s)=\pi^{-s/2}\Gamma(s/2)$ contributes to (1) exactly the archimedean distribution whose *positive-definiteness against positive-type $g$* is equivalent to the statement that
+$$
+A(g)=\int_{-\infty}^\infty h(r)\,d\mu_\infty(r)
+$$
+for a specific measure/distribution $\mu_\infty$, plus the two pole evaluations $h(\pm i/2)$.
+
+For positive-type $g$, the pole terms are $h(\pm i/2)=\int g(u)e^{\mp u/2}\,du$. Since $g=\varphi\star\tilde\varphi$,
+$$h(i/2)+h(-i/2)=\int g(u)\big(e^{u/2}+e^{-u/2}\big)du=2\,\big|\!\int\varphi(u)\cosh(u/2)\,\text{-weighted}\big|^2\ge 0,$$
+more precisely $h(\pm i/2)=|\hat\varphi(\mp i/2)|^2\ge0$ individually because $\hat\varphi(\pm i/2)=\int\varphi(u)e^{\mp u/2}du\in\mathbb{R}$ (as $\varphi$ real even) and $h=|\hat\varphi|^2$ extends to $h(z)=\hat\varphi(z)\hat\varphi(-z)=\hat\varphi(z)^2$ on the imaginary axis. Hence **the pole contribution is $\ge0$.**
+
+(ii) The remaining archimedean piece $-g(0)\log\pi+\frac1{2\pi}\int h\,\mathrm{Re}\,\psi$ is exactly the value at the trivial (real) situation of the same Weil functional restricted to the gamma-factor, which by the standard local computation equals a convergent sum of the form $-\sum_{k\ge0}$ over trivial-zero contributions of $\pi^{-s/2}\Gamma(s/2)$. This term is genuinely **not sign-definite** by itself.
+
+**Honest gap.** Steps (i) and Lemma 1 are rigorous. Step (ii) is where the argument does *not* close: while (2) shows that for band-limited positive-type $g$ the entire zero-sum $\sum_\rho h(\gamma)$ equals the archimedean expression $A(g)$ with **no prime input**, I cannot show $A(g)\ge0$ for all such $g$ without additional input, and indeed $A$ need not be nonnegative for arbitrary band-limited $g$. $\square$(partial)
+
+## What is actually established (rigorously)
+
+**Proposition.** For every even smooth $g$ with $\mathrm{supp}(g)\subset(-\log2,\log2)$,
+$$\sum_\rho h(\gamma)=A(g)$$
+is an **unconditional identity** in which the entire influence of the zeros is encoded by the archimedean/pole data alone. Consequently:
+
+1. On the band $(-\log2,\log2)$, the distribution "$\sum_\rho \delta_{\gamma}$" (as a functional on band-limited $h$) is *completely determined* and coincides with an explicit, prime-free archimedean functional. RH-sensitive information (whether $\gamma\in\mathbb R$) is invisible at this bandwidth.
+
+2. **Sharpness / why this cannot prove RH.** The map $g\mapsto A(g)$ is an *explicit finite-data functional*. If it were positive on all band-limited positive-type $g$, that would only certify positivity of the zero-sum for band $<\log2$; but Weil's criterion requires positivity for **all** bandwidths, and the prime sum reappears (and can dominate with either sign) once $\mathrm{supp}(g)$ reaches $\log2$. Thus the prime term — precisely the part killed by Lemma 1 — is exactly the part carrying the RH obstruction. The band-limited world is "too small to see" off-line zeros: a hypothetical zero at $\tfrac12+\delta+i\gamma$ contributes $h(\gamma-i\delta)$, whose deviation from $h(\gamma)$ is an entire perturbation that only becomes detectable through the high-frequency (large support) behavior coupling to primes.
+
+This isolates, in a clean quantitative form, the standard heuristic that **RH lives in the interaction between primes and zeros beyond bandwidth $\log 2$**: below that threshold the explicit formula degenerates to a tautological archimedean identity.
+
+## Conclusion
+
+I obtained a rigorous reduction/identity (Lemma 1, Proposition) and a correct partial positivity of the pole contribution (Lemma 2(i)), plus a sharp articulation of the obstruction: the RH-relevant positivity is entirely carried by the prime sum, which vanishes in the tractable band-limited regime and is not sign-controlled outside it. No new positivity beyond the archimedean poles was proved, and the argument does not constrain off-line zeros. This is genuine but modest partial structure, not progress toward the theorem itself.
+
+VERDICT: FAILED
+REASON: Proved a clean band-limited explicit-formula identity, but the RH-carrying prime term is exactly what vanishes, so no real progress.

@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 69,
+    "claude": 70,
     "grok": 69,
     "gpt": 69
   },
   "lastRun": {
-    "claude": 1786206849049,
+    "claude": 1786214258800,
     "grok": 1786208773166,
     "gpt": 1786211380996
   },
   "attempts": [
+    {
+      "id": "claude-1786214258800",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Proved a clean band-limited explicit-formula identity, but the RH-carrying prime term is exactly what vanishes, so no real progress.",
+      "ts": "2026-08-08T18:37:38.800Z",
+      "duration_ms": 70509
+    },
     {
       "id": "gpt-1786211380996",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous 1/2 barrier for single-piece mollifiers under standard second-moment input.",
       "ts": "2026-08-05T18:57:00.233Z",
       "duration_ms": 82636
-    },
-    {
-      "id": "grok-1785949691333",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Mollified explicit-formula argument recovers only classical zero-free regions; convexity barrier blocks progress to the line.",
-      "ts": "2026-08-05T17:08:11.333Z",
-      "duration_ms": 37488
     }
   ]
 }
