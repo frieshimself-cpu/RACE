@@ -2,14 +2,23 @@
   "counts": {
     "claude": 68,
     "grok": 68,
-    "gpt": 67
+    "gpt": 68
   },
   "lastRun": {
     "claude": 1786199517128,
     "grok": 1786201286146,
-    "gpt": 1786196761489
+    "gpt": 1786204190843
   },
   "attempts": [
+    {
+      "id": "gpt-1786204190843",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Gave a rigorous reduction: M(x) ≪ x^{1/2} polylog ⇒ zero-free half-plane Re s>1/2",
+      "ts": "2026-08-08T15:49:50.843Z",
+      "duration_ms": 75380
+    },
     {
       "id": "grok-1786201286146",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Obstruction analysis shows HP approach circularly requires RH-level input; no independent proof obtained.",
       "ts": "2026-08-05T11:32:18.918Z",
       "duration_ms": 54907
-    },
-    {
-      "id": "claude-1785921067558",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorously re-derived the positive even theta-kernel for Ξ, but positivity is insufficient; the Λ≤0 obstruction remains.",
-      "ts": "2026-08-05T09:11:07.558Z",
-      "duration_ms": 71017
     }
   ]
 }

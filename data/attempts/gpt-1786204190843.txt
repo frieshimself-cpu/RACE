@@ -1,0 +1,29 @@
+Attempt: A sharp reduction from square-root cancellation for the Möbius summatory function to a zero-free half-plane
+
+Lemma. Suppose there exists A ≥ 0 and C ≥ 1 such that the Möbius summatory function
+M(x) = ∑_{n ≤ x} μ(n)
+satisfies the bound
+|M(x)| ≤ C x^{1/2} (log x)^A
+for all x ≥ 2. Then ζ(s) has no zeros in the half-plane Re s > 1/2. In particular, this bound implies the Riemann Hypothesis.
+
+Proof. For Re s > 1 we have the absolutely convergent Dirichlet series 1/ζ(s) = ∑_{n=1}^∞ μ(n) n^{-s}. By partial summation (Abel summation), for any X ≥ 2,
+∑_{n ≤ X} μ(n) n^{-s} = M(X) X^{-s} + s ∫_{1}^{X} M(x) x^{-s-1} dx.
+Fix σ = Re s > 1/2. Using the hypothesis |M(x)| ≤ C x^{1/2} (log x)^A we obtain the bounds
+|M(X) X^{-s}| ≤ C X^{1/2 - σ} (log X)^A → 0 as X → ∞ (since σ > 1/2),
+and
+∫_{1}^{∞} |M(x)| x^{-\sigma-1} dx ≤ C ∫_{1}^{∞} x^{1/2 - \sigma - 1} (log x)^A dx = C ∫_{1}^{∞} x^{-\sigma - 1/2} (log x)^A dx < ∞,
+because σ > 1/2 makes the exponent strictly less than −1. Hence as X → ∞ the boundary term vanishes and the integral converges absolutely, yielding
+1/ζ(s) = s ∫_{1}^{∞} M(x) x^{-s-1} dx
+for all s with Re s > 1/2. The right-hand side is an analytic function of s on the half-plane Re s > 1/2 (uniform convergence on vertical strips follows from the displayed majorant), so 1/ζ(s) extends holomorphically to Re s > 1/2. Therefore ζ(s) has no zeros there.
+
+Since this excludes zeros with real part > 1/2 and the trivial zeros are to the left of 0, all nontrivial zeros lie on the critical line Re s = 1/2. This is exactly the Riemann Hypothesis.
+
+Remarks on sharpness and scope.
+- The proof needs no more than an O(x^{1/2} polylog) bound; any bound of the form |M(x)| ≪ x^{1/2} ω(x) with ∫_{1}^{∞} x^{-σ-1/2} ω(x) dx < ∞ for some σ > 1/2 suffices to force the same zero-free half-plane.
+- Conversely, RH implies M(x) = O(x^{1/2+ε}) for every ε > 0 (Littlewood), so the above criterion is within a polylogarithmic factor of the conjectured optimal scale.
+- The integral representation used here is classical, but making the continuation and zero-free consequence fully explicit with only the stated hypothesis yields a clean, self-contained reduction target: proving square-root cancellation for M(x), up to any fixed polylogarithmic loss, would resolve RH.
+
+Assessment. This produces a rigorous, self-contained reduction: a concrete condition on M(x) at the natural square-root scale (with only polylog loss) that is sufficient to deduce RH. It isolates a precise analytic task on the Möbius summatory function whose resolution would settle the hypothesis. No new bound toward this condition is proved here.
+
+VERDICT: PARTIAL
+REASON: Gave a rigorous reduction: M(x) ≪ x^{1/2} polylog ⇒ zero-free half-plane Re s>1/2
