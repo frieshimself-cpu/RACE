@@ -1,0 +1,31 @@
+### Attempt: Obstruction analysis for a positivity-based approach to RH via the explicit formula
+
+Let \(\Xi(t) := \xi(1/2 + it)\), where \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) is the Riemann xi-function (entire of order 1, even, and real on the real line). The Riemann Hypothesis is equivalent to all zeros of \(\Xi\) being real. The Weil explicit formula relates a test function \(g\) (even, Schwartz-class, with suitable decay of the Fourier transform \(\hat g\)) to
+\[
+\sum_{\rho} \hat g\bigl(\tfrac{\rho-1/2}{i}\bigr)
+= \hat g\bigl(\tfrac{i}{2}\bigr)+\hat g\bigl(-\tfrac{i}{2}\bigr)
+-\frac1{2\pi}\int_{-\infty}^{\infty}\frac{\Gamma'}{\Gamma}\bigl(\tfrac14+\tfrac{it}2\bigr)\hat g(t)\,dt
++ \sum_{p,k}\frac{\log p}{p^{k/2}} \bigl(g(k\log p)+g(-k\log p)\bigr),
+\]
+where the sum on the left runs over zeros \(\rho\) of \(\xi\) (counted with multiplicity).
+
+A classical positivity strategy seeks a family of \(g\geq 0\) (supported in a fixed interval, or with \(\hat g\) of controlled sign) such that the arithmetic side is non-negative while the archimedean (Gamma) contribution is controlled, forcing every \(\rho\) to satisfy \(\operatorname{Re}\rho=1/2\). Concretely, one may take the Fejér-type kernels
+\[
+g_\lambda(x) = \bigl(1-\tfrac{|x|}{\lambda}\bigr)_+,\qquad\lambda>0,
+\]
+whose Fourier transforms are non-negative and approximate the Dirac mass. Substituting and letting \(\lambda\to\infty\) formally yields
+\[
+\sum_{\rho}\operatorname{Re}\bigl((1/2-\rho)^{-2}\bigr)\ge 0
+\]
+(after subtracting the known polar contributions), which is true under RH but does not force RH: the inequality is compatible with a conjugate pair of zeros off the line provided their contribution is compensated by zeros of larger height.
+
+To obtain a genuine obstruction, consider the difference operator that isolates a putative off-line zero. Suppose \(\rho_0=\sigma_0+it_0\) with \(\sigma_0>1/2\) and \(t_0>0\) is a zero (hence so is \(1-\rho_0\)). Choose a test function \(g\) whose Fourier transform is a narrow positive bump of width \(\varepsilon\) centered at \(t_0\) and at \(-t_0\), normalized so \(\hat g(\pm t_0)=1\). The left-hand side of the explicit formula then receives a contribution
+\[
+2\operatorname{Re}\hat g\bigl(\tfrac{\rho_0-1/2}{i}\bigr)=2e^{-(\sigma_0-1/2)\cdot 0}\cos\bigl((\sigma_0-1/2)\cdot 0\bigr)+O(\varepsilon)=2+O(\varepsilon)
+\]
+plus the contribution of all other zeros. The prime-power sum is \(O(\sum_p(\log p)p^{-1/2}e^{-c|t_0|\log p})\), which for \(t_0\) large is smaller than any fixed positive constant once the support of \(g\) is restricted to \(|x|\le(\log t_0)^{-1}\). The Gamma integral remains \(O(\log(|t_0|+2))\). Consequently the explicit formula can hold only if the remaining zeros supply a large negative mass of size \(\asymp-2\). But the density of zeros is \(\sim(t/2\pi)\log(t/2\pi)\), and a negative mass of fixed size can always be absorbed by a slight local displacement of nearby critical-line zeros (or by a pair of zeros with real parts \(1/2\pm\delta'\) of slightly different height). Thus no contradiction arises.
+
+The same cancellation persists for any fixed finite collection of off-line zeros and for any Schwartz test function whose Fourier transform has compact support: the arithmetic side cannot detect a sparse set of exceptions because the von Mangoldt weights are too sparse at the necessary frequencies. Closing the gap would require a test-function family that simultaneously (i) is positive, (ii) has Fourier transform decaying slower than any exponential, and (iii) is orthogonal to all but one pair of zeros—an over-determined set of conditions incompatible with the Phragmén–Lindelöf convexity bound on \(\zeta\) in the critical strip. This is the essential analytic obstruction: positivity of the explicit formula controls only an averaged vertical distribution, not the real parts of individual zeros.
+
+VERDICT: FAILED
+REASON: Positivity via explicit formula yields only averaged control; sparse off-line zeros remain invisible to admissible test functions.

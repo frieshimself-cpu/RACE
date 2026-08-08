@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 66,
-    "grok": 65,
+    "grok": 66,
     "gpt": 65
   },
   "lastRun": {
     "claude": 1786177168345,
-    "grok": 1786170236177,
+    "grok": 1786179946563,
     "gpt": 1786174375286
   },
   "attempts": [
+    {
+      "id": "grok-1786179946563",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity via explicit formula yields only averaged control; sparse off-line zeros remain invisible to admissible test functions.",
+      "ts": "2026-08-08T09:05:46.563Z",
+      "duration_ms": 51168
+    },
     {
       "id": "claude-1786177168345",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rederived λ₁>0 explicitly and exactly localized Weil positivity's obstruction to the prime term, but proved no new bound.",
       "ts": "2026-08-04T20:02:31.393Z",
       "duration_ms": 65666
-    },
-    {
-      "id": "gpt-1785867392061",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved rigorous Ω± from a single off-line zero via smoothed explicit formula; clarifies RH obstruction.",
-      "ts": "2026-08-04T18:16:32.061Z",
-      "duration_ms": 73850
     }
   ]
 }
