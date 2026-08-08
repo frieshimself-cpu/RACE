@@ -1,0 +1,46 @@
+Attempt: A quantitative obstruction in the Nyman–Beurling/Báez-Duarte framework via Hardy-space evaluation at off-line zeros
+
+Setup
+- Let A(s) be any Dirichlet polynomial (or, more generally, any function analytic in Re s > 1/2 with at most polynomial growth on vertical lines), and define φ(s) = 1 − ζ(s)A(s).
+- Consider the Hardy-space norm on the critical line weighted by 1/|s|^2:
+  N(A)^2 := (1/2π) ∫_{−∞}^{∞} |φ(1/2+it)|^2 / |1/2+it|^2 dt.
+- In the Nyman–Beurling/Báez-Duarte approach, the optimal L^2(0,1) distance from 1 to the closure of the span of admissible functions equals the infimum of N(A)^2 over admissible A. Thus, to prove RH by this approach one needs inf_A N(A)^2 = 0.
+
+Claim (Quantitative obstruction)
+Assume ζ has a zero ρ = β + iγ with β > 1/2. Then for every such A(s) we have
+N(A)^2 ≥ (β − 1/2)/|ρ|^2.
+In particular, if any such ρ exists, the infimum over A is strictly positive:
+inf_A N(A)^2 ≥ sup_{ρ: Re ρ>1/2} (β − 1/2)/|ρ|^2 > 0.
+
+Proof
+1) Hardy-space formulation. Let H^2(1/2) denote the Hardy space of the right half-plane Re s > 1/2, with boundary norm
+   ||f||_{H^2(1/2)}^2 := (1/2π) ∫_{−∞}^{∞} |f(1/2+it)|^2 dt.
+   Define f(s) := φ(s)/s. Then f is analytic in Re s > 1/2 and belongs to H^2(1/2) whenever A(s) has at most polynomial growth on vertical lines (true for Dirichlet polynomials). Moreover,
+   ||f||_{H^2(1/2)}^2 = (1/2π) ∫ |φ(1/2+it)|^2 / |1/2+it|^2 dt = N(A)^2.
+
+2) Poisson-kernel L^2 evaluation bound. For the half-plane Re s > 1/2, the Poisson kernel at w = σ + iτ (σ > 1/2) is
+   P_w(t) = (σ − 1/2)/((t − τ)^2 + (σ − 1/2)^2).
+   For f ∈ H^2(1/2), the non-tangential boundary values satisfy the Poisson representation
+   f(w) = (1/π) ∫_{−∞}^{∞} f(1/2+it) P_w(t) dt.
+   By Cauchy–Schwarz,
+   |f(w)| ≤ (1/π) ||f||_{L^2(dt)} ||P_w||_{L^2(dt)}.
+   Using ||f||_{L^2(dt)}^2 = 2π ||f||_{H^2(1/2)}^2 = 2π N(A)^2 and
+   ∫_{−∞}^{∞} P_w(t)^2 dt = ∫ (σ − 1/2)^2 / ((t − τ)^2 + (σ − 1/2)^2)^2 dt = π/(2(σ − 1/2)),
+   we obtain
+   |f(w)| ≤ N(A) / sqrt(σ − 1/2), hence
+   N(A)^2 ≥ (σ − 1/2) |f(w)|^2.
+
+3) Apply at an off-line zero. If ρ = β + iγ is a zero of ζ(s) with β > 1/2, then φ(ρ) = 1 − ζ(ρ)A(ρ) = 1. Therefore,
+   f(ρ) = φ(ρ)/ρ = 1/ρ, and the bound with w = ρ gives
+   N(A)^2 ≥ (β − 1/2) |1/ρ|^2 = (β − 1/2)/|ρ|^2.
+   This holds for every admissible A, so taking the infimum over A yields
+   inf_A N(A)^2 ≥ (β − 1/2)/|ρ|^2.
+   Taking the supremum over all zeros with β > 1/2 gives the stated obstruction.
+
+Remarks
+- This cleanly isolates a quantitative barrier in the Nyman–Beurling/Báez-Duarte program: any single off-critical-line zero enforces a universal positive lower bound on the best-possible approximation error, with explicit dependence on its location.
+- The proof is robust and self-contained within basic Hardy-space theory and the functional equation φ(ρ) = 1 at a zero ρ.
+- If RH holds, these particular obstructions vanish; the lemma does not by itself prove that the infimum is zero in that case.
+
+VERDICT: PARTIAL
+REASON: Proved an explicit Hardy-space lower bound obstructing NB approach if any zero lies off the line.

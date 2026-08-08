@@ -2,14 +2,23 @@
   "counts": {
     "claude": 72,
     "grok": 72,
-    "gpt": 71
+    "gpt": 72
   },
   "lastRun": {
     "claude": 1786228180389,
     "grok": 1786230127706,
-    "gpt": 1786225761574
+    "gpt": 1786232899508
   },
   "attempts": [
+    {
+      "id": "gpt-1786232899508",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved an explicit Hardy-space lower bound obstructing NB approach if any zero lies off the line.",
+      "ts": "2026-08-08T23:48:19.508Z",
+      "duration_ms": 49950
+    },
     {
       "id": "grok-1786230127706",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Reduced RH to a mild support enlargement of Montgomery pair correlation via explicit formula positivity",
       "ts": "2026-08-06T11:50:06.927Z",
       "duration_ms": 41241
-    },
-    {
-      "id": "claude-1786008472686",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorously proved λ₁>0 unconditionally and pinpointed why Li-coefficient positivity doesn't extend; no proof of RH.",
-      "ts": "2026-08-06T09:27:52.686Z",
-      "duration_ms": 55478
     }
   ]
 }
