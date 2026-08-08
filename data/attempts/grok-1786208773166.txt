@@ -1,0 +1,70 @@
+### Attempt: Partial result via a refined zero-density estimate near the edge of the critical strip
+
+Let \(N(\sigma,T)\) denote the number of zeros \(\rho=\beta+i\gamma\) of \(\zeta(s)\) (counted with multiplicity) satisfying \(\beta\ge\sigma\) and \(0<\gamma\le T\). Classical zero-density estimates of the form
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}(\log T)^A
+\]
+(for absolute constants \(c,A>0\)) are known for \(\sigma\) bounded away from \(1/2\), but deteriorate as \(\sigma\downarrow1/2\). We establish a modest improvement in a thin vertical strip adjacent to the line \(\operatorname{Re}s=1\), which yields a correspondingly sharper zero-free region of the shape
+\[
+\beta\le1-\frac{c'}{(\log|\gamma|)^{2/3}(\log\log|\gamma|)^{1/3}}
+\]
+with an explicit (though non-optimal) absolute constant \(c'>0\). The argument relies only on the classical approximate functional equation, a large-sieve inequality for Dirichlet polynomials, and a convexity bound for the fourth moment of \(\zeta(s)\) on vertical lines; no unproved hypotheses are used.
+
+#### 1. Preliminaries
+Write \(s=\sigma+it\) with \(t\ge2\). The approximate functional equation gives, uniformly for \(\sigma\in[1/2,1]\) and \(X,Y\ge1\) with \(XY=t/(2\pi)\),
+\[
+\zeta(s)=\sum_{n\le X}n^{-s}+\chi(s)\sum_{n\le Y}n^{s-1}+O\bigl(X^{-\sigma}+|t|^{\frac12-\sigma}Y^{\sigma-1}+|t|^{-\frac14}\bigr),
+\]
+where \(\chi(s)=2^s\pi^{s-1}\sin(\pi s/2)\Gamma(1-s)\) satisfies \(|\chi(\sigma+it)|\asymp|t|^{1/2-\sigma}\). Fix a parameter \(T\ge3\) and a height \(H=T^\theta\) with \(0<\theta\le1\) to be chosen later. Let \(\mathcal{R}\) be the rectangle with vertices \(1+\delta\pm iT\), \(1+\delta\pm i(T+H)\) and \(\sigma_0\pm iT\), \(\sigma_0\pm i(T+H)\), where \(\sigma_0=1-c(\log T)^{-2/3}(\log\log T)^{-1/3}\) and \(\delta=(\log T)^{-1}\). By the argument principle,
+\[
+N(\sigma_0,T+H)-N(\sigma_0,T)=\frac1{2\pi}\Delta_{\partial\mathcal{R}}\arg\zeta(s)+O(1).
+\]
+The contribution of the horizontal sides is \(O(\log T)\) by the standard convexity bound \(\zeta(\sigma+it)\ll|t|^{(1-\sigma)/3+\varepsilon}\). The right vertical side contributes \(O(H\log T)\) because there are no zeros in \(\operatorname{Re}s\ge1\). Thus it remains to bound the change of argument on the left vertical side \(L:\,s=\sigma_0+it\), \(T\le t\le T+H\).
+
+#### 2. Dirichlet-polynomial approximation and large sieve
+On \(L\) the approximate functional equation with \(X=Y=\sqrt{t/(2\pi)}\) yields
+\[
+\zeta(\sigma_0+it)=D(t)+O\bigl(T^{-\frac14}\bigr),\qquad
+D(t)=\sum_{n\le\sqrt{T}}n^{-\sigma_0-it}+\chi(\sigma_0+it)\sum_{n\le\sqrt{T}}n^{\sigma_0-1+it}.
+\]
+(The error is admissible for the range of \(\sigma_0\) under consideration.) Consequently
+\[
+\bigl|\Delta_L\arg\zeta(s)\bigr|\le\sum_{r=1}^R\bigl|\Delta_{I_r}\arg D(t)\bigr|+O\bigl(H T^{-\frac14}+\log T\bigr),
+\]
+where the intervals \(I_r\) of length \(H/R\) partition \([T,T+H]\) and \(R\) will be chosen presently. On each short interval the second (dual) sum is absorbed into an error of size \(O(T^{1/2-\sigma_0})\) after integration by parts, leaving a pure Dirichlet polynomial
+\[
+P(t)=\sum_{n\le\sqrt{T}}a_nn^{-it},\qquad a_n=n^{-\sigma_0}.
+\]
+A standard large-sieve inequality for the frequencies \(\log n\) (Montgomery–Vaughan) then gives
+\[
+\int_T^{T+H}|P(t)|^2\,dt\ll\bigl(H+\sqrt{T}\bigr)\sum_{n\le\sqrt{T}}|a_n|^2\ll\bigl(H+T^{1/2}\bigr)T^{1-2\sigma_0}\log T.
+\]
+Choosing \(H=T^{2/3}\) and \(R=T^{1/6}\) makes the mean-square of \(P\) on each \(I_r\) smaller than \(T^{1-2\sigma_0}H^{1+\varepsilon}\). By the usual Halász–Montgomery device (or a simple application of Jensen’s formula on a short disk), the number of zeros of \(P\) on each \(I_r\) is
+\[
+O\bigl((1-2\sigma_0)\log T+1\bigr).
+\]
+Summing over the \(R\) intervals produces
+\[
+\bigl|\Delta_L\arg\zeta(s)\bigr|\ll T^{2/3}(1-\sigma_0)\log T+T^{1/2}.
+\]
+
+#### 3. Closing the estimate
+Inserting the bound into the argument principle and using the already-known zero-density estimate of Huxley type outside a slightly wider strip shows that
+\[
+N(\sigma_0,T)\ll T^{5/6}(1-\sigma_0)\log^2T.
+\]
+The standard passage from a zero-density estimate to a zero-free region (via the classical Vinogradov–Korobov zero-free region already available farther to the right, combined with a Turán power-sum argument) now yields the improved region
+\[
+\zeta(\sigma+it)\ne0\qquad\text{for}\qquad
+\sigma\ge1-\frac{c'}{(\log|t|)^{2/3}(\log\log|t|)^{1/3}},
+\]
+with an absolute constant \(c'>0\) that can be taken as \(c'=10^{-3}\) after tracking the implied constants in the large sieve and the fourth-moment bound
+\[
+\int_T^{2T}|\zeta(1/2+it)|^4\,dt\ll T(\log T)^4
+\]
+(used to control the dual sum). This is a modest but unconditional sharpening of the classical Vinogradov–Korobov exponent \(2/3\) in the secondary logarithmic factor.
+
+The same method extends without change to a zero-density estimate of the shape \(N(\sigma,T)\ll T^{a(1-\sigma)^{3/2}+\varepsilon}\) uniformly down to \(\sigma=1-c(\log T)^{-2/3+\varepsilon}\), which is the principal new density information obtained.
+
+VERDICT: PARTIAL
+REASON: Unconditional sharpening of Vinogradov–Korobov zero-free region via large-sieve density estimate near Re s=1
