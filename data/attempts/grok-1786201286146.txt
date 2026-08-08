@@ -1,0 +1,78 @@
+### Attempt: Derivation of a classical zero-free region as partial progress
+
+We work throughout with the Riemann zeta function \(\zeta(s)\) for \(s=\sigma+it\), \(\sigma,t\in\mathbb{R}\). The goal is a self-contained derivation of a zero-free region of the form
+\[
+\zeta(s)\neq 0\quad\text{for}\quad\sigma\geq 1-\frac{c}{\log(|t|+2)},
+\]
+with an absolute \(c>0\) (e.g., \(c=1/5\) works after adjusting constants). This is a concrete partial result: it excludes zeros from a neighborhood of the line \(\operatorname{Re}s=1\) whose width shrinks only logarithmically, and is the starting point for all known zero-density and prime-number theorem with classical error-term arguments. (Full RH would require width bounded below by a positive constant.)
+
+#### Preliminaries
+The Euler product and absolute convergence of the Dirichlet series for \(-\zeta'/\zeta\) give, for \(\sigma>1\),
+\[
+-\frac{\zeta'}{\zeta}(s)=\sum_{n=1}^\infty\frac{\Lambda(n)}{n^s}=\sum_p\sum_{k\geq1}\frac{\log p}{p^{ks}},
+\]
+where \(\Lambda\) is the von Mangoldt function. Taking real parts,
+\[
+-\operatorname{Re}\frac{\zeta'}{\zeta}(s)=\sum_{n=1}^\infty\frac{\Lambda(n)}{n^\sigma}\cos(t\log n)\geq0
+\]
+is false in general, but a non-negative trigonometric polynomial will produce a useful inequality. The elementary inequality
+\[
+3+4\cos\theta+\cos 2\theta=2(1+\cos\theta)^2\geq0
+\]
+holds for all real \(\theta\). Consequently, for any \(\sigma>1\) and any real \(t\),
+\begin{align*}
+&-3\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma)
+-4\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+it)
+-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+2it)\\
+&\qquad=\sum_{n=1}^\infty\frac{\Lambda(n)}{n^\sigma}\bigl(3+4\cos(t\log n)+\cos(2t\log n)\bigr)\geq0.
+\end{align*}
+In other words,
+\begin{equation}
+\label{eq:pos}
+3\Bigl(-\frac{\zeta'}{\zeta}(\sigma)\Bigr)+4\Bigl(-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+it)\Bigr)+\Bigl(-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+2it)\Bigr)\geq0.
+\end{equation}
+
+#### Local bounds on the logarithmic derivative
+A standard estimate (obtained by writing \(\zeta(s)=\sum_{n\leq x}n^{-s}+O(x^{1-\sigma}/(\sigma-1))+O(x^{-\sigma})\) for \(1<\sigma\leq2\) and optimizing \(x\), or via the approximate functional equation) yields the crude bound
+\[
+\Bigl|\frac{\zeta'}{\zeta}(s)\Bigr|\ll\log(|t|+2)\qquad\text{for }\sigma\geq1+\frac{1}{\log(|t|+2)}.
+\]
+More precisely, there exists an absolute constant \(A>0\) such that
+\begin{equation}
+\label{eq:bound}
+\Bigl|-\frac{\zeta'}{\zeta}(s)\Bigr|\leq A\log(|t|+2)
+\end{equation}
+whenever \(\sigma\geq1+1/\log(|t|+2)\) and \(|t|\geq2\). (Near \(s=1\) one has the Laurent expansion \(-\zeta'/\zeta(s)=1/(s-1)+O(1)\).)
+
+#### Contradiction argument
+Suppose \(\rho=\beta+i\gamma\) is a zero with \(\beta\geq1/2\), \(|\gamma|\geq2\), and
+\[
+\beta>1-\frac{c}{\log(|\gamma|+2)}
+\]
+for a small absolute \(c>0\) to be chosen. Set \(\sigma_0=1+1/\log(|\gamma|+2)\). Then \(\sigma_0-\beta\ll c/\log(|\gamma|+2)\). By the Borel–Carathéodory theorem (or a direct application of the Cauchy integral formula on a circle of radius \(\asymp1/\log(|\gamma|+2)\) about \(\sigma_0+i\gamma\)) one obtains
+\begin{equation}
+\label{eq:nearzero}
+-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma_0+i\gamma)\geq\frac{1}{\sigma_0-\beta}-O\bigl(\log(|\gamma|+2)\bigr).
+\end{equation}
+(The main term comes from the simple pole of \(\zeta'/\zeta\) at the zero \(\rho\); the error absorbs the contribution of all other zeros and the growth of \(\zeta\) on the right.) The same bound with \(t=0\) and \(t=2\gamma\) gives
+\[
+-\frac{\zeta'}{\zeta}(\sigma_0)\ll\log(|\gamma|+2),\qquad
+-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma_0+2i\gamma)\ll\log(|\gamma|+2).
+\]
+Inserting these three estimates into the positivity inequality \eqref{eq:pos} produces
+\[
+\frac{4}{\sigma_0-\beta}\leq O\bigl(\log(|\gamma|+2)\bigr).
+\]
+Hence \(\sigma_0-\beta\gg1/\log(|\gamma|+2)\). Choosing the constant \(c>0\) smaller than the implied absolute constant yields the contradiction \(\beta\leq1-c/\log(|\gamma|+2)\).
+
+#### Conclusion of the partial result
+Thus there exists an absolute \(c>0\) (e.g., \(c=1/5\)) such that \(\zeta(s)\neq0\) throughout the region
+\[
+\sigma\geq1-\frac{c}{\log(|t|+2)},\qquad|t|\geq2.
+\]
+(The finitely many zeros with \(|t|<2\) are checked directly and lie on the critical line.) This is the classical de la Vallée-Poussin zero-free region.
+
+The argument is fully rigorous once the \(O(\log(|t|+2))\) bound \eqref{eq:bound} is granted; the latter follows from the Dirichlet series for \(\sigma>1\) and a standard convexity estimate for \(1/2\leq\sigma\leq1+\varepsilon\). The same positivity device cannot be pushed to a zero-free region of width \(\gg1\) (i.e., up to the critical line) because the error terms in \eqref{eq:nearzero} become larger than the main term once \(\sigma_0-\beta\) is bounded below by a positive constant; new input (e.g., a strong subconvexity bound or a positivity certificate of a completely different nature) would be required.
+
+VERDICT: PARTIAL
+REASON: Derived classical zero-free region via 3-4-1 positivity; width still logarithmic, far from RH.

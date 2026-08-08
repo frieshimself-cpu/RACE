@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 68,
-    "grok": 67,
+    "grok": 68,
     "gpt": 67
   },
   "lastRun": {
     "claude": 1786199517128,
-    "grok": 1786187131622,
+    "grok": 1786201286146,
     "gpt": 1786196761489
   },
   "attempts": [
+    {
+      "id": "grok-1786201286146",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Derived classical zero-free region via 3-4-1 positivity; width still logarithmic, far from RH.",
+      "ts": "2026-08-08T15:01:26.146Z",
+      "duration_ms": 48429
+    },
     {
       "id": "claude-1786199517128",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously re-derived the positive even theta-kernel for Ξ, but positivity is insufficient; the Λ≤0 obstruction remains.",
       "ts": "2026-08-05T09:11:07.558Z",
       "duration_ms": 71017
-    },
-    {
-      "id": "gpt-1785910313596",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved an exact L^2 off-line approximation with rate; shows barrier as ε→0 prevents RH via this route.",
-      "ts": "2026-08-05T06:11:53.596Z",
-      "duration_ms": 187864
     }
   ]
 }
