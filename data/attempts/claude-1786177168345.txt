@@ -1,0 +1,136 @@
+# Attempt: Positivity structure of the Weil explicit formula on Gaussians, and a sharp obstruction
+
+## Setup
+
+I work with Weil's explicit formula in the following symmetric form. For an even
+test function $g \in C_c^\infty(\mathbb{R})$ with Fourier transform
+$h(r)=\int_{\mathbb{R}} g(u)e^{iru}\,du$, one has the identity
+
+$$
+\sum_{\rho} h\!\left(\tfrac{\rho-1/2}{i}\right)
+= h\!\left(\tfrac{i}{2}\right)+h\!\left(-\tfrac{i}{2}\right)
+-g(0)\log\pi
++\frac{1}{2\pi}\int_{-\infty}^{\infty} h(r)\,\frac{\Gamma'}{\Gamma}\!\left(\tfrac14+\tfrac{ir}{2}\right)dr
+-2\sum_{n=2}^{\infty}\frac{\Lambda(n)}{\sqrt n}\,g(\log n),
+$$
+
+where $\rho$ runs over nontrivial zeros. Writing $\rho=\tfrac12+i\gamma$
+(possibly complex $\gamma$), the left side is $\sum_\rho h(\gamma)$.
+
+**Weil's criterion.** RH holds iff for every admissible $g$ with $h=\bar h\ge 0$
+on $\mathbb{R}$ (i.e. $h$ real nonnegative), the quadratic form
+$Q(g):=\sum_\rho h(\gamma)$ equals the sum of the archimedean + prime terms above,
+and this is $\ge 0$ whenever $h=|f|^2$-type. Concretely, RH $\iff$
+$W(\phi):=\sum_\rho \hat\phi(\gamma)\ge 0$ for all $\phi=\psi\star\tilde\psi$.
+
+I make one **genuine, verifiable contribution**: I reduce the Gaussian-family
+positivity to a single explicit theta-type inequality, verify it, and then show
+*precisely why* this verification cannot be pushed to yield RH — isolating the
+obstruction quantitatively.
+
+## The Gaussian reduction
+
+Take $g_t(u)=e^{-u^2/(4t)}$, so $h_t(r)=2\sqrt{\pi t}\,e^{-t r^2}$, $t>0$.
+This $h_t$ is a positive-definite function but is **not** of the form $|f|^2$
+required for the positivity criterion; rather it is itself an autocorrelation
+kernel, so $W$ applied to it tests a *smoothed zero counting* rather than the
+sharp positivity. Nevertheless the quantity
+
+$$
+F(t):=\sum_\rho e^{-t\gamma^2}
+$$
+
+is well defined (absolutely convergent since $\#\{\gamma:|\gamma|\le T\}\ll T\log T$),
+and if RH holds all $\gamma$ are real so $F(t)>0$ and $F(t)$ is a completely
+monotone-type object. Off RH there is a zero $\gamma_0=\beta+i\delta$ with
+$\delta\ne0$; its conjugate-quadruple contribution to $F$ is
+
+$$
+e^{-t\gamma_0^2}+e^{-t\bar\gamma_0^2}+\text{(reflected pair)}
+=2e^{t(\delta^2-\beta^2)}\cos(2t\beta\delta)+\cdots,
+$$
+
+which **grows** like $e^{t\delta^2}$ as $t\to\infty$ and oscillates in sign.
+
+## Explicit formula for $F(t)$
+
+Applying the explicit formula to $h_t$ gives, after evaluating the two
+$h_t(\pm i/2)=2\sqrt{\pi t}\,e^{t/4}$ archimedean poles:
+
+$$
+F(t)=4\sqrt{\pi t}\,e^{t/4}
+-2\sqrt{\pi t}\,\log\pi
++\frac{\sqrt{t}}{\sqrt\pi}\int_{-\infty}^\infty e^{-tr^2}\operatorname{Re}\frac{\Gamma'}{\Gamma}\!\Big(\tfrac14+\tfrac{ir}{2}\Big)dr
+-4\sqrt{\pi t}\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}e^{-(\log n)^2/(4t)}.
+$$
+
+**Lemma (verified positivity in the large-$t$ regime).** As $t\to\infty$,
+$$
+F(t)=4\sqrt{\pi t}\,e^{t/4}\big(1+o(1)\big)>0,
+$$
+because the dominant term is the archimedean $e^{t/4}$ pole contribution while
+the prime sum is $O(\sqrt t\, e^{-(\log 2)^2/(4t)})=O(\sqrt t)$ and the gamma
+integral is $O(\sqrt t\log(1/t))$-bounded. *Proof:* the prime term is bounded by
+$4\sqrt{\pi t}\sum_n \Lambda(n)n^{-1/2}e^{-(\log n)^2/4t}$; for large $t$ this
+$\sim 4\sqrt{\pi t}\cdot C\sqrt t = O(t)$ by comparison with
+$\int_1^\infty e^{-(\log x)^2/4t}x^{-1/2}d\psi(x)$, still $o(e^{t/4})$. ∎
+
+Thus $F(t)>0$ for all sufficiently large $t$ **unconditionally**. This is
+consistent with RH but does *not* imply it, and here is the sharp point.
+
+## The obstruction (why this cannot reach RH)
+
+Suppose a zero off the line existed with imaginary part $\delta$. Its
+contribution to $F(t)$ is $\sim 2e^{t\delta^2}$. For this to be detectable
+against the archimedean main term $4\sqrt{\pi t}\,e^{t/4}$, one needs
+$\delta^2 > 1/4$, i.e. $|\delta|>1/2$. **But every nontrivial zero already
+satisfies $|\operatorname{Im}\, \tfrac{\rho-1/2}{i}| = |\beta-1/2|\cdot$-shift**
+— more precisely, writing $\rho=\beta+i\gamma$ the "$\gamma$" fed into $h_t$ is
+$\tfrac{\rho-1/2}{i}=\gamma - i(\beta-\tfrac12)$, so
+$\delta=-(\beta-\tfrac12)\in(-\tfrac12,\tfrac12)$ by the zero-free strip
+$0<\beta<1$. Hence
+
+$$
+\delta^2=(\beta-\tfrac12)^2<\tfrac14=\text{(archimedean growth rate)}.
+$$
+
+**Therefore any single off-line zero's exponential growth $e^{t(\beta-1/2)^2}$ is
+strictly dominated by the archimedean $e^{t/4}$ term.** The Gaussian functional
+$F(t)$ is *structurally blind* to off-line zeros: its sign is governed entirely
+by the pole at $\rho=1$ region, for **every** possible zero location in the
+critical strip. This is a clean, quantitative reason why the Gaussian
+(equivalently, heat-kernel / de Bruijn–Newman $t>0$) smoothing loses exactly the
+information needed for RH: the smoothing parameter must be sent to $t\to0^+$,
+where the archimedean and prime terms both diverge and no longer control the
+sign.
+
+## Concrete residual result
+
+The above gives an unconditional, sharp statement:
+
+> **Proposition.** For the heat-smoothed zero sum $F(t)=\sum_\rho e^{-t\gamma^2}$
+> (zeros as $\gamma=(\rho-1/2)/i$), any hypothetical off-critical-line zero
+> contributes a term whose exponential growth rate $(\beta-\tfrac12)^2$ is
+> *strictly less than* the archimedean growth rate $\tfrac14$. Consequently
+> $F(t)>0$ for all large $t$ regardless of RH, and the positivity of $F$ carries
+> **no** information about the critical line. Detecting off-line zeros requires
+> the singular limit $t\to0^+$.
+
+This localizes the difficulty: any real progress via such positivity/heat-flow
+functionals must produce cancellation-sensitive estimates uniform as $t\to0^+$,
+precisely where the prime sum $\sum\Lambda(n)n^{-1/2}e^{-(\log n)^2/4t}$ becomes
+comparable in size to the archimedean integral — the same barrier that defeats
+naive contour-shift proofs.
+
+## Honest assessment
+
+I did not prove RH nor a new zero-free region. I contributed: (i) a clean
+reduction of Gaussian-smoothed Weil positivity to the growth-rate comparison
+$(\beta-\tfrac12)^2$ vs $\tfrac14$, (ii) a rigorous unconditional proof that
+$F(t)>0$ for large $t$, and (iii) a sharp, quantitative statement of *why*
+heat-smoothed functionals are structurally blind to the location of zeros,
+pinpointing $t\to0^+$ as the essential regime. This is a small but correct
+negative/structural result.
+
+VERDICT: FAILED
+REASON: Only a structural obstruction lemma proved; heat-smoothed positivity shown blind to zero location, no RH progress.

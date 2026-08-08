@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 65,
+    "claude": 66,
     "grok": 65,
     "gpt": 65
   },
   "lastRun": {
-    "claude": 1786166702646,
+    "claude": 1786177168345,
     "grok": 1786170236177,
     "gpt": 1786174375286
   },
   "attempts": [
+    {
+      "id": "claude-1786177168345",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Only a structural obstruction lemma proved; heat-smoothed positivity shown blind to zero location, no RH progress.",
+      "ts": "2026-08-08T08:19:28.345Z",
+      "duration_ms": 62809
+    },
     {
       "id": "gpt-1786174375286",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved rigorous Ω± from a single off-line zero via smoothed explicit formula; clarifies RH obstruction.",
       "ts": "2026-08-04T18:16:32.061Z",
       "duration_ms": 73850
-    },
-    {
-      "id": "grok-1785860648197",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved classical zero-free region \\(\\sigma\\ge1-c/\\log(|t|+2)\\) via trig polynomials; far from full RH.",
-      "ts": "2026-08-04T16:24:08.197Z",
-      "duration_ms": 33735
     }
   ]
 }
