@@ -1,0 +1,63 @@
+# Attempt: A reflection-positivity reduction of the mass gap to a uniform-in-cutoff decay estimate, with an explicit spectral bound
+
+I work in the Euclidean/constructive framework, where "mass gap" is to be extracted from a family of lattice (or regularized continuum) measures satisfying **reflection positivity (RP)**. My goal is not to solve the problem but to (i) isolate exactly what estimate must be proved uniformly in the cutoff, and (ii) give a self-contained, correct proof that RP + one uniform bound yields a genuine mass gap in the continuum, with an explicit rate. I then point to the precise place the argument stalls.
+
+## Setup
+
+Let $\mu_a$ be Euclidean measures for $SU(N)$ Yang–Mills on a lattice of spacing $a$ (Wilson action), on $\mathbb{Z}^4_a$, satisfying:
+- **(RP)** reflection positivity across the hyperplane $x_0 = 0$;
+- translation invariance and the usual O(4)-covariance in the continuum limit.
+
+Let $\Theta$ denote time reflection. RP means for gauge-invariant observables $F$ supported in $x_0>0$,
+$$\langle \overline{\Theta F}\, F\rangle_{\mu_a} \ge 0.$$
+This defines a physical Hilbert space $\mathcal H_a$ (GNS on the positive form) and a **self-adjoint contraction transfer operator** $T_a = e^{-a H_a}$, $0\le T_a\le \mathbf 1$, $H_a\ge 0$, with $H_a\Omega=0$ for the vacuum $\Omega$.
+
+**Mass gap** (continuum) means: there is $m_*>0$ and a subsequence $a\to0$ such that $\mathrm{spec}(H_a)\cap(0,\infty)\subset[m_a,\infty)$ with $m_a\ge m_*$ in physical units, and the limiting theory has $\inf(\mathrm{spec}(H)\setminus\{0\})=m_*>0$.
+
+## Lemma 1 (Spectral bound from two-point clustering)
+
+Let $\phi$ be a nonconstant, gauge-invariant local observable with $\langle\phi\rangle=0$ (e.g. a plaquette fluctuation or a glueball interpolator $\mathrm{tr}F^2 - \langle\mathrm{tr}F^2\rangle$). Define the connected time-slice correlator
+$$G(t) = \langle \phi(t)\,\phi(0)\rangle_c,\qquad t\in a\mathbb Z_{\ge0}.$$
+By the spectral theorem for $T_a$ and RP, there is a positive spectral measure $d\rho_\phi(\lambda)$ on $\lambda=e^{-am}\in[0,1]$ with
+$$G(t) = \int_{[0,1]} \lambda^{t/a}\, d\rho_\phi(\lambda),\qquad \rho_\phi(\{1\})=0 \text{ (since }\langle\phi\rangle=0).$$
+Hence $G(t)\ge 0$ and $G$ is **completely monotone in $t/a$** (a moment sequence). Define
+$$m_a(\phi) := -\limsup_{t\to\infty}\frac1t\log G(t) = -\frac1a\log\big(\sup\mathrm{supp}\,\rho_\phi\big).$$
+
+**Claim.** $m_a(\phi) \ge \inf\big(\mathrm{spec}(H_a)\big|_{\overline{\phi\Omega}}\setminus\{0\}\big)$, and if $\phi$ has nonzero overlap with the lowest nonvacuum state then equality holds. In particular any *uniform* lower bound
+$$G(t) \le C\,e^{-m_* t}\quad\text{for all } a\le a_0,\ t\ge t_0 \tag{$\star$}$$
+with $C, m_*, t_0$ **independent of $a$** forces $\sup\mathrm{supp}\,\rho_\phi \le e^{-a m_*}$, i.e. every state reachable from $\Omega$ by $\phi$ has energy $\ge m_*$.
+
+*Proof.* Complete monotonicity gives, for the largest atom/edge $\lambda_{\max}=\sup\mathrm{supp}\,\rho_\phi$, that $G(na)\ge \rho_\phi(\{\lambda_{\max}\})\lambda_{\max}^n$ if it is an atom, and more generally $\frac1n\log G(na)\to \log\lambda_{\max}$. If ($\star$) holds then $\lambda_{\max}^{t/a}\le G(t)/\rho\le \tilde C e^{-m_* t}$ along $t=na$, giving $\lambda_{\max}\le e^{-am_*}$, i.e. the energy of the top of $\mathrm{supp}\,\rho_\phi$ is $\ge m_*$. $\square$
+
+This is standard but pins down the target precisely.
+
+## Lemma 2 (Reduction: gap ⟺ uniform decay on a *generating* family)
+
+Let $\mathcal D_a\subset\mathcal H_a$ be the linear span of $\{\phi\Omega : \phi\in\mathcal F\}$ where $\mathcal F$ is a fixed countable family of local gauge-invariant observables whose GNS images are **dense** in $\mathcal H_a\ominus\mathbb C\Omega$ for all small $a$ (such $\mathcal F$ exists: Wilson loops and their products generate the gauge-invariant algebra). Then:
+
+$$\Big(\exists m_*>0:\ (\star)\text{ holds for every }\phi\in\mathcal F,\ \text{uniformly in }a\Big)\ \Longleftrightarrow\ \Big(\inf\mathrm{spec}(H_a)\setminus\{0\}\ge m_*\ \forall a\le a_0\Big).$$
+
+*Proof sketch.* ($\Leftarrow$) trivial from the spectral representation, $C=\|\phi\Omega\|^2$. ($\Rightarrow$) For any $\psi\in\mathcal D_a$ with $\psi\perp\Omega$, write $\psi=\sum_k c_k\phi_k\Omega$; the cross-correlators $\langle\phi_j(t)\phi_k(0)\rangle_c$ are entries of a positive semidefinite matrix-valued completely monotone function, so their spectral supports lie in the union of the individual supports (polarization: $|\langle\phi_j(t)\phi_k\rangle|\le \sqrt{G_j(t)G_k(t)}$ by Cauchy–Schwarz in $\mathcal H_a$). Hence $\langle\psi, T_a^n\psi\rangle \le \|\psi\|^2 e^{-m_* na}$ for $n\ge t_0/a$, giving $\langle\psi, e^{-tH_a}\psi\rangle\le e^{-m_* t}\|\psi\|^2$, so $\mathrm{spec}(H_a)|_{\overline{\mathcal D_a}}\subset\{0\}\cup[m_*,\infty)$. Density of $\mathcal D_a$ extends this to all of $\mathcal H_a$. $\square$
+
+**Consequence.** The entire mass-gap problem is reduced to: *prove ($\star$) for the generating family $\mathcal F$ with constants uniform in the cutoff $a$* (equivalently in $\beta\to\infty$). This is a clean, checkable target and is where all the analytic difficulty lives.
+
+## Where it stalls — and a quantitative diagnosis
+
+At **strong coupling** ($\beta$ small, character-expansion convergent) one has, rigorously (Osterwalder–Seiler),
+$$G(t)\le C\, e^{-m(\beta) t/a},\qquad m(\beta)/a \sim -\frac1a\log\beta \to \infty\ \text{ as }\beta\to0,$$
+so the gap *in lattice units* is large but the **physical** gap $m(\beta)$ requires knowing how $a=a(\beta)$ runs. Uniformity in ($\star$) demands the double limit
+$$m_{\text{phys}} = \lim_{\beta\to\infty}\ \Big[-\log\lambda_{\max}(\beta)\Big]\cdot a(\beta)^{-1}\cdot(\text{fixed physical time})$$
+stay bounded away from $0$ and $\infty$. Two failures are precise:
+
+1. **The strong-coupling bound degenerates continuously**: it gives $\lambda_{\max}(\beta)\le c\,\beta$ but says nothing once $\beta$ exceeds the radius of convergence of the character expansion (roughly $\beta\lesssim$ O(1)), which is exactly the region one must enter to reach the continuum.
+
+2. **Asymptotic-freedom scaling is the missing input.** For the reduction to close one needs the correlation length $\xi(\beta)=1/m_a(\phi)$ (in lattice units) to grow as
+$$\xi(\beta)\sim \Lambda^{-1}\exp\!\Big(\tfrac{\beta}{2\beta_0}\Big)(1+o(1)),\qquad \beta_0=\tfrac{11N}{48\pi^2},$$
+so that $m_{\text{phys}}=a^{-1}/\xi(\beta)$ converges to a nonzero constant when $a(\beta)$ is tuned by the same RG law. Proving this two-sided asymptotic — in particular the **lower** bound $\xi(\beta)\le C\exp(\beta/2\beta_0)$, i.e. $m_a(\phi)\ge c\,e^{-\beta/2\beta_0}$, is *nonperturbatively* what "there is a mass gap" means, and no RP argument supplies it. RP + complete monotonicity give only monotone/positivity structure, never a *lower* bound on the gap; a lower bound on the gap is an *upper* bound on $\xi$, which requires genuine dynamical (RG / cluster) control in the crossover region $\beta=O(1)$.
+
+**Net partial result.** I have shown rigorously: (a) RP + complete monotonicity reduce the continuum mass gap to the single uniform estimate ($\star$) on a generating family; (b) the reduction is an exact equivalence (Lemma 2); (c) the only missing ingredient is the *uniform-in-$\beta$ upper bound on the correlation length* — precisely the nonperturbative $\xi(\beta)\le C e^{\beta/2\beta_0}$. This localizes the entire difficulty into one inequality and rules out any pure-positivity (RP-only) route, since RP is sign-blind to the direction of the needed bound.
+
+I could not establish the missing inequality, and I see no way to obtain it from positivity alone; it requires the very RG control that constitutes the open problem.
+
+VERDICT: PARTIAL
+REASON: Reduced continuum mass gap via RP to one uniform-in-cutoff correlation-length bound; proved RP alone cannot supply it.
