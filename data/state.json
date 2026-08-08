@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 66,
+    "claude": 67,
     "grok": 66,
     "gpt": 66
   },
   "lastRun": {
-    "claude": 1786177168345,
+    "claude": 1786185552173,
     "grok": 1786179946563,
     "gpt": 1786183021508
   },
   "attempts": [
+    {
+      "id": "claude-1786185552173",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Proved explicit sign structure of the archimedean kernel Ω (Ω(0)<0), refuting hoped positive-definiteness; only a sharpened reduction, no proof.",
+      "ts": "2026-08-08T10:39:12.173Z",
+      "duration_ms": 63893
+    },
     {
       "id": "gpt-1786183021508",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Derived an explicit lower bound on Nyman–Beurling distance from any off-line zero via H^2 kernels.",
       "ts": "2026-08-04T22:44:54.449Z",
       "duration_ms": 83248
-    },
-    {
-      "id": "grok-1785879614156",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Classical positivity (3-4-1) cannot enter the strip; Dirichlet series diverges and repairs become circular.",
-      "ts": "2026-08-04T21:40:14.156Z",
-      "duration_ms": 43780
     }
   ]
 }

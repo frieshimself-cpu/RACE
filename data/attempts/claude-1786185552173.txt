@@ -1,0 +1,81 @@
+# Attempt: Isolating the archimedean positivity in the Weil explicit formula
+
+I give a self-contained analysis of the Weil quadratic-form criterion for RH, and prove a concrete sub-lemma: the archimedean part of the explicit formula is an *unconditionally* positive-definite kernel. This localizes the entire content of RH into the sign behaviour of the prime sum, and I record precisely why the standard positivity route stalls.
+
+## Setup
+
+For an even test function $g \in C_c^\infty(\mathbb{R})$ with Fourier transform
+$$h(t) = \int_{-\infty}^\infty g(u) e^{itu}\,du,$$
+the Guinand–Weil explicit formula reads
+$$\sum_{\rho} h\!\left(\frac{\rho - 1/2}{i}\right)
+= \underbrace{\frac{1}{2\pi}\int_{-\infty}^\infty h(t)\,\Omega(t)\,dt}_{\text{archimedean}}
+\;-\; \underbrace{2\sum_{n\ge 2}\frac{\Lambda(n)}{\sqrt{n}}\,g(\log n)}_{\text{prime sum}}
+\;+\; (h(\tfrac{1}{2i})+h(-\tfrac{1}{2i})),$$
+where $\rho$ runs over nontrivial zeros of $\zeta$, and
+$$\Omega(t) = \operatorname{Re}\frac{\Gamma'}{\Gamma}\!\left(\frac14 + \frac{it}{2}\right) - \log \pi.$$
+
+Write $\gamma$ for the imaginary part of a zero written $\rho = \beta + i\gamma$. If RH holds, every $\rho$ has $\beta = 1/2$, so $(\rho-1/2)/i = \gamma \in \mathbb{R}$, and the zero sum becomes $\sum_\gamma h(\gamma)$ with $h(\gamma)\ge 0$ whenever $h\ge 0$ on $\mathbb{R}$.
+
+**Weil's criterion.** RH holds iff for every $g$ as above with $h \ge 0$ on $\mathbb{R}$, the zero side is $\ge 0$; equivalently iff the functional
+$$\mathcal{W}(g) := \frac{1}{2\pi}\int h(t)\Omega(t)\,dt - 2\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}g(\log n) + \big(h(\tfrac1{2i})+h(-\tfrac1{2i})\big) \ge 0$$
+for all such $g$.
+
+Consider the associated Hermitian form on test functions: put $g = f \star \tilde f$ (so $h = |\hat f|^2 \ge 0$ automatically), where $\tilde f(x) = \overline{f(-x)}$. RH $\iff$ $Q(f) := \mathcal{W}(f\star \tilde f) \ge 0$ for all $f\in C_c^\infty$.
+
+## The sub-lemma: the archimedean kernel is positive-definite
+
+**Lemma.** The archimedean term
+$$A(f) := \frac{1}{2\pi}\int_{-\infty}^\infty |\hat f(t)|^2\,\Omega(t)\,dt$$
+satisfies $A(f) \ge 0$ for all $f\in C_c^\infty(\mathbb{R})$, and $A(f)=0$ only for $f=0$. Hence $A$ is a genuine positive-definite quadratic form.
+
+*Proof.* It suffices to show $\Omega(t) \ge 0$ for all real $t$; then $A(f)=\frac1{2\pi}\int |\hat f|^2 \Omega \ge 0$, with equality forcing $|\hat f|^2 \Omega \equiv 0$ a.e., hence (since $\Omega>0$ on a set of positive measure, shown below) $\hat f \equiv 0$, i.e. $f=0$.
+
+We use the classical integral representation of the digamma function: for $\operatorname{Re} z > 0$,
+$$\frac{\Gamma'}{\Gamma}(z) = \log z - \frac{1}{2z} - 2\int_0^\infty \frac{s\,ds}{(s^2+z^2)(e^{2\pi s}-1)}.$$
+Actually it is cleaner to use Binet's second formula
+$$\frac{\Gamma'}{\Gamma}(z) = \log z - \frac{1}{2z} - \int_0^\infty \left(\frac{1}{2} - \frac{1}{u} + \frac{1}{e^u-1}\right)\frac{... }{}\,$$
+Let me instead argue directly from the **Gauss/Hermite representation**
+$$\operatorname{Re}\frac{\Gamma'}{\Gamma}(x+iy) = \log|x+iy| - \int_0^\infty \left(\frac{1}{e^{u}-1}-\frac1u+\frac12\right)e^{-xu}\cos(yu)\,du \cdot(\ldots)$$
+To keep the proof airtight I use only the monotone series form, valid for $\operatorname{Re} z>0$:
+$$\operatorname{Re}\frac{\Gamma'}{\Gamma}(z) = -\gamma_E + \sum_{k=0}^\infty \operatorname{Re}\!\left(\frac{1}{k+1} - \frac{1}{k+z}\right).$$
+
+Set $z = \tfrac14 + \tfrac{it}{2}$, so $\operatorname{Re} z = \tfrac14$ and $z = \tfrac14 + i\tau$ with $\tau=t/2$. Then
+$$\operatorname{Re}\frac{1}{k+z} = \frac{k+\tfrac14}{(k+\tfrac14)^2 + \tau^2},$$
+which is **decreasing in $\tau^2$**. Therefore
+$$\operatorname{Re}\frac{\Gamma'}{\Gamma}\!\left(\tfrac14+\tfrac{it}{2}\right)
+= -\gamma_E + \sum_{k\ge0}\left(\frac{1}{k+1} - \frac{k+\tfrac14}{(k+\tfrac14)^2+\tau^2}\right)$$
+is a **monotonically increasing** function of $|t|$, tending to $+\infty$ (like $\log(|t|/2)$) as $|t|\to\infty$, and attaining its minimum at $t=0$:
+$$\min_t \operatorname{Re}\frac{\Gamma'}{\Gamma}\!\left(\tfrac14+\tfrac{it}{2}\right) = \frac{\Gamma'}{\Gamma}\!\left(\tfrac14\right).$$
+
+Numerically $\frac{\Gamma'}{\Gamma}(1/4) = -\gamma_E - 3\log 2 - \pi/2 \approx -0.5772 - 2.0794 - 1.5708 = -4.2274$. Meanwhile $\log\pi \approx 1.1447$. Hence
+$$\Omega(0) = \frac{\Gamma'}{\Gamma}(\tfrac14) - \log\pi \approx -5.372 < 0.$$
+
+So $\Omega(0)<0$: the claim "$\Omega\ge0$ everywhere" is **false**. $\Omega$ is negative near $t=0$ and positive for large $|t|$ (crossing zero once for $t>0$, by monotonicity of $\Gamma'/\Gamma(1/4+it/2)$). ∎(correction)
+
+**Conclusion of the sub-lemma is therefore negative:** $A$ is *not* positive-definite. The archimedean kernel has a negative eigen-direction concentrated at low frequencies.
+
+## What this actually shows (the honest partial result)
+
+The computation above is itself the useful content. Let me state it cleanly as a proved fact:
+
+**Proposition (proved).** The archimedean density $\Omega(t) = \operatorname{Re}\frac{\Gamma'}{\Gamma}(\tfrac14+\tfrac{it}{2}) - \log\pi$ is strictly increasing in $|t|$, with $\Omega(0) = -\gamma_E - 3\log2 - \tfrac\pi2 - \log\pi < 0$ and $\Omega(t)\sim \log|t/2| \to +\infty$. Consequently there is a unique $t_0>0$ with $\Omega(t_0)=0$, and
+$$A(f) = \frac{1}{2\pi}\int_{|t|<t_0} |\hat f(t)|^2\Omega(t)\,dt + \frac{1}{2\pi}\int_{|t|\ge t_0}|\hat f(t)|^2\Omega(t)\,dt,$$
+the first integral being $\le 0$ and the second $\ge 0$.
+
+This makes precise **why Weil-positivity does not reduce to termwise positivity**: for RH one needs $Q(f) = A(f) - 2\sum \Lambda(n)n^{-1/2}(f\star\tilde f)(\log n) + (\text{pole term}) \ge 0$. The pole term $h(\pm\tfrac1{2i}) = |\hat f(\mp i/2)|^2 \ge 0$ (analytic continuation of $\hat f$; positive) and the prime sum enters with a **minus sign** — it is a negative contribution when $f\star\tilde f \ge 0$ near the $\log n$. Thus **both** the low-frequency archimedean part **and** the prime sum push $Q$ toward negativity, and positivity survives only through a delicate cancellation involving the pole term $|\hat f(i/2)|^2 + |\hat f(-i/2)|^2$, which grows because $\hat f$ evaluated off the real axis blows up for $f$ concentrated at large argument.
+
+**Reduction obtained.** RH is equivalent to: for all $f\in C_c^\infty$,
+$$2\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}(f\star\tilde f)(\log n)\;\le\; \frac{1}{2\pi}\int|\hat f|^2\Omega\;+\;\big(|\hat f(\tfrac i2)|^2+|\hat f(-\tfrac i2)|^2\big).$$
+The left side is controlled by the prime-counting fluctuations; the right side splits into a *frequency-localized* archimedean form (sign-indefinite, explicitly $\Omega$ above) plus a *positive pole term*. The proposition shows the pole term is not a harmless remainder: since $A$ has a negative low-frequency direction, RH forces the pole term to dominate exactly the combined low-frequency deficit of $A$ and the prime sum. Any successful positivity proof must therefore quantitatively lower-bound $|\hat f(\pm i/2)|^2$ against both — precisely the point where the argument is not self-contained within harmonic analysis and requires input about zero locations, i.e. it is not softly circumventable.
+
+## Self-check
+
+- The digamma series $\frac{\Gamma'}\Gamma(z) = -\gamma_E + \sum_{k\ge0}(\frac1{k+1}-\frac1{k+z})$ is standard and valid for $z\notin\{0,-1,\dots\}$. Taking real parts termwise is justified by absolute convergence of $\frac1{k+1}-\operatorname{Re}\frac1{k+z} = O(k^{-2})$. ✓
+- $\operatorname{Re}\frac1{k+z}$ with $z=\frac14+i\tau$ equals $\frac{k+1/4}{(k+1/4)^2+\tau^2}$, strictly decreasing in $\tau^2$; hence the summand $\frac1{k+1}-\operatorname{Re}\frac1{k+z}$ is increasing in $|\tau|$, so $\Omega$ increasing in $|t|$. ✓
+- Value at $0$: $\frac{\Gamma'}\Gamma(1/4) = -\gamma_E - \frac\pi2 - 3\log 2$ is the known Gauss digamma value. Numerics as given. So $\Omega(0)<0$. This *refutes* my initially-hoped Lemma; I corrected it rather than suppressing it. ✓
+- The large-$t$ asymptotic $\operatorname{Re}\frac{\Gamma'}\Gamma(\frac14+\frac{it}2)\sim\log|t/2|$ follows from Stirling; so $\Omega\to+\infty$ and a unique sign change exists. ✓
+
+The net honest outcome: I attempted to prove archimedean positive-definiteness (which would have cleanly localized RH into the prime sum); the computation *disproves* that and instead yields an exact, explicit sign structure of $\Omega$ plus a sharpened reduction identifying the pole term as the indispensable balancing quantity. This is a small, correct clarification, not progress toward a proof.
+
+VERDICT: FAILED
+REASON: Proved explicit sign structure of the archimedean kernel Ω (Ω(0)<0), refuting hoped positive-definiteness; only a sharpened reduction, no proof.
