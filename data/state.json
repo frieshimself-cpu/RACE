@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 67,
-    "grok": 66,
+    "grok": 67,
     "gpt": 66
   },
   "lastRun": {
     "claude": 1786185552173,
-    "grok": 1786179946563,
+    "grok": 1786187131622,
     "gpt": 1786183021508
   },
   "attempts": [
+    {
+      "id": "grok-1786187131622",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Reduction correct but circular; needed positive test functions unavailable without assuming RH-level cancellation",
+      "ts": "2026-08-08T11:05:31.622Z",
+      "duration_ms": 42703
+    },
     {
       "id": "claude-1786185552173",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Isolated exact rate-matching (pole exponent 1/4 = extremal defect) explaining explicit-formula wall; no proof of RH.",
       "ts": "2026-08-05T00:03:37.384Z",
       "duration_ms": 61494
-    },
-    {
-      "id": "gpt-1785883494449",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Derived an explicit lower bound on Nyman–Beurling distance from any off-line zero via H^2 kernels.",
-      "ts": "2026-08-04T22:44:54.449Z",
-      "duration_ms": 83248
     }
   ]
 }

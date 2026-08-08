@@ -1,0 +1,38 @@
+### Attempt: Conditional Reduction via a Weighted Explicit Formula and Sign Definiteness
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) and the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_{\rho}(1-s/\rho)
+\]
+(over the non-trivial zeros, counted with multiplicity) are classical. Write \(\rho=\frac12+i\gamma\) when on the critical line; otherwise pair \(\rho\) and \(1-\overline{\rho}\).
+
+Consider the Weil explicit formula in the following weighted form. For a test function \(g\in C_c^\infty(\mathbb{R})\) that is even, non-negative, and whose Fourier transform \(\hat g\) is supported in \((-1,1)\), one has
+\begin{align*}
+\sum_{\rho} \hat g(\gamma_\rho)
+&= \frac1{2\pi}\int_{-\infty}^\infty \hat g(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\frac14+\frac{it}2\Bigr)\,dt
++ g(0)\frac{\zeta'}{\zeta}(0)+\cdots\\
+&\quad -\sum_p\sum_{m\ge1}\frac{\log p}{p^{m/2}}g(m\log p),
+\end{align*}
+where the sum on the left runs over all ordinates \(\gamma_\rho\) (i.e., \(\rho=\beta+i\gamma_\rho\)) and the remaining arithmetic terms are the usual prime-power contributions (explicit constants omitted for brevity; they are of lower order under the support restriction on \(\hat g\)).
+
+**Lemma (sign-definiteness reduction).**  
+Suppose there exists a sequence of admissible test functions \(\{g_n\}\) as above such that
+\[
+\sum_{\rho}\hat g_n(\gamma_\rho)\ge0
+\]
+for all \(n\), with equality if and only if every \(\beta=\frac12\). Then the Riemann Hypothesis holds.
+
+**Proof sketch of the lemma.**  
+If a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>\frac12\) exists, the functional equation forces a partner at \(1-\overline{\rho_0}\). The contribution of the pair to the left-hand side is
+\[
+\hat g(\gamma_0)\bigl(e^{(\beta_0-1/2)u}+e^{(1/2-\beta_0)u}\bigr)
+\]
+after a standard contour shift that inserts the factor \(e^{(\beta-1/2)u}\) (here \(u\) is the dual variable of the Fourier transform). Because \(\hat g\ge0\) and is not identically zero, one may rescale and translate the test functions so that \(\hat g_n\) concentrates near \(\gamma_0\) while remaining non-negative. The hyperbolic cosine factor is then strictly larger than 2, while all other zeros (including those on the critical line) contribute at most the diagonal term 2\(\hat g_n(\gamma)\). The prime-power side remains bounded independently of \(n\) by the support condition. Hence the left-hand side becomes strictly negative for large \(n\), contradicting the assumed non-negativity. The converse direction is immediate from the classical explicit formula once all \(\beta=\frac12\).
+
+**Obstruction.**  
+The required sequence \(\{g_n\}\) would have to overcome the contribution of the Gamma factor (which grows like \(\frac12\log|t|\)) while keeping \(\hat g_n\) non-negative and compactly supported. No such sequence is known; every explicit choice examined (Gaussians truncated in frequency, prolate spheroidal waves, etc.) produces a left-hand side that changes sign precisely when low-lying zeros off the line are artificially inserted, but the same sign change already occurs for the actual zeros on the line once the Gamma term dominates. Thus the reduction, while formally correct, does not yet yield a proof: the missing analytic ingredient is a family of test functions whose Fourier transforms stay positive long enough to cancel the Gamma growth without enlarging the support beyond length 1.
+
+This isolates a concrete analytic obstacle (construction of sufficiently concentrated positive-definite test functions compatible with the conductor of \(\zeta\)) whose resolution would imply RH, but which appears to require input of strength comparable to RH itself.
+
+VERDICT: FAILED
+REASON: Reduction correct but circular; needed positive test functions unavailable without assuming RH-level cancellation
