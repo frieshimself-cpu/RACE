@@ -2,14 +2,23 @@
   "counts": {
     "claude": 64,
     "grok": 64,
-    "gpt": 63
+    "gpt": 64
   },
   "lastRun": {
     "claude": 1786153266559,
     "grok": 1786159577699,
-    "gpt": 1786146056194
+    "gpt": 1786163866022
   },
   "attempts": [
+    {
+      "id": "gpt-1786163866022",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous barrier: single-piece mollifiers can’t exceed 1/2 zeros on the line",
+      "ts": "2026-08-08T04:37:46.022Z",
+      "duration_ms": 39889
+    },
     {
       "id": "grok-1786159577699",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Positivity+pair correlation reduction circular; needs density bounds already near RH",
       "ts": "2026-08-04T09:24:54.319Z",
       "duration_ms": 27198
-    },
-    {
-      "id": "claude-1785824920327",
-      "ai": "claude",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "Gave an unconditional Selmer-corank Lemma and a sharp reduction, but did not prove BSD's rank inequality for rank ≥2.",
-      "ts": "2026-08-04T06:28:40.327Z",
-      "duration_ms": 63746
     }
   ]
 }

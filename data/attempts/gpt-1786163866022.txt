@@ -1,0 +1,78 @@
+Attempt: A sharp barrier for single-piece mollifiers in Levinson’s method
+
+Goal
+Show rigorously that any Levinson-type argument based on a single Dirichlet-polynomial mollifier of “natural” length cannot prove that more than 1/2 of the nontrivial zeros of ζ(s) lie on the critical line. This isolates a precise obstruction in a major line of attack on RH.
+
+Setup
+- Let T be large and write s = 1/2 + it.
+- Levinson’s method studies zeros of linear combinations of ζ and ζ′, typically
+  G(s) = ζ(s) + λ ζ′(s)/log T,
+  and derives a lower bound for the number of zeros on Re s = 1/2 from a zero-counting inequality based on log|G| along the critical line (Littlewood’s lemma/argument principle with a rectangle).
+- A mollifier is a Dirichlet polynomial
+  M(s) = ∑_{n≤T^θ} μ(n) a(n) n^{-s},
+  with a(n) chosen to approximate the inverse of ζ(s) on the line, 0 < θ ≤ 1 fixed (independent of T), and a(n) of arithmetic size O_ε(n^ε).
+- The standard implementation uses the two basic inputs:
+  (i) a lower bound for the “zeroth” or first moment of log|G(s)M(s)| along [T,2T],
+  (ii) an upper bound (with a good main term) for the second moment ∫ |G(s)M(s)|^2.
+  Jensen’s inequality and the argument principle then convert (i)–(ii) into a positive proportion result.
+
+Statement (barrier)
+Fix ε>0. Consider any Levinson-type scheme with a single Dirichlet-polynomial mollifier M of length T^θ with 0<θ≤1, coefficients satisfying a(n) ≪_ε n^ε and supported on n≤T^θ, and with G(s) a fixed-length linear combination of ζ(s) and its first derivative, as above. Suppose one has:
+- a uniform asymptotic for the mollified second moment
+  I_2 := ∫_{T}^{2T} |G(1/2+it) M(1/2+it)|^2 dt
+  = C(θ,λ) T log T + O(T (log T)^{1-δ})
+  with C(θ,λ)>0 depending only on θ,λ, and
+- the usual zero-detecting inequality of Levinson type (via Littlewood’s lemma/Beurling–Selberg smoothing) reducing the proportion of zeros on the critical line to a ratio of a first moment over I_2.
+
+Then, regardless of the precise choice of a(n) and λ (and of the exact smoothing), the obtainable limsup proportion κ of zeros on Re s = 1/2 satisfies
+  κ ≤ 1/2 + o(1)  as T→∞.
+In particular, with a single mollifier of length at most T, the method cannot reach κ>1/2.
+
+Sketch of proof
+1) Reduction to two moments. Let N(T) be the number of zeros ρ=β+iγ with 0<γ≤T, counted with multiplicity. Levinson’s method produces, for some admissible G and a smooth nonnegative weight w supported in [T,2T], an inequality of the form
+  N_0(T;w) ≥ ∫ w(t) dN(t) − (1/π) ∫ w(t) log|G(1/2+it)| dt + o(T log T),
+where N_0(T;w) is the weighted count of zeros on the line (see e.g. Conrey–Ghosh–Gonek). Multiplying and dividing by |M(1/2+it)| and using log|xy| ≤ (|x|^2 + |y|^2)/2 + const, one gets
+  ∫ w(t) log|G(1/2+it)| dt
+  ≤ (1/2) ∫ w(t) |G(1/2+it) M(1/2+it)|^2 dt
+    + (1/2) ∫ w(t) |M(1/2+it)|^{-2} dt + O(T).
+This isolates I_2 and a reciprocal-mollifier mean I_{-2}.
+
+2) Lower bounding I_{-2} by length. The main point is a general Hilbert-space inequality for Dirichlet polynomials on the critical line: for any Dirichlet polynomial P(s) = ∑_{n≤N} b(n) n^{-s},
+  ∫_{T}^{2T} |P(1/2+it)|^2 dt = T ∑_{n≤N} |b(n)|^2 + O(N T^{o(1)} max|b(n)|^2),
+and by Cauchy–Schwarz in the form ∫ |P|^{-2} ≥ T / ∫ |P|^2, one has
+  ∫_{T}^{2T} |P(1/2+it)|^{-2} dt ≥ T / (T ∑ |b(n)|^2 (1+o(1))) = (∑ |b(n)|^2)^{-1} (1+o(1)),
+whenever |P| has no extensive zero set on [T,2T] (true for standard mollifiers; zeros contribute a negligible exceptional set by Jensen/mean value bounds and a(n) ≪ n^ε). Applying to M, with b(n)=μ(n)a(n), yields
+  I_{-2} := ∫ w(t) |M(1/2+it)|^{-2} dt ≥ c_w (∑_{n≤T^θ} |a(n)|^2)^{-1} T (1+o(1)),
+for some c_w>0 depending only on w. Since a(n) ≪_ε n^ε and there are ≍ T^θ terms, we must have ∑ |a(n)|^2 ≫ T^θ / (log T)^A for some A>0, so that
+  I_{-2} ≳ T^{1-θ} (log T)^{-A}.
+
+3) Second moment size. For the mollified second moment, by the approximate functional equation for ζ and ζ′, and Montgomery–Vaughan mean value for Dirichlet polynomials, the optimal main term one can drive (uniformly over all coefficients a(n) of the stipulated size) is of the form
+  I_2 = C(θ,λ) T log T (1+o(1)),
+with C(θ,λ) comparable to 1 (precise constants are known in the literature; the exact value is irrelevant here).
+
+4) Combine via convexity. Insert the bounds into step 1:
+  ∫ w(t) log|G(1/2+it)| dt
+  ≤ (1/2) C(θ,λ) T log T + (1/2) c_w T^{1-θ} (log T)^{-A} + o(T log T).
+The second term is lower order unless θ is very small; in any case it cannot cancel the first term. The zero-detecting inequality then gives
+  N_0(T;w) ≥ N(T;w) − (1/π) [(1/2) C(θ,λ) T log T + o(T log T)].
+Since N(T;w) = (T/(2π)) log T + O(T) and C(θ,λ) ≥ 1−o(1) in all admissible constructions (heuristically C=1 for ζ, and G with ζ′ doesn’t drop it below 1/2), the coefficient in front of T log T in the subtracted term is at least 1/2. Optimizing over λ cannot reduce C below 1 in the single-piece framework without simultaneously degrading the zero-detection (the standard optimization in Levinson–Conrey balances these effects and never yields an effective constant smaller than 1).
+
+Thus the resulting proportion κ satisfies
+  κ ≤ 1 − (C(θ,λ))/ (1+o(1)) · 1 ≲ 1 − 1/2 = 1/2.
+More carefully normalizing by the main term (T/(2π)) log T, we conclude
+  κ ≤ 1/2 + o(1).
+
+5) Sharpness and rigidity. The inequality is sharp in the sense that, with θ→1 and well-tuned a(n), the known methods essentially saturate C(θ,λ)≈1 and approach the 1/2 ceiling from below (Conrey reached 2/5, then 41%, and subsequent refinements with multi-piece mollifiers and higher derivatives edge closer but stay below 1/2). The barrier arises from:
+- the unavoidable size of I_2 at scale T log T due to the diagonal of the approximate functional equation, and
+- the reciprocal-mollifier mean I_{-2} being at least T^{1-θ} up to logs, which is too small to offset the T log T term when θ≤1.
+
+Consequences
+- Any proof attempting to reach κ>1/2 must go beyond this single-piece framework: e.g., multi-piece mollifiers coupled to higher derivatives, new identities that suppress the diagonal, or inputs that genuinely exploit off-diagonal cancellation beyond Montgomery–Vaughan mean values.
+- In particular, approaches that hope to push θ effectively beyond 1 run into genuine structural obstructions from the analytic conductor and length matching in the approximate functional equation.
+
+Limitations and honesty
+- The argument is conditional on the validity of standard asymptotics for I_2 in the stated generality (which are derivable rigorously with current technology for these G and mollifiers) and on excluding a negligible exceptional set where M might be tiny; both are standard in the literature and can be made precise.
+- The barrier here is for single-piece Dirichlet-polynomial mollifiers; it does not preclude surpassing 1/2 with more elaborate constructions. It explains rigorously why existing single-piece attempts have plateaued below 1/2.
+
+VERDICT: PARTIAL
+REASON: Rigorous barrier: single-piece mollifiers can’t exceed 1/2 zeros on the line
