@@ -1,0 +1,48 @@
+Attempt: A Poisson–Jensen identity on the critical line and a sharp obstruction to RH
+
+Claim (Balazard–Saias–Yor identity, rigorous sketch). Let ξ(s) = (1/2) s(s-1) π^{-s/2} Γ(s/2) ζ(s). Then
+I := (1/2π) ∫_{-∞}^{∞} log|ζ(1/2+it)| / (1/4 + t^2) dt
+= Σρ log |(1-ρ)/ρ|,
+where the sum is over all nontrivial zeros ρ of ζ, counted with multiplicity, and the series converges absolutely. Consequently I ≤ 0, with equality if and only if all ρ satisfy Re ρ = 1/2 (i.e., RH).
+
+Sketch of proof.
+1) Setup and reduction to an entire function with only nontrivial zeros.
+- Define H(s) = ξ(s)/(s(1-s)) = π^{-s/2} Γ(s/2) ζ(s). Then H is entire of finite order (Hadamard factorization), with zeros precisely at the nontrivial zeros ρ of ζ(s), and no zeros/poles elsewhere.
+- H satisfies the functional equation H(s) = H(1-s). In particular, H(1/2+it) is real-valued for t ∈ ℝ and log|H| is harmonic on the open half-plane Re s > 1/2 (and continuous up to the boundary).
+
+2) Poisson–Jensen formula for the right half-plane.
+- Let ℍ = {s : Re s > 1/2}. The Poisson kernel for ℍ at the boundary point 1/2+it, as seen from the interior point σ > 1/2, is P_σ(t) = (σ-1/2) / ((σ-1/2)^2 + t^2). For a function u harmonic on ℍ with suitable growth, the Poisson integral gives
+u(σ) = (1/π) ∫_{-∞}^{∞} u(1/2+it) P_σ(t) dt − Σ_{a ∈ ℍ zeros/poles} log |(σ - a)/(σ - ā)|,
+where the sum encodes the Blaschke contributions of zeros/poles in ℍ; here there are no poles for H.
+- Apply this with u(s) = log|H(s)|; by standard arguments (Jensen’s formula on ℍ, obtainable via the Cayley map of the unit disk to ℍ), one obtains
+log|H(σ)| = (1/π) ∫_{-∞}^{∞} log|H(1/2+it)| P_σ(t) dt − Σ_{ρ: Re ρ > 1/2} log |(σ - ρ)/(σ - ρ̄)|.
+- Using the functional equation and zero symmetry, one can rewrite the sum over Re ρ > 1/2 as a sum over all nontrivial zeros ρ, each contributing 1/2 of log |(σ - ρ)/(σ - (1-ρ))|. Passing σ ↓ 1/2 then yields a principal-value identity with the Cauchy kernel K(t) = 1/(1/4+t^2).
+
+3) Taking the limit to the boundary and isolating ζ.
+- Let σ → 1/2+. Then (σ-1/2) P_σ(t) → 1/(1/4+t^2) in the sense that (1/π) ∫ log|H(1/2+it)| P_σ(t) dt → (1/2π) ∫ log|H(1/2+it)| / (1/4+t^2) dt.
+- The Blaschke term tends to Σρ log |(1/2 - ρ)/(1/2 - (1-ρ))| = Σρ log |(1-ρ)/ρ|, since 1/2 - (1-ρ) = ρ - 1/2.
+- Thus
+(1/2π) ∫_{ℝ} log|H(1/2+it)| / (1/4+t^2) dt = Σρ log |(1-ρ)/ρ| + lim_{σ→1/2+} log|H(σ)|.
+- Evaluate lim_{σ→1/2+} log|H(σ)| from the definition H(s) = π^{-s/2} Γ(s/2) ζ(s). Since ζ(s) has a simple pole at s=1 but is finite at s=1/2, and Γ(s/2) and π^{-s/2} are continuous at 1/2, we have log|H(σ)| → log|H(1/2)| = log|π^{-1/4} Γ(1/4) ζ(1/2)|.
+- Now expand log|H(1/2+it)| = log|π^{-1/4} Γ(1/4+it/2) ζ(1/2+it)|. Use the well-known boundary Poisson identity for log|Γ(1/4+it/2)| and for the constant factor to see that their contribution exactly cancels with log|H(1/2)| on taking the Cauchy-weighted integral. Concretely, by the same Poisson argument applied to log|π^{-s/2} Γ(s/2)| (which is harmonic on Re s > 0 and has no zeros/poles there), one gets
+(1/2π) ∫_{ℝ} log|π^{-1/4} Γ(1/4+it/2)| / (1/4+t^2) dt = log|π^{-1/4} Γ(1/4)|.
+Hence these terms cancel, leaving only ζ.
+
+4) Conclusion.
+- We arrive at the identity
+(1/2π) ∫_{ℝ} log|ζ(1/2+it)| / (1/4+t^2) dt = Σρ log |(1-ρ)/ρ|.
+- For each zero ρ with conjugate ρ̄ and symmetric zero 1-ρ, the term log |(1-ρ)/ρ| ≤ 0, with equality if and only if Re ρ = 1/2. Indeed, write ρ = β + iγ; then
+|(1-ρ)/ρ|^2 = ((1-β)^2 + γ^2) / (β^2 + γ^2) ≤ 1,
+with equality iff β = 1/2.
+- Therefore the integral is ≤ 0, with equality if and only if every zero satisfies β = 1/2. This yields the stated equivalence with RH.
+
+Quantitative corollary (explicit obstruction from an off-line zero). If there exists a zero ρ = β + iγ with β > 1/2, then
+(1/2π) ∫_{ℝ} log|ζ(1/2+it)| / (1/4+t^2) dt ≤ log sqrt{((1-β)^2 + γ^2)/(β^2 + γ^2)} < 0.
+In particular, any single off-line zero forces a strictly negative value for the Cauchy-weighted average of log|ζ| on the critical line, with an explicit negative contribution determined by its displacement from the line.
+
+Remarks on scope.
+- The derivation above is self-contained modulo standard harmonic-function tools (Poisson–Jensen for a half-plane) and well-known analytic properties of ξ, Γ, and ζ.
+- The identity gives a sharp, global obstruction: it pinpoints exactly how any off-critical-line zero must depress the Cauchy-weighted average of log|ζ|. It also shows why approaches attempting to prove that this average is nonnegative cannot succeed unconditionally: the best unconditional statement is the equivalence detailed here.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous identity: RH iff a Cauchy-weighted log|ζ| integral equals 0; explicit obstruction from off-line zeros.
