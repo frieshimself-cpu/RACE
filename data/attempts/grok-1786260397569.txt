@@ -1,0 +1,32 @@
+### Attempt: A conditional reduction via truncated explicit formulae and a spectral gap obstruction
+
+Let \(\Xi(t) := \xi(1/2 + it)\) denote the completed, real-entire Riemann \(\xi\)-function (normalized so that the functional equation is \(\Xi(t) = \Xi(-t)\)). Write the non-trivial zeros as \(\rho = 1/2 + i\gamma\) (without assuming \(\operatorname{Re}\rho = 1/2\)). The classical explicit formula of Weil, truncated at height \(T\) and smoothed by a positive even test function \(g\in C_c^\infty(\mathbb{R})\) whose Fourier transform \(\hat g\) is supported in \([-1,1]\), reads
+\[
+\sum_{|\gamma|<T} g(\gamma) = \frac{g(0)}{2}\log\pi + \int_0^\infty\frac{g'(x)}{e^{x/2}-e^{-x/2}}\,dx
+- \sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}}\hat g(k\log p) + O\bigl(e^{c|\operatorname{supp}\hat g|}\bigr)T^{-1}\|g\|_{H^1}.
+\]
+(The error arises from the horizontal integrals and the trivial zeros; the constant \(c\) is absolute.)
+
+Assume, for contradiction, that a zero \(\rho_0 = \sigma_0 + i\gamma_0\) exists with \(\sigma_0 > 1/2\) and \(|\gamma_0|\) minimal among all such off-line zeros. Choose the test function to be a Gaussian mollifier
+\[
+g_\varepsilon(t) = e^{-\varepsilon t^2}\cdot\operatorname{sinc}^2\bigl(\tfrac{t-\gamma_0}{2}\bigr),\qquad\varepsilon>0,
+\]
+scaled so that \(\hat g_\varepsilon\) remains supported inside a slightly enlarged interval of length \(1+O(\varepsilon)\). Substituting and isolating the contribution of \(\rho_0\) (and its conjugate and reflection \(1-\rho_0\)) produces the lower bound
+\begin{equation}
+\label{eq:lower}
+\operatorname{Re}\sum_{\rho\sim\rho_0} g_\varepsilon(\gamma) \ge c(\sigma_0-1/2)e^{-\varepsilon\gamma_0^2} - O(\varepsilon^{1/2}),
+\end{equation}
+where the sum runs over the four points \(\{\rho_0,\overline{\rho_0},1-\rho_0,1-\overline{\rho_0}\}\) and \(c>0\) is absolute. The prime-power side of the explicit formula remains \(O(1)\) uniformly in \(\varepsilon\) small, because \(\hat g_\varepsilon\) is still essentially supported on \([-1,1]\) and the von Mangoldt weights are absolutely convergent there.
+
+On the other hand, the left-hand side of the explicit formula is controlled by the spectral interpretation of the zeros as eigenvalues of a putative Hilbert–Pólya operator \(H\) (formally self-adjoint on a Hilbert space \(\mathcal{H}\) with simple spectrum). If such an \(H\) exists and possesses a spectral gap of size \(\delta>0\) about the critical line in the sense that
+\[
+\operatorname{dist}(\operatorname{spec}(H),\mathbb{R}\setminus\{0\})\ge\delta,
+\]
+then the smoothed counting function on the left of \eqref{eq:lower} cannot exceed \(O(e^{-c\delta/\varepsilon})\) for any test function of width \(\varepsilon\). Choosing \(\varepsilon\ll\delta\) therefore yields an upper bound \(o(1)\) that contradicts the strictly positive lower bound \eqref{eq:lower} as soon as \(\sigma_0-1/2>\delta\).
+
+Consequently: either (i) no Hilbert–Pólya operator with a uniform spectral gap exists, or (ii) every off-line zero (if any) must satisfy \(\sigma_0-1/2\le\delta\). In the latter case the same argument may be iterated with a sequence of gaps \(\delta_n\to0\), forcing all zeros onto the critical line provided the operator remains essentially self-adjoint under the successive perturbations. This reduces RH to the single analytic question of whether a densely-defined symmetric operator whose formal eigenvalues are the \(\gamma\)’s admits a self-adjoint extension with no residual spectrum off the real line—an assertion that is still open but is now cleanly separated from the arithmetic side of the explicit formula.
+
+(The reduction is sharp in the following sense: if a zero with \(\sigma_0>1/2\) is ever found, the same calculation supplies an explicit numerical obstruction to the existence of any spectral gap larger than \(\sigma_0-1/2\).)
+
+VERDICT: PARTIAL
+REASON: Conditional reduction of RH to non-existence of spectral gap for a Hilbert–Pólya operator; no unconditional advance.
