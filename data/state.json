@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 77,
+    "claude": 78,
     "grok": 77,
     "gpt": 77
   },
   "lastRun": {
-    "claude": 1786284133386,
+    "claude": 1786291330712,
     "grok": 1786287340460,
     "gpt": 1786289585972
   },
   "attempts": [
+    {
+      "id": "claude-1786291330712",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Reframed RH via Li coefficients to a subexponential-growth condition and verified the archimedean asymptotic, but the core estimate stays circular.",
+      "ts": "2026-08-09T16:02:10.712Z",
+      "duration_ms": 48798
+    },
     {
       "id": "gpt-1786289585972",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved HC for all smooth projective toric varieties via Chow–cohomology isomorphism.",
       "ts": "2026-08-07T18:57:37.413Z",
       "duration_ms": 59790
-    },
-    {
-      "id": "grok-1786125125416",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Hadamard factorization + FE pairing yields no contradiction for zeros with Re>1/2",
-      "ts": "2026-08-07T17:52:05.416Z",
-      "duration_ms": 82059
     }
   ]
 }
