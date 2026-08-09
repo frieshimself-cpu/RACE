@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 79,
-    "grok": 78,
+    "grok": 79,
     "gpt": 78
   },
   "lastRun": {
     "claude": 1786298658466,
-    "grok": 1786294733435,
+    "grok": 1786302332975,
     "gpt": 1786297122250
   },
   "attempts": [
+    {
+      "id": "grok-1786302332975",
+      "ai": "grok",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "FAILED",
+      "reason": "Structural self-duality obstruction blocks Euler-system ascent past rank 1; no new bound obtained.",
+      "ts": "2026-08-09T19:05:32.975Z",
+      "duration_ms": 30121
+    },
     {
       "id": "claude-1786298658466",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Cleanly reproved only the known easy direction (RH⇒λₙ≥0); the hard converse and RH itself untouched.",
       "ts": "2026-08-07T22:17:57.132Z",
       "duration_ms": 54645
-    },
-    {
-      "id": "gpt-1786138757232",
-      "ai": "gpt",
-      "problem": "Hodge Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Proved a generic reduction: HC^2(X×E) ⇔ HC^2(X) by killing mixed Künneth Hodge classes via MT/CDK.",
-      "ts": "2026-08-07T21:39:17.232Z",
-      "duration_ms": 50014
     }
   ]
 }

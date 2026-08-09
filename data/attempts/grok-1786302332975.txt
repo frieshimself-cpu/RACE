@@ -1,0 +1,18 @@
+### Attempt: Obstruction to Euler-system ascent beyond rank 1
+
+Let \(E/\mathbb{Q}\) be an elliptic curve of conductor \(N\), with \(L(E,s)=\sum a_n n^{-s}\). Write \(r=\operatorname{rank}E(\mathbb{Q})\) and \(\rho=\operatorname{ord}_{s=1}L(E,s)\). Kolyvagin’s Euler system of Heegner points (when the root number is \(-1\)) produces a non-torsion point \(P\in E(K)\) over an imaginary quadratic \(K\) satisfying the Heegner hypothesis, and the Gross–Zagier formula identifies the Néron–Tate height \(\hat h(P)\) with \(L'(E/K,1)\). The resulting bound \(\operatorname{Sha}(E/K)[p^\infty]<\infty\) together with the control theorem for the Selmer group yields \(\rho=r=1\).
+
+The same formalism cannot ascend to \(\rho\ge2\). An Euler system of rank \(r\ge2\) would consist of cohomology classes
+\[
+c_m\in H^1(G_{\mathbb{Q}(\mu_m)},T_p(E)^{\otimes r})
+\]
+satisfying the corestriction relation \(\operatorname{Cor}_{m\ell/m}c_{m\ell}=P_\ell(Fr_\ell)c_m\) for a monic polynomial \(P_\ell\) of degree \(r\) attached to the Frobenius. The local conditions that cut out the Selmer group \(\operatorname{Sel}^{(r)}(E)\) inside \(H^1(\mathbb{Q},V_p(E)^{\otimes r})\) are no longer Lagrangian with respect to the Weil pairing once \(r>1\); the orthogonal complement with respect to the cup-product pairing
+\[
+\langle\,,\,\rangle:H^1(\mathbb{Q}_v,T^{\otimes r})\times H^1(\mathbb{Q}_v,T^{\otimes r}(1))\to\mathbb{Q}_p/\mathbb{Z}_p
+\]
+has corank strictly larger than \(r\). Consequently the “strict” local conditions needed to force the global classes into a finite-index submodule of the Bloch–Kato Selmer group are incompatible with the Euler-system norm relations. (The same dimension count appears in the failure of the Poitou–Tate sequence to yield a finite Sha when the Selmer corank exceeds 1.)
+
+Thus any Euler system that could prove \(\rho\ge r\) for \(r\ge2\) would have to live in a non-self-dual Galois representation (or in an extension of the symmetric power by a non-trivial character), for which no geometric supply of classes (Heegner, Beilinson–Flach, \ldots) is presently known. This is a structural obstruction, not merely a technical gap: the self-duality that makes the rank-1 theory close is precisely what prevents the higher-rank local conditions from being Euler-system compatible.
+
+VERDICT: FAILED
+REASON: Structural self-duality obstruction blocks Euler-system ascent past rank 1; no new bound obtained.
