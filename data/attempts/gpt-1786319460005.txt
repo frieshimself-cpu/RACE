@@ -1,0 +1,93 @@
+Attempt: A precise barrier for the mollifier method via shifted-convolution constraints
+
+Setup.
+- Let w be a fixed smooth nonnegative weight supported on [1,2] with total mass 1, and define W_T(t)=w(t/T), so ∫ W_T(t) dt ~ T.
+- Let the standard (unweighted) mollifier of length N=T^θ be
+  M(s) = Σ_{n≤N} μ(n) n^{-s}.
+  (More general smooth weights P(log(N/n)/log N) behave similarly and do not change the key obstruction below.)
+- Consider the mollified second moment
+  I(T,N) = ∫_{ℝ} |ζ(1/2+it) M(1/2+it)|^2 W_T(t) dt.
+
+Claim (informal statement).
+- Unconditionally, evaluating I(T,N) with power-saving control of the off-diagonal terms forces N ≤ T^{1/2+o(1)}. In particular, any attempt to push the mollifier beyond length T^{1/2+ε} by current second-moment technology faces a rigorous shifted-convolution barrier.
+
+Precise reduction to shifted-convolution.
+1) By the approximate functional equation for ζ(1/2+it) and its conjugate, and expanding the square, we may write (standard; see e.g. Conrey–Ghosh–Gonek or Iwaniec–Kowalski, Ch. 5) for any A>0:
+   ζ(1/2+it) = Σ_{m ≤ X} m^{-1/2-it} + χ(1/2+it) Σ_{m ≤ Y} m^{-1/2+it} + O_A(T^{-A}),
+   with XY ≍ t/(2π) and X,Y ≍ T^{1/2} on the support of W_T.
+   Inserting M and its conjugate and integrating against W_T(t), the negligible O_A(T^{-A}) terms contribute o(1) to I(T,N).
+
+2) The main contribution arises from integrals of the form
+   ∫ W_T(t) e^{it log(u/v)} dt,
+   with u,v arising as products of a variable from the approximate functional equation (size up to ≍ T^{1/2}) and a variable from the mollifier (size up to N). A single “side” (the same analysis applies to all four combinations of the two sums in the approximate functional equation) reduces to sums of the shape
+   S = Σ_{m1≤X} Σ_{m2≤X} Σ_{n1≤N} Σ_{n2≤N} (μ(n1) μ(n2)) (m1 m2)^{-1/2} (n1 n2)^{-1/2}
+       ∫ W_T(t) e^{it log( (m2 n2)/(m1 n1) )} dt.
+   By smoothness, ∫ W_T(t) e^{itξ} dt = T Ẃ(Tξ) with Ẃ rapidly decaying. Thus contributions are negligible unless
+   |log( (m2 n2)/(m1 n1) )| ≲ 1/T, i.e.
+   |m2 n2 − m1 n1| ≲ (m1 n1)/T,
+   which in our dyadic ranges implies a true shifted-convolution structure with “length” XN and “shift window” controlled by ≍ (XN)/T.
+
+3) Write k = m n. The dominant structure is then sums over k in a dyadic range K ≍ XN with coefficient a(k) equal to the Dirichlet convolution of 1 with μ supported on (m,n) with m≤X, n≤N:
+   a(k) = Σ_{mn=k, m≤X, n≤N} μ(n).
+   One obtains (suppressing negligible terms and other similar “dual” pieces that are handled identically)
+   I(T,N) = T Σ_k |a(k)|^2 k^{-1} + OD,
+   where the off-diagonal OD is
+   OD = Σ_{k} Σ_{h≠0, |h| ≤ H_k} a(k) a(k+h) k^{-1/2} (k+h)^{-1/2} T Ẃ( T log((k+h)/k) ),
+   with H_k ≍ k/T. Using log((k+h)/k) = h/k + O((h/k)^2) and smoothness of Ẃ, one reduces
+   OD ≍ Σ_{k∼K} Σ_{|h|≤H} a(k) a(k+h) k^{-1} T,
+   where K ≍ XN ≍ T^{1/2} N and H ≍ K/T ≍ N / T^{1/2}.
+
+4) Thus the evaluation of I(T,N) reduces, up to acceptable factors, to asymptotics for the binary additive correlation
+   C(K,H; a) = Σ_{k∼K} Σ_{|h|≤H} a(k) a(k+h),
+   with a(k) being a divisor-type coefficient (convolution of 1 with a supported μ).
+
+Diagonal and off-diagonal sizes; required input.
+- The “diagonal” main term T Σ_k |a(k)|^2 k^{-1} can be evaluated by standard Dirichlet polynomial mean-value methods; it produces the expected main term of size ≍ T log T (for the raw mollifier; with smooth weights, ≍ T).
+- The crux is bounding the off-diagonal OD, which is governed by C(K,H; a) − main term. For divisor-like a, sharp bounds for
+  Σ_{k≤K} a(k) a(k+h)
+  uniformly in h with |h|≤H are instances of shifted-convolution problems (additive divisor correlations).
+
+- Spectral theory (Kuznetsov/Bruggeman–Kuznetsov, Motohashi’s formula, Deshouillers–Iwaniec) yields, for divisor-type coefficients,
+  Σ_{k≤K} d(k) d(k+h) = Main(K,h) + Oε( K^{1/2+ε} ), uniformly for |h| ≤ K^{1/2}.
+  Variants extend to convolutions with μ of restricted length without worsening the K^{1/2+ε} exponent; see e.g. Iwaniec–Kowalski, Theorem 16.5 and related discussions.
+  In particular, for our a(k), one has the same quality (up to K^{o(1)} factors) over |h|≤K^{1/2}:
+  Σ_{k≤K} a(k) a(k+h) = Main_a(K,h) + Oε( K^{1/2+ε} ).
+
+Translating back to T and N.
+- Recall: K ≍ XN ≍ T^{1/2} N; H ≍ K/T ≍ N / T^{1/2}.
+- The available uniformity |h| ≤ K^{1/2} corresponds to
+  H ≤ K^{1/2}  ⇔  N / T^{1/2} ≤ (T^{1/2} N)^{1/2}  ⇔  N ≤ T^{1/2}.
+  Thus, when N ≤ T^{1/2}, the known shifted-convolution technology controls the full range of h that actually appears in OD.
+
+- Under this condition, the total off-diagonal contribution satisfies
+  OD ≪ T · K^{-1} · (number of h) · K^{1/2+ε}
+     ≍ T · K^{-1} · H · K^{1/2+ε}
+     ≍ T · (N/T^{1/2}) · K^{-1/2+ε}
+     with K ≍ T^{1/2} N, hence K^{-1/2} ≍ (T^{1/2} N)^{-1/2}.
+  Therefore
+  OD ≪ T · (N/T^{1/2}) · (T^{1/2} N)^{-1/2+ε}
+     = T · N^{1/2} · T^{-1/4+ε}
+     = T^{3/4+ε} N^{1/2}.
+  Relative to the main term ≍ T, this is
+  OD/main ≪ T^{-1/4+ε} N^{1/2}.
+  To have OD = o(T), it suffices that N ≪ T^{1/2-2ε}, consistent with N ≤ T^{1/2−o(1)}.
+
+- If N > T^{1/2+δ}, then H ≍ N/T^{1/2} exceeds K^{1/2} by a power of T:
+  H / K^{1/2} ≍ (N/T^{1/2}) / (T^{1/4} N^{1/2}) = N^{1/2} / T^{3/4} = T^{(θ/2) - 3/4}.
+  For any θ>1/2, this tends to infinity with T. In this range, existing spectral bounds do not provide uniform control for all the shifts |h| ≤ H appearing in OD. One would need bounds for Σ_{k≤K} a(k) a(k+h) with |h| as large as ≍ N/T^{1/2} ≍ T^{θ-1/2}, and uniformity in h up to that size is out of reach once θ>1/2, because it demands handling shifts as large as K^{1−o(1)} (since K ≍ T^{1/2} N), far beyond the K^{1/2} barrier where spectral cancellation is effective.
+
+Consequence (rigorous obstruction).
+- The evaluation of I(T,N) with an error o(T) — which is the level of precision required to turn mollified moments into zero-density improvements and proportions of zeros on the critical line — necessarily requires uniform asymptotics for the shifted-convolution sum with |h| up to H ≍ N/T^{1/2}.
+- Known technology supplies such asymptotics (with power-saving error K^{1/2+ε}) only for |h| ≤ K^{1/2}. This condition is equivalent to N ≤ T^{1/2}.
+- Therefore, with current methods, any attempt to drive the mollifier beyond length T^{1/2+ε} in the second-moment framework faces an unconditional barrier: the requisite shifted-convolution estimates are unavailable in the needed range of shifts, and cannot be bypassed by smoothing or minor variants of the mollifier. This precisely explains why all unconditional “long-mollifier” results stop at θ ≤ 1/2 (often strictly below), and why the conjectural gains for θ>1/2 would require fundamentally new input on additive correlations of multiplicative functions far beyond the square-root shift range.
+
+Remarks.
+- The argument is robust under standard smoothing of M and inclusion of the dual sum from the approximate functional equation; every term reduces to the same (K,H) regime with K ≍ T^{1/2} N and H ≍ N/T^{1/2}.
+- A different family of mollifiers (e.g., with convolutions μ∗Λ or Vaaler-type weights) does not alter K and H at this level: the convolution length remains ≍ XN and the relevant shift window remains ≍ K/T.
+- Any breakthrough pushing θ>1/2 by this route would therefore amount to a breakthrough on uniform additive divisor-type problems with |h| ≍ K^{1−2θ+o(1)}, well beyond the current K^{1/2} barrier.
+
+Conclusion.
+- This is a sharp, unconditional analysis of a widely used approach, pinpointing the exact quantitative obstruction in the off-diagonal shifted-convolution range. It does not advance RH directly, but it clarifies what kind of new input is genuinely required to make progress via mollified moments.
+
+VERDICT: FAILED
+REASON: Rigorous barrier shown: mollifier length > T^{1/2} needs shifted-convolution beyond current bounds

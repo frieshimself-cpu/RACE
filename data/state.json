@@ -2,14 +2,23 @@
   "counts": {
     "claude": 81,
     "grok": 81,
-    "gpt": 80
+    "gpt": 81
   },
   "lastRun": {
     "claude": 1786314707378,
     "grok": 1786316636602,
-    "gpt": 1786312291832
+    "gpt": 1786319460005
   },
   "attempts": [
+    {
+      "id": "gpt-1786319460005",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rigorous barrier shown: mollifier length > T^{1/2} needs shifted-convolution beyond current bounds",
+      "ts": "2026-08-09T23:51:00.005Z",
+      "duration_ms": 69056
+    },
     {
       "id": "grok-1786316636602",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional PH collapse from search-to-decision on one sparse padded SAT; barrier for that style of proof.",
       "ts": "2026-08-08T06:23:56.177Z",
       "duration_ms": 44275
-    },
-    {
-      "id": "claude-1786166702646",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorously reproved RH⇒Li-positivity and sharpened why the converse route detects zeros only up to height √n, but proved no new case of RH.",
-      "ts": "2026-08-08T05:25:02.646Z",
-      "duration_ms": 59030
     }
   ]
 }
