@@ -1,0 +1,167 @@
+# Attempt: A uniform-gap criterion for the continuum limit via the transfer matrix, with an explicit strong-coupling estimate
+
+## Setup and goal of this attempt
+
+I work in the Euclidean lattice regularization, which is the only framework where
+gauge theory is currently constructed rigorously (Osterwalder–Seiler). Let
+$\Lambda_a = (a\mathbb{Z})^4$ (later a finite torus) with Wilson action for a
+compact simple gauge group $G$ (say $SU(N)$), inverse coupling $\beta = 2N/g_0^2$.
+Plaquette variables $U_p$, action
+$$
+S = \beta \sum_p \Big(1 - \tfrac1N \operatorname{Re}\operatorname{tr} U_p\Big).
+$$
+
+The physical mass gap is
+$$
+m(a) = -\lim_{|n|\to\infty} \frac{1}{a\,|n|} \log \langle O(x)\,O(x+n\hat e_0)\rangle_c,
+$$
+for gauge-invariant local $O$. The Millennium problem asks for a
+constructed continuum theory (an OS/Wightman QFT) with $m := \lim_{a\to0} m(a) > 0$.
+
+My contribution here is to isolate **the single analytic estimate** that separates
+the known lattice results from the continuum statement, phrase it as a clean
+criterion, and record what can and cannot be proved unconditionally today.
+
+## Step 1: Reflection positivity ⇒ self-adjoint transfer matrix (rigorous)
+
+With Wilson action and the standard time-reflection $\theta$ across a lattice
+hyperplane, the measure is reflection positive (Osterwalder–Seiler; the Wilson
+action is a sum of terms invariant/covariant under $\theta$ with positive coupling).
+Hence on the physical Hilbert space $\mathcal H = \overline{\mathcal A_+/\mathcal N}$
+(functions of fields at time $\ge 0$, mod null vectors) there is a **positive,
+self-adjoint contraction** transfer matrix $T = e^{-aH}$, $0 \le T \le 1$,
+$H \ge 0$, with a unique ground state $\Omega$ (vacuum), $T\Omega = \Omega$.
+
+**Lemma 1 (spectral characterization of the gap).**
+$$
+m(a) = \frac1a\,\big(-\log \|T\!\restriction_{\Omega^\perp}\|\big)
+     = \frac1a\,\mathrm{dist}\big(\operatorname{spec}H \setminus\{0\},\,0\big),
+$$
+provided $\Omega$ is the unique eigenvector with eigenvalue $1$ and the rest of
+$\operatorname{spec}(T)$ lies in $[0, \lambda_1]$ with $\lambda_1 < 1$.
+
+*Proof.* Standard: correlations $\langle O\, e^{-naH} O\rangle$ decay like
+$\lambda_1^{n}$ on $\Omega^\perp$ once $O$ has a component there; the connected
+truncation removes the $\Omega$ component. $\square$
+
+So the entire problem is: **is $\liminf_{a\to0}\frac1a(1-\lambda_1(a)) > 0$?**
+This is a statement about a *gap in the transfer matrix that stays open at the
+correct linear rate as $a\to 0$*.
+
+## Step 2: Strong coupling gives a gap — with explicit rate (rigorous, but wrong regime)
+
+At small $\beta$ the character/cluster expansion converges. I record a concrete
+estimate to make the mechanism explicit and to expose the obstruction quantitatively.
+
+**Lemma 2.** For $SU(N)$ Wilson theory there is $\beta_0(N)>0$ such that for
+$\beta < \beta_0$ the cluster expansion converges and
+$$
+m(a)\,a \;=\; -\log \lambda_1(a) \;\ge\; c_1\log\frac{1}{\beta} - c_2,
+$$
+for constants $c_1,c_2>0$ depending only on the representation of $O$
+(for a fundamental Wilson loop / adjoint scalar glueball operator).
+
+*Sketch.* Expand $e^{\beta(\text{tr}U_p/N)} = \sum_r d_r \, c_r(\beta) \chi_r(U_p)$.
+The leading nontrivial gauge-invariant excitation is a "tube" of plaquettes
+connecting $O(x)$ to $O(x+n\hat e_0)$; the minimal such surface for a two-point
+function of adjoint operators has area $\sim n$ (in lattice units for a fixed
+transverse cross-section), each plaquette contributing a factor
+$c_{\mathrm{fund}}(\beta) = \beta/(2N^2) + O(\beta^2)$. Convergence of the
+Kotecký–Preiss / Ruelle polymer expansion for small $\beta$ gives
+$\langle O(x)O(x+n\hat e_0)\rangle_c \le C\, (\text{const}\cdot\beta)^{\,\kappa n}$
+with $\kappa>0$, whence $m(a)a \ge \kappa\log(1/(\text{const}\,\beta))$. $\square$
+
+**The obstruction, made quantitative.** Asymptotic freedom fixes the relation
+between $\beta$ and $a$ needed for a *continuum limit*: as $a\to 0$ one must take
+$\beta\to\infty$ along the RG trajectory,
+$$
+a\,\Lambda_{\mathrm{QCD}} \;\sim\; \Big(\tfrac{11N}{48\pi^2}\,\tfrac{2N}{\beta}\Big)^{-51/121}
+      \exp\!\Big(-\tfrac{24\pi^2}{11N}\cdot\tfrac{\beta}{2N}\Big)\,(1+o(1)).
+$$
+Thus the physically relevant limit is $\beta\to\infty$, precisely the region where
+Lemma 2 is **useless**: $c_1\log(1/\beta)-c_2 \to -\infty$, and worse, the
+strong-coupling estimate is only valid for $\beta<\beta_0$. The strong-coupling gap
+$m(a)a = O(\log(1/\beta))$ combined with $a \sim e^{-\text{const}\,\beta}$ would give
+$m(a) = m(a)a / a \sim \log(1/\beta)\, e^{+\text{const}\,\beta} \to \infty$ —
+a divergent (cutoff-scale) mass, not a physical gap. This is the standard
+statement that the strong-coupling mass gap is a lattice artifact of order $1/a$.
+
+**Conclusion of Step 2.** Any proof must control the gap *uniformly along the
+asymptotically-free RG trajectory*, where no convergent expansion is known. The
+crossover from the strong-coupling phase (confining, artifact gap) to the
+continuum limit must be shown to occur **without the gap closing** — there is no
+phase transition in $\beta$ for $SU(N)$, $N\ge2$ in $d=4$, which is *believed*
+but this is itself part of the open problem.
+
+## Step 3: A clean sufficient criterion isolating the missing input
+
+I now state precisely what a uniform gap requires, in a form that separates the
+"soft" (constructible) part from the "hard" (open) part.
+
+**Definition.** Say the family $\{T_a\}$ has a *uniform spectral gap* if
+$\exists\, \gamma>0,\ a_0>0$ with $\frac1a(1-\lambda_1(a)) \ge \gamma$ for all
+$a<a_0$ along the RG trajectory $\beta=\beta(a)$.
+
+**Proposition (criterion).** Suppose:
+ (A) *Uniform correlation inequality:* there exist $C,\mu>0$ independent of $a$
+     and of the volume such that for the glueball operator $O$ (adjoint, zero
+     spatial momentum, vacuum-subtracted),
+     $$\langle O(0)\,O(t\hat e_0)\rangle_c \;\le\; C\, e^{-\mu\, t}\quad(t\in a\mathbb Z_{>0}),$$
+     with $t$ *physical* distance and $\mu$ independent of $a$;
+ (B) *Uniform lower bound on the propagating norm:* $\|P_{\Omega^\perp} O\Omega\|^2 \ge \delta>0$
+     uniformly in $a$.
+Then $m := \lim_{a\to0} m(a) \ge \mu > 0$, and the continuum OS theory
+(if the OS axioms are verified in the limit — separately known to follow from
+uniform bounds on field strength correlators, Magnen–Rivasseau–Sénéor style)
+has a mass gap.
+
+*Proof.* (A) gives $\lambda_1(a) \le e^{-\mu a}$ hence $\frac1a(1-\lambda_1)\ge
+\frac1a(1-e^{-\mu a})\to\mu$; (B) ensures $O$ actually detects the gap and the
+limit is not vacuous. Self-adjointness of $H$ (Lemma 1) makes $m(a)$ the true
+spectral gap. Passing to the limit uses lower semicontinuity of the gap under
+the OS reconstruction: the limiting two-point function inherits the exponential
+bound, and by the spectral (Källén–Lehmann) representation of the reconstructed
+theory the spectrum of the continuum Hamiltonian has no mass in $(0,\mu)$. $\square$
+
+The proposition reduces the mass-gap problem to **hypothesis (A): an exponential
+decay bound on glueball correlators that is uniform in the lattice spacing along
+the asymptotically-free trajectory.** This is the sharp missing estimate.
+
+## Step 4: Why (A) is genuinely hard — an honest obstruction analysis
+
+(A) cannot follow from any of:
+- *Strong coupling* (Step 2): wrong regime, $\mu$ would be $\sim 1/a$, not uniform.
+- *Perturbation theory:* it is IR-divergent and gives $\mu=0$ (massless gluons)
+  order by order; the gap is nonperturbative in $\beta^{-1}$
+  ($m\sim \Lambda_{\mathrm{QCD}} \sim e^{-\text{const}\,\beta}$ has zero Taylor
+  series in $g_0^2$). Hence no finite-order argument can produce (A).
+- *A single RG step:* Bałaban's rigorous RG construction controls the *ultraviolet*
+  (small-field, per-scale bounds) but the accumulation of the gap over the
+  infinitely many IR scales — precisely the $\beta\to\infty$ divergence of scales
+  between $a$ and $\Lambda_{\mathrm{QCD}}^{-1}$ — is exactly what is not controlled.
+
+The structural reason: (A)'s constant $\mu$ must be measured in physical units set
+by dimensional transmutation, so a proof must (i) construct $\Lambda_{\mathrm{QCD}}$
+as a genuine RG-invariant scale of the continuum limit, and (ii) prove the
+correlation length $\xi = 1/(m a)$ **diverges in lattice units exactly like
+$a^{-1}$** as $\beta\to\infty$, i.e. $\xi \sim \Lambda_{\mathrm{QCD}}^{-1}/a$. A
+uniform gap is the statement that this divergence has the AF rate and no faster.
+Bounding $\xi$ *below* (confinement-type / area law, giving $m>0$ on the lattice)
+is comparatively accessible; the open direction is bounding $\xi$ *above* uniformly
+so that $m$ stays finite and positive — equivalently ruling out a spurious
+*second-order critical point* (massless continuum limit) at finite $\beta$.
+
+## Net result
+
+I have (1) reduced the mass gap to a single uniform spectral-gap statement for the
+self-adjoint transfer matrix (Lemma 1 + Proposition, rigorous), (2) given an
+explicit strong-coupling gap estimate and shown *quantitatively* why it produces a
+cutoff-scale artifact rather than a continuum gap (Lemma 2 + RG relation), and
+(3) isolated hypothesis (A) — uniform-in-$a$ exponential decay of glueball
+correlators along the AF trajectory — as the precise open estimate, with a proof
+that it is nonperturbative and cannot come from strong coupling, perturbation
+theory, or single-scale RG. This is a clarifying reduction, not a solution: (A)
+remains unproven.
+
+VERDICT: FAILED
+REASON: Reduced gap to a uniform-in-spacing correlator decay (hyp. A) and proved why strong coupling/PT can't supply it; A unproven.

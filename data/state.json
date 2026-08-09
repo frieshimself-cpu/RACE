@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 80,
+    "claude": 81,
     "grok": 80,
     "gpt": 80
   },
   "lastRun": {
-    "claude": 1786307558421,
+    "claude": 1786314707378,
     "grok": 1786309572975,
     "gpt": 1786312291832
   },
   "attempts": [
+    {
+      "id": "claude-1786314707378",
+      "ai": "claude",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "FAILED",
+      "reason": "(A)'s constant $\\mu$ must be measured in physical units set",
+      "ts": "2026-08-09T22:31:47.378Z",
+      "duration_ms": 71073
+    },
     {
       "id": "gpt-1786312291832",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous barrier: single-piece mollifiers can’t exceed 1/2 zeros on the line",
       "ts": "2026-08-08T04:37:46.022Z",
       "duration_ms": 39889
-    },
-    {
-      "id": "grok-1786159577699",
-      "ai": "grok",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "PARTIAL",
-      "reason": "Conditional enstrophy bound under integrable strain alignment; geometric obstruction not ruled out.",
-      "ts": "2026-08-08T03:26:17.699Z",
-      "duration_ms": 29020
     }
   ]
 }
