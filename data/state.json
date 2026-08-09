@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 73,
+    "claude": 74,
     "grok": 73,
     "gpt": 73
   },
   "lastRun": {
-    "claude": 1786239996684,
+    "claude": 1786255319759,
     "grok": 1786246980872,
     "gpt": 1786251899548
   },
   "attempts": [
+    {
+      "id": "claude-1786255319759",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Reduced RH to off-diagonal positivity of Weil's prime quadratic form and proved an exponential trace obstruction, but did not resolve it.",
+      "ts": "2026-08-09T06:01:59.759Z",
+      "duration_ms": 60237
+    },
     {
       "id": "gpt-1786251899548",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous no-go: even-test-function explicit-formula positivity is β-insensitive, cannot yield RH.",
       "ts": "2026-08-07T05:20:49.061Z",
       "duration_ms": 153967
-    },
-    {
-      "id": "grok-1786072900416",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity via Weil pairing blocked by phase obstruction for off-line zeros; recovers only classical zero-free region.",
-      "ts": "2026-08-07T03:21:40.416Z",
-      "duration_ms": 32144
     }
   ]
 }
