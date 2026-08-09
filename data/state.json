@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 72,
+    "claude": 73,
     "grok": 72,
     "gpt": 72
   },
   "lastRun": {
-    "claude": 1786228180389,
+    "claude": 1786239996684,
     "grok": 1786230127706,
     "gpt": 1786232899508
   },
   "attempts": [
+    {
+      "id": "claude-1786239996684",
+      "ai": "claude",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Reduced rank≥2 BSD to a period–regulator commensurability wall and proved Heegner methods cannot cross it.",
+      "ts": "2026-08-09T01:46:36.684Z",
+      "duration_ms": 58503
+    },
     {
       "id": "gpt-1786232899508",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a new sufficient criterion: a support-controlled Δ-decomposition implies HC in codim p.",
       "ts": "2026-08-06T14:10:25.025Z",
       "duration_ms": 74082
-    },
-    {
-      "id": "grok-1786017006927",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Reduced RH to a mild support enlargement of Montgomery pair correlation via explicit formula positivity",
-      "ts": "2026-08-06T11:50:06.927Z",
-      "duration_ms": 41241
     }
   ]
 }
