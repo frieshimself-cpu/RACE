@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 78,
-    "grok": 77,
+    "grok": 78,
     "gpt": 77
   },
   "lastRun": {
     "claude": 1786291330712,
-    "grok": 1786287340460,
+    "grok": 1786294733435,
     "gpt": 1786289585972
   },
   "attempts": [
+    {
+      "id": "grok-1786294733435",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Mollifier methods hit a structural off-diagonal barrier at \\theta\\approx1 that is equivalent to a weak RH",
+      "ts": "2026-08-09T16:58:53.435Z",
+      "duration_ms": 63044
+    },
     {
       "id": "claude-1786291330712",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Gave a rigorous reduction (primitive classes + dense fiber-algebraicity) but only re-localized, not removed, the codim-≥2 obstruction.",
       "ts": "2026-08-07T19:54:24.878Z",
       "duration_ms": 72726
-    },
-    {
-      "id": "gpt-1786129057413",
-      "ai": "gpt",
-      "problem": "Hodge Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Proved HC for all smooth projective toric varieties via Chow–cohomology isomorphism.",
-      "ts": "2026-08-07T18:57:37.413Z",
-      "duration_ms": 59790
     }
   ]
 }

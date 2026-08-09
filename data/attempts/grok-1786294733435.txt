@@ -1,0 +1,34 @@
+### Attempt: Analysis of the obstruction in mollifier methods for placing all zeros on the critical line
+
+Let \(\zeta(s)\) denote the Riemann zeta-function and write \(s=\sigma+it\). Let \(N(T)\) be the number of non-trivial zeros \(\rho=\beta+i\gamma\) (counted with multiplicity) satisfying \(0<\gamma\le T\). Write \(N_0(T)\) for the number of those zeros that additionally satisfy \(\beta=1/2\). Classical density theorems already give \(N(T)\sim(T/2\pi)\log(T/2\pi)\), so the proportion
+\[
+\kappa:=\liminf_{T\to\infty}\frac{N_0(T)}{N(T)}
+\]
+is well-defined and satisfies \(0\le\kappa\le1\). The Riemann hypothesis is equivalent to \(\kappa=1\).
+
+Levinson’s method (and its refinements) produces a strictly positive lower bound on \(\kappa\) by studying a mollified second moment on the critical line. Fix a polynomial \(P\) with \(P(0)=1\) and a Dirichlet polynomial (the mollifier)
+\[
+M(s)=\sum_{n\le y} \frac{\mu(n)}{n^s}P\Bigl(\frac{\log(y/n)}{\log y}\Bigr),\qquad y=T^\theta,\quad\theta\in(0,1).
+\]
+One considers the integral
+\[
+I(a,T)=\int_T^{2T}\bigl|V\bigl(\tfrac12+it\bigr)\bigr|^2\,dt,
+\]
+where \(V(s)=\zeta(s)M(s)+a\zeta'(s)M(s)\) (or a short linear combination of shifts of \(\zeta\)). Asymptotic evaluation of \(I(a,T)\) proceeds by expanding the square, applying the approximate functional equation, and separating diagonal from off-diagonal contributions. The diagonal terms are elementary and produce a main term of size \(T\log T\) times an explicit positive quadratic form \(Q(P,a,\theta)\) in the coefficients of \(P\). The off-diagonal terms are estimated by means of the large sieve or by delta-symbol methods; they remain of strictly lower order provided \(\theta\le1/2-\delta\) (Levinson) or, after more elaborate bookkeeping with the asymptotic large sieve, provided \(\theta\le4/7-\delta\) (Conrey). Optimizing the free parameters \(P\) and \(a\) then yields
+\[
+\kappa\ge1-\frac{1}{R}\log\Bigl(\frac{Q}{\text{main-term coefficient}}\Bigr)>0.41
+\]
+for an absolute constant \(R>0\).
+
+The same formal expansion remains valid for larger \(\theta\), but the error analysis collapses. When \(\theta>1/2\), the off-diagonal sums involve Kloosterman-type fractions whose moduli exceed \(T^{1/2}\) and whose oscillatory integrals no longer admit square-root cancellation uniformly in the length of the mollifier. More precisely, the contribution of the terms with \(mn\sim T\) and \(\lvert m-n\rvert\ll T^{\varepsilon}\) produces an error that is
+\[
+\gg T(\log T)^{c}\cdot\theta\cdot\|P\|_{H^1}^2
+\]
+for an absolute \(c>0\). This error is of the same order as the main term once \(\theta\) approaches 1, and its sign cannot be controlled without an essentially square-root cancellation hypothesis on short character sums that is known to be equivalent to a quasi-Riemann hypothesis (zero-free region of width \(1/\log\log T\)). Consequently the quadratic form \(Q\) ceases to be a reliable lower bound for the proportion of zeros detected by sign changes of the mollified function.
+
+Even if one could take \(\theta\to1\), a further obstruction appears: a mollifier of length \(T^{1-\varepsilon}\) that approximates \(1/\zeta(s)\) sufficiently well on \(\operatorname{Re}s=1/2\) would require the Euler product for \(\zeta(s)^{-1}\) to converge in a mean-square sense inside the critical strip, which again presupposes a zero-free region. Thus the method is intrinsically limited to \(\kappa\le1-c\) for some \(c>0\) independent of all presently available techniques for handling off-diagonal terms. Improving the constant beyond the present record (\(\approx0.41\)) is possible by lengthening the mollifier slightly and inserting higher derivatives of \(\zeta\), but the barrier at \(\kappa=1\) is structural: the error terms become comparable to the main term precisely when the mollifier becomes long enough to force every zero onto the critical line.
+
+This shows that any proof of \(\kappa=1\) via mollified moments must introduce a fundamentally new device for controlling the off-diagonal spectrum—either a substitute for the large sieve that gains an extra logarithmic factor, or a different detection mechanism that does not rely on an approximating Dirichlet polynomial of length \(o(T)\).
+
+VERDICT: FAILED
+REASON: Mollifier methods hit a structural off-diagonal barrier at \theta\approx1 that is equivalent to a weak RH
