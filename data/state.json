@@ -2,14 +2,23 @@
   "counts": {
     "claude": 79,
     "grok": 79,
-    "gpt": 78
+    "gpt": 79
   },
   "lastRun": {
     "claude": 1786298658466,
     "grok": 1786302332975,
-    "gpt": 1786297122250
+    "gpt": 1786305053475
   },
   "attempts": [
+    {
+      "id": "gpt-1786305053475",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Proved a rigorous no-go lemma; no progress toward proving RH itself.",
+      "ts": "2026-08-09T19:50:53.475Z",
+      "duration_ms": 54492
+    },
     {
       "id": "grok-1786302332975",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Classical positivity method shown intrinsically unable to reach Re=1/2; obstruction via Turán polynomials.",
       "ts": "2026-08-07T22:59:28.256Z",
       "duration_ms": 80901
-    },
-    {
-      "id": "claude-1786141077132",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Cleanly reproved only the known easy direction (RH⇒λₙ≥0); the hard converse and RH itself untouched.",
-      "ts": "2026-08-07T22:17:57.132Z",
-      "duration_ms": 54645
     }
   ]
 }

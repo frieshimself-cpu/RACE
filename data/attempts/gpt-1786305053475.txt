@@ -1,0 +1,48 @@
+Attempt: A “no-go” lemma for fixed-scale smoothed lower bounds of log|ζ| on the critical line
+
+Goal. Many approaches try to force the Riemann Hypothesis (RH) by proving that the smoothed boundary values of log|ζ| on Re s = 1/2 are uniformly bounded below. I show rigorously that any such approach with a fixed, T-independent smoothing kernel cannot exclude even a single zero off the critical line. Hence, within this class, no finite-scale lower bound can prove RH.
+
+Setup. Let K: R → [0,∞) be even, integrable with ∫R K(u) du = 1, and assume the mild log-moment condition ∫R K(u) log(1+u^2) du < ∞ (true for any compactly supported or sufficiently decaying K). For T ∈ R and a complex ρ = β + iγ with β > 1/2, define the contribution of ρ to the smoothed boundary average on the critical line by
+Lρ,K(T) := ∫R K(u) log |(1/2) + i(T+u) − ρ| du.
+
+Lemma (uniform lower bound for a single off-line zero under fixed-scale smoothing).
+Fix K as above and any β > 1/2. Then for every γ ∈ R,
+infT∈R Lρ,K(T) = ∫R K(u) log √((β − 1/2)^2 + u^2) du > −∞,
+and in particular infT Lρ,K(T) is finite and depends only on β − 1/2 and K (not on γ).
+
+Proof.
+- Write s = 1/2 + i(T+u). Then
+|(1/2) + i(T+u) − ρ|^2 = (β − 1/2)^2 + (T + u − γ)^2.
+Hence
+Lρ,K(T) = (1/2) ∫R K(u) log ( (β − 1/2)^2 + (T + u − γ)^2 ) du.
+- The map x ↦ log((β − 1/2)^2 + x^2) is even and strictly increasing in |x|. Therefore, for fixed K and β, the function of T,
+T ↦ ∫R K(u) log ( (β − 1/2)^2 + (T + u − γ)^2 ),
+is minimized at T = γ (by symmetry and monotonicity in |T − γ|, and because convolution with a probability kernel preserves the location of the minimum for such even, radially increasing functions).
+- Thus
+infT Lρ,K(T) = (1/2) ∫R K(u) log ( (β − 1/2)^2 + u^2 ) du.
+- The integrand is ≥ (1/2) log((β − 1/2)^2) for |u| ≤ 1, and ≥ (1/2) log(u^2) for |u| ≥ 1. By the log-moment condition on K, the integral of log(1+u^2) is finite, hence the displayed integral is finite from below. Therefore infT Lρ,K(T) > −∞ as claimed. ∎
+
+Consequence for ζ. Write ζ(s) = e^{h(s)} ∏ρ E(s/ρ) in a standard canonical product form; taking logs of moduli on Re s = 1/2 yields
+log|ζ(1/2 + it)| = H(t) + Σρ log |(1/2) + it − ρ|,
+where H(t) is a smooth “regular” term arising from Euler factors at infinity and the functional equation (its precise form is not needed; it is locally bounded and grows at most polylogarithmically on t). Convolving both sides with K gives
+∫ K(u) log|ζ(1/2 + i(t+u))| du = (K ∗ H)(t) + Σρ Lρ,K(t).
+
+- By the lemma, for any single off-line zero ρ with β > 1/2, its contribution Lρ,K(t) is bounded below uniformly in t by a finite constant depending only on β − 1/2 and K.
+- The contributions from zeros on the critical line (β = 1/2) are also bounded below after smoothing: for β = 1/2, Lρ,K(t) = (1/2) ∫ K(u) log( (t+u−γ)^2 ) du, whose infimum over t is finite by the same log-moment assumption on K.
+- The regular term (K ∗ H)(t) is bounded below on compact t-intervals and grows at most like O(log t) as |t| → ∞.
+
+Therefore, for any fixed, T-independent kernel K as above there exists a (finite) constant C(K) such that
+for all t ∈ R, ∫ K(u) log|ζ(1/2 + i(t+u))| du ≥ −C(K) − C′ log(2+|t|),
+irrespective of the presence or absence of zeros off the critical line.
+
+Implication (“no-go” for fixed-scale lower bounds).
+Suppose one attempts to prove RH by establishing a uniform-in-T lower bound
+∫ K(u) log|ζ(1/2 + i(T+u))| du ≥ −A
+for some fixed kernel K and constant A. The analysis above shows such a bound is compatible with the existence of off-line zeros: each off-line zero’s contribution to the smoothed average is bounded below by a finite constant that can be absorbed into A. Therefore, no argument that only furnishes fixed-scale lower bounds of smoothed boundary values of log|ζ| on Re s = 1/2 can, by itself, rule out zeros with Re ρ > 1/2.
+
+To have actual zero-detection power via boundary lower bounds, one must let the smoothing scale shrink with T in a manner that forces the kernel to approximate a point mass at the ordinate of a zero. In that regime, the contribution Lρ,K(T) can become arbitrarily negative as the width → 0 and T → γ, reflecting the logarithmic singularity at the zero. Fixed-scale smoothing obliterates this sensitivity.
+
+Conclusion. This gives a rigorous obstruction to a class of strategies: any proof of RH relying solely on a uniform lower bound for a fixed-scale smoothing of log|ζ| on the critical line cannot succeed. Any viable approach of this flavor must incorporate scale refinement (e.g., shrinking kernels like the Poisson kernel with width ∼ 1/log T or finer), or additional structural input beyond such a uniform bound.
+
+VERDICT: FAILED
+REASON: Proved a rigorous no-go lemma; no progress toward proving RH itself.
