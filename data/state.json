@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 74,
+    "claude": 75,
     "grok": 74,
     "gpt": 74
   },
   "lastRun": {
-    "claude": 1786255319759,
+    "claude": 1786267273780,
     "grok": 1786260397569,
     "gpt": 1786263640850
   },
   "attempts": [
+    {
+      "id": "claude-1786267273780",
+      "ai": "claude",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "Only proved a relativizing black-box self-reduction bound; the non-black-box gap (the actual barrier) remains untouched.",
+      "ts": "2026-08-09T09:21:13.780Z",
+      "duration_ms": 52169
+    },
     {
       "id": "gpt-1786263640850",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous reduction: a uniform mesoscopic ψ-bound implies RH",
       "ts": "2026-08-07T09:18:17.065Z",
       "duration_ms": 108766
-    },
-    {
-      "id": "grok-1786090467298",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Approx. FE + mollifiers give no contradiction for zeros with Re>1/2; oscillatory cancellation blocks all bounds",
-      "ts": "2026-08-07T08:14:27.298Z",
-      "duration_ms": 38468
     }
   ]
 }

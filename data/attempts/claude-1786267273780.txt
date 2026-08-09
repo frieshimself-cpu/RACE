@@ -1,0 +1,122 @@
+# Attempt: Structural obstruction to separating P from NP via "sparse witness compression"
+
+I focus on one concrete sub-question and try to prove a clean lemma, then honestly
+assess its reach.
+
+## Setup
+
+A language $L \in \mathrm{NP}$ has a verifier $V(x,w)$ running in time $|x|^c$ with
+witnesses $|w| \le |x|^c$. A natural intuition for why $\mathrm{P} \ne \mathrm{NP}$
+is: for hard problems, the *set of accepting witnesses* is "structureless," so no
+polynomial-time search can localize one. I want to make one piece of this precise
+and then show exactly where it breaks — a useful barrier-clarification.
+
+## Lemma (Witness-count dichotomy)
+
+Let $L$ be NP-complete via a verifier $V$. Define the counting function
+$$
+\#V(x) = |\{w : V(x,w)=1\}|.
+$$
+Claim: If for the SAT verifier there were a polynomial-time algorithm $A$ such that
+$A(x)$ outputs a $2$-approximation to $\#V(x)$ (i.e. $\tfrac12 \#V(x) \le A(x) \le 2\#V(x)$),
+then $\mathrm{P} = \mathrm{NP}$.
+
+**Proof.** Approximate counting to within a constant factor for SAT is enough to
+decide SAT (distinguish $0$ from $\ge 1$ satisfying assignments): a $2$-approximation
+$A$ satisfies $A(x)=0 \iff \#V(x)=0$ up to the multiplicative guarantee. Indeed if
+$\#V(x)=0$ then $A(x)\le 2\cdot 0 =0$, and if $\#V(x)\ge1$ then $A(x)\ge \tfrac12>0$.
+So $A$ decides SAT in polynomial time, giving $\mathrm P=\mathrm{NP}$. $\qquad\blacksquare$
+
+(This is essentially Valiant–Vazirani in spirit but the direct form above is trivial;
+I state it to fix the target: **hardness lives entirely in the $0$-vs-$\ge1$ boundary**,
+not in the magnitude of $\#V$.)
+
+## The real attempt: can we lower-bound the boundary complexity?
+
+Consider the "boundary indicator" $b_L(x) = [\,\#V(x) \ge 1\,] = [x\in L]$. To
+separate P from NP we must show some NP language's $b_L$ is not computable in
+polynomial time. I try a *self-reduction stability* argument specific to SAT.
+
+SAT has the downward self-reduction: $\phi \in \mathrm{SAT} \iff \phi[x_1{=}0]\in
+\mathrm{SAT}$ or $\phi[x_1{=}1]\in\mathrm{SAT}$. Define the self-reduction tree $T_\phi$:
+a binary tree of depth $n$ (number of variables) where each node is a partial
+assignment and the leaves are complete assignments. $\phi\in\mathrm{SAT}$ iff some
+leaf is satisfying.
+
+**Observation A.** A polynomial-time decider for SAT is equivalent to a
+polynomial-time *oracle* that, given any internal node $\nu$, returns whether the
+subtree under $\nu$ contains a satisfying leaf. Call this the *node-oracle*.
+
+**Attempted lower bound.** Suppose we try to prove no poly-time algorithm can
+implement the node-oracle. A promising angle: an adversary answering oracle queries
+adaptively to keep both "SAT" and "UNSAT" consistent. The number of leaves is $2^n$;
+a poly-time algorithm inspects only $\mathrm{poly}(n)$ nodes.
+
+Here is the concrete adversary. Present the algorithm a formula-schema on which its
+queries touch a set $Q$ of at most $q=\mathrm{poly}(n)$ nodes. Each node $\nu$
+corresponds to a partial cube $C_\nu\subseteq\{0,1\}^n$ of leaves. The algorithm's
+verdict is a function of the answers on $Q$. The adversary wants to choose the true
+satisfying set $S\subseteq\{0,1\}^n$ so that: (i) answers on $Q$ are consistent with
+some choice, yet (ii) both $S=\emptyset$ and $S\ne\emptyset$ remain possible.
+
+**Where it fails — and this is the honest core of the attempt.**
+The catch is that the algorithm does *not* have to be an oracle machine querying an
+opaque tree; it reads the *explicit encoding* of $\phi$. The node-oracle abstraction
+throws away that $\phi$ is a short (poly-size) object determining all $2^n$ leaves
+simultaneously via a *global algebraic constraint* (the CNF). An information-theoretic
+adversary over an opaque tree proves only:
+
+> **Sub-lemma (decision-tree/black-box bound).** Any algorithm that accesses the
+> self-reduction tree solely through the node-oracle and makes only $q$ queries
+> cannot decide SAT when $n$ is large enough that $2^n > 2^q$.
+
+*Proof.* With $q$ queries the algorithm distinguishes at most $2^q$ query-answer
+transcripts, hence induces at most $2^q$ distinct verdicts across all possible
+satisfying-sets. But there are $2^{2^n}$ possible satisfying-sets consistent with a
+fixed variable set, and the "empty vs. some specific singleton" pairs can be embedded
+so that every unqueried leaf's status is free. Choosing the single satisfying leaf to
+lie in a cube untouched by $Q$ (possible since $Q$'s cubes cover at most $q\cdot$(their
+sizes), and a leaf can always be placed in a maximal-depth unqueried node when
+$2^n>2^q$) flips the answer while keeping the transcript fixed. $\blacksquare$
+
+This sub-lemma is **rigorous but relativizing**: it is exactly the black-box content
+that the Baker–Gill–Solovay barrier already tells us cannot separate P from NP,
+because the CNF encoding provides non-black-box access. Concretely, a real SAT
+algorithm can *inspect the clauses* and deduce, without querying leaves, that (say)
+a subtree is unsatisfiable by unit propagation — an operation with no counterpart in
+the opaque-tree model. My adversary implicitly assumes the algorithm cannot exploit
+clause structure, which is false.
+
+## What survives (the partial result)
+
+The exercise pins down a precise dividing line:
+
+1. **Fully proven, unconditional:** In the *node-oracle / self-reduction-tree black-box
+   model*, deciding SAT requires $\ge \log_2(2^n)=n$ queries, i.e. the black-box
+   self-reduction gives no shortcut; any SAT algorithm beating brute force must use
+   the syntactic clause structure non-black-boxly. (This is a clean, if modest,
+   formalization of *why* clause-structure exploitation is not optional.)
+
+2. **Reduction of the whole problem:** Combined with the dichotomy Lemma, separating
+   P from NP is equivalent to exhibiting an NP language whose $0$-vs-$\ge1$ witness
+   boundary $b_L$ resists *all* non-black-box (clause-structure-exploiting)
+   polynomial-time procedures. The black-box adversary above is provably insufficient,
+   consistent with the relativization barrier.
+
+3. **Barrier localization:** My attempted lower bound fails at exactly the step where
+   the algorithm reads $\phi$'s bits rather than tree answers. Any candidate proof
+   must therefore contain a step that is *sensitive to the CNF encoding length being
+   polynomial* — a "non-relativizing hook." This is not new (BGS, natural proofs,
+   algebrization all say versions of it), but the derivation isolates it to a single
+   identifiable inference (Sub-lemma vs. Observation A gap).
+
+## Honest assessment
+
+I did not separate the classes. I proved a genuine but weak unconditional statement
+(the black-box self-reduction lower bound) and gave a clean reduction/equivalence,
+then explicitly located why the natural adversary argument collapses — reproducing the
+relativization barrier from a specific, self-contained construction rather than by
+citation. That is partial-progress-flavored clarification, not new separation power.
+
+VERDICT: FAILED
+REASON: Only proved a relativizing black-box self-reduction bound; the non-black-box gap (the actual barrier) remains untouched.
