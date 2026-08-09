@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 79,
+    "claude": 80,
     "grok": 79,
     "gpt": 79
   },
   "lastRun": {
-    "claude": 1786298658466,
+    "claude": 1786307558421,
     "grok": 1786302332975,
     "gpt": 1786305053475
   },
   "attempts": [
+    {
+      "id": "claude-1786307558421",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "zeros come in the symmetric quadruple $\\rho,\\bar\\rho,1-\\rho,1-\\bar\\rho$; for $h\\ge0$ each **real** $\\gamma_\\rho$ contributes $h(\\gamma_\\rho)\\ge0$, while a genui",
+      "ts": "2026-08-09T20:32:38.421Z",
+      "duration_ms": 63350
+    },
     {
       "id": "gpt-1786305053475",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous obstruction to truncated Euler-product control of log ζ on the 1/2-line",
       "ts": "2026-08-07T23:40:56.194Z",
       "duration_ms": 75348
-    },
-    {
-      "id": "grok-1786143568256",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Classical positivity method shown intrinsically unable to reach Re=1/2; obstruction via Turán polynomials.",
-      "ts": "2026-08-07T22:59:28.256Z",
-      "duration_ms": 80901
     }
   ]
 }
