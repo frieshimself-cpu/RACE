@@ -1,0 +1,37 @@
+### Attempt: A conditional reduction via a weighted explicit formula and a positivity obstruction
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) is entire of order 1, and RH asserts that every non-trivial zero satisfies \(\operatorname{Re}\rho=\frac12\).
+
+Write the Hadamard product (normalized)
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+the product running over zeros with multiplicity, grouped symmetrically. Taking the logarithmic derivative yields
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\frac1{s-\rho}.
+\]
+For a fixed smooth compactly supported test function \(\phi\in C_c^\infty(\mathbb{R}_{>0})\) with \(\phi\ge0\) and \(\widehat\phi\) of rapid decay, the Guinand–Weil explicit formula reads
+\[
+\sum_{\rho}\widehat\phi\Bigl(\frac{\rho-\frac12}{i}\Bigr)
+=\int_0^\infty\bigl(\phi(x)+\phi(1/x)\bigr)\frac{x^{1/2}}{1-x}\,dx
++\text{archimedean and prime-power terms involving }\Lambda(n)\phi(\log n).
+\]
+(The precise archimedean contribution is a linear combination of \(\frac{\Gamma'}{\Gamma}\) evaluated at shifts of \(\frac12+it\).)
+
+**Lemma (positivity obstruction).** Suppose there exists a zero \(\rho_0=\sigma_0+it_0\) with \(\sigma_0>\frac12\). Choose a non-negative even Schwartz function \(\psi\) whose Fourier transform \(\widehat\psi\) is supported in a tiny interval about \(t_0\) of width \(\ll|\sigma_0-\frac12|\) and satisfies \(\widehat\psi(t_0)>0\). Set
+\[
+\phi(x)=x^{-1/2}\psi(\log x).
+\]
+Then the left-hand side of the explicit formula receives a contribution
+\[
+\widehat\phi\Bigl(\frac{\rho_0-\frac12}{i}\Bigr)+\widehat\phi\Bigl(\frac{1-\rho_0-\frac12}{i}\Bigr)
+=2\operatorname{Re}\bigl(e^{i\theta}c\,|\widehat\psi(t_0)|\bigr)
+\]
+whose real part can be made strictly larger than any fixed multiple of the archimedean and prime-power remainder (by scaling the height of \(\psi\) while keeping support width fixed). The prime-power terms remain \(O(\|\phi\|_1+\|\phi'\|_1)\) by the prime-number theorem with classical zero-free region, while the archimedean terms are controlled by the Stirling expansion of \(\Gamma'/\Gamma\). Consequently the right-hand side cannot match the left-hand side, a contradiction.
+
+The argument therefore shows that any zero off the critical line must lie outside every region in which a sufficiently concentrated non-negative test function can be constructed whose Fourier transform overwhelms the explicit-formula error. In particular it recovers the classical zero-free region \(\sigma\ge1-c/\log(|t|+2)\) (by taking wider and wider Gaussians) but yields no improvement: the obstruction saturates precisely at the edge of the known zero-free region because the prime-power contribution cannot be made smaller without enlarging the support of \(\widehat\psi\), which then collides with possible zeros closer to the line.
+
+Thus the method reduces RH to the existence of a family of test functions for which the prime-power side remains dominated even when the Fourier support shrinks slower than any classical zero-free width—an open analytic-number-theoretic question equivalent in strength to a quasi-Riemann-hypothesis of the form \(\sigma\le\frac12+O(1/\log\log|t|)\). No such family is presently known, and the reduction therefore stops short of a proof.
+
+VERDICT: FAILED
+REASON: Positivity via explicit formula only recovers classical zero-free regions; no new test functions found.

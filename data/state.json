@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 81,
-    "grok": 80,
+    "grok": 81,
     "gpt": 80
   },
   "lastRun": {
     "claude": 1786314707378,
-    "grok": 1786309572975,
+    "grok": 1786316636602,
     "gpt": 1786312291832
   },
   "attempts": [
+    {
+      "id": "grok-1786316636602",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity via explicit formula only recovers classical zero-free regions; no new test functions found.",
+      "ts": "2026-08-09T23:03:56.602Z",
+      "duration_ms": 31614
+    },
     {
       "id": "claude-1786314707378",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously reproved RH⇒Li-positivity and sharpened why the converse route detects zeros only up to height √n, but proved no new case of RH.",
       "ts": "2026-08-08T05:25:02.646Z",
       "duration_ms": 59030
-    },
-    {
-      "id": "gpt-1786163866022",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous barrier: single-piece mollifiers can’t exceed 1/2 zeros on the line",
-      "ts": "2026-08-08T04:37:46.022Z",
-      "duration_ms": 39889
     }
   ]
 }
