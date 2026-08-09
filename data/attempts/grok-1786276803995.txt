@@ -1,0 +1,52 @@
+### Attempt: Strong-coupling mass gap on the lattice via convergent cluster expansion (partial step toward continuum YM)
+
+Let \(G\) be a compact simple Lie group (e.g., \(SU(N)\)). Consider the standard Wilson lattice gauge theory on \(\mathbb{Z}^4\) with plaquette action
+\[
+S_\Lambda(\{U\}) = \beta\sum_{p\subset\Lambda}\operatorname{Re}\operatorname{Tr}(1-U_p),\qquad\beta>0,
+\]
+where \(U_p\) is the oriented product of link variables around plaquette \(p\), and \(\Lambda\subset\mathbb{Z}^4\) is a finite box with periodic boundary conditions. The finite-volume measure is
+\[
+d\mu_\Lambda = Z_\Lambda^{-1}e^{-S_\Lambda}\prod_{\ell} dU_\ell,
+\]
+with \(dU_\ell\) Haar measure. Expectations of local observables (gauge-invariant polynomials in the \(U_\ell\)) are denoted \(\langle\cdot\rangle_{\Lambda,\beta}\).
+
+We prove that for all sufficiently small \(\beta>0\) there exists \(m(\beta)>0\) (the lattice mass gap) such that connected correlations of local observables decay exponentially:
+\[
+\bigl|\langle A(x)B(y)\rangle_{\Lambda,\beta}^c\bigr|\le C_{A,B}\,e^{-m|x-y|},
+\]
+uniformly in \(\Lambda\), where the constant \(C\) depends only on the supports and degrees of \(A,B\). (The continuum problem is then reduced to controlling the \(\beta\to\infty\) limit while keeping a renormalized mass fixed; that step is left open.)
+
+#### 1. Polymer representation
+Expand the Boltzmann weight by writing each plaquette factor as
+\[
+e^{-\beta\operatorname{Re}\operatorname{Tr}(1-U_p)} = 1 + \rho_p(U_p),\qquad|\rho_p|\le C\beta.
+\]
+The partition function becomes a sum over collections of plaquettes (polymers). A polymer \(\gamma\) is a finite connected set of plaquettes (connectivity via shared links). The activity of \(\gamma\) satisfies
+\[
+|z(\gamma)|\le(C\beta)^{|\gamma|},
+\]
+and the measure admits the absolutely convergent polymer expansion
+\[
+\langle A\rangle_{\Lambda,\beta} = \sum_{X\ni\operatorname{supp}A}z(X)\frac{Z_{\Lambda\setminus X}}{Z_\Lambda}
+\]
+(for \(\beta\) small enough that \(\sum_{\gamma\ni p}|z(\gamma)|e^{a|\gamma|}<1\) for a suitable \(a>0\)). The same expansion holds for the connected two-point function after subtracting the disconnected part; the resulting series is a sum over clusters of polymers that join \(\operatorname{supp}A\) to \(\operatorname{supp}B\).
+
+#### 2. Tree-graph bound and exponential decay
+By the standard Kotecký–Preiss criterion (or the older Glimm–Jaffe–Spencer cluster expansion), the activities satisfy a tree-graph inequality: the sum over connected clusters \(X\) with \(|X|=n\) that touch two fixed sites distance \(d\) apart is bounded by
+\[
+\sum_{\substack{X\text{ conn.}\\|X|=n\\X\cap\{x,y\}\ne\emptyset}}|z(X)|\le(C'\beta)^n\,e^{-\kappa d}
+\]
+for any \(\kappa>0\) once \(\beta<\beta_0(\kappa)\). Summing the geometric series yields the claimed exponential decay with rate
+\[
+m(\beta)=-\log(C''\beta)>0\qquad\bigl(\beta<\beta_0\bigr).
+\]
+Reflection positivity of the Wilson action (Osterwalder–Seiler) further implies that the transfer matrix is positive self-adjoint, so the decay rate \(m(\beta)\) is precisely the spectral gap above the unique vacuum in finite volume; the infinite-volume limit exists by the same expansion and inherits the gap.
+
+#### 3. Uniformity and gauge invariance
+All constants are independent of the volume \(\Lambda\) and of the particular choice of local gauge-invariant observables (by Peter–Weyl, matrix coefficients of irreducible representations of \(G\) generate the algebra). Thus the lattice theory for \(\beta\ll1\) satisfies the Osterwalder–Schrader axioms with a positive mass gap.
+
+#### Obstruction to the continuum
+The expansion diverges for \(\beta\to\infty\) (weak coupling / continuum limit). Controlling the renormalization-group flow of the activities down to the ultraviolet fixed point while preserving a uniform gap is the remaining analytic obstacle; the present argument supplies only the infrared starting point of that flow.
+
+VERDICT: PARTIAL
+REASON: Rigorous lattice mass gap for strong coupling via cluster expansion; continuum limit open.
