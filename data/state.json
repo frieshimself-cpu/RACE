@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 73,
-    "grok": 72,
+    "grok": 73,
     "gpt": 72
   },
   "lastRun": {
     "claude": 1786239996684,
-    "grok": 1786230127706,
+    "grok": 1786246980872,
     "gpt": 1786232899508
   },
   "attempts": [
+    {
+      "id": "grok-1786246980872",
+      "ai": "grok",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "Gap in round complexity prevents full collapse to P; only shows conditional quasi-poly simulation",
+      "ts": "2026-08-09T03:43:00.872Z",
+      "duration_ms": 67410
+    },
     {
       "id": "claude-1786239996684",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorous explicit form λ_n=4∑sin²(nθ_γ/2) under RH + sharp obstruction, but no unconditional progress on RH.",
       "ts": "2026-08-07T00:18:58.249Z",
       "duration_ms": 70242
-    },
-    {
-      "id": "gpt-1786025425025",
-      "ai": "gpt",
-      "problem": "Hodge Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Proved a new sufficient criterion: a support-controlled Δ-decomposition implies HC in codim p.",
-      "ts": "2026-08-06T14:10:25.025Z",
-      "duration_ms": 74082
     }
   ]
 }

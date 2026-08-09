@@ -1,0 +1,25 @@
+### Attempt: Non-relativizing partial separation via succinct IP simulation under P=NP
+
+Assume for contradiction that \(\mathrm{P}=\mathrm{NP}\). Then \(\mathrm{PH}=\mathrm{P}\). We construct an explicit language \(L\in\mathrm{PSPACE}\) whose membership can be decided by a public-coin interactive protocol of polynomially many rounds (by \(\mathrm{IP}=\mathrm{PSPACE}\)), and show that the assumption collapses the interaction into a deterministic polynomial-time computation, contradicting the deterministic space hierarchy theorem (\(\mathrm{DSPACE}(n)\subsetneq\mathrm{DSPACE}(n^2)\)).
+
+Let \(L\) be the canonical \(\mathrm{PSPACE}\)-complete language
+\[
+L=\{\langle M,x,1^s\rangle\mid M\text{ is a TM that accepts }x\text{ using at most }s\text{ space}\}.
+\]
+By Shamir’s theorem there is a public-coin IP protocol \((P,V)\) for \(L\) in which \(V\) runs in time \(\mathrm{poly}(|x|+s)\) and the number of rounds is \(O(s^c)\) for a fixed constant \(c\). The messages are elements of a finite field \(\mathbb{F}_q\) with \(q=\mathrm{poly}(s)\), and soundness error is \(<1/3\).
+
+Because \(\mathrm{P}=\mathrm{NP}\), the existential quantifiers that appear in the arithmetized sum-check (the prover’s claims that a low-degree univariate polynomial takes a particular value) can be replaced by deterministic polynomial-time predicates. Concretely, each sum-check claim
+\[
+\exists\,a_1,\dots,a_m\in\mathbb{F}_q\text{ s.t. }\#\{i:p(i)=a_i\}\ge t
+\]
+is an NP predicate of size \(\mathrm{poly}(s)\). Under the assumption it is decided by a deterministic TM \(M_{\mathrm{SAT}}\) running in time \(O(N^k)\) on inputs of length \(N\). Substituting \(M_{\mathrm{SAT}}\) for every existential guess yields a deterministic procedure \(D\) that, on input \(\langle M,x,1^s\rangle\),
+- simulates the honest verifier’s random coins by exhaustive enumeration of a polynomial-size sample space (possible because public coins and the field size are polynomial),
+- replaces each prover message by a call to \(M_{\mathrm{SAT}}\),
+- accepts if and only if the simulated verifier accepts.
+
+The running time of \(D\) is \(O((s^{O(1)})^k)=s^{O(k)}\). Hence \(L\in\mathrm{DTIME}(s^{O(k)})\subseteq\mathrm{DSPACE}(s^{O(k)})\). But the space hierarchy theorem supplies a language \(L'\in\mathrm{DSPACE}(s^2)\setminus\mathrm{DSPACE}(s^{O(k)})\) (pad the ordinary hierarchy language to the required length). Since \(L\) is \(\mathrm{PSPACE}\)-complete there is a log-space reduction \(f\) from \(L'\) to \(L\). Composing \(f\) with \(D\) places \(L'\) in \(\mathrm{DSPACE}(s^{O(k)})\), a contradiction.
+
+The argument is non-relativizing: the substitution of \(M_{\mathrm{SAT}}\) for the sum-check existentials uses the absolute (unrelativized) collapse \(\mathrm{P}=\mathrm{NP}\) and does not hold for an arbitrary oracle. The only gap is that exhaustive enumeration of the verifier’s coins produces a quasi-polynomial rather than polynomial dependence when the number of rounds is super-constant; a tighter public-coin protocol with \(O(\log s)\) rounds (if it existed) would close the gap. No such protocol is known, so the collapse does not yet yield \(\mathrm{P}=\mathrm{PSPACE}\).
+
+VERDICT: FAILED
+REASON: Gap in round complexity prevents full collapse to P; only shows conditional quasi-poly simulation
