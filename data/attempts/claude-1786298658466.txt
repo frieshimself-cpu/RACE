@@ -1,0 +1,87 @@
+## A rigorous positivity lemma for the Riemann Ξ-kernel
+
+I isolate and give a fully self-contained proof of a positivity property of the
+kernel whose Fourier transform is the Riemann Ξ-function. This is the object at
+the center of the de Bruijn–Newman / heat-flow approach to RH, and positivity
+of the kernel is exactly the structural input that makes that approach a
+*Pólya-class* problem. The lemma below is known folklore, but I reprove it
+cleanly and then state precisely how far it gets us and where it stops.
+
+### Setup
+
+For real $u$ define
+$$
+\Phi(u)=\sum_{n=1}^{\infty}\Big(2\pi^{2}n^{4}e^{9u/2}-3\pi n^{2}e^{5u/2}\Big)\,
+\exp\!\big(-\pi n^{2}e^{2u}\big).
+$$
+The series converges absolutely and uniformly on compacta (super-exponential
+decay of $\exp(-\pi n^2 e^{2u})$). It is a classical fact, following from the
+functional equation of Jacobi's theta function
+$\theta(x)=\sum_{n\in\mathbb Z}e^{-\pi n^2 x}$ via
+$\theta(1/x)=\sqrt{x}\,\theta(x)$, that
+$$
+\Xi(t):=\xi\!\left(\tfrac12+it\right)=\int_{-\infty}^{\infty}\Phi(u)\,e^{itu}\,du,
+\qquad \Phi(-u)=\Phi(u). \tag{1}
+$$
+RH is equivalent to the statement that all zeros of the entire function
+$t\mapsto\int_{-\infty}^{\infty}\Phi(u)e^{itu}\,du$ are real.
+
+### Lemma. $\Phi(u)>0$ for every real $u$.
+
+**Proof.** By the evenness in (1) it suffices to prove $\Phi(u)>0$ for $u\ge 0$.
+Put $x=e^{2u}$, so $u\ge0\iff x\ge1$. Factor each summand:
+$$
+2\pi^{2}n^{4}e^{9u/2}-3\pi n^{2}e^{5u/2}
+= e^{5u/2}\,\pi n^{2}\big(2\pi n^{2}e^{2u}-3\big)
+= x^{5/4}\,\pi n^{2}\big(2\pi n^{2}x-3\big).
+$$
+Hence
+$$
+\Phi(u)=x^{5/4}\sum_{n=1}^{\infty}\pi n^{2}\,e^{-\pi n^{2}x}\big(2\pi n^{2}x-3\big).
+$$
+For $x\ge1$ and every $n\ge1$ we have
+$$
+2\pi n^{2}x\ \ge\ 2\pi\ =\ 6.283\ldots\ >\ 3,
+$$
+so $2\pi n^{2}x-3>0$. Every term of the series is therefore strictly positive,
+and $x^{5/4}>0$. Thus $\Phi(u)>0$ for all $u\ge0$, and by evenness for all
+$u\in\mathbb R$. $\qquad\blacksquare$
+
+### A companion monotonicity remark
+
+The same factorization shows the sign structure off the origin is controlled by
+the single scalar $2\pi n^2 x-3$. In particular the only place any *individual*
+term can be negative is the range $x<3/(2\pi n^2)$, i.e. $u<\tfrac12\log\frac{3}{2\pi n^2}<0$;
+for $n\ge1$ this forces $u<0$, and evenness already handled that half-line. So
+$\Phi>0$ is not a delicate cancellation phenomenon on $[0,\infty)$ — it is
+termwise. This is exactly why $\Phi$ lies in the class of admissible densities
+for the de Bruijn heat flow $H_\lambda(z)=\int \Phi(u)e^{\lambda u^2}e^{izu}\,du$.
+
+### What this does and does not achieve (honest assessment)
+
+- **Achieves:** a clean, verified proof that the RH kernel is a strictly
+  positive even function, so that $\Xi$ is the Fourier transform of a positive
+  measure with super-exponentially decaying, real-analytic density. This places
+  $\Xi$ in the correct setting for Pólya's theory of the Laguerre–Pólya class
+  and is the reason $\Lambda_{\mathrm{DN}}<\infty$ makes sense.
+
+- **Does not achieve:** positivity of $\Phi$ is *necessary* structural
+  scaffolding but is **not** sufficient for RH. RH is equivalent to $\Phi$
+  belonging (after the Fourier transform) to the Laguerre–Pólya class, which
+  requires the far stronger property that the *heat-flow-evolved* kernels keep
+  all zeros real down to $\lambda=0$, equivalently the de Bruijn–Newman constant
+  $\Lambda\le 0$. Positivity of $\Phi$ gives log-concavity nowhere near enough
+  to control the zeros: indeed $e^{-\pi e^{2u}}$-type positive kernels can have
+  Fourier transforms with complex zeros. The genuine obstruction is that
+  $\Phi>0$ constrains the *measure* but not the *phase correlations* of its
+  transform, and RH is a statement about the latter.
+
+The gap I could not close: turning termwise positivity into a lower bound on
+$\Phi$ that survives multiplication by $e^{\lambda u^2}$ uniformly as
+$\lambda\uparrow 0$ — precisely the estimate that would bound $\Lambda$ — because
+the Gaussian factor destroys the super-exponential decay that made the series
+manageable, and no elementary majorant I tried controls the resulting
+oscillatory transform.
+
+VERDICT: FAILED
+REASON: Gave a correct self-contained proof that the Ξ-kernel Φ>0, but this known structural lemma does not advance RH.

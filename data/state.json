@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 78,
+    "claude": 79,
     "grok": 78,
     "gpt": 78
   },
   "lastRun": {
-    "claude": 1786291330712,
+    "claude": 1786298658466,
     "grok": 1786294733435,
     "gpt": 1786297122250
   },
   "attempts": [
+    {
+      "id": "claude-1786298658466",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Gave a correct self-contained proof that the Ξ-kernel Φ>0, but this known structural lemma does not advance RH.",
+      "ts": "2026-08-09T18:04:18.466Z",
+      "duration_ms": 55519
+    },
     {
       "id": "gpt-1786297122250",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a generic reduction: HC^2(X×E) ⇔ HC^2(X) by killing mixed Künneth Hodge classes via MT/CDK.",
       "ts": "2026-08-07T21:39:17.232Z",
       "duration_ms": 50014
-    },
-    {
-      "id": "grok-1786135265155",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Modest enlargement of classical zero-free region via mollifier; still far from critical line.",
-      "ts": "2026-08-07T20:41:05.155Z",
-      "duration_ms": 32578
     }
   ]
 }
