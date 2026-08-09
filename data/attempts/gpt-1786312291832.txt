@@ -1,0 +1,36 @@
+Title: A no-go theorem for finite-coefficient approaches (Jensen-polynomial and related “finite-jet” methods)
+
+Setup. Let Ξ(z) denote the completed Riemann xi-function, which is an even entire function with real Maclaurin coefficients and whose nontrivial zeros correspond to the nontrivial zeros of ζ(s). Many modern approaches analyze the Maclaurin coefficients of Ξ (or transforms of Ξ), e.g., via Jensen polynomials, Turán-type inequalities, or other algebraic constraints on finitely many Taylor coefficients, with the hope of forcing all zeros of Ξ to be real (which is equivalent to RH).
+
+Main theorem (finite-jet indistinguishability with forced nonreal zeros).
+Fix N ≥ 0 and choose a ∈ C with a not real or purely imaginary and with Im(a^2) ≠ 0. Then there exist real numbers c0, c2 such that the even entire function
+F(z) = Ξ(z) + z^(2N+2) (c0 + c2 z^2)
+satisfies:
+1) F agrees with Ξ to order 2N+1 at z = 0 (i.e., all Taylor coefficients up to z^(2N+1) are identical).
+2) F has nonreal zeros at z = a and z = ā (hence at least one pair of nonreal zeros).
+
+Consequently, any conclusion that depends only on the first 2N+1 Taylor coefficients of Ξ cannot force all zeros to be real: there exists an even entire function F with exactly the same finite coefficient data yet with nonreal zeros.
+
+Proof.
+- Evenness and coefficient matching: Since the correction term is z^(2N+2)(c0 + c2 z^2), it is an even polynomial times z^(even), hence even. Its Taylor series starts at z^(2N+2), so F and Ξ have identical Maclaurin coefficients up to degree 2N+1.
+- Forcing zeros at a and ā: We require F(a) = 0 and F(ā) = 0, i.e.,
+Ξ(a) + a^(2N+2)(c0 + c2 a^2) = 0,
+Ξ(ā) + ā^(2N+2)(c0 + c2 ā^2) = 0.
+Write the unknowns c0, c2 as real variables. Split the first complex equation into its real and imaginary parts; this yields a 2×2 real linear system:
+[ Re a^(2N+2)   Re a^(2N+4) ] [ c0 ] = [ -Re Ξ(a) ]
+[ Im a^(2N+2)   Im a^(2N+4) ] [ c2 ]   [ -Im Ξ(a) ].
+Its determinant equals
+Re a^(2N+2) Im a^(2N+4) − Re a^(2N+4) Im a^(2N+2) = Im(a^2) |a|^(4N+4),
+which is nonzero by the hypothesis Im(a^2) ≠ 0. Thus there is a unique real solution (c0, c2). With these c0, c2, both equations hold; equivalently, F(a) = 0 and, by conjugation symmetry of coefficients and Ξ, F(ā) = 0 as well. Since a ∉ R ∪ iR, these are nonreal zeros. This proves (2).
+- Real-entire and even: The correction has real coefficients (c0, c2 ∈ R), hence F has real Maclaurin coefficients and remains even. This keeps F in the same natural class as Ξ for parity/real-coefficient-based arguments.
+
+Corollary (no-go for finite-jet criteria).
+Let P be any property expressible solely by finitely many algebraic (in)equalities involving the first K Taylor coefficients of an even entire function with real coefficients. If Ξ satisfies P, then for any N with 2N+1 ≥ K, the F constructed above also satisfies P, yet F has a pair of nonreal zeros. Therefore, P cannot by itself imply that all zeros lie on the real axis for the function under consideration. In particular, no argument that uses only finitely many Taylor coefficients of Ξ—e.g., verification of hyperbolicity of finitely many Jensen polynomials of Ξ, or any finite collection of Turán-type inequalities—can prove RH.
+
+Remarks and scope.
+- This does not attack methods that control infinitely many coefficients or global transforms; it isolates a precise obstruction to any proof strategy that depends only on a finite “jet” of the xi-function at the origin.
+- The construction is stable: one can place the forced pair of nonreal zeros at any prescribed a with Im(a^2) ≠ 0, without affecting the first 2N+1 coefficients, and keeping evenness and real coefficients.
+- The argument is elementary and unconditional; it cleanly separates what finite-coefficient information can and cannot accomplish.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous no-go: finite-coefficient methods alone cannot force RH via Ξ’s Taylor data.

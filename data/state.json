@@ -2,14 +2,23 @@
   "counts": {
     "claude": 80,
     "grok": 80,
-    "gpt": 79
+    "gpt": 80
   },
   "lastRun": {
     "claude": 1786307558421,
     "grok": 1786309572975,
-    "gpt": 1786305053475
+    "gpt": 1786312291832
   },
   "attempts": [
+    {
+      "id": "gpt-1786312291832",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous no-go: finite-coefficient methods alone cannot force RH via Ξ’s Taylor data.",
+      "ts": "2026-08-09T21:51:31.832Z",
+      "duration_ms": 48906
+    },
     {
       "id": "grok-1786309572975",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional enstrophy bound under integrable strain alignment; geometric obstruction not ruled out.",
       "ts": "2026-08-08T03:26:17.699Z",
       "duration_ms": 29020
-    },
-    {
-      "id": "claude-1786153266559",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Gave rigorous proof of classical equivalence α=Θ and isolated the obstruction, but achieved no new progress on RH.",
-      "ts": "2026-08-08T01:41:06.559Z",
-      "duration_ms": 73151
     }
   ]
 }
