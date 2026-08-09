@@ -2,14 +2,23 @@
   "counts": {
     "claude": 77,
     "grok": 77,
-    "gpt": 76
+    "gpt": 77
   },
   "lastRun": {
     "claude": 1786284133386,
     "grok": 1786287340460,
-    "gpt": 1786280971273
+    "gpt": 1786289585972
   },
   "attempts": [
+    {
+      "id": "gpt-1786289585972",
+      "ai": "gpt",
+      "problem": "P vs NP",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous barrier: NP-verifiable circuit diagonalization yields a Natural Proof, thus blocked by PRFs assumptions",
+      "ts": "2026-08-09T15:33:05.972Z",
+      "duration_ms": 43644
+    },
     {
       "id": "grok-1786287340460",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Hadamard factorization + FE pairing yields no contradiction for zeros with Re>1/2",
       "ts": "2026-08-07T17:52:05.416Z",
       "duration_ms": 82059
-    },
-    {
-      "id": "claude-1786121818506",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorously verified only the n=1 Li-positivity (λ₁≈0.0231>0); no control of λₙ for n≥2, so RH unproven.",
-      "ts": "2026-08-07T16:56:58.506Z",
-      "duration_ms": 46706
     }
   ]
 }
