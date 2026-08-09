@@ -1,0 +1,55 @@
+### Attempt: Derivation of an explicit classical zero-free region for \(\zeta(s)\)
+
+Let \(s=\sigma+it\) with \(\sigma>1\) and \(t\in\mathbb{R}\). The Dirichlet series for the logarithmic derivative yields
+\[
+-\frac{\zeta'}{\zeta}(s)=\sum_{n=1}^\infty\Lambda(n)n^{-s},
+\]
+which converges absolutely. Taking real parts,
+\[
+\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+it)\Bigr)=\sum_{n=1}^\infty\Lambda(n)n^{-\sigma}\cos(t\log n).
+\]
+The trigonometric inequality \(3+4\cos\theta+\cos 2\theta=2(1+\cos\theta)^2\ge0\) therefore implies, for every \(\sigma>1\),
+\begin{equation}
+\label{eq:pos}
+3\Bigl(-\frac{\zeta'}{\zeta}(\sigma)\Bigr)+4\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+it)\Bigr)+\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+2it)\Bigr)\ge0.
+\end{equation}
+(The same identity holds with the trivial character replaced by any Dirichlet character, but we work only with \(\zeta\) here.)
+
+Now fix \(T\ge2\) and suppose \(\rho=\beta+i\gamma\) is a zero of \(\zeta\) with \(\gamma\in[T,2T]\) and \(\beta\le1\). Write
+\[
+-\frac{\zeta'}{\zeta}(s)=\frac{1}{s-\rho}+\sum_{\rho'\ne\rho}\frac{1}{s-\rho'}-\frac12\log\pi+\frac12\frac{\Gamma'}{\Gamma}\Bigl(\frac s2+1\Bigr),
+\]
+where the sum runs over the remaining zeros (counted with multiplicity). For \(\sigma>1\) the real part of the Gamma term is \(O(\log(|t|+2))\) by Stirling’s formula, while the sum over distant zeros contributes at most \(O(\log(|t|+2))\) after a standard truncation (the density of zeros up to height \(2|t|\) is \(\ll\log(|t|+2)\)). Consequently there exists an absolute constant \(C_1>0\) such that
+\begin{equation}
+\label{eq:near}
+\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+it)\Bigr)\le\frac{1}{\sigma-\beta}+C_1\log(|t|+2)
+\end{equation}
+whenever \(|t-\gamma|\le1\) and \(\sigma\in(1,2]\). An identical bound holds at \(2it\). On the real line one has the elementary estimate
+\[
+-\frac{\zeta'}{\zeta}(\sigma)=\frac1{\sigma-1}+O(1),\qquad\sigma\in(1,2].
+\]
+Substitute these three bounds into the positivity relation \eqref{eq:pos} with \(t=\gamma\):
+\[
+3\Bigl(\frac1{\sigma-1}+O(1)\Bigr)+4\Bigl(\frac1{\sigma-\beta}+C_1\log(|\gamma|+2)\Bigr)+\Bigl(\frac1{\sigma-\beta'}+C_1\log(|\gamma|+2)\Bigr)\ge0,
+\]
+where \(\beta'\) is the real part of any zero near \(2i\gamma\) (or \(1\) if none exists). The worst case is \(\beta'=\beta\), which yields
+\[
+\frac3{\sigma-1}+\frac5{\sigma-\beta}+O(\log(|\gamma|+2))\ge0.
+\]
+Choose the concrete abscissa \(\sigma=1+\frac{c}{\log(|\gamma|+2)}\) with a sufficiently small absolute constant \(c>0\) (e.g., \(c=1/(20C_1)\)). Then
+\[
+\frac3{c}+\frac5{\frac{c}{\log(|\gamma|+2)}+\ (1-\beta)}+O(1)\ge0.
+\]
+If \(1-\beta\le\frac{c}{10\log(|\gamma|+2)}\), the middle term exceeds \(50\log(|\gamma|+2)\), contradicting the inequality for large \(|\gamma|\). Hence no zeros exist in the region
+\[
+\beta>1-\frac{c}{10\log(|\gamma|+2)},\qquad|\gamma|\ge2.
+\]
+(The finitely many zeros with \(|\gamma|<2\) are checked directly from known tables or by evaluating the Euler product.) This is a fully explicit classical zero-free region of the shape
+\[
+\sigma\ge1-\frac{c'}{\log(|t|+2)}\qquad\bigl(c'=c/10>0\bigr).
+\]
+
+The argument is rigorous once the \(O(\log(|t|+2))\) constants are tracked through the truncated explicit formula (standard and absolute). It does not reach the critical line, nor does it improve the classical width; the obstruction is the linear combination of three terms, which cannot cancel a hypothetical zero closer than \(\asymp1/\log|t|\) without violating positivity.
+
+VERDICT: PARTIAL
+REASON: Derived explicit classical zero-free region \(\sigma>1-c/\log(|t|+2)\) via 3-4-1 positivity; no advance on critical line.

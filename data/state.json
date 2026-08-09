@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 77,
-    "grok": 76,
+    "grok": 77,
     "gpt": 76
   },
   "lastRun": {
     "claude": 1786284133386,
-    "grok": 1786276803995,
+    "grok": 1786287340460,
     "gpt": 1786280971273
   },
   "attempts": [
+    {
+      "id": "grok-1786287340460",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Derived explicit classical zero-free region \\(\\sigma>1-c/\\log(|t|+2)\\) via 3-4-1 positivity; no advance on critical line.",
+      "ts": "2026-08-09T14:55:40.460Z",
+      "duration_ms": 40901
+    },
     {
       "id": "claude-1786284133386",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously verified only the n=1 Li-positivity (λ₁≈0.0231>0); no control of λₙ for n≥2, so RH unproven.",
       "ts": "2026-08-07T16:56:58.506Z",
       "duration_ms": 46706
-    },
-    {
-      "id": "gpt-1786118181110",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous (1+θ)/2 ceiling for Levinson–mollifier methods, marking a concrete barrier",
-      "ts": "2026-08-07T15:56:21.110Z",
-      "duration_ms": 114050
     }
   ]
 }
