@@ -1,0 +1,27 @@
+### Attempt: A conditional reduction via a truncated explicit formula and a sign obstruction
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) and the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_{\rho}(1-s/\rho)
+\]
+(absolutely convergent after the usual Weierstrass factor of order 1) imply that RH is equivalent to every non-trivial zero satisfying \(\operatorname{Re}\rho=1/2\).
+
+Write \(\rho=\beta+i\gamma\) and consider the truncated Weil explicit formula for a fixed even Schwartz test function \(g\) whose Fourier transform \(\hat g\) is supported in \((-2,2)\). For the von Mangoldt side one obtains
+\[
+\sum_{\rho}g(\gamma)\ll\int_{-\infty}^{\infty}\lvert\hat g(u)\rvert e^{( \beta-1/2)\lvert u\rvert}\,du+O\bigl(\lVert g\rVert_{H^1}\bigr),
+\]
+where the sum runs over zeros with \(\lvert\gamma\rvert\le T\) (the error absorbs the contribution of the trivial zeros and the polar terms after integration by parts).  
+
+Assume there exists a zero with \(\beta>1/2\). Choose a non-negative \(g\) that is a narrow Gaussian bump of width \(\delta\ll 1\) centered at that \(\gamma\), normalized so that \(g(\gamma)=1\). Then \(\hat g\) decays like a Gaussian of width \(1/\delta\), and the right-hand side is dominated by the factor \(e^{(\beta-1/2)/\delta}\). Sending \(\delta\to0\) produces an arbitrarily large positive lower bound on the left-hand side while the prime-power side (which is an integral of \(\Lambda(n)n^{-1/2}\) against \(\hat g\)) remains \(O(1)\) by the known zero-free region \(\beta\le1-c/\log(\lvert\gamma\rvert+2)\). This is a contradiction provided the contribution of all other zeros can be shown non-negative.
+
+The obstruction is precisely the possible existence of a conjugate pair (or a cluster) whose imaginary parts lie inside the same bump and whose collective weighted sum \(\sum g(\gamma_j)\) can cancel. Because the test-function support restriction \(\operatorname{supp}\hat g\subset(-2,2)\) prevents the use of Guinand–Weil positivity for the full Weil distribution, one cannot yet rule out such a cancelling cluster. Thus the argument yields only the weaker statement
+
+\[
+\sum_{\lvert\gamma-\gamma_0\rvert<\delta}(\beta-1/2)_+\ll\delta\log(\lvert\gamma_0\rvert+2)
+\]
+uniformly for any center \(\gamma_0\) and all sufficiently small \(\delta>0\). This is a quantitative form of “zeros cannot cluster too far to the right,” but falls short of forcing every individual \(\beta=1/2\).
+
+The missing ingredient is a rigid spacing or repulsion estimate strong enough to guarantee that at most one zero (counting multiplicity) can sit inside an interval of length \(\delta\sim1/\log\log\lvert\gamma\rvert\). No such repulsion is presently available off the critical line, so the reduction does not close.
+
+VERDICT: PARTIAL
+REASON: Obtained a cluster bound on horizontal deviations but could not exclude cancelling zeros inside the test bump.
