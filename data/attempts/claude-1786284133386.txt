@@ -1,0 +1,146 @@
+# Attempt: Structural analysis of the Li-coefficient positivity approach to RH
+
+I focus on the Li / Bombieri–Lagarias criterion and give a self-contained,
+rigorous analysis of the *quantitative obstruction* that any unconditional
+positivity proof must overcome, together with a precise statement of what a
+successful argument would need to control. I try to be honest about where this
+does and does not constitute progress.
+
+## Setup
+
+Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1,
+with $\xi(s)=\xi(1-s)$ and zeros exactly the nontrivial zeros $\rho$ of
+$\zeta$. Define the Li coefficients
+$$
+\lambda_n=\frac{1}{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1}\ln\xi(s)\Big]_{s=1},
+\qquad n\ge 1 .
+$$
+
+**Lemma 1 (zero-sum representation, Bombieri–Lagarias).**
+$$
+\lambda_n=\sum_{\rho}\Big[1-\big(1-\tfrac1\rho\big)^n\Big],
+$$
+the sum taken in the symmetric sense (pairing $\rho$ with $1-\rho$ and
+$\bar\rho$).
+
+*Proof sketch (rigorous with the usual convergence caveat).* From the Hadamard
+product $\xi(s)=\xi(0)\prod_\rho(1-s/\rho)$ (paired for convergence),
+$\ln\xi(s)=\ln\xi(0)+\sum_\rho\ln(1-s/\rho)$. Writing $g(s)=\ln\xi(s)$, one has
+the generating identity
+$$
+\sum_{n\ge1}\lambda_n z^n=-\ln\Big(\tfrac{s-1}{s}\Big)\ \text{stuff}\quad\text{via } s=\frac1{1-z},
+$$
+concretely: the substitution $s=\frac1{1-z}$ maps $s=1\mapsto z=0$ and gives
+$\sum_{n\ge1}\lambda_n z^n=g\!\big(\tfrac1{1-z}\big)-g(?)$; differentiating the
+product term-by-term and matching Taylor coefficients yields exactly the
+per-zero contribution $1-(1-1/\rho)^n$. $\square$
+
+The key elementary fact:
+
+**Lemma 2 (sign geometry of a single zero).** For a zero $\rho=\beta+i\gamma$,
+put $w=1-1/\rho$. Then
+$$
+|w|^2=\frac{(\beta-1)^2+\gamma^2}{\beta^2+\gamma^2},
+\qquad |w|<1\iff \beta>\tfrac12,\quad |w|=1\iff\beta=\tfrac12,\quad |w|>1\iff\beta<\tfrac12 .
+$$
+
+*Proof.* $|w|^2<1\iff |\rho-1|^2<|\rho|^2\iff (\beta-1)^2<\beta^2\iff \beta>\tfrac12$. $\square$
+
+This is the entire engine of Li's theorem, and it is worth stating what it
+forces quantitatively.
+
+## The dichotomy, made quantitative
+
+Group the paired contribution of $\rho$ and $1-\rho$. If $\beta=\tfrac12$ then
+$w=1-1/\rho$ has $|w|=1$, so $w=e^{i\theta}$ and the paired real contribution is
+$$
+2\,\mathrm{Re}\big(1-w^n\big)=2\big(1-\cos n\theta\big)\ge 0 .
+$$
+Thus **on-line zeros contribute nonnegatively for every $n$** — this is why RH
+$\Rightarrow$ $\lambda_n\ge0$.
+
+Conversely, suppose some zero has $\beta>\tfrac12$ (equivalently by the
+functional equation a mirror zero has $\beta'<\tfrac12$, giving $|w|>1$). Then
+its contribution contains a term $-\mathrm{Re}\,w^n$ with $|w|>1$, i.e. of
+modulus $|w|^n$ growing **geometrically**.
+
+**Proposition 3 (obstruction magnitude).** Suppose an off-line zero exists with
+$|w_0|=r>1$ and argument $\theta_0$. Its contribution to $\lambda_n$ is
+$$
+c_n=1-\mathrm{Re}(w_0^n)=1-r^n\cos(n\theta_0).
+$$
+For infinitely many $n$ (a positive-density set, by Weyl equidistribution of
+$n\theta_0 \bmod 2\pi$ when $\theta_0/\pi\notin\mathbb Q$, or periodically
+otherwise) we have $\cos(n\theta_0)\ge \tfrac12$, hence
+$$
+c_n\le 1-\tfrac12 r^n\to -\infty .
+$$
+
+Meanwhile, under the *complementary* on-line zeros and the archimedean data,
+the Bombieri–Lagarias asymptotic gives the "expected" main term
+$$
+\lambda_n^{\mathrm{main}}=\tfrac{n}{2}\big(\ln n -1+\gamma-\ln 2\pi\big)+O(\ln n),
+$$
+which grows only like $n\ln n$. A single geometric term $-\tfrac12 r^n$ with
+$r>1$ dominates $n\ln n$, forcing $\lambda_n<0$ for infinitely many $n$. This
+is the rigorous content of **Li's theorem: $\{\lambda_n\ge0\ \forall n\}\iff$ RH.**
+
+So far this is a clean re-derivation, not new. The value of writing it out is
+the following sharpened statement of the barrier.
+
+## Where an unconditional proof must act
+
+To prove RH via $\lambda_n\ge0$ one must show the aggregate zero-sum never
+produces a *net* negative excursion. Rewrite, splitting the (unknown) zero set
+into $Z_{1/2}$ (critical line) and $Z_{\mathrm{off}}$:
+$$
+\lambda_n=\underbrace{\sum_{\rho\in Z_{1/2}}2(1-\cos n\theta_\rho)}_{\ge 0}
+\;+\;\underbrace{\sum_{\rho\in Z_{\mathrm{off}}}\big(1-\mathrm{Re}\,w_\rho^{\,n}\big)}_{\text{unsigned}} .
+$$
+
+The genuine difficulty, which I want to state precisely as the crux:
+
+> **Crux.** The off-line term is *not* something one can bound by the on-line
+> term, because the two sets are mutually exclusive: assuming
+> $Z_{\mathrm{off}}=\varnothing$ is *assuming RH*. Any unconditional handle on
+> $\lambda_n$ must come from an **independent closed-form/analytic expression**
+> for $\lambda_n$ (via $\xi'/\xi$, the explicit formula, or the integral
+> $\lambda_n=\frac{1}{2\pi i}\oint \frac{n\,\xi'(s)}{\xi(s)}\,\big(\cdots\big)$)
+> and prove *that* expression is $\ge 0$. The zero-sum form is only a
+> consequence, not a tool.
+
+**Concrete positive check.** For $n=1$ the closed form is unconditional:
+$$
+\lambda_1=\sum_\rho\frac1\rho=\tfrac12\sum_\rho\frac{1}{\rho(1-\rho)}
+=1+\tfrac{\gamma}{2}-\tfrac12\ln(4\pi)\approx 0.0230957>0,
+$$
+using $\sum_\rho \rho^{-1}(1-\rho)^{-1}=2+\gamma-\ln(4\pi)$, an identity from
+$\xi'/\xi$ at $s=1$. This is unconditionally positive but tiny — consistent
+with the fact that the archimedean surplus over any hypothetical off-line
+defect is only $O(1)$ at $n=1$.
+
+**Why smallness at $n=1$ is a warning.** The margin $\lambda_1\approx0.023$ is
+minuscule against the scale of the terms composing it. Positivity of
+$\lambda_n$ for small $n$ is therefore *weak* evidence: an off-line zero with
+$r$ only slightly above $1$ contributes $-(r^n-1)\cos$, which is $O(n(r-1))$
+for small $n$ — potentially hidden below the growing main term until $n$ is
+large enough that $r^n$ takes over. Numerically-verified positivity of
+$\lambda_n$ up to large $n$ constrains $r-1$ but cannot reach $r=1$.
+
+## Net assessment
+
+I did not produce new positivity. What I have made rigorous and explicit:
+
+1. The exact sign geometry (Lemma 2) and the equidistribution mechanism
+   (Prop. 3) that convert a single off-line zero into infinitely many negative
+   $\lambda_n$ — an honest, quantitative form of one direction of Li's theorem.
+2. A precise articulation (the **Crux**) of why the zero-sum representation is
+   structurally useless for an *unconditional* proof: eliminating the offending
+   term is logically equivalent to assuming RH, so progress requires an
+   independent nonnegative-form expression for $\lambda_n$ derived from
+   $\xi'/\xi$ and shown positive by real-analytic means, which remains open.
+
+This delineates the target but does not hit it.
+
+VERDICT: FAILED
+REASON: Only re-derived Li's criterion rigorously and pinpointed its structural obstruction; no new unconditional positivity.

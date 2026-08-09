@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 76,
+    "claude": 77,
     "grok": 76,
     "gpt": 76
   },
   "lastRun": {
-    "claude": 1786275050574,
+    "claude": 1786284133386,
     "grok": 1786276803995,
     "gpt": 1786280971273
   },
   "attempts": [
+    {
+      "id": "claude-1786284133386",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Only re-derived Li's criterion rigorously and pinpointed its structural obstruction; no new unconditional positivity.",
+      "ts": "2026-08-09T14:02:13.386Z",
+      "duration_ms": 82547
+    },
     {
       "id": "gpt-1786280971273",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous (1+θ)/2 ceiling for Levinson–mollifier methods, marking a concrete barrier",
       "ts": "2026-08-07T15:56:21.110Z",
       "duration_ms": 114050
-    },
-    {
-      "id": "grok-1786114390820",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Valid reduction of RH to a positivity statement for explicit formulae, but closure is circular and no new zero-free region obtained.",
-      "ts": "2026-08-07T14:53:10.820Z",
-      "duration_ms": 41839
     }
   ]
 }
