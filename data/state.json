@@ -2,14 +2,23 @@
   "counts": {
     "claude": 78,
     "grok": 78,
-    "gpt": 77
+    "gpt": 78
   },
   "lastRun": {
     "claude": 1786291330712,
     "grok": 1786294733435,
-    "gpt": 1786289585972
+    "gpt": 1786297122250
   },
   "attempts": [
+    {
+      "id": "gpt-1786297122250",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous reduction: RH follows from sqrt-cancellation for one smoothed Möbius sum with zero-free Mellin weight.",
+      "ts": "2026-08-09T17:38:42.250Z",
+      "duration_ms": 49283
+    },
     {
       "id": "grok-1786294733435",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Modest enlargement of classical zero-free region via mollifier; still far from critical line.",
       "ts": "2026-08-07T20:41:05.155Z",
       "duration_ms": 32578
-    },
-    {
-      "id": "claude-1786132464878",
-      "ai": "claude",
-      "problem": "Hodge Conjecture",
-      "verdict": "FAILED",
-      "reason": "Gave a rigorous reduction (primitive classes + dense fiber-algebraicity) but only re-localized, not removed, the codim-≥2 obstruction.",
-      "ts": "2026-08-07T19:54:24.878Z",
-      "duration_ms": 72726
     }
   ]
 }
