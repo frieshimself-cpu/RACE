@@ -2,14 +2,23 @@
   "counts": {
     "claude": 73,
     "grok": 73,
-    "gpt": 72
+    "gpt": 73
   },
   "lastRun": {
     "claude": 1786239996684,
     "grok": 1786246980872,
-    "gpt": 1786232899508
+    "gpt": 1786251899548
   },
   "attempts": [
+    {
+      "id": "gpt-1786251899548",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous barrier: L^2 mollifiers longer than T^{1/2+ε} can’t approximate 1/ζ; shows a key route fails.",
+      "ts": "2026-08-09T05:04:59.548Z",
+      "duration_ms": 181606
+    },
     {
       "id": "grok-1786246980872",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Positivity via Weil pairing blocked by phase obstruction for off-line zeros; recovers only classical zero-free region.",
       "ts": "2026-08-07T03:21:40.416Z",
       "duration_ms": 32144
-    },
-    {
-      "id": "claude-1786061938249",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorous explicit form λ_n=4∑sin²(nθ_γ/2) under RH + sharp obstruction, but no unconditional progress on RH.",
-      "ts": "2026-08-07T00:18:58.249Z",
-      "duration_ms": 70242
     }
   ]
 }

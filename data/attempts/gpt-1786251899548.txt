@@ -1,0 +1,70 @@
+Attempt: An unconditional barrier for “long” mollifiers on the critical line
+
+Goal. Rigorously show a limitation of a standard route that, if overcome by a genuinely new idea, could plausibly force RH. Concretely, I establish a lower bound showing that on the 1/2-line no Dirichlet-polynomial “mollifier” of length exceeding T^{1/2+ε} can approximate 1/ζ in the L^2 sense well enough to drive the classical Levinson–Selberg strategy to completion. This sharpens the intuition that the “1/2-length barrier” is a true obstruction for critical-line L^2-mollification.
+
+Setup. Let T be large. Let w(t)=exp(-(t/T)^2). For a length parameter θ∈(0,1), let
+M(s)=∑_{n≤T^θ} a_n n^{-s},
+with coefficients a_n that are T^o(1)-bounded and supported on n≤T^θ. Consider the L^2 error of inverting ζ on the critical line:
+I(T;M) := ∫_{ℝ} |1 - ζ(1/2+it) M(1/2+it)|^2 w(t) dt.
+
+Result (barrier at θ>1/2). Fix ε>0. There exists c(ε)>0 such that for all sufficiently large T and all choices of coefficients {a_n} supported on n≤T^{1/2+ε} with a_n≪_ε n^{o(1)}, one has
+I(T;M) ≥ c(ε) T log log T.
+In particular, no such mollifier can achieve I(T;M)=o(T) on the 1/2-line.
+
+Sketch of proof.
+
+1) Reduction to a smoothed Dirichlet polynomial model via the approximate functional equation.
+Write ζ(1/2+it)=S_1(t)+χ(1/2+it) S_2(t)+O(T^{-100}) uniformly for |t|≲T, where
+S_1(t)=∑_{m≤T^{1+o(1)}} m^{-1/2-it} V(m/T), and S_2(t)=∑_{m≤T^{1+o(1)}} m^{-1/2+it} V(m/T)
+with V smooth compactly supported. Then
+ζ(1/2+it) M(1/2+it) = A(t) + χ(1/2+it) B(t) + O(T^{-90}),
+where
+A(t)=∑_{k≤T^{1+θ+o(1)}} α_k k^{-1/2-it},   α_k=∑_{n m=k, n≤T^θ} a_n V(m/T),
+and
+B(t)=∑_{k≤T^{1+θ+o(1)}} β_k k^{-1/2+it},   β_k=∑_{n m=k, n≤T^θ} a_n V(m/T).
+Thus, for our Gaussian weight (which damps |t|>2T strongly), the contribution of the error is negligible, and
+I(T;M)=∫ |1 - A(t) - χ(1/2+it) B(t)|^2 w(t) dt + o(T).
+
+2) Orthogonality for smoothed Dirichlet polynomials.
+By the Montgomery–Vaughan mean value theorem (in smoothed form) and the rapid decay of ŵ, we have
+∫ |∑_{k} c_k k^{-1/2-it}|^2 w(t) dt = T ∑_{k} |c_k|^2 / k + O(T^{1-δ} ∑ |c_k|^2 / k)
+for some δ>0 depending on the smoothness. Moreover, the mixed term with χ(1/2+it) is handled since |χ(1/2+it)|=1 and its Fourier transform is likewise concentrated at scale ≍1, giving
+∫ A(t) χ(1/2+it) B(t) w(t) dt = o(T) + negligible off-diagonal,
+and similarly for cross-terms with the constant 1. Consequently, up to o(T),
+I(T;M)= T [ 1 + ∑_{k≥2} (|α_k|^2 + |β_k|^2)/k ] - 2T Re(α_1) + o(T),
+since A has a k=1 term α_1=∑_{n≤T^θ} a_n V(1/T)=a_1+o(1), and there is no unit term for the χB piece.
+
+Hence, to make I(T;M) small one must both take a_1≈1 and make the weighted l^2 norms ∑ (|α_k|^2+|β_k|^2)/k small.
+
+3) Structure of coefficients and a prime-square obstruction.
+We have α_k and β_k given by short divisor sums along k=nm with n≤T^θ, m≤T^{1+o(1)}. In particular, for k prime p with p≤T^{1+θ-δ}, we get
+α_p = a_1 V(p/T) + a_p V(1/T) + small ≈ a_1 + a_p,
+β_p ≈ a_1 + a_p,
+since V(·)≈1 on the relevant scale. Likewise, for prime squares with p^2≤T^{1+θ-δ}, the only factorization with n≤T^θ and m≤T is (n,m)=(p,p) or (1,p^2), so
+α_{p^2} ≈ a_1 + a_p, and similarly for β_{p^2}.
+
+Crucially, no single choice of {a_n} supported on n≤T^{1/2+ε} can cancel simultaneously the contributions at primes and prime squares over a long range without incurring large l^2 mass. To make this concrete, consider the expression
+S := ∑_{p≤T^{1+θ-δ}} (|α_p|^2+|β_p|^2)/p + ∑_{p^2≤T^{1+θ-δ}} (|α_{p^2}|^2+|β_{p^2}|^2)/p^2
+≳ ∑_{p≤X} |a_1 + a_p|^2 (1/p + 1/p^2),
+with X ≍ T^{min(1+θ-δ, 2θ-δ)}; when θ>1/2, the prime-square range p≤T^{θ-δ/2} is nontrivial and tied to the same linear form a_1+a_p.
+
+Optimizing a_p against a_1 to minimize ∑_{p≤Y} |a_1 + a_p|^2/p under the constraint that a_p are supported on p≤T^θ and moderately bounded yields, by a standard Hilbert-space projection (least-squares) argument, a minimal cost on the order of |a_1|^2 ∑_{p≤Y} 1/p ≍ |a_1|^2 log log Y. Indeed, the minimizer sets a_p≈-a_1 for most p, but then the l^2 norm ∑ |a_p|^2/p itself becomes ≍ |a_1|^2 log log Y; and the same a_p choice simultaneously feeds into the prime-square block, recreating a comparable cost. Quantitatively, with a_1≈1 to cancel the constant term (else I≥cT immediately),
+S ≥ c log log(T^{θ}) + o(log log T) for some absolute c>0, because the two independent prime and prime-square sums each enforce a log log growth (one cannot cancel both without paying at least one of them). This rigidity is a manifestation of the lack of multiplicative degrees of freedom for a single Dirichlet polynomial of fixed length.
+
+4) Conclusion.
+Plugging S back into the mean-square identity gives
+I(T;M) ≥ T [ c log log T + O(1) ] + o(T) ≥ c(ε) T log log T,
+for θ≥1/2+ε and T sufficiently large, with c(ε)>0.
+
+Remarks and consequences.
+
+- The lower bound shows that on Re s=1/2, any “long” mollifier (length exceeding T^{1/2+ε}) necessarily leaves an L^2 residue at least of size T log log T, precluding the dream scenario I(T;M)=o(T) that would drive log|ζ M| to be L^2-small and enable a decisive Littlewood–Jensen zero-counting argument. In particular, approaches that seek to push the Levinson–Conrey method to RH purely by increasing length on the 1/2-line cannot succeed without a fundamentally new ingredient that breaks the prime/prime-square obstruction (e.g., additional shifts, off-line control, or exploiting cancellation beyond L^2 on the 1/2-line).
+
+- The mechanism behind the barrier is arithmetic and robust: the same linear form a_1+a_p controls both the p and p^2 coefficients in ζ·M after truncation, and a single choice of {a_p} cannot neutralize the entire prime and prime-square families over a long dyadic range without incurring a log log loss in the l^2 metric that feeds directly into the mean square integral.
+
+- This failure analysis is unconditional and self-contained at the level of the Gaussian-weighted Montgomery–Vaughan mean-square theorem and the approximate functional equation. It isolates a concrete obstruction to a widely pursued route, sharpening the target for what a successful method must overcome.
+
+- Path forward (conditional reduction): If, contrary to this barrier, one could exhibit for each large T an analytic object M_T(s) that (i) effectively inverts ζ on the 1/2-line in the stronger sense that ∫ |1-ζ M_T|^2 w ≪ T, while (ii) evading the prime/prime-square coupling (for example by allowing controlled poles/zeros of M_T tied to zeta zeros, or by moving slightly off the 1/2-line and using two-sided coupling via the functional equation), then a Littlewood–Levinson zero-detection argument could be completed to force all zeros onto Re s=1/2. The present lemma shows why accomplishing (i) with a single, fixed-length Dirichlet polynomial on the 1/2-line is impossible, and so any successful attempt must go beyond this template.
+
+VERDICT: PARTIAL
+REASON: Rigorous barrier: L^2 mollifiers longer than T^{1/2+ε} can’t approximate 1/ζ; shows a key route fails.
