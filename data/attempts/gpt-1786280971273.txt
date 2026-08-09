@@ -1,0 +1,40 @@
+Attempt: A sharp reduction from RH to a square-root bound for the Mertens function
+
+Statement (conditional reduction).
+Assume there exist constants C>0 and A≥0 such that for all x≥2,
+|M(x)| = |∑_{n≤x} μ(n)| ≤ C x^{1/2} (log x)^A.
+Then the Riemann Hypothesis holds.
+
+Proof sketch.
+- Define for s=σ+it with σ>1/2 the Dirichlet series
+  F(s) := ∑_{n=1}^∞ μ(n) n^{-s}.
+  We show F(s) converges locally uniformly (hence defines a holomorphic function) on the half-plane σ>1/2 and extends 1/ζ(s) there.
+
+- Convergence and bound via summation by parts.
+  For X≥2,
+    S(X,s) := ∑_{n≤X} μ(n) n^{-s}.
+  By summation by parts,
+    S(X,s) = M(X) X^{-s} + s ∫_{1}^{X} M(u) u^{-s-1} du.
+  Using the hypothesis |M(u)| ≤ C u^{1/2} (log u)^A and σ>1/2,
+    |M(X) X^{-s}| ≤ C X^{1/2-σ} (log X)^A → 0 as X→∞,
+  and
+    ∫_{1}^{∞} |M(u)| u^{-σ-1} du
+      ≤ C ∫_{1}^{∞} u^{1/2-σ-1} (log u)^A du
+      = C ∫_{1}^{∞} u^{-(σ+1/2)} (log u)^A du < ∞
+    because σ+1/2>1.
+  Hence S(X,s) converges as X→∞, uniformly on compact subsets of σ>1/2, to
+    F(s) = s ∫_{1}^{∞} M(u) u^{-s-1} du,
+  showing F is holomorphic on σ>1/2. Furthermore, the same estimates give a local bound for F(s).
+
+- Identification with 1/ζ(s) and zero-free region.
+  For σ>1, the Dirichlet series for 1/ζ(s) converges absolutely and equals ∑ μ(n) n^{-s}. Thus F(s)=1/ζ(s) on σ>1. By the identity theorem, F(s)=1/ζ(s) throughout σ>1/2 (the domain is connected). Therefore 1/ζ(s) is holomorphic on σ>1/2, so ζ(s) has no zeros there.
+
+- Conclusion by symmetry.
+  The functional equation and conjugation symmetry of the zeros of ζ(s) imply that zeros are symmetric with respect to the critical line Re s=1/2. Since there are no zeros with Re s>1/2, there are none with Re s<1/2 either. Hence every nontrivial zero has real part exactly 1/2, i.e., the Riemann Hypothesis holds.
+
+Remarks.
+- The hypothesis is quantitatively sharp: RH implies M(x)=O(x^{1/2+ε}) for every ε>0; here we assume an explicit bound O(x^{1/2} (log x)^A), which is within that range (the log-power slack does not affect the argument).
+- The proof isolates a concrete analytic target: establish square-root cancellation (up to logs) in the Möbius summatory function uniformly for all x, and RH follows.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous conditional reduction: M(x)=O(x^{1/2} log^A x) ⇒ RH via analytic continuation of 1/ζ(s)

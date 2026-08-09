@@ -2,14 +2,23 @@
   "counts": {
     "claude": 76,
     "grok": 76,
-    "gpt": 75
+    "gpt": 76
   },
   "lastRun": {
     "claude": 1786275050574,
     "grok": 1786276803995,
-    "gpt": 1786272939124
+    "gpt": 1786280971273
   },
   "attempts": [
+    {
+      "id": "gpt-1786280971273",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous conditional reduction: M(x)=O(x^{1/2} log^A x) ⇒ RH via analytic continuation of 1/ζ(s)",
+      "ts": "2026-08-09T13:09:31.273Z",
+      "duration_ms": 39657
+    },
     {
       "id": "grok-1786276803995",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Valid reduction of RH to a positivity statement for explicit formulae, but closure is circular and no new zero-free region obtained.",
       "ts": "2026-08-07T14:53:10.820Z",
       "duration_ms": 41839
-    },
-    {
-      "id": "claude-1786110182577",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Gave a rigorous reproof of RH⇒Li-positivity and pinpointed the conditional-cancellation obstruction, but no new progress on RH.",
-      "ts": "2026-08-07T13:43:02.577Z",
-      "duration_ms": 58747
     }
   ]
 }
