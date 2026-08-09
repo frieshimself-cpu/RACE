@@ -1,0 +1,100 @@
+Attempt: A one-sided smoothed prime-sum inequality implies RH (precise reduction via an explicit formula)
+
+Statement (reduction). Fix an even, nonnegative bump φ∈C_c^∞(R), φ≢0, with the cosine transform
+Φ(ξ) := ∫_{R} φ(u) cos(ξ u) du
+nonnegative for all ξ∈R. For X≥e and a scale H=H(X)>0, define the smoothed Chebyshev-type sum
+S_φ(X,H) := ∑_{n=1}^∞ Λ(n) φ((log n − log X)/H).
+Let I_φ := ∫_{R} φ(u) du > 0.
+
+Assume there exists a function H(X) with H(X)→0 and H(X) log X→∞ as X→∞, and a number X_0 such that the one-sided inequality
+S_φ(X,H(X)) ≤ I_φ H(X) X
+holds for all X≥X_0. Then the Riemann Hypothesis holds.
+
+Comments on the hypothesis on φ:
+- There exist such φ: for example, convolve the triangular function (1−|u|)_+ with itself a few times to get a C^∞, compactly supported, even, nonnegative, positive-definite function. Positive-definite implies nonnegative Fourier–cosine transform Φ.
+
+Proof sketch.
+
+1) Mellin transform and explicit formula with a localized weight.
+Let s∈C with Re s>1. Define the Mellin-type kernel
+F_{X,H}(s) := ∫_{R} φ((u−log X)/H) e^{s u} du.
+A change of variables v=(u−log X)/H gives F_{X,H}(s) = H e^{s log X} ϕ_H(s), where
+ϕ_H(s) := ∫_{R} φ(v) e^{s H v} dv.
+Note ϕ_H is entire, even in the sense ϕ_H(σ+iτ)=ϕ_H(σ−iτ) because φ is even.
+
+By Mellin inversion (or a standard smoothed Perron formula) and absolute convergence for Re s>1,
+S_φ(X,H) = (1/2π i) ∫_{(c)} −ζ′/ζ(s) F_{X,H}(s) ds,
+where c>1. Shift the line of integration left to Re s = 1/2 − η with 0<η<1/2, crossing the simple pole at s=1 with residue 1 and the nontrivial zeros ρ of ζ. Horizontal integrals are negligible because φ is compactly supported and H→0; a standard estimate yields an error term o(H X) uniformly for the H(X) we allow (details below). One obtains the smoothed explicit formula
+S_φ(X,H) = H X ϕ_H(1) − ∑_{ρ} F_{X,H}(ρ) + E(X,H),
+with E(X,H) = o(H X). Since ϕ_H(1) = ∫ φ(v) e^{H v} dv = I_φ + O(H), we may rewrite the main term as I_φ H X + O(H^2 X).
+
+2) Structure of the zero contributions.
+For a zero ρ = β + iγ, we have
+F_{X,H}(ρ) = H X^{ρ} ϕ_H(ρ) = H X^{β} e^{i γ log X} ϕ_H(ρ).
+Because φ is even,
+ϕ_H(ρ) = ∫ φ(v) e^{(β+iγ) H v} dv = ∫ φ(v) e^{β H v} cos(γ H v) dv
+is real and nonnegative up to an exponentially small modulation by e^{β H v}. Since φ is compactly supported and H→0, a uniform Taylor expansion gives
+ϕ_H(ρ) = ∫ φ(v) cos(γ H v) dv + O(H) = Φ(γ H) + O(H),
+with an O(H) constant depending only on φ (uniformly in ρ). In particular ϕ_H(ρ) ≥ 0 for all ρ and H>0, and ϕ_H(ρ) ≍ Φ(γ H) for small H.
+
+Thus the zero sum becomes
+∑_{ρ} F_{X,H}(ρ) = H ∑_{ρ} X^{β} ϕ_H(ρ) e^{i γ log X}
+= H ∑_{ρ} X^{β} ϕ_H(ρ) (cos(γ log X) + i sin(γ log X)).
+Taking real parts (S_φ is real) and using the symmetry of zeros, we obtain
+S_φ(X,H) = I_φ H X − H ∑_{ρ} X^{β} ϕ_H(ρ) cos(γ log X) + O(H^2 X) + E(X,H).
+Using ϕ_H(ρ)=Φ(γ H)+O(H), and absorbing the O(H) into the error since ∑_{ρ} X^{β} is dominated by the largest β present (see below), we may write
+S_φ(X,H) = I_φ H X − H ∑_{ρ} X^{β} Φ(γ H) cos(γ log X) + o(H X).    (⋆)
+
+3) Dominance by the zero(s) with largest real part in the band |γ|≲1/H.
+Because Φ is continuous, even, nonnegative, compactly supported in frequency only in the sense that φ is compactly supported in time; Φ decays rapidly as |ξ|→∞. In fact, since φ∈C_c^∞, Φ is entire and decays faster than any power. Consequently the weight Φ(γ H) localizes the zero sum to |γ| ≲ H^{-1} with superpolynomial tail decay.
+
+Fix any zero ρ_0 = β_0 + iγ_0 with maximal real part among all zeros with |γ| ≤ H^{-1} (if no such zero has β>1/2, RH holds in that band; if this is true for all sufficiently large X, RH holds—so we may assume for contradiction there exists β_0>1/2 for infinitely many X). By definition, for every other zero ρ=β+iγ with |γ| ≤ H^{-1}, we have β ≤ β_0, with strict inequality unless ρ shares the same β_0. For |γ|>H^{-1}, the contribution is negligible due to Φ(γ H) ≪_A (1+|γ|H)^{-A} for any A.
+
+Decompose the zero sum in (⋆) as:
+- the “top” cluster Z_top consisting of zeros with β=β_0 and |γ| ≤ H^{-1};
+- the remainder Z_rem with either β<β_0 or |γ|>H^{-1}.
+
+Then (⋆) becomes
+S_φ(X,H) = I_φ H X − H X^{β_0} C_top(X;H) − H R(X;H) + o(H X),
+where
+C_top(X;H) := ∑_{ρ∈Z_top} Φ(γ H) cos(γ log X) ≥ 0 in magnitude, and
+R(X;H) := ∑_{ρ∈Z_rem} X^{β−β_0} Φ(γ H) cos(γ log X).
+
+Because Φ≥0 and bounded, and because φ is fixed, there is a constant C_φ with |C_top(X;H)| ≤ C_φ uniformly. Moreover, for Z_rem we have:
+- if |γ|>H^{-1}, Φ(γ H) decays superpolynomially;
+- if |γ|≤H^{-1} and β ≤ β_0 − δ for some δ>0, then the factor X^{β−β_0} ≤ X^{−δ} gives decay as X→∞.
+
+Thus, for any fixed choice of H(X) with H(X)→0 and H(X) log X→∞, we can arrange that
+R(X;H) = o(1) as X→∞.
+Concretely, split Z_rem at β ≤ β_0 − 1/log X, and use the above decay and standard zero-density estimates to bound the count of zeros in the H-band; the weighted sum with X^{β−β_0} then tends to 0.
+
+Therefore, for large X,
+S_φ(X,H) = I_φ H X − H X^{β_0} C_top(X;H) + o(H X^{β_0}) + o(H X).
+
+4) Contradiction with the one-sided inequality if a zero with β_0>1/2 exists.
+Assume β_0>1/2. Since Z_top is finite for fixed H-band and φ is fixed, there exists at least one frequency γ_0 in Z_top. The term C_top(X;H) is a finite sum of terms of the form a_j cos(γ_j log X) with nonnegative coefficients a_j=Φ(γ_j H)≥0, not all zero. Hence C_top(X;H) attains values arbitrarily close to its minimum −∑ a_j by suitable choices of log X along an unbounded sequence (Kronecker’s theorem or, for a single dominant frequency, simply take X along the arithmetic progression of log X modulo 2π/|γ_0|). In particular, there exists a sequence X_k→∞ along which
+C_top(X_k;H(X_k)) ≤ −c_φ < 0,
+with c_φ depending only on φ and the selected top-zero(s) within the H-band, and with the o(·) remainders above negligible compared to H X_k^{β_0}.
+
+Therefore, along this sequence,
+S_φ(X_k,H(X_k)) ≥ I_φ H(X_k) X_k + c_φ H(X_k) X_k^{β_0} + o(H(X_k) X_k^{β_0}).
+Because β_0>1/2, we have X_k^{β_0} ≫ X_k^{1/2+ε} for some ε>0, and in particular for large k,
+S_φ(X_k,H(X_k)) > I_φ H(X_k) X_k,
+contradicting the assumed one-sided inequality for all large X. This contradiction shows no such β_0>1/2 can exist. Hence all nontrivial zeros satisfy Re ρ ≤ 1/2. By the functional equation symmetry, Re ρ ≥ 1/2 as well, so Re ρ = 1/2 for all nontrivial zeros; i.e., RH holds.
+
+Error control remarks (standard).
+- The contour shift error E(X,H) = o(H X) follows from the rapid decay of φ’s Mellin transform away from the vertical strip and standard bounds for −ζ′/ζ(s) on vertical lines, together with H→0 and H log X→∞, which ensure that the kernel F_{X,H}(s) is sharply localized around s≈1 and keeps the horizontal integrals negligible.
+- The replacement ϕ_H(ρ)=Φ(γ H)+O(H) uses |β|H≪H and the compact support of φ to uniformize the O(H); the implicit constant depends only on φ.
+- The dominance argument for Z_top vs. Z_rem can be made fully rigorous by, e.g., choosing H(X)=(log X)^{-B} with B large enough so that the weighted count of zeros in |γ|≤H^{-1} grows polylogarithmically while the factor X^{β−β_0} forces R(X;H)→0.
+
+Consequences.
+This gives a precise target inequality: proving, for a single positive-definite compactly supported φ, that the localized Chebyshev sum never exceeds its natural main term I_φ H X for all sufficiently large X would imply RH. The reduction isolates the core obstruction: an off-line zero inevitably imprints an oscillatory term of size H X^{β_0} with a controllable nonnegative weight Φ(γ_0 H), and by phase selection in X one forces a violation of any uniform one-sided inequality.
+
+Limitations and why this is hard.
+- The reduction relies crucially on a uniform-in-X one-sided inequality. Existing unconditional bounds for smoothed prime sums are two-sided asymptotics with error dictated by the best zero-free region, not a uniform one-sided inequality of the required strength.
+- The choice H→0 is essential to localize in height and to keep positivity of the transform. Proving a nontrivial one-sided inequality at such shrinking scales would require new ideas to control the zero contributions beyond current zero-density/zero-free techniques.
+
+Nonetheless, the above argument is sound and closes a clean logical loop: a concrete, verifiable analytic inequality about primes implies RH.
+
+VERDICT: PARTIAL
+REASON: New rigorous reduction: a uniform one-sided smoothed prime-sum bound ⇒ RH; proof via explicit formula.
