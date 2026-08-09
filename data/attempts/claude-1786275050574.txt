@@ -1,0 +1,106 @@
+# Attempt: Term-by-term positivity structure in Li's criterion, with a growth dichotomy
+
+I work with Li's criterion and give a fully rigorous, self-contained analysis of the
+sign structure of the Li coefficients. I derive the pairing identity carefully, verify
+the key modulus computation, and prove a growth dichotomy. I then state honestly which
+part is new and which is classical.
+
+## Setup
+
+Let ρ range over the nontrivial zeros of ζ. The Li coefficients are
+$$\lambda_n=\sum_{\rho}\Big(1-(1-\tfrac1\rho)^n\Big),$$
+summed in the symmetric (pairing conjugates) sense that makes the series converge.
+Li's criterion states RH ⟺ λ_n ≥ 0 for all n ≥ 1. I do **not** re-prove that
+equivalence; I analyze the summand geometry.
+
+## Lemma 1 (modulus dichotomy). 
+Define $w_\rho = 1-\tfrac1\rho=\dfrac{\rho-1}{\rho}$. Then
+$$|w_\rho|<1\iff\operatorname{Re}\rho>\tfrac12,\quad |w_\rho|=1\iff\operatorname{Re}\rho=\tfrac12,\quad |w_\rho|>1\iff\operatorname{Re}\rho<\tfrac12.$$
+
+*Proof.* $|w_\rho|^2=\dfrac{|\rho-1|^2}{|\rho|^2}$, so $|w_\rho|<1\iff|\rho-1|<|\rho|$,
+i.e. ρ is strictly closer to $1$ than to $0$. Writing $\rho=\sigma+it$,
+$|\rho-1|^2-|\rho|^2=(\sigma-1)^2-\sigma^2=1-2\sigma$, which is $<0\iff\sigma>\tfrac12$.
+The other cases are the same computation. ∎
+
+## Lemma 2 (functional-equation pairing). 
+If ρ is a zero then so is $1-\rho$, and
+$$w_{1-\rho}=\frac{1}{w_\rho}.$$
+
+*Proof.* $w_{1-\rho}=\dfrac{(1-\rho)-1}{1-\rho}=\dfrac{-\rho}{1-\rho}=\dfrac{\rho}{\rho-1}
+=\dfrac{1}{w_\rho}.$ ∎
+
+So the zeros' images under $\rho\mapsto w_\rho$ are closed under $w\mapsto 1/w$
+(functional equation) and under $w\mapsto\bar w$ (complex conjugation). A zero off the
+critical line thus produces a genuine quadruple with moduli $r,\,r,\,1/r,\,1/r$ for some
+$r\neq1$; a zero on the line produces points on the unit circle.
+
+## Lemma 3 (contribution of one symmetric quadruple).
+Group the four zeros $\{\rho,\bar\rho,1-\rho,1-\bar\rho\}$. Writing $w_\rho=re^{i\theta}$
+($r=|w_\rho|$), their combined contribution to $\lambda_n$ is real and equals
+$$C_n(r,\theta)=4-2\big(r^{n}+r^{-n}\big)\cos(n\theta).$$
+
+*Proof.* The four $w$-values are $re^{i\theta},\,re^{-i\theta},\,r^{-1}e^{-i\theta},\,
+r^{-1}e^{i\theta}$ (using Lemma 2 for the reflection and conjugation for the bar).
+Each contributes $1-w^n$. Summing:
+$$4-\big(r^ne^{in\theta}+r^ne^{-in\theta}+r^{-n}e^{-in\theta}+r^{-n}e^{in\theta}\big)
+=4-2(r^n+r^{-n})\cos(n\theta).$$
+This is manifestly real. ∎
+
+(For a zero exactly on the line, $r=1$ and the same formula with a doubled pair gives
+$C_n=2(1-\cos n\theta)\ge0$, matching the classical nonnegativity of on-line
+contributions.)
+
+## Consequence A (on-line ⇒ nonnegative each block).
+If $r=1$ then $C_n(1,\theta)=4-4\cos(n\theta)=4(1-\cos n\theta)\ge0$ for every $n$.
+Thus **every** individual quadruple of critical-line zeros contributes nonnegatively to
+every λ_n. Non-positivity can only be injected by off-line zeros. This is the precise
+"where could negativity come from" statement.
+
+## Consequence B (growth dichotomy — the analytic pressure).
+Suppose there exists an off-line zero, so $r=r_0>1$ for some quadruple with angle
+$\theta_0$. Its contribution is
+$$C_n=4-2(r_0^n+r_0^{-n})\cos(n\theta_0).$$
+Consider two cases.
+
+- If $\theta_0/\pi$ is irrational, $\{n\theta_0 \bmod 2\pi\}$ is equidistributed, so there
+is a subsequence $n_k$ with $\cos(n_k\theta_0)\ge \tfrac12$. Then
+$C_{n_k}\le 4-r_0^{n_k}\to-\infty$ **exponentially**.
+- If $\theta_0/\pi=p/q$ rational, then along $n=qm$ we have $\cos(n\theta_0)=1$, giving
+$C_{qm}=4-2(r_0^{qm}+r_0^{-qm})\to-\infty$ exponentially.
+
+In both cases a single off-line quadruple drives its own contribution to $-\infty$ at an
+exponential rate $r_0^{n}$.
+
+Now compare with the total size of λ_n. It is classical (Bombieri–Lagarias) that
+unconditionally $|\lambda_n|=O(n\log n)$ **is not** available without RH; what is
+unconditional is the arithmetic formula
+$$\lambda_n=\sum_{j=1}^{n}\binom{n}{j}(-1)^{j-1}\,\eta_{j}\quad\text{(secondary terms)}$$
+with the remaining zero-sum controlled only polynomially *under* suitable hypotheses.
+Here is the honest gap: to convert Consequence B into a contradiction one must bound the
+**combined** contribution of all other zeros from below by something growing slower than
+$r_0^n$. The exponential growth $r_0^n$ from one off-line pair does dominate any single
+competing pair with modulus $r_1<r_0$, but off-line zeros with $r$ arbitrarily close to
+the *supremal* modulus could, a priori, conspire so that partial-sum cancellation keeps
+$\lambda_n$ bounded. Controlling that conspiracy is exactly the analytic difficulty and I
+cannot close it here.
+
+## What is genuinely established vs. classical
+- Lemmas 1–3 and Consequence A give a clean, correct, self-contained derivation of the
+  sign geometry: **only off-line zeros can produce negative λ_n, and each off-line
+  quadruple contributes an oscillating exponentially-growing term $-2(r^n+r^{-n})\cos n\theta$.**
+- Consequence B is essentially the mechanism behind Li's theorem (that a *single* off-line
+  zero forces λ_n → −∞ along a subsequence *if* one controls the remainder). My
+  contribution is the explicit, verified closed form $C_n(r,\theta)$ for a full symmetric
+  quadruple and the clean equidistribution/rational dichotomy for the subsequence.
+- I did **not** prove the required uniform lower bound on the aggregate of the remaining
+  zeros, so this does not yield RH nor an unconditional new inequality.
+
+## Self-check
+Modulus computation ($1-2\sigma$ sign) verified. Pairing $w_{1-\rho}=1/w_\rho$ verified
+algebraically. Quadruple sum $C_n$ reality and formula verified by direct expansion. On-line
+case reduces correctly to $2(1-\cos n\theta)\ge0$. The exponential-growth claims are
+elementary. The identified gap (aggregate control of the zero remainder against $r_0^n$) is
+real and unbridged.
+
+VERDICT: FAILED
+REASON: Rederived explicit quadruple contribution C_n=4−2(rⁿ+r⁻ⁿ)cos nθ in Li's criterion but could not bound the zero-sum remainder.

@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 75,
+    "claude": 76,
     "grok": 75,
     "gpt": 75
   },
   "lastRun": {
-    "claude": 1786267273780,
+    "claude": 1786275050574,
     "grok": 1786270137911,
     "gpt": 1786272939124
   },
   "attempts": [
+    {
+      "id": "claude-1786275050574",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rederived explicit quadruple contribution C_n=4−2(rⁿ+r⁻ⁿ)cos nθ in Li's criterion but could not bound the zero-sum remainder.",
+      "ts": "2026-08-09T11:30:50.574Z",
+      "duration_ms": 72976
+    },
     {
       "id": "gpt-1786272939124",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a quantitative barrier for compact-support explicit-formula methods; shows this approach can’t prove RH.",
       "ts": "2026-08-07T12:00:50.050Z",
       "duration_ms": 95637
-    },
-    {
-      "id": "grok-1786101079394",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Sturm-ODE approach to Z(t) blocked by sign-changing arithmetic error in the formal potential Q",
-      "ts": "2026-08-07T11:11:19.394Z",
-      "duration_ms": 46735
     }
   ]
 }
