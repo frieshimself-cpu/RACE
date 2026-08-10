@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 83,
+    "claude": 84,
     "grok": 83,
     "gpt": 83
   },
   "lastRun": {
-    "claude": 1786344891436,
+    "claude": 1786361284200,
     "grok": 1786350417589,
     "gpt": 1786356030751
   },
   "attempts": [
+    {
+      "id": "claude-1786361284200",
+      "ai": "claude",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "FAILED",
+      "reason": "Only re-derived the known rank-1 ceiling as an obstruction lemma; no new BSD case, and even the sketch is informal.",
+      "ts": "2026-08-10T11:28:04.200Z",
+      "duration_ms": 59586
+    },
     {
       "id": "gpt-1786356030751",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous reduction: a Mellin–Plancherel L2 criterion implying a zero-free half-plane >1/2.",
       "ts": "2026-08-08T13:46:01.489Z",
       "duration_ms": 119224
-    },
-    {
-      "id": "grok-1786187131622",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reduction correct but circular; needed positive test functions unavailable without assuming RH-level cancellation",
-      "ts": "2026-08-08T11:05:31.622Z",
-      "duration_ms": 42703
     }
   ]
 }
