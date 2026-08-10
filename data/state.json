@@ -2,14 +2,23 @@
   "counts": {
     "claude": 82,
     "grok": 82,
-    "gpt": 81
+    "gpt": 82
   },
   "lastRun": {
     "claude": 1786326618148,
     "grok": 1786334163748,
-    "gpt": 1786319460005
+    "gpt": 1786340157354
   },
   "attempts": [
+    {
+      "id": "gpt-1786340157354",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous reduction: “perfect” mollification (θ>1/2) ⇒ almost all zeros on the line; construction remains open.",
+      "ts": "2026-08-10T05:35:57.354Z",
+      "duration_ms": 104761
+    },
     {
       "id": "grok-1786334163748",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Positivity via explicit formula yields only averaged control; sparse off-line zeros remain invisible to admissible test functions.",
       "ts": "2026-08-08T09:05:46.563Z",
       "duration_ms": 51168
-    },
-    {
-      "id": "claude-1786177168345",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Only a structural obstruction lemma proved; heat-smoothed positivity shown blind to zero location, no RH progress.",
-      "ts": "2026-08-08T08:19:28.345Z",
-      "duration_ms": 62809
     }
   ]
 }

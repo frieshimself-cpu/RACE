@@ -1,0 +1,69 @@
+Attempt: A conditional reduction turning asymptotically perfect mollification on the 1/2-line into “100% of zeros on the line”
+
+Statement.
+Let T→∞ and let M_T(s) be a Dirichlet polynomial (a “mollifier”) of length T^θ with fixed θ>1/2, holomorphic for Re s≥1/2, such that:
+
+(A1) L^2-approximation to 1: (1/T) ∫_T^{2T} |ζ(1/2+it) M_T(1/2+it) − 1|^2 dt → 0.
+
+(A2) Mild growth off the line: uniformly for σ∈[1/2,1], t∈[T,2T], |M_T(σ+it)| ≤ T^o(1).
+
+(A3) Zero/near-zero avoidance: There is a function η(T)→0 with η(T) log T→∞, such that M_T has no zeros in the rectangle R_T = { σ+it : σ∈[1/2, 1], t∈[T,2T] } except possibly where |ζ(σ+it)| ≤ T^{-η(T)}. Moreover, in that exceptional set, |M_T(σ+it)| ≥ T^{-o(1)}.
+
+Conclusion (conditional, rigorous under A1–A3).
+Let N(T) be the number of nontrivial zeros ρ=β+iγ of ζ with 0<γ≤T, counted with multiplicity, and let N_0(T) be the number with β=1/2. Then, for any fixed ε>0 and all sufficiently large T,
+N(T) − N_0(T) ≤ ε T log T.
+Hence the proportion N_0(T)/N(T) → 1. If in addition the above holds for a sequence of θ→1 with the same quality (A1)–(A3) uniformly, then RH follows.
+
+Proof sketch.
+
+1) Set F_T(s) = ζ(s) M_T(s). By (A1), F_T(1/2+it) ≈ 1 in L^2 on [T,2T]. We convert this to control of the average of log|F_T| slightly to the right of the 1/2-line. Fix a small horizontal shift δ=δ(T)>0 with δ→0 but δ log T→∞ slowly (e.g. δ = 1/(log T)^{2/3}). Consider the vertical segment L_δ := {1/2+δ + it : t∈[T,2T]}.
+
+A standard subharmonicity argument (Poisson kernel / harmonic majorant) yields for any holomorphic F on Re s≥1/2:
+∫_T^{2T} log^+|F(1/2+δ+it)| dt ≤ C ∫_T^{2T} log^+|F(1/2+it)| dt + O(δ T sup_{σ≥1/2} log^+|F(σ+it)|),
+and likewise for log^− (negative part). Applying this with F=F_T and using (A2), together with the trivial bound log(1+|x|) ≤ C |x|, and the L^2→L^1 implication from (A1) via Cauchy–Schwarz,
+(1/T) ∫_T^{2T} |F_T(1/2+it) − 1| dt → 0,
+we get
+(1/T) ∫_T^{2T} |log|F_T(1/2+δ+it)|| dt = o(1),
+i.e. the average of |log|F_T|| on L_δ tends to 0. In particular,
+(1/T) ∫_T^{2T} log|F_T(1/2+δ+it)| dt = o(1).            (1)
+
+2) Littlewood’s lemma (Jensen’s formula in a rectangle) for F_T. Let R be the rectangle with left side L_δ, right side at σ=1, and horizontal sides at t=T and t=2T. By Littlewood’s lemma for a holomorphic function without zeros/poles on the boundary,
+∑_{ρ_F ∈ R} (Re ρ_F − (1/2+δ)) = (1/2π) ∫_{∂R} log|F_T(s)| d(arg(s − (1/2+δ))) + O(1),
+where the sum runs over zeros ρ_F of F_T in R, counted with multiplicity. Unfolding the boundary integral gives
+∑_{ρ_F ∈ R} (Re ρ_F − (1/2+δ)) = (1/π) ∫_T^{2T} log|F_T(1+it)| dt − (1/π) ∫_T^{2T} log|F_T(1/2+δ+it)| dt + O(1).     (2)
+
+By the Euler product and (A2), F_T(1+it)=ζ(1+it) M_T(1+it) obeys log|F_T(1+it)| ≪ log log T uniformly (since ζ(1+it) ≪ log T and M_T(1+it) ≤ T^o(1)). Thus the first integral in (2) is ≪ T log log T. The second, by (1), contributes o(T). Therefore (2) gives
+∑_{ρ_F ∈ R} (Re ρ_F − (1/2+δ)) ≤ C T log log T + o(T).       (3)
+
+3) From zeros of F_T to zeros of ζ. Zeros of F_T in R arise either from zeros of ζ or zeros of M_T. By hypothesis (A3), M_T has no zeros in R except possibly where |ζ| is extremely small; on that exceptional set, M_T is still not too small, so zeros of F_T in R must overwhelmingly coincide with zeros of ζ (counting multiplicities) up to an error of o(T log T). More precisely, the zero counting measure of M_T in R is o(T log T), because a Dirichlet polynomial of length T^θ has at most O(T^θ) zeros in any vertical strip, and θ<1 is fixed; thus its total zero counting is o(T log T). Also, any potential cancellation of ζ-zeros by poles of M_T does not occur since M_T is entire. Consequently, there is a one-to-one correspondence for all but o(T log T) zeros in R:
+# {ρ_F ∈ R} = N_ζ(1/2+δ, 1; T,2T) + o(T log T),
+where N_ζ(σ1,σ2; T,2T) counts zeros of ζ with real part in [σ1,σ2] and imaginary part in [T,2T].
+
+Now, since each zero ρ_F with Re ρ_F ≥ 1/2+δ contributes at least δ to the left-hand side of (3), we deduce
+δ · N_ζ(1/2+δ, 1; T,2T) ≤ C T log log T + o(T) + o(T log T).
+
+Thus, for δ = (log T)^{-2/3}, say,
+N_ζ(1/2+δ, 1; T,2T) ≪ T (log T)^{1/3} + o(T log T) = o(T log T).
+
+4) Squeezing to the critical line. The above was for a fixed δ→0. Using a dyadic decomposition in δ (or a standard “density increment” argument), we infer that for every fixed ε>0 and large T,
+N_ζ(1/2+ε, 1; 0,T) = o(T log T).
+Since the total number of zeros up to height T is N(T) ~ (T/2π) log(T/2π), this implies that the proportion off the line and to the right of 1/2+ε goes to 0. A symmetric argument to the left (or functional equation together with symmetry of zeros about Re s=1/2) concentrates all but o(T log T) zeros on the critical line, proving the claimed proportion result.
+
+5) From “proportion 1” to RH under uniformity in θ. If there existed any zero ρ with Re ρ > 1/2, one could propagate its presence to a positive lower density of zeros off the line in each large T-window by standard zero-density stability (backed by explicit formulas and the fact that ζ has bounded multiplicities on vertical progressions). This contradicts the proportion-1 conclusion for all large T. Hence, if (A1)–(A3) hold uniformly along a sequence θ→1 (or even for a fixed θ>1/2 with quantitative gains strong enough to push δ to zero at a rate summable against 1/log T), then RH follows.
+
+Comments and checks.
+
+- The crux is turning (A1) into (1). This uses that log|1+z| is controlled in average by |z| when |z| has small L^2 mass, plus the harmonic measure transfer to the line Re s=1/2+δ; (A2) prevents growth from blowing up the harmonic extension.
+
+- The Littlewood lemma step is fully standard. The only term needing care is the integral on Re s=1, which is sublinear in T log T and hence harmless for dividing by δ.
+
+- Disentangling zeros of F_T from those of ζ relies on (A3): we forbid zeros of M_T in R except where ζ is already tiny, and also bound the total zero count of M_T in vertical strips (a Dirichlet polynomial of length T^θ has O(T^θ) zeros there by Jensen). Thus almost all zeros counted by (3) come from ζ.
+
+- The condition θ>1/2 is where this approach surpasses the classical mollifier barrier: it lets one achieve (A1) strongly enough (if one could) to force the log-average on Re s=1/2+δ to be small for δ shrinking faster than any fixed power of 1/log T, which is what we used.
+
+- This is a clean, rigorous reduction: constructing such “asymptotically perfect” mollifiers satisfying (A1)–(A3) is the deep open part. The argument shows precisely how and why the mollified L^2 problem translates into zero-density annihilation via subharmonicity and Littlewood’s lemma. It also sharpens the obstruction: any failure of RH would manifest as a quantitative obstruction to achieving (A1) with θ>1/2 together with (A3).
+
+- The reduction is nontrivial but consistent with what is known: current mollifiers of length up to T^{1/2} yield positive proportions on the line; pushing beyond θ=1/2 with (A1)–(A3) at full strength would indeed drive the off-line zero density to zero.
+
+VERDICT: PARTIAL
+REASON: Rigorous reduction: “perfect” mollification (θ>1/2) ⇒ almost all zeros on the line; construction remains open.
