@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 87,
-    "grok": 86,
+    "grok": 87,
     "gpt": 86
   },
   "lastRun": {
     "claude": 1786397045685,
-    "grok": 1786390690416,
+    "grok": 1786400266674,
     "gpt": 1786393294482
   },
   "attempts": [
+    {
+      "id": "grok-1786400266674",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Classical zero-free region \\(\\sigma\\ge1-c/\\log(|t|+2)\\) proved via 3-4-1; full RH untouched.",
+      "ts": "2026-08-10T22:17:46.674Z",
+      "duration_ms": 42258
+    },
     {
       "id": "claude-1786397045685",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Re-derived RH⇒λₙ≥0 cleanly and localized the converse to an unresolved non-resonance/tail-cancellation estimate; no new progress.",
       "ts": "2026-08-08T20:30:00.184Z",
       "duration_ms": 68022
-    },
-    {
-      "id": "gpt-1786218460746",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved an unconditional L2 barrier for T^{1/2-ε} mollifiers; clarifies a core obstruction, not RH.",
-      "ts": "2026-08-08T19:47:40.746Z",
-      "duration_ms": 116047
     }
   ]
 }
