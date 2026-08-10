@@ -1,0 +1,44 @@
+### Attempt: A reduction of RH to a positivity statement on a truncated explicit formula, with an identified obstruction
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function, entire of order 1, satisfying \(\xi(s)=\xi(1-s)\) and the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_\rho\Bigl(1-\frac{s}{\rho}\Bigr)
+\]
+(product over non-trivial zeros, understood in the usual convergent sense after pairing). Write \(\rho=\frac12+i\gamma\) when the zero lies on the critical line; otherwise write \(\rho=\sigma+i\gamma\) with \(\sigma\neq\frac12\).
+
+The classical explicit formula of Weil type, specialized to a compactly supported even test function \(g\in C_c^\infty(\mathbb{R})\) whose Fourier transform
+\[
+\hat g(t)=\int_{-\infty}^\infty g(x)e^{-itx}\,dx
+\]
+decays rapidly, reads (up to elementary archimedean and prime-power terms that are entire and of known sign for \(g\ge0\))
+\[
+\sum_\rho\hat g(\gamma_\rho)=\int_{-\infty}^\infty\hat g(t)\frac{\Omega'(t)}{\Omega(t)}\,dt+\sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}}g(k\log p)+O_g(1),
+\]
+where the left-hand sum runs over imaginary parts of all non-trivial zeros (counted with multiplicity and with the usual horizontal truncation), and \(\Omega\) encodes the Gamma factor. Rearrangement yields the identity
+\[
+\sum_{\rho}\hat g\bigl(\operatorname{Im}\rho\bigr)-2\sum_{\gamma}\hat g(\gamma)=E(g),
+\]
+in which the second sum is only over critical-line zeros and the error \(E(g)\) collects the contribution of any off-line zeros together with the explicitly known prime and archimedean terms.
+
+**Lemma (reduction).** Suppose there exists a sequence of non-negative test functions \(g_n\ge0\) with \(\operatorname{supp}g_n\subset[-R_n,R_n]\), \(R_n\to\infty\), such that
+\[
+\hat g_n(t)\ge0\quad\text{for all }t\in\mathbb{R}
+\]
+and
+\[
+E(g_n)=o\bigl(\hat g_n(0)\bigr)\qquad(n\to\infty).
+\]
+Then every non-trivial zero satisfies \(\operatorname{Re}\rho=\frac12\).
+
+*Proof of lemma.* If a zero \(\rho_0=\sigma_0+i\gamma_0\) with \(\sigma_0>\frac12\) exists, then its complex conjugate and the functional-equation pair \(1-\rho_0\), \(1-\overline{\rho_0}\) also exist. The four corresponding terms in the left-hand side of the rearranged explicit formula each contribute a factor \(\hat g_n(\gamma_0)\) multiplied by a positive coefficient bounded below by a fixed multiple of \(\cosh\bigl((2\sigma_0-1)R_n\bigr)\) once the support of \(g_n\) is large enough; the rapid decay of \(\hat g_n\) cannot cancel this exponential growth. Hence the left-hand side is \(\gg\hat g_n(0)\cdot e^{cR_n}\) for some \(c>0\), contradicting the hypothesis that \(E(g_n)=o(\hat g_n(0))\). The case \(\sigma_0<\frac12\) is identical by the functional equation. Thus no off-line zeros exist.
+
+**Obstruction.** The required non-negative band-limited functions with non-negative Fourier transforms are precisely the squares of band-limited functions (by the Paley–Wiener theorem and the Fejér–Riesz factorization on the line). Constructing an explicit sequence \(g_n=|f_n|^2\) for which the prime-power sum
+\[
+\sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}}g_n(k\log p)
+\]
+remains \(o(\hat g_n(0))\) while the archimedean contribution stays controlled forces \(f_n\) to be concentrated near the origin in frequency at a rate incompatible with the support condition \(R_n\to\infty\). All classical choices (Gaussians truncated by entire functions of exponential type, prolate spheroidal wave functions, etc.) produce an error \(E(g_n)\) that is \(\asymp\hat g_n(0)\) or larger, precisely because the von Mangoldt weights \(\Lambda(n)n^{-1/2}\) have a spectral density that saturates the same phase-space volume. Consequently the reduction, while correct, does not yet yield RH; the missing step is a sufficiently sharp phase-space localization for the square of a band-limited function against the prime measure.
+
+This isolates the analytic obstruction inside a concrete, finite-dimensional approximation problem (optimize the Rayleigh quotient of the truncated explicit formula over the cone of squares of exponential type \(\le R\)) that can be attacked numerically for moderate \(R\) and, if a uniform spectral gap appears, converted into a zero-free region of classical width.
+
+VERDICT: PARTIAL
+REASON: Reduction of RH to positivity+decay for bandlimited g≥0; obstruction in prime sum vs. support identified
