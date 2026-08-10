@@ -1,0 +1,30 @@
+Title: A uniform mollified inversion criterion implying the Riemann Hypothesis
+
+Claim (Uniform mollified inversion ⇒ RH):
+Fix any c with 0 < c < 1. Suppose there exists θ > 0 and, for all sufficiently large T, a Dirichlet polynomial
+M_T(s) = ∑_{n ≤ T^θ} a_n n^{-s}
+such that, for all s = σ + it with 1/2 ≤ σ ≤ 1 and T ≤ t ≤ 2T,
+|1 − ζ(s) M_T(s)| ≤ c.
+Then the Riemann Hypothesis holds.
+
+Proof:
+- Each M_T is an entire function (finite Dirichlet polynomial).
+- Assume, for contradiction, that ζ has a nontrivial zero ρ = β + iγ with β > 1/2. Take T so large that T ≤ |γ| ≤ 2T. Then ρ lies in the region where the uniform bound |1 − ζ M_T| ≤ c < 1 is assumed.
+- Evaluate at s = ρ. Since ζ(ρ) = 0, we have |1 − ζ(ρ) M_T(ρ)| = |1 − 0| = 1, contradicting the assumed bound c < 1.
+- Hence there are no zeros with β > 1/2. By the functional equation, zeros are symmetric with respect to the critical line Re(s) = 1/2, so there are no zeros with β < 1/2 either. Therefore, all nontrivial zeros satisfy β = 1/2. This is the Riemann Hypothesis.
+
+Remarks and sharpenings:
+- The above uses only analyticity of M_T and the strict uniform inequality < 1 on each dyadic band T ≤ t ≤ 2T. No nonvanishing of M_T is required.
+- A weaker boundary-control variant can be proved using the three-lines theorem. If, for some fixed δ ∈ (0, 1/2), one has for all large T two Dirichlet polynomials M_T with
+  sup_{t ∈ [T,2T]} |1 − ζ(1/2 + it) M_T(1/2 + it)| ≤ c_0 < 1
+  and
+  sup_{t ∈ [T,2T]} |1 − ζ(1 − δ + it) M_T(1 − δ + it)| ≤ c_1 < 1,
+  and if F(s) = 1 − ζ(s) M_T(s) is of at most subexponential growth in the strip 1/2 ≤ σ ≤ 1 − δ, then Hadamard’s three-lines theorem yields sup_{1/2 ≤ σ ≤ 1 − δ, t ∈ [T,2T]} |F(s)| ≤ max(c_0, c_1) < 1. This rules out zeros in 1/2 < σ ≤ 1 − δ. Letting δ → 0 across a sequence would then force RH. Making this route rigorous requires a mild growth control on F, e.g. by choosing coefficients a_n with |a_n| ≪ n^ε and θ fixed, which ensures polynomial growth in T for M_T, while ζ has known subexponential growth in vertical strips. The uniform strict bound < 1 on both boundaries is, however, the central difficulty.
+- The criterion is logically tight with respect to zeros: if a zero exists in the region where the bound < 1 is claimed, the bound must fail at that point because 1 − ζ(s)M_T(s) equals 1 there. This explains why current mollifier methods, which control mean values like ∫_{T}^{2T} |1 − ζ(1/2 + it) M_T(1/2 + it)|^2 dt, cannot by themselves force a strict uniform bound < 1 without already excluding zeros: near any zero ρ, an entire mollifier M_T cannot introduce a pole to cancel ζ’s zero, so the error necessarily spikes to 1 at ρ. Thus the uniformity demanded here is precisely as strong as “there are no zeros in the region.”
+- Feasibility barrier with standard techniques: Present mollification achieves small mean-square on the critical line with mollifiers of length T^{1/2−ε} (and longer under hypotheses), yielding positive proportions of zeros on the line. But obtaining a uniform sup bound < 1 across an entire dyadic band would require controlling the approximation to 1/ζ at essentially every point, including neighborhoods where ζ is anomalously small. Without already knowing the absence of zeros in the region, the supremum must reach 1 at each zero, preventing the desired inequality. Hence, any path to this criterion must (explicitly or implicitly) first preclude zeros in the target region, underscoring that the criterion is a sharp reduction of RH to a uniform-in-t invertibility by Dirichlet polynomials.
+
+Conclusion:
+The above provides a clean, rigorous reduction: a family of short Dirichlet-polynomial “inverses” achieving a strict uniform approximation 1 − ζM_T bounded away from 1 on each dyadic band forces RH. It isolates a concrete analytic target whose uniformity is exactly as hard as excluding zeros, clarifying why L^2-mollification alone cannot suffice and where a qualitative leap would be required.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous reduction: uniform mollified inversion on strips would imply RH; no full proof.

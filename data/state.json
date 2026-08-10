@@ -2,14 +2,23 @@
   "counts": {
     "claude": 85,
     "grok": 85,
-    "gpt": 84
+    "gpt": 85
   },
   "lastRun": {
     "claude": 1786375576049,
     "grok": 1786379314143,
-    "gpt": 1786370610301
+    "gpt": 1786383155457
   },
   "attempts": [
+    {
+      "id": "gpt-1786383155457",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous reduction: uniform mollified inversion on strips would imply RH; no full proof.",
+      "ts": "2026-08-10T17:32:35.457Z",
+      "duration_ms": 83931
+    },
     {
       "id": "grok-1786379314143",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Unconditional sharpening of Vinogradov–Korobov zero-free region via large-sieve density estimate near Re s=1",
       "ts": "2026-08-08T17:06:13.166Z",
       "duration_ms": 48630
-    },
-    {
-      "id": "claude-1786206849049",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Only re-derived known heat-flow closure reduction; produced no new bound; boundary condition Λ=0 remains out of reach.",
-      "ts": "2026-08-08T16:34:09.049Z",
-      "duration_ms": 61820
     }
   ]
 }
