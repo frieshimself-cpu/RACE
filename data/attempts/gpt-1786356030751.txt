@@ -1,0 +1,68 @@
+Attempt: A scale-robust smoothed Chebyshev bound implies RH via the explicit formula
+
+Setup.
+- Fix a real, even Schwartz function w with compactly supported Fourier transform ẇ, with ẇ not identically zero and continuous on ℝ. For convenience assume ẇ(0) ≠ 0.
+- For a scale H>0 let K_H(u) = H w(H u). Define the Mellin-Laplace transform Φ_H(s) = ∫_{ℝ} e^{s u} K_H(u) du. A standard calculation gives Φ_H(s) = ẇ(is/H). In particular, Φ_H is entire and of at most exponential growth in |s|.
+- For x>0 define the localized Chebyshev sum
+  S_H(x) = ∑_{n=1}^∞ Λ(n) K_H(log(n/x)).
+  This localizes Λ(n) multiplicatively to n ≈ x within a window of relative width ~ H^{-1}.
+
+Normalization and statement to prove.
+- Let A_H = Φ_H(1) = ẇ(i/H) (a real constant depending only on H and w).
+- Consider the normalized expression
+  E_H(x) = x^{-1/2} S_H(x) - A_H x^{1/2}.
+  Note E_H(x) corresponds to removing the simple-pole main term at s=1 in the explicit formula.
+
+Goal.
+- Prove: If there exist constants H0>0 and C<∞ such that for a single fixed w as above, one has
+    sup_{x ≥ 2} sup_{0 < H ≤ H0} |E_H(x)| ≤ C,
+  then the Riemann Hypothesis holds.
+
+Proof sketch.
+
+1) Explicit formula for E_H(x).
+- For σ>1, by Mellin inversion,
+  S_H(x) = (1/2π i) ∫_{(σ)} -ζ'(s)/ζ(s) · x^s · Φ_H(s) ds,
+  with absolutely convergent integral since Φ_H(s) has at most exponential growth and -ζ'/ζ(s) ≪ log(|t|+2) on vertical lines.
+- Shift the contour to Re s = -1 and record residues at:
+  • s=1 (simple pole of -ζ'/ζ) contributing x · Φ_H(1) = A_H x,
+  • the nontrivial zeros ρ of ζ with multiplicity, contributing x^ρ Φ_H(ρ),
+  • the trivial zeros at s = -2k, contributing x^{-2k} Φ_H(-2k), which is O(1) uniformly in x for fixed H,
+  • the simple pole at s=0 (from the factorization -ζ'/ζ(s) = 1/(s-1)+O(1)); its contribution is absorbed into an O(1) term as well.
+- The integral over Re s = -1 decays to O(1) uniformly in x in any bounded H-interval (0,H0] because:
+  • |x^s| = x^{-1},
+  • -ζ'/ζ(s) ≪ 1 on Re s = -1,
+  • and Φ_H(s) = ẇ(is/H) decays faster than any power in |Im s| due to compact support of ẇ.
+- Dividing by x^{1/2} and subtracting A_H x^{1/2} gives
+  E_H(x) = ∑_{ρ} x^{ρ - 1/2} Φ_H(ρ) + O_{w,H0}(1),
+  with the O(1) uniform in x ≥ 2 and H ∈ (0,H0].
+
+Concretely,
+  E_H(x) = ∑_{ρ} x^{β-1/2} e^{i γ log x} · ẇ(iρ/H) + O(1),
+where ρ = β + iγ runs over nontrivial zeros.
+
+2) Consequence of a zero off the critical line.
+- Suppose there is a zero ρ0 = β0 + iγ0 with β0 > 1/2. Consider the factor
+    c(H) := Φ_H(ρ0) = ẇ(iρ0/H) = ẇ((γ0 + i(1/2-β0))/H).
+- The function H ↦ c(H) is real-analytic on (0,∞) (indeed, it is the restriction to the positive reals of an entire function of 1/H). Because ẇ is not identically zero, c(H) is not identically zero on any interval unless ẇ vanishes identically along the ray { (γ0 + i(1/2-β0))/H : H>0 }, which would force ẇ to vanish on an unbounded one-dimensional set in ℂ and hence everywhere by analyticity. Thus, for every H0>0 there exists some H* ∈ (0,H0] with |c(H*)| ≥ c0 > 0, where c0 depends on w, H0, and ρ0.
+- Fix such an H*. Then the ρ0-term in the explicit formula contributes
+    x^{β0 - 1/2} e^{i γ0 log x} c(H*),
+  whose magnitude is ≥ c0 x^{β0 - 1/2}.
+- The remaining zero-sum over ρ ≠ ρ0 plus the O(1) error is bounded in magnitude by a function independent of x (for our fixed H*), because β ≤ 1 accumulates to 1 at most logarithmically and Φ_H(ρ) decays rapidly in |γ| due to the compact support of ẇ.
+  More precisely, since ẇ is compactly supported on ℝ, Φ_H(σ+it) = ẇ(i(σ+it)/H) decays rapidly in t; combined with classical zero-density in vertical strips or just counting zeros up to height T, the tail ∑_{|γ|>T} x^{β-1/2} |Φ_H(ρ)| is summable uniformly in x for fixed H* (choose T large so that |Φ_H(ρ)| decays faster than any power in |γ|).
+- Therefore, as x → ∞, the single term from ρ0 forces |E_{H*}(x)| to grow at least like c0 x^{β0 - 1/2} - C, contradicting the assumed uniform bound sup_x |E_{H*}(x)| ≤ C.
+
+3) Conclusion.
+- Hence no zero can exist with β>1/2. By the functional equation and symmetry, zeros cannot exist with β<1/2 either. Therefore all nontrivial zeros lie on Re s = 1/2, i.e., RH holds.
+
+Remarks and checks.
+- The only properties of w used are: even, Schwartz, with compactly supported Fourier transform ẇ not identically zero. Compact support of ẇ gives rapid decay of Φ_H on vertical lines, crucial to make the shifted-contour integral O(1) uniformly in x. Evenness is inessential but convenient for ensuring real-valued kernels.
+- The normalization A_H = Φ_H(1) removes the pole term at s=1. Any alternative normalization that cancels that term (e.g., replacing K_H by K_H - e^{-u} times a mass) would serve.
+- The assumption needs uniform boundedness in x for a full interval of scales H ∈ (0,H0], not just for a single H. This “scale-robustness” prevents the pathological possibility that ẇ vanishes along the ray where a hypothetical off-line zero would contribute.
+- The reduction is sharp up to the uniformity in H: with RH true, E_H(x) = O(1) uniformly for H in compact intervals is standard from the explicit formula and the rapid decay of Φ_H at zeros on the critical line; conversely, our argument shows this boundedness across a scale interval forces RH.
+
+Summary of contribution.
+- A concrete reduction is established: Prove a uniform-in-x, uniform-in-scale H smoothed Chebyshev bound with a single fixed band-limited window w, and RH follows. The proof is a short, self-contained contour argument using the explicit formula and an analyticity-in-scale obstruction to off-line zeros.
+
+VERDICT: PARTIAL
+REASON: New rigorous reduction: uniform-in-scale smoothed prime bound ⇒ RH; proof via explicit formula

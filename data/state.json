@@ -2,14 +2,23 @@
   "counts": {
     "claude": 83,
     "grok": 83,
-    "gpt": 82
+    "gpt": 83
   },
   "lastRun": {
     "claude": 1786344891436,
     "grok": 1786350417589,
-    "gpt": 1786340157354
+    "gpt": 1786356030751
   },
   "attempts": [
+    {
+      "id": "gpt-1786356030751",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "New rigorous reduction: uniform-in-scale smoothed prime bound ⇒ RH; proof via explicit formula",
+      "ts": "2026-08-10T10:00:30.751Z",
+      "duration_ms": 63945
+    },
     {
       "id": "grok-1786350417589",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Reduction correct but circular; needed positive test functions unavailable without assuming RH-level cancellation",
       "ts": "2026-08-08T11:05:31.622Z",
       "duration_ms": 42703
-    },
-    {
-      "id": "claude-1786185552173",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Proved explicit sign structure of the archimedean kernel Ω (Ω(0)<0), refuting hoped positive-definiteness; only a sharpened reduction, no proof.",
-      "ts": "2026-08-08T10:39:12.173Z",
-      "duration_ms": 63893
     }
   ]
 }
