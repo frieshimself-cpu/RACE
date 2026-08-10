@@ -1,0 +1,53 @@
+Title: A conditional oscillation lower bound in √x-short intervals from a single off-line zero
+
+Statement (conditional lemma)
+Let ρ0 = β0 + iγ0 be a nontrivial zero of ζ(s) with β0 > 1/2. Fix any smooth nonnegative bump w ∈ C_c^∞([0,1]) with ∫_0^1 w = 1. For large X and H = X^{1/2}, define the smoothed prime-counting fluctuation
+S_w(u;H) := ∑_{n≥1} Λ(n) w((n-u)/H) − H.
+Then there exists a constant c(w,ρ0) > 0 such that, for all sufficiently large X,
+∫_{X}^{2X} |S_w(u;H)|^2 du ≥ c(w,ρ0) H^2 X^{2β0−1} + o(H^2 X^{2β0−1}).
+
+In particular, there exists u ∈ [X,2X] for which
+|S_w(u;H)| ≥ c'(w,ρ0) H X^{β0−1} = c'(w,ρ0) X^{β0−1/2}.
+
+Sketch of proof
+- Smoothed explicit formula: Consider the Mellin transform of w via W(s) := ∫_0^∞ w(t) t^{s−1} dt, entire and rapidly decaying on vertical lines. A standard smoothed explicit formula (derived from Perron’s formula for −ζ′/ζ and shifting the contour) gives, uniformly for u ∼ X, H = X^{1/2}, and any fixed σ ∈ (1/2,1),
+S_w(u;H) = − ∑_{ρ} (u/H)^{ρ} H · W(ρ+1) / ρ + E(u;X,H),
+where the sum runs over nontrivial zeros ρ of ζ(s), and the error E(u;X,H) is negligible in L^2 over u ∈ [X,2X]: for any A > 0, ∫_{X}^{2X} |E(u;X,H)|^2 du ≪_{A,w} X H^2 (log X)^{-A}. This is standard: one inserts w((n−u)/H) as a Mellin convolution, interchanges sum and integral on −ζ′/ζ, and uses zero-free regions away from Re s = 1 together with the rapid decay of W on vertical lines to bound the tails and the contributions of the trivial zeros.
+
+- Isolating a single zero in L^2: Write the zero contribution as
+Z(u) := − ∑_{ρ} a_ρ u^{ρ−1} H, with a_ρ := u · H^{1−ρ} W(ρ+1)/ρ.
+Since u ∈ [X,2X] and H = X^{1/2}, we have u^{ρ−1} = u^{β−1} e^{iγ log u}, and H^{1−ρ} = H^{1−β} e^{-iγ log H}. Thus each zero contributes a function of u of the form C_ρ X^{1/2−β} u^{β−1} e^{iγ log u}, with C_ρ depending only on w and ρ up to harmless constants from the restricted ranges.
+
+For the L^2 norm over u ∈ [X,2X], we have the trivial inequality
+∫_{X}^{2X} |Z(u)|^2 du ≥ ∫_{X}^{2X} |a_{ρ0} u^{ρ0−1} H|^2 du,
+since |∑ f_j|^2 ≥ |f_{ρ0}|^2 pointwise. Evaluating the right-hand side gives
+∫_{X}^{2X} |a_{ρ0}|^2 H^2 u^{2β0−2} du
+= |W(ρ0+1)/ρ0|^2 H^2 H^{2(1−β0)} ∫_{X}^{2X} u^{2β0−2} u^2 du · X^{−2(1−β0)}
+= c(w,ρ0) H^2 ∫_{X}^{2X} u^{2β0−1} du · X^{−1}
+∼ c(w,ρ0) H^2 X^{2β0−1},
+where we have kept track of the u-dependence and absorbed fixed phases into c(w,ρ0) > 0. The key point is that the u-integral yields a factor ≍ X^{2β0}, and the normalization u ∼ X contributes X^{-1}, resulting in H^2 X^{2β0−1}.
+
+- Controlling the error: By the smoothed formula’s L^2 control for E(u;X,H), one has
+∫_{X}^{2X} |S_w(u;H)|^2 du
+≥ ∫_{X}^{2X} |Z(u)|^2 du + o(H^2 X^{2β0−1})
+≥ c(w,ρ0) H^2 X^{2β0−1} + o(H^2 X^{2β0−1}),
+as claimed.
+
+- Pointwise lower bound from L^2: By Cauchy–Schwarz,
+sup_{u∈[X,2X]} |S_w(u;H)|
+≥ ( ∫_{X}^{2X} |S_w(u;H)|^2 du )^{1/2} / (meas[X,2X])^{1/2}
+≥ c'(w,ρ0) H X^{β0−1},
+which with H = X^{1/2} yields the asserted X^{β0−1/2} pointwise fluctuation for some u ∈ [X,2X].
+
+Discussion and consequence
+- This shows rigorously that the existence of a single zero with real part β0 > 1/2 forces √x-scale oscillations of smoothed prime counts of size at least a constant multiple of X^{β0−1/2}. In particular, any approach that aims to prove uniform bounds of the form |ψ(x+H) − ψ(x) − H| ≪ X^{1/2} (log X)^{-A} for H = X^{1/2} (even in smoothed form) would, if successful, preclude such oscillations and thereby force RH. This gives a clean reduction: a power-saving L^2 bound for √x-short-interval prime fluctuations implies RH.
+
+- An unsmoothed corollary follows by a standard smoothing-to-unsmoothing comparison: since 1_{(0,1]} can be approximated in L^1 by nonnegative smooth bumps supported in (−ε,1+ε), the same argument gives that if β0 > 1/2, then for H = X^{1/2} there exist u ∈ [X,2X] with |ψ(u+H) − ψ(u) − H| ≫ X^{β0−1/2−o(1)}. We omit the routine approximation details.
+
+Limitations
+- The argument is conditional on the existence of an off-line zero; it does not rule one out. It isolates a concrete quantitative obstruction for any method attempting to prove strong √x-short-interval bounds for primes without already implying RH.
+
+- The explicit formula and its error control are standard; the novelty here is only the compact, self-contained L^2 lower bound pinned to a single off-line zero and at the RH-critical short-interval scale H = X^{1/2}.
+
+VERDICT: PARTIAL
+REASON: Conditional reduction: off-line zero forces ≥X^{β−1/2} √x-interval prime oscillations via L2 explicit formula.

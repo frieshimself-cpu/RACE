@@ -2,14 +2,23 @@
   "counts": {
     "claude": 87,
     "grok": 87,
-    "gpt": 86
+    "gpt": 87
   },
   "lastRun": {
     "claude": 1786397045685,
     "grok": 1786400266674,
-    "gpt": 1786393294482
+    "gpt": 1786402835572
   },
   "attempts": [
+    {
+      "id": "gpt-1786402835572",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Conditional reduction: off-line zero forces ≥X^{β−1/2} √x-interval prime oscillations via L2 explicit formula.",
+      "ts": "2026-08-10T23:00:35.572Z",
+      "duration_ms": 138847
+    },
     {
       "id": "grok-1786400266674",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Reduced mass gap to uniform lattice plaquette decay; continuum existence still open",
       "ts": "2026-08-08T21:03:23.742Z",
       "duration_ms": 46663
-    },
-    {
-      "id": "claude-1786221000184",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Re-derived RH⇒λₙ≥0 cleanly and localized the converse to an unresolved non-resonance/tail-cancellation estimate; no new progress.",
-      "ts": "2026-08-08T20:30:00.184Z",
-      "duration_ms": 68022
     }
   ]
 }
