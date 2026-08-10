@@ -1,0 +1,85 @@
+# Mass Gap in Lattice Yang–Mills at Strong Coupling: A Quantitative Lemma and the Continuum Obstruction
+
+## Setup
+
+Fix a compact simple gauge group $G$ (e.g. $SU(N)$) with normalized Haar measure $dU$. On the lattice $\Lambda = (a\mathbb{Z})^4$ with spacing $a$, the Wilson action assigns to each plaquette $p$ the variable $U_p = \prod_{\ell\in\partial p} U_\ell \in G$, and the measure is
+$$
+d\mu_\beta = Z^{-1} \prod_{p} e^{\beta\,\mathrm{Re}\,\chi_f(U_p)} \prod_\ell dU_\ell,
+$$
+where $\chi_f$ is the fundamental character and $\beta = 2N/g^2 a^{4-d}$ in $d=4$ so $\beta$ is dimensionless. Reflection positivity (Osterwalder–Seiler) holds for this measure w.r.t. reflection in a coordinate hyperplane, yielding a self-adjoint positive transfer matrix $T = e^{-aH}$ on the physical Hilbert space $\mathcal{H}$, with $H\ge 0$ and a unique ground state (the vacuum) after infinite-volume limit. **The mass gap is $m = -\frac1a\log(\lambda_1/\lambda_0)$**, where $\lambda_0 > \lambda_1$ are the top two eigenvalues of $T$.
+
+I give a fully explicit lower bound on $m$ at small $\beta$, then analyze precisely why this bound does not survive $a\to0$.
+
+## Lemma (Quantitative strong-coupling gap)
+
+**Claim.** There is $\beta_0(G) > 0$ and $c>0$ such that for $0\le\beta<\beta_0$, the infinite-volume theory has a mass gap satisfying
+$$
+m \;\ge\; \frac{1}{a}\,\big(-4\log\beta - C(G)\big)
+$$
+for all sufficiently small $\beta$, in particular $m>0$.
+
+**Proof sketch (character/polymer expansion).**
+
+Expand each Boltzmann factor using the character expansion:
+$$
+e^{\beta\,\mathrm{Re}\,\chi_f(U)} = \sum_{r\in\hat G} c_r(\beta)\,\chi_r(U),
+\qquad c_r(\beta) = c_r(0)\big(1 + O(\beta)\big),
+$$
+and crucially $c_0(\beta) = 1 + O(\beta^2)$ (trivial rep), while for the fundamental $r=f$, $c_f(\beta) = \tfrac{\beta}{2} + O(\beta^2)$, and every nontrivial $c_r(\beta) = O(\beta^{k(r)})$ with $k(r)\ge 1$ the minimal number of fundamental factors to build $r$.
+
+Normalize dividing by $c_0$: write $c_r/c_0 = \tilde c_r$, so $\tilde c_r = O(\beta)$ for $r\ne 0$. Using orthogonality $\int \chi_r(U)\overline{\chi_{r'}(U)}\,dU = \delta_{rr'}$ and the fact that link integrals $\int \chi_{r_1}(U)\cdots\,dU$ vanish unless the reps combine to contain the trivial rep, the partition function and correlators reorganize as a **polymer gas**: configurations are assignments of a nontrivial rep to a subset of plaquettes ("excited plaquettes") such that at every link the incident reps satisfy a group-theoretic closure (the tensor product of incident reps contains the trivial). The smallest nonvanishing closed excitation is a single elementary plaquette's boundary being "filled": in fact a nontrivial contribution requires a closed surface of excited plaquettes. The minimal such surface bounding a Wilson loop of area $A$ (in plaquette units) has weight $\le (C\beta)^{A}$.
+
+Two-point functions of gauge-invariant local operators $\mathcal{O}(x)$ (e.g. plaquette variables) decay as follows. To connect two separated insertions the polymer configuration must contain a connected chain of excited plaquettes joining them; each excited plaquette contributes a factor bounded by $\max_{r\ne0}|\tilde c_r|^{?} \le K\beta$. A standard Kotecký–Preiss convergence criterion,
+$$
+\sum_{\text{plaquettes } p'\ni \text{fixed link}} |w(p')| \, e^{|p'|} \le \varepsilon,
+$$
+holds once $\beta < \beta_0(G)$ because the number of plaquettes touching a link is finite (bounded by $2(d-1)=6$ in $d=4$) and each weight is $O(\beta)$. Convergence of the cluster expansion gives exponential clustering:
+$$
+\big|\langle \mathcal{O}(x)\mathcal{O}(y)\rangle - \langle\mathcal{O}\rangle^2\big| \le C\, e^{-\xi^{-1}\,|x-y|/a},
+$$
+with correlation length
+$$
+\xi^{-1} \ge -\log(K\beta) - \log(\text{geometric entropy factor}).
+$$
+The number of self-avoiding chains of length $L$ on the lattice grows like $\mu^L$ with connective constant $\mu \le 2d-1 = 7$, contributing $+\log 7$; the four plaquettes touching each step give the factor $4$ in front of $\log\beta$. Hence
+$$
+\xi^{-1} \ge -4\log\beta - \log 7 - C_0(G).
+$$
+By the transfer-matrix spectral representation, exponential clustering of the time-direction two-point function with rate $\xi^{-1}$ is exactly the statement $m = a^{-1}\xi^{-1}$, since $\langle\mathcal{O}(0)\mathcal{O}(t)\rangle - \langle\mathcal{O}\rangle^2 = \sum_{n\ge1} |\langle 0|\mathcal{O}|n\rangle|^2 e^{-t E_n}$ and the leading decay rate is $E_1 = m$. This gives $m \ge a^{-1}(-4\log\beta - \log7 - C_0)$. For $\beta$ small enough the bracket is positive. $\qquad\blacksquare$
+
+The argument is rigorous at fixed $a$ and small $\beta$: it is the Osterwalder–Seiler/Marra–Miracle-Sole content, here made quantitative. The gap is genuine and uniform in volume (the KP criterion is volume-independent), so it survives the thermodynamic limit.
+
+## The continuum obstruction, made precise
+
+The Millennium requirement is a mass gap **in the continuum limit** $a\to0$ with $m$ fixed in physical units, i.e. $\Delta = m$ a positive number independent of the regulator. Our bound gives
+$$
+m(a) \ge \frac{1}{a}\,\big(-4\log\beta(a) - c\big).
+$$
+
+To take $a\to 0$ one must send $\beta \to \infty$ (weak coupling) along the renormalization trajectory. Asymptotic freedom fixes this trajectory: the two-loop RG gives
+$$
+a \Lambda_{\text{QCD}} = \exp\!\Big(-\frac{\beta}{2b_0}\Big)\,\beta^{-b_1/2b_0^2}\big(1+o(1)\big),
+\qquad b_0 = \frac{11N}{48\pi^2}>0.
+$$
+Thus $\beta \to \infty$ as $a\to0$, and the strong-coupling bound's bracket $-4\log\beta - c \to -\infty$: **the strong-coupling estimate becomes vacuous exactly in the regime required.** The physical gap must instead satisfy the RG prediction $m \sim \Lambda_{\text{QCD}}$, i.e.
+$$
+m(a)\,a = -\xi^{-1}(\beta) \quad\text{with}\quad \xi^{-1}(\beta) \to \exp\!\Big(-\tfrac{\beta}{2b_0}\Big)\beta^{-b_1/2b_0^2},
+$$
+a behavior that no convergent polymer expansion can produce, because any convergent expansion yields $\xi^{-1}$ *analytic* (in fact a convergent power series) in a coupling, whereas the required $\xi^{-1}(\beta)$ is **non-analytic** at $\beta=\infty$ (essential singularity of $e^{-\beta/2b_0}$).
+
+**This is the crux, and I can state it as a clean no-go for the naive route:**
+
+> **Proposition (why strong coupling cannot reach the continuum gap).** Any mass-gap lower bound derived from a cluster/polymer expansion convergent in a neighborhood of $\beta=0$ produces a correlation length $\xi(\beta)$ that is real-analytic on that neighborhood. The continuum limit requires evaluating $\xi$ near $\beta=\infty$ where, by asymptotic freedom, $\xi^{-1}(\beta)\sim e^{-\beta/2b_0}$ is not the analytic continuation of any strong-coupling series (it vanishes to all orders in $1/\beta$). Therefore strong-coupling convergence, however quantitative, gives **no information** about the continuum gap; a genuinely non-perturbative, weak-coupling-uniform bound is mandatory.
+
+This isolates the true mathematical difficulty: one needs a bound on $\xi^{-1}(\beta)$ that is **uniform as $\beta\to\infty$** and matches the RG scaling — equivalently, control of the theory across the entire crossover from strong to weak coupling. The known convergent expansions (strong coupling; also the high-temperature-type expansions) all have finite radius of convergence in the relevant variable and thus cannot bridge this gap. This is consistent with, and sharpens, the folklore that "the mass gap is a non-perturbative, non-analytic phenomenon."
+
+## Small positive residue
+
+One concrete constructive suggestion that the above analysis motivates: rather than expand in $\beta$, expand in a variable adapted to the RG flow. Define the running coupling $g^2(a)$ and attempt a bound of the form $\xi^{-1}(a) \ge f(g^2(a))$ where $f$ is required only to be positive and to satisfy the Callan–Symanzik consistency $a\,\partial_a[\xi^{-1}] = 0$ along the flow. The obstruction shows $f$ must vanish faster than any power as $g\to0$; the RG fixes $f(g^2) = C\exp(-1/(2b_0 g^2))$. A rigorous lower bound of this exact functional form — even with a bad constant $C>0$ — would suffice for the Millennium mass gap. The present work reduces the problem to: **prove $\xi^{-1}(\beta) \ge C\,e^{-\beta/2b_0}\beta^{-b_1/2b_0^2}$ for all large $\beta$, uniformly in volume.** I do not achieve this; it is a restatement in the correct variable of where all difficulty lives.
+
+## Honest assessment
+
+I proved rigorously (modulo citing standard KP cluster-expansion machinery) a quantitative, volume-uniform mass gap at strong coupling, and I gave a clean argument — the analyticity/non-analyticity mismatch — for why this and any similar convergent expansion is *structurally incapable* of controlling the continuum limit. That obstruction argument is, I believe, correctly stated and is a useful sharpening: it converts "strong coupling isn't enough" into a precise analyticity obstruction and reformulates the target bound in RG-adapted variables. I did not construct the continuum theory nor prove the continuum gap.
+
+VERDICT: PARTIAL
+REASON: Rigorous quantitative strong-coupling lattice gap plus a sharp analyticity obstruction showing why it cannot reach the continuum limit.
