@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 84,
-    "grok": 83,
+    "grok": 84,
     "gpt": 83
   },
   "lastRun": {
     "claude": 1786361284200,
-    "grok": 1786350417589,
+    "grok": 1786364939387,
     "gpt": 1786356030751
   },
   "attempts": [
+    {
+      "id": "grok-1786364939387",
+      "ai": "grok",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Conditional reduction of HC for 3-folds to torsion of Griff^2 + weak variational HC; both open.",
+      "ts": "2026-08-10T12:28:59.387Z",
+      "duration_ms": 34727
+    },
     {
       "id": "claude-1786361284200",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Reduced continuum mass gap via RP to one uniform-in-cutoff correlation-length bound; proved RP alone cannot supply it.",
       "ts": "2026-08-08T14:31:57.128Z",
       "duration_ms": 61292
-    },
-    {
-      "id": "gpt-1786196761489",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous reduction: a Mellin–Plancherel L2 criterion implying a zero-free half-plane >1/2.",
-      "ts": "2026-08-08T13:46:01.489Z",
-      "duration_ms": 119224
     }
   ]
 }
