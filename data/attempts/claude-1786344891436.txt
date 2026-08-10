@@ -1,0 +1,89 @@
+# Attempt: A structural obstruction to "local certificate-shrinking" algorithms for SAT
+
+## Framing
+
+Rather than survey barriers, I isolate a concrete class of candidate polynomial-time
+algorithms for SAT and prove, rigorously and self-containedly, that no algorithm of
+that form can work — thereby carving out one dead end precisely. I then honestly note
+why this does not generalize.
+
+## The class of algorithms
+
+Many natural SAT heuristics are **monotone certificate-shrinking** procedures: given a
+CNF formula $\phi$ on $n$ variables, they repeatedly derive, in polynomial time, a set
+$S$ of clauses **implied** by $\phi$ (resolvents), and accept iff they never derive the
+empty clause within a polynomial number of steps. Resolution refutation is the paradigm.
+
+Define a **poly-bounded resolution decider** $A$: on input $\phi$, $A$ runs for
+$T(n) = n^{c}$ steps producing derived clauses via the resolution rule
+($C \vee x,\; D \vee \bar x \vdash C \vee D$), and outputs UNSAT iff it derives $\bot$.
+To be a *correct* SAT algorithm it must, for every unsatisfiable $\phi$, derive $\bot$
+within $n^c$ steps.
+
+## Lemma (impossibility)
+
+**No poly-bounded resolution decider is correct.**
+
+*Proof.* Correctness requires: for all unsatisfiable $\phi$ of size $m$, there is a
+resolution refutation of length $\le \text{poly}(m)$ reachable by $A$'s search. In
+particular the *shortest* resolution refutation of $\phi$ must have length
+$\le n^c$ (a fortiori, since $A$ produces at most $n^c$ clauses total, and the produced
+clauses that lead to $\bot$ form a refutation of size $\le n^c$).
+
+But Haken's theorem (1985) and its strengthenings (Chvátal–Szemerédi, Urquhart) exhibit,
+for every $n$, unsatisfiable CNF formulas $\phi_n$ (e.g. the pigeonhole principle
+$\mathrm{PHP}^{n+1}_n$, or random 3-CNF at the appropriate clause density) of size
+$m = \text{poly}(n)$ whose **shortest** resolution refutation has length
+$2^{\Omega(n)} = 2^{\Omega(\text{poly}(m))}$.
+
+Fix any constant $c$. For $n$ large enough, $2^{\Omega(n)} > m^c$. Then $A$ cannot
+produce a refutation of $\phi_n$ within $m^c$ steps, so $A$ either runs past its bound
+(contradiction) or fails to output UNSAT on an unsatisfiable formula. Hence $A$ is
+incorrect. ∎
+
+## What this does and does not establish
+
+- **Establishes (rigorously):** The entire family of polynomial-time algorithms whose
+  soundness certificate is a resolution refutation cannot decide SAT. This is a genuine,
+  unconditional lower bound against a natural algorithmic paradigm — it rules out an
+  infinite class of "obvious" approaches without any complexity assumption. It also shows
+  that any hypothetical polynomial SAT algorithm must be *non-certifying in resolution*:
+  it must, on UNSAT instances, "know" unsatisfiability without exhibiting a short
+  resolution proof.
+
+- **Does not establish P ≠ NP.** The obstruction is confined to a fixed, weak proof
+  system. Crucially, it fails to generalize for a precise reason worth stating:
+
+  **The generalization gap.** To lift this to P ≠ NP one would need: *every*
+  polynomial-time SAT algorithm implicitly manufactures a polynomial-size proof of
+  unsatisfiability in *some* propositional proof system, and *some* family of tautologies
+  is hard for *every* polynomial-size proof system. The first half is essentially the
+  content of "automatizability"/proof-search characterizations and is **false in general**
+  — a decision algorithm need not emit any verifiable certificate. The second half is
+  exactly the notion that **no propositional proof system is polynomially bounded**, which
+  is the Cook–Reckhow program and is *equivalent to* $\mathrm{NP} \ne \mathrm{coNP}$ (hence
+  strictly harder than, and implying, $\mathrm{P} \ne \mathrm{NP}$). So the proof-complexity
+  route does not shortcut P vs NP; it re-encodes an even stronger separation.
+
+- **Why stronger proof systems don't rescue the method as an upper bound either.** One
+  might hope a *stronger* system (e.g. Frege, or Extended Frege) has short refutations of
+  PHP (indeed Frege refutes PHP in polynomial size). But a poly-bounded *Frege* decider
+  would require Frege to be **automatizable** (short proofs must also be *findable* in
+  poly time). Under standard cryptographic assumptions (factoring hardness, Krajíček–Pudlák;
+  Bonet–Pitassi–Raz), Frege and Extended Frege are **not** automatizable. So the shrinking
+  of certificate *size* does not translate into a fast *search*, closing the loophole
+  conditionally.
+
+## Honest assessment
+
+The lemma is a correct, self-contained unconditional lower bound, but only against a
+restricted (resolution-certifying) algorithm class — this is well within known
+proof-complexity territory (Haken + Cook–Reckhow framing), repackaged as an algorithmic
+impossibility. The analysis pinpoints exactly where the technique stalls: escaping
+resolution forces you into either (a) proving super-polynomial lower bounds for *all*
+proof systems ($\mathrm{NP}\ne\mathrm{coNP}$), or (b) non-certifying algorithms about
+which the method says nothing. Neither gap is closed here. No progress on the full
+problem is claimed.
+
+VERDICT: FAILED
+REASON: Proved unconditional impossibility only for resolution-certifying poly-time SAT deciders; cannot generalize to P vs NP.
