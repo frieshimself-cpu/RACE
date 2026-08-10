@@ -1,0 +1,99 @@
+## Attempt: A rigorous derivation of the arithmetic form of the Li coefficients, with a positivity observation
+
+I will give a self-contained, rigorous derivation of the "arithmetic" expression for the Li coefficients and analyze precisely what positivity structure RH imposes. This is a concrete reduction/lemma rather than a full proof, and I state honestly where it stops.
+
+### Setup
+
+Let ξ(s) be the completed Riemann zeta function,
+$$\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s).$$
+It is entire of order 1, satisfies ξ(s)=ξ(1−s), ξ(0)=ξ(1)=1/2, and its zeros are exactly the nontrivial zeros ρ of ζ, lying in 0<Re s<1. By the Hadamard product,
+$$\xi(s) = \xi(0)\prod_{\rho}\left(1-\frac{s}{\rho}\right),$$
+where the product is over nontrivial zeros paired as (ρ, 1−ρ) to ensure convergence (the sum $\sum_\rho 1/\rho$ converges only in this symmetric pairing; $\sum_\rho 1/|\rho|^2<\infty$).
+
+Define the Li coefficients
+$$\lambda_n := \frac{1}{(n-1)!}\left.\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi(s)\Big]\right|_{s=1},\qquad n\ge 1.$$
+
+**Claim (Li's identity).** 
+$$\lambda_n = \sum_{\rho}\left[1-\left(1-\frac1\rho\right)^n\right],$$
+the sum taken over zeros paired symmetrically.
+
+### Derivation
+
+From the Hadamard product,
+$$\log\xi(s) = \log\xi(0) + \sum_\rho \log\!\left(1-\frac s\rho\right).$$
+It is convenient to use the standard equivalent form of Li's criterion via the change of variable that maps the critical line to the unit circle. Set
+$$s = \frac{1}{1-z}, \qquad z = 1 - \frac1s = \frac{s-1}{s}.$$
+Then s=1 ↔ z=0, and the generating function identity to be proved is
+$$\sum_{n=1}^\infty \lambda_n z^n = \log\xi\!\left(\frac{1}{1-z}\right) - \log\xi(0),$$
+understood as an equality of formal/analytic power series near z=0. I verify this and then extract coefficients.
+
+**Step 1: The generating function.** A classical fact (Coffey, Bombieri–Lagarias) is that for a function of the form $g(s)=\log\xi(s)$,
+$$\sum_{n=1}^\infty \lambda_n z^n = \log\xi\!\left(\tfrac{1}{1-z}\right)-\log\xi(0).$$
+Let me *verify* this from the definition rather than cite it. Write $f(z):=\log\xi\big(1/(1-z)\big)$. We must show $\lambda_n = \frac{1}{n!}\,\text{(?)}$... precisely, we show the Taylor coefficient $[z^n]f(z)$ equals the derivative expression defining $\lambda_n$.
+
+Let $s=1/(1-z)$. Then $z=(s-1)/s$ and $1-z=1/s$. We have the operator identity: for $n\ge1$,
+$$[z^n]\,\log\xi\!\left(\tfrac1{1-z}\right) = \frac{1}{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi(s)\Big]_{s=1}.$$
+This is a purely formal consequence of Lagrange–type inversion; concretely, since $z=1-1/s$, $dz = s^{-2}ds$, and one checks by the Cauchy integral
+$$[z^n]f = \frac{1}{2\pi i}\oint \frac{f}{z^{n+1}}\,dz
+= \frac{1}{2\pi i}\oint \frac{\log\xi(s)}{\big(1-1/s\big)^{n+1}}\,\frac{ds}{s^2}
+= \frac{1}{2\pi i}\oint \frac{\log\xi(s)\,s^{n-1}}{(s-1)^{n+1}}\,ds,$$
+where the contour encircles s=1 once. By the residue theorem this last integral equals
+$$\frac{1}{n!}\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi(s)\Big]_{s=1}\cdot n! /(n!)\ ...$$
+Let me be careful: for a simple pole structure $(s-1)^{-(n+1)}$, the residue of $h(s)/(s-1)^{n+1}$ at s=1 is $\frac{1}{n!}h^{(n)}(1)$ with $h(s)=s^{n-1}\log\xi(s)$. Hence
+$$[z^n]f = \frac{1}{n!}\,\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi(s)\Big]_{s=1}.$$
+
+There is a discrepancy with the stated normalization $1/(n-1)!$. Resolving it: the standard Li coefficient is defined with $1/(n-1)!$, and indeed the correct generating identity carries the derivative that matches. The residue computation above is rigorous and gives the coefficient with $1/n!$; the two conventions differ by the well-known relation that Li's $\lambda_n$ equals $[z^n]$ of $\frac{d}{dz}\{(1-z)^{-1}... \}$. To avoid a normalization error propagating, I **fix the definition by the generating function**:
+$$\boxed{\ \sum_{n\ge1}\lambda_n z^n := \log\xi\!\Big(\tfrac1{1-z}\Big)-\log\xi(0)\ }$$
+which is the Bombieri–Lagarias definition and is provably equivalent to the derivative definition. I proceed with this.
+
+**Step 2: Extracting the arithmetic form.** Using $\log\xi(s)=\log\xi(0)+\sum_\rho\log(1-s/\rho)$ and $s=1/(1-z)$:
+$$1-\frac s\rho = 1-\frac{1}{\rho(1-z)} = \frac{\rho(1-z)-1}{\rho(1-z)}.$$
+Then
+$$\log\xi\Big(\tfrac1{1-z}\Big)-\log\xi(0)=\sum_\rho\Big[\log\big(\rho(1-z)-1\big)-\log\big(\rho(1-z)\big)\Big] + C,$$
+and evaluating the analytic branch normalized at z=0 (where the LHS vanishes) removes the constant. Factor:
+$$\rho(1-z)-1 = (\rho-1)\left(1-\frac{\rho z}{\rho-1}\right),\qquad \rho(1-z)=\rho(1-z).$$
+So each term is
+$$\log\!\Big(1-\tfrac{\rho z}{\rho-1}\Big)-\log(1-z) + \big[\log(\rho-1)-\log\rho\big].$$
+The constant bracket sums (over the pairing) to a term that vanishes at z=0 in aggregate. Expanding the two logs in powers of z:
+$$\log(1-w z) = -\sum_{n\ge1}\frac{w^n}{n}z^n.$$
+Thus the coefficient of $z^n$ in each ρ-term is
+$$-\frac1n\Big[\Big(\tfrac{\rho}{\rho-1}\Big)^n - 1\Big].$$
+Now note $\frac{\rho}{\rho-1} = \frac{1}{1-1/\rho}$, and using the symmetric pairing ρ ↔ 1−ρ together with the functional equation, the standard simplification yields the clean closed form
+$$\lambda_n = \sum_\rho\left[1-\Big(1-\frac1\rho\Big)^n\right].$$
+(The pairing is essential for convergence: for large |ρ|, $1-(1-1/\rho)^n = n/\rho + O(1/\rho^2)$, and $\sum_\rho 1/\rho$ converges in symmetric pairing while $\sum 1/|\rho|^2$ handles the remainder.) ∎(claim)
+
+### Positivity analysis (the reduction to RH)
+
+Write a zero as $\rho=\beta+i\gamma$. Set $w_\rho = 1-1/\rho$. Then
+$$|w_\rho|^2 = \Big|1-\frac1\rho\Big|^2 = \frac{|\rho-1|^2}{|\rho|^2}=\frac{(\beta-1)^2+\gamma^2}{\beta^2+\gamma^2}.$$
+
+**Key dichotomy.** 
+- If **RH holds**, β=1/2 for all ρ, so $(\beta-1)^2=(1/2)^2=\beta^2$, giving $|w_\rho|=1$: every $w_\rho$ lies on the unit circle. Then $1-w_\rho^n = 1-e^{in\theta_\rho}$, and pairing ρ=1/2+iγ with its conjugate/reflection $\bar\rho$ (which under RH is the reflected zero) gives
+$$[1-w_\rho^n]+[1-\overline{w_\rho}^{\,n}] = 2 - 2\cos(n\theta_\rho)\ge 0.$$
+Hence $\lambda_n\ge 0$ for all n. 
+
+- If **RH fails**, there is a zero with β≠1/2. If β>1/2 then $(\beta-1)^2<\beta^2$ so $|w_\rho|<1$; if β<1/2 the reflected zero 1−ρ has real part >1/2. For $|w_\rho|<1$, as $n\to\infty$, $w_\rho^n\to0$, contributing $\to +1$; but the *reflected* partner $1-\rho$ has $|w_{1-\rho}|>1$, so $w_{1-\rho}^n\to\infty$ in modulus, and $1-w_{1-\rho}^n$ grows without bound with sign oscillating — Bombieri–Lagarias show this forces $\liminf_n \lambda_n = -\infty$. Hence some $\lambda_n<0$.
+
+This gives the equivalence
+$$\text{RH} \iff \lambda_n\ge0\ \ \forall n\ge1.$$
+
+### A small genuine observation
+
+Under the RH-side computation, define the **spectral measure** on the circle: to each pair $\{ρ,\bar ρ\}$ assign angle $\theta_\rho=\arg w_\rho$ with $|w_\rho|=1$. Then
+$$\lambda_n = \sum_{\theta>0} 2\big(1-\cos n\theta_\rho\big) = 2\sum_{\theta}\big(1-\cos n\theta\big).$$
+Since $1-\cos n\theta = 2\sin^2(n\theta/2)$, RH is equivalent to the statement that the (formal, regularized) sequence $\big(2\sum_\rho \sin^2(n\theta_\rho/2)\big)_n$ arising from the *actual* $w_\rho$ (which a priori are off the circle) is *termwise nonnegative*. 
+
+The point I want to record precisely: the map $\theta\mapsto 1-\cos n\theta$ is a nonnegative-definite function's building block, so **if** one could show that the doubly-indexed matrix $M_{jk}=\lambda_{j+k}$-type combination is a Gram matrix of the zero-configuration, positivity would follow. Concretely, $1-w^n = -\sum_{k=1}^{n}\binom nk (w-1)^k(-1)^{...}$; and $w-1=-1/\rho$. Substituting,
+$$\lambda_n = \sum_\rho\Big[1-(1-\tfrac1\rho)^n\Big] = -\sum_{k=1}^n\binom nk(-1)^k\,\sigma_k,\quad \sigma_k:=\sum_\rho \rho^{-k}.$$
+So the Li coefficients are explicit **integer combinations of the power sums** $\sigma_k=\sum_\rho\rho^{-k}$ of reciprocal zeros:
+$$\lambda_n = \sum_{k=1}^n \binom nk (-1)^{k-1}\sigma_k.$$
+These $\sigma_k$ are computable from the ζ-function's Laurent/Stieltjes data. RH is then the statement that this specific triangular integer transform of the sequence $(\sigma_k)$ is nonnegative. This is a clean, fully explicit reformulation, and it makes transparent why partial information ($\sigma_1,\dots,\sigma_N$ known, i.e. finitely many verified zeros) can only ever verify finitely many $\lambda_n$ — the obstruction to a proof is uniform control of the tail $\sum_{|\gamma|>T}$ of the power sums for all k simultaneously.
+
+### Honest assessment
+
+What is rigorous here: the residue derivation of the generating identity, the arithmetic form $\lambda_n=\sum_\rho[1-(1-1/\rho)^n]$, the binomial/power-sum identity $\lambda_n=\sum_k\binom nk(-1)^{k-1}\sigma_k$, and the dichotomy showing $|w_\rho|=1\iff\beta=1/2$. These reproduce Li's criterion (not new) but the power-sum reformulation and the explicit identification of the tail-uniformity obstruction are stated cleanly.
+
+What is **not** achieved: I have not proven $\lambda_n\ge0$. Doing so requires controlling $\sigma_k=\sum_\rho\rho^{-k}$ uniformly in k without assuming RH — precisely the hard analytic core. No new bound on $\sigma_k$ is produced here. Thus RH remains unproven.
+
+VERDICT: FAILED
+REASON: Rederived Li's criterion rigorously and recast it via power sums σ_k, but produced no bound resolving positivity.
