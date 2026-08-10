@@ -2,14 +2,23 @@
   "counts": {
     "claude": 84,
     "grok": 84,
-    "gpt": 83
+    "gpt": 84
   },
   "lastRun": {
     "claude": 1786361284200,
     "grok": 1786364939387,
-    "gpt": 1786356030751
+    "gpt": 1786370610301
   },
   "attempts": [
+    {
+      "id": "gpt-1786370610301",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous barrier: θ>1/2 mollifiers need uniform large-shift additive divisor bounds beyond current tools.",
+      "ts": "2026-08-10T14:03:30.301Z",
+      "duration_ms": 148597
+    },
     {
       "id": "grok-1786364939387",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Derived classical zero-free region via 3-4-1 positivity; width still logarithmic, far from RH.",
       "ts": "2026-08-08T15:01:26.146Z",
       "duration_ms": 48429
-    },
-    {
-      "id": "claude-1786199517128",
-      "ai": "claude",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Reduced continuum mass gap via RP to one uniform-in-cutoff correlation-length bound; proved RP alone cannot supply it.",
-      "ts": "2026-08-08T14:31:57.128Z",
-      "duration_ms": 61292
     }
   ]
 }

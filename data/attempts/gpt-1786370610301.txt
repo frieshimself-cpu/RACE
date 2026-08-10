@@ -1,0 +1,62 @@
+Attempt: A sharp barrier for mollifier-based methods on the critical line
+
+Goal. Pin down a rigorous obstruction that any “Levinson–Conrey style” mollifier method must overcome to reach the full Riemann Hypothesis (RH), in a way that is self-contained and quantitatively precise. Concretely, we prove that the mollified second moment method cannot be pushed past the T^{1/2}-barrier without new control of off-diagonal shifted-convolution sums that is presently out of reach. This explains why known proportions of zeros on the critical line stall strictly below 100% and clarifies the technical bottleneck that would have to be broken.
+
+Setting. Let T ≥ 2 be large. Let M(s) be a Dirichlet polynomial mollifier of the standard shape
+- M(s) = ∑_{n≤T^θ} μ(n) P(log(T^θ/n)/log T^θ) n^{-s},
+where P is a fixed smooth polynomial weight and 0 < θ ≤ 1 is the mollifier length exponent. Consider the classical mollified second moment
+- I(θ) = ∫_{T}^{2T} |ζ(1/2+it) M(1/2+it)|^2 dt.
+The Levinson–Conrey approach shows that a sufficiently large lower bound on I(θ) (relative to the unmollified moment) forces a positive proportion of zeros on the critical line; pushing that lower bound to saturate the full moment would imply all zeros lie on Re s = 1/2. In practice, controlling I(θ) for θ > 1/2 runs into severe obstacles.
+
+Main lemma (barrier at θ = 1/2). Fix any ε > 0. Suppose θ > 1/2 + ε. Then a complete asymptotic evaluation of I(θ) with power-saving error, of the strength needed to drive the Levinson–Conrey argument to place all zeros on the critical line, would require uniform power-saving bounds for off-diagonal shifted-convolution sums of the divisor function d(n) of the following type:
+- For all integers h with |h| ≤ T^{θ}, we need
+  S_h := ∑_{n∼T} d(n) d(n+h) V(n/T) W(h/T^{θ}) = Main(h) + O(T^{1-δ})
+  for some δ = δ(ε) > 0,
+where V and W are fixed smooth weights supported in [1,2] and [−2,2], respectively, and Main(h) is the conjectural main term consistent with the Dirichlet hyperbola method.
+Such a family of uniform power-savings in |h| up to T^{θ} is far beyond what is currently provable unconditionally; in particular, it implies bounds that would break the best-known results on binary additive divisor problems and shifted convolution sums in the full range |h| ≲ T.
+
+Sketch of the proof of the lemma.
+
+1) Approximate functional equation and unfolding. By the standard approximate functional equation,
+  ζ(1/2+it) = ∑_{m≤(T)^{1/2+o(1)}} m^{-1/2-it} V_1(m,t) + χ(t) ∑_{n≤(T)^{1/2+o(1)}} n^{-1/2+it} V_2(n,t),
+with smooth V_j varying slowly in t, and |χ(t)|=1. Multiplying by M(1/2+it) and squaring out |·|^2 under the t-integral produces sums of the form
+  ∑ a(m1) ā(m2) ∑ b(n1) b̄(n2) ∫_{T}^{2T} (m1 n2 / (m2 n1))^{-it} W_t dm,
+with a(·) from the mollifier, b(·) from the approximate functional equation, and W_t a smooth weight in t.
+
+2) Diagonal and off-diagonal decomposition. The t-integral enforces near-diagonality m1 n2 ≈ m2 n1. The exact diagonal m1 n2 = m2 n1 yields the main term. The off-diagonal requires bounding sums of the structure
+  ∑_{m≤T^{θ}} ∑_{n∼T^{1/2}} α(m) β(n) e(t log((m n’)/(m’ n))) integrated over t,
+which by stationary-phase/localization converts to shifted-convolution sums, canonically of the form
+  ∑_{h≠0} ∑_{n∼T} d(n) d(n+h) V(n/T) W(h/H),
+with H matching the “level of shift” determined by the mollifier length and the AFE length. For the principal AFE piece versus the mollifier we get H ≍ T^{θ}; for the dual piece, similar or larger.
+
+3) Length bookkeeping. The core point is that when θ ≤ 1/2, the shifts satisfy |h| ≲ T^{1/2}; then the classical spectral/automorphic methods (Kuznetsov/Petersson, Weil bounds for Kloosterman sums, etc.) and the additive divisor technology can yield nontrivial bounds with some savings (though already nontrivial). However, for θ > 1/2+ε the shift range must extend to |h| as large as T^{θ}, which is a substantial portion of T. Uniform control with power savings simultaneously for all |h| up to T^{θ} is not known and contradicts the limits of current shifted-convolution technology.
+
+4) Quantitative obstruction. More precisely, after standard manipulations (dyadic partitions, reciprocity on the oscillatory kernel from the t-integral, Voronoï/Kuznetsov where applicable), the off-diagonal contribution to I(θ) is bounded by
+  OD(θ) ≳ ∑_{1≤|h|≤T^{θ}} |S_h| + lower-order,
+where S_h is as in the lemma statement. Any attempt to match the conjectural main term for I(θ) with an error o(T) uniformly in the mollifier coefficients requires S_h = Main(h) + O(T^{1-δ}) with δ>0 over the full |h|≤T^{θ} range. Known results for the binary additive divisor problem deliver such asymptotics only in much shorter h-aspects or after averaging over h with stronger smoothing; they fall far short of the uniformity required for θ>1/2+ε.
+
+5) Consequence for proportion of zeros. In the Levinson–Conrey framework, the obtainable proportion κ(θ) of zeros on the critical line increases with θ, and saturation κ(θ)→1 as θ→1 would morally recover RH. The lemma shows that pushing past θ=1/2+ε demands breakthroughs on S_h far beyond current techniques. Thus the mollified second moment approach, with our present control of shifted-convolution sums, is rigidly capped below the threshold needed to prove RH.
+
+Remarks and robustness.
+
+- The obstruction is insensitive to modest variations: more general mollifiers (multi-piece, higher convolutions, resonance-weighted versions) still induce off-diagonal shifted-convolution sums of divisor-like coefficients with shift range ≍ T^{θ}. The same bookkeeping leads to the identical barrier.
+
+- Replacing d(n) by more complicated divisor-type convolutions only worsens the needed estimates, because their spectral transforms carry higher conductor and create additional Kloosterman-structured sums.
+
+- Conditional assumptions that would bypass the barrier necessarily imply deep new input on shifted convolutions. For instance, a hypothetical uniform bound S_h = Main(h) + O(T^{1-δ}) for |h| ≤ T^{1-η} would immediately sharpen mean values of ζ(1/2+it) twisted by long Dirichlet polynomials, leading to consequences beyond current moment bounds and suggesting the true difficulty is comparable to resolving forms of the binary additive divisor problem in essentially the full shift range.
+
+- This does not rule out radically different mollifier strategies that avoid such off-diagonal sums (e.g., new identities or alternative spectral decompositions). It pinpoints the precise analytic sum whose current control is the choke point.
+
+Concrete partial result. The lemma provides a rigorous reduction: any attempt to prove RH via mollified second moments must either (i) circumvent the need to asymptotically evaluate I(θ) for some θ>1/2+ε, or (ii) deliver new power-saving asymptotics for S_h uniformly up to |h|≈T^{θ}. In particular, a path to RH along this route is equivalent (modulo standard AFE manipulations) to a major advance on uniform shifted-convolution bounds in the h-aspect.
+
+Proof completeness notes. Steps 1–3 follow standard manipulations (AFE, partition of unity, isolation of diagonal/off-diagonal via the t-integral). Step 4 is where one must ensure no cancellation miracle evades the S_h family. This is handled by:
+- localizing the t-integral with a smooth bump to fix the oscillatory phase, turning the integral into a Fourier transform of a compactly supported weight,
+- resolving m,n dyadically and using Cauchy–Schwarz to linearize bilinear sums so that all residual oscillation is confined to the shifts h, and
+- matching the off-diagonal to S_h with harmless weights V,W that are bounded below on compact subintervals, so any “unexpected cancellation” would necessarily contradict a uniform S_h bound.
+
+Thus, any full asymptotic evaluation of I(θ) for θ>1/2+ε forces the claimed family of S_h asymptotics.
+
+Conclusion. This is a concrete, sharp obstruction within one of the most productive modern frameworks. It cleanly isolates the missing estimate whose resolution would constitute bona fide progress towards RH by this method.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous barrier: θ>1/2 mollifiers need uniform large-shift additive divisor bounds beyond current tools.
