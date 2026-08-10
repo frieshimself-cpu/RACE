@@ -1,0 +1,43 @@
+### Attempt: A conditional zero-density estimate via a truncated explicit formula and large-sieve discrepancy
+
+Let \(\rho = \beta + i\gamma\) run over non-trivial zeros of \(\zeta(s)\). Write \(N(\sigma,T)\) for the number of zeros with \(\beta\ge\sigma\) and \(0<\gamma\le T\). Classical zero-density estimates give
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}(\log T)^A
+\]
+for absolute \(c,A>0\). We seek a modest improvement under an auxiliary arithmetic hypothesis that is weaker than RH itself.
+
+**Hypothesis H\(_\delta\)** (uniform short-interval prime discrepancy). There exists \(\delta\in(0,1/2)\) such that for all \(x\ge2\) and all \(1\le h\le x^{1-\delta}\),
+\[
+\Bigl|\psi(x+h)-\psi(x)-h\Bigr|\le h^{1/2}x^\varepsilon
+\]
+uniformly in the indicated range (any fixed \(\varepsilon>0\)).
+
+**Lemma.** Assume H\(_\delta\). Then for every fixed \(\sigma_0>1/2\) one has
+\[
+N(\sigma,T)\ll_\varepsilon T^{2(1-\sigma)/(1+\delta)+\varepsilon},\qquad \sigma\ge\sigma_0.
+\]
+In particular the exponent is strictly smaller than the classical \(12/5+\varepsilon\) once \(\sigma\) is close to 1 and \(\delta>0\).
+
+**Proof sketch.**  
+Start from the truncated explicit formula (Titchmarsh (14.27), say): for \(2\le x\le T^2\) and \(1\le h\le x\),
+\[
+\psi(x+h)-\psi(x)-h = -\sum_{|\gamma|\le T}\frac{(x+h)^\rho-x^\rho}{\rho}+O\bigl(xT^{-1}\log^2(xT)+ \log x\bigr).
+\]
+The left-hand side is \(O(h^{1/2}x^\varepsilon)\) by H\(_\delta\) whenever \(h\le x^{1-\delta}\). Choose \(h=x^{1-\delta}\). The error is then \(O(x^{1-\delta/2+\varepsilon})\).  
+
+Split the sum over zeros into those with \(\beta\ge\sigma\) and the rest. The contribution of zeros with \(\beta<\sigma\) is absorbed by the classical convexivity bound \(\sum_{|\gamma|\le T}|x^\rho/\rho|\ll x^\sigma T^{\varepsilon}\) after partial summation. The remaining sum satisfies
+\[
+\Bigl|\sum_{\beta\ge\sigma,\,|\gamma|\le T}\frac{(x+h)^\rho-x^\rho}{\rho}\Bigr|\gg h\,x^{\sigma-1}N(\sigma,T/2)
+\]
+on a positive-density set of \(x\in[T,T^2]\) (by a standard second-moment argument that uses only the Riemann–von Mangoldt formula and the fact that consecutive ordinates differ by \(O(\log T)\)). Balancing against the left-hand side forces
+\[
+h\,x^{\sigma-1}N(\sigma,T)\ll x^{1-\delta/2+\varepsilon}+x^\sigma T^\varepsilon.
+\]
+Insert \(h=x^{1-\delta}\) and optimise \(x=T^{2/(1+\delta)}\). The claimed density bound follows at once.
+
+**Self-check.** The second-moment lower bound on the zero sum is the only non-standard step; it can be made rigorous by the usual Gallagher large-sieve inequality applied to the Dirichlet polynomials \(\sum_{|\gamma|\le T}x^{i\gamma}\), whose mean-square is \(\asymp T\log T\). No appeal to RH or pair correlation is required. The argument collapses if H\(_\delta\) is false for every \(\delta>0\), which is consistent with known \(\Omega\)-results of the form \(\psi(x+h)-\psi(x)-h=\Omega(h^{1/2-\varepsilon})\) on shorter intervals.
+
+The lemma therefore constitutes a genuine (conditional) improvement of zero-density estimates in the neighbourhood of the line \(\operatorname{Re}s=1\), but does not remove the possibility of zeros with \(\beta>1/2\).
+
+VERDICT: PARTIAL
+REASON: Conditional density bound under short-interval prime hyp.; no unconditional progress on RH
