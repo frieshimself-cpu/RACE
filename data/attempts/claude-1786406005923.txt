@@ -1,0 +1,68 @@
+# Attempt: Structural analysis of Li's criterion and the archimedean obstruction
+
+## Setup
+
+I work with Li's criterion, which is equivalent to RH: define
+$$\lambda_n = \sum_{\rho}\left[1-\left(1-\frac1\rho\right)^n\right],\qquad n\ge 1,$$
+where the sum is over nontrivial zeros $\rho$ of $\zeta$, taken in symmetric pairs $\rho,1-\rho$ (which makes the sum conditionally convergent and real). Li's theorem: RH $\iff \lambda_n\ge0$ for all $n\ge1$.
+
+I will (i) rigorously establish the closed form of $\lambda_1$ and its positivity, (ii) decompose $\lambda_n$ into an "archimedean/trivial" part and a "zeta-prime" part, and (iii) analyze precisely why this decomposition does **not** yield $\lambda_n\ge0$ for all $n$ — pinpointing the obstruction. The goal is a sharp negative structural result rather than a proof.
+
+## 1. The completed $\xi$ and the generating identity
+
+Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1, with $\xi(s)=\xi(1-s)$ and zeros exactly the nontrivial $\rho$. Li's coefficients admit the analytic form
+$$\lambda_n=\frac{1}{(n-1)!}\left.\frac{d^n}{ds^n}\left[s^{n-1}\log\xi(s)\right]\right|_{s=1}.$$
+
+Via the Hadamard product $\xi(s)=\xi(0)\prod_\rho(1-s/\rho)e^{s/\rho}$ one gets the equivalent series above. Splitting $\log\xi$ into its constituent factors gives an **exact** decomposition
+$$\lambda_n = \lambda_n^{(\zeta)} + \lambda_n^{(\infty)},$$
+where $\lambda_n^{(\infty)}$ collects the contributions of $\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)$ (the "archimedean" gamma factor and trivial poles) and $\lambda_n^{(\zeta)}$ collects the contribution of $\log\zeta$ near $s=1$.
+
+## 2. Exact evaluation of $\lambda_1$
+
+For $n=1$, the paired sum telescopes:
+$$\lambda_1=\sum_\rho\frac1\rho = \tfrac12\sum_\rho\left(\frac1\rho+\frac1{1-\rho}\right).$$
+Differentiating $\log\xi$ at $s=1$: from $\xi'/\xi(s)=\sum_\rho 1/(s-\rho)$ plus the explicit factors, the classical evaluation (Hadamard) yields
+$$\boxed{\;\lambda_1 = 1 + \frac{\gamma}{2} - \frac12\log(4\pi)\;}$$
+where $\gamma$ is Euler's constant. Let me verify positivity with rigorous decimal bounds.
+
+- $\gamma = 0.5772156649\ldots$, so $\gamma/2 = 0.28860783\ldots$
+- $4\pi = 12.5663706\ldots$, $\log(4\pi)=2.5310242\ldots$, half $=1.2655121\ldots$
+
+Hence
+$$\lambda_1 = 1 + 0.2886078 - 1.2655121 = 0.0230957\ldots > 0.$$
+
+To make this a genuine inequality rather than a numeric assertion: we need $\gamma - \log(4\pi) > -2$, i.e. $\log(4\pi)-\gamma < 2$. Now $\log(4\pi)<\log(12.5664)$; using $e^{2}=7.389$ and $e^{2.6}=13.46>12.57$ gives $\log(4\pi)<2.6$, and $\gamma>0.577$, so $\log(4\pi)-\gamma<2.6-0.577=2.023$. This crude bound is not quite sharp enough (gives $2.023$, not $<2$), so refine: $e^{2.54}=12.68>12.566$ and $e^{2.53}=12.556<12.566$, so $2.53<\log(4\pi)<2.54$; with $\gamma>0.5772$ we get $\log(4\pi)-\gamma<2.54-0.5772=1.9628<2$. Therefore $\lambda_1>0$ **rigorously**. ✓
+
+This confirms the $n=1$ necessary condition unconditionally (as it must, being known).
+
+## 3. Decomposition and the sign obstruction for general $n$
+
+The archimedean part has a clean form. Writing the gamma/power factors' logarithmic derivative,
+$$\lambda_n^{(\infty)} = \frac{n}{2}\Big(\text{terms in }\gamma,\ \log\pi\Big) + R_n,$$
+and one knows asymptotically (Coffey, and via the explicit formula) that
+$$\lambda_n = \frac{n}{2}\log n \;+\; \frac{n}{2}(\gamma - 1 - \log 2\pi) \;+\; O(\sqrt n\,\log n)\quad\text{under RH.}$$
+The **leading term $\tfrac n2\log n$ is unconditionally positive and grows**. This is the crux and the reason Li's criterion is "almost automatically" satisfied for large $n$: the archimedean/main term dominates. The entire difficulty of RH is compressed into the fluctuating remainder.
+
+**Key structural observation (the obstruction).** Decompose exactly, for each zero pair, using $1-(1-1/\rho)^n$. Write $\rho=\beta+i\gamma_\rho$. A short computation gives, for the paired contribution,
+$$1-\left(1-\frac1\rho\right)^n + 1-\left(1-\frac1{1-\rho}\right)^n = 2 - 2\,\mathrm{Re}\!\left[\left(1-\frac1\rho\right)^n\right]\Big|_{\text{sym}}.$$
+On RH ($\beta=1/2$), $1-1/\rho = 1-\frac{1}{1/2+i\gamma_\rho}$ has modulus
+$$\left|1-\frac1\rho\right|^2 = \left|\frac{\rho-1}{\rho}\right|^2 = \frac{(1/2)^2+\gamma_\rho^2}{(1/2)^2+\gamma_\rho^2}=1.$$
+So on RH **every** factor $1-1/\rho$ lies on the unit circle: $1-1/\rho=e^{i\theta_\rho}$. Then the paired term is $2-2\cos(n\theta_\rho)\ge0$ **term by term**. This is the real content: RH forces each zero's contribution to be individually nonnegative for all $n$, which is exactly the positivity Li demands.
+
+Conversely, if some $\rho$ had $\beta>1/2$, then $|1-1/\rho|=\sqrt{\frac{(\beta-1)^2+\gamma_\rho^2}{\beta^2+\gamma_\rho^2}}<1$ (numerator smaller since $(\beta-1)^2<\beta^2$ for $\beta>1/2$). Then $|(1-1/\rho)^n|\to0$, contributing $\to +2$; but its **conjugate-reflected** partner at $1-\rho$ has $|1-1/(1-\rho)|>1$, so $|(1-1/(1-\rho))^n|\to\infty$, and $-2\mathrm{Re}[(1-1/(1-\rho))^n]$ oscillates with **unbounded amplitude**. This unbounded oscillation of sign is precisely what must be prevented, and it is what would eventually drive some $\lambda_n<0$.
+
+## 4. Why this does not close to a proof
+
+The natural strategy — show $\lambda_n\ge0$ by bounding the fluctuation against the $\tfrac n2\log n$ main term — fails for a concrete reason I can now state sharply:
+
+- Under RH the term-by-term nonnegativity ($2-2\cos n\theta_\rho\ge0$) makes positivity trivial, so **any** proof of $\lambda_n\ge0$ that does not already assume $\beta=1/2$ must control the sum $\sum_\rho \mathrm{Re}[(1-1/\rho)^n]$ without knowing the modulus of each factor is $1$.
+- An off-critical zero of height $\gamma_\rho$ contributes a term growing like $|1-1/(1-\rho)|^n = (1+\delta)^n$ with $\delta=\Theta((\beta-1/2)/\gamma_\rho^2)$. For this to overpower the $\tfrac n2\log n$ main term and force $\lambda_n<0$, one needs $n$ exponentially large in $\gamma_\rho^2$. Thus a single off-critical zero only produces a negative $\lambda_n$ at astronomically large $n$ — explaining why numerical verification of $\lambda_n\ge0$ for moderate $n$ gives no traction, and why the criterion, though equivalent, offers no effective handle: the "bad" index $n$ is pushed out of reach.
+
+This is a genuine (if negative) structural conclusion: **Li's criterion converts RH into an inequality whose only possible violations occur at $n$ super-exponential in the height of a hypothetical counterexample zero, so no finite computation and no polynomial-in-$n$ bound on the fluctuation can decide it.** Any successful attack via Li positivity must therefore establish the exact unit-modulus property $|1-1/\rho|=1$ directly — i.e. it is equivalent to RH itself with no genuine reduction in difficulty.
+
+## Summary
+
+I rigorously re-derived and *proved* the positivity $\lambda_1>0$ with explicit inequalities, and gave an exact term-by-term reformulation showing RH $\iff$ each factor $1-1/\rho$ lies on the unit circle, from which I extracted a sharp explanation of the obstruction: violations of Li positivity are forced to super-exponentially large index, making the criterion computationally and analytically inert without already assuming the critical-line property. No new progress toward the full theorem is achieved.
+
+VERDICT: FAILED
+REASON: Rigorously proved λ₁>0 and characterized Li's criterion's obstruction, but produced no new reduction toward RH.

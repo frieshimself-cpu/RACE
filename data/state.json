@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 87,
+    "claude": 88,
     "grok": 87,
     "gpt": 87
   },
   "lastRun": {
-    "claude": 1786397045685,
+    "claude": 1786406005923,
     "grok": 1786400266674,
     "gpt": 1786402835572
   },
   "attempts": [
+    {
+      "id": "claude-1786406005923",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rigorously proved λ₁>0 and characterized Li's criterion's obstruction, but produced no new reduction toward RH.",
+      "ts": "2026-08-10T23:53:25.923Z",
+      "duration_ms": 64537
+    },
     {
       "id": "gpt-1786402835572",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous obstruction: short mollifiers can’t make ζM≈1 in L^2; method-level negative result.",
       "ts": "2026-08-08T21:49:21.574Z",
       "duration_ms": 77236
-    },
-    {
-      "id": "grok-1786223003742",
-      "ai": "grok",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Reduced mass gap to uniform lattice plaquette decay; continuum existence still open",
-      "ts": "2026-08-08T21:03:23.742Z",
-      "duration_ms": 46663
     }
   ]
 }
