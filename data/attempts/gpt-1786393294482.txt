@@ -1,0 +1,60 @@
+Attempt: A precise obstruction to “patching across p” in the leading-term formula
+
+Setup and goal
+- Let E/ℚ be an elliptic curve. Write the Birch–Swinnerton-Dyer leading-term identity in the form
+  R := L(E,1)^(r) / (Ω_E · Reg_E · #Sha(E) · ∏_ℓ c_ℓ · (#E(ℚ)_tors)^(-2)) ∈ ℚ×,
+  where r is the (conjectural) analytic rank and Ω_E is a fixed real period. BSD predicts R = 1.
+- Numerous p-adic results (Kato; Skinner–Urban; Wan; Burungale–Kobayashi; Castella–Wan, etc.) prove, under hypotheses that can often be arranged for infinitely many good ordinary primes p, an equality of p-adic valuations
+  v_p(R) = 0
+  i.e. the “p-part” of the BSD formula for orders holds, and in some cases also the p-adic valuation of the leading term matches.
+- A widespread strategy hopes to deduce R = 1 in ℚ× by patching these equalities for many primes p.
+
+Claim (obstruction)
+- Even if v_p(R) = 0 for a set of primes p of natural density 1, one cannot conclude R = 1 in ℚ× without extra global input controlling the set of prime divisors of #Sha(E).
+
+Precise lemma
+Let S ⊂ Primes be any cofinite subset (density 1). For any finite, nonempty set T ⊂ Primes \ S and any vector of exponents (a_t)_t∈T ⊂ ℤ, there exists a rational number
+  Q = ∏_{t∈T} t^{a_t} ∈ ℚ×
+with the following properties:
+  (i) v_p(Q) = 0 for all p ∈ S (i.e., Q is a p-adic unit simultaneously for all p ∈ S),
+  (ii) Q ≠ ±1 provided some a_t ≠ 0.
+
+Proof
+- This is immediate by construction: for p ∈ S, p ∉ T, so v_p(Q) = 0. If some a_t ≠ 0, then Q differs from ±1.
+
+Application to BSD patching
+- Suppose one proves v_p(R) = 0 for all p in a cofinite S (density 1). Then R is a simultaneous p-adic unit for all p ∈ S. The lemma shows that this alone does not force R = ±1: R could equal any rational supported on T = Primes \ S with arbitrary exponents.
+- In the BSD context, the only factor in R whose prime support is not a priori constrained to a fixed finite set is #Sha(E). Indeed:
+  - Ω_E and Reg_E contribute no p-adic valuations for p ∤ denominators attached to integral models; their prime support is controlled.
+  - ∏ c_ℓ and #E(ℚ)_tors have prime support in the finite set of bad primes and divisors of #E(ℚ)_tors, respectively.
+  - By Cassels’ pairing, #Sha(E) is a perfect square up to factors supported on Tamagawa primes, but the set of prime divisors of #Sha(E) can be arbitrarily large and need not lie in a fixed finite set independent of E, nor be contained in the set of Tamagawa primes for a given E. Consequently, #Sha(E) can carry primes in T := Primes \ S.
+- Therefore, verifying v_p(R) = 0 for all p ∈ S cannot rule out R = ∏_{t∈T} t^{a_t} coming entirely from #Sha(E) (or its reciprocal, depending on sign conventions), with arbitrary exponents a_t, consistent with all the p-adic equalities on S.
+
+Concrete corollary (no-go theorem)
+- Any attempt to prove the full rational leading-term identity R = 1 by combining:
+  (A) p-adic main conjectures or Euler system bounds that yield v_p(R) = 0 for p in a density-1 set S, and
+  (B) only general, unconditional facts about the other BSD factors,
+  is doomed to fail unless it also supplies additional information restricting the prime support of #Sha(E) (for that specific E).
+- In particular, one must add at least one of:
+  - control of the squarefree kernel of #Sha(E) (prime support contained in a given finite set), or
+  - equality of v_p(R) for all primes p in T as well (i.e., truly all primes), or
+  - an independent argument that the residual rational factor R has no support outside the finite set of primes dividing Tamagawa numbers, torsion, Manin constant, etc., together with matching p-adic equalities at those primes.
+
+Positive direction: a workable reduction target
+- The obstruction isolates the missing input. A viable path is:
+  Target: For a given E/ℚ, prove that all prime divisors of #Sha(E) lie in a finite, explicitly controlled set Σ(E) (e.g., a subset of the bad primes together with a bounded auxiliary set), or at least prove that for each t ∉ Σ(E), v_t(#Sha(E)) = 0.
+  Consequence: Once Σ(E) is fixed, it suffices to verify v_p(R) = 0 for all p ∉ Σ(E) (a cofinite set) and then check v_t(R) = 0 for t ∈ Σ(E) by separate local/global arguments. This would complete the proof that R = 1.
+- Thus a concrete, sharply stated reduction is:
+  If, for a fixed elliptic curve E/ℚ, one can bound the prime support of #Sha(E) inside a finite Σ(E) that is effectively controllable from the model of E, then existing p-adic BSD results outside Σ(E) would reduce the full leading-term identity to a finite verification over primes in Σ(E).
+
+Why this is nontrivial
+- Present techniques via Euler systems/Iwasawa theory control v_p(#Sha(E)[p^∞]) for a given p, but do not jointly restrict the set of primes that can divide #Sha(E). Without such restriction, the earlier lemma shows that density-1 information is insufficient.
+
+A modest unconditional partial result illustrating the point
+- In ranks 0 and 1, when p is a good ordinary prime for E and the relevant Iwasawa main conjecture holds with μ = 0 and the p-adic height pairing is nondegenerate, one gets the precise p-adic leading-term formula at p. Doing this for all p in a set S of positive density still leaves open the possibility of an arbitrary rational factor supported on T = Primes \ S, which can be attributed to #Sha(E). Therefore, further progress must either (i) extend the p-adic identities to all primes, or (ii) localize the prime support of #Sha(E).
+
+Conclusion
+- The above lemma gives a clear and rigorous obstruction to a common “patching across many p” strategy for proving the full rational leading-term formula in BSD without extra global control on #Sha(E). It reframes a broad program into a sharp reduction: obtain finiteness of the prime support of #Sha(E) (for a given curve) or verify p-adic leading-term identities at all primes, and the standard p-adic machinery will finish the argument for the complex leading term.
+
+VERDICT: PARTIAL
+REASON: Gave a rigorous obstruction and a sharp reduction target for leading-term BSD patching across p.

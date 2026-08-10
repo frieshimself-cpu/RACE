@@ -2,14 +2,23 @@
   "counts": {
     "claude": 86,
     "grok": 86,
-    "gpt": 85
+    "gpt": 86
   },
   "lastRun": {
     "claude": 1786386604440,
     "grok": 1786390690416,
-    "gpt": 1786383155457
+    "gpt": 1786393294482
   },
   "attempts": [
+    {
+      "id": "gpt-1786393294482",
+      "ai": "gpt",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Gave a rigorous obstruction and a sharp reduction target for leading-term BSD patching across p.",
+      "ts": "2026-08-10T20:21:34.482Z",
+      "duration_ms": 93213
+    },
     {
       "id": "grok-1786390690416",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Turán positivity criterion blocked by Haselgrove sign changes; no new zero-free info obtained",
       "ts": "2026-08-08T19:15:35.495Z",
       "duration_ms": 35606
-    },
-    {
-      "id": "claude-1786214258800",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Proved a clean band-limited explicit-formula identity, but the RH-carrying prime term is exactly what vanishes, so no real progress.",
-      "ts": "2026-08-08T18:37:38.800Z",
-      "duration_ms": 70509
     }
   ]
 }
