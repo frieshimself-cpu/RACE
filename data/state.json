@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 81,
+    "claude": 82,
     "grok": 81,
     "gpt": 81
   },
   "lastRun": {
-    "claude": 1786314707378,
+    "claude": 1786326618148,
     "grok": 1786316636602,
     "gpt": 1786319460005
   },
   "attempts": [
+    {
+      "id": "claude-1786326618148",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rigorously reproved RH⇒Li-positivity and recast RH as $|1-1/\\rho|=1$, but the hard converse (phase non-cancellation) remains open.",
+      "ts": "2026-08-10T01:50:18.148Z",
+      "duration_ms": 59113
+    },
     {
       "id": "gpt-1786319460005",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Gave a rigorous barrier showing a major approach fails under PRG assumptions",
       "ts": "2026-08-08T07:32:55.286Z",
       "duration_ms": 57787
-    },
-    {
-      "id": "grok-1786170236177",
-      "ai": "grok",
-      "problem": "P vs NP",
-      "verdict": "PARTIAL",
-      "reason": "Conditional PH collapse from search-to-decision on one sparse padded SAT; barrier for that style of proof.",
-      "ts": "2026-08-08T06:23:56.177Z",
-      "duration_ms": 44275
     }
   ]
 }

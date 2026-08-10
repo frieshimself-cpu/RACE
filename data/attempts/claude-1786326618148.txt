@@ -1,0 +1,50 @@
+# Attempt: A clean rigorous proof of the "RH ⇒ Li-positivity" direction, with a sharp remark on why the converse resists the same method
+
+I focus on the Li coefficients, defined via the completed zeta function
+$$\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),$$
+which is entire of order 1, satisfies $\xi(s)=\xi(1-s)$, and whose zeros are exactly the nontrivial zeros $\rho$ of $\zeta$. Set
+$$\lambda_n=\sum_{\rho}\Big[1-\Big(1-\tfrac1\rho\Big)^{n}\Big],\qquad n\ge 1,$$
+the sum taken over nontrivial zeros paired as $\rho$ with $1-\rho$ (this is how convergence is understood).
+
+## Convergence and reality
+
+Since $\xi$ has order 1 with Hadamard factorization
+$$\xi(s)=\xi(0)\prod_\rho\Big(1-\tfrac s\rho\Big)e^{s/\rho}$$
+(zeros grouped in pairs $\{\rho,1-\rho\}$), we have
+$$\frac{\xi'}{\xi}(s)=\sum_\rho\Big(\frac1{s-\rho}+\frac1\rho\Big),$$
+convergent when zeros are paired. The Li coefficients are the Taylor coefficients of $\log\xi$ about $s=1$; concretely
+$$\lambda_n=\frac1{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi(s)\Big]_{s=1},$$
+and the equivalence with the zero-sum above is the Bombieri–Lagarias identity. Because zeros come in conjugate-and-reflected quadruples $\{\rho,\bar\rho,1-\rho,1-\bar\rho\}$, and $\lambda_n$ is a coefficient of a real power series, **$\lambda_n\in\mathbb R$**. The pairing $\rho\leftrightarrow 1-\rho$ makes the defining series absolutely convergent because
+$$1-\Big(1-\tfrac1\rho\Big)^n=O_n(|\rho|^{-1})\ \text{term-by-term, but symmetrized } =O_n(|\rho|^{-2}),$$
+and $\sum_\rho|\rho|^{-2}<\infty$ (standard). So $\lambda_n$ is well defined.
+
+## The positivity under RH — the geometric core
+
+**Lemma.** If $\rho=\tfrac12+i\gamma$ lies on the critical line, then $\big|1-\tfrac1\rho\big|=1$.
+
+*Proof.* Write $1-\tfrac1\rho=\dfrac{\rho-1}{\rho}$. On the critical line $1-\rho=\overline{\rho}$ (since $1-\rho=\tfrac12-i\gamma=\overline{\tfrac12+i\gamma}$), so $\rho-1=-\overline\rho$, giving
+$$1-\frac1\rho=-\frac{\overline\rho}{\rho}.$$
+Hence $\big|1-\tfrac1\rho\big|=\dfrac{|\overline\rho|}{|\rho|}=1.$ $\qquad\blacksquare$
+
+**Theorem (RH ⇒ Li-positivity).** If all nontrivial zeros satisfy $\mathrm{Re}\,\rho=\tfrac12$, then $\lambda_n\ge 0$ for all $n\ge1$.
+
+*Proof.* Group the sum in conjugate pairs $\rho=\tfrac12+i\gamma$, $\overline\rho=\tfrac12-i\gamma$; the pair's contribution is real and equals $2\,\mathrm{Re}\big[1-(1-\tfrac1\rho)^n\big]$. By the Lemma, $w:=1-\tfrac1\rho$ has $|w|=1$, so $|w^n|=1$ and $\mathrm{Re}(w^n)\le 1$. Therefore
+$$\mathrm{Re}\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big]=1-\mathrm{Re}(w^n)\ \ge\ 1-1=0.$$
+Every symmetrized term is $\ge 0$, and the series converges, so $\lambda_n\ge0$. $\qquad\blacksquare$
+
+This reproduces the "easy" direction of Li's criterion, but the computation isolates the exact geometric mechanism: **RH is equivalent to every $w_\rho=1-1/\rho$ lying on or inside the unit circle**, since
+$$\Big|1-\frac1\rho\Big|^2=\frac{|\rho-1|^2}{|\rho|^2}\le 1 \iff |\rho-1|^2\le|\rho|^2 \iff \mathrm{Re}\,\rho\ge\tfrac12.$$
+So $|w_\rho|\le1 \iff \mathrm{Re}\,\rho\ge\tfrac12$, and by the functional-equation pairing $\mathrm{Re}\,\rho\ge\tfrac12$ for all $\rho$ forces equality (its partner $1-\rho$ has real part $\le\tfrac12$). Thus:
+
+$$\boxed{\ \mathrm{RH}\iff |w_\rho|=1\ \text{for all }\rho\iff w_\rho\in\partial\mathbb D\ \text{for all }\rho.\ }$$
+
+## Why the converse (Li-positivity ⇒ RH) does not follow from the same estimate — a sharp obstruction
+
+The forward direction used only the *pointwise* bound $\mathrm{Re}(w^n)\le|w|^n=1$. Suppose an off-line zero exists: then its partner has $|w_\rho|>1$, so $|w_\rho^n|=|w_\rho|^n\to\infty$ geometrically. One might hope $\mathrm{Re}(w_\rho^n)$ is eventually large and positive infinitely often, forcing some $\lambda_n<0$. The obstruction is precisely that $w_\rho^n=|w_\rho|^n e^{in\theta_\rho}$ rotates: for irrational $\theta_\rho/\pi$ the real part is positive for a *positive-density* set of $n$ but the growth is shared among infinitely many zeros whose phases can partially cancel in the sum $\sum_\rho \mathrm{Re}(w_\rho^n)$. The genuine content of the converse is therefore a **non-cancellation / equidistribution statement** for the phases $\{\theta_\rho\}$, not a pointwise inequality; this is exactly where the Bombieri–Lagarias converse must invoke the growth $\lambda_n\gtrsim c|w_{\rho_0}|^n$ dominating the bounded on-line contributions. My computation makes explicit that the *only* barrier is controlling destructive interference among the phases $e^{in\theta_\rho}$ of the finitely many hypothetical off-line zeros against the $O(n\log n)$ on-line contribution — a coherence problem, not a positivity problem.
+
+## Honest assessment
+
+The theorem and the equivalence $\mathrm{RH}\iff w_\rho\in\partial\mathbb D$ are rigorous and self-contained, but they are a reformulation/known easy direction of Li's criterion, not new progress toward resolving RH. The genuinely hard direction is untouched; I have only pinpointed its true difficulty as a phase-coherence estimate.
+
+VERDICT: FAILED
+REASON: Rigorously reproved RH⇒Li-positivity and recast RH as $|1-1/\rho|=1$, but the hard converse (phase non-cancellation) remains open.
