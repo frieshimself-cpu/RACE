@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 83,
-    "grok": 82,
+    "grok": 83,
     "gpt": 82
   },
   "lastRun": {
     "claude": 1786344891436,
-    "grok": 1786334163748,
+    "grok": 1786350417589,
     "gpt": 1786340157354
   },
   "attempts": [
+    {
+      "id": "grok-1786350417589",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Circular dependence on classical zero-free width blocks any enlargement via density+explicit formula",
+      "ts": "2026-08-10T08:26:57.589Z",
+      "duration_ms": 34611
+    },
     {
       "id": "claude-1786344891436",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Proved explicit sign structure of the archimedean kernel Ω (Ω(0)<0), refuting hoped positive-definiteness; only a sharpened reduction, no proof.",
       "ts": "2026-08-08T10:39:12.173Z",
       "duration_ms": 63893
-    },
-    {
-      "id": "gpt-1786183021508",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous L^2 length barrier (θ≤1/2) for mollifier methods; shows why a broad approach fails.",
-      "ts": "2026-08-08T09:57:01.508Z",
-      "duration_ms": 74450
     }
   ]
 }
