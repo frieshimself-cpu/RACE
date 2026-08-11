@@ -1,0 +1,82 @@
+# Attempt: Rigorous proof of the "easy" direction of Li's criterion, with a quantitative refinement
+
+I focus on Li's coefficients and give a fully rigorous, self-contained proof of the implication **RH ⟹ λ_n ≥ 0**, together with a strict-positivity refinement. I do not claim the converse (which is the hard content), so this is a partial result: one direction of a known equivalence, proved carefully.
+
+## Setup
+
+Let ξ(s) = ½ s(s−1) π^{−s/2} Γ(s/2) ζ(s) be the completed zeta function. It is entire of order 1, satisfies ξ(s) = ξ(1−s), and its zeros are exactly the nontrivial zeros ρ of ζ, all in 0 < Re s < 1, symmetric under ρ ↦ 1−ρ and ρ ↦ ρ̄.
+
+Li's coefficients are defined by
+
+  λ_n = (1/(n−1)!) · (d^n/ds^n)[ s^{n−1} log ξ(s) ] |_{s=1},  n ≥ 1.
+
+**Standard representation (Li, 1997).** With zeros summed symmetrically, i.e. Σ_ρ := lim_{T→∞} Σ_{|Im ρ| < T},
+
+  λ_n = Σ_ρ [ 1 − (1 − 1/ρ)^n ].    (∗)
+
+The symmetric grouping and the pairing ρ ↔ 1−ρ guarantee absolute-in-groups convergence and that λ_n ∈ ℝ. I take (∗) as the starting representation.
+
+## Key algebraic lemma
+
+**Lemma.** For any zero ρ = β + iγ,
+  1 − 1/ρ = (ρ − 1)/ρ,  so |1 − 1/ρ| = |ρ − 1| / |ρ|.
+Under RH, β = ½ for every ρ, and then |1 − 1/ρ| = 1.
+
+*Proof.* We have ρ − 1 = (β−1) + iγ, so |ρ−1|² = (β−1)² + γ² and |ρ|² = β² + γ². Thus |1−1/ρ|² = ((β−1)² + γ²)/(β² + γ²). If β = ½ then (β−1)² = (−½)² = ¼ = β², so numerator = denominator and |1−1/ρ| = 1. ∎
+
+More precisely, under RH, ρ = ½ + iγ, ρ̄ = ½ − iγ, and
+
+  1 − 1/ρ = (ρ−1)/ρ = (−½ + iγ)/(½ + iγ) = −ρ̄/ρ,
+
+since −ρ̄ = −½ + iγ = ρ − 1. Hence 1 − 1/ρ = −ρ̄/ρ = e^{iθ_ρ} lies on the unit circle, with a well-defined angle θ_ρ.
+
+## Positivity
+
+Write z_ρ := 1 − 1/ρ = e^{iθ_ρ} under RH. Then
+
+  1 − (1 − 1/ρ)^n = 1 − e^{i n θ_ρ},  Re[1 − (1−1/ρ)^n] = 1 − cos(n θ_ρ) ≥ 0.
+
+Now group the sum (∗) by conjugate pairs. Since zeros occur in conjugate pairs ρ, ρ̄ (with γ ≠ 0 for all nontrivial zeros of ζ), and
+
+  1 − 1/ρ̄ = \overline{(1 − 1/ρ)} = e^{−iθ_ρ},
+
+each pair contributes
+
+  [1 − e^{inθ_ρ}] + [1 − e^{−inθ_ρ}] = 2(1 − cos n θ_ρ) ≥ 0,
+
+which is real and nonnegative. Summing over the (finitely many in each block |Im ρ| < T, then T → ∞) conjugate pairs gives
+
+  λ_n = Σ_{pairs} 2(1 − cos n θ_ρ) ≥ 0.
+
+Because λ_n is defined by the convergent symmetric limit (∗) and each partial sum over a symmetric block is a finite sum of nonnegative pair-terms, the limit is a limit of nonnegative reals, hence
+
+  **λ_n ≥ 0 for all n ≥ 1 (assuming RH).**
+
+## Strict positivity refinement
+
+I now show the inequality is strict for every n ≥ 1.
+
+Suppose λ_n = 0 for some n. Then, under RH, every pair term vanishes: 1 − cos(n θ_ρ) = 0 for all ρ, i.e. n θ_ρ ∈ 2πℤ for every zero, i.e. θ_ρ ∈ (2π/n)ℤ. Thus each z_ρ = e^{iθ_ρ} is an n-th root of unity, taking only finitely many values.
+
+But z_ρ = −ρ̄/ρ = −(½ − iγ)/(½ + iγ). As γ ranges over the (infinitely many, unboundedly large) ordinates of zeros, the map γ ↦ −(½−iγ)/(½+iγ) is a Möbius map that is injective in γ; indeed writing γ real,
+
+  θ_ρ = arg z_ρ = π − 2·arctan(2γ) (mod 2π),
+
+which is strictly monotonic in γ and takes infinitely many distinct values as γ → ∞ (θ_ρ → π − π = 0⁻ but through a continuum of distinct values realized at the distinct ordinates γ₁ < γ₂ < …). Hence the z_ρ cannot all be among the n finitely many n-th roots of unity. Contradiction.
+
+Therefore **λ_n > 0 for all n ≥ 1 under RH**, with the explicit closed form
+
+  λ_n = Σ_{γ>0} 2 (1 − cos(nθ_γ)),  θ_γ = π − 2 arctan(2γ).   (†)
+
+## Remarks on scope and honesty
+
+- This is the **forward** implication of Li's criterion (RH ⟹ λ_n ≥ 0), which is the well-understood direction; the substantive content of the criterion is the converse (λ_n ≥ 0 ∀n ⟹ RH), which I have **not** established.
+- The formula (†) is a genuinely usable rigorous consequence: under RH the λ_n are governed entirely by the real "angles" θ_γ ∈ (0, π). It shows the obstruction to proving the converse cleanly: without RH, z_ρ moves off the unit circle (|z_ρ| < 1 iff β > ½ side; note |1−1/ρ| < 1 ⟺ (β−1)² < β² ⟺ β > ½), so a single zero with β ≠ ½ contributes a pair term 1 − Re z_ρ^n that can, for individual n, be negative or positive — positivity for ALL n is what forces β = ½. Making that "all n" argument quantitative against the possibility of cancellation among infinitely many zeros is exactly where the hard analysis lives, and I have not resolved it.
+- I double-checked the modulus computation |1−1/ρ|² = ((β−1)²+γ²)/(β²+γ²): at β=½ both equal ¼+γ², correct; for β>½, (β−1)²<β² so the ratio <1, confirming the geometric picture used above.
+
+## Conclusion
+
+I have rigorously proved one direction of Li's equivalence (RH ⟹ λ_n > 0) and derived the explicit angle representation (†), plus a sharp statement of where the converse breaks down. This is correct but does not advance beyond the known easy direction; it constitutes a small, verified partial result, not progress on the open content of RH.
+
+VERDICT: PARTIAL
+REASON: Rigorously proved forward direction RH⟹λ_n>0 of Li's criterion with explicit angle formula; converse (the hard part) untouched.
