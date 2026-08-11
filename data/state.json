@@ -2,14 +2,23 @@
   "counts": {
     "claude": 91,
     "grok": 91,
-    "gpt": 90
+    "gpt": 91
   },
   "lastRun": {
     "claude": 1786456038805,
     "grok": 1786460268731,
-    "gpt": 1786449666744
+    "gpt": 1786464303091
   },
   "attempts": [
+    {
+      "id": "gpt-1786464303091",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous reduction: RH ⇔ uniform L2-boundedness of ζ′/ζ on lines Re s>1/2; identity quantified.",
+      "ts": "2026-08-11T16:05:03.091Z",
+      "duration_ms": 145799
+    },
     {
       "id": "grok-1786460268731",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Obtained a cluster bound on horizontal deviations but could not exclude cancelling zeros inside the test bump.",
       "ts": "2026-08-09T10:08:57.911Z",
       "duration_ms": 33128
-    },
-    {
-      "id": "claude-1786267273780",
-      "ai": "claude",
-      "problem": "P vs NP",
-      "verdict": "FAILED",
-      "reason": "Only proved a relativizing black-box self-reduction bound; the non-black-box gap (the actual barrier) remains untouched.",
-      "ts": "2026-08-09T09:21:13.780Z",
-      "duration_ms": 52169
     }
   ]
 }

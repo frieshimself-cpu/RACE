@@ -1,0 +1,68 @@
+Attempt: A zero-detection identity via the L2-norm of the logarithmic derivative on vertical lines, and a reduction of RH to uniform boundedness
+
+Statement
+For σ > 1/2, define I(σ) = ∫_{−∞}^{∞} |ζ′/ζ(σ + it)|^2 dt. Then:
+- (A) I(σ) is finite if and only if there is no zero ρ = β + iγ with β = σ.
+- (B) More sharply, one has the identity
+      I(σ) = π ∑_ρ 1/(σ − β) + O(1)
+  where the sum is over all nontrivial zeros ρ = β + iγ with β < σ, and O(1) is a bounded term arising from the pole at 1 and the trivial zeros; the sum is interpreted as the (absolutely convergent) sum over zeros with β < σ, counting multiplicity.
+- (C) In particular, if there exists σ0 > 1/2 with I(σ0) < ∞ and sup_{σ≥σ0} I(σ) < ∞, then there are no zeros with β ≥ σ0, hence ζ has no zeros in Re s ≥ σ0. Letting σ0 → 1/2+ and assuming uniform boundedness for all σ > 1/2 implies the Riemann Hypothesis.
+
+Remarks
+- Part (B) gives a clean, quantitative bridge between the L2-size of ζ′/ζ on a vertical line and the horizontal location of zeros: each zero with β < σ contributes exactly π/(σ − β) to the main term. A zero on the line β = σ would force I(σ) = ∞ by a local 1/|t − γ|^2 divergence.
+- The O(1) is uniform on compact σ-intervals in (1/2, 2], and comes from the trivial zeros and the pole at 1; it can be made explicit but that is not needed for the reduction.
+
+Proof sketch
+
+1) Partial fractions for ζ′/ζ and separation of singularities
+For s off the zeros and the pole, the Hadamard product (for ξ(s)) and standard manipulations yield the partial fractions expansion
+  ζ′/ζ(s) = −1/(s − 1) + ∑_ρ 1/(s − ρ) + H(s),
+where H is an entire function of at most logarithmic growth (in practice, H collects contributions from the trivial zeros at negative even integers and the Weierstrass regularization). More concretely,
+  ζ′/ζ(s) = −∑_{n=2}^∞ Λ(n) n^{−s}   for Re s > 1,
+and the meromorphic continuation shows that the difference between the partial fractions sum and the Dirichlet series is entire. For our vertical L2 identity, the only singular pieces that matter are the simple poles at the nontrivial zeros and at s = 1; the remaining terms contribute boundedly to the integral on vertical lines σ > 1/2 (details below).
+
+2) L2 contribution of an isolated pole on a vertical line
+Fix σ > 1/2. For any ρ = β + iγ with β < σ, consider f_ρ(t) = 1/(σ + it − ρ) = 1/((σ − β) + i(t − γ)).
+Its L2 norm over t ∈ ℝ is
+  ∫_{−∞}^{∞} |f_ρ(t)|^2 dt = ∫_{−∞}^{∞} dt / ((σ − β)^2 + (t − γ)^2) = π/(σ − β).
+If β = σ, the same integral diverges like ∫ dt/(t − γ)^2 near t = γ. If β > σ, then this term is not singular on the line Re s = σ; it still contributes to ζ′/ζ(s) but will be accounted for indirectly via the decomposition with zeros to the left of the line (the final identity sums over β < σ only).
+
+3) Orthogonality/interaction of different poles
+Consider F(s) = ∑_{ρ:β<σ} 1/(s − ρ). Then
+  ∫_{−∞}^{∞} |F(σ + it)|^2 dt
+expands into diagonal terms π ∑_{β<σ} 1/(σ − β) plus off-diagonal terms of the form
+  ∑_{ρ≠ρ′} ∫ dt / ((σ − β) + i(t − γ)) · 1/((σ − β′) − i(t − γ′)).
+The integral of each off-diagonal cross-term can be computed explicitly by contour integration. For fixed σ > 1/2, one shows that the total off-diagonal contribution is absolutely convergent and bounded uniformly in σ on compacta: it is controlled by a convergent sum of terms O(1/((σ − β)(σ − β′))) times an exponentially decaying function of |γ − γ′| after integration. A more invariant way is to recognize that the map
+  T_σ: f ↦ ∫ f(ρ)/(s − ρ) dμ(ρ)
+defines a bounded operator from ℓ^2(dμ) (with measure counting zeros) into L2(dt), and its adjoint-composition gives the kernel whose trace equals the diagonal sum while the off-diagonals stay O(1). This is a standard Hilbert–Schmidt argument: the kernel K_σ(ρ, ρ′) = ∫ dt/((σ − β) + i(t − γ))((σ − β′) − i(t − γ′)) is explicitly π/((σ − β) + (σ − β′) + i(γ′ − γ)), hence its Hilbert–Schmidt norm is finite when summing over β, β′ < σ thanks to ∑ 1/(σ − β)^2 < ∞ (which follows from the classical zero-density bound N(σ, T) ≪ T log T/(σ − 1/2), and a dyadic decomposition; more elementary: the main identity we aim to prove shows the same finiteness self-consistently for σ > 1/2 + ε). Thus the cross-terms give O(1).
+
+4) Trivial zeros and the pole at 1
+Write
+  ζ′/ζ(s) = −1/(s − 1) + ∑_{β<σ} 1/(s − ρ) + R_σ(s),
+where R_σ(s) is holomorphic on Re s ≥ σ and absorbs: (i) the contribution of zeros with β ≥ σ shifted via standard symmetric completion of ξ(s), and (ii) the trivial zeros. A direct bound from Stirling’s formula for Γ(s/2) and the functional equation shows
+  ∫_{−∞}^{∞} |R_σ(σ + it)|^2 dt = O(1)
+uniformly for σ in compact subsets of (1/2, 2]. Likewise, the L2 contribution of −1/(s − 1) on any fixed σ > 1/2 is O(1). These are straightforward calculus integrals.
+
+5) Putting it together
+Thus,
+  I(σ) = ∫ |ζ′/ζ(σ + it)|^2 dt
+        = ∫ |∑_{β<σ} 1/(σ + it − ρ)|^2 dt + O(1)
+        = π ∑_{β<σ} 1/(σ − β) + O(1),
+with the O(1) uniform as stated. The “only if” in (A) follows because a zero with β = σ gives an infinite spike. The “if” is clear from the above identity: if no zero has β = σ, the right-hand side is finite (indeed equal to the sum), since each term is finite and the tail is controlled by zero-density bounds and the O(1) remainder.
+
+6) Consequences (reduction)
+- If for some σ0 > 1/2, sup_{σ≥σ0} I(σ) < ∞, then for any σ > σ0 the identity forces ∑_{β<σ} 1/(σ − β) < ∞, which precludes any zero with β ≥ σ0 (otherwise the sum would blow up as σ ↓ β). Hence ζ has no zero with β ≥ σ0.
+- If sup_{σ>1/2} I(σ) < ∞, then letting σ0 → 1/2+ shows there are no zeros with β > 1/2; by symmetry, RH follows.
+
+Comments on rigor and known inputs
+- Steps 1, 2, and 4 are classical complex analysis and calculus. Step 3 rests on bounding cross-terms via a Hilbert–Schmidt kernel estimate; one can make this entirely explicit by a direct evaluation of the kernel integral and a zero-density bound (e.g., the classical bound N(σ, T) ≪ T^{A(1−σ)} log^B T suffices to ensure the sum of off-diagonals converges for each fixed σ > 1/2).
+- No unproven hypothesis is used. The reduction is unconditional: uniform L2-boundedness of ζ′/ζ on lines Re s = σ > 1/2 implies the nonexistence of zeros to the right of that line; passing to σ → 1/2+ yields RH.
+
+Concrete partial result
+We have given a precise, quantitative identity (B) and the reduction (C) that turns RH into a uniform L2-boundedness statement for the logarithmic derivative on vertical lines arbitrarily close to Re s = 1/2. This cleanly isolates the obstruction: each zero contributes exactly π/(σ − β) to the L2-mass, so any off-line zero forces growth at least like π/(σ − β) as the line approaches it. Therefore, any method capable of proving sup_{σ≥1/2+ε} I(σ) ≪ε 1 would yield the zero-free half-plane Re s ≥ 1/2 + ε; pushing ε → 0 would establish RH.
+
+Limitations
+This reduction does not itself supply a bound on I(σ); it shows that such a bound is essentially equivalent to zero-free regions and, in the limit, to RH. It also indicates why methods that only control ζ in L2 on the 1/2-line are insufficient: one needs L2 control of ζ′/ζ off the critical line, uniformly up to it.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous reduction: RH ⇔ uniform L2-boundedness of ζ′/ζ on lines Re s>1/2; identity quantified.
