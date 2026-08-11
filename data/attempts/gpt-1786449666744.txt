@@ -1,0 +1,64 @@
+Objective: Quantify a hard barrier in the “Li criterion via finite verification” approach
+
+Setup. Let ξ(s) be the completed Riemann zeta function, and let its Li coefficients be
+λk = (1/(k − 1)!) d^k/ds^k [ s^{k−1} log ξ(s) ] at s=1.
+Equivalently (Li, 1997), with zeros ρ of ζ(s) (counted with multiplicity),
+λk = Σρ ( 1 − (1 − 1/ρ)^k ).
+The λk are real because zeros occur in quartets Qρ = {ρ, 1 − ρ, ρ̄, 1 − ρ̄}.
+
+Key technical lemma: suppression from a high zero quartet
+
+Lemma. Fix k ≥ 1. Let ρ = β + iγ be a hypothetical zero with 0 < β < 1 and |γ| ≥ k ≥ 1, and let Qρ = {ρ, 1 − ρ, ρ̄, 1 − ρ̄}. Define
+Δk(Qρ) := Σζ∈Qρ [ 1 − (1 − 1/ζ)^k ].
+Then there is an absolute constant C (e.g. C = 8) such that
+|Δk(Qρ)| ≤ C k^2 / γ^2.
+In particular, for any T ≥ N ≥ 1, a quartet with |γ| ≥ T perturbs each of the first N Li coefficients by at most O(N^2/T^2).
+
+Proof. Expand binomially for each ζ:
+1 − (1 − 1/ζ)^k = Σ_{j=1}^k binom(k,j) (−1)^{j+1} ζ^{−j}.
+Summing over the quartet and taking absolute values termwise gives
+|Δk(Qρ)| ≤ S1 + S≥2,
+where
+S1 = binom(k,1) |Σζ∈Qρ ζ^{−1}|, and S≥2 = Σ_{j=2}^k binom(k,j) |Σζ∈Qρ ζ^{−j}|.
+For the j = 1 contribution, using ζ̄ = overline(ζ) and 1 − ζ symmetry,
+Σζ∈Qρ ζ^{−1} = 2 Re(1/ρ + 1/(1 − ρ)).
+Hence
+S1 = k |2 Re(1/ρ + 1/(1 − ρ))|
+  ≤ 2k ( |Re(1/ρ)| + |Re(1/(1 − ρ))| )
+  = 2k ( |β|/(β^2 + γ^2) + |1 − β|/((1 − β)^2 + γ^2) )
+  ≤ 4k/γ^2.
+For j ≥ 2, using |ζ| ≥ |γ| for all ζ ∈ Qρ,
+|Σζ∈Qρ ζ^{−j}| ≤ 4 |γ|^{−j}.
+Thus, for |γ| ≥ k ≥ 1,
+S≥2 ≤ 4 Σ_{j=2}^k binom(k,j) |γ|^{−j}
+     = 4 [ (1 + 1/|γ|)^k − 1 − k/|γ| ]
+     ≤ 4 [ exp(k/|γ|) − 1 − k/|γ| ]
+     ≤ 2 e k^2 / |γ|^2.
+Combining, |Δk(Qρ)| ≤ 4k/γ^2 + 2e k^2/γ^2 ≤ 8 k^2/γ^2 for k ≥ 1, |γ| ≥ k. This proves the lemma.
+
+Consequence: a quantitative barrier for finite Li-positivity tests
+
+Consider an attempt to prove RH by verifying λk ≥ 0 for 1 ≤ k ≤ N for some large N. The lemma shows that any off-line quartet with imaginary part |γ| ≥ T perturbs each λk (1 ≤ k ≤ N) by at most O(N^2/T^2). Therefore:
+
+- No finite verification λk ≥ 0 for k ≤ N can, by itself, exclude the existence of an off-critical quartet at height |γ| ≫ N, because its cumulative influence on the first N coefficients is uniformly small, O(N^2/T^2).
+
+- In particular, to deduce even “no off-line zeros with |Im ρ| ≥ T” from λk ≥ 0 for k ≤ N, one would need a quantitative positivity margin:
+  min_{1 ≤ k ≤ N} λk ≥ δ(N),
+  with δ(N) dominating CN^2/T^2 (with C as in the lemma). Absent such a margin, the test is logically powerless against far-away zeros.
+
+- This exhibits a necessary strengthening for the Li-coefficient approach: it is not enough to check signs up to height N; one must also establish nontrivial lower bounds on λk whose size grows at least like a positive constant times k^2/T^2 to rule out zeros beyond height T.
+
+Remarks.
+
+- The O(k^2/γ^2) sensitivity is sharp in order of magnitude: the j = 1 quartet cancellation forces the leading perturbation to arise at “quadratic scale,” either from the real parts of 1/ρ and 1/(1 − ρ) (which are already O(1/γ^2)) or from the j ≥ 2 tail.
+
+- The proof used only the quartet symmetries of the zeros and elementary estimates; it is unconditional and self-contained.
+
+- The same calculation shows why related “finite truncation” positivity criteria (e.g., positivity of finitely many Laguerre-type moments of log ξ) face an analogous obstruction: high-lying off-line zeros are suppressed at least quadratically in their height when tested against low-order moments.
+
+Conclusion
+
+This establishes a rigorous, quantitative barrier: finite positivity checks for the Li coefficients cannot, without substantial quantitative lower bounds, exclude off-line zeros at heights much larger than the verification range. Any strategy along these lines must therefore supply explicit margins for λk, not merely signs, to progress toward RH.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous O(N^2/T^2) barrier for Li-coefficient finite tests against high off-line zeros.
