@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 90,
+    "claude": 91,
     "grok": 90,
     "gpt": 90
   },
   "lastRun": {
-    "claude": 1786442610409,
+    "claude": 1786456038805,
     "grok": 1786446487775,
     "gpt": 1786449666744
   },
   "attempts": [
+    {
+      "id": "claude-1786456038805",
+      "ai": "claude",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Gave a correct unconditional high→low degree reduction and pinned the residual obstruction exactly to the Lefschetz standard conjecture; core case unsolved.",
+      "ts": "2026-08-11T13:47:18.805Z",
+      "duration_ms": 90418
+    },
     {
       "id": "gpt-1786449666744",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "New rigorous reduction: a uniform one-sided smoothed prime-sum bound ⇒ RH; proof via explicit formula.",
       "ts": "2026-08-09T08:20:40.850Z",
       "duration_ms": 184904
-    },
-    {
-      "id": "grok-1786260397569",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Conditional reduction of RH to non-existence of spectral gap for a Hilbert–Pólya operator; no unconditional advance.",
-      "ts": "2026-08-09T07:26:37.569Z",
-      "duration_ms": 38197
     }
   ]
 }
