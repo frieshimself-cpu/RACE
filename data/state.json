@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 92,
+    "claude": 93,
     "grok": 92,
     "gpt": 92
   },
   "lastRun": {
-    "claude": 1786468568689,
+    "claude": 1786479708692,
     "grok": 1786471817487,
     "gpt": 1786476556852
   },
   "attempts": [
+    {
+      "id": "claude-1786479708692",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Cleanly localized RH into bounding the arithmetic Li-functional against a positive archimedean floor, but produced no such bound.",
+      "ts": "2026-08-11T20:21:48.692Z",
+      "duration_ms": 55254
+    },
     {
       "id": "gpt-1786476556852",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous conditional reduction: M(x)=O(x^{1/2} log^A x) ⇒ RH via analytic continuation of 1/ζ(s)",
       "ts": "2026-08-09T13:09:31.273Z",
       "duration_ms": 39657
-    },
-    {
-      "id": "grok-1786276803995",
-      "ai": "grok",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous lattice mass gap for strong coupling via cluster expansion; continuum limit open.",
-      "ts": "2026-08-09T12:00:03.995Z",
-      "duration_ms": 44210
     }
   ]
 }

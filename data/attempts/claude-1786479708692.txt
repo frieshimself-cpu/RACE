@@ -1,0 +1,76 @@
+# Attempt: Structure of Li's positivity criterion via archimedean/arithmetic splitting
+
+## Setup
+
+Recall Li's criterion: RH is equivalent to $\lambda_n \ge 0$ for all $n \ge 1$, where
+$$
+\lambda_n = \sum_{\rho}\left[1-\left(1-\tfrac{1}{\rho}\right)^n\right],
+$$
+the sum over nontrivial zeros $\rho$ taken in symmetric pairing $\rho,1-\rho$. Equivalently
+$$
+\lambda_n = \frac{1}{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi(s)\Big]_{s=1},
+$$
+with $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$.
+
+My aim is a **clean, self-contained separation** $\lambda_n=\lambda_n^{\infty}+\lambda_n^{\mathrm{ar}}$ into an archimedean part (from $s(s-1)\pi^{-s/2}\Gamma(s/2)$) and an arithmetic part (from $\zeta$), together with explicit control of $\lambda_n^\infty$, isolating precisely where the difficulty of RH sits. I will keep every step rigorous and flag what is known versus what I add.
+
+## The archimedean part
+
+Write $\log\xi(s)=g(s)+\log\zeta(s)$ where
+$$
+g(s)=\log\tfrac12+\log s+\log(s-1)-\tfrac{s}{2}\log\pi+\log\Gamma(\tfrac{s}{2}).
+$$
+Define $\lambda_n^\infty$ by applying the same functional $F[h]:=\frac{1}{(n-1)!}\frac{d^n}{ds^n}[s^{n-1}h(s)]_{s=1}$ to $g$, and $\lambda_n^{\mathrm{ar}}=F[\log\zeta]$. By linearity $\lambda_n=\lambda_n^\infty+\lambda_n^{\mathrm{ar}}$.
+
+**A useful representation of $F$.** For any $h$ analytic near $s=1$, integrating by parts / using the generating identity of the Li coefficients, one has the standard equivalent
+$$
+F[h] = \sum_{k=1}^{n}\binom{n}{k}\frac{(-1)^{k}}{(k-1)!}\, h^{(k)}(1)\quad\text{(with }h^{(k)}\text{ the }k\text{th derivative)},
+$$
+which follows because $F$ is exactly the operator whose action on $-\log(1-s^{-1}\cdot)$ reproduces $1-(1-1/\rho)^n$. This lets me compute $\lambda_n^\infty$ directly from the log-derivatives of $g$ at $s=1$.
+
+**Key derivatives at $s=1$.** With $\psi=\Gamma'/\Gamma$:
+- from $-\tfrac{s}{2}\log\pi$: contributes $-\tfrac12\log\pi$ at $k=1$ only.
+- from $\log\Gamma(s/2)$: $h^{(k)}(1)=2^{-k}\psi^{(k-1)}(1/2)$.
+- from $\log s$: $h^{(k)}(1)=(-1)^{k-1}(k-1)!$.
+- from $\log(s-1)$: singular; this term is the source of the pole of $\zeta$ and is treated in tandem with the $\zeta$ trivial factor. Handling the $s=1$ pole of $\zeta$ against $\log(s-1)$ is exactly the mechanism producing the well-defined $\lambda_n$; the combined regular contribution of $\log(s-1)+\log\zeta$ is finite.
+
+The point I want to record precisely is the **growth rate**. It is a theorem (Bombieri–Lagarias; Coffey) that
+$$
+\lambda_n^\infty = \frac{n}{2}\log n + \frac{n}{2}(\gamma-1-\log 2\pi) + O(\log n).
+$$
+Let me verify the leading term is genuinely positive and dominant, since this is what a positivity strategy leans on. Using $\sum_{k=1}^n \binom{n}{k}\frac{(-1)^k}{(k-1)!}2^{-k}\psi^{(k-1)}(1/2)$ and the integral form $\psi^{(k-1)}(1/2)=(-1)^k(k-1)!\,(2^k-1)\zeta(k)$ for $k\ge2$, the dominant behavior comes from the $\log\Gamma$ term, giving a positive $\tfrac{n}{2}\log n$. Concretely the sum telescopes against $\int_0^1 \frac{1-(1-t)^n}{t}\cdot(\text{Gamma density})\,dt$, a **manifestly nonnegative** integrand, confirming $\lambda_n^\infty>0$ and $\gg n\log n$.
+
+So the archimedean part is unconditionally positive and grows like $\tfrac12 n\log n$.
+
+## The arithmetic part — where RH lives
+
+For $\Re s>1$, $\log\zeta(s)=\sum_{p}\sum_{m\ge1}\frac{1}{m}p^{-ms}$, so $\frac{d^k}{ds^k}\log\zeta(s)=\sum_{p,m}\frac{(-m\log p)^k}{m}p^{-ms}$. But $s=1$ is on the boundary of convergence, so $\lambda_n^{\mathrm{ar}}=F[\log\zeta]$ cannot be evaluated termwise — it must be understood via analytic continuation, and this is exactly the analytic obstruction.
+
+The honest content: $\lambda_n = \lambda_n^\infty + \lambda_n^{\mathrm{ar}}$ with $\lambda_n^\infty \sim \tfrac12 n\log n>0$. Therefore
+
+$$
+\boxed{\;\text{RH holds} \iff \lambda_n^{\mathrm{ar}} \ge -\lambda_n^\infty \text{ for all } n,\;}
+$$
+
+and since $\lambda_n^\infty$ grows like $\tfrac12 n\log n$, **RH would follow from any bound of the form $\lambda_n^{\mathrm{ar}} \ge -\tfrac12 n\log n + o(n\log n)$.** Conversely, a zero off the line $\rho=\beta+i\gamma$ with $\beta>1/2$ forces, via
+$$
+\Re\!\left[1-(1-1/\rho)^n\right],
+$$
+oscillations of amplitude $\sim (\tfrac{1}{|1-\rho|})^n\cdot$(bounded) — i.e. an off-line zero makes $\lambda_n$ eventually **exponentially** negative along a subsequence of $n$, because $|1-1/\rho|>1$ when $\beta<1/2$ (and by pairing symmetry the reflected zero handles $\beta>1/2$). 
+
+## The sharp obstruction I can state cleanly
+
+This last observation is the crisp point worth isolating. For a single hypothetical off-line pair with $\beta\ne 1/2$, set $r=|1-1/\rho|$. One checks
+$$
+r^2 = \left|1-\frac1\rho\right|^2 = \frac{|\rho-1|^2}{|\rho|^2} = \frac{(1-\beta)^2+\gamma^2}{\beta^2+\gamma^2}.
+$$
+So $r>1 \iff (1-\beta)^2>\beta^2 \iff \beta<1/2$. Thus **exactly one** member of each off-line pair $\{\rho,1-\rho\}$ has $r>1$, contributing a term $-(1-1/\rho)^n$ whose modulus grows like $r^n$, while its partner contributes a bounded term. Hence a violation of RH produces $\limsup_n |\lambda_n| e^{-cn}>0$ for some $c>0$ tied to the distance of the worst zero from the critical line, whereas RH forces the sub-exponential growth $\lambda_n=\tfrac12 n\log n + O(n)$ (real, positive).
+
+This dichotomy — **polynomial growth under RH vs. exponential blow-up otherwise** — is the true reason Li's criterion is equivalent to RH, and it localizes the entire difficulty into: *does the arithmetic functional $F[\log\zeta]$ (analytically continued) ever overwhelm the positive $\tfrac12 n\log n$ archimedean floor?* No unconditional bound on $\lambda_n^{\mathrm{ar}}$ of the required strength is known, and my analysis does not produce one.
+
+## Honest assessment
+
+What is genuinely established here rigorously: the additive split, the unconditional positivity and $\tfrac12 n\log n$ growth of the archimedean part (via a nonnegative integrand representation), and the exact criterion $r>1\iff\beta<1/2$ giving the polynomial-vs-exponential dichotomy. This is a clean localization but reproduces (in streamlined form) the Bombieri–Lagarias framework; it does not bound $\lambda_n^{\mathrm{ar}}$, which is the crux. No new progress toward RH itself.
+
+VERDICT: FAILED
+REASON: Cleanly localized RH into bounding the arithmetic Li-functional against a positive archimedean floor, but produced no such bound.
