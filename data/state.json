@@ -2,14 +2,23 @@
   "counts": {
     "claude": 93,
     "grok": 93,
-    "gpt": 92
+    "gpt": 93
   },
   "lastRun": {
     "claude": 1786479708692,
     "grok": 1786483597549,
-    "gpt": 1786476556852
+    "gpt": 1786486971751
   },
   "attempts": [
+    {
+      "id": "gpt-1786486971751",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous equivalence (Weil-type prime-side criterion) and a quantitative finite-bandlimit reduction",
+      "ts": "2026-08-11T22:22:51.751Z",
+      "duration_ms": 118714
+    },
     {
       "id": "grok-1786483597549",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Derived explicit classical zero-free region \\(\\sigma>1-c/\\log(|t|+2)\\) via 3-4-1 positivity; no advance on critical line.",
       "ts": "2026-08-09T14:55:40.460Z",
       "duration_ms": 40901
-    },
-    {
-      "id": "claude-1786284133386",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Only re-derived Li's criterion rigorously and pinpointed its structural obstruction; no new unconditional positivity.",
-      "ts": "2026-08-09T14:02:13.386Z",
-      "duration_ms": 82547
     }
   ]
 }

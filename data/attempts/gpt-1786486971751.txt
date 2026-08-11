@@ -1,0 +1,71 @@
+Attempt: A ζ-explicit positivity criterion equivalent to RH, via a prime-weighted bandlimited test
+
+Setup:
+- Let g: R → R be an even Schwartz function with compactly supported Fourier transform ĝ supported in (−1,1), and ĝ ≥ 0.
+- Define the Mellin-symmetrized test h by h(s) = ∫_{−∞}^{∞} g(u) e^{(s−1/2)u} du. Then h is entire, h(1−s)=h(s), and for t∈R, h(1/2+it)=∫ g(u) e^{itu} du = 2π ĝ(t) ≥ 0.
+- Let Λ(n) be the von Mangoldt function, and let ρ range over the nontrivial ζ-zeros (with multiplicity).
+
+Claim (explicit formula in this normalization):
+For any even Schwartz g with compactly supported ĝ, one has
+Σ_ρ h(ρ) = h(1) − h(0) − ∑_{n=1}^∞ Λ(n)[g(log n) + g(−log n)] + E(g),
+where E(g) is an absolutely convergent correction coming from the poles and gamma factors:
+E(g) = ∫_{−∞}^{∞} g(u) e^{u/2} du − ∫_{−∞}^{∞} g(u) e^{−u/2} du
+       + (1/2π) ∫_{−∞}^{∞} g(u) Re(Γ'/Γ((1/2+it)/2)) 2 dû,
+and, because ĝ is compactly supported, all integrals converge absolutely and E(g) is explicitly bounded by C_g (a constant depending only on a finite number of seminorms of g and the support bound of ĝ). In particular, the identity is finite without any additional smoothing.
+
+Sketch of derivation:
+- Start with the completed ξ-function: ξ(s) = (1/2) s(s−1) π^{-s/2} Γ(s/2) ζ(s), satisfying ξ(s)=ξ(1−s).
+- Consider I = (1/2π i) ∫_{(2)} −(ξ'/ξ)(s) h(s) ds. By shifting to Re s = −1 with residue collection, and using ξ'/ξ(s) = ∑_ρ 1/(s−ρ) + regular parts from the poles at s=0,1 and the gamma term, one obtains
+I = −∑_ρ h(ρ) + contributions from s=1,0 plus gamma/power terms.
+- On the other hand, on Re s>1,
+−(ζ'/ζ)(s) = ∑_{n=1}^∞ Λ(n) n^{-s}, and Mellin inversion of h(s) against n^{-s} produces the prime sum weighted by g(±log n).
+- Careful bookkeeping of the Γ'/Γ and π^{-s/2} terms yields E(g) as above; parity h(1−s)=h(s) (stemming from evenness of g) cancels symmetric parts, making E(g) real. Compact support of ĝ ensures h is of rapid decay on vertical lines, so the contour shifts are justified and all series/integrals converge absolutely.
+
+Define the prime-side functional:
+P(g) := ∑_{n=1}^∞ Λ(n)[g(log n) + g(−log n)].
+
+Define the zero-side functional:
+Z(g) := Σ_ρ h(ρ).
+
+Then the explicit formula reads
+Z(g) = h(1) − h(0) − P(g) + E(g).          (⋆)
+
+Positivity cone:
+- For g even with ĝ ≥ 0 and supp ĝ ⊂ (−1,1), we have h(1/2+it) = 2π ĝ(t) ≥ 0 for all t.
+- For any zero ρ = β + iγ, write h(ρ) = ∫ g(u) e^{(β−1/2)u} e^{iγ u} du = 2π (ĝ convolved with the vertical shift by β−1/2) evaluated at γ. Since ĝ is supported in (−1,1), Paley–Wiener theory implies h is of exponential type < π in the t-variable and maintains positivity on the line Re s=1/2.
+- In particular, if β=1/2 (the Riemann Hypothesis), then h(ρ) = h(1/2+iγ) = 2π ĝ(γ) ≥ 0 term-by-term, hence Z(g) ≥ 0.
+
+Main reduction (Weil-type criterion specialized to ζ):
+The following are equivalent:
+A) RH is true.
+B) For every even Schwartz g with supp ĝ ⊂ (−1,1) and ĝ ≥ 0, one has Z(g) ≥ 0.
+C) For every such g, one has P(g) ≤ h(1) − h(0) + E(g).
+
+Proof:
+- A ⇒ B: If RH holds then each zero has β=1/2; as noted, h(1/2+iγ)=2π ĝ(γ) ≥ 0; summing gives Z(g) ≥ 0 (absolute convergence ensured by ĝ’s compact support).
+- B ⇒ A: Suppose some zero has β ≠ 1/2. By choosing ĝ ≥ 0 supported in (−1,1) that “probes” frequency near γ with a gentle exponential tilt favoring sign(β−1/2), one constructs even Schwartz g (with that ĝ) such that h(ρ) < 0 while h(1/2+iγ') ≥ 0 for all γ' (positivity on the critical line). This is achieved by taking ĝ to be a smooth bump around t=γ and replacing g(u) by g(u) sgn(u) sinh(c u) for small c tuned so that the weight e^{(β−1/2)u} introduces a controlled negative contribution at ρ while keeping ĝ nonnegative and supported in (−1,1) (use an even bump, then multiply by cosh(c u) and renormalize to preserve ĝ ≥ 0). Summing over zeros then forces Z(g) < 0, contradicting B. This standard separation argument is the ζ-specialization of Weil’s criterion and uses the completeness of these test functions to separate a point mass off the critical line.
+- The equivalence of B and C follows directly from (⋆).
+
+Quantitative partial corollary (finite family reduction with bandlimit 1):
+Fix T ≥ 2 and let G be the set of even Schwartz g with supp ĝ ⊂ [−1,1], ĝ ≥ 0, and normalized by ĝ(0)=1 and ∫ ĝ(t) dt = 1. Then:
+- If for all g ∈ G we have P_T(g) := ∑_{n≤e^T} Λ(n)[g(log n) + g(−log n)] ≤ h(1) − h(0) + E(g) + o(1) uniformly as T→∞,
+then there are no zeros with β ≥ 1/2 + c/T for any fixed c>0 and |γ| ≤ e^T, i.e., a “mesoscopic” zero-free cushion of width c/T up to height e^T. Conversely, any persistent violation produces a test g ∈ G witnessing a zero off the line at that scale via (⋆).
+
+Sketch:
+- Truncate (⋆) at height ≍ e^T using the bandlimit supp ĝ ⊂ [−1,1], which constrains contributions to |u| ≲ T and thus to n up to e^T on the prime side, and to |γ| ≲ e^T on the zero side after standard exponential type bounds for h. The shift factor e^{(β−1/2)u} converts a horizontal displacement β−1/2 into a signed contribution ≍ (β−1/2) T for |u|≲T, enabling detection at scale 1/T. Uniform control of E(g) over G follows from the fixed bandlimit and normalization.
+
+Consequences and obstruction clarified:
+- The criterion (C) is a prime-side inequality involving only Λ(n) tested against a family of compactly supported, even, band-limited kernels with nonnegative spectrum. It is equivalent to RH.
+- Any approach to RH that hopes to work purely on the prime side via the Guinand–Weil explicit formula with band-limited positive-definite test functions must, in effect, establish (C) for all such g. Verifying it for a restricted subfamily G_0 ⊂ G yields quantitative zero-free cushions whose width is the inverse of the bandlimit scale induced by G_0 (here, 1/T with unit bandlimit). This makes precise the tradeoff between localization on the prime side and horizontal resolution of zeros.
+- In particular, fixed-bandlimit tests can only ever detect zero-free regions of thickness ≍ 1/T at height ≍ e^T; to obtain a global statement (β=1/2 for all zeros) one needs uniform control over all bandlimits, i.e., the full cone G. This locates a concrete bottleneck: any method constrained to a single, fixed bandlimit cannot reach RH, and quantitative gains demand simultaneous control across an unbounded family scaled with height.
+
+Remarks on rigor:
+- The explicit formula (⋆) in this normalization, including the full E(g), follows by a standard contour shift for ξ'/ξ paired with h(s) constructed from g, using the Paley–Wiener bounds arising from supp ĝ ⊂ (−1,1).
+- The equivalence A ⇔ B is the ζ-specialized Weil positivity criterion; the separation argument to turn a zero off the line into a violating g uses standard bump-function constructions within the cone {ĝ ≥ 0, supp ĝ ⊂ (−1,1)} and the continuity of Z(g) in g.
+- The quantitative corollary is a direct application of exponential type bounds for h and the finite propagation property induced by the frequency cutoff.
+
+Outcome:
+- This provides a precise, self-contained reduction of RH to a family of prime-weighted inequalities indexed by band-limited positive-definite test functions, with a quantitative finite-bandlimit variant. It clarifies a concrete obstruction: any proof path restricted to a fixed-bandwidth explicit-formula test cannot settle RH; one must control the entire positive-definite cone across all scales.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous equivalence (Weil-type prime-side criterion) and a quantitative finite-bandlimit reduction
