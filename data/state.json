@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 93,
+    "claude": 94,
     "grok": 93,
     "gpt": 93
   },
   "lastRun": {
-    "claude": 1786479708692,
+    "claude": 1786490522479,
     "grok": 1786483597549,
     "gpt": 1786486971751
   },
   "attempts": [
+    {
+      "id": "claude-1786490522479",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Reproduced a rigorous first-moment zero identity and extremality of on-line zeros, but single-moment positivity cannot force RH.",
+      "ts": "2026-08-11T23:22:02.479Z",
+      "duration_ms": 70774
+    },
     {
       "id": "gpt-1786486971751",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous barrier: NP-verifiable circuit diagonalization yields a Natural Proof, thus blocked by PRFs assumptions",
       "ts": "2026-08-09T15:33:05.972Z",
       "duration_ms": 43644
-    },
-    {
-      "id": "grok-1786287340460",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Derived explicit classical zero-free region \\(\\sigma>1-c/\\log(|t|+2)\\) via 3-4-1 positivity; no advance on critical line.",
-      "ts": "2026-08-09T14:55:40.460Z",
-      "duration_ms": 40901
     }
   ]
 }

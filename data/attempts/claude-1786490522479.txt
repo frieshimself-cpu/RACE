@@ -1,0 +1,59 @@
+# Attempt: A positivity identity for zeros and why it fails to force RH
+
+## Setup
+
+Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1, with
+Hadamard factorization over the nontrivial zeros $\rho$:
+$$\xi(s)=\xi(0)\prod_\rho\Big(1-\frac{s}{\rho}\Big),$$
+the product taken in pairs $\{\rho,1-\rho\}$ (and $\{\rho,\bar\rho\}$) so it converges. The functional equation $\xi(s)=\xi(1-s)$ makes the zero set symmetric under $\rho\mapsto 1-\rho$ and $\rho\mapsto\bar\rho$.
+
+## A convergent identity
+
+Group zeros in pairs $\rho,1-\rho$. Since $\frac1\rho+\frac1{1-\rho}=\frac1{\rho(1-\rho)}$,
+$$
+S:=\sum_\rho \frac{1}{\rho(1-\rho)} \quad\text{converges absolutely},
+$$
+and a standard evaluation of $\xi'/\xi$ at $s=1$ (or equivalently the constant $B$ in the Hadamard product) gives the **explicit value**
+$$
+\boxed{\;S=\sum_\rho\frac{1}{\rho(1-\rho)}=2+\gamma-\log(4\pi)\approx 0.0461\;}
+$$
+where $\gamma$ is Euler's constant. This is unconditional and real (the sum is invariant under $\rho\mapsto\bar\rho$).
+
+## Termwise analysis
+
+Write a zero as $\rho=\beta+i\gamma$, $0<\beta<1$. Then
+$$
+\rho(1-\rho)=\big[\beta(1-\beta)+\gamma^2\big]+i\,\gamma(1-2\beta),
+$$
+so, with $u:=\beta(1-\beta)\in(0,\tfrac14]$,
+$$
+\operatorname{Re}\frac{1}{\rho(1-\rho)}
+=\frac{u+\gamma^2}{(u+\gamma^2)^2+\gamma^2(1-2\beta)^2}\;>\;0 .
+$$
+
+Two rigorous facts follow:
+
+**(A) Every nontrivial zero contributes a strictly positive real part to $S$.** Hence the small positive constant $0.0461$ is an *exact accounting* of all zeros; there is no room for large cancellation.
+
+**(B) On-line zeros are extremal for the contribution at fixed height.**
+Fix $\gamma$ and view the term as a function of $\beta$. At $\beta=\tfrac12$ we have $u=\tfrac14$ (maximal), $1-2\beta=0$, and the term equals $\dfrac{1}{\tfrac14+\gamma^2}$. Moving off the line **decreases $u$** and **switches on the extra denominator term** $\gamma^2(1-2\beta)^2$. For $\gamma^2$ large relative to $u$ the term behaves like $\tfrac1{\gamma^2}\big(1-\tfrac{u}{\gamma^2}+\cdots\big)$, and one checks the leading correction from displacing $\beta$ off $\tfrac12$ is a *decrease* of order $(1-2\beta)^2/\gamma^2$. So an off-line zero contributes *less* to $S$ than a hypothetical on-line zero at the same height.
+
+## Why this does not prove RH (honest obstruction)
+
+One is tempted to argue: "the total $S$ is fixed, on-line zeros are extremal, therefore zeros must lie on the line." This fails, and it is worth stating precisely why, because the same obstruction defeats many positivity approaches:
+
+1. **The count is not fixed pointwise.** $S$ is a single real constraint; the zeros form an infinite set whose heights $\gamma$ are *not* prescribed. Displacing a zero off the line and simultaneously adjusting nearby heights can preserve $S$ exactly. Symmetry forces off-line zeros to appear in quadruples $\{\beta\pm i\gamma,\,1-\beta\pm i\gamma\}$, and within such a quadruple the two real parts $u=\beta(1-\beta)$ coincide, so the configuration is self-consistent with any single linear constraint.
+
+2. **Extremality is local, not a barrier.** Fact (B) shows on-line placement *maximizes* an individual term, but $S$ being *below* the "all-on-line" value is not contradictory — indeed if all zeros were on the line, $S=\sum_\gamma \frac{1}{1/4+\gamma^2}$ must *equal* $0.0461$; RH is precisely the statement that this on-line sum accounts for everything. Off-line zeros would lower some terms but their partners and altered heights compensate. A single moment gives no rigidity.
+
+3. **What would be needed.** To close the gap one needs *infinitely many* independent positivity constraints simultaneously — this is exactly the content of the Li/Weil positivity criteria ($\lambda_n=\sum_\rho[1-(1-1/\rho)^n]\ge0$ for all $n$). The single identity above is the $n=1$ shadow: $\lambda_1=\sum_\rho \tfrac1\rho\cdot\big(\text{...}\big)$ reduces to $S$. The genuine difficulty is that the higher $\lambda_n$ mix the archimedean growth term $\sim \tfrac{n}{2}\log n$ (manifestly positive) against a prime sum whose sign is not controlled — and no single moment, however sharp, resolves that competition.
+
+## Concrete residue of the attempt
+
+The clean, fully rigorous statement salvaged here:
+> Every nontrivial zero $\rho$ satisfies $\operatorname{Re}\,\dfrac{1}{\rho(1-\rho)}>0$, and $\sum_\rho\operatorname{Re}\dfrac{1}{\rho(1-\rho)}=2+\gamma-\log(4\pi)$; on-line zeros maximize the per-zero contribution at fixed imaginary height.
+
+This is correct and unconditional but is a reformulation/first-moment fact, not new progress toward RH. It sharpens the *why-positivity-alone-fails* picture: RH is a statement of infinitely many independent moment inequalities, and any argument using finitely many linear functionals of the zeros is provably insufficient because off-line quadruples can satisfy them by height-adjustment.
+
+VERDICT: FAILED
+REASON: Reproduced a rigorous first-moment zero identity and extremality of on-line zeros, but single-moment positivity cannot force RH.
