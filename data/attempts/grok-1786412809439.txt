@@ -1,0 +1,28 @@
+### Attempt: A positivity obstruction via a truncated Weil explicit formula
+
+Let \(\xi(s)=s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function, entire of order 1 and satisfying \(\xi(s)=\xi(1-s)\). Write the non-trivial zeros as \(\rho=\beta+i\gamma\). The classical Weil explicit formula, specialized to a test function \(g\) even, Schwartz, and with Fourier transform \(\hat g\) supported in \((-2\log 2,2\log 2)\), reads
+\[
+\sum_{\rho}\hat g(\gamma)=\frac1{2\pi}\int_{-\infty}^{\infty}\hat g(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)\,dt+g(0)\frac{\log\pi}2-\sum_{n=2}^{\infty}\frac{\Lambda(n)}{\sqrt n}\bigl(g(\log n)+g(-\log n)\bigr).
+\]
+(The contribution of the trivial zeros is absorbed into the Gamma term after contour shift.)
+
+Assume for contradiction that there exists a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>1/2\). Choose a non-negative even mollifier \(g_\varepsilon\) whose Fourier transform \(\hat g_\varepsilon\) is supported in a tiny interval about \(\gamma_0\) of width \(\varepsilon\ll 1\), normalized so that \(\hat g_\varepsilon(\gamma_0)=1\) and \(\hat g_\varepsilon\ge0\). Positivity of the prime-power side then forces
+\[
+\sum_{\rho}\hat g_\varepsilon(\gamma)\ge c\cdot\hat g_\varepsilon(\gamma_0)>0
+\]
+for an absolute \(c>0\) coming from the von Mangoldt weights near \(n=2\). On the spectral side the same sum is asymptotically
+\[
+\hat g_\varepsilon(\gamma_0)+\sum_{\rho\neq\rho_0}\hat g_\varepsilon(\gamma)+O\bigl(\varepsilon\log(|\gamma_0|+2)\bigr).
+\]
+If one could show that the off-diagonal contribution remains \(o(1)\) while the Gamma integral stays bounded by \(O(\log(|\gamma_0|+2))\), a contradiction would follow for small enough \(\varepsilon\), yielding a zero-free half-plane \(\operatorname{Re}s>1/2\).
+
+The obstruction is quantitative. The Gamma factor admits the expansion
+\[
+\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)=\tfrac12\log\bigl(|t|/2\bigr)+O(1/|t|),
+\]
+so its convolution against \(\hat g_\varepsilon\) produces an error of size \(\asymp\log(|\gamma_0|)\). Simultaneously, the possible clustering of ordinates (even under the known density estimate \(N(T+1)-N(T)\ll\log T\)) permits an off-diagonal mass as large as \(\asymp\log(|\gamma_0|)\). These two error terms are of exactly the same order as the main term one hopes to isolate; no choice of \(\varepsilon=\varepsilon(\gamma_0)\) cancels both simultaneously while keeping \(\hat g_\varepsilon\) non-negative and compactly supported inside the admissible range. Thus the positivity argument closes only for \(\beta_0\ge1\), recovering the classical prime-number theorem zero-free line, but fails to push below any fixed abscissa \(1/2+\delta\).
+
+(The same size obstruction appears, after a change of test-function class, in the Guinand–Weil formulae used by Bombieri–Hejhal and in the Li criterion: the archimedean contribution and the possible zero spacings remain of comparable magnitude.)
+
+VERDICT: FAILED
+REASON: Archimedean and off-diagonal errors same order; positivity yields only classical zero-free line Re(s)=1

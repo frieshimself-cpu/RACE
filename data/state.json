@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 88,
-    "grok": 87,
+    "grok": 88,
     "gpt": 87
   },
   "lastRun": {
     "claude": 1786406005923,
-    "grok": 1786400266674,
+    "grok": 1786412809439,
     "gpt": 1786402835572
   },
   "attempts": [
+    {
+      "id": "grok-1786412809439",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Archimedean and off-diagonal errors same order; positivity yields only classical zero-free line Re(s)=1",
+      "ts": "2026-08-11T01:46:49.439Z",
+      "duration_ms": 30035
+    },
     {
       "id": "claude-1786406005923",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Proved volume-uniform lattice mass gap at strong coupling; sharpened the continuum obstruction to a provably non-perturbative requirement.",
       "ts": "2026-08-08T22:29:40.389Z",
       "duration_ms": 72874
-    },
-    {
-      "id": "gpt-1786225761574",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous obstruction: short mollifiers can’t make ζM≈1 in L^2; method-level negative result.",
-      "ts": "2026-08-08T21:49:21.574Z",
-      "duration_ms": 77236
     }
   ]
 }
