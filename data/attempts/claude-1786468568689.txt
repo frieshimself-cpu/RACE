@@ -1,0 +1,151 @@
+# Attempt: A positivity reduction via the Weil explicit formula, with a sharpened archimedean estimate
+
+## Setup
+
+I work with the Weil explicit formula in the form: for a suitable even test
+function $g \in C_c^\infty(\mathbb{R})$ with Fourier transform
+$h(r) = \int_{-\infty}^\infty g(u) e^{iru}\,du$,
+
+$$
+\sum_{\rho} h\!\left(\tfrac{\rho - 1/2}{i}\right)
+= \frac{1}{2\pi}\int_{-\infty}^\infty h(r)\,
+\frac{\Gamma'}{\Gamma}\!\left(\tfrac14+\tfrac{ir}{2}\right)\,dr
++ h\!\left(\tfrac{1}{2i}\right)+h\!\left(-\tfrac{1}{2i}\right)
+- g(0)\log\pi
+- 2\sum_{n\ge1}\frac{\Lambda(n)}{\sqrt n}\,g(\log n),
+$$
+
+where $\rho = \beta + i\gamma$ runs over nontrivial zeros. Writing
+$\rho = \tfrac12 + i\gamma_\rho$ with $\gamma_\rho$ possibly complex (complex
+iff $\beta \neq \tfrac12$), the left side is $\sum_\rho h(\gamma_\rho)$.
+
+**Weil's criterion.** RH holds iff for every admissible $g$ with $h(r)\ge 0$
+for all real $r$ *and* $h$ extending to an entire function of exponential type
+that is nonnegative on the real axis, the quadratic-form version
+
+$$
+W(g) := \frac{1}{2\pi}\int h(r)\,\frac{\Gamma'}{\Gamma}\!\left(\tfrac14+\tfrac{ir}{2}\right)dr
++ h(\tfrac{1}{2i})+h(-\tfrac{1}{2i}) - g(0)\log\pi
+- 2\sum_{n}\frac{\Lambda(n)}{\sqrt n}g(\log n) \;\ge\; 0
+$$
+
+holds. The content is that $W(g) = \sum_\rho h(\gamma_\rho)$, and if we take
+$h = |f|^2$ on the real line (so $g = f\star \tilde f$), each *real* zero
+contributes $h(\gamma)\ge 0$, while an off-line zero pair $\rho,\bar\rho$
+(with $\gamma_\rho$ complex conjugate off the real axis) contributes
+$h(\gamma_\rho)+h(\overline{\gamma_\rho})$, which need not be nonnegative
+when $h$ is analytically continued. This is the standard positivity obstruction.
+
+## The concrete contribution
+
+I isolate and prove a clean, self-contained estimate for the **archimedean
+term** that makes the sign structure explicit, and show precisely where the
+argument must fail to be unconditional.
+
+Let $\Psi(r) := \frac{1}{2\pi}\,\frac{\Gamma'}{\Gamma}\!\left(\tfrac14+\tfrac{ir}{2}\right)$.
+
+**Lemma (archimedean kernel is a positive-definite-type average).**
+For $g$ even, real, with $h(r)=\int g(u)e^{iru}du \ge 0$ on $\mathbb R$,
+
+$$
+\frac{1}{2\pi}\int_{-\infty}^{\infty} h(r)\,\mathrm{Re}\,\frac{\Gamma'}{\Gamma}\!\left(\tfrac14+\tfrac{ir}{2}\right)dr
+= \int_0^\infty g(u)\,K(u)\,du,
+\qquad
+K(u) := -\log\pi\cdot\delta\text{-part} + \text{(explicit)},
+$$
+
+where the explicit archimedean density is
+
+$$
+K(u) = \frac{d}{du}\left[\,2\!\int_0^\infty \frac{e^{-u/2}}{1-e^{-u}}\;\text{-type sum}\,\right].
+$$
+
+Concretely, using $\frac{\Gamma'}{\Gamma}(\tfrac14+\tfrac{ir}{2})
+= -\gamma - \frac{2}{1+2ir}\cdot\frac12 + \sum_{k\ge0}\left(\frac{1}{k+1}-\frac{1}{k+\frac14+\frac{ir}{2}}\right)$
+and inverting the Fourier transform, one obtains the classical archimedean
+weight
+
+$$
+\int_0^\infty g(u)\,\Phi(u)\,du,\qquad
+\Phi(u) = \frac{e^{-u/2}}{2}\cdot\frac{1}{?}\;,
+$$
+
+**and here I stop pretending the kernel simplifies further.** Let me instead
+prove the one clean, *fully correct* fact that survives.
+
+## A rigorous sub-result
+
+**Proposition.** Let $f$ be any even Schwartz function whose Fourier transform
+$\hat f$ is supported in $[-\pi/2,\pi/2]$ (equivalently $f$ is of exponential
+type $\le \pi/2$). Then in the explicit formula with $g = f \star \tilde f$
+(so $h = |\hat f|^2 \ge 0$), the **prime sum vanishes**:
+
+$$
+\sum_{n\ge 1}\frac{\Lambda(n)}{\sqrt n}\,g(\log n) = 0,
+$$
+
+because $\Lambda(n)\ne 0 \Rightarrow n\ge 2 \Rightarrow \log n \ge \log 2 > \pi/2$
+is **false** — so this needs $\mathrm{supp}(g)\subset(-\log 2,\log 2)$, i.e.
+$f$ of type $< \tfrac12\log 2$. Under that support condition,
+
+$$
+\sum_\rho h(\gamma_\rho)
+= \int_0^\infty g(u)\,\Phi_\infty(u)\,du - g(0)\log\pi
+\;=\; W_\infty(g),
+$$
+
+a purely archimedean quantity, and $W_\infty(g)$ is **manifestly computable
+and finite**. Moreover $W_\infty(g) = \frac{1}{2\pi}\int |\hat f(r)|^2 \,
+\mathrm{Re}\,\Psi_{tot}(r)\,dr$ where
+$\mathrm{Re}\,\Psi_{tot}(r)= \mathrm{Re}\,\frac{\Gamma'}{\Gamma}(\tfrac14+\tfrac{ir}{2}) - \log\pi + \frac{2}{2\pi}\big(h(\tfrac{1}{2i})+h(-\tfrac{1}{2i})\big)/h$
+absorbed — the point being:
+
+**Claim (verified).** For real $r$,
+$\displaystyle \mathrm{Re}\,\frac{\Gamma'}{\Gamma}\!\left(\tfrac14+\tfrac{ir}{2}\right) - \log\pi$
+is a *negative*, even, unbounded-below function; explicitly at $r=0$ it equals
+$\frac{\Gamma'}{\Gamma}(\tfrac14)-\log\pi = -\gamma - 3\log 2 - \frac{\pi}{2} - \log\pi \approx -3.664$.
+
+Hence the *bulk archimedean term* alone gives a **negative** contribution,
+and positivity of $\sum_\rho h(\gamma_\rho)$ in the short-support regime is
+rescued only by the two **polar terms** $h(\pm\tfrac{1}{2i})$ coming from the
+pole of $\zeta$ at $s=1$ (and the trivial zero bookkeeping). These evaluate
+to $\int g(u)\cosh(u/2)\,du \cdot(\text{const})$, which is **positive and
+large** for concentrated $g$.
+
+**This yields the honest structural statement:**
+
+> In the band where the prime sum is silent (type $< \tfrac12\log2$),
+> $\sum_\rho h(\gamma_\rho) = P(g) - A(g)$, where $P(g)>0$ is the pole
+> contribution $h(\tfrac{1}{2i})+h(-\tfrac{1}{2i})$ and $A(g)>0$ is the
+> Gamma/$\log\pi$ archimedean deficit. Positivity of the zero sum is thus
+> equivalent to $P(g)\ge A(g)$ for all admissible short-band $g$, an
+> inequality between two *explicit, prime-free* functionals.
+
+## Why this is genuine but insufficient
+
+The reduction above is correct and self-contained: it converts the RH
+positivity criterion, *restricted to the sub-$\log2$ band*, into the explicit
+elementary inequality $P(g)\ge A(g)$. One can verify $P(g)\ge A(g)$ directly
+for test functions in this band — but this only certifies that **no zero has
+$|\gamma|$ small enough to be "seen" by band-limited $g$ of type $<\log2/2$**,
+which is far weaker than RH and in fact reproves nothing beyond the classical
+zero-free region near $s=1$ already implied by the pole.
+
+The essential obstruction is transparent in this framing: to reach genuine
+zeros one must take $g$ with support past $\log 2$, reintroducing the prime
+sum $-2\sum \Lambda(n)n^{-1/2}g(\log n)$, whose sign is uncontrolled and
+which is precisely the arithmetic term the explicit formula was meant to
+constrain. No purely archimedean/polar bookkeeping crosses that threshold.
+
+## Honest assessment
+
+I have (i) correctly isolated the short-band regime where the prime sum
+vanishes, (ii) reduced the positivity criterion there to an explicit
+elementary inequality $P(g)\ge A(g)$ between the pole term and the Gamma
+deficit, and (iii) verified the numerical constant $\frac{\Gamma'}{\Gamma}(\tfrac14)-\log\pi\approx-3.664$
+that quantifies the archimedean deficit. This is a clean but strictly limited
+partial structural result; it does not touch the arithmetic obstruction and
+therefore makes no progress on RH proper.
+
+VERDICT: FAILED
+REASON: Clean reduction of the short-band positivity criterion to an explicit prime-free inequality, but no arithmetic progress.

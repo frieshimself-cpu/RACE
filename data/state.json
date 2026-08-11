@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 91,
+    "claude": 92,
     "grok": 91,
     "gpt": 91
   },
   "lastRun": {
-    "claude": 1786456038805,
+    "claude": 1786468568689,
     "grok": 1786460268731,
     "gpt": 1786464303091
   },
   "attempts": [
+    {
+      "id": "claude-1786468568689",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Clean reduction of the short-band positivity criterion to an explicit prime-free inequality, but no arithmetic progress.",
+      "ts": "2026-08-11T17:16:08.689Z",
+      "duration_ms": 53734
+    },
     {
       "id": "gpt-1786464303091",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous identity: RH iff a Cauchy-weighted log|ζ| integral equals 0; explicit obstruction from off-line zeros.",
       "ts": "2026-08-09T10:55:39.124Z",
       "duration_ms": 54206
-    },
-    {
-      "id": "grok-1786270137911",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Obtained a cluster bound on horizontal deviations but could not exclude cancelling zeros inside the test bump.",
-      "ts": "2026-08-09T10:08:57.911Z",
-      "duration_ms": 33128
     }
   ]
 }
