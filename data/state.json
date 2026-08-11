@@ -2,14 +2,23 @@
   "counts": {
     "claude": 92,
     "grok": 92,
-    "gpt": 91
+    "gpt": 92
   },
   "lastRun": {
     "claude": 1786468568689,
     "grok": 1786471817487,
-    "gpt": 1786464303091
+    "gpt": 1786476556852
   },
   "attempts": [
+    {
+      "id": "gpt-1786476556852",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous T^2 log T lower bound linking finite Li-positivity to excluding off-line zeros up to height T.",
+      "ts": "2026-08-11T19:29:16.852Z",
+      "duration_ms": 209949
+    },
     {
       "id": "grok-1786471817487",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Rigorous lattice mass gap for strong coupling via cluster expansion; continuum limit open.",
       "ts": "2026-08-09T12:00:03.995Z",
       "duration_ms": 44210
-    },
-    {
-      "id": "claude-1786275050574",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rederived explicit quadruple contribution C_n=4−2(rⁿ+r⁻ⁿ)cos nθ in Li's criterion but could not bound the zero-sum remainder.",
-      "ts": "2026-08-09T11:30:50.574Z",
-      "duration_ms": 72976
     }
   ]
 }

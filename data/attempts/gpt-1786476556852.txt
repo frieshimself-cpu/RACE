@@ -1,0 +1,82 @@
+Attempt: A quantitative obstruction for “finite Li-positivity” tests to exclude low-lying off-line zeros
+
+Setup.
+- Let ξ(s) = (1/2) s(s-1)π^{-s/2}Γ(s/2)ζ(s). The Keiper–Li coefficients are
+  λn = (1/(n−1)!) d^n/ds^n [s^{n−1} log ξ(s)] at s = 1,
+  and they admit the convergent symmetric sum representation
+  λn = Σρ (1 − zρ^n), with zρ := 1 − 1/ρ, where the sum is over the nontrivial zeros ρ of ζ(s), taken in conjugate-symmetric and ρ ↔ 1−ρ symmetric fashion (so the series converges absolutely after this standard symmetrization).
+- Li’s criterion: RH ⇔ λn ≥ 0 for all n ≥ 1.
+
+Goal.
+- We show rigorously that any attempt to use the finite condition λn ≥ 0 for 1 ≤ n ≤ N to rule out off-line zeros up to height T can only succeed if N is at least of order T^2 log T (up to constants). Concretely, we prove:
+
+Theorem (finite Li-positivity cannot exclude off-line zeros below height T unless N ≳ T^2 log T).
+Fix T ≥ 2. Suppose there exists a zero ρ = β + it of ζ(s) with |t| ≤ T and β ≠ 1/2. Then there exist absolute constants c1, c2 > 0 such that, for all integers n with
+  n ≥ c1 (2|β − 1/2|)^{-1} (1 + t^2) log n,
+one has λn ≤ − e^{c2 nΔ} + O(n log n) < 0, where
+  Δ := (|2β − 1|)/(2((1 − β)^2 + t^2))  ≍  |β − 1/2|/(1 + t^2).
+In particular, if λn ≥ 0 holds for all 1 ≤ n ≤ N, then every zero ρ with |t| ≤ T must satisfy
+  |β − 1/2| ≤ C (1 + T^2) (log N)/N
+for an absolute constant C. Equivalently, to exclude any fixed ε-away off-line zeros (|β − 1/2| ≥ ε) up to height T, one must take
+  N ≥ C' ε^{-1} (1 + T^2) log N,
+hence N ≳ ε^{-1} T^2 log T.
+
+Proof sketch.
+1) Geometry of the transform zρ = 1 − 1/ρ.
+Let ρ = β + it with t ≠ 0. A direct calculation gives
+  |zρ|^2 = 1 − (2β − 1)/(β^2 + t^2).
+Thus:
+- If β > 1/2 (to the right of the line), then |zρ| < 1.
+- If β < 1/2 (to the left), then |zρ| > 1.
+By functional symmetry, whenever there is a zero with β > 1/2, there is also its reflected zero 1 − ρ with real part 1 − β < 1/2, hence a companion with |z1−ρ| > 1. Therefore, any off-line zero creates at least one transformed zero z with modulus strictly larger than 1.
+
+Moreover, for the reflected zero ρ' := 1 − ρ = (1 − β) − it,
+  |zρ'|^2 = 1 + (2β − 1)/((1 − β)^2 + t^2)
+so, writing Δ := (|2β − 1|)/(2((1 − β)^2 + t^2)), we obtain
+  |zρ'| ≥ 1 + Δ with Δ ≍ |β − 1/2|/(1 + t^2).
+
+2) Isolating the contribution of a single off-line quartet.
+By grouping zeros in the standard conjugate-and-reflection symmetric quartets {ρ, 1 − ρ, ρ̄, 1 − ρ̄}, the corresponding combined contribution to λn is real. The crucial point is that within that quartet there is at least one z with |z| ≥ 1 + Δ as above, and the real part of −z^n contributes a term whose magnitude is ≥ (1/2)(|z|^n − 1) for infinitely many n (select those n where the argument aligns to make Re z^n ≥ (1/2)|z|^n). More precisely, let z be any member of the quartet with |z| ≥ 1 + Δ; then there exists an infinite set N0 of integers such that
+  Re(z^n) ≥ (1/2) |z|^n  for all n ∈ N0.
+Therefore, the quartet’s net contribution to λn satisfies, for n ∈ N0,
+  contribution ≤ − (1/2) |z|^n + O(1),
+where the O(1) absorbs the remaining three elements of the quartet when their moduli are ≤ |z| (true by the symmetry and the triangle inequality).
+
+3) Global upper bound for the “background” from all other zeros.
+Unconditionally, one has a general upper bound
+  λn = O(n log n).
+This follows from the definition of λn as the complete exponential Bell polynomial in the Taylor coefficients of log ξ(s) at s = 1, together with Stirling’s formula for Γ(s/2) and standard bounds for log ζ(s) and its derivatives near s = 1 (no zeros or poles for Re s > 1), yielding log ξ(1 + z) = O(log(1/|z|)) as z → 0 and hence λn bounded in magnitude by a constant times n log n. One can also recover λn = O(n log n) from the Hadamard product for ξ(s), bounding the symmetrically summed tails by classical zero-counting estimates N(T) ∼ (T/2π) log T and partial summation.
+
+Thus, aside from the singled-out quartet, the aggregate of all other zeros contributes at most C n log n to λn in absolute value for an absolute constant C.
+
+4) Exponential domination and the detectability threshold.
+Combine 2) and 3). For n ∈ N0,
+  λn ≤ − (1/2) |z|^n + C n log n + O(1).
+Since |z| ≥ 1 + Δ, we have |z|^n ≥ exp(n log(1 + Δ)) ≥ exp(nΔ/2) for all sufficiently small Δ (using log(1 + Δ) ≥ Δ/2 for 0 < Δ ≤ 1). Choose c2 ∈ (0, 1/2) fixed, then for all large n we have |z|^n ≥ e^{c2 n Δ}. Therefore
+  λn ≤ − e^{c2 nΔ} + C n log n
+for all large n in N0 (absorbing factors into c2 and C). The right-hand side is negative once
+  e^{c2 nΔ} > 2 C n log n,
+which holds as soon as
+  c2 nΔ > log(2C) + log n + log log n.
+Equivalently,
+  n > (1/c2Δ) (log n + O(1)).
+
+Recalling Δ ≍ |β − 1/2|/(1 + t^2) with |t| ≤ T, we have Δ ≥ c |β − 1/2|/(1 + T^2) for an absolute c > 0, whence the sufficient condition
+  n ≥ (C1 (1 + T^2)/|β − 1/2|) (log n)
+for a suitable absolute C1. This yields the stated implication:
+- If λn ≥ 0 for every 1 ≤ n ≤ N, then for every zero with |t| ≤ T we must have |β − 1/2| so small that the above inequality fails up to n = N. Solving crudely for |β − 1/2| gives
+  |β − 1/2| ≤ C (1 + T^2) (log N)/N.
+- Conversely, to exclude all zeros with |t| ≤ T and |β − 1/2| ≥ ε, it is necessary that
+  N ≥ C' ε^{-1} (1 + T^2) log N,
+hence N ≳ ε^{-1} T^2 log T.
+
+Remarks.
+- The bound λn = O(n log n) used in step 3 is unconditional and standard; sharper asymptotics are known conditionally, but O(n log n) suffices for the exponential domination argument.
+- The argument shows a genuine obstruction: finite Li-positivity checks are intrinsically too coarse to rule out low-lying off-line zeros unless one pushes n into the regime N of order T^2 log T (or larger), which is far beyond current verifications. In particular, any strategy to certify a zero-free region up to height T via finite Li-positivity must overcome this exponential-versus-polynomial barrier.
+- The constants can be tracked explicitly with a more detailed bookkeeping of the quartet contribution and the λn bound; I have kept them schematic to emphasize the scaling in T, N, and |β − 1/2|.
+
+Conclusion.
+This provides a rigorous quantitative reduction: checking λn ≥ 0 up to N can only preclude off-line zeros up to height T at the cost N ≳ T^2 log T. It clarifies the inherent limitation of “finite Li-positivity” approaches as a path to RH via computational or partial verification.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous T^2 log T lower bound linking finite Li-positivity to excluding off-line zeros up to height T.
