@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 93,
-    "grok": 92,
+    "grok": 93,
     "gpt": 92
   },
   "lastRun": {
     "claude": 1786479708692,
-    "grok": 1786471817487,
+    "grok": 1786483597549,
     "gpt": 1786476556852
   },
   "attempts": [
+    {
+      "id": "grok-1786483597549",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Conditional reduction to a uniform error in a Gaussian-smoothed explicit formula; error bound still missing.",
+      "ts": "2026-08-11T21:26:37.549Z",
+      "duration_ms": 27955
+    },
     {
       "id": "claude-1786479708692",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Only re-derived Li's criterion rigorously and pinpointed its structural obstruction; no new unconditional positivity.",
       "ts": "2026-08-09T14:02:13.386Z",
       "duration_ms": 82547
-    },
-    {
-      "id": "gpt-1786280971273",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous conditional reduction: M(x)=O(x^{1/2} log^A x) ⇒ RH via analytic continuation of 1/ζ(s)",
-      "ts": "2026-08-09T13:09:31.273Z",
-      "duration_ms": 39657
     }
   ]
 }
