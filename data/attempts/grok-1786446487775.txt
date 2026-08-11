@@ -1,0 +1,41 @@
+### Attempt: Failure analysis of a positivity approach via the Weil explicit formula
+
+Let \(\Xi(t) := \xi(\tfrac12 + it)\), where \(\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The Riemann Hypothesis is equivalent to \(\Xi\) having only real zeros. The Weil explicit formula relates a test function \(g\) (even, Schwartz-class, with Fourier transform \(\hat g\) supported in \((-1,1)\) or suitably decaying) to a sum over zeros:
+\[
+\sum_{\rho} \hat g\bigl(\tfrac{\rho - 1/2}{i}\bigr)
+= \hat g\bigl(\tfrac{i}{2}\bigr) + \hat g\bigl(-\tfrac{i}{2}\bigr)
+- g(0)\log\pi
++ \frac1{2\pi}\int_{-\infty}^{\infty}\frac{\Gamma'}{\Gamma}\bigl(\tfrac14 + \tfrac{it}{2}\bigr)\hat g(t)\,dt
+- \sum_{n=2}^{\infty}\frac{\Lambda(n)}{\sqrt n}\bigl(g(\log n) + g(-\log n)\bigr).
+\]
+(The precise normalization of the Fourier transform is the one making the formula hold with the indicated archimedean factor; the precise constants are immaterial below.)
+
+A classical strategy (Weil, Bombieri, etc.) seeks a positive-definite \(g\) for which the right-hand side is strictly positive whenever \(g\not\equiv 0\). If such a \(g\) exists with \(\hat g\ge 0\) and \(\operatorname{supp}\hat g\subset(-1,1)\), then every non-trivial zero must satisfy \(\operatorname{Re}\rho=1/2\), because a zero \(\rho=\sigma+it\) with \(\sigma\neq 1/2\) would contribute a factor that can be made to violate positivity by a suitable choice of test function concentrated near that height.
+
+#### Where the argument breaks
+
+Fix an even non-negative \(g\in\mathcal{S}(\mathbb{R})\) with \(\hat g\ge 0\) and \(\operatorname{supp}\hat g\subset(-\delta,\delta)\) for some \(\delta<1\). The prime-sum term is then negative (or zero) because \(\Lambda(n)>0\). The archimedean contribution
+\[
+A(g) := \frac1{2\pi}\int_{-\infty}^{\infty}\frac{\Gamma'}{\Gamma}\bigl(\tfrac14 + \tfrac{it}{2}\bigr)\hat g(t)\,dt
+\]
+admits the asymptotic expansion (Stirling)
+\[
+\operatorname{Re}\frac{\Gamma'}{\Gamma}\bigl(\tfrac14 + \tfrac{it}{2}\bigr)
+= \tfrac12\log\bigl(\tfrac{|t|}{2}\bigr) + O\bigl(\tfrac1{|t|}\bigr).
+\]
+Thus \(A(g)\) is positive for \(g\) whose Fourier mass lies at large frequencies, but the support restriction \(\operatorname{supp}\hat g\subset(-\delta,\delta)\) forces the mass of \(\hat g\) into a fixed compact set. Consequently \(A(g)\) remains bounded by a constant depending only on \(\delta\) and \(\|g\|_1\), while the prime sum can be made arbitrarily large negative by taking a sequence of test functions that approximate the Dirac comb at the logarithms of primes (still with Fourier support inside \((-\delta,\delta)\)). More precisely, the Fejér-type kernels
+\[
+g_T(x) = \bigl(1 - \tfrac{|x|}{T}\bigr)_+ \cdot \operatorname{sinc}^2\bigl(\tfrac{\delta x}{2}\bigr)
+\]
+(suitably scaled and smoothed) satisfy \(\hat g_T\ge 0\), \(\operatorname{supp}\hat g_T\subset(-\delta,\delta)\), yet
+\[
+\sum_{n\le e^{T}}\frac{\Lambda(n)}{\sqrt n}g_T(\log n)\to +\infty
+\]
+as \(T\to\infty\) by the prime-number theorem with classical zero-free region. Hence the right-hand side of the explicit formula becomes negative for large \(T\).
+
+The same obstruction persists if one relaxes the support condition to rapid decay of \(\hat g\): the contribution of a hypothetical zero with \(\operatorname{Re}\rho=\sigma>1/2\) is of size \(\asymp|\hat g(t)|\,e^{(\sigma-1/2)|t|}\), which can be dominated by the prime sum unless \(\hat g\) decays faster than any exponential—an impossibility for a non-zero Schwartz function. Thus no single test function (nor any fixed compact family) can force all zeros onto the critical line; one would need a uniformity statement over an infinite-dimensional cone of test functions whose Fourier transforms become increasingly concentrated, which re-introduces precisely the same zero-density estimates that are already known to be insufficient for RH.
+
+The argument therefore yields only the classical zero-free region \(\sigma\ge 1-c/\log(|t|+2)\) (by taking \(\delta\) small and optimizing the length of the prime sum), but cannot cross the barrier to \(\sigma=1/2\).
+
+VERDICT: FAILED
+REASON: Positivity via Weil formula blocked by prime-sum dominance under Fourier support constraints; recovers only classical zero-free region.
