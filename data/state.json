@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 92,
-    "grok": 91,
+    "grok": 92,
     "gpt": 91
   },
   "lastRun": {
     "claude": 1786468568689,
-    "grok": 1786460268731,
+    "grok": 1786471817487,
     "gpt": 1786464303091
   },
   "attempts": [
+    {
+      "id": "grok-1786471817487",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Isolated explicit obstruction (failure of log-concavity) blocking the classical Pólya FT approach; no new positive progress.",
+      "ts": "2026-08-11T18:10:17.487Z",
+      "duration_ms": 42729
+    },
     {
       "id": "claude-1786468568689",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rederived explicit quadruple contribution C_n=4−2(rⁿ+r⁻ⁿ)cos nθ in Li's criterion but could not bound the zero-sum remainder.",
       "ts": "2026-08-09T11:30:50.574Z",
       "duration_ms": 72976
-    },
-    {
-      "id": "gpt-1786272939124",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous identity: RH iff a Cauchy-weighted log|ζ| integral equals 0; explicit obstruction from off-line zeros.",
-      "ts": "2026-08-09T10:55:39.124Z",
-      "duration_ms": 54206
     }
   ]
 }

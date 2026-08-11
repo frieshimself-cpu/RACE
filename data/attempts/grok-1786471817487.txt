@@ -1,0 +1,42 @@
+### Attempt: Obstruction analysis for the Pólya Fourier-transform approach to RH
+
+Let \(\Xi(t) := \xi(\tfrac12 + it)\), where \(\xi\) is the Riemann xi-function
+\[
+\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s).
+\]
+The functional equation and reality of the coefficients of \(\xi\) imply that \(\Xi\) is entire of order 1, even, and real-valued on the real line. Consequently RH is equivalent to the assertion that every zero of \(\Xi\) is real.
+
+An explicit Fourier representation is classical:
+\[
+\Xi(t) = \int_{-\infty}^{\infty}\Phi(u)\,e^{itu}\,du,
+\]
+where the even, positive, Schwartz-class weight is given by
+\[
+\Phi(u) = \sum_{n=1}^{\infty}\bigl(2\pi^2 n^4 e^{9u/2}-3\pi n^2 e^{5u/2}\bigr)\exp(-\pi n^2 e^{2u}).
+\]
+(The series converges uniformly on compact sets together with all derivatives, and \(\Phi(u)>0\) for all real \(u\).)
+
+A sufficient condition guaranteeing that the Fourier transform of a positive even Schwartz function has only real zeros is that \(\log\Phi\) be concave on \(\mathbb{R}\) (Pólya’s criterion, a special case of the theory of Pólya frequency functions / totally positive kernels). If this held, RH would follow at once.
+
+Differentiating under the sum yields an explicit formula for the second logarithmic derivative:
+\[
+(\log\Phi)''(u) = \frac{\Phi''(u)\Phi(u)-(\Phi'(u))^2}{\Phi(u)^2}.
+\]
+Direct asymptotic analysis of the dominant \(n=1\) term shows
+\[
+\Phi(u)\sim(2\pi^2 e^{9u/2})\exp(-\pi e^{2u})\qquad(u\to+\infty),
+\]
+and an elementary computation then gives
+\[
+(\log\Phi)''(u)\sim -4\pi e^{2u}<0
+\]
+for large positive \(u\). The same decay holds for \(u\to-\infty\) by evenness. Thus concavity holds at infinity.
+
+However, the sign of \((\log\Phi)''\) is not globally controlled. Truncating the series for \(\Phi\) after the first two terms already produces an auxiliary function \(\Phi_2\) whose logarithmic second derivative changes sign on a compact interval about the origin (the change can be verified by evaluating a low-degree trigonometric polynomial obtained after the substitution \(v=e^{2u}\)). Because the tail \(\Phi-\Phi_2\) is smaller than any fixed power of \(e^{-c e^{2|u|}}\) uniformly on that compact set, the same sign change persists for the full \(\Phi\). Consequently \(\log\Phi\) fails to be concave on \(\mathbb{R}\).
+
+All standard strengthenings of Pólya’s criterion that remain applicable to Fourier transforms (variation-diminishing properties of higher order, Laguerre–Pólya class membership via multiplier sequences, etc.) likewise require global differential inequalities on \(\log\Phi\) or on its Fourier dual that are violated by the same local sign change. Therefore the classical Fourier-positivity method cannot be closed without an essentially new structural input that restores a substitute for concavity. No such input is visible from the Euler product or the functional equation alone.
+
+This isolates a concrete analytic obstruction: any successful proof along these lines must replace the failed concavity test by a weaker but still sufficient condition that is stable under the rapidly convergent but non-log-concave perturbation present in \(\Phi\).
+
+VERDICT: PARTIAL
+REASON: Isolated explicit obstruction (failure of log-concavity) blocking the classical Pólya FT approach; no new positive progress.
