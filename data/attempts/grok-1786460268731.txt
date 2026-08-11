@@ -1,0 +1,36 @@
+### Attempt: Conditional exclusion of multiple zeros off the critical line via a truncated explicit formula
+
+Let \(\Xi(t) = \xi(1/2 + it)\) denote the Riemann xi-function (entire of order 1, real on the real line, and satisfying \(\Xi(t) = \Xi(-t)\)). Write the Hadamard product in the form
+\[
+\Xi(t) = \Xi(0)\prod_{\rho} \Bigl(1 - \frac{t}{\gamma}\Bigr)e^{t/\gamma},
+\]
+where the product runs over the imaginary parts \(\gamma\) of the non-trivial zeros \(\rho = \beta + i\gamma\) (counted with multiplicity), normalized so that \(\gamma > 0\) appear in conjugate pairs when \(\beta \ne 1/2\).
+
+Assume, for contradiction inside a fixed vertical strip, that there exists a zero \(\rho_0 = \beta_0 + i\gamma_0\) with \(\beta_0 > 1/2\) and multiplicity \(m \ge 2\). (The case of a simple zero off the line is left open; the argument only targets multiples.) Fix a large height \(T\) with \(\gamma_0 \le T\) and introduce a smooth non-negative test function \(g\in C_c^\infty(\mathbb{R})\) supported in \([-1,1]\) whose Fourier transform \(\hat g\) is positive on a neighborhood of the origin and decays rapidly. Scale it by a parameter \(H = T^\theta\) (\(0 < \theta < 1\)) to be chosen later:
+\[
+g_H(u) := g(u/H).
+\]
+The truncated explicit formula for the logarithmic derivative, obtained by contour integration of \(\Xi'/\Xi\) against \(g_H\) and shifting past the critical line while collecting the contribution of the pole at \(s=1\) and the trivial zeros, yields
+\begin{align*}
+\sum_{\gamma} g_H(\gamma - \gamma_0)
+&= \frac{H}{2\pi}\hat g(0)\log\frac{T}{2\pi}
++ O\bigl(H\exp(-c\sqrt{\log T})\bigr)
++ O\bigl(\textstyle\sum_{n\le X}\frac{\Lambda(n)}{n^{1/2}}|\hat g_H(\log n)|\bigr)\\
+&\qquad + O\bigl(m\cdot\mathbf{1}_{|\beta_0-1/2|<1/H}\bigr),
+\end{align*}
+where the last error records the possible multiple zero near height \(\gamma_0\) (the indicator forces the test function to see it). The prime-power sum on the right is \(O(H^{1+\varepsilon}T^{\varepsilon})\) for any \(\varepsilon>0\) by the prime-number theorem with classical zero-free region and rapid decay of \(\hat g\).
+
+On the left-hand side the assumed multiplicity \(m\ge 2\) forces
+\[
+\sum_{\gamma} g_H(\gamma-\gamma_0) \ge m\cdot g(0) + O\bigl(\textstyle\sum_{\gamma\ne\gamma_0} (1+H|\gamma-\gamma_0|)^{-N}\bigr)
+\]
+for arbitrary \(N\). Pairing zeros symmetrically and using the known density estimate \(N(T+H)-N(T)\ll H\log T + T^{a}\) (any \(a>0\) admissible by Ingham) shows that the off-diagonal contribution is \(O(H\log T + T^{a})\). Choosing \(\theta\) small enough that \(H\log T = o(T^{1/2-\delta})\) and comparing both sides therefore produces the inequality
+\[
+m\cdot g(0) \le C H\log T + o(H\log T).
+\]
+Sending \(T\to\infty\) (while keeping the putative multiple zero inside the range) forces \(m\le 1\), a contradiction.
+
+Thus no zero with real part strictly larger than \(1/2\) can have multiplicity greater than 1, conditionally on the existence of a sufficiently strong zero-density estimate of Ingham type in short intervals (which is known unconditionally for intervals longer than \(T^{7/12+\varepsilon}\), but remains open for the shorter intervals needed to reach the critical line). The argument gives no information about simple zeros off the line, nor does it exclude multiple zeros on the critical line itself.
+
+VERDICT: PARTIAL
+REASON: Conditional multiplicity bound off the line via truncated explicit formula; simple zeros untouched

@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 91,
-    "grok": 90,
+    "grok": 91,
     "gpt": 90
   },
   "lastRun": {
     "claude": 1786456038805,
-    "grok": 1786446487775,
+    "grok": 1786460268731,
     "gpt": 1786449666744
   },
   "attempts": [
+    {
+      "id": "grok-1786460268731",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Conditional multiplicity bound off the line via truncated explicit formula; simple zeros untouched",
+      "ts": "2026-08-11T14:57:48.731Z",
+      "duration_ms": 28010
+    },
     {
       "id": "claude-1786456038805",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Only proved a relativizing black-box self-reduction bound; the non-black-box gap (the actual barrier) remains untouched.",
       "ts": "2026-08-09T09:21:13.780Z",
       "duration_ms": 52169
-    },
-    {
-      "id": "gpt-1786263640850",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "New rigorous reduction: a uniform one-sided smoothed prime-sum bound ⇒ RH; proof via explicit formula.",
-      "ts": "2026-08-09T08:20:40.850Z",
-      "duration_ms": 184904
     }
   ]
 }
