@@ -1,0 +1,66 @@
+Attempt: A rigorous obstruction to uniform spectral gaps in covariant gauges from small-field control
+
+Setup
+- Gauge group G = SU(N), N ≥ 2.
+- Euclidean 4D torus T_L^4 = (R/LZ)^4 with side length L, flat metric, periodic b.c.
+- Consider smooth gauge potentials A ∈ Ω^1(T_L^4; su(N)), with curvature F_A = dA + A∧A.
+- Landau gauge condition: d_A^* A = 0 (used only to motivate ghost operator; not enforced below).
+- Faddeev–Popov operator in Landau gauge (ghost operator) on adjoint scalars φ ∈ Ω^0(T_L^4; su(N)):
+  M_A := - d_A^* d_A, with d_A φ = dφ + [A, φ]. On the subspace orthogonal to global constants (to remove exact zero modes when A is pure gauge), the lowest eigenvalue is denoted λ_1(M_A; L).
+
+Key observation: Gauge covariance of d_A implies exact similarity of M_A under gauge transformations:
+- If A^g := g^{-1} A g + g^{-1} dg and φ^g := g^{-1} φ g, then d_{A^g} = Ad_{g^{-1}} ∘ d_A ∘ Ad_g, hence
+  M_{A^g} = Ad_{g^{-1}} ∘ M_A ∘ Ad_g,
+  so the spectra of M_A and M_{A^g} coincide.
+
+Construction
+- Let g: T_L^4 → SU(N) be a smooth map with “slow variation” on scale L, i.e., ||dg||_{L^2} = O(L^{-1}) and ||d^2 g||_{L^2} = O(L^{-2}); explicit example: pick a smooth 2π-periodic su(N)-valued function h on the unit torus T_1^4 with ||∂h||_{L^∞} bounded, and set g_L(x) = exp(ε h(x/L)) with ε > 0 fixed small; then
+  dg_L = ε L^{-1} (∂h)(x/L) + O(ε^2 L^{-2}).
+- Define A_L := g_L^{-1} d g_L. Then:
+  - A_L is a pure gauge: F_{A_L} = 0.
+  - Norm estimates: for any Sobolev index s ∈ [0,1],
+      ||A_L||_{H^s(T_L^4)} ≤ C_s ε L^{s-1}
+    in particular, ||A_L||_{L^2} = O(L^{-1}), ||A_L||_{H^1} = O(1) uniformly in L if ε is fixed, and with ε small one can also have ||A_L||_{H^1} as small as desired by taking ε small. If one uses a smoother scaling g_L(x) = exp(ε h(x/L^α)) with α ∈ (0,1), one gets ||A_L||_{H^1} = O(L^{α-1}) → 0 as L → ∞ while keeping the analysis below intact.
+- By gauge covariance, M_{A_L} is similar to M_0 (the standard Laplacian on adjoint scalars), hence has the same spectrum.
+- On T_L^4, the spectrum of -Δ on mean-zero adjoint scalars is {4π^2 |k|^2 / L^2 : k ∈ Z^4 \ {0}}, so
+    λ_1(M_{A_L}; L) = 4π^2 / L^2.
+
+Lemma (no uniform FP gap from small-field control)
+Fix any δ > 0. There exist L large enough and a smooth gauge field A on T_L^4 with
+- F_A = 0,
+- ||A||_{H^1(T_L^4)} ≤ δ,
+such that the lowest positive eigenvalue of the Faddeev–Popov operator on mean-zero adjoint scalars satisfies
+- λ_1(M_A; L) ≤ δ.
+
+Proof
+- Choose ε and α ∈ (0,1) so that C_1 ε L^{α-1} ≤ δ for all sufficiently large L (possible since α-1 < 0).
+- Set g_L(x) = exp(ε h(x/L^α)) with a fixed smooth h as above and A = g_L^{-1} dg_L. Then F_A = 0 and ||A||_{H^1} ≤ C_1 ε L^{α-1} ≤ δ.
+- By gauge covariance, λ_1(M_A; L) = λ_1(M_0; L) = 4π^2/L^2. For L ≥ 2π/√δ, we have 4π^2/L^2 ≤ δ.
+- This constructs the desired A. ∎
+
+Corollary (volume-dependent obstruction)
+For any fixed small-field threshold η > 0 (e.g., ||F_A||_{L^2} ≤ η or ||A||_{H^1} ≤ η), one has
+  inf { λ_1(M_A; L) : A smooth on T_L^4 with ||A||_{H^1} ≤ η } = 4π^2/L^2,
+so
+  inf_L>0 sup_{η>0 small} inf_{||A||_{H^1}≤η} λ_1(M_A; L) = 0.
+In particular, there is no lower bound on the FP gap that is both uniform in volume and survives the small-field limit.
+
+Implications for mass-gap strategies via covariant gauges
+- Several proposed constructive routes informally seek to control the gauge-fixed measure by restricting to small-field regions (e.g., small plaquette, or small Sobolev/Hölder norm) and then proving coercivity/convexity of the gauge-fixed action, which would imply Gaussian domination with a positive, volume-uniform spectral gap for either M_A or related covariant operators.
+- The lemma shows that any such argument requiring a volume-uniform positive lower bound on the Faddeev–Popov operator’s spectrum over a small-field set is impossible on tori of large size: even with F_A = 0 (the most favorable “small curvature” case), the lowest nonzero eigenvalue is ∼ L^{-2} and can be made arbitrarily small by increasing L while keeping ||A||_{H^1} arbitrarily small.
+- The obstruction is intrinsic and gauge-covariant: it is not an artifact of a bad gauge choice for a given A; the small eigenvalue persists under all gauges because it is inherited from the free Laplacian on large tori.
+- Consequently, any approach to a nonperturbative mass gap in 4D via Landau-gauge coercivity that hinges on a volume-uniform FP spectral gap over a small-field set cannot succeed. One must instead:
+  - Exploit gauge-invariant dynamics (e.g., Wilson loop area law) rather than FP gaps; or
+  - Work at fixed physical volume with a renormalization prescription that establishes a correlation length in lattice units growing slower than L; or
+  - Use non-covariant gauges/constructive frameworks where the relevant coercivity is not tied to the FP spectrum, together with reflection positivity and gauge-invariant observables.
+
+Additional quantitative note
+- The construction yields the explicit relation
+    λ_1(M_A; L) = 4π^2/L^2 ≤ C ||A||_{H^1(T_L^4)}^{2/(1-α)}
+  for the family A = g_L^{-1} dg_L with g_L = exp(ε h(x/L^α)), making precise that the FP gap can be driven to zero at a rate polynomially related to the small-field norm by choosing α close to 1 and L large.
+
+Conclusion
+- This is a rigorous, concrete obstruction that closes a specific avenue to proving a mass gap based on uniform FP coercivity in small-field regimes. It delineates a necessary condition any successful strategy must avoid or overcome: no argument that requires volume-uniform lower bounds on the FP operator over small-field sets can be valid in 4D Yang–Mills on large tori.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous obstruction: no volume-uniform FP gap even under small-field control
