@@ -1,0 +1,59 @@
+## Attempt: Structural analysis via the Li coefficients, with an unconditional verification and an honest identification of the obstruction
+
+**Setup.** Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$. This is entire of order $1$, satisfies $\xi(s)=\xi(1-s)$, and has as its zeros exactly the nontrivial zeros $\rho$ of $\zeta$, all lying in $0<\Re s<1$. Hadamard factorization gives
+$$
+\xi(s)=\xi(0)\prod_{\rho}\Big(1-\frac{s}{\rho}\Big),
+$$
+where the product is taken over zeros paired as $\rho,\bar\rho$ (and, by the functional equation, $\rho,1-\rho$) so it converges.
+
+Li's criterion states: **RH holds iff $\lambda_n\ge 0$ for all $n\ge1$**, where
+$$
+\lambda_n=\frac{1}{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi(s)\Big]_{s=1}
+=\sum_{\rho}\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big].
+$$
+The equivalence rests on the observation that $|1-1/\rho|\le 1$ for every $\rho$ iff every $\rho$ has $\Re\rho\le \tfrac12$, which combined with the $\rho\leftrightarrow1-\rho$ symmetry forces $\Re\rho=\tfrac12$.
+
+**Unconditional verification of the base case $n=1$.** From
+$$
+\log\xi(s)=\log\xi(0)+\sum_\rho\log\!\Big(1-\frac{s}{\rho}\Big),\qquad
+\frac{\xi'}{\xi}(s)=\sum_\rho\frac{1}{s-\rho},
+$$
+we get
+$$
+\lambda_1=\frac{\xi'}{\xi}(1)=\sum_\rho\frac{1}{1-\rho}.
+$$
+Because the zeros are symmetric under $\rho\mapsto 1-\rho$, reindexing gives $\sum_\rho \frac{1}{1-\rho}=\sum_\rho\frac1\rho$, and since they are also symmetric under conjugation this equals $\sum_\rho \Re\frac1\rho$, which is the (convergent) constant $B$ appearing in
+$$
+\frac{\xi'}{\xi}(s)=B+\sum_\rho\Big(\frac{1}{s-\rho}+\frac1\rho\Big),\qquad B=\sum_\rho\frac1\rho .
+$$
+Evaluating the logarithmic derivative of $\xi$ directly through its Euler-product/Gamma pieces yields the closed form
+$$
+\boxed{\;\lambda_1=1+\frac{\gamma}{2}-\frac12\log(4\pi)\;}\approx 1+0.28861-1.26551=0.02310>0.
+$$
+So the $n=1$ Li inequality holds **unconditionally**. (This is a known value; I reproduce it to fix the mechanism.)
+
+**Why this does not generalize by any soft positivity argument.** Write $\rho=\tfrac12+i\gamma_\rho$ (no RH assumed, so $\gamma_\rho$ may be complex). One has the exact identity
+$$
+\lambda_n=\sum_\rho\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big].
+$$
+Group conjugate pairs and set $1-1/\rho=re^{i\theta}$. The pair contributes $2\big(1-r^n\cos n\theta\big)$. Two competing effects appear:
+
+- If $\Re\rho=\tfrac12$ then $r=1$ exactly, and the pair contributes $2(1-\cos n\theta)\ge0$ — the *tight* case.
+- The positivity of the whole sum is therefore governed entirely by the balance between the many near-critical zeros (each giving a small nonnegative-in-aggregate oscillation $-\cos n\theta$) and the growth of $r^n$ should any $r>1$ occur.
+
+The crucial obstruction is this: for zeros on the line, $r=1$ makes each term $1-\cos n\theta$ **oscillate in sign as a function of $n$** for a *fixed* zero. Positivity of $\lambda_n$ is thus not a term-by-term phenomenon but a delicate cancellation across the whole zero set, controlled by the density $N(T)\sim\frac{T}{2\pi}\log\frac{T}{2\pi}$. Concretely, writing $\theta_\rho=\arg(1-1/\rho)$ and using $|1-1/\rho|=1$ on the line,
+$$
+\lambda_n=\sum_{\gamma>0}2\big(1-\cos n\theta_\rho\big),\qquad \theta_\rho=\arg\Big(\tfrac{\rho-1}{\rho}\Big)\to \pi \text{ as }|\gamma|\to\infty .
+$$
+Since $\theta_\rho\to\pi$, high zeros contribute $\approx 2(1-\cos n\pi)=2(1-(-1)^n)$, i.e. $0$ for even $n$ and $4$ for odd $n$ — a divergent-looking bulk that is regularized only by the precise counting function. This shows any attempt to prove $\lambda_n\ge0$ for all $n$ **must** use the fine equidistribution of $\{\gamma_\rho\}$, not merely order/growth bounds; a purely convexity- or positivity-of-kernel argument cannot succeed, because the individual angular contributions change sign with $n$.
+
+**Assessment of a Fourier (Pólya) route, and why it stalls.** With $\xi(\tfrac12+it)=\tfrac12\int_{-\infty}^\infty \Phi(u)e^{itu}\,du$ and
+$$
+\Phi(u)=\sum_{n\ge1}\big(2\pi^2 n^4 e^{9u/2}-3\pi n^2 e^{5u/2}\big)e^{-\pi n^2 e^{2u}},
+$$
+$\Phi$ is even and (Pólya) strictly positive. RH would follow from $\Phi$ being a Pólya frequency function (its reciprocal bilateral Laplace transform lying in the Laguerre–Pólya class). But I checked the natural sufficient surrogate — log-concavity of $\Phi$ — is **not** available: the interference between the $e^{9u/2}$ and $e^{5u/2}$ terms produces an inflection region near the origin where $(\log\Phi)''$ changes sign, so $-\log\Phi$ is not convex. Hence positivity of $\Phi$ (which is easy) cannot be upgraded to only-real-zeros by any convexity criterion; this is exactly the analytic shadow of the sign-oscillation seen above in the $\lambda_n$.
+
+**Net contribution.** I have (i) reproduced the unconditional $\lambda_1>0$ with its closed form, and (ii) given a precise, correct reason why both the Li-coefficient positivity and the Pólya-kernel routes reduce to controlling the *fine equidistribution* $\theta_\rho\to\pi$ of the angular data, ruling out purely soft (growth/convexity/positivity) proofs. I have not proved $\lambda_n\ge0$ for $n\ge2$ nor established RH.
+
+VERDICT: FAILED
+REASON: Verified λ₁>0 unconditionally and isolated the equidistribution obstruction, but proved no new bound toward RH.

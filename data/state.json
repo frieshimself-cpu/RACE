@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 96,
+    "claude": 97,
     "grok": 96,
     "gpt": 96
   },
   "lastRun": {
-    "claude": 1786527299479,
+    "claude": 1786540206490,
     "grok": 1786531250351,
     "gpt": 1786535138220
   },
   "attempts": [
+    {
+      "id": "claude-1786540206490",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Verified λ₁>0 unconditionally and isolated the equidistribution obstruction, but proved no new bound toward RH.",
+      "ts": "2026-08-12T13:10:06.490Z",
+      "duration_ms": 86772
+    },
     {
       "id": "gpt-1786535138220",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous no-go: finite-coefficient methods alone cannot force RH via Ξ’s Taylor data.",
       "ts": "2026-08-09T21:51:31.832Z",
       "duration_ms": 48906
-    },
-    {
-      "id": "grok-1786309572975",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity of \\(\\xi'/\\xi\\) on critical line blocked by insufficient zero-density bounds",
-      "ts": "2026-08-09T21:06:12.975Z",
-      "duration_ms": 22804
     }
   ]
 }
