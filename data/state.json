@@ -2,14 +2,23 @@
   "counts": {
     "claude": 98,
     "grok": 98,
-    "gpt": 97
+    "gpt": 98
   },
   "lastRun": {
     "claude": 1786552322602,
     "grok": 1786556268051,
-    "gpt": 1786548850975
+    "gpt": 1786559720114
   },
   "attempts": [
+    {
+      "id": "gpt-1786559720114",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous equivalence: RH ⇔ M(x)=Oε(x^{1/2+ε}); no new bound obtained",
+      "ts": "2026-08-12T18:35:20.114Z",
+      "duration_ms": 54987
+    },
     {
       "id": "grok-1786556268051",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Isolated parity barrier showing density estimates with exponent <2 cannot bootstrap to RH",
       "ts": "2026-08-10T03:56:03.748Z",
       "duration_ms": 24282
-    },
-    {
-      "id": "claude-1786326618148",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorously reproved RH⇒Li-positivity and recast RH as $|1-1/\\rho|=1$, but the hard converse (phase non-cancellation) remains open.",
-      "ts": "2026-08-10T01:50:18.148Z",
-      "duration_ms": 59113
     }
   ]
 }

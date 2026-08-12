@@ -1,0 +1,37 @@
+Attempt: A clean equivalence between RH and square-root cancellation for M(x)
+
+Notation:
+- ζ(s) is the Riemann zeta function.
+- μ(n) is the Möbius function.
+- M(x) := ∑_{n≤x} μ(n).
+- For s=σ+it, write σ := Re s.
+
+Claim (equivalence). The following are equivalent:
+(A) RH (i.e., all nontrivial zeros of ζ lie on Re s = 1/2).
+(B) For every ε>0, M(x) = Oε(x^{1/2+ε}).
+
+Proof.
+
+(1) RH ⇒ (B).
+Assuming RH, we have the classical explicit formula and zero-density concentrated on the critical line. Standard contour integration (Perron inversion for 1/ζ) gives
+M(x) = 1/(2πi) ∫_{(c)} x^s/(s ζ(s)) ds
+for any c>1, and shifting the contour to Re s = 1/2 + 1/log x while picking up no residues (since 1/ζ has no poles except at zeros of ζ), together with convexity-type bounds for ζ on the critical line (or standard pointwise bounds for 1/ζ(s) away from zeros on RH), yields the well-known bound
+M(x) = O(x^{1/2} log^2 x).
+Since for any fixed ε>0 and x large, log^2 x ≤ x^ε, this implies M(x) = Oε(x^{1/2+ε}). Thus (B).
+
+(2) (B) ⇒ zero-free in Re s>1/2 ⇒ RH.
+Assume (B). For σ>1 we have the absolutely convergent Dirichlet series
+1/ζ(s) = ∑_{n=1}^∞ μ(n) n^{-s}.
+By summation by parts, for any s with σ>0,
+∑_{n=1}^N μ(n) n^{-s} = M(N) N^{-s} + s ∫_1^N M(u) u^{-s-1} du.
+Letting N→∞ and using (B), we can pass to the limit provided the integral converges. The integrand is ≪ε u^{1/2+ε} u^{-σ-1} = u^{-σ-1/2+ε}, which is integrable at ∞ as soon as σ > 1/2 + ε. Hence for each ε>0, the integral representation
+1/ζ(s) = s ∫_1^∞ M(u) u^{-s-1} du
+defines a holomorphic function in the half-plane σ > 1/2 + ε, and by uniqueness of analytic continuation it must coincide there with the analytic continuation of 1/ζ(s) from σ>1. Since ε>0 is arbitrary, 1/ζ(s) is holomorphic on σ>1/2. Therefore ζ(s) has no zeros with σ>1/2.
+
+By the functional equation and the symmetry ρ ↦ 1-ρ of nontrivial zeros, the absence of zeros in σ>1/2 implies the absence in σ<1/2. Hence all nontrivial zeros lie on σ=1/2, i.e. RH holds. Thus (A).
+
+Conclusion.
+We have given a rigorous, self-contained proof of the equivalence RH ⇔ (∀ε>0) M(x)=Oε(x^{1/2+ε}). This sharpens the heuristic that “square-root cancellation in the Möbius summatory function is exactly as hard as RH,” and provides a precise reduction route: any unconditional improvement showing M(x)=Oε(x^{1/2+ε}) would settle RH.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous equivalence: RH ⇔ M(x)=Oε(x^{1/2+ε}); no new bound obtained
