@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 99,
+    "claude": 100,
     "grok": 99,
     "gpt": 99
   },
   "lastRun": {
-    "claude": 1786563907098,
+    "claude": 1786574472518,
     "grok": 1786567502218,
     "gpt": 1786571147900
   },
   "attempts": [
+    {
+      "id": "claude-1786574472518",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Correct identities/reduction to $\\limsup\\lambda_n^{1/n}=1$ obtained, but no new bound proving zeros lie on the line.",
+      "ts": "2026-08-12T22:41:12.518Z",
+      "duration_ms": 72155
+    },
     {
       "id": "gpt-1786571147900",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "New rigorous reduction: uniform-in-scale smoothed prime bound ⇒ RH; proof via explicit formula",
       "ts": "2026-08-10T10:00:30.751Z",
       "duration_ms": 63945
-    },
-    {
-      "id": "grok-1786350417589",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Circular dependence on classical zero-free width blocks any enlargement via density+explicit formula",
-      "ts": "2026-08-10T08:26:57.589Z",
-      "duration_ms": 34611
     }
   ]
 }

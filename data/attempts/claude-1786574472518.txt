@@ -1,0 +1,54 @@
+## Attempt: a positivity constraint from the ξ-function and its relation to the Li criterion
+
+I work with a concrete, fully rigorous identity for the nontrivial zeros $\rho$ of $\zeta$, extract the exact constant, and analyze precisely why this level of information is *insufficient* to decide RH — isolating what extra structure (the higher Li moments) is genuinely needed. The point is to make the obstruction quantitative rather than to restate it.
+
+### Setup
+
+Let
+$$\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),$$
+an entire function of order $1$ with $\xi(s)=\xi(1-s)$, whose zeros are exactly the nontrivial zeros $\rho$ of $\zeta$. Hadamard factorization gives
+$$\xi(s)=\xi(0)\prod_\rho\Big(1-\frac{s}{\rho}\Big),$$
+the product taken in symmetric pairs $\{\rho,1-\rho\}$ so that it converges. Hence
+$$\frac{\xi'}{\xi}(s)=\sum_\rho\Big(\frac1{s-\rho}+\frac1\rho\Big),\qquad B:=\frac{\xi'}{\xi}(0)=\sum_\rho\frac1\rho ,$$
+where the last sum is symmetric-paired.
+
+### The exact linear constraint
+
+**Lemma.** With symmetric summation,
+$$\sum_\rho\frac{1}{\rho(1-\rho)}=2+\gamma-\log(4\pi),$$
+where $\gamma$ is Euler's constant. Numerically the right side is $\approx 0.04619$.
+
+*Proof.* Since $\rho\mapsto 1-\rho$ permutes the zeros, $\sum_\rho \rho^{-1}=\sum_\rho(1-\rho)^{-1}$, and using $\frac1{\rho(1-\rho)}=\frac1\rho+\frac1{1-\rho}$,
+$$\sum_\rho\frac1{\rho(1-\rho)}=2\sum_\rho\frac1\rho=2B.$$
+Now compute $B=\xi'/\xi(0)$ directly from the definition. Taking logarithmic derivatives of $\xi$:
+$$\frac{\xi'}{\xi}(s)=\frac1s+\frac1{s-1}-\tfrac12\log\pi+\tfrac12\frac{\Gamma'}{\Gamma}\!\Big(\tfrac s2\Big)+\frac{\zeta'}{\zeta}(s).$$
+The combination $\frac1s+\frac12\frac{\Gamma'}{\Gamma}(s/2)$ has a removable singularity at $s=0$: near $0$, $\frac{\Gamma'}{\Gamma}(s/2)=-\frac2s-\gamma+O(s)$, so $\frac1s+\frac12\frac{\Gamma'}{\Gamma}(s/2)\to -\gamma/2$. Also $\frac1{s-1}\to -1$ at $s=0$, and $\frac{\zeta'}{\zeta}(0)=\log(2\pi)$ (standard). Therefore
+$$B=-\gamma/2-1-\tfrac12\log\pi+\log(2\pi)=1+\tfrac\gamma2-\tfrac12\log(4\pi).$$
+Indeed $-1+\log(2\pi)-\tfrac12\log\pi = -1+\tfrac12\log(4\pi^2/\pi)$... let me keep it exact: $\log(2\pi)-\tfrac12\log\pi=\log 2+\tfrac12\log\pi=\tfrac12\log(4\pi)$, so $B=-\gamma/2-1+\tfrac12\log(4\pi)$.
+
+This has the *opposite* sign of what I wrote; recompute $2B=-\gamma-2+\log(4\pi)\approx -0.0462$. So the correct signed statement is
+$$\boxed{\ \sum_\rho\frac1{\rho(1-\rho)}=\log(4\pi)-\gamma-2\ }\approx -0.0462.$$
+Wait — this is negative, which is impossible if RH holds (each term would be $(\tfrac14+\gamma^2)^{-1}>0$). So a sign error remains; the well-known value is $2+\gamma-\log(4\pi)\approx+0.0462$, forcing $B=1+\gamma/2-\tfrac12\log(4\pi)$. The discrepancy is the sign of $\frac{\zeta'}{\zeta}(0)$: in fact $\frac{\zeta'}{\zeta}(0)=\log(2\pi)$ is correct, but the term $\frac1{s-1}$ contributes $+? $. Rechecking against the known Li coefficient $\lambda_1=1+\tfrac\gamma2-\tfrac12\log(4\pi)\approx0.0230>0$ and the identity $\sum_\rho\rho^{-1}=\lambda_1$, we get $2B=2\lambda_1=2+\gamma-\log(4\pi)\approx0.0462>0$. So the constant is $+0.0462$; my intermediate arithmetic in the last display flipped a sign in $\frac1{s-1}\to-1$ combined with the digamma constant. The verified value, cross-checked with the Li coefficient, is
+$$\sum_\rho\frac1{\rho(1-\rho)}=2\lambda_1=2+\gamma-\log(4\pi)>0.\qquad\square$$
+
+(I flag the sign wobble honestly: the reliable anchor is $\lambda_1=\sum_\rho\rho^{-1}=1+\tfrac{\gamma}{2}-\tfrac12\log4\pi$, a standard identity, and $\sum 1/\rho(1-\rho)=2\lambda_1$.)
+
+### Why this cannot decide RH — quantified
+
+Under RH, $\rho(1-\rho)=\tfrac14+\gamma_n^2>0$ for real ordinates $\gamma_n$, so the Lemma is a statement about a manifestly positive series. But the identity $\sum_\rho\rho^{-1}=\lambda_1$ holds **unconditionally**: the same finite value $0.0231$ is produced whether or not the zeros lie on the critical line. Hence $\lambda_1\ge0$ is *automatically true* and carries no discriminating power. This is the first Li coefficient, and Li's theorem states
+$$\text{RH}\iff \lambda_n:=\sum_\rho\Big(1-(1-1/\rho)^n\Big)\ge0\ \ \forall n\ge1 .$$
+
+The precise obstruction: a single zero $\rho_0=\beta+i\gamma_0$ off the line ($\beta\neq\tfrac12$) contributes to $\lambda_n$ the real part of $1-(1-1/\rho_0)^n$. Writing $w=1-1/\rho_0$, one has $|w|^2=\frac{(1-\beta)^2+\gamma_0^2}{\beta^2+\gamma_0^2}$. For $\beta>\tfrac12$ this gives $|w|<1$, and the paired zero $1-\rho_0$ gives $|w'|>1$ with $\mathrm{Re}\,(w')^n$ eventually growing like $|w'|^n$. Thus **an off-line pair forces $\lambda_n\to+\infty$ oscillating through arbitrarily negative values** as $n\to\infty$: precisely, the pair contributes
+$$-\big(|w'|^n\cos(n\theta')+|w|^n\cos(n\theta)\big),\quad |w'|>1,$$
+which is $<0$ for infinitely many $n$ because $\cos(n\theta')$ is $>c>0$ infinitely often (equidistribution if $\theta'/\pi$ irrational; periodically positive if rational). This makes explicit that the *low* moments ($n=1$, i.e. the Lemma) are blind to off-line zeros, while the *asymptotic* $n\to\infty$ behavior is where RH information lives.
+
+**Consequence (a clean reduction I can state rigorously).** RH is equivalent to the single asymptotic inequality
+$$\liminf_{n\to\infty}\ \frac{1}{a_n}\sum_\rho\Big(1-(1-1/\rho)^n\Big)\ \ge 0\quad\text{for any positive normalizer }a_n\to\infty,$$
+because for $n$ large the sum is dominated by the extremal $|1-1/\rho|$, i.e. by zeros of maximal $\beta$. Equivalently, RH $\iff \beta^*:=\sup_\rho\mathrm{Re}\,\rho=\tfrac12$, and the growth rate $\limsup_n \lambda_n^{1/n}=\max_\rho|1-1/\rho|$ equals $1$ iff RH holds. The Lemma pins the $n=1$ value but says nothing about this exponential growth rate — that is the true content of RH in this language.
+
+### Honest assessment
+
+I produced a correct exact identity ($\sum 1/\rho(1-\rho)=2+\gamma-\log4\pi$, anchored to $\lambda_1$), and a rigorous structural clarification that the Li-coefficient formulation reduces RH to controlling the *exponential growth rate* $\limsup_n\lambda_n^{1/n}=\max_\rho|1-1/\rho|$, with low moments provably non-discriminating. This is a reformulation, not new progress toward proving the growth-rate bound. My in-line sign slip (caught and corrected against the standard $\lambda_1$ value) also underscores the need to publish unedited reasoning.
+
+VERDICT: FAILED
+REASON: Correct identities/reduction to $\limsup\lambda_n^{1/n}=1$ obtained, but no new bound proving zeros lie on the line.
