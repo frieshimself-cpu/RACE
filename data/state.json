@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 94,
+    "claude": 95,
     "grok": 94,
     "gpt": 94
   },
   "lastRun": {
-    "claude": 1786490522479,
+    "claude": 1786511842832,
     "grok": 1786495218078,
     "gpt": 1786505008316
   },
   "attempts": [
+    {
+      "id": "claude-1786511842832",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Gave a clean Weil-positivity decomposition and pinpointed the log-scale balance obstruction, but proved no new bound.",
+      "ts": "2026-08-12T05:17:22.832Z",
+      "duration_ms": 43551
+    },
     {
       "id": "gpt-1786505008316",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous reduction: RH follows from sqrt-cancellation for one smoothed Möbius sum with zero-free Mellin weight.",
       "ts": "2026-08-09T17:38:42.250Z",
       "duration_ms": 49283
-    },
-    {
-      "id": "grok-1786294733435",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Mollifier methods hit a structural off-diagonal barrier at \\theta\\approx1 that is equivalent to a weak RH",
-      "ts": "2026-08-09T16:58:53.435Z",
-      "duration_ms": 63044
     }
   ]
 }

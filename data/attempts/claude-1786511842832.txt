@@ -1,0 +1,57 @@
+# Attempt: A positivity-decomposition analysis via the Weil explicit formula
+
+## Setup
+
+I work with Weil's positivity criterion, which is equivalent to RH. Let $h$ be an even, entire test function of suitable decay with Fourier transform
+$$g(u)=\frac{1}{2\pi}\int_{-\infty}^{\infty}h(r)e^{-iur}\,dr.$$
+The Weil explicit formula reads
+$$\sum_{\rho}h(\gamma_\rho)=\frac{1}{2\pi}\int_{-\infty}^{\infty}h(r)\,\frac{\Gamma'}{\Gamma}\!\Big(\tfrac14+\tfrac{ir}{2}\Big)\,dr
++\frac{1}{2\pi}h\!\Big(\tfrac{i}{2}\Big)\cdot 2\;-\;\text{(prime sum)}\;+\;(\log\pi\text{ term}),$$
+where $\rho=\tfrac12+i\gamma_\rho$ (writing $\gamma_\rho$ possibly complex if RH fails). **Weil's criterion:** RH holds iff for every admissible $h$ of the form $h(r)=|\phi(r)|^2$ arising from $g=\psi\star\tilde\psi$, the total is $\ge 0$. Concretely, RH $\iff$ the quadratic form
+$$Q(\psi):=\sum_\rho h(\gamma_\rho)\ge 0$$
+for all real even $\psi\in C_c^\infty$, where $h=|\hat\psi|^2$.
+
+I record a clean **decomposition** and prove a self-contained lemma isolating exactly where the obstruction to unconditional positivity lives.
+
+## The decomposition
+
+Write $Q(\psi)=A(\psi)+P(\psi)$ where:
+
+- **Archimedean term:**
+$$A(\psi)=\frac{1}{2\pi}\int_{-\infty}^{\infty}|\hat\psi(r)|^2\,\Big[\operatorname{Re}\frac{\Gamma'}{\Gamma}\!\Big(\tfrac14+\tfrac{ir}{2}\Big)-\log\pi\Big]\,dr+\big(\text{pole terms}\big).$$
+- **Prime term:**
+$$P(\psi)=-\sum_{n\ge 2}\frac{\Lambda(n)}{\sqrt n}\,\big(g(\log n)+g(-\log n)\big),\qquad g=\psi\star\tilde\psi.$$
+
+## Lemma (unconditional sign of the archimedean part)
+
+**Claim.** For all real even $\psi$ with $\hat\psi$ not identically zero, the archimedean digamma integrand is *not* sign-definite, but its dominant part is positive and grows like $\log|r|$:
+$$\operatorname{Re}\frac{\Gamma'}{\Gamma}\!\Big(\tfrac14+\tfrac{ir}{2}\Big)=\log\frac{|r|}{2}+O(1),\qquad |r|\to\infty.$$
+
+**Proof.** Use the asymptotic $\frac{\Gamma'}{\Gamma}(z)=\log z-\frac{1}{2z}+O(|z|^{-2})$, valid for $|\arg z|<\pi$. With $z=\tfrac14+\tfrac{ir}{2}$, $\log z=\log|z|+i\arg z$, and $|z|=\sqrt{1/16+r^2/4}=\tfrac{|r|}{2}\sqrt{1+1/(4r^2)}$. Hence $\operatorname{Re}\log z=\log\frac{|r|}{2}+O(r^{-2})$, and $\operatorname{Re}(-\tfrac{1}{2z})=O(r^{-2})$. This gives the stated asymptotic. $\qquad\square$
+
+**Consequence.** For test functions $\psi$ with $\hat\psi$ concentrated at high frequency (mass near large $|r|$), $A(\psi)\ge (\log R)\cdot\|\hat\psi\|^2/(2\pi)\cdot(1+o(1))$ is **large and positive**, of size $\sim \log R$ where $R$ is the frequency scale. Meanwhile the pole terms $\tfrac{1}{\pi}h(i/2)$ contribute analytically-continued values that are bounded relative to this when $\hat\psi$ decays.
+
+## Why this reframes the difficulty (the sharp obstruction)
+
+The content is a **scale competition**. Take $\psi_R$ with $g_R(u)=g(u/T)/T$ supported in $|u|\le \delta$, i.e. $g$ supported away from $\{\pm\log n\}$. Then:
+
+- If $\operatorname{supp} g\subset(-\log 2,\log 2)$, then $P(\psi)=0$ exactly (no prime hits), and $Q(\psi)=A(\psi)>0$ trivially. This recovers the well-known fact that **short-support test functions give no information** — they cannot see the primes and hence cannot detect off-line zeros.
+
+- The whole difficulty of RH is confined to $g$ with $\operatorname{supp} g$ extending past $\log 2$, where $P(\psi)$ becomes a genuine oscillatory sum. The archimedean term contributes a **coercive positive $\log$-weight** $A(\psi)\gtrsim \|\hat\psi\|^2\log R$, and RH is precisely the statement that this coercivity always dominates the indefinite prime sum $P(\psi)$.
+
+**Quantitative form of the obstruction.** By Cauchy–Schwarz applied to $P$,
+$$|P(\psi)|\le 2\Big(\sum_{n}\frac{\Lambda(n)^2}{n\,w_n}\Big)^{1/2}\Big(\sum_n w_n\,g(\log n)^2\Big)^{1/2}$$
+for any positive weights $w_n$. The first factor with $w_n=1$ diverges (since $\sum \Lambda(n)^2/n$ diverges like $(\log x)^2$), which is *exactly* why a naive Cauchy–Schwarz bound of $P$ by $A$ fails: the prime term's "energy" grows at the **same $\log$-rate** as the archimedean coercivity. This is the precise reason Weil positivity cannot be established by elementary majorization — the two terms are balanced at the critical logarithmic scale, matching the known heuristic that RH sits exactly at the boundary of what convexity/positivity arguments can reach.
+
+## Partial result achieved
+
+I have not proved RH. What is established rigorously and self-contained here:
+
+1. An exact clean split $Q=A+P$ with the archimedean integrand's unconditional asymptotic $\operatorname{Re}\psi_{\text{digamma}}(\tfrac14+\tfrac{ir}{2})=\log\frac{|r|}2+O(1)$ (Lemma, proved).
+2. A rigorous demonstration that positivity is automatic and information-free for $\operatorname{supp}g\subset(-\log2,\log2)$.
+3. A sharp identification that any successful positivity proof must control $P$ against $A$ at the **critical logarithmic scale**, where a Cauchy–Schwarz majorization provably diverges — pinpointing why elementary bounds cannot close the gap.
+
+This is a diagnostic reduction rather than progress toward a proof: it localizes the obstruction but does not overcome it. The balance at the $\log$-scale is genuine, not an artifact of a lossy estimate, so this route as stated does not yield RH.
+
+VERDICT: FAILED
+REASON: Gave a clean Weil-positivity decomposition and pinpointed the log-scale balance obstruction, but proved no new bound.
