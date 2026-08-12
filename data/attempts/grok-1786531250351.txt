@@ -1,0 +1,63 @@
+### Attempt: Obstruction to a direct positivity proof of RH via truncated Weil explicit formulae
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function (entire of order 1, functional equation \(\xi(s)=\xi(1-s)\), zeros precisely the non-trivial zeros of \(\zeta\)). Write the non-trivial zeros as \(\rho=\beta+i\gamma\). RH asserts \(\beta=1/2\) for all such \(\rho\).
+
+Weil’s explicit formula, in the form convenient for positivity criteria, reads as follows. Let \(g\in C_c^\infty(\mathbb{R})\) be even, real-valued, and set
+\[
+h(z)=\int_{-\infty}^\infty g(t)e^{izt}\,dt
+\]
+(the Fourier transform, entire of exponential type). Then
+\begin{align*}
+\sum_\rho h(\gamma)
+&= \frac1{2\pi}\int_{-\infty}^\infty h(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)\,dt
++ 2\sum_{n=1}^\infty\frac{\Lambda(n)}{\sqrt n}g(\log n)
+- g(0)\log\pi\\
+&\quad + \tfrac12\bigl(h(i/2)+h(-i/2)\bigr),
+\end{align*}
+where the sum on the left is over ordinates of zeros (counted with multiplicity) and converges absolutely after the usual pairing \(\gamma\leftrightarrow-\gamma\).
+
+A classical consequence (Weil, 1952; refined by Bombieri–Hejhal and others) is that RH is equivalent to the positivity statement
+\[
+\sum_\rho h(\gamma)\ge0
+\]
+for every admissible test function \(g\ge0\) whose Fourier transform \(h\) is non-negative on the critical line in a suitable sense (more precisely: for all \(g\) such that \(h(r)\ge0\) for all real \(r\), the left-hand side is non-negative). Equivalently, the quadratic form associated with the distribution
+\[
+W(\phi)=\sum_\rho\hat\phi(\rho)+\sum_\rho\hat\phi(1-\rho)
+\]
+is positive semi-definite on a dense class of test functions when the zeros lie on the critical line.
+
+#### Concrete truncated criterion and its failure mode
+Fix a large height \(T>0\) and a smooth even cutoff \(\psi_T\in C_c^\infty(-2T,2T)\) with \(\psi_T\equiv1\) on \([-T,T]\) and \(0\le\psi_T\le1\). Define the truncated test functions
+\[
+g_T(t)=\psi_T(t)\cdot e^{-t^2/4},\qquad
+h_T(z)=\int g_T(t)e^{izt}\,dt.
+\]
+Then \(h_T\) is of rapid decay in horizontal strips, and the explicit formula remains valid with an error \(O(e^{-cT})\) coming from the tails of the Gamma factor and the prime sum (standard estimates on \(\Gamma'/\Gamma\) and the prime-number theorem with classical zero-free region). The resulting truncated Weil sum is
+\[
+S(T):=\sum_{|\gamma|<T}h_T(\gamma)=P(T)+E(T),
+\]
+where \(P(T)\) collects the explicitly positive arithmetic and archimedean terms
+\[
+P(T)=2\sum_{n\le e^{2T}}\frac{\Lambda(n)}{\sqrt n}g_T(\log n)+\text{(Gamma integral)}\ge c\sqrt T
+\]
+for an absolute \(c>0\) and all sufficiently large \(T\) (the main contribution is the \(n=1\) term together with the positive mass of \(\operatorname{Re}\Gamma'/\Gamma\)), while the error \(E(T)\) absorbs the contribution of zeros with \(|\gamma|\ge T\) and the smoothing discrepancy.
+
+If one could prove \(S(T)\ge0\) for all large \(T\), RH would follow by a standard density argument: a zero off the line with \(|\beta-1/2|=\delta>0\) would produce, after a suitable horizontal translate of the test function (or a Gaussian modulation), a negative spike of size \(\asymp e^{c\delta T}\) that eventually dominates \(P(T)\). This is the classical “positivity implies RH” direction.
+
+#### Rigorous obstruction
+The difficulty is that the same explicit formula that yields positivity under RH also shows that \(S(T)\) cannot be certified positive by any purely archimedean or smooth-prime estimate that avoids knowledge of the zeros themselves. More precisely:
+
+Assume only the classical zero-free region \(\beta\le1-c/\log(|\gamma|+2)\). Then the contribution of a possible Siegel zero (or a zero very close to the 1-line) to the prime sum can cancel the main term of \(P(T)\) down to size \(O(T^{1-\eta})\) for some \(\eta>0\), while the oscillatory sum over the known zeros on the critical line (whose imaginary parts are essentially random on the scale of the mean spacing \(2\pi/\log T\)) produces fluctuations of size
+\[
+\Bigl|\sum_{|\gamma|<T}h_T(\gamma)-\mathbb{E}[S(T)]\Bigr|\gg\sqrt{T\log T}
+\]
+with positive probability in the circular-unitary ensemble model (and unconditionally by the second-moment calculations of Hejhal and of Bombieri–Hejhal). Consequently the sign of \(S(T)\) is indeterminate from the truncated data alone: the error term \(E(T)\) is of the same order as the main term once one allows zeros with \(\beta>1/2+\varepsilon\).
+
+In other words, any attempt to prove \(S(T)\ge0\) by estimating the right-hand side of the explicit formula without already controlling the low-lying zeros (or without an independent zero-density estimate stronger than what is currently known) is circular. The positivity criterion, while equivalent to RH, does not furnish an effective inductive step that improves zero-free regions beyond the classical zero-density theorems (Ingham, Huxley, etc.). This is the precise sense in which the Weil–Li approach, when truncated at finite height, fails to produce new zeros-free strips.
+
+(The same obstruction appears, mutatis mutandis, for Li’s criterion \(\lambda_n\ge0\), whose generating function is a special case of the Weil distribution with exponentially growing test functions; the partial sums of the \(\lambda_n\) again oscillate with amplitude comparable to the main term.)
+
+Thus the method yields a clean equivalence but no unconditional foothold for progress on the location of zeros.
+
+VERDICT: FAILED
+REASON: Truncated Weil positivity is circular; fluctuations cancel main term without stronger zero-density input

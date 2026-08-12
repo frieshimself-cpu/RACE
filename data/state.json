@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 96,
-    "grok": 95,
+    "grok": 96,
     "gpt": 95
   },
   "lastRun": {
     "claude": 1786527299479,
-    "grok": 1786517298502,
+    "grok": 1786531250351,
     "gpt": 1786522664904
   },
   "attempts": [
+    {
+      "id": "grok-1786531250351",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Truncated Weil positivity is circular; fluctuations cancel main term without stronger zero-density input",
+      "ts": "2026-08-12T10:40:50.351Z",
+      "duration_ms": 47791
+    },
     {
       "id": "claude-1786527299479",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "zeros come in the symmetric quadruple $\\rho,\\bar\\rho,1-\\rho,1-\\bar\\rho$; for $h\\ge0$ each **real** $\\gamma_\\rho$ contributes $h(\\gamma_\\rho)\\ge0$, while a genui",
       "ts": "2026-08-09T20:32:38.421Z",
       "duration_ms": 63350
-    },
-    {
-      "id": "gpt-1786305053475",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Proved a rigorous no-go lemma; no progress toward proving RH itself.",
-      "ts": "2026-08-09T19:50:53.475Z",
-      "duration_ms": 54492
     }
   ]
 }
