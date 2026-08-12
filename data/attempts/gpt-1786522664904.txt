@@ -1,0 +1,47 @@
+Attempt: A precise “no-go” barrier for energy-based control of the critical L3 norm
+
+Statement (No-go for energy-to-critical a priori control):
+There is no function Φ: [0,∞)×[0,∞) → [0,∞] with Φ(0,T) < ∞ for some (equivalently, for all) T > 0 such that the following uniform a priori bound holds for all Leray–Hopf solutions u of the 3D incompressible Navier–Stokes equations on R^3 without external force and with initial data u0 ∈ L^2:
+sup_{0 ≤ t ≤ T} ||u(t)||_{L^3(R^3)} ≤ Φ(||u0||_{L^2(R^3)}, T).
+
+Equivalently, no finite-valued bound on the critical L^3 norm can be obtained uniformly in terms of only the subcritical energy scale (L^2) and time.
+
+Proof:
+- Scaling. For λ > 0, define the standard Navier–Stokes scaling
+  u_λ(x,t) = λ u(λ x, λ^2 t),  p_λ(x,t) = λ^2 p(λ x, λ^2 t).
+  This preserves the equation, and satisfies:
+  ||u_λ(0)||_{L^3} = ||u0||_{L^3} (critical invariance),
+  ||u_λ(0)||_{L^2} = λ^{-1/2} ||u0||_{L^2} (subcritical decay),
+  sup_{0 ≤ t ≤ T} ||u_λ(t)||_{L^3} = sup_{0 ≤ s ≤ λ^2 T} ||u(s)||_{L^3}.
+- Contradiction at time zero. Suppose the claimed bound holds with some Φ finite at (0,T0). Fix any u0 ∈ L^2 ∩ L^3 with ||u0||_{L^3} = M > 0. Then for the rescaled initial data u0^λ := u_λ(0),
+  M = ||u0^λ||_{L^3} ≤ sup_{0 ≤ t ≤ T0} ||u_λ(t)||_{L^3} ≤ Φ(||u0^λ||_{L^2}, T0) = Φ(λ^{-1/2} ||u0||_{L^2}, T0).
+  Letting λ → ∞ gives M ≤ Φ(0,T0). Since M can be chosen arbitrarily large (pick u0 with arbitrarily large L^3 while still in L^2 ∩ L^3), we obtain Φ(0,T0) = ∞, contradicting the assumed finiteness. Hence no such Φ exists.
+- The argument uses only scaling and the value at t=0, so it does not rely on any long-time behavior or regularity beyond Leray–Hopf existence.
+
+Consequence:
+- Any attempt to deduce a uniform a priori bound on the critical L^3 norm from only subcritical energetic quantities (e.g., ||u0||_{L^2}, the energy dissipation ∫0^T ||∇u||_{L^2}^2, or any combination with negative scaling exponent) is impossible. A bound that controls a critical norm must depend on scale-invariant information (e.g., initial L^3 itself, L^{3,∞}, BMO^{-1}, or critical Besov/Morrey data) or incorporate a dimensionless smallness/structure beyond energy.
+
+Extension (General scaling obstruction):
+Let X be a critical norm for which ||u_λ||_X = ||u||_X, and let Y be any subcritical quantity for which ||u_λ||_Y → 0 as λ → ∞. Then no finite-valued functional Φ can satisfy sup_{0≤t≤T} ||u(t)||_X ≤ Φ(||u0||_Y, T) uniformly over Leray–Hopf solutions. The same contradiction at t=0 applies.
+
+Technical pressure obstruction in the L3-evolution inequality:
+The no-go result above is structural. Concretely, if one tries to derive an L^3 a priori differential inequality from the equation, the pressure term is borderline and forces entry of critical/supercritical norms.
+
+Sketch:
+- Multiply the equation by |u|u and integrate:
+  (1/3) d/dt ||u||_{L^3}^3 + ν ∫ |∇u||u|^2 dx = - ∫ p ∇·(|u|u) dx.
+- Pressure representation p = R_i R_j(u_i u_j) (Calderón–Zygmund). Then
+  ||p||_{L^{3/2}} ≤ C ||u ⊗ u||_{L^{3/2}} ≤ C ||u||_{L^3}^2.
+- The pressure work term can be estimated by Hölder:
+  |∫ p ∇·(|u|u)| ≤ ||p||_{L^{3/2}} ||∇(|u|u)||_{L^3}.
+- But ∇(|u|u) involves |u||∇u|, and one only has ∇u ∈ L^2 from energy. To place ∇(|u|u) in L^3 requires either:
+  - u ∈ L^∞ and ∇u ∈ L^3 (supercritical), or
+  - a critical endpoint such as u ∈ BMO and ∇u ∈ L^2 with compensations not available from energy alone, or
+  - higher derivatives via ||∇u||_{L^3} ≤ ||∇u||_{L^2}^{1/2} ||∇^2 u||_{L^2}^{1/2}, which again exceeds energy control.
+- Consequently, the best one can get from energy alone is a pressure bound that re-introduces a critical quantity on the right-hand side, preventing a closed Gronwall inequality for ||u||_{L^3}.
+
+Implications for strategy:
+- This rules out a whole family of “energy-only to critical control” bootstrap schemes (global or local) and clarifies that any approach to global regularity must inject scale-invariant information at or below the critical level (e.g., smallness in a critical space, structure, or a new cancellation). It also explains why solutions built in critical spaces (e.g., Koch–Tataru in BMO^{-1}) sit at the right threshold, and why attempts that rely purely on the L^2 energy pathway fail to close at L^3.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous no-go barrier: energy alone cannot control the critical L3 norm.

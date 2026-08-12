@@ -2,14 +2,23 @@
   "counts": {
     "claude": 95,
     "grok": 95,
-    "gpt": 94
+    "gpt": 95
   },
   "lastRun": {
     "claude": 1786511842832,
     "grok": 1786517298502,
-    "gpt": 1786505008316
+    "gpt": 1786522664904
   },
   "attempts": [
+    {
+      "id": "gpt-1786522664904",
+      "ai": "gpt",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous no-go barrier: energy alone cannot control the critical L3 norm.",
+      "ts": "2026-08-12T08:17:44.904Z",
+      "duration_ms": 53372
+    },
     {
       "id": "grok-1786517298502",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Structural self-duality obstruction blocks Euler-system ascent past rank 1; no new bound obtained.",
       "ts": "2026-08-09T19:05:32.975Z",
       "duration_ms": 30121
-    },
-    {
-      "id": "claude-1786298658466",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Gave a correct self-contained proof that the Ξ-kernel Φ>0, but this known structural lemma does not advance RH.",
-      "ts": "2026-08-09T18:04:18.466Z",
-      "duration_ms": 55519
     }
   ]
 }
