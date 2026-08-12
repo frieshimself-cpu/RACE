@@ -1,0 +1,138 @@
+## Attempt: The exponential-sheaf mechanism for Lefschetz (1,1) and a precise obstruction in higher codimension
+
+I give a self-contained account of *why* the proof of the Lefschetz (1,1)
+theorem is genuinely codimension-one in nature, isolate the exact structural
+input that is missing in codimension ≥ 2, and record one concrete reduction.
+
+### 1. The (1,1) mechanism, isolated
+
+Let $X$ be smooth projective over $\mathbb C$. The exponential sequence
+$$0 \to \mathbb Z \to \mathcal O_X \xrightarrow{\exp} \mathcal O_X^\times \to 0$$
+gives, in cohomology,
+$$H^1(X,\mathcal O_X^\times)=\mathrm{Pic}(X) \xrightarrow{c_1} H^2(X,\mathbb Z) \xrightarrow{\;j\;} H^2(X,\mathcal O_X).$$
+The composite $H^2(X,\mathbb Z)\to H^2(X,\mathcal O_X)$ is, after tensoring with
+$\mathbb C$, the projection of $H^2(X,\mathbb C)=\bigoplus_{p+q=2}H^{p,q}$ onto
+$H^{0,2}$. A rational class $\alpha\in H^2(X,\mathbb Q)\cap H^{1,1}$ has zero
+$(0,2)$-component (it is real, of type $(1,1)$, so its $(0,2)$ and $(2,0)$ parts
+vanish), hence a suitable integral multiple lies in $\ker j = \mathrm{im}\,c_1$.
+Line bundles are $\mathcal O(D)$ for divisors $D$, so $\alpha$ is a
+$\mathbb Q$-combination of divisor classes — algebraic. □
+
+**What made this work.** Three facts, all special to codimension 1:
+
+- (E) A short exact sequence of sheaves — the *exponential* — whose middle term
+  $\mathcal O_X$ is *coherent* and directly computes $H^{0,2}$.
+- (H) $H^1(\mathcal O_X^\times)$ is representable by *geometric* objects
+  (line bundles), and every line bundle is $\mathcal O(D)$ for an honest divisor.
+- (T) The Hodge-type condition "$(0,2)$-part $=0$" is *exactly* the kernel of the
+  map coming from (E).
+
+The heart is that the geometric objects (divisors) and the transcendental
+condition (Hodge type) are linked by a **single coherent-sheaf exact sequence**
+in which $\mathcal O_X$ appears with the exponential.
+
+### 2. Why the mechanism has no codimension-$p$ analogue
+
+One would want, for a $(p,p)$ class, a sheaf-theoretic exact sequence
+$$0 \to \mathbb Z \to \mathcal F \to \mathcal G \to 0$$
+with:
+1. $H^{p}(\mathcal F)$ or $H^{2p}$ built from a coherent object computing
+   $H^{p+1,p-1}\oplus\cdots$ (the "non-$(p,p)$" part of $H^{2p}$), and
+2. the analogue of $H^1(\mathcal O^\times)=\mathrm{Pic}$ representable by
+   codimension-$p$ cycles.
+
+Both fail, and the failures are structural, not technical:
+
+**(a) No coherent sheaf computes the higher Hodge summands via one extension.**
+For codimension $p$ the "obstruction" summand of $H^{2p}(X,\mathbb C)$ that a
+$(p,p)$ class must annihilate is
+$$F^{p+1}H^{2p}=\bigoplus_{a\ge p+1}H^{a,2p-a},$$
+which is *not* the cohomology of a single coherent sheaf; it is a step in the
+Hodge filtration, computed by the *truncated de Rham complex*
+$\Omega_X^{\ge p+1}$, a complex, not a single sheaf. The exponential sequence
+degenerates the complex to one term only when $p=1$ (there $F^{2}H^2=H^{2,0}$ is
+$H^0(\Omega^2)$, but the *cokernel* condition uses $H^{0,2}=H^2(\mathcal O)$, a
+single sheaf). For $p\ge2$ the relevant object is irreducibly a length-$>1$
+complex, so no Bockstein of a two-term sheaf sequence can produce the cycle map.
+
+**(b) K-theory replaces Picard, and loses geometricity.**
+The correct generalization of $H^1(\mathcal O^\times)$ is
+$H^p(X,\mathcal K_p^{M})$ (Milnor K-sheaf) via the Bloch–Quillen isomorphism
+$H^p(X,\mathcal K_p)\cong \mathrm{CH}^p(X)$. There *is* an analogue of the
+exponential mechanism using the "regulator"/Deligne-cohomology sequence
+$$\cdots\to H^{2p-1}_{\mathcal D}(X,\mathbb Z(p)) \to \mathrm{CH}^p(X)
+\xrightarrow{cl} H^{2p}(X,\mathbb Z)\to \cdots$$
+Deligne cohomology $H^{2p}_{\mathcal D}(X,\mathbb Z(p))$ *does* sit in an exact
+sequence with the sheaf-truncation $\Omega^{<p}$, and one checks:
+$$\ker\!\big(H^{2p}(X,\mathbb Z)\to H^{2p}(X,\mathbb C)/F^pH^{2p}\big)
+= \{\text{integral }(p,p)\text{-Hodge classes}\},$$
+i.e. the *Hodge* classes are exactly the image of
+$H^{2p}_{\mathcal D}(X,\mathbb Z(p))\to H^{2p}(X,\mathbb Z)$. **This is the honest
+generalization of step (T), and it is a theorem.** So Hodge classes = image of
+Deligne cohomology. The Hodge conjecture is then *precisely* the statement:
+
+> The cycle map $\mathrm{CH}^p(X)\to H^{2p}_{\mathcal D}(X,\mathbb Z(p))$
+> surjects onto the part of Deligne cohomology hitting the Hodge classes
+> (rationally).
+
+The $p=1$ miracle is that for $p=1$ Deligne cohomology
+$H^2_{\mathcal D}(X,\mathbb Z(1))=H^1(X,\mathcal O^\times)=\mathrm{Pic}(X)$
+is *exactly* $\mathrm{CH}^1$, so the cycle map is an isomorphism onto Deligne
+cohomology and there is nothing left to prove. For $p\ge2$ the cycle map to
+Deligne cohomology has a kernel and cokernel controlled by the *intermediate
+Jacobian* $J^p(X)=H^{2p-1}(X,\mathbb C)/(F^pH^{2p-1}+H^{2p-1}(X,\mathbb Z))$,
+and the Abel–Jacobi map, and there is no representability making the cokernel
+vanish.
+
+### 3. The precise obstruction, as a clean statement
+
+Combining the above, we can state exactly what is missing:
+
+**Lemma (reformulation).** *For each $p$, the Hodge conjecture for
+codimension-$p$ classes on all smooth projective $X$ is equivalent to: the
+Abel–Jacobi/cycle map
+$$\mathrm{CH}^p(X)\otimes\mathbb Q \longrightarrow
+H^{2p}_{\mathcal D}(X,\mathbb Q(p))$$
+has image containing the entire preimage of the rational Hodge classes under
+$H^{2p}_{\mathcal D}(X,\mathbb Q(p))\to H^{2p}(X,\mathbb Q)$.*
+
+*Sketch.* The Deligne sequence gives a short exact sequence
+$0\to J^p(X)_{\mathbb Q}\to H^{2p}_{\mathcal D}(X,\mathbb Q(p))\to
+\mathrm{Hdg}^p(X)_{\mathbb Q}\to 0$, where $\mathrm{Hdg}^p$ is the group of
+rational Hodge classes (this identification of the quotient with Hodge classes
+is the generalized (T) computation above). A cycle maps to its Hodge class in
+the quotient. Surjectivity onto $\mathrm{Hdg}^p_{\mathbb Q}$ *after passing to
+the quotient by $J^p$* is exactly the Hodge conjecture; the point is that in the
+quotient the transcendental correction $J^p$ is killed, so only the Hodge-class
+statement survives. □
+
+This makes transparent that the difficulty is **not** the Hodge-type condition
+(which Deligne cohomology handles for all $p$), but the *failure of
+representability*: for $p\ge2$ there is no geometric parametrization of
+$H^{2p}_{\mathcal D}$ by cycles analogous to $\mathrm{Pic}=\mathrm{CH}^1$. The
+gap is entirely in the map $\mathrm{CH}^p\to H^{2p}_{\mathcal D}$, whose
+non-surjectivity onto the Hodge-class quotient is *the* content of the conjecture.
+
+### 4. What would need to be produced
+
+To emulate step (H) one needs, given a Hodge class $\alpha$, a *canonical
+extension of Hodge structures / mixed motive* realizing $\alpha$, and a proof
+that such extensions come from cycles. For $p=1$ that extension is a line bundle;
+for $p\ge2$ this is where the theory currently has no construction — one only has
+the *existence* of the Deligne class, not a geometric cycle realizing it. This is
+the same wall that blocks the Beilinson–Hodge and standard conjectures.
+
+### Assessment
+
+I have not proven any new case. I have (i) isolated the three structural inputs
+of the (1,1) proof, (ii) shown the correct generalization replaces the
+exponential sequence by the Deligne-cohomology sequence and that this *does*
+capture the Hodge-type condition for all $p$, and (iii) reduced the conjecture to
+a sharp surjectivity statement whose only failing ingredient is the
+non-representability of Deligne cohomology by cycles for $p\ge2$. This is a
+clarifying reduction, not new progress toward closing the gap — the reduction is
+essentially known to experts (Deligne, Beilinson), though the explicit isolation
+of "which of the three (1,1)-ingredients survives" is a useful framing.
+
+VERDICT: FAILED
+REASON: Reframed Hodge conjecture via Deligne cohomology, isolating non-representability for p≥2; no new case proved.

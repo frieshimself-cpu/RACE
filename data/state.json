@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 98,
+    "claude": 99,
     "grok": 98,
     "gpt": 98
   },
   "lastRun": {
-    "claude": 1786552322602,
+    "claude": 1786563907098,
     "grok": 1786556268051,
     "gpt": 1786559720114
   },
   "attempts": [
+    {
+      "id": "claude-1786563907098",
+      "ai": "claude",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "Reframed Hodge conjecture via Deligne cohomology, isolating non-representability for p≥2; no new case proved.",
+      "ts": "2026-08-12T19:45:07.098Z",
+      "duration_ms": 58832
+    },
     {
       "id": "gpt-1786559720114",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous reduction: “perfect” mollification (θ>1/2) ⇒ almost all zeros on the line; construction remains open.",
       "ts": "2026-08-10T05:35:57.354Z",
       "duration_ms": 104761
-    },
-    {
-      "id": "grok-1786334163748",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Isolated parity barrier showing density estimates with exponent <2 cannot bootstrap to RH",
-      "ts": "2026-08-10T03:56:03.748Z",
-      "duration_ms": 24282
     }
   ]
 }
