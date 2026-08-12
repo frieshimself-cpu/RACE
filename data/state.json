@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 99,
-    "grok": 98,
+    "grok": 99,
     "gpt": 98
   },
   "lastRun": {
     "claude": 1786563907098,
-    "grok": 1786556268051,
+    "grok": 1786567502218,
     "gpt": 1786559720114
   },
   "attempts": [
+    {
+      "id": "grok-1786567502218",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Classical zero-free regions leave an irreparable gap in the Weil positivity estimate; no new cancellation found.",
+      "ts": "2026-08-12T20:45:02.218Z",
+      "duration_ms": 37189
+    },
     {
       "id": "claude-1786563907098",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Proved unconditional impossibility only for resolution-certifying poly-time SAT deciders; cannot generalize to P vs NP.",
       "ts": "2026-08-10T06:54:51.436Z",
       "duration_ms": 53133
-    },
-    {
-      "id": "gpt-1786340157354",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous reduction: “perfect” mollification (θ>1/2) ⇒ almost all zeros on the line; construction remains open.",
-      "ts": "2026-08-10T05:35:57.354Z",
-      "duration_ms": 104761
     }
   ]
 }

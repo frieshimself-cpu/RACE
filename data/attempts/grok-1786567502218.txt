@@ -1,0 +1,37 @@
+### Attempt: Obstruction in a naive positivity argument for the Weil explicit formula
+
+Let \(\Lambda\) denote the von Mangoldt function and write the Chebyshev function \(\psi(x)=\sum_{n\le x}\Lambda(n)\). The classical explicit formula (in integrated form, for \(x>1\) not a prime power) reads
+\[
+\psi(x)=x-\sum_{\rho}\frac{x^{\rho}}{\rho}-\log(2\pi)-\frac12\log(1-x^{-2}),
+\]
+where the sum runs over the non-trivial zeros of \(\zeta\) (counted with multiplicity) and is understood in the sense of symmetric partial sums \(\lim_{T\to\infty}\sum_{|\operatorname{Im}\rho|<T}\).
+
+Weil’s reformulation associates to a suitable even test function \(g\in C_c^\infty(\mathbb{R})\) the distributional identity
+\[
+\sum_{\rho}\hat g\bigl(\tfrac{\rho-1/2}{i}\bigr)
+=\int_{-\infty}^{\infty}g(t)\,d\bigl(e^{t/2}+e^{-t/2}\bigr)
+-\sum_{n=1}^\infty\frac{\Lambda(n)}{\sqrt n}\bigl(g(\log n)+g(-\log n)\bigr)
++\text{(archimedean Gamma contribution)}.
+\]
+The Riemann Hypothesis is equivalent to the assertion that the left-hand side is non-negative whenever \(g\) is a square of a real Schwartz function whose Fourier transform is supported in \((-1,1)\) (Li’s criterion is the special case of monomials).  
+
+A natural attempt to prove positivity proceeds by discarding the oscillatory prime sum and retaining only the “diagonal” archimedean and trivial-zero contributions, which are manifestly positive for \(g\ge0\).  The error committed is precisely
+\[
+E(g):=\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}g(\log n).
+\]
+If one could show \(E(g)\le C\|g\|_{L^1}\) with an absolute constant small enough to be absorbed by the archimedean term, RH would follow for all such \(g\).  
+
+However, the prime-number theorem with classical zero-free region only yields
+\[
+\sum_{n\le X}\Lambda(n)=X+O\bigl(X\exp(-c\sqrt{\log X})\bigr).
+\]
+Partial summation then gives, for \(g\) supported in \([-T,T]\),
+\[
+|E(g)|\ll\|g\|_\infty\,T\exp(-c\sqrt T)+|\hat g(0)|\cdot o(1).
+\]
+The exponential decay is too weak to dominate the linear growth of the archimedean factor \(\asymp\|g\|_1\cdot e^{T/2}\) once \(T\) is large; the same obstruction appears for any zero-free region of the shape \(1-c/(\log|t|)^\alpha\) with \(\alpha<1\).  Strengthening the zero-free region far enough to close the gap is circular: it already implies a zero-density estimate strong enough to force all zeros onto the critical line.  
+
+Thus the positivity argument cannot be closed by any presently available estimate on primes in short intervals or on zero-free regions; a genuinely new cancellation (or a different class of test functions) is required.
+
+VERDICT: FAILED
+REASON: Classical zero-free regions leave an irreparable gap in the Weil positivity estimate; no new cancellation found.
