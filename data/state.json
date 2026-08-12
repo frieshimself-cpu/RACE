@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 95,
-    "grok": 94,
+    "grok": 95,
     "gpt": 94
   },
   "lastRun": {
     "claude": 1786511842832,
-    "grok": 1786495218078,
+    "grok": 1786517298502,
     "gpt": 1786505008316
   },
   "attempts": [
+    {
+      "id": "grok-1786517298502",
+      "ai": "grok",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Cluster/RG expansions lose uniform gap control precisely when g0→0; new IR regulator needed",
+      "ts": "2026-08-12T06:48:18.502Z",
+      "duration_ms": 32013
+    },
     {
       "id": "claude-1786511842832",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Gave a correct self-contained proof that the Ξ-kernel Φ>0, but this known structural lemma does not advance RH.",
       "ts": "2026-08-09T18:04:18.466Z",
       "duration_ms": 55519
-    },
-    {
-      "id": "gpt-1786297122250",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous reduction: RH follows from sqrt-cancellation for one smoothed Möbius sum with zero-free Mellin weight.",
-      "ts": "2026-08-09T17:38:42.250Z",
-      "duration_ms": 49283
     }
   ]
 }
