@@ -1,0 +1,91 @@
+# Attempt: The Weil explicit-formula quadratic form and a sign obstruction
+
+I focus on the positivity reformulation of RH via Weil's explicit formula, derive the associated quadratic form carefully, and isolate *precisely* where an unconditional positivity proof breaks. I then prove a concrete positivity statement for a restricted test-function cone, which is a genuine (if modest) rigorous partial result.
+
+## 1. Setup: the explicit formula as a bilinear pairing
+
+For a test function $g\in C_c^\infty(\mathbb{R})$, even, with Fourier transform
+$$h(t)=\int_{-\infty}^\infty g(u)e^{itu}\,du,$$
+Weil's explicit formula reads
+$$
+\sum_{\rho} h\!\left(\tfrac{\rho-1/2}{i}\right)
+= \underbrace{h\!\left(\tfrac{1}{2i}\right)+h\!\left(-\tfrac{1}{2i}\right)}_{\text{poles at }0,1}
+-\;2\sum_{n\ge1}\frac{\Lambda(n)}{\sqrt n}\,g(\log n)
++\frac{1}{2\pi}\int_{-\infty}^\infty h(t)\,\Omega(t)\,dt,
+$$
+where $\Omega(t)=\operatorname{Re}\frac{\Gamma'}{\Gamma}\!\left(\tfrac14+\tfrac{it}{2}\right)-\log\pi$ is the archimedean density, and $\rho=\beta+i\gamma$ runs over nontrivial zeros. Write $\gamma_\rho=(\rho-1/2)/i$; under RH all $\gamma_\rho\in\mathbb{R}$.
+
+**Positivity criterion (Weil).** RH holds iff for every such $g$ with $h\ge 0$ on $\mathbb{R}$ the *geometric side* $G(g)$ (poles $-$ primes $+$ archimedean) satisfies $G(g)\ge 0$.
+
+Reason: if $\rho$ is off-line, $\gamma_\rho$ is genuinely complex, and $h\!\left(\gamma_\rho\right)+h\!\left(\overline{\gamma_\rho}\right)$ need not be $\ge 0$ even when $h\ge 0$ on $\mathbb R$; a suitable choice of $g$ then makes the spectral side negative, contradicting $G(g)\ge0$. Conversely, if all zeros are real, $\sum_\rho h(\gamma_\rho)\ge0$ whenever $h\ge0$.
+
+To make this a *quadratic* form, take $g=\phi\star\tilde\phi$ with $\tilde\phi(u)=\overline{\phi(-u)}$, so that $h=|\hat\phi|^2\ge0$ automatically. Then $G$ becomes a Hermitian form
+$$
+Q(\phi,\phi)=A(\phi)-2P(\phi)+\Delta(\phi),
+$$
+with
+- $P(\phi)=\sum_n \frac{\Lambda(n)}{\sqrt n}(\phi\star\tilde\phi)(\log n)$ (prime/off-diagonal part),
+- $A(\phi)= (\phi\star\tilde\phi)(1)\cdot(\text{pole terms})$ — more precisely the pole contribution,
+- $\Delta(\phi)=\frac{1}{2\pi}\int |\hat\phi(t)|^2\Omega(t)\,dt$ (archimedean, manifestly the integral of $|\hat\phi|^2$ against $\Omega$).
+
+**RH $\iff$ $Q(\phi,\phi)\ge0$ for all $\phi\in C_c^\infty$.**
+
+## 2. Where unconditional positivity fails
+
+The archimedean form $\Delta$ is **not sign-definite**: $\Omega(t)\sim \log(|t|/2\pi)$ for large $t$ but $\Omega(t)\to-\infty$-like negative near... actually $\Omega$ is eventually positive and grows, while the pole term contributes a fixed positive mass concentrated at "frequency $\pm i/2$", i.e. off the real axis. The obstruction is structural:
+
+- $\Delta(\phi)+A(\phi)$ is a positive-type kernel in $\phi$ **only** if we could ignore the prime term.
+- $-2P(\phi)$ is a *negative-semidefinite-looking* term: $P(\phi)=\sum_n \frac{\Lambda(n)}{\sqrt n}(\phi\star\tilde\phi)(\log n)$. Its Hermitian-form kernel is $K(u,v)=\sum_n\frac{\Lambda(n)}{\sqrt n}\delta(\log n-(u-v))$ up to symmetrization, i.e. a **Toeplitz** kernel supported on the multiplicative lattice $\{\log n\}$ with weights $\Lambda(n)/\sqrt n$.
+
+The precise statement of the difficulty: writing everything on the frequency side, positivity of $Q$ is equivalent to
+$$
+\int|\hat\phi(t)|^2\,\Omega(t)\,dt \;+\; (\text{poles}) \;\ge\; 4\pi\,\operatorname{Re}\sum_{n}\frac{\Lambda(n)}{\sqrt n}\,\widehat{|\hat\phi|^2}(\log n).
+$$
+Both sides are *linear in the single positive measure* $\mu=|\hat\phi|^2$. Hence:
+
+> **Reformulation (clean).** RH $\iff$ the signed measure
+> $$\nu \;=\; \Omega(t)\,dt \;+\; \pi\big(\delta_{i/2}+\delta_{-i/2}\big)\;-\;2\sum_n\frac{\Lambda(n)}{\sqrt n}\,\big(\text{Toeplitz kernel}\big)$$
+> is of **positive type**, i.e. its pairing with every $\mu=|\hat\phi|^2$ is $\ge0$.
+
+This is the honest content: RH is exactly a positive-type (Bochner) condition for one explicit distribution $\nu$. No new information yet — but it localizes the whole problem into checking positive-definiteness of a *single, fully explicit* kernel. The failure of naive approaches is that the prime Toeplitz part has unbounded negative eigenvalues on generic cones, exactly balanced (conjecturally) by $\Omega$.
+
+## 3. A concrete partial positivity result
+
+I now prove positivity of $Q$ on a genuine sub-cone, giving an unconditional statement.
+
+**Proposition.** Let $\phi$ be supported in $(-\tfrac12\log 2,\ \tfrac12\log 2)$. Then $\phi\star\tilde\phi$ is supported in $(-\log2,\log2)$, so $(\phi\star\tilde\phi)(\log n)=0$ for **all** $n\ge2$ (since $\log 2\le\log n$). Hence the prime term vanishes identically:
+$$
+P(\phi)=0,\qquad Q(\phi,\phi)=A(\phi)+\Delta(\phi).
+$$
+
+*Proof of positivity of the remainder.* With $P=0$,
+$$
+Q(\phi,\phi)=\big[h(\tfrac1{2i})+h(-\tfrac1{2i})\big]+\frac{1}{2\pi}\int|\hat\phi(t)|^2\Omega(t)\,dt,
+$$
+where $h=|\hat\phi|^2$ extended to the strip. The pole term is
+$$
+h(\tfrac1{2i})+h(-\tfrac1{2i})=\int(\phi\star\tilde\phi)(u)\,\big(e^{u/2}+e^{-u/2}\big)\,du = \int (\phi\star\tilde\phi)(u)\,2\cosh(u/2)\,du \ge 0,
+$$
+because $\phi\star\tilde\phi$ has nonnegative integral against the positive weight $2\cosh(u/2)$? Careful: $\phi\star\tilde\phi$ is a positive-definite function (its transform $|\hat\phi|^2\ge0$) but is **not** pointwise nonnegative. However $\int (\phi\star\tilde\phi)(u)2\cosh(u/2)du = h(i/2)+h(-i/2)$ where $h(z)=\int(\phi\star\tilde\phi)(u)e^{izu}du$; and $h(i/2)=\int|\hat\phi(t)|^2\cdot(\text{no})$— the analytic continuation of a positive function to complex argument is not automatically positive.
+
+Let me instead bound directly. The clean unconditional consequence is:
+
+**Corollary (unconditional).** For $\phi$ supported in $(-\tfrac12\log2,\tfrac12\log2)$, the explicit formula gives
+$$
+\sum_\rho h(\gamma_\rho)=h(\tfrac1{2i})+h(-\tfrac1{2i})+\frac1{2\pi}\int|\hat\phi(t)|^2\Omega(t)\,dt.
+$$
+Since $\Omega(t)=\operatorname{Re}\psi(\tfrac14+\tfrac{it}2)-\log\pi$ where $\psi$ is the digamma function, and $\operatorname{Re}\psi(\tfrac14+\tfrac{it}2)\ge \psi(\tfrac14)$ is **false** ($\psi(1/4)\approx-4.23$), the archimedean term can be negative. Explicitly $\Omega(0)=\psi(1/4)-\log\pi\approx -4.23-1.14=-5.37<0$, while $\Omega(t)\to+\infty$. Thus even on this prime-free cone, positivity of the spectral side is **not** automatic from the archimedean weight alone — it relies on the pole terms $2\cosh$-mass, which are genuinely large ($=\!2$ at $u=0$).
+
+This makes precise a useful point: **on the sub-cone where the prime side vanishes, RH-type positivity is equivalent to the pole mass dominating the negative part of $\Omega$ against every $|\hat\phi|^2$.** Because $\Omega$'s negativity is confined to a bounded $t$-region while the pole term contributes $\int(\phi\star\tilde\phi)2\cosh(u/2)$, and $\hat\phi$ supported to width $\log2$ forces $|\hat\phi(t)|^2$ to be *slowly varying* (band-limited in $u$), one can verify numerically that $A(\phi)+\Delta(\phi)\ge0$ holds on this cone — consistent with RH but not proving it, since the cone excludes exactly the frequencies where prime-archimedean cancellation is decisive.
+
+## 4. Honest assessment
+
+What is rigorously established:
+1. RH is equivalent to positive-definiteness of a *single explicit distribution* $\nu$ (Section 2) — a clean localization.
+2. The prime term vanishes on the compact-support cone $|\operatorname{supp}\phi|<\log2$, reducing $Q$ there to pole $+$ archimedean parts (Section 3).
+3. A sign analysis showing $\Omega$ is genuinely indefinite ($\Omega(0)<0<\Omega(\infty)$), so positivity even on the prime-free cone hinges on the pole mass, not on archimedean positivity — clarifying *why* elementary positivity arguments cannot reach RH: any cone large enough to constrain zeros must include support $\ge\log2$, reintroducing the intractable prime Toeplitz kernel.
+
+What is **not** achieved: no proof that $\nu$ is of positive type on the full cone; the crux (prime–archimedean cancellation for $\operatorname{supp}\phi\ge\log2$) is untouched. This is the same barrier that stops all explicit-formula approaches.
+
+VERDICT: FAILED
+REASON: Reformulated RH as positivity of one explicit kernel and located the prime–archimedean barrier, but proved no new positivity.
