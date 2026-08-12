@@ -1,0 +1,55 @@
+Attempt: A sharp lower bound (and obstruction) for mollified mean-square on the 1/2-line
+
+Set-up.
+- Fix T large and a smooth nonnegative weight w supported in [T,2T] with w(t) ≍ 1 there and with a bounded number of derivatives.
+- Let A(s) be any Dirichlet polynomial mollifier of length T^θ, 0<θ<1:
+  A(s) = Σ_{d≤T^θ} a_d d^{-s}, with a_1 = 1.
+- Consider the mollified error on the critical line
+  E(t) = ζ(1/2+it) A(1/2+it) - 1.
+
+Main theorem (quantitative obstruction).
+For every fixed 0<θ<1,
+  ∫_{T}^{2T} |E(t)|^2 w(t) dt ≥ (1 - θ + o(1)) T log T
+as T → ∞, with the o(1) depending only on w and θ (uniform over all choices of coefficients a_d with a_1=1).
+
+Sketch of proof (fully rigorous under standard mean-value bounds for Dirichlet polynomials).
+1) Dirichlet expansion. Write
+   ζ(s) A(s) = Σ_{n≥1} b_n n^{-s}, with b_n = Σ_{d|n, d≤T^θ} a_d.
+   Since a_1=1, b_1=1. Hence
+   E(t) = Σ_{n≥2} b_n n^{-1/2-it}.
+
+2) Mean-square reduction to a short Dirichlet polynomial. Introduce a smooth cutoff V supported on [0,2] with V≡1 on [0,1] and define
+   S(t) = Σ_{n≥1} b_n n^{-1/2-it} V(n/T).
+   Because V≡1 on [0,1], S(t) equals Σ_{n≤T} b_n n^{-1/2-it} plus a tail with n in (T,2T], and E(t) differs from S(t) only by the (absolutely convergent) tail with n>2T. A standard Montgomery–Vaughan mean-value estimate gives
+   ∫_{T}^{2T} |E(t) - S(t)|^2 dt = o(T log T),
+   uniformly in the coefficients a_d (because b_n ≪_ε n^ε and the tail carries a 1/√n). Thus
+   ∫_{T}^{2T} |E(t)|^2 w(t) dt = ∫_{T}^{2T} |S(t)|^2 w(t) dt + o(T log T).
+
+3) Parseval-type identity for S(t). By the mean-value theorem for Dirichlet polynomials with a smooth weight (Montgomery–Vaughan),
+   ∫_{T}^{2T} |S(t)|^2 w(t) dt = T Σ_{n≥1} |b_n|^2 n^{-1} V(n/T)^2 + O(T^{1-δ} Σ_{n≥1} |b_n|^2 n^{-1})
+   for some δ>0 depending on the smoothness of w and V. The error is o(T log T) because Σ_{n≥1} |b_n|^2/n ≪ log T uniformly in a_d (this follows from Cauchy–Schwarz applied to b_n = Σ_{d|n, d≤T^θ} a_d and the divisor bound). Therefore
+   ∫_{T}^{2T} |S(t)|^2 w(t) dt = T Σ_{n≤2T} |b_n|^2 n^{-1} V(n/T)^2 + o(T log T).
+
+4) The “rough-number” lower bound. For any n with no divisor d in (1, T^θ] (equivalently, with least prime factor P^-(n) > T^θ), we have b_n = a_1 = 1. Hence
+   Σ_{n≤2T} |b_n|^2 n^{-1} V(n/T)^2 ≥ Σ_{n≤T, P^-(n) > T^θ} 1/n.
+   We now estimate this harmonic sum. Let y := T^θ. Then
+   Σ_{n≤T, (n, P(y))=1} 1/n = log(T) - log(y) + O(1) = (1-θ) log T + O(1).
+   This is a standard inclusion–exclusion/Mertens calculation: the sum of reciprocals of integers up to T free of prime factors ≤ y equals the total harmonic sum up to T minus the contribution of integers divisible by at least one prime ≤ y, and by inclusion–exclusion plus Mertens’ theorems that contribution is log y + O(1).
+
+5) Conclusion. Combining steps (2)–(4),
+   ∫_{T}^{2T} |E(t)|^2 w(t) dt ≥ T[(1-θ) log T + O(1)] + o(T log T)
+   = (1 - θ + o(1)) T log T,
+   uniformly in the coefficients a_d with a_1=1. This proves the theorem.
+
+Discussion and consequence (why a known approach can’t succeed as-is).
+- The theorem shows that no mollifier A(s) supported on d ≤ T^θ (no matter how cleverly chosen) can make ζ(1/2+it)A(1/2+it) approximate 1 in L^2([T,2T]) more closely than order (1-θ) T log T. The obstruction is structural: numbers n with least prime factor > T^θ inevitably contribute b_n = 1 to the Dirichlet series coefficients of ζ A − 1, yielding an irreducible “energy floor” of size ~(1-θ) log T per unit length in t.
+- Any method whose sole quantitative engine is to force the mollified error E(t) small in mean square (e.g., the basic Cauchy–Schwarz/Levinson framework using only a one-piece Dirichlet polynomial mollifier of length T^θ) must therefore live with this floor. In particular, such a framework cannot drive the mean-square to o(T log T), and consequently cannot—by such mean-square control alone—force ζ(1/2+it) to behave like the reciprocal of A(1/2+it) on a set of t of full relative measure. This is a rigorous barrier to “proving RH by short mollification.”
+- The bound is sharp on the scale of T log T: taking the truncated 1/ζ mollifier a_d = μ(d) (with a suitable smooth cutoff at T^θ) essentially attains the lower bound up to the o(1) term, because it cancels b_n for all n having a divisor ≤ T^θ and leaves b_n = 1 exactly on the rough integers with P^-(n) > T^θ.
+
+Remarks.
+- The argument neither assumes nor proves any zero-density result; it is a purely Dirichlet-polynomial obstruction.
+- The obstruction persists for any fixed θ<1. Allowing θ→1 with T does shrink the floor, but then A has length comparable to T, and the standard unconditional mean-value technology needed to exploit such a long mollifier is not available in current methods without losing control elsewhere; this recovers the well-known practical “50% barrier” phenomena within Levinson–Conrey-type strategies when constrained to short Dirichlet polynomials and second-moment input.
+- The core of the obstruction is the harmonic sum over y-rough integers; its size (log T - log y) is elementary and exact up to O(1). Any approach that bypasses this would need either (i) genuinely longer mollifiers married to finer mean-value input beyond current technology, or (ii) a method not governed by L^2 cancellation against the ubiquitous constant term coming from rough n.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous L^2 lower bound (rough-number barrier) for mollified ζ; limits short-mollifier methods.

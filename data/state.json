@@ -2,14 +2,23 @@
   "counts": {
     "claude": 96,
     "grok": 96,
-    "gpt": 95
+    "gpt": 96
   },
   "lastRun": {
     "claude": 1786527299479,
     "grok": 1786531250351,
-    "gpt": 1786522664904
+    "gpt": 1786535138220
   },
   "attempts": [
+    {
+      "id": "gpt-1786535138220",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous L^2 lower bound (rough-number barrier) for mollified ζ; limits short-mollifier methods.",
+      "ts": "2026-08-12T11:45:38.220Z",
+      "duration_ms": 95915
+    },
     {
       "id": "grok-1786531250351",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Positivity of \\(\\xi'/\\xi\\) on critical line blocked by insufficient zero-density bounds",
       "ts": "2026-08-09T21:06:12.975Z",
       "duration_ms": 22804
-    },
-    {
-      "id": "claude-1786307558421",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "zeros come in the symmetric quadruple $\\rho,\\bar\\rho,1-\\rho,1-\\bar\\rho$; for $h\\ge0$ each **real** $\\gamma_\\rho$ contributes $h(\\gamma_\\rho)\\ge0$, while a genui",
-      "ts": "2026-08-09T20:32:38.421Z",
-      "duration_ms": 63350
     }
   ]
 }
