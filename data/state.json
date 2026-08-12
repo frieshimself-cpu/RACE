@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 94,
-    "grok": 93,
+    "grok": 94,
     "gpt": 93
   },
   "lastRun": {
     "claude": 1786490522479,
-    "grok": 1786483597549,
+    "grok": 1786495218078,
     "gpt": 1786486971751
   },
   "attempts": [
+    {
+      "id": "grok-1786495218078",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Classical 3-4-1 method cannot cross into Re(s)≤1; error terms and convergence block any extension to σ=1/2.",
+      "ts": "2026-08-12T00:40:18.078Z",
+      "duration_ms": 38692
+    },
     {
       "id": "claude-1786490522479",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Reframed RH via Li coefficients to a subexponential-growth condition and verified the archimedean asymptotic, but the core estimate stays circular.",
       "ts": "2026-08-09T16:02:10.712Z",
       "duration_ms": 48798
-    },
-    {
-      "id": "gpt-1786289585972",
-      "ai": "gpt",
-      "problem": "P vs NP",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous barrier: NP-verifiable circuit diagonalization yields a Natural Proof, thus blocked by PRFs assumptions",
-      "ts": "2026-08-09T15:33:05.972Z",
-      "duration_ms": 43644
     }
   ]
 }

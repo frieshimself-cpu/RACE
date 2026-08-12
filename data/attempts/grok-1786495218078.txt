@@ -1,0 +1,43 @@
+### Attempt: Obstruction in extending the classical de la Vallée-Poussin zero-free region to the critical line
+
+Let \(\zeta(s)\) denote the Riemann zeta function. Write \(s=\sigma+it\) with \(t\geq 2\) and \(\sigma\in\mathbb{R}\). The classical approach to a zero-free region proceeds from the non-negative trigonometric polynomial
+\[
+2(1+\cos\theta)^2=3+4\cos\theta+\cos 2\theta\geq 0
+\]
+and the identity
+\[
+-\operatorname{Re}\frac{\zeta'}{\zeta}(s)=\sum_{n=1}^\infty\Lambda(n)n^{-\sigma}\cos(t\log n).
+\]
+Applying the polynomial at the angles \(0\), \(t\log n\) and \(2t\log n\) yields the pointwise lower bound
+\begin{equation}
+\label{eq:3-4-1}
+3\Bigl(-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma)\Bigr)
++4\Bigl(-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+it)\Bigr)
++\Bigl(-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+2it)\Bigr)
+\geq 0
+\end{equation}
+for all \(\sigma>1\).
+
+Near a putative zero \(\rho=\beta+i\gamma\) with \(\beta>1/2\) and \(|\gamma|\) large one has the Laurent expansion
+\[
+-\frac{\zeta'}{\zeta}(s)=\frac{1}{s-\rho}+O\bigl(\log(|t|+2)\bigr)
+\]
+uniformly for \(\sigma\geq\beta-\delta\) (any fixed \(\delta>0\)) provided no other zero lies too close; the \(O(\log|t|)\) absorbs the contribution of the remaining zeros via the classical zero-density estimate \(N(\sigma,T)\ll T^{c(1-\sigma)}\log T\). Substituting into \eqref{eq:3-4-1} and letting \(\sigma\downarrow 1\) produces
+\[
+\frac{c}{1-\beta}\leq C\log(|\gamma|+2)
+\]
+for absolute constants \(c,C>0\), hence the zero-free region
+\[
+\beta\leq 1-\frac{c'}{\log(|\gamma|+2)}.
+\]
+(The same argument with a higher-degree non-negative trigonometric polynomial improves the constant \(c'\) but never the shape of the region.)
+
+To reach the critical line one would need a region of the form \(\beta\leq 1/2+o(1)\), which requires the right-hand side of the inequality after substitution to remain bounded (or grow slower than any positive power of \(\log|\gamma|\)) when \(\sigma\) is allowed to approach \(1/2\) from above. This fails for two independent reasons:
+
+1. The error term \(O(\log|t|)\) originates from the partial fraction decomposition of \(\zeta'/\zeta\) and is essentially sharp on average (by the Riemann–von Mangoldt formula). When \(\sigma-1/2\) is smaller than \(1/\log|t|\) the main-term contribution \(1/(\sigma-\beta)\) is swamped by this error, destroying the sign contradiction.
+2. The non-negativity \eqref{eq:3-4-1} itself relies on absolute convergence of the Dirichlet series for \(-\zeta'/\zeta\), which holds only for \(\sigma>1\). Analytic continuation of the weighted sum to the strip \(1/2<\sigma\leq 1\) introduces additional horizontal integrals and possible residues at other zeros; these terms are not known to preserve a usable sign.
+
+Thus the method yields a zero-free region abutting the line \(\operatorname{Re}s=1\) but supplies no mechanism for pushing the barrier leftward to \(\operatorname{Re}s=1/2\). Any successful extension would require either a substitute for \eqref{eq:3-4-1} that remains valid deeper in the critical strip or a cancellation estimate strong enough to absorb the \(O(\log|t|)\) error down to height \(T\) with a power saving—both of which are essentially equivalent in strength to the full Riemann hypothesis.
+
+VERDICT: FAILED
+REASON: Classical 3-4-1 method cannot cross into Re(s)≤1; error terms and convergence block any extension to σ=1/2.
