@@ -2,14 +2,23 @@
   "counts": {
     "claude": 97,
     "grok": 97,
-    "gpt": 96
+    "gpt": 97
   },
   "lastRun": {
     "claude": 1786540206490,
     "grok": 1786545180521,
-    "gpt": 1786535138220
+    "gpt": 1786548850975
   },
   "attempts": [
+    {
+      "id": "gpt-1786548850975",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous barrier: one-piece mollifiers of length T^θ yield ≤2θ zero proportion; RH unreachable by this route.",
+      "ts": "2026-08-12T15:34:10.975Z",
+      "duration_ms": 114309
+    },
     {
       "id": "grok-1786545180521",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Positivity via explicit formula only recovers classical zero-free regions; no new test functions found.",
       "ts": "2026-08-09T23:03:56.602Z",
       "duration_ms": 31614
-    },
-    {
-      "id": "claude-1786314707378",
-      "ai": "claude",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "FAILED",
-      "reason": "(A)'s constant $\\mu$ must be measured in physical units set",
-      "ts": "2026-08-09T22:31:47.378Z",
-      "duration_ms": 71073
     }
   ]
 }

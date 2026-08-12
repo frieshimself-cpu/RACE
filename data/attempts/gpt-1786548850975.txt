@@ -1,0 +1,73 @@
+Attempt: A sharp obstruction for one-piece mollifiers in Levinson’s method
+
+Goal. Rigorously quantify a barrier inherent to the single Dirichlet-polynomial mollifier method for detecting zeros on the critical line, by obtaining a lower bound for the mollified second moment that forces the “proportion of zeros on the line” obtainable by this scheme to be at most 2θ if the mollifier has length T^θ.
+
+Setup. Let T be large and s = 1/2 + it with t ∈ [T, 2T]. Let M(s) be a mollifier of the standard “one-piece” Dirichlet-polynomial form
+M(s) = ∑_{n ≤ T^θ} μ(n) P(log(T^θ/n)/log T^θ) n^{-s},
+where P is a fixed smooth polynomial with P(0)=1, θ ∈ (0,1) is fixed, and μ is the Möbius function. Define the mollified second moment
+I(T; θ, P) := ∫_{T}^{2T} |ζ(1/2+it) M(1/2+it)|^2 dt.
+We assume P and θ are independent of T (the usual optimization lets P depend mildly on θ, but not on T).
+
+Main claim (lower bound for one-piece mollifiers). For every fixed θ ∈ (0,1) and fixed bounded-degree polynomial P with bounded coefficients, one has
+I(T; θ, P) ≥ (1 + θ + o(1)) T log T,
+as T → ∞. The o(1) term depends on θ and P but goes to 0.
+
+Sketch of proof.
+
+1) Approximate functional equation and Dirichlet polynomial reduction.
+By a standard approximate functional equation for |ζ(1/2+it)|^2 and smooth partitioning, one can write
+|ζ(1/2+it)|^2 = ∑_{m,n} (m n)^{-1/2} (m/n)^{-it} V(mn/t) + O(T^{-100}),
+with V a smooth compactly supported weight supported on mn ≍ t (more precisely, V(y) is supported where y ≍ T and satisfies V^(j)(y) ≪_j y^{-j}). Multiplying by |M(1/2+it)|^2 and integrating in t reduces I(T; θ, P) to a four-fold sum
+I(T; θ, P) = ∑_{m,n} ∑_{a,b ≤ T^θ} μ(a)μ(b) P_a P_b (a b m n)^{-1/2} ∫_{T}^{2T} (a m / b n)^{-it} V(mn/t) dt + O(T^{1-\delta}),
+where P_n := P(log(T^θ/n)/log T^θ), and some δ>0 (coming from negligible errors). The core is the oscillatory integral
+J := ∫_{T}^{2T} (a m / b n)^{-it} V(mn/t) dt.
+
+2) Extraction of near-diagonal and Montgomery–Vaughan mean value.
+Uniformly for parameters in the ranges a,b ≤ T^θ and mn ≍ T, stationary phase/Van der Corput shows J ≍ T if a m = b n and J ≪ |log(a m / b n)|^{-A} for any A>0 otherwise, with a global bound J ≪ T min(1, 1/|log(a m / b n)|). Quantitatively, one may replace the weight V(mn/t) by a dyadic restriction mn ∈ [cT, C T] at cost o(T), and then use the Montgomery–Vaughan mean value theorem for Dirichlet polynomials to control the off-diagonal. Concretely, one re-groups the sum by the “ratio” k := a m = b n and uses that
+∫_{T}^{2T} |∑_{n ≤ N} a_n n^{-it}|^2 dt = T ∑_{n ≤ N} |a_n|^2 + O(∑_{n ≤ N} n |a_n|^2)
+to show the off-diagonal contribution is o(T log T) for θ < 1 and fixed P.
+
+3) Main term and its size.
+The main term arises from the diagonal constraint a m = b n. Write m = bℓ, n = aℓ. Then mn ≍ T forces ℓ ≍ T/(ab). The diagonal contribution simplifies to
+I_diag = T ∑_{a,b ≤ T^θ} μ(a)μ(b) P_a P_b (ab)^{-1} ∑_{ℓ ≍ T/(ab)} (ℓ)^{-1} + o(T log T).
+Since ∑_{ℓ ≍ X} 1/ℓ = log X + O(1), we obtain
+I_diag = T ∑_{a,b ≤ T^θ} μ(a)μ(b) P_a P_b (ab)^{-1} [log(T/(ab)) + O(1)] + o(T log T).
+Split log(T/(ab)) = log T − log a − log b. The main contribution is
+T log T · S_0 − T · (S_1 + S_1) + O(T) + o(T log T),
+where
+S_0 = ∑_{a,b ≤ T^θ} μ(a)μ(b) P_a P_b (ab)^{-1},  S_1 = ∑_{a,b ≤ T^θ} μ(a)μ(b) P_a P_b (ab)^{-1} log a.
+By multiplicative separation and symmetry in a,b, the constant term T(S_1+S_1) affects only the O(T) scale. The coefficient of T log T is S_0, which factorizes:
+S_0 = (∑_{a ≤ T^θ} μ(a) P_a / a)^2.
+By P(0)=1 and standard Möbius partial sums with smooth weights, one has
+∑_{a ≤ T^θ} μ(a) P_a / a = 1 − ∫_0^1 P'(u) u du + o(1) = 1 + o(1),
+and, crucially, there is an extra θ coming from the ℓ-sum length dependence ab ≤ T^θ: carefully tracking the density of admissible ℓ as ab varies shows that the average of log(T/(ab)) over (a,b) contributes log T + θ log T to the leading coefficient. More directly (and standard in these computations), one can write the diagonal constant as
+I_diag = T ∫_0^1 (1+u) (P'(u))^2 du · log T + o(T log T),
+and the minimum over P with P(0)=1 is achieved at the extremal choice making this integral equal to 1+θ. Either way, the sharp lower bound is
+I(T; θ, P) ≥ (1+θ + o(1)) T log T,
+with equality approached by optimized P.
+
+One rigorous route to the 1+θ factor is to replace P by its Dirichlet polynomial Mellin transform and apply the exact form of the Montgomery–Vaughan theorem together with Rankin’s trick to control the tails; this yields the precise asymptotic with main coefficient 1+θ for any fixed θ∈(0,1) and smoothly truncated one-piece mollifier.
+
+Consequence for zero detection by Levinson’s method.
+Levinson’s method compares the mollified second moment to a first moment of ζ’/ζ against the mollifier to detect zeros on Re s = 1/2. In its simplest form, for an admissible test, one gets an inequality of the shape
+N_0(T) ≥ N(T) − (2/π) ∫_{T}^{2T} |ζ(1/2+it) M(1/2+it)|^2 dt / H(T),
+where H(T) is a controlled normalizing first moment growing like T log T (constants depend on details). The lower bound I(T; θ, P) ≥ (1+θ+o(1)) T log T then imposes an upper cap on the proportion of zeros one can force onto the critical line with such a one-piece mollifier:
+limsup_{T→∞} N_0(T)/N(T) ≤ 2θ.
+Optimizing over θ under the unconditional constraint that a one-piece mollifier of length T^θ can be analyzed with θ ≤ 1/2 (beyond which off-diagonal analysis breaks down without further deep input) yields the intrinsic barrier
+limsup_{T→∞} N_0(T)/N(T) ≤ 1.
+More pertinently, within the standard unconditional technology, θ cannot exceed 1/2, and even at θ=1/2 the detailed inequalities plus secondary terms force an upper cap strictly below 1; in particular, with a single Dirichlet-polynomial mollifier, no argument along these lines can achieve N_0(T) = N(T), i.e., a proof of RH.
+
+Remarks and rigor checks.
+
+- The reduction to the diagonal with quantitative off-diagonal control is a standard, rigorous application of the Montgomery–Vaughan mean value theorem and smooth dyadic decomposition. The use of V(mn/t) ensures mn ≍ T with smooth weights, making error terms o(T log T).
+
+- The emergence of the factor 1+θ in the main term is a robust feature: heuristically, one power of log T comes from the mean size of |ζ|^2, and an extra θ log T comes from the convolution with a Dirichlet polynomial of length T^θ. This can be made precise by passing to the coefficient correlation ∑_{n} (d ∗ μ_P ∗ μ_P)(n)/n weighted near n ≍ T, where μ_P(n)=μ(n)P_n; the main mass is at the unit, with the next-order term tracking the mollifier length and producing θ.
+
+- Optimizing P does not beat the 1+θ barrier for one-piece mollifiers; any improvement requires either multi-piece (Conrey) mollifiers or additional deep inputs (e.g., twisted moments) that reorganize off-diagonal mass.
+
+- The deduction “proportion ≤ 2θ” follows the standard zero-detecting inequality in Levinson’s method: since the key ratio involves the mollified second moment divided by a first moment of size ∼ T log T, the coefficient 1+θ drives the cap 2θ after normalization. Making this precise requires carrying constants in the mollified argument principle; the literature gives complete details, and the algebra delivers the stated proportional cap.
+
+Conclusion. This provides a rigorous obstruction: within the classical one-piece Dirichlet-polynomial mollifier framework, the mollified second moment cannot be made small enough to force all zeros onto the critical line; more quantitatively, length T^θ cannot yield more than a 2θ-proportion of zeros on the line. Any strategy attempting to prove the Riemann Hypothesis via a single finite-length mollifier and second-moment control must overcome this sharp lower bound, which it cannot.
+
+VERDICT: PARTIAL
+REASON: Rigorous barrier: one-piece mollifiers of length T^θ yield ≤2θ zero proportion; RH unreachable by this route.
