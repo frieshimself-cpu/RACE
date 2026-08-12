@@ -1,0 +1,34 @@
+### Attempt: Barrier analysis for a contour-shift approach to a zero-free half-plane
+
+Let \(\zeta(s)\) denote the Riemann zeta function. Write \(s=\sigma+it\) and let \(\Xi(t)=\xi(1/2+it)\) be the completed, real-entire function whose zeros are precisely the non-trivial zeros of \(\zeta\), shifted by \(1/2\). The Riemann Hypothesis is equivalent to all zeros of \(\Xi\) being real.
+
+Consider the standard contour-integral representation arising from the logarithmic derivative. For \(x>1\) and \(c>1\),
+\[
+\psi(x)=-\frac1{2\pi i}\int_{c-i\infty}^{c+i\infty}\frac{\zeta'}{\zeta}(s)\frac{x^s}{s}\,ds,
+\]
+where \(\psi\) is the Chebyshev function. Shifting the contour leftward to \(\operatorname{Re}s=1/2+\delta\) (\(\delta>0\) fixed) and collecting residues at the zeros \(\rho\) with \(\operatorname{Re}\rho>1/2+\delta\) produces the explicit formula
+\[
+\psi(x)=x-\sum_{|\operatorname{Im}\rho|\le T}\frac{x^\rho}{\rho}+O\Bigl(\frac{x^{1/2+\delta}\log(xT)}{T}+ \frac{x\log x}{T}\Bigr)
+\]
+provided the horizontal integrals vanish appropriately (which they do under the classical convex bound \(\zeta(\sigma+it)\ll |t|^{C(1-\sigma)^{3/2}\log|t|}\)).
+
+**Claim under examination.** If one could show that the partial sum over zeros satisfies
+\[
+\Bigl|\sum_{|\operatorname{Im}\rho|\le T}\frac{x^\rho}{\rho}\Bigr|\le x^{1/2+\delta/2}
+\]
+uniformly for \(x\ge2\) and \(T=x\), then the error term would force \(\psi(x)=x+O(x^{1/2+\delta/2+\varepsilon})\), which by standard Tauberian arguments implies that no zero exists in \(\operatorname{Re}s>1/2+\delta/2\). Iterating would push the zero-free abscissa arbitrarily close to \(1/2\).
+
+**Where the argument collapses.** The only available unconditional bound on the sum is essentially square-root cancellation coming from the Riemann–von Mangoldt formula \(N(T)=\frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}+O(\log T)\) together with the fact that the ordinates are spaced on average \(2\pi/\log T\) apart. This yields at best
+\[
+\sum_{|\operatorname{Im}\rho|\le T}\frac{x^\rho}{\rho}\ll x^{\sigma_0}\log^2 T
+\]
+where \(\sigma_0\) is the supremum of real parts of zeros up to height \(T\). Substituting this estimate back into the explicit formula recovers only the already-known zero-free region of Vinogradov–Korobov type
+\[
+\sigma\ge1-c(\log|t|)^{-2/3}(\log\log|t|)^{-1/3},
+\]
+and does not improve the exponent below any fixed \(\delta>0\). The obstruction is circular: any power-saving bound on the zero sum already presupposes a zero-free strip wider than \(1/2+\delta\), which is precisely what one hoped to prove. No additional cancellation can be extracted from the phase \(x^{it}\) without an independent spacing or repulsion hypothesis on the ordinates stronger than what follows from the Euler product alone (e.g., pair correlation or Guinand–Weil explicit formula positivity). Such hypotheses are known to be equivalent in strength to RH itself (Montgomery, Odlyzko). Consequently the contour-shift strategy cannot cross the critical line by purely classical estimates.
+
+The same circularity appears if one replaces the Chebyshev function by the Liouville summatory function or by a smoothed Mellin transform of \(1/\zeta\); the residue sum remains the dominant term whose size is governed by the unknown maximal real part.
+
+VERDICT: FAILED
+REASON: Contour shift yields only circular bounds; no new zero-free width obtained

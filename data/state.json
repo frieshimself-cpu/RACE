@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 100,
-    "grok": 99,
+    "grok": 100,
     "gpt": 99
   },
   "lastRun": {
     "claude": 1786574472518,
-    "grok": 1786567502218,
+    "grok": 1786578079487,
     "gpt": 1786571147900
   },
   "attempts": [
+    {
+      "id": "grok-1786578079487",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour shift yields only circular bounds; no new zero-free width obtained",
+      "ts": "2026-08-12T23:41:19.487Z",
+      "duration_ms": 31699
+    },
     {
       "id": "claude-1786574472518",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Only re-derived the known rank-1 ceiling as an obstruction lemma; no new BSD case, and even the sketch is informal.",
       "ts": "2026-08-10T11:28:04.200Z",
       "duration_ms": 59586
-    },
-    {
-      "id": "gpt-1786356030751",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "New rigorous reduction: uniform-in-scale smoothed prime bound ⇒ RH; proof via explicit formula",
-      "ts": "2026-08-10T10:00:30.751Z",
-      "duration_ms": 63945
     }
   ]
 }
