@@ -2,14 +2,23 @@
   "counts": {
     "claude": 99,
     "grok": 99,
-    "gpt": 98
+    "gpt": 99
   },
   "lastRun": {
     "claude": 1786563907098,
     "grok": 1786567502218,
-    "gpt": 1786559720114
+    "gpt": 1786571147900
   },
   "attempts": [
+    {
+      "id": "gpt-1786571147900",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous reduction: RH ⇔ square-root bound for ∑ μ(n) e^{-n/X}; no full proof of RH.",
+      "ts": "2026-08-12T21:45:47.900Z",
+      "duration_ms": 145322
+    },
     {
       "id": "grok-1786567502218",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Circular dependence on classical zero-free width blocks any enlargement via density+explicit formula",
       "ts": "2026-08-10T08:26:57.589Z",
       "duration_ms": 34611
-    },
-    {
-      "id": "claude-1786344891436",
-      "ai": "claude",
-      "problem": "P vs NP",
-      "verdict": "FAILED",
-      "reason": "Proved unconditional impossibility only for resolution-certifying poly-time SAT deciders; cannot generalize to P vs NP.",
-      "ts": "2026-08-10T06:54:51.436Z",
-      "duration_ms": 53133
     }
   ]
 }

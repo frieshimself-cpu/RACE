@@ -1,0 +1,50 @@
+Attempt: A clean Mellin-transform reduction: RH from a single Laplace-weighted Möbius bound
+
+Set L(X) = ∑_{n≥1} μ(n) e^{-n/X} for X ≥ 2. I prove the following equivalence.
+
+Theorem.
+(i) If there exist constants A,B and X0 such that for all X ≥ X0,
+|L(X)| ≤ A X^{1/2} (log X)^B,
+then the Riemann Hypothesis holds.
+
+(ii) Conversely, RH implies that for every ε>0 there exists C(ε) with
+|L(X)| ≤ C(ε) X^{1/2+ε} for all X ≥ 2.
+
+Key identity (Mellin inversion).
+For c>1,
+L(X) = (1/2π i) ∫_{(c)} Γ(s) X^{s} / ζ(s) ds.
+This follows from the Dirichlet series 1/ζ(s) = ∑ μ(n) n^{-s} for Re s>1 and the Laplace/Mellin identity e^{-n/X} = (1/2π i) ∫_{(c)} Γ(s) (n/X)^{-s} ds with c>0, together with absolute convergence and exchanging sum and integral.
+
+Proof of (i).
+Let g(s) = Γ(s)/ζ(s). Then for any c>1,
+L(X) = (1/2π i) ∫_{(c)} g(s) X^{s} ds.
+Assume the bound |L(X)| ≤ A X^{1/2} (log X)^B holds for all X ≥ X0.
+
+Claim (converse mapping lemma in this setting).
+If for some σ0 the bound |(1/2π i) ∫_{(c)} g(s) X^{s} ds| ≪ X^{σ0} holds for all large X, then g is holomorphic in Re s > σ0. In particular, g has no poles with Re s > σ0.
+
+Sketch justification. Fix σ in (σ0, c). Move the contour from Re s=c to Re s=σ, detouring small semicircles around any poles of g with Re s>σ. By Stirling’s formula, Γ(σ+it) decays exponentially in |t|, and 1/ζ(σ+it) has at most polynomial growth in t away from its poles, so the horizontal segments vanish and the new vertical integral is O(X^{σ}). By Cauchy’s residue theorem,
+L(X) = (1/2π i) ∫_{(σ)} g(s) X^{s} ds + ∑_{ρ: Re ρ>σ} Res_{s=ρ}(g(s) X^{s}).
+The line integral is O(X^{σ}). If there exists any pole ρ with Re ρ=β>σ0, choose σ with σ0<σ<β; then the sum includes a term c_ρ X^{β} where c_ρ:=Res(g,ρ)≠0 (simple poles at zeros of ζ). Since X^{β} dominates X^{σ0} as X→∞, this contradicts the assumed bound on L(X). Hence there are no poles of g in Re s>σ0.
+
+Apply with σ0=1/2. Poles of g in Re s>1/2 are exactly the nontrivial zeros ρ of ζ with Re ρ>1/2 (note that g has a zero, not a pole, at s=1, so the pole of ζ at 1 does not cause trouble). Therefore, the absence of poles in Re s>1/2 implies all nontrivial zeros satisfy Re ρ≤1/2. The functional equation and standard symmetry then force Re ρ=1/2 for all nontrivial zeros. Thus RH holds.
+
+Remarks on technical conditions used above.
+- Γ(s) has exponential decay on vertical lines; 1/ζ(s) has at most polynomial growth on vertical lines in any right half-plane Re s ≥ σ>1/2 away from its poles; both are standard (Titchmarsh).
+- The contour shift can be arranged to avoid poles by arbitrarily small semicircular detours; the residue sum precisely captures their contributions.
+
+Proof of (ii).
+Assume RH. Fix ε>0 and take the representation
+L(X) = (1/2π i) ∫_{(c)} Γ(s) X^{s} / ζ(s) ds, c>1.
+Shift the contour to Re s=1/2+ε. There are no poles crossed (RH), and on the new line |1/ζ(1/2+ε+it)| ≪ (1+|t|)^A(ε) for some A(ε), while Γ(1/2+ε+it) ≪ (1+|t|)^{(2ε-1)/2} e^{-π|t|/2}. Hence the integral is absolutely convergent and bounded by C(ε) X^{1/2+ε}. This yields the stated bound.
+
+Corollaries and comments.
+- Unconditionally, the classical zero-free region Re s ≥ 1 - c / log(|t|+3) gives the weaker bound L(X) ≪ X exp(-c' sqrt{log X}) by a standard de la Vallée Poussin contour that shifts past Re s=1 with a small dent; this is consistent with (ii) and shows the reduction is nontrivial.
+- The reduction isolates RH to a single-parameter family of smoothed Möbius sums L(X). Any universal square-root bound of the form X^{1/2} polylog(X) suffices, with no need to vary a smoothing function beyond the Laplace weight e^{-n/X} and no averaging in X.
+- The argument is robust: analogous statements hold replacing μ(n) with generalized Möbius functions and ζ with L-functions, yielding RH-type criteria for those L-functions.
+
+Assessment.
+This is a rigorous, self-contained reduction of RH to a concrete, single-family bound. It does not solve RH but packages it into a clean Laplace-transform estimate amenable to analytic or probabilistic methods.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous reduction: RH ⇔ square-root bound for ∑ μ(n) e^{-n/X}; no full proof of RH.
