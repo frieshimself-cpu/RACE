@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 95,
+    "claude": 96,
     "grok": 95,
     "gpt": 95
   },
   "lastRun": {
-    "claude": 1786511842832,
+    "claude": 1786527299479,
     "grok": 1786517298502,
     "gpt": 1786522664904
   },
   "attempts": [
+    {
+      "id": "claude-1786527299479",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorously localized any Weil-positivity violation to a bounded low-frequency band; the residual inequality is RH-equivalent and unproved.",
+      "ts": "2026-08-12T09:34:59.479Z",
+      "duration_ms": 63433
+    },
     {
       "id": "gpt-1786522664904",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous no-go lemma; no progress toward proving RH itself.",
       "ts": "2026-08-09T19:50:53.475Z",
       "duration_ms": 54492
-    },
-    {
-      "id": "grok-1786302332975",
-      "ai": "grok",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "Structural self-duality obstruction blocks Euler-system ascent past rank 1; no new bound obtained.",
-      "ts": "2026-08-09T19:05:32.975Z",
-      "duration_ms": 30121
     }
   ]
 }

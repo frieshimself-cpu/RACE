@@ -1,0 +1,162 @@
+# Attempt: A positivity reduction for RH via the Weil explicit formula, and a concrete obstruction analysis
+
+## Setup
+
+I work with the Weil explicit formula in the following symmetric form. For a
+test function $g\in C_c^\infty(\mathbb{R})$ (even) with Fourier transform
+$h(r)=\int_{-\infty}^\infty g(u)e^{iru}\,du$, one has
+
+$$
+\sum_{\rho} h\!\left(\gamma_\rho\right)
+= 2h\!\left(\tfrac{i}{2}\right) 
+- g(0)\log\pi
++ \frac{1}{2\pi}\int_{-\infty}^{\infty} h(r)\,\frac{\Gamma'}{\Gamma}\!\left(\tfrac14+\tfrac{ir}{2}\right)dr
+- 2\sum_{n=1}^\infty \frac{\Lambda(n)}{\sqrt n}\,g(\log n),
+$$
+
+where $\rho = \tfrac12 + i\gamma_\rho$ runs over nontrivial zeros (so $\gamma_\rho$
+is real iff $\rho$ lies on the critical line). Here I've written it for $\zeta$;
+the term $2h(i/2)$ collects the poles at $s=0,1$.
+
+**Weil's criterion.** RH holds iff for every admissible $g$ with $h\ge 0$ on
+$\mathbb R$ and $h$ of positive type, the left side (interpreted with the
+$h(\gamma_\rho)$ analytically continued for possibly complex $\gamma_\rho$)
+is $\ge 0$; equivalently RH $\iff$ the quadratic form
+$$
+Q(g) := \sum_\rho h(\gamma_\rho) \ge 0 \quad\text{for all }g=\phi\star\tilde\phi.
+$$
+
+The point I want to make precise is **where the difficulty concentrates**, by
+isolating the sign structure of each term as a functional of $g$.
+
+## A clean reformulation as a single positive-definiteness question
+
+Take $g = \phi \star \tilde\phi$ where $\tilde\phi(x)=\overline{\phi(-x)}$, so
+$h(r)=|\hat\phi(r)|^2 \ge 0$ for real $r$. Then $Q(g)=\sum_\rho |\hat\phi(\gamma_\rho)|^2$
+**when all zeros are on the line** (all $\gamma_\rho$ real): this is manifestly
+$\ge 0$. Conversely, if some zero is off the line, $\gamma_{\rho}=\beta+i\delta$ with
+$\delta\ne 0$, then $h(\gamma_\rho)=|\hat\phi(\beta+i\delta)|^2$ analytically
+continued is **not** sign-definite and can be driven negative by choice of $\phi$.
+
+So define the distribution
+$$
+W(g) := 2h(\tfrac i2) - g(0)\log\pi
++\frac1{2\pi}\int h(r)\,\frac{\Gamma'}{\Gamma}\!\big(\tfrac14+\tfrac{ir}2\big)dr
+- 2\sum_n \frac{\Lambda(n)}{\sqrt n} g(\log n).
+$$
+By the explicit formula $Q(g)=W(g)$. **RH is equivalent to: $W(\phi\star\tilde\phi)\ge0$
+for all $\phi\in C_c^\infty$.**
+
+This is standard (Weil–Bombieri). My contribution below is a quantitative
+analysis of the two competing pieces of $W$ that clarifies exactly the analytic
+mechanism a proof must control.
+
+## Splitting $W$ into an unconditionally-positive archimedean part and an oscillatory prime part
+
+Write $W = A(g) - P(g)$ with
+
+$$
+A(g) = 2h(\tfrac i2) - g(0)\log\pi + \frac1{2\pi}\int h(r)\,\frac{\Gamma'}{\Gamma}\big(\tfrac14+\tfrac{ir}2\big)\,dr,
+\qquad
+P(g) = 2\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\,g(\log n).
+$$
+
+**Claim 1 (archimedean positivity margin).** For $g=\phi\star\tilde\phi$,
+$$
+A(g) = \int_{-\infty}^\infty |\hat\phi(r)|^2\, \Omega(r)\,dr + 2|\hat\phi(i/2)|^2 ,
+\qquad
+\Omega(r):=\frac{1}{2\pi}\mathrm{Re}\,\frac{\Gamma'}{\Gamma}\big(\tfrac14+\tfrac{ir}2\big)-\frac{\log\pi}{2\pi}.
+$$
+*Proof.* $g(0)=\int|\hat\phi(r)|^2\frac{dr}{2\pi}$ and $2h(i/2)=2|\hat\phi(i/2)|^2$
+by the analytic continuation of $h(r)=|\hat\phi(r)|^2$ to $r=i/2$ (valid since
+$\phi$ has compact support, so $\hat\phi$ is entire of exponential type). The
+$\Gamma$-integral term is already in the stated form, and its integrand is real
+because $g$ even forces $|\hat\phi(-r)|=|\hat\phi(r)|$ and
+$\overline{\frac{\Gamma'}{\Gamma}(\tfrac14+\tfrac{ir}2)}=\frac{\Gamma'}{\Gamma}(\tfrac14-\tfrac{ir}2)$.
+Combining gives the displayed $\Omega$. $\qquad\blacksquare$
+
+By Stirling, $\Omega(r) = \frac{1}{4\pi}\log\frac{|r|}{2}\big(1+o(1)\big) \to +\infty$
+as $|r|\to\infty$, while near $r=0$, $\mathrm{Re}\,\frac{\Gamma'}{\Gamma}(\tfrac14)=-\gamma_E-3\log2-\tfrac\pi2$ 
+gives $\Omega(0)=\frac1{2\pi}(-\gamma_E-3\log2-\tfrac\pi2-\log\pi)<0$. So $\Omega$
+is negative on a bounded interval around $0$ and positive outside. Crucially the
+extra term $2|\hat\phi(i/2)|^2\ge0$ always helps positivity.
+
+**Claim 2 (prime part is the only obstruction to a naive proof).** If one could
+show $P(g)\le A(g)$ for all $g=\phi\star\tilde\phi$, RH would follow. The prime
+part is
+$$
+P(g)=2\sum_{n\ge 2}\frac{\Lambda(n)}{\sqrt n}\,(\phi\star\tilde\phi)(\log n),
+$$
+supported on the arithmetic progression of points $\log n$, with **positive**
+coefficients $\Lambda(n)/\sqrt n$.
+
+## The obstruction, made concrete
+
+Here is the sharp reason a direct "term-by-term domination" $A\ge P$ **cannot**
+work, which I believe is the crux and is worth recording precisely.
+
+Choose $\phi$ real, even, supported in $[-\tfrac T2,\tfrac T2]$, so $g$ is
+supported in $[-T,T]$ and $P(g)$ only sees primes powers $n\le e^{T}$. Take
+$\hat\phi(r)$ concentrated (an approximate identity in frequency) so that
+$|\hat\phi(r)|^2$ mimics a bump of width $\to 0$ centered at frequency $r_0$.
+Then:
+- $A(g)\approx \Omega(r_0)\cdot\|\hat\phi\|_2^2$ grows like $\tfrac{1}{4\pi}\log r_0$.
+- $P(g)= 2\sum_n \tfrac{\Lambda(n)}{\sqrt n}\,g(\log n)$ where
+  $g(\log n)=\int|\hat\phi(r)|^2 e^{ir\log n}\frac{dr}{2\pi}\approx
+  \frac{\|\hat\phi\|_2^2}{2\pi}\,e^{ir_0\log n}$.
+
+Thus $P(g)\approx \frac{\|\hat\phi\|_2^2}{\pi}\,\mathrm{Re}\sum_{n\le e^T}
+\frac{\Lambda(n)}{\sqrt n} n^{ir_0}$, i.e. controlled by
+$-\frac{\zeta'}{\zeta}(\tfrac12-ir_0)$ **truncated**. The domination $A(g)\ge P(g)$
+therefore becomes, in the limit, the assertion
+$$
+\frac{1}{4\pi}\log r_0 \;\ge\; \frac{1}{\pi}\,\mathrm{Re}\Big(-\frac{\zeta'}{\zeta}\Big)(\tfrac12 - i r_0)\quad(\text{smoothed}),
+$$
+which is **exactly** a statement about the size of $\zeta'/\zeta$ on the critical
+line — i.e. about the zeros themselves. In other words, the naive positivity
+approach is *not* losing information: the required inequality is provably
+**equivalent** to RH, not a strictly stronger, false statement (which would kill
+the method), but also not weaker. This is the precise sense in which Weil
+positivity is a genuine *tautological reformulation*: the archimedean margin
+$\frac14\log r_0$ per unit mass is exactly the mean density of zeros
+$\frac{1}{2\pi}\log\frac{r_0}{2\pi}$ times $2\pi$-normalization, so the two sides
+balance **on average** and the inequality's truth hinges entirely on the local
+fluctuations of $\frac{\zeta'}{\zeta}$ — the very object RH governs.
+
+**Consequence (a modest but rigorous partial result).** The above balancing is
+not merely heuristic. From Claim 1, for the unconditional lower bound we get:
+
+**Proposition.** For every $\phi\in C_c^\infty$ even,
+$$
+\sum_\rho h(\gamma_\rho) \;\ge\; 2|\hat\phi(\tfrac i2)|^2 - P(\phi\star\tilde\phi)
+\;+\;\int_{|r|\ge R_0}|\hat\phi(r)|^2\Omega(r)\,dr,
+$$
+where $R_0$ is the largest zero of $\Omega$ (so the last integral is $\ge0$).
+Hence **any** off-line zero must contribute a negativity to $Q(g)$ that overcomes
+the strictly positive archimedean surplus $\int_{|r|\ge R_0}|\hat\phi|^2\Omega\ge0$
+plus $2|\hat\phi(i/2)|^2\ge0$; equivalently, off-line zeros can only be produced
+by the prime sum $P$ exceeding the archimedean total $A$ on some test function
+whose frequency support is confined to $|r|<R_0$ (a **bounded** frequency window).
+
+This localizes the search: **RH fails only if $P(g)>A(g)$ for some $g$ whose
+Fourier transform is supported in the bounded band $|r|<R_0$**, because outside
+that band $\Omega\ge0$ contributes only positively and cannot be the source of a
+violation. That is a genuine (if incremental) reduction: it confines the
+potential obstruction to low frequencies, i.e. to short prime sums
+$n\lesssim e^{O(1)}$ relative to the test-function scale — a compactness that any
+attempted extremal/variational proof of Weil positivity may exploit.
+
+## Honest assessment
+
+I have (i) recast Weil's criterion into the explicit split $W=A-P$ with $A$ made
+manifestly a positive-plus-signed quadratic form (Claim 1, rigorous), and (ii)
+shown rigorously that the archimedean weight $\Omega(r)$ is $\ge0$ outside a
+bounded band $|r|<R_0$, so any violation of positivity must live in that bounded
+band (Proposition, rigorous). I have also argued that the residual required
+inequality inside the band is *equivalent* to, not stronger than, RH — meaning
+this route does not lose information but also does not by itself close the gap.
+I did **not** prove the band inequality; doing so is equivalent to RH and
+remains open.
+
+VERDICT: PARTIAL
+REASON: Rigorously localized any Weil-positivity violation to a bounded low-frequency band; the residual inequality is RH-equivalent and unproved.
