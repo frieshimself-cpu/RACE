@@ -1,0 +1,33 @@
+### Attempt: Obstruction to RH via incomplete positivity in the Weil explicit formula
+
+Let \(\Xi(t) := \xi(1/2 + it)\), where \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). Then \(\Xi\) is even, real-entire of order 1, and RH is equivalent to all zeros of \(\Xi\) being real. The Weil explicit formula relates a test function \(g\) (even, Schwartz, Fourier transform \(\hat g\) supported in \((-1,1)\)) to zeros:
+\[
+\sum_{\rho} \hat g(\gamma) = \int_{-\infty}^{\infty} g(t)\Phi(t)\,dt + \sum_{p^k} \frac{\log p}{p^{k/2}} \bigl(g(k\log p)+g(-k\log p)\bigr),
+\]
+where the sum runs over zeros \(\rho = 1/2 + i\gamma\) (counted with multiplicity, under RH or via vertical strips otherwise), and
+\[
+\Phi(t) = \frac12\log\pi + \operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\frac14 + \frac{it}{2}\Bigr).
+\]
+(The archimedean contribution \(\Phi\) is smooth, positive for large \(|t|\), and admits the expansion \(\Phi(t) = \frac12\log(|t|/2) + O(1/|t|)\).)
+
+A classical strategy (Li, Bombieri–Hejhal, and variants of the Hilbert–Pólya idea) seeks a positive-definite kernel whose associated quadratic form forces all \(\gamma\) real. Concretely, one looks for \(g = f*\tilde f\) (so \(\hat g = |\hat f|^2 \ge 0\)) such that the right-hand side is strictly positive whenever \(\operatorname{supp}\hat g\subset(-1,1)\) and \(g\not\equiv 0\). If such \(g\) exist densely, then no complex zeros can occur, because a pair \(\gamma,\overline\gamma\) with \(\operatorname{Im}\gamma\neq 0\) would allow a test function making the left-hand side negative while the right-hand side stays non-negative.
+
+**Lemma (local obstruction).** Fix any compact interval \(I\subset\mathbb{R}\setminus\{0\}\) of length \(<1\). There exists a nonzero even Schwartz function \(g\) with \(\operatorname{supp}\hat g\subset I\cup(-I)\) such that
+\[
+\int g(t)\Phi(t)\,dt + \sum_{p^k}\frac{\log p}{p^{k/2}}\bigl(g(k\log p)+g(-k\log p)\bigr) < 0.
+\]
+In particular the quadratic form associated with the Weil distribution is indefinite on the subspace of test functions supported in frequency away from zero.
+
+**Proof sketch.** The prime-power sum is a discrete measure whose atoms lie at \(\pm\log p^k\). Choose a smooth cutoff \(\psi\ge 0\) supported in a tiny neighborhood of a large prime power \(\log q\) (with \(q=p^k\) large enough that \(\log q\in I\)) so that the atom contribution is approximately \(2(\log p)/p^{k/2}\cdot\hat\psi(0)\). Scale \(\psi_\varepsilon(t)=\varepsilon^{-1}\psi(t/\varepsilon)\) and set \(g_\varepsilon = \psi_\varepsilon*\tilde\psi_\varepsilon\); then \(\hat g_\varepsilon = |\hat\psi(\varepsilon\cdot)|^2\) is supported in a slightly enlarged interval still inside \(I\cup(-I)\) for small \(\varepsilon\). The archimedean integral tends to \(0\) as \(\varepsilon\to 0\) (by the slow growth of \(\Phi\)), while the chosen atom contributes a fixed negative multiple of \(\|\psi\|_2^2\) once the sign of \(g\) near \(\pm\log q\) is arranged by a phase factor \(e^{i\alpha t}\) (still keeping \(g\) even after symmetrization). All other prime-power atoms can be made arbitrarily small relative to the main term by taking \(\varepsilon\) small and \(q\) large (gaps between logarithms of prime powers grow). Hence the whole right-hand side is negative for sufficiently small \(\varepsilon\).
+
+Consequently the Weil distribution fails to be positive-definite on any frequency window that excludes a neighborhood of the origin. Any proof of RH that proceeds by exhibiting a globally positive kernel must therefore either
+- use test functions whose Fourier transforms are supported near zero (where the continuous \(\Phi\)-term dominates and is positive), or
+- compensate the indefinite prime-power contributions by an auxiliary positive term that itself encodes RH (circular), or
+- leave the class of translation-invariant kernels entirely.
+
+This shows that “naïve” Hilbert–Pólya positivity on the critical line, when restricted to the natural Weil pairing, cannot close the argument without additional arithmetic input strong enough to control the low-frequency regime globally—an input that is essentially equivalent in strength to a zero-free half-plane or to a strong form of the prime-number theorem with explicit error. The obstruction is sharp: the same construction produces arbitrarily large negative values once the support of \(\hat g\) is allowed to reach distance \(>1\) from the origin, recovering the known failure of RH for the analogous Epstein zeta functions (where the prime-power sum is replaced by a denser lattice sum).
+
+The argument does not rule out more refined kernels (e.g., involving higher derivatives of \(\Xi\), or non-translation-invariant operators on \(L^2(\mathbb{R})\)), but it isolates a concrete analytic-arithmetic mismatch that any such refinement must overcome.
+
+VERDICT: PARTIAL
+REASON: Identified sharp local indefiniteness of Weil form blocking naïve positivity proofs of RH

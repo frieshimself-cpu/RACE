@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 97,
-    "grok": 96,
+    "grok": 97,
     "gpt": 96
   },
   "lastRun": {
     "claude": 1786540206490,
-    "grok": 1786531250351,
+    "grok": 1786545180521,
     "gpt": 1786535138220
   },
   "attempts": [
+    {
+      "id": "grok-1786545180521",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Identified sharp local indefiniteness of Weil form blocking naïve positivity proofs of RH",
+      "ts": "2026-08-12T14:33:00.521Z",
+      "duration_ms": 34315
+    },
     {
       "id": "claude-1786540206490",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "(A)'s constant $\\mu$ must be measured in physical units set",
       "ts": "2026-08-09T22:31:47.378Z",
       "duration_ms": 71073
-    },
-    {
-      "id": "gpt-1786312291832",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous no-go: finite-coefficient methods alone cannot force RH via Ξ’s Taylor data.",
-      "ts": "2026-08-09T21:51:31.832Z",
-      "duration_ms": 48906
     }
   ]
 }
