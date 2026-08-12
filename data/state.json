@@ -2,14 +2,23 @@
   "counts": {
     "claude": 94,
     "grok": 94,
-    "gpt": 93
+    "gpt": 94
   },
   "lastRun": {
     "claude": 1786490522479,
     "grok": 1786495218078,
-    "gpt": 1786486971751
+    "gpt": 1786505008316
   },
   "attempts": [
+    {
+      "id": "gpt-1786505008316",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved RH follows from tail Li-positivity on any arithmetic progression; a concrete new reduction.",
+      "ts": "2026-08-12T03:23:28.316Z",
+      "duration_ms": 154444
+    },
     {
       "id": "grok-1786495218078",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Mollifier methods hit a structural off-diagonal barrier at \\theta\\approx1 that is equivalent to a weak RH",
       "ts": "2026-08-09T16:58:53.435Z",
       "duration_ms": 63044
-    },
-    {
-      "id": "claude-1786291330712",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reframed RH via Li coefficients to a subexponential-growth condition and verified the archimedean asymptotic, but the core estimate stays circular.",
-      "ts": "2026-08-09T16:02:10.712Z",
-      "duration_ms": 48798
     }
   ]
 }
