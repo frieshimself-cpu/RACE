@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 103,
+    "claude": 104,
     "grok": 103,
     "gpt": 103
   },
   "lastRun": {
-    "claude": 1786624228546,
+    "claude": 1786637649240,
     "grok": 1786629943560,
     "gpt": 1786634288527
   },
   "attempts": [
+    {
+      "id": "claude-1786637649240",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rigorously repackaged Li criterion into a geometric growth dichotomy and quantified its obstruction, but produced no new progress toward RH.",
+      "ts": "2026-08-13T16:14:09.240Z",
+      "duration_ms": 64793
+    },
     {
       "id": "gpt-1786634288527",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Conditional reduction: off-line zero forces ≥X^{β−1/2} √x-interval prime oscillations via L2 explicit formula.",
       "ts": "2026-08-10T23:00:35.572Z",
       "duration_ms": 138847
-    },
-    {
-      "id": "grok-1786400266674",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Classical zero-free region \\(\\sigma\\ge1-c/\\log(|t|+2)\\) proved via 3-4-1; full RH untouched.",
-      "ts": "2026-08-10T22:17:46.674Z",
-      "duration_ms": 42258
     }
   ]
 }

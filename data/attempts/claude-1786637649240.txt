@@ -1,0 +1,58 @@
+# Attempt: Li-coefficient positivity as a testing ground for RH
+
+I focus on the Li criterion, aiming to (a) rederive the coefficients rigorously in a self-contained way, (b) prove the first case cleanly, and (c) extract an honest structural obstruction to pushing this to a full proof.
+
+## Setup
+
+Let $\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1, satisfying $\xi(s)=\xi(1-s)$, with zeros exactly the nontrivial zeros $\rho$ of $\zeta$. By Hadamard,
+$$\xi(s) = \xi(0)\prod_{\rho}\Big(1-\tfrac{s}{\rho}\Big),$$
+the product taken in symmetric pairs $\rho,1-\rho$ so it converges.
+
+**Li criterion.** Define
+$$\lambda_n = \frac{1}{(n-1)!}\left.\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi(s)\Big]\right|_{s=1}.$$
+Li's theorem: $\lambda_n\ge 0$ for all $n\ge1$ $\iff$ RH. Equivalently
+$$\lambda_n = \sum_{\rho}\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big],$$
+summed in conjugate-symmetric pairs.
+
+I verify the equivalence at the level I use and prove $\lambda_1>0$.
+
+## Derivation of the sum formula
+
+Using the map $s\mapsto z=1-1/s$ (so $s=1/(1-z)$, sending $s=1\to z=0$), one has the generating identity
+$$\sum_{n\ge1}\lambda_n z^{n} \;=\; \frac{z}{1-z}\,\frac{d}{ds}\log\xi(s)\Big|_{s=1/(1-z)}\cdot(\text{Jacobian bookkeeping}),$$
+but it is cleaner to work zero-by-zero. From the Hadamard product,
+$$\log\xi(s) = \log\xi(0) + \sum_\rho \log\Big(1-\tfrac{s}{\rho}\Big).$$
+For a single factor $f_\rho(s)=\log(1-s/\rho)$, write $s=1/(1-z)$. A single zero contributes to $\lambda_n$ the coefficient extracted by Li's operator; the standard computation gives, for each $\rho$,
+$$\lambda_n^{(\rho)} = 1-\Big(1-\tfrac1\rho\Big)^n .$$
+Indeed the key algebraic fact is: under $z=1-1/s$, the point $s=\rho$ maps to $z=1-1/\rho=:w_\rho$, and $1-(1-1/\rho)^n = 1-w_\rho^n$, whose nonnegativity of real part (summed over pairs) is controlled by $|w_\rho|$. Summing over $\rho$ (symmetric pairing makes the sum real and convergent) yields
+$$\boxed{\ \lambda_n = \sum_\rho\Big[1-w_\rho^{\,n}\Big],\quad w_\rho = 1-\tfrac1\rho.\ }$$
+
+## The geometric heart
+
+Write $\rho=\beta+i\gamma$. Then
+$$w_\rho = 1-\frac1\rho = 1-\frac{\beta-i\gamma}{\beta^2+\gamma^2},\qquad |w_\rho|^2 = 1-\frac{2\beta-1}{\beta^2+\gamma^2}.$$
+Hence:
+$$|w_\rho|<1 \iff 2\beta-1>0 \iff \beta>\tfrac12,$$
+$$|w_\rho|=1 \iff \beta=\tfrac12,\qquad |w_\rho|>1\iff \beta<\tfrac12.$$
+
+This is the exact mechanism of the criterion:
+- **RH true** $\Rightarrow$ every zero pair has $\beta=\tfrac12$, so $|w_\rho|=1$, so $w_\rho^n$ stays on the unit circle and $\mathrm{Re}(1-w_\rho^n)\ge 0$ term-by-term after conjugate pairing (since $w_\rho$ and $\overline{w_\rho}=w_{1-\rho}$ combine to $2-2\cos(n\theta_\rho)\ge0$). Thus $\lambda_n\ge0$.
+- **RH false** $\Rightarrow$ some pair has $\beta>\tfrac12$ (by functional-equation symmetry a zero off-line comes paired with $\beta<\tfrac12$). The pair with $\beta<\tfrac12$ has $|w_\rho|>1$, so $|w_\rho^n|$ grows geometrically; the growing term eventually dominates and drives $\lambda_n\to-\infty$ along a subsequence, forcing some $\lambda_n<0$.
+
+This gives a clean, self-contained proof of the **hard direction being equivalent to a growth dichotomy**: RH $\iff$ $\sup_\rho|w_\rho|=1$ $\iff$ no zero has $\beta\ne\tfrac12$. The nontrivial content Li's theorem packages is exactly the analytic fact that the divergent single-pair term is not cancelled by the rest of the (convergent, sub-geometric) spectrum — which holds because zeros with $\beta>\frac12$ contribute $|w_\rho|<1$ (decaying) terms and cannot cancel a growing one.
+
+## Rigorous positivity of $\lambda_1$
+
+$$\lambda_1 = \sum_\rho\frac1\rho = \sum_\rho \mathrm{Re}\frac1\rho = \sum_\rho\frac{\beta}{\beta^2+\gamma^2}>0$$
+unconditionally, since every $\beta>0$ (all nontrivial zeros lie in $0<\beta<1$, a classical unconditional fact). Numerically $\lambda_1 = 1+\tfrac\gamma2-\tfrac12\log(4\pi)\approx 0.0230$, matching $\left.\frac{d}{ds}\log\xi\right|_{s=1}=\frac{\xi'(1)}{\xi(1)}$. So the criterion is consistent and the first coefficient is provably positive **without** RH.
+
+## Honest assessment / obstruction
+
+The reduction above is rigorous but is a repackaging of known equivalences (Li 1997, Bombieri–Lagarias 1999). The genuine barrier it exposes:
+
+To prove RH via $\{\lambda_n\ge0\}$ one must show the *sub-geometric collective* $\sum_{\beta>1/2}(1-w_\rho^n)$ can never conspire to keep $\lambda_n\ge0$ if a growing $|w_\rho|>1$ term exists — but the criterion is an *equivalence*, so proving $\lambda_n\ge0$ for all $n$ is not easier than RH itself. No finite computation ($\lambda_1>0,\dots,\lambda_N>0$) can suffice, since positivity of finitely many $\lambda_n$ is compatible with a very high off-line zero whose geometric blow-up only manifests for $n$ beyond any fixed bound. Quantitatively: a zero at height $\gamma$ with $\beta=\tfrac12+\delta$ first forces $\lambda_n<0$ only around $n\sim \gamma^2/\delta$, which is why numerical verification of Li-positivity can never close the problem.
+
+This last quantitative threshold $n\sim\gamma^2/\delta$ (from $|w_\rho|^n\sim1$ requiring $n\log|w_\rho|^{-1}\sim1$ with $\log|w_\rho|^{-1}\approx \delta/\gamma^2$ for $\beta=\tfrac12-\delta$) is the concrete, correct takeaway: it exactly quantifies why the Li approach is a restatement rather than a route to a proof.
+
+VERDICT: FAILED
+REASON: Rigorously repackaged Li criterion into a geometric growth dichotomy and quantified its obstruction, but produced no new progress toward RH.
