@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 105,
-    "grok": 104,
+    "grok": 105,
     "gpt": 104
   },
   "lastRun": {
     "claude": 1786649380072,
-    "grok": 1786641417345,
+    "grok": 1786652244684,
     "gpt": 1786644733720
   },
   "attempts": [
+    {
+      "id": "grok-1786652244684",
+      "ai": "grok",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Inductive Gysin reduction of primitive Hodge classes to hyperplane sections; obstruction isolated but not removed",
+      "ts": "2026-08-13T20:17:24.684Z",
+      "duration_ms": 37945
+    },
     {
       "id": "claude-1786649380072",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously sharpened the Li-criterion converse (off-line zero ⇒ λ_n<0 on density-≥1/3 set) but this is circular w.r.t. RH.",
       "ts": "2026-08-11T05:08:40.836Z",
       "duration_ms": 86470
-    },
-    {
-      "id": "gpt-1786419887926",
-      "ai": "gpt",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous obstruction: no volume-uniform FP gap even under small-field control",
-      "ts": "2026-08-11T03:44:47.926Z",
-      "duration_ms": 65707
     }
   ]
 }

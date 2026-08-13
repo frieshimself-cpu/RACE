@@ -1,0 +1,28 @@
+### Attempt: A conditional reduction for primitive Hodge classes via hyperplane sections
+
+Let \(X\subset\mathbb{P}^N\) be a smooth complex projective variety of dimension \(n\geq 2\). Write \(H^{2p}(X,\mathbb{Q})_{\mathrm{prim}}\) for the primitive part (with respect to the hyperplane class \(\omega=c_1(\mathcal{O}_X(1))\)) of the rational cohomology in degree \(2p\), and let
+\[
+\operatorname{Hdg}^p(X)_{\mathrm{prim}}:=H^{2p}(X,\mathbb{Q})_{\mathrm{prim}}\cap F^pH^{2p}(X,\mathbb{C})
+\]
+be the space of primitive rational Hodge classes of type \((p,p)\). The classical Lefschetz hyperplane theorem and the hard Lefschetz theorem reduce the full Hodge conjecture on \(X\) to the statement that every class in \(\operatorname{Hdg}^p(X)_{\mathrm{prim}}\) is algebraic for \(1\leq p\leq\lfloor n/2\rfloor\).
+
+Fix \(1\leq p\leq\lfloor n/2\rfloor\) and a primitive Hodge class \(\alpha\in\operatorname{Hdg}^p(X)_{\mathrm{prim}}\). Let \(Y\subset X\) be a smooth hyperplane section (which exists by Bertini). The Gysin morphism
+\[
+i_*:H^{2p-2}(Y,\mathbb{Q})\to H^{2p}(X,\mathbb{Q})
+\]
+and the restriction \(i^*\) fit into the primitive Lefschetz decomposition. In particular, the component of \(\alpha\) orthogonal to the image of \(i_*\) remains primitive on \(X\).
+
+**Lemma.** Suppose the Hodge conjecture holds for every smooth hyperplane section of \(X\) in codimension \(p-1\). If \(\alpha\) lies in the image of the Gysin map \(i_*\) after a finite sequence of further hyperplane sections (i.e., if \(\alpha\) is “inductively algebraic” under successive hyperplane cuts), then \(\alpha\) is algebraic on \(X\).
+
+*Proof sketch.* Proceed by descending induction on dimension. The base case \(\dim=2p\) is the classical Lefschetz \((1,1)\)-theorem when \(p=1\), and is assumed for higher \(p\) by the inductive hypothesis on hyperplane sections. Assume the claim holds in dimension \(<n\). Let \(Y=X\cap H\) be smooth. By the weak Lefschetz theorem the restriction
+\[
+i^*:H^{2p}(X,\mathbb{Q})_{\mathrm{prim}}\to H^{2p}(Y,\mathbb{Q})
+\]
+is injective for \(2p<n-1\) and has kernel controlled by the primitive part in the middle degree when \(2p=n-1\). The class \(i^*\alpha\) is again of Hodge type \((p,p)\). By the inductive hypothesis on \(Y\) (or by a further hyperplane cut if necessary to reach the range where weak Lefschetz is an isomorphism), \(i^*\alpha\) is algebraic on \(Y\), say \(i^*\alpha=\operatorname{cl}(Z)\) for a codimension-\(p\) cycle \(Z\) on \(Y\). The Gysin push-forward \(i_*Z\) is then a codimension-\(p\) cycle on \(X\) whose class differs from \(\alpha\) by a class supported on a lower-dimensional linear section. Repeating the cutting process finitely many times (at most \(n-2p\) times) exhausts the support and yields an algebraic cycle on \(X\) representing \(\alpha\), because each successive difference is primitive of lower dimension and therefore algebraic by induction. Hard Lefschetz identifies the primitive summands, so no extra transcendental classes are introduced. \(\square\)
+
+The reduction shows that the only remaining obstruction to the Hodge conjecture on \(X\) lies in those primitive classes that remain non-algebraic (and non-zero) after all possible hyperplane sections; such classes would have to be “genuinely transcendental” with respect to the Lefschetz pencil. No example of such a residual class is known, and the lemma converts the global problem into a question about the monodromy action on the vanishing cohomology of a Lefschetz pencil: if the monodromy representation admits no non-zero monodromy-invariant Hodge classes outside the algebraic part, the residual space vanishes.
+
+This is still far from a proof: the monodromy argument requires a separate verification that the only invariants are algebraic (known for many hypersurfaces by Deligne, but open in general). The lemma is nevertheless a precise inductive reduction that isolates the obstruction.
+
+VERDICT: PARTIAL
+REASON: Inductive Gysin reduction of primitive Hodge classes to hyperplane sections; obstruction isolated but not removed
