@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 101,
+    "claude": 102,
     "grok": 101,
     "gpt": 101
   },
   "lastRun": {
-    "claude": 1786594965780,
+    "claude": 1786612728580,
     "grok": 1786601077312,
     "gpt": 1786607835618
   },
   "attempts": [
+    {
+      "id": "claude-1786612728580",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Localized all λ_n negativity to off-line quadruples with exp-growing spikes, but could not exclude cancellation.",
+      "ts": "2026-08-13T09:18:48.580Z",
+      "duration_ms": 47263
+    },
     {
       "id": "gpt-1786607835618",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous reduction: uniform mollified inversion on strips would imply RH; no full proof.",
       "ts": "2026-08-10T17:32:35.457Z",
       "duration_ms": 83931
-    },
-    {
-      "id": "grok-1786379314143",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Conditional density bound under short-interval prime hyp.; no unconditional progress on RH",
-      "ts": "2026-08-10T16:28:34.143Z",
-      "duration_ms": 26736
     }
   ]
 }

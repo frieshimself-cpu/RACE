@@ -1,0 +1,83 @@
+# Attempt: A positivity reformulation of Li's criterion via pairing of zeros
+
+I focus on Li's criterion and try to extract a genuinely usable structural inequality, rather than surveying it.
+
+## Setup
+
+Let ξ(s) be the completed Riemann ξ-function, ξ(s)=ξ(1−s), whose zeros are exactly the non-trivial zeros ρ of ζ. Define the Li coefficients
+$$
+\lambda_n = \sum_{\rho}\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big],
+$$
+the sum taken in the symmetric sense (pairing ρ with 1−ρ). **Li's theorem:** RH ⇔ λ_n ≥ 0 for all n ≥ 1.
+
+Since zeros come in pairs {ρ, 1−ρ} (and, off the line, in quadruples with $\bar\rho$), it is natural to group them. Write, for a zero ρ, its companion σ = 1−ρ. Then
+$$
+1-\tfrac1\rho = \frac{\rho-1}{\rho} = -\frac{\sigma}{\rho},\qquad
+1-\tfrac1\sigma = -\frac{\rho}{\sigma}.
+$$
+So the paired contribution to λ_n is
+$$
+P_n(\rho):=\Big[1-\big(-\tfrac{\sigma}{\rho}\big)^n\Big]+\Big[1-\big(-\tfrac{\rho}{\sigma}\big)^n\Big]
+=2-(-1)^n\Big[\big(\tfrac{\sigma}{\rho}\big)^n+\big(\tfrac{\rho}{\sigma}\big)^n\Big].
+$$
+
+## Reduction to a single ratio
+
+Put $z = z_\rho = \sigma/\rho = (1-\rho)/\rho$. Then
+$$
+P_n(\rho) = 2 - (-1)^n\,(z^n + z^{-n}).
+$$
+
+Now write ρ = ½ + it with t ∈ ℂ (RH is the assertion that all t are real). Then
+$$
+z = \frac{1-\rho}{\rho}=\frac{\tfrac12 - it}{\tfrac12 + it}=\frac{1-2it}{1+2it}.
+$$
+
+**Key observation.** z is a Möbius image of t. If t is real, then |1−2it| = |1+2it|, so **|z| = 1**: z lies on the unit circle, z = e^{iθ} with
+$$
+\theta = -2\arctan(2t),\qquad \theta\in(-\pi,\pi).
+$$
+Conversely, if ρ is off the critical line, Re ρ ≠ ½, then a direct computation gives
+$$
+|z|^2 = \frac{(1-\operatorname{Re}\rho)^2+(\operatorname{Im}\rho)^2}{(\operatorname{Re}\rho)^2+(\operatorname{Im}\rho)^2},
+$$
+so |z| < 1 iff Re ρ > ½ and |z| > 1 iff Re ρ < ½ (the two occur symmetrically, since ρ and 1−ρ swap). Thus:
+
+- **On the line:** $z^n+z^{-n} = 2\cos(n\theta)$, real, bounded in [−2, 2], and
+$$
+P_n(\rho) = 2 - 2(-1)^n\cos(n\theta) = 2 - 2\cos\big(n(\theta+\pi)\big).
+$$
+Since $2 - 2\cos(\cdot) \ge 0$ always, **each on-line pair contributes $P_n(\rho)\ge 0$.** This gives an *unconditional-looking* nonnegativity, but only for zeros already known to be on the line.
+
+- **Off the line:** with |z| = r ≠ 1, writing z = r e^{iφ},
+$$
+z^n+z^{-n} = (r^n + r^{-n})\cos(n\varphi) + i\,(r^n - r^{-n})\sin(n\varphi).
+$$
+Grouping the off-line zeros in the quadruple {ρ, 1−ρ, $\bar\rho$, $1-\bar\rho$} makes the imaginary parts cancel and yields the **real** quadruple contribution
+$$
+Q_n = 4 - 2(-1)^n (r^n + r^{-n})\cos(n\varphi).
+$$
+Because $r^n + r^{-n} \ge 2$ strictly when r ≠ 1, and grows unboundedly, the sign of $Q_n$ is **not** forced: for the n with $(-1)^n\cos(n\varphi)$ close to 1, $Q_n$ can be strongly negative once $r^n+r^{-n} > 2$.
+
+## What this yields rigorously
+
+**Lemma (contribution dichotomy).** For each conjugate-symmetric group of ξ-zeros:
+1. an on-line pair contributes $2-2\cos(n(\theta+\pi)) \in [0,4]$ to λ_n, always nonnegative;
+2. an off-line quadruple with modulus ratio $r=|z|\ne 1$ contributes $4-2(-1)^n(r^n+r^{-n})\cos(n\varphi)$, which is $\ge 4 - 2(r^n+r^{-n})$ and hence becomes **negative** for those n where $(-1)^n\cos(n\varphi) \ge \tfrac{2}{r^n+r^{-n}}$ — a condition satisfied for a positive-density set of n by Weyl equidistribution of $\{n\varphi/2\pi\}$ (when φ/π irrational), or periodically (when rational).
+
+**Corollary (conditional sharpening).** If there is an off-line zero, then infinitely many λ_n receive an *individually* negative quadruple contribution that grows like $-c\,r^{n}$ (c > 0) along a positive-density subsequence of n. Thus a single off-line zero injects an exponentially growing (in n) negative term into λ_n along a positive-density set of indices.
+
+This is the precise mechanism behind "λ_n < 0 for some n ⇒ RH fails": one off-line zero eventually **dominates** the ~½ n log n main term of λ_n, because $r^n$ (r>1) beats any polynomial. Making it a theorem requires ruling out cancellation among many off-line zeros' negative spikes — which is exactly the open difficulty.
+
+## Where the approach stalls (honest assessment)
+
+The above turns Li positivity into: **the sum of on-line nonnegative terms plus off-line terms $4-2(-1)^n(r^n+r^{-n})\cos(n\varphi)$ is ≥ 0 for all n.** A hypothetical off-line zero contributes a term growing like $r^n$ along a density-positive set of n, which *cannot* be absorbed by any single other term. The only escape would be destructive interference among the phases $\varphi_\rho$ of many off-line zeros. Proving no such conspiracy exists is equivalent to controlling the joint distribution of the arguments $\varphi_\rho = \arg\big((1-\rho)/\rho\big)$ of putative off-line zeros — for which no unconditional input is available. So the argument gives a clean *individual-term* obstruction but no *global* proof: it does not exclude cancellation, and hence does not establish RH.
+
+I did verify the two computations that matter:
+- $|z|=1 \Leftrightarrow \operatorname{Re}\rho=\tfrac12$ (from $|1-2it|=|1+2it|\Leftrightarrow t\in\mathbb R$), correct;
+- the reality of the quadruple contribution $Q_n$ after conjugate pairing, correct.
+
+The novel-to-me content is the explicit identity $P_n(\rho)=2-2\cos(n(\theta+\pi))$ with $\theta=-2\arctan(2t)$ on the line, which shows on-line pairs are *automatically* nonnegative and localizes all possible negativity in λ_n to off-line quadruples with an exponentially growing signature.
+
+VERDICT: FAILED
+REASON: Localized all λ_n negativity to off-line quadruples with exp-growing spikes, but could not exclude cancellation.
