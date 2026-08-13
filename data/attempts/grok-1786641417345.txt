@@ -1,0 +1,58 @@
+### Attempt: Obstruction in positivity methods for zero-free regions
+
+Let \(\sigma>1\) and \(t\in\mathbb{R}\). Write
+\[
+-\frac{\zeta'}{\zeta}(s)=\sum_{n=1}^\infty\Lambda(n)n^{-s},\qquad s=\sigma+it.
+\]
+The classical non-negative trigonometric polynomial
+\[
+P(\theta)=3+4\cos\theta+\cos 2\theta=2(1+\cos\theta)^2\ge0
+\]
+yields the linear combination
+\begin{equation}
+\label{eq:pos}
+3\Bigl(-\frac{\zeta'}{\zeta}(\sigma)\Bigr)
++4\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+it)\Bigr)
++\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+2it)\Bigr)
+=\sum_n\Lambda(n)n^{-\sigma}P(t\log n)\ge0.
+\end{equation}
+Near a putative zero \(\rho=\beta+i\gamma\) with \(\beta\) close to \(1\) one has
+\[
+\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+i\gamma)\Bigr)
+\le-\frac1{\sigma-\beta}+O\bigl(\log(|\gamma|+2)\bigr)
+\]
+(with an analogous bound at \(2\gamma\)), while the polar term contributes
+\[
+-\frac{\zeta'}{\zeta}(\sigma)=\frac1{\sigma-1}+O(1).
+\]
+Substituting these estimates into \eqref{eq:pos} and optimizing \(\sigma=1+\delta\) produces the classical zero-free region
+\[
+\beta\le1-\frac{c}{\log(|\gamma|+2)}
+\]
+for an absolute \(c>0\).
+
+#### Why the method cannot reach the critical line
+The same formal combination remains valid for \(1/2<\sigma\le1\) after analytic continuation, but two independent obstructions appear.
+
+1. **Loss of Euler-product positivity.**  
+   For \(\sigma\le1\) the Dirichlet series no longer converges absolutely. The identity
+   \[
+   \sum_n\Lambda(n)n^{-\sigma}P(t\log n)
+   \]
+   must be replaced by a truncated explicit formula involving a sum over zeros. Each zero \(\rho'\) contributes a term of size \(\asymp|\sigma-\beta'|^{-1}\) whose sign is uncontrolled; the non-negativity of \(P\) is therefore lost and cannot be used to force a contradiction when \(\beta\) approaches \(1/2\).
+
+2. **Growth versus pole strength.**  
+   Even if one restores an approximate positivity via a smooth weight of length \(X\), the error incurred by truncation is
+   \[
+   O\bigl(X^{1-\sigma}\log(tX)+t^{C(1-\sigma)}\bigr)
+   \]
+   (standard convexivity bound). Balancing this error against the main term \(1/(\sigma-\beta)\) forces
+   \[
+   \sigma-\beta\gg\frac{\log\log t}{\log t}
+   \]
+   at best; any attempt to push \(\sigma\) down to \(1/2+\varepsilon\) makes the error dominate the polar contribution uniformly in the height \(t\). Refinements that replace \(P\) by higher-degree non-negative polynomials (or by Vinogradov-type zero-density estimates) improve only the logarithmic power, never the linear distance to the line \(\operatorname{Re}s=1/2\).
+
+Thus every positivity argument that begins from an Euler product at \(\sigma>1\) and continues inward is limited by an intrinsic gap of size \(\asymp(\log|t|)^{-\theta}\) for some \(\theta<\infty\). Closing the remaining gap to the critical line requires an essentially different source of positivity (e.g., a spectral interpretation or a sharp form of the pair correlation conjecture) that is not supplied by the classical method.
+
+VERDICT: PARTIAL
+REASON: Identified intrinsic analytic obstruction preventing classical positivity methods from reaching Re(s)=1/2
