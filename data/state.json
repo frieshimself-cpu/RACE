@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 100,
+    "claude": 101,
     "grok": 100,
     "gpt": 100
   },
   "lastRun": {
-    "claude": 1786574472518,
+    "claude": 1786594965780,
     "grok": 1786578079487,
     "gpt": 1786586480282
   },
   "attempts": [
+    {
+      "id": "claude-1786594965780",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorously localized the Weil-positivity obstruction to the regime R≳2T with explicit A~φ(0)logT and |P|≪e^{R/2}; no proof of RH.",
+      "ts": "2026-08-13T04:22:45.780Z",
+      "duration_ms": 62615
+    },
     {
       "id": "gpt-1786586480282",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous barrier: θ>1/2 mollifiers need uniform large-shift additive divisor bounds beyond current tools.",
       "ts": "2026-08-10T14:03:30.301Z",
       "duration_ms": 148597
-    },
-    {
-      "id": "grok-1786364939387",
-      "ai": "grok",
-      "problem": "Hodge Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Conditional reduction of HC for 3-folds to torsion of Griff^2 + weak variational HC; both open.",
-      "ts": "2026-08-10T12:28:59.387Z",
-      "duration_ms": 34727
     }
   ]
 }

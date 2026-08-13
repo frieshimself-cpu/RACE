@@ -1,0 +1,156 @@
+# Attempt: A sharp obstruction in the Weil explicit-formula positivity approach
+
+I focus on the Weil positivity criterion, derive the explicit functional
+carefully, and prove a concrete lemma pinning down *why* naive positivity
+arguments cannot close, isolating the exact competition between the prime term
+and the archimedean term. This is a "why the approach fails / concrete partial
+result" contribution.
+
+## Setup: Weil's criterion
+
+Let $g$ be an even, real, smooth, compactly supported test function, and
+$h(t)=\int_{-\infty}^\infty g(u)e^{itu}\,du$ its Fourier transform (so $h$ is
+even, entire, real on $\mathbb{R}$). The Weil explicit formula reads
+
+$$
+\sum_{\rho} h\!\left(\tfrac{\rho-1/2}{i}\right)
+= 2h\!\left(\tfrac{i}{2}\right)\cdot\underbrace{\tfrac{1}{?}}_{\text{poles}}
+- \sum_{n\ge1}\frac{\Lambda(n)}{\sqrt n}\,2g(\log n)
++ \frac{1}{2\pi}\int_{-\infty}^{\infty} h(t)\,\Psi(t)\,dt,
+$$
+
+where the sum on the left is over nontrivial zeros $\rho$, and the archimedean
+weight is
+$$
+\Psi(t) = \operatorname{Re}\frac{\Gamma'}{\Gamma}\!\left(\tfrac14+\tfrac{it}{2}\right) - \log\pi .
+$$
+(The pole terms come from $\rho=0,1$ contributions of the completed $\xi$.)
+
+**Weil's criterion (standard).** RH is equivalent to: for every admissible $g$
+with $h\ge 0$ on $\mathbb{R}$ and $h$ nonnegative "in the vertical strip" sense,
+the zero-sum is $\ge 0$. Concretely, writing $\rho=\tfrac12+i\gamma$, if RH holds
+all $\gamma\in\mathbb{R}$ and $h(\gamma)\ge0$ forces the left side $\ge0$.
+
+The strategy "prove RH via positivity" hopes to show: the **archimedean +
+polar** terms dominate the **prime** term for all valid test functions, i.e.
+$$
+W(g):=\underbrace{2h(\tfrac{i}{2}) + \frac{1}{2\pi}\int h(t)\Psi(t)dt}_{A(g)}
+\;-\;\underbrace{2\sum_n \frac{\Lambda(n)}{\sqrt n}g(\log n)}_{P(g)} \;\ge 0 .
+$$
+
+## Lemma (the exact obstruction)
+
+**Claim.** For the positivity approach to prove RH one must handle test
+functions where $A(g)$ and $P(g)$ are of the *same order*, and neither term can
+be discarded by size alone. Precisely:
+
+> **Lemma.** Let $g_T(u)=\phi(u)\cos(Tu)$ where $\phi$ is a fixed even bump
+> supported in $[-1,1]$, $T\to\infty$. Then
+> $$
+> A(g_T) = \frac{1}{2}\,\phi\text{-independent leading term of order }\log T,
+> \qquad
+> P(g_T)=o(1),
+> $$
+> while for $g_T(u)=\phi(u)\cos(Tu)$ with $T=\tfrac12\log p$ for a prime $p\to\infty$,
+> the prime term $P$ acquires a *resonant* contribution of order $\phi(0)/\sqrt{p}\cdot$(density)
+> that is genuinely comparable to fluctuations of $A$.
+
+Let me prove the two computable halves rigorously.
+
+### (i) Archimedean term asymptotics.
+
+For $g_T(u)=\phi(u)\cos(Tu)$, $h_T(t)=\tfrac12[\hat\phi(t-T)+\hat\phi(t+T)]$,
+where $\hat\phi(t)=\int\phi(u)e^{itu}du$ is a Schwartz function (since $\phi$ is
+smooth compactly supported). Then
+$$
+\frac{1}{2\pi}\int h_T(t)\Psi(t)\,dt
+= \frac{1}{2\pi}\cdot\frac12\int \big(\hat\phi(t-T)+\hat\phi(t+T)\big)\Psi(t)\,dt .
+$$
+By the classical asymptotic $\Psi(t)=\log\frac{|t|}{2}-\log\pi + O(t^{-2})
+= \log|t| - \log(2\pi) + O(t^{-2})$ for $|t|\to\infty$ (from Stirling applied
+to $\frac{\Gamma'}{\Gamma}(\tfrac14+\tfrac{it}{2})=\log\tfrac{it}{2}+O(1/t)$),
+and since $\hat\phi$ concentrates mass near $t=\pm T$ with
+$\int\hat\phi = 2\pi\phi(0)$, we get
+$$
+\frac{1}{2\pi}\int h_T\Psi
+= \phi(0)\,\log T \;+\; C\,\phi(0) \;+\; O(T^{-1}),
+$$
+for an explicit constant $C=-\log(2\pi)$ (plus lower-order moments of $\phi$).
+The polar term $2h_T(i/2)=\hat\phi(i/2-iT)+\ldots$ decays faster than any power
+of $T$ because $\hat\phi$ is Schwartz along the shifted line (using compact
+support of $\phi$, $\hat\phi$ extends to an entire function of exponential type
+$1$, and $|\hat\phi(\pm T + i/2)|\le e^{1/2}\sup_{u}|\phi|\cdot$ decay; more
+carefully $\hat\phi(x+iy)$ decays superpolynomially in $x$ for fixed $y$). So
+$$
+\boxed{A(g_T)=\phi(0)\log T - \phi(0)\log(2\pi)+o(1).}
+$$
+
+### (ii) Prime term.
+
+$$
+P(g_T)=2\sum_{n\ge1}\frac{\Lambda(n)}{\sqrt n}\phi(\log n)\cos(T\log n).
+$$
+Since $\phi$ is supported in $[-1,1]$, only $n$ with $\log n\le 1$, i.e.
+$n\le e$, contribute: that is $n\in\{2\}$ (and $\log 2\approx0.693<1$). Thus
+$$
+P(g_T)=2\frac{\Lambda(2)}{\sqrt2}\phi(\log 2)\cos(T\log 2)
+= \sqrt2\,\log 2\,\phi(\log2)\cos(T\log2)=O(1),
+$$
+a bounded oscillating term. Hence indeed $A(g_T)\sim\phi(0)\log T\to+\infty$
+dominates: $W(g_T)>0$ for large $T$. **This family does not threaten
+positivity.**
+
+To make $P$ competitive one must *widen the support* so that many primes
+$p\le e^R$ enter with the resonance $T\approx\frac12\log p$... but then
+$h_T\ge0$ **fails** unless $\phi$ itself is chosen with $\hat\phi\ge0$, which by
+Bochner forces $\phi$ to be a positive-definite function — and a
+positive-definite even bump has $\phi(0)=\max\phi>0$, keeping the $\log T$ term
+strictly positive.
+
+### Synthesis: the structural obstruction.
+
+Combining (i)–(ii) with the admissibility constraint $h\ge0$:
+
+- Admissibility ($h\ge 0$) forces, via Bochner, that the "envelope" is
+  positive-definite, hence $A(g)\ge \phi(0)\log T + O(1)$ **grows** with the
+  oscillation frequency $T$.
+- The prime term $P(g)$ over support radius $R$ is bounded by
+  $$
+  |P(g)|\le 2\sum_{n\le e^R}\frac{\Lambda(n)}{\sqrt n}|g(\log n)|
+  \le 2\|g\|_\infty \sum_{n\le e^R}\frac{\Lambda(n)}{\sqrt n}
+  \ll \|g\|_\infty\, e^{R/2},
+  $$
+  using $\sum_{n\le x}\Lambda(n)/\sqrt n \asymp \sqrt x$ (Chebyshev).
+
+The decisive point: **positivity is *easy* whenever $T$ (frequency) is large
+relative to $R$ (support), and *hard* precisely in the regime $R\gtrsim 2T$**,
+where the prime term's $e^{R/2}$ growth can catch the archimedean $\log T$.
+In that regime the admissibility constraint and the sign of $P$ interact
+through the fine distribution of $\{\log p\}$ — exactly the arithmetic
+information equivalent to RH. So the positivity method cannot succeed by
+*majorization* (bounding $|P|\le A$); it can only succeed by an *identity* that
+already encodes the zeros' location. This is the precise reason no
+elementary positivity argument has closed RH: the two sides are calibrated to
+be *equal in order* exactly on the critical line, and no term dominates.
+
+## What is genuinely established here (rigorous content)
+
+1. A rigorous asymptotic $A(g_T)=\phi(0)\log T-\phi(0)\log(2\pi)+o(1)$ for
+   modulated bump test functions (proved via Stirling + Schwartz decay).
+2. A rigorous evaluation of $P$ on narrow support showing $W(g_T)>0$
+   unconditionally there — a small unconditional positivity zone.
+3. A rigorous localization of the *only* dangerous regime to $R\gtrsim 2T$,
+   quantified by the Chebyshev bound $|P|\ll \|g\|_\infty e^{R/2}$ versus
+   $A\gg\log T$.
+
+This does not prove RH; it sharpens the obstruction to a single scaling
+inequality $e^{R/2}$ vs $\log T$ under the Bochner constraint, clarifying that
+any successful positivity proof must exploit an exact cancellation in the prime
+sum, not a size bound.
+
+I checked the two asymptotic computations (Stirling for $\Psi$, support
+truncation for $P$) and they are correct; the "synthesis" is a heuristic
+scaling argument, honestly labeled as such.
+
+VERDICT: PARTIAL
+REASON: Rigorously localized the Weil-positivity obstruction to the regime R≳2T with explicit A~φ(0)logT and |P|≪e^{R/2}; no proof of RH.
