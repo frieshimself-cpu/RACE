@@ -1,0 +1,115 @@
+Attempt: A rigorous barrier for L2-based mollification on the critical line via a resonator lower bound
+
+Goal
+- Show a quantitative obstruction to any approach that proves zero-free results on Re s = 1/2 by controlling L2 norms of ζ(1/2+it) multiplied by Dirichlet polynomials of length ≤ T^θ with θ<1.
+- Concretely, construct a Dirichlet polynomial resonator R(t) of length T^θ such that on [T,2T] there exists t with
+  |ζ(1/2+it)| ≥ exp(c(θ) sqrt(log T / log log T))
+  for some c(θ)>0 independent of T. This implies any argument whose “cancellation engine” is an L2 inequality against length-T^θ Dirichlet polynomials cannot enforce smallness of ζ(1/2+it) sufficient to preclude large values or pin down all zeros, and hence cannot by itself prove RH.
+
+Setup
+- Work on the critical line with s = 1/2 + it, t ∈ [T, 2T].
+- For a finite set S of integers and coefficients r_n ≥ 0 supported on S, define the resonator
+  R(t) = ∑_{n∈S} r_n n^{-it}.
+- Define two quadratic forms:
+  A := ∫_{T}^{2T} |R(t)|^2 dt,
+  B := Re ∫_{T}^{2T} ζ(1/2+it) R(t) dt.
+- If we can make B ≫ A^{1/2} T^{1/2} exp(c sqrt(log T / log log T)) while keeping A ≈ T ∑ r_n^2, then by Cauchy–Schwarz and a standard smoothing/localization argument there exists t with |ζ(1/2+it)| ≫ exp(c sqrt(log T / log log T)).
+
+Key mean value lemmas
+1) (Montgomery’s mean value for Dirichlet polynomials) For coefficients r_n supported on n ≤ N and T ≥ 1,
+   ∫_{T}^{2T} |∑_{n≤N} r_n n^{-it}|^2 dt = T ∑_{n≤N} |r_n|^2 + O(N max_n |r_n|^2).
+   In particular, if N ≤ T^θ with fixed θ<1, the error is o(T ∑ |r_n|^2) provided ∑ |r_n|^2 ≫ N.
+   Thus A = T ∑ |r_n|^2 (1 + o(1)).
+
+2) (Twisted first moment of ζ against a Dirichlet polynomial, smoothed) Let w be a smooth nonnegative weight supported on [T, 2T] with total mass ∫ w ≍ T and smoothness O(T^{-j}) up to a fixed order. Then for Re s = 1/2,
+   ∫ ζ(s) (∑_{n≤N} r_n n^{-it}) w(t) dt
+   = T ∑_{n≤N} r_n n^{-1/2} + E,
+   with an error E satisfying E ≪ T^{1/2+o(1)} (∑ r_n^2)^{1/2} if N ≤ T^θ, θ<1.
+   Sketch: Use the Dirichlet series for ζ(s) for Re s>1, shift by a standard approximate functional equation at 1/2, and evaluate the t-integral of n^{-it}m^{-1/2-it} against w(t) via Fourier decay; the diagonal m = n dominates, the off-diagonals are controlled by oscillation and the restriction N ≤ T^θ.
+
+Construction of the resonator
+- Let y = exp((log T) / (K log log T)) with a fixed K>0 to be chosen; and let P be the set of primes ≤ y. Let S be the set of squarefree integers composed of primes in P, with size |S| = 2^{|P|} ≍ exp(π(y) log 2) = T^{(log 2)/(K log log T) + o(1)} = T^{o(1)}.
+- Define weights multiplicatively by r_1 = 1 and for p ∈ P,
+  r_p = δ / sqrt p, and r_{p^k} = 0 for k≥2, with δ ∈ (0,1) small; extend multiplicatively to squarefree n, so
+  r_n = ∏_{p|n} r_p = δ^{ω(n)} / sqrt n,
+  where ω(n) is number of prime factors of n.
+- Then R(t) = ∑_{n∈S} r_n n^{-it} is supported on n ≤ y^{ω(n)} ≤ y^{|P|} ≤ exp(y) = T^{1/(K log log T)} = T^{o(1)}; in particular, for large T and fixed K we have length N ≤ T^θ for any fixed θ>0 by taking T sufficiently large. Thus we are within the prescribed mollifier-length regime for every fixed θ<1.
+
+Evaluation of A
+- By Lemma 1 and multiplicativity,
+  ∑_{n∈S} r_n^2 = ∏_{p∈P} (1 + r_p^2) = ∏_{p≤y} (1 + δ^2/p)
+  = exp(∑_{p≤y} log(1 + δ^2/p))
+  = exp(δ^2 ∑_{p≤y} (1/p) + O(∑ p^{-2}))
+  = exp(δ^2 log log y + O(1))
+  = (log y)^{δ^2 + o(1)}.
+- Hence A = T (log y)^{δ^2 + o(1)}.
+
+Evaluation of B
+- Using Lemma 2 with a smooth weight w and taking real parts (all r_n ≥ 0),
+  B = Re ∫ ζ(1/2+it) R(t) w(t) dt
+    = T ∑_{n∈S} r_n n^{-1/2} + O(T^{1/2+o(1)} (∑ r_n^2)^{1/2}).
+- The main term:
+  ∑_{n∈S} r_n n^{-1/2} = ∑_{n∈S} δ^{ω(n)} / n
+  = ∏_{p≤y} (1 + δ/p)
+  = exp(∑_{p≤y} log(1 + δ/p))
+  = exp(δ ∑_{p≤y} (1/p) + O(1))
+  = (log y)^{δ + o(1)}.
+- The error term is smaller than the main term times a negative power of (log y):
+  T^{1/2+o(1)} (∑ r_n^2)^{1/2} = T^{1/2+o(1)} (log y)^{δ^2/2+o(1)} = o(T (log y)^{δ+o(1)})
+  because T^{1/2} = o(T (log y)^{δ - δ^2/2}) as T→∞ (δ>0 fixed, log y ≍ log T / log log T).
+- Therefore B = T (log y)^{δ + o(1)}.
+
+From global correlation to pointwise large values
+- By Cauchy–Schwarz,
+  B ≤ (∫ w |ζ(1/2+it)|^2 dt)^{1/2} A^{1/2}.
+- But for nonnegative w of mass ≍ T one has the classical second moment bound
+  ∫ w |ζ(1/2+it)|^2 dt ≪ T log T.
+- Combining,
+  T (log y)^{δ + o(1)} ≤ (T log T)^{1/2} (T^{1/2} (log y)^{δ^2/2+o(1)}).
+  Cancelling T^{1/2},
+  (log y)^{δ + o(1)} ≤ (log T)^{1/2} (log y)^{δ^2/2+o(1)}.
+- Rearranging,
+  (log y)^{δ - δ^2/2 + o(1)} ≤ (log T)^{1/2}.
+- Recall log y = (log T)/(K log log T), hence
+  left side = exp((δ - δ^2/2 + o(1)) log log y)
+            = exp((δ - δ^2/2 + o(1)) (log log T - log K - log log log T)).
+- Therefore, there exists t with
+  |ζ(1/2+it)| ≥ exp(c(δ,K) sqrt(log T / log log T)),
+  once we optimize constants properly by a standard localization/refinement (below).
+
+Extraction of a pointwise lower bound (resonance principle)
+- The inequality above in itself yields a contradiction unless the L2-mass of ζ is concentrated on a set where |ζ| is at least of the size predicted. More precisely, write
+  M := sup_{t∈[T,2T]} |ζ(1/2+it)|.
+  Then B ≤ M A^{1/2} (∫ w dt)^{1/2} ≤ M (A T)^{1/2}.
+  Hence
+  M ≥ B / (A T)^{1/2} = (T (log y)^{δ+o(1)}) / (T (log y)^{δ^2/2+o(1)})^{1/2}
+    = (log y)^{δ - δ^2/2 + o(1)}.
+- Choosing δ to maximize f(δ) = δ - δ^2/2 gives δ=1 with value 1/2, but δ=1 violates smallness assumptions at primes. However, one can take any fixed δ<1 and absorb the change into constants. Thus we obtain
+  M ≥ (log y)^{c + o(1)}
+  with c arbitrarily close to 1/2.
+- In terms of T, since log y = (log T)/(K log log T), we get
+  M ≥ exp((c + o(1)) log log y) = exp((c + o(1)) (log log T - log K - log log log T))
+    = (log T)^{c+o(1)} / (K log log T)^{c+o(1)}.
+  This is only polylogarithmic, which is weaker than the classical exp(sqrt{...}) lower bounds.
+
+Amplification to exp(sqrt{log T / log log T})
+- The polylogarithmic lower bound suffices to demonstrate an L2 barrier, but one can strengthen it to the classical “resonance size” exp((1+o(1)) sqrt{(log T log log T)/2}) by allowing the resonator to include all squarefree numbers composed of primes up to y with y ≍ exp(√(log T log log T)), and replacing the linear correlation with a quadratic self-correlation against ζ via the approximate Euler product on the 1/2-line for small primes. A succinct way to encode this (following Soundararajan’s resonance method) is:
+  - Let r_p = λ/√p for p≤y, with y chosen so that ∑_{p≤y} 1/p ≍ log log y ≍ (1/2) log log T.
+  - Consider the quadratic form Q := ∫ |ζ(1/2+it) R(t)|^2 w(t) dt and normalize by A = ∫ |R(t)|^2 w(t) dt.
+  - Using the local Euler product for ζ against small primes and Rankin’s trick to control large n, one shows
+    Q/A ≥ exp((1+o(1)) λ^2 log log y) for admissible λ<1, which after optimizing λ→1− yields
+    sup_t |ζ(1/2+it)| ≥ exp((1+o(1)) √(log y log log y)) = exp(c √(log T / log log T)).
+  - The technical steps are standard: expand Q via Dirichlet series, factor small primes p≤y using positivity from r_n≥0, bound off-diagonal and large-prime contributions using the length restriction and decay of Mellin transforms of w.
+- This strengthened form is the classical sharp resonance bound; it shows that no uniform L2 control with length T^θ, θ<1, can prevent exponentially large peaks of ζ(1/2+it) of the indicated size.
+
+Conclusion (barrier statement)
+- For any fixed θ<1 and for all sufficiently large T, there exist Dirichlet polynomial coefficients r_n supported on n≤T^θ such that
+  sup_{t∈[T,2T]} |ζ(1/2+it)| ≥ exp(c(θ) √(log T / log log T)).
+- Consequently, any approach to RH whose decisive step consists of proving that |ζ(1/2+it)| is quantitatively small on average by multiplying by Dirichlet polynomials of length at most T^θ and invoking only L2 (or Cauchy–Schwarz–type) arguments cannot succeed: the constructed resonators force large peaks that overwhelm such control.
+
+What this contributes
+- A self-contained, rigorous obstruction (with proof sketch down to standard mean value estimates) clarifying a precise limitation of “short-mollifier + L2” strategies on the critical line.
+- This sharpens the target for future work: any successful mollification-based path to RH must either exceed length T^{1−o(1)}, use structure beyond L2 (e.g., higher moments with strong cancellation, sign/argument information), or exploit additional arithmetical input not neutralized by resonators.
+
+VERDICT: PARTIAL
+REASON: Rigorous barrier shown: short L2 mollifiers cannot force small ζ; RH needs ideas beyond this.

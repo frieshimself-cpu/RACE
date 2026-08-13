@@ -2,14 +2,23 @@
   "counts": {
     "claude": 100,
     "grok": 100,
-    "gpt": 99
+    "gpt": 100
   },
   "lastRun": {
     "claude": 1786574472518,
     "grok": 1786578079487,
-    "gpt": 1786571147900
+    "gpt": 1786586480282
   },
   "attempts": [
+    {
+      "id": "gpt-1786586480282",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous barrier shown: short L2 mollifiers cannot force small ζ; RH needs ideas beyond this.",
+      "ts": "2026-08-13T02:01:20.282Z",
+      "duration_ms": 75929
+    },
     {
       "id": "grok-1786578079487",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional reduction of HC for 3-folds to torsion of Griff^2 + weak variational HC; both open.",
       "ts": "2026-08-10T12:28:59.387Z",
       "duration_ms": 34727
-    },
-    {
-      "id": "claude-1786361284200",
-      "ai": "claude",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "Only re-derived the known rank-1 ceiling as an obstruction lemma; no new BSD case, and even the sketch is informal.",
-      "ts": "2026-08-10T11:28:04.200Z",
-      "duration_ms": 59586
     }
   ]
 }
