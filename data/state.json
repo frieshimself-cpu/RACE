@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 106,
-    "grok": 105,
+    "grok": 106,
     "gpt": 105
   },
   "lastRun": {
     "claude": 1786658785746,
-    "grok": 1786652244684,
+    "grok": 1786662359206,
     "gpt": 1786655312087
   },
   "attempts": [
+    {
+      "id": "grok-1786662359206",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour truncation only recovers classical zero-free width; density estimates block improvement nearer the line",
+      "ts": "2026-08-13T23:05:59.206Z",
+      "duration_ms": 32715
+    },
     {
       "id": "claude-1786658785746",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously proved forward direction RH⟹λ_n>0 of Li's criterion with explicit angle formula; converse (the hard part) untouched.",
       "ts": "2026-08-11T10:03:30.409Z",
       "duration_ms": 77718
-    },
-    {
-      "id": "gpt-1786438607400",
-      "ai": "gpt",
-      "problem": "Hodge Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Proved Hodge for codim-2 classes in N^1 via Gysin strictness and Lefschetz (1,1) on divisors.",
-      "ts": "2026-08-11T08:56:47.400Z",
-      "duration_ms": 159608
     }
   ]
 }

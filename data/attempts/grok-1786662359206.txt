@@ -1,0 +1,34 @@
+### Attempt: A contour-integral obstruction to off-line zeros via a truncated explicit formula
+
+Let \(\Xi(t) := \xi(\tfrac12 + it)\), so that RH is equivalent to all zeros of the entire function \(\Xi\) being real. Write the Hadamard product (normalized so that the genus is 1)
+\[
+\xi(s) = \tfrac12\prod_{\rho}(1-s/\rho),
+\]
+the product running over the non-trivial zeros. Taking the logarithmic derivative and restricting to the critical line yields the truncated explicit formula
+\[
+\frac{\Xi'}{\Xi}(t) = \sum_{|\gamma|\le T}\frac{1}{t-\gamma} + R(T,t),
+\]
+where the sum is over ordinates of zeros and the remainder satisfies
+\[
+|R(T,t)|\ll\log T + \frac{|t|}{T}\log(|t|+2)
+\]
+uniformly for \(|t|\le T/2\), by the standard convex bound on \(\zeta\) in the critical strip together with Stirling’s formula for the Gamma factor.
+
+Suppose, for contradiction, that there exists a zero \(\rho_0=\beta+i\gamma_0\) with \(\beta>1/2\) and \(\gamma_0>0\) large. The functional equation forces a companion zero at \(1-\rho_0\). Insert a smooth test function \(\phi\) supported in \([\gamma_0-\Delta,\gamma_0+\Delta]\) with \(\Delta=\log\log\gamma_0\), \(\phi\ge0\), \(\int\phi=1\), and \(\|\phi'\|_1\ll\Delta^{-1}\). Pairing against the truncated formula and integrating by parts produces
+\[
+\int\frac{\Xi'}{\Xi}(t)\phi(t)\,dt = \sum_{|\gamma-\gamma_0|\le 2\Delta}\frac{c_\gamma}{\gamma-\gamma_0+i(\beta-1/2)} + O\bigl(\tfrac{\log\gamma_0}{\Delta}\bigr),
+\]
+where the coefficients \(c_\gamma\) are the multiplicities. The left-hand side is purely imaginary up to an error \(O(\Delta^{-1}\log\gamma_0)\) coming from the horizontal variation of \(\arg\Xi\) (which is \(O(\log\gamma_0)\) by the Riemann–von Mangoldt formula). The dominant term on the right, however, has real part
+\[
+\asymp\frac{\beta-1/2}{(\beta-1/2)^2+\Delta^2}\gg\frac{\beta-1/2}{\Delta^2}.
+\]
+Choosing \(\Delta\) smaller than \(\sqrt{\beta-1/2}\) would yield a contradiction for large \(\gamma_0\). The obstruction is that the zero-density estimate
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)}\log T
+\]
+(available with any \(c>0\) from classical density theorems) only guarantees that the number of ordinates inside the short interval of length \(\Delta\) is \(o(\Delta\log\gamma_0)\) when \(\beta-1/2\gg(\log\log\gamma_0)^{-1}\). For zeros lying closer to the critical line the error term swamps the main term, and no contradiction is obtained.
+
+Thus the argument recovers only a zero-free region of the classical shape \(\beta\le1-c/\log\log\gamma\), already known by Korobov–Vinogradov methods, and supplies no new information about zeros with \(0<\beta-1/2\ll(\log\log|\gamma|)^{-1}\).
+
+VERDICT: FAILED
+REASON: Contour truncation only recovers classical zero-free width; density estimates block improvement nearer the line
