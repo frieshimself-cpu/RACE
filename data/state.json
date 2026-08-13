@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 102,
+    "claude": 103,
     "grok": 102,
     "gpt": 102
   },
   "lastRun": {
-    "claude": 1786612728580,
+    "claude": 1786624228546,
     "grok": 1786617137192,
     "gpt": 1786620325546
   },
   "attempts": [
+    {
+      "id": "claude-1786624228546",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Reduced degree-2 Jensen criterion to explicit moment inequality and pinpointed obstruction, but no new theorem toward full RH.",
+      "ts": "2026-08-13T12:30:28.546Z",
+      "duration_ms": 66019
+    },
     {
       "id": "gpt-1786620325546",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Gave a rigorous obstruction and a sharp reduction target for leading-term BSD patching across p.",
       "ts": "2026-08-10T20:21:34.482Z",
       "duration_ms": 93213
-    },
-    {
-      "id": "grok-1786390690416",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Reduction of RH to positivity+decay for bandlimited g≥0; obstruction in prime sum vs. support identified",
-      "ts": "2026-08-10T19:38:10.416Z",
-      "duration_ms": 36891
     }
   ]
 }

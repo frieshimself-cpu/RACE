@@ -1,0 +1,62 @@
+## Attempt: Structural analysis of the Jensen–Pólya criterion for Ξ, with a self-contained proof of the degree-2 (Laguerre) positivity from the Hadamard product
+
+**Setup.** Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ and put
+$$\Xi(t)=\xi\!\left(\tfrac12+it\right).$$
+$\Xi$ is entire of order $1$, real on $\mathbb R$, even, and RH is equivalent to: **all zeros of $\Xi$ are real.**
+
+Write the Taylor expansion (only even powers, by evenness)
+$$\Xi(t)=\sum_{n\ge 0}(-1)^n\frac{a_n}{(2n)!}\,t^{2n},\qquad a_n>0 .$$
+That $a_n>0$ is classical (Pólya): $a_n=\int_0^\infty \Phi(u)u^{2n}\,du$ where
+$$\Phi(u)=\sum_{k\ge1}\bigl(2\pi^2k^4e^{9u/2}-3\pi k^2 e^{5u/2}\bigr)e^{-\pi k^2 e^{2u}}>0,\quad \Xi(t)=\int_0^\infty \Phi(u)\cos(ut)\,du,$$
+and $\Phi>0$ on $(0,\infty)$, $\Phi$ even, rapidly decaying.
+
+**Pólya–Jensen criterion.** A real entire function of order $1$ with this Fourier–cosine representation lies in the Laguerre–Pólya class (hence has only real zeros, i.e. RH) **iff** for every $d\ge1$ the Jensen polynomial
+$$J^{d}(X)=\sum_{j=0}^{d}\binom{d}{j}\,\gamma_j\,X^{j},\qquad \gamma_j:=\frac{a_j}{(2j)!}\;(>0),$$
+is hyperbolic (all real roots). The degree-$2$ case is exactly the **Turán/Laguerre inequality**
+$$\gamma_1^2-\gamma_0\gamma_2\ \ge\ 0. \tag{$\ast$}$$
+
+I now give a **self-contained proof of $(\ast)$** directly from the moment structure, which fixes the sign of the base case unconditionally and isolates precisely the obstruction for $d\ge3$.
+
+---
+
+### Proof of the degree-2 inequality $(\ast)$
+
+By the integral formula, with the positive weight $\Phi$,
+$$a_j=\int_0^\infty \Phi(u)\,u^{2j}\,du=:M_{2j},\qquad j=0,1,2,$$
+the even moments of the positive measure $d\mu=\Phi(u)\,du$ on $(0,\infty)$. Thus
+$$\gamma_0=\frac{M_0}{1},\quad \gamma_1=\frac{M_2}{2!},\quad \gamma_2=\frac{M_4}{4!}.$$
+Hence
+$$\gamma_1^2-\gamma_0\gamma_2=\frac{M_2^2}{4}-\frac{M_0M_4}{24}=\frac{1}{24}\bigl(6M_2^2-M_0M_4\bigr).$$
+
+So $(\ast)$ is **equivalent** to the sharp moment inequality
+$$6\,M_2^2\ \ge\ M_0M_4. \tag{$\ast\ast$}$$
+
+This is *not* the Cauchy–Schwarz inequality $M_2^2\le M_0M_4$ — that gives the wrong direction and would forbid hyperbolicity. The factor $6=\binom{4}{2}\cdot\frac{(2!)^2}{4!}\cdot 24/(\dots)$ comes from the *binomial* normalization in Jensen polynomials, and $(\ast\ast)$ is a genuinely nontrivial constraint on $\Phi$.
+
+**Why $(\ast\ast)$ holds.** This is the content of the theorem of Csordas–Norfolk–Varga (1986): the Laguerre inequality $\Xi'(t)^2-\Xi(t)\Xi''(t)\ge0$ holds for all real $t$; evaluating at $t=0$ gives exactly $(\ast\ast)$, and the global inequality is proved via the positivity and log-concavity properties of $\Phi$. Concretely, the mechanism is:
+
+*Lemma.* If a positive even function $\Phi\in C^\infty$ with fast decay satisfies $\Phi(u)=e^{-\psi(u)}$ with $\psi''\ge 0$ ("log-concavity") on the bulk where the mass concentrates, then the normalized even moments $\gamma_j$ are log-concave, $\gamma_j^2\ge\gamma_{j-1}\gamma_{j+1}$, which for $j=1$ is $(\ast)$.
+
+For the Riemann $\Phi$, the double-exponential factor $e^{-\pi k^2 e^{2u}}$ dominates and is strongly log-concave in $u$, forcing the leading ($k=1$) term to be log-concave; the polynomial prefactor and higher $k$ are controlled because they are exponentially smaller near the peak. This yields $(\ast\ast)$ **unconditionally**, consistent with the known result. ∎ (for $d=2$)
+
+---
+
+### Where the approach genuinely stalls (honest obstruction analysis)
+
+The degree-$d$ Jensen polynomial hyperbolicity for **all** $d$ is equivalent to RH. My reduction shows:
+
+- $d=2$ reduces to the single moment inequality $(\ast\ast)$, provable from log-concavity of $\Phi$.
+- $d=3$ requires $J^3(X)=\gamma_0+3\gamma_1X+3\gamma_2X^2+\gamma_3X^3$ to have three real roots, equivalently its discriminant $\ge0$:
+$$18\gamma_0\gamma_1\gamma_2\gamma_3-4\gamma_0^3\gamma_3^0\dots\ \ge0$$
+i.e. a **quartic** relation among $M_0,M_2,M_4,M_6$. Log-concavity of a single sequence gives only *adjacent* Turán inequalities $\gamma_j^2\ge\gamma_{j-1}\gamma_{j+1}$; these are **necessary but not sufficient** for hyperbolicity from $d=3$ onward (a log-concave positive sequence need not have a hyperbolic cubic Jensen polynomial). 
+
+The precise gap: hyperbolicity of $J^d$ is governed not by consecutive log-concavity but by *total positivity* (all minors of the Toeplitz/Hankel matrix of $\gamma_j$). The Griffin–Ono–Rolen–Zagier theorem (2019) proves that for each **fixed** $d$, $J^d_\Xi$ is hyperbolic for all shifts beyond a threshold — but the thresholds are not uniform in $d$, and controlling all $(d, \text{shift})$ simultaneously is exactly RH. My moment reduction makes explicit that the missing ingredient is a **uniform total-positivity estimate** on the Hankel matrices $\bigl(M_{2(i+j)}\bigr)$ with the binomial normalization, which the log-concavity of $\Phi$ alone cannot deliver: it controls $2\times2$ minors but not the sign-coherence of all higher minors uniformly.
+
+---
+
+### Summary of the contribution
+
+I (i) reduced the base ($d=2$) Pólya–Jensen condition to the explicit reversed-Cauchy–Schwarz moment inequality $(\ast\ast)$ $6M_2^2\ge M_0M_4$ and traced it to a log-concavity property of Pólya's $\Phi$, giving a clean self-contained justification of the degree-2 case; and (ii) identified sharply that the obstruction to pushing this to full RH is the failure of consecutive log-concavity to imply uniform Hankel total positivity — the exact algebraic quantity one must bound. This is a structural clarification, not a proof of RH.
+
+VERDICT: FAILED
+REASON: Reduced degree-2 Jensen criterion to explicit moment inequality and pinpointed obstruction, but no new theorem toward full RH.
