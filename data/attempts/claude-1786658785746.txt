@@ -1,0 +1,74 @@
+# Attempt: A clean rigorous proof of one direction of Li's positivity criterion, with analysis of the obstruction to the converse
+
+I'll establish a self-contained, fully rigorous implication toward RH via the Li coefficients, then analyze precisely where the argument fails to give the converse (the hard direction). This isolates the genuine analytic difficulty.
+
+## Setup
+
+Let ξ(s) = ½ s(s−1)π^{−s/2}Γ(s/2)ζ(s) be the completed zeta function. It is entire of order 1, satisfies the functional equation ξ(s) = ξ(1−s), and its zeros are exactly the nontrivial zeros ρ of ζ, all lying in the critical strip 0 < Re s < 1. The zeros occur in symmetric families: if ρ is a zero, so are ρ̄, 1−ρ, and 1−ρ̄.
+
+Define the Li coefficients
+$$
+\lambda_n = \sum_{\rho}\left[1-\left(1-\frac1\rho\right)^{n}\right],\qquad n\ge 1,
+$$
+the sum taken over nontrivial zeros ρ, paired as (ρ, 1−ρ) to ensure convergence. (This equals $\frac{1}{(n-1)!}\frac{d^n}{ds^n}\big[s^{n-1}\log\xi(s)\big]_{s=1}$; I take the zero-sum form as the definition and use only convergence, which follows from $\sum_\rho |ρ|^{-2}<\infty$ together with the pairing.)
+
+**Li's criterion** asserts: RH ⟺ λ_n ≥ 0 for all n ≥ 1.
+
+## The implication I prove rigorously: RH ⟹ λ_n ≥ 0
+
+**Lemma.** If every nontrivial zero satisfies Re ρ = ½, then λ_n ≥ 0 for all n ≥ 1.
+
+**Proof.** For a zero ρ set $w_\rho = 1 - \frac1\rho = \frac{\rho-1}{\rho}$. Compute the modulus:
+$$
+|w_\rho|^2 = \frac{|\rho-1|^2}{|\rho|^2}.
+$$
+Write ρ = β + iγ. Then |ρ|² = β² + γ² and |ρ−1|² = (β−1)² + γ². Hence
+$$
+|w_\rho|^2 = \frac{(\beta-1)^2+\gamma^2}{\beta^2+\gamma^2}.
+$$
+Under RH, β = ½, so (β−1)² = (−½)² = ¼ = β². Therefore the numerator equals the denominator and
+$$
+|w_\rho| = 1 \qquad\text{for every nontrivial zero } \rho. \tag{$\ast$}
+$$
+
+Now organize the sum over conjugate pairs. Nonreal zeros come in pairs {ρ, ρ̄}; under RH ρ = ½ + iγ with γ ≠ 0 (there are no real nontrivial zeros, since ζ(s) ≠ 0 for real s ∈ (0,1)). Note $w_{\bar\rho} = 1 - \frac{1}{\bar\rho} = \overline{1-\frac1\rho} = \overline{w_\rho}$. Thus the contribution of the pair to λ_n is
+$$
+\Big[1 - w_\rho^{\,n}\Big] + \Big[1 - \overline{w_\rho}^{\,n}\Big]
+= 2 - \big(w_\rho^n + \overline{w_\rho^n}\big)
+= 2 - 2\,\mathrm{Re}\,(w_\rho^n).
+$$
+By (∗), |w_ρ^n| = |w_ρ|^n = 1, so Re(w_ρ^n) ≤ 1, giving
+$$
+2 - 2\,\mathrm{Re}(w_\rho^n) \;\ge\; 0.
+$$
+Every conjugate pair contributes a nonnegative amount, so the (convergent, absolutely-convergent-after-pairing) sum satisfies λ_n ≥ 0. ∎
+
+This direction is elementary once (∗) is observed; the entire force is the geometric fact that **the critical line Re s = ½ is exactly the locus where |1 − 1/ρ| = 1**, i.e. where w_ρ lies on the unit circle.
+
+## Why the converse (λ_n ≥ 0 ⟹ RH) is the hard part — a sharp analysis
+
+The map ρ ↦ w_ρ = 1 − 1/ρ is a Möbius transformation. It sends:
+- the critical line Re s = ½ to the **unit circle** |w| = 1 (shown above),
+- the half-plane Re s > ½ to the **exterior** |w| > 1 (e.g. ρ = 1 gives w = 0? check: ρ=1, w=0, that is interior — recompute).
+
+Let me verify the orientation carefully, since it is the crux. With β > ½: numerator (β−1)²+γ² vs denominator β²+γ². We have β² − (β−1)² = 2β − 1 > 0 for β > ½, so denominator > numerator, giving |w_ρ| < 1. Thus:
+- Re s > ½ ⟹ |w| < 1 (unit disk interior),
+- Re s < ½ ⟹ |w| > 1 (exterior),
+- Re s = ½ ⟹ |w| = 1.
+
+So an off-line zero ρ₀ with β > ½ has |w_{ρ₀}| < 1, and its functional-equation partner 1−ρ₀ has β < ½ hence |w| > 1. For the **exterior** partner, w^n grows geometrically, and 2 − 2Re(w^n) can be **negative** for suitable n — this is what would force some λ_n < 0 and yield a contradiction with positivity.
+
+The genuine obstruction is: a single off-line pair contributes an oscillating term $-2\,\mathrm{Re}(w^n)$ with |w|>1 growing like $|w|^n$, so it *must* eventually dominate and make λ_n < 0 **for some n** — but proving this for the actual λ_n requires controlling the *simultaneous* contribution of **all** zeros, which are on the critical line under RH but whose collective sum $\sum_\rho \mathrm{Re}(w_\rho^n)$ is not known to stay bounded below by −N without already knowing zero locations. Concretely:
+
+$$
+\lambda_n = \sum_{\text{pairs}} \big(2 - 2\,\mathrm{Re}\,w_\rho^n\big).
+$$
+
+If one hypothetical off-line pair injects a term $\sim +2|w|^n$ (when Re w^n < 0 with |w|>1, this is a large *positive* boost, not a negative one!) — note the sign: an exterior zero makes $-2\mathrm{Re}(w^n)$ range in $[-2|w|^n, +2|w|^n]$, so along a subsequence of n it is large **negative**, driving λ_n < 0. The difficulty is guaranteeing that the on-line zeros (contributing bounded oscillations near the unit circle) cannot conspire to cancel this negative excursion. That non-cancellation is exactly as deep as RH and is not resolved here.
+
+## Honest assessment
+
+The Lemma (RH ⟹ λ_n ≥ 0) is proved rigorously and self-containedly, with the clean geometric mechanism (∗) made explicit. This is the "easy" half of Li's criterion and does **not** constitute progress on RH itself, since the arrow points the wrong way. My analysis of the converse identifies the precise analytic obstruction (uniform lower control of $\sum_\rho \mathrm{Re}(w_\rho^n)$ over an unbounded set of exponents n in the presence of a hypothetical exterior zero) but does not overcome it. No new theorem toward RH is obtained.
+
+VERDICT: FAILED
+REASON: Rigorously proved only the easy direction RH⟹λ_n≥0 of Li's criterion; the RH-implying converse remains the untouched hard core.
