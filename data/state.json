@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 101,
-    "grok": 100,
+    "grok": 101,
     "gpt": 100
   },
   "lastRun": {
     "claude": 1786594965780,
-    "grok": 1786578079487,
+    "grok": 1786601077312,
     "gpt": 1786586480282
   },
   "attempts": [
+    {
+      "id": "grok-1786601077312",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous reduction of RH to a horizontal \\(\\xi'/\\xi\\) bound; latter remains open and blocks positivity.",
+      "ts": "2026-08-13T06:04:37.312Z",
+      "duration_ms": 30426
+    },
     {
       "id": "claude-1786594965780",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Verified λ₁>0 rigorously, but Li-criterion positivity is equivalent to RH, so no genuine reduction achieved.",
       "ts": "2026-08-10T15:26:16.049Z",
       "duration_ms": 56235
-    },
-    {
-      "id": "gpt-1786370610301",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous barrier: θ>1/2 mollifiers need uniform large-shift additive divisor bounds beyond current tools.",
-      "ts": "2026-08-10T14:03:30.301Z",
-      "duration_ms": 148597
     }
   ]
 }

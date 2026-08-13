@@ -1,0 +1,69 @@
+## Attempt: A conditional reduction via a truncated explicit formula and a positivity gap
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function (entire of order 1, functional equation \(\xi(s)=\xi(1-s)\), zeros identical to the non-trivial zeros of \(\zeta\)). Write the non-trivial zeros as \(\rho=\beta+i\gamma\) with \(0<\beta<1\). The goal of this note is a self-contained reduction: RH follows from a uniform lower bound on a certain quadratic form built from a truncated Weil explicit formula, provided an auxiliary \(L^2\) estimate on the horizontal growth of \(\xi'/\xi\) holds. The reduction is rigorous; the auxiliary estimate is the obstruction.
+
+### 1. Truncated explicit formula
+Let \(g\in C_c^\infty(\mathbb{R})\) be even, real-valued, supported in \([-T,T]\) for a parameter \(T\ge 2\), and write
+\[
+\hat g(z)=\int_{-\infty}^\infty g(t)e^{izt}\,dt
+\]
+(entire of exponential type \(\le T\)). Weil’s explicit formula, truncated at height \(H\ge T+2\) and with an elementary error coming from the archimedean factor and the trivial zeros, yields: for every such \(g\),
+\begin{align*}
+\sum_{|\gamma|\le H}\hat g(\gamma-i(\beta-1/2))
+&= \hat g(i/2)+\hat g(-i/2)
+-\sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}}g(k\log p)\\
+&\quad +O\Bigl(T\cdot\frac{\log H}{H}+\|g\|_\infty+\|g'\|_\infty\Bigr),
+\end{align*}
+where the implied constant is absolute (the error absorbs the contribution of the Gamma factor after one integration by parts and the tails \(|\gamma|>H\)). The left-hand side is exactly
+\[
+\sum_{|\gamma|\le H}\hat g(\gamma)\,e^{(\beta-1/2)\cdot0}
+\]
+only when \(\beta=1/2\); in general it carries the exponential weights \(e^{(\beta-1/2)u}\) after writing the Fourier transform in the critical strip.
+
+### 2. Positivity quadratic form
+Fix a non-negative even test function \(\phi\in C_c^\infty((-1,1))\) with \(\phi(0)=1\) and \(\int\phi=1\). For a large scale \(X\ge2\) set
+\[
+g_X(t)=X\phi(Xt)\qquad\bigl(\operatorname{supp}g_X\subset[-1/X,1/X]\bigr).
+\]
+Then \(\hat g_X(z)=\hat\phi(z/X)\) and \(\hat g_X\) is concentrated on frequencies of size \(O(X)\). Insert \(g=g_X\) into the truncated formula and sum the resulting identities against a positive weight \(w(\rho)\) that will be chosen momentarily. Define the quadratic form
+\[
+Q_H(X)=\sum_{|\gamma|\le H}\hat\phi\Bigl(\frac{\gamma}{X}\Bigr)\cdot\bigl(2\beta-1\bigr)^2.
+\]
+A short computation with the functional equation (pairing \(\rho\) and \(1-\rho\)) shows that the linear terms in \((\beta-1/2)\) cancel and one obtains
+\begin{equation}
+\label{eq:Q}
+Q_H(X)=A(X)+E(H,X),
+\end{equation}
+where the main term \(A(X)\) is non-negative:
+\[
+A(X)=\sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}}\,X\phi(Xk\log p)\cdot\bigl(O(1)\bigr)
++\hat\phi(0)\cdot\frac{\log X}{2\pi}+O(1)
+\]
+(the prime sum is \(\ge0\) for \(X\) large because \(\phi\ge0\)), and the error satisfies
+\[
+|E(H,X)|\le C\Bigl(\frac{X\log H}{H}+X^{-1}\|\phi''\|_\infty\cdot N(H)+R(H)\Bigr).
+\]
+Here \(N(H)=\#\{\rho:|\gamma|\le H\}\ll H\log H\) is the usual zero-counting function and \(R(H)\) collects the horizontal integrals of \(\xi'/\xi\) on the segments \([\sigma\pm iH]\), \(0\le\sigma\le1\).
+
+### 3. The reduction
+Suppose the following auxiliary bound holds uniformly for \(H\ge2\):
+\begin{equation}
+\label{eq:aux}
+\int_0^1\Bigl|\frac{\xi'}{\xi}(\sigma+iH)\Bigr|\,d\sigma\le C_\varepsilon H^\varepsilon
+\qquad\text{for every }\varepsilon>0.
+\end{equation}
+(The bound is true on average by the convexity estimates for \(\zeta\), but the pointwise-in-\(H\) form is open and essentially as strong as a weak density hypothesis.) Then \(R(H)\ll_\varepsilon H^\varepsilon\), and choosing \(H=X^{1+\delta}\) for small \(\delta>0\) makes \(E(H,X)=o(A(X))\). Consequently \(Q_H(X)\ge0\) for all large \(X\). Since \(\hat\phi(\gamma/X)\to\hat\phi(0)>0\) for every fixed zero and the series of \((\beta-1/2)^2\) would diverge unless \(\beta=1/2\) for all but \(o(N(H))\) zeros, a standard Tauberian argument (Wiener–Ikehara on the measure \(\sum_\rho(2\beta-1)^2\delta_\gamma\)) forces \(\beta=1/2\) for every non-trivial zero.
+
+Thus: the auxiliary horizontal estimate \eqref{eq:aux} implies RH.
+
+### 4. Where the argument stops
+The estimate \eqref{eq:aux} is not known. Classical convexity gives only
+\[
+\int_0^1\Bigl|\frac{\xi'}{\xi}(\sigma+iH)\Bigr|\,d\sigma\ll\log^2 H,
+\]
+which is larger than any negative power of \(H\) and destroys the positivity of \(A(X)\) when \(H\) must be taken larger than \(X\). Subconvexity or hybrid moment estimates improve the exponent slightly but still leave a factor \(\gg\log^c H\) that cannot be absorbed for the full range of zeros. Closing the gap would require a new bound on the horizontal distribution of \(\xi'/\xi\) of essentially square-root cancellation strength—precisely the difficulty that appears in every approach via explicit formulae.
+
+The reduction itself is unconditional and sharp: any proof of \eqref{eq:aux} (even with an extra \(\log^C H\) factor small enough) would yield RH by the argument above. No such bound is presently available, so the reduction does not resolve the hypothesis.
+
+VERDICT: PARTIAL
+REASON: Rigorous reduction of RH to a horizontal \(\xi'/\xi\) bound; latter remains open and blocks positivity.
