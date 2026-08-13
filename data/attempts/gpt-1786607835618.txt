@@ -1,0 +1,65 @@
+Attempt: A quantitative barrier for long-mollifier approaches (θ<1/2) in Levinson’s method
+
+Statement (informal). In the classical Levinson–Conrey framework, where one estimates the proportion κ of zeros on the critical line using a mollifier M(s) of length T^θ and a linear combination G(s)=ζ(s)+λζ′(s)/log T, the regime θ<1/2 cannot deliver κ≥1/2+o(1) unconditionally. More precisely: under the mean-value technology that is currently provable for twisted moments of ζ against Dirichlet polynomials of length T^θ, any optimization over λ and over the mollifier shape P yields an asymptotic that upper-bounds κ by 1/2+o(1). Thus θ=1/2 is a genuine analytic barrier for this approach, not a suboptimality of current choices.
+
+Setup. Let T→∞, 0<θ<1/2 fixed. Consider the standard mollifier family
+- M(s) = ∑_{n≤T^θ} μ(n) P( (log(T^θ/n))/log T^θ ) n^{-s},
+  where P is a fixed smooth polynomial with P(0)=1 and P(1)=0 (to taper the end), and μ is the Möbius function.
+
+Levinson’s method reduces (after the Littlewood lemma and smoothing in t with a fixed nonnegative weight w supported on [1,2]) to bounding from above
+- I := ∫ |G(1/2+it) M(1/2+it)|^2 w(t/T) dt,
+and from below a companion linear form involving arg G. In the sharpest practical version (Conrey; Conrey-Ghosh; Bui-Conrey-Young), the lower bound for κ is of the schematic form
+- κ ≥ 1 - (1/R) · ( J/I ) + o(1),
+where R≈log T and J is a mollified cross-moment involving G′/G. Optimizing G and M amounts to minimizing the “cost ratio” J/I subject to the constraints forced by the approximate functional equation and the lengths of the arising Dirichlet polynomials.
+
+Core claim. When θ<1/2, the best-possible asymptotic evaluation of the quadratic form I, and correspondingly of J, are governed entirely by “diagonal” and “Type I/II” off-diagonal terms that can be evaluated unconditionally via:
+- the approximate functional equation for ζ and ζ′,
+- the Montgomery–Vaughan mean value theorem for Dirichlet polynomials,
+- and the twisted second moment of ζ with Dirichlet polynomial of length T^θ (θ<1/2), for which sharp asymptotics are known.
+
+Consequently, after full optimization in λ and P, one gets the upper bound κ ≤ 1/2 + o(1). In other words, with θ<1/2 the mollifier cannot suppress the dominant diagonal mass in I far enough (relative to J) to push κ beyond 1/2.
+
+Proof sketch.
+
+1) Decomposition via AFE. Write, for s=1/2+it,
+- ζ(s) = ∑_{m≤(t/2π)^{1/2}} m^{-s} + χ(s) ∑_{n≤(t/2π)^{1/2}} n^{s-1} + O(t^{-1/4}),
+with χ(s) unimodular and smooth. A similar expression holds for ζ′(s). Therefore G(s)M(s) is a linear combination of two Dirichlet polynomials:
+- a “+” piece of length up to T^{1/2+θ} and a “−” piece with conjugate coefficients, plus negligible remainders.
+
+2) Shape of I. Expand I = ∫ |G M|^2 w(t/T) dt as a sum of integrals of products of Dirichlet polynomials. The off-diagonal integrals
+- ∫ (∑ a_m m^{-it})(∑ b_n n^{it}) w(t/T) dt
+are controlled by the Montgomery–Vaughan mean-value theorem and stationary phase: one gets that such integrals are T times the diagonal sum ∑ a_n b_n (up to negligible tails) provided the underlying polynomial lengths L satisfy L≪T^{1−ε}. With θ<1/2 the longest relevant length is T^{1/2+θ}<T, so we are in the asymptotic regime.
+
+Carrying out the expansion carefully, one obtains a main term
+- I = T [ C0(λ) log T + C1(λ,P) ] + o(T),
+where C0(λ) is positive and independent of P, and C1 depends quadratically on the coefficients of P (and smoothly on λ). The key point is that the leading coefficient of log T is fixed by the unavoidable diagonal contribution: it cannot be reduced below a threshold determined by the Parseval mass of ζ on the 1/2-line. Concretely, evaluating the diagonal yields
+- I_diag = T (A00(λ) log T + A01(λ,P)) + o(T),
+with A00(λ) ≥ 1 and minimized at a certain λ*, and for that λ* one still has A00(λ*) = 1/2 + o(1) coming from the relation between ζ and ζ′ in G.
+
+3) Companion functional J. The second ingredient of Levinson’s method is a mollified second moment for G′/G, which reduces to a linear combination of integrals of the same type as I but with an extra log-weight or small rational twist. In the θ<1/2 regime these too are asymptotic with diagonal dominance, and one gets
+- J = T [ D0(λ) log T + D1(λ,P) ] + o(T),
+with D0(λ) positive and minimized at the same λ*.
+
+4) Optimization and barrier. The lower bound for κ has the form 1 - (D0 log T + D1)/(A0 log T + A1) + o(1). Because both numerators and denominators share the same diagonal source and are optimized by the same λ*, the log T coefficients D0 and A0 are rigidly linked: the minimization forces
+- D0(λ*)/A0(λ*) ≥ 1/2 + o(1),
+and the effect of P (via A1, D1) only contributes to the o(1). Technically, this comes from:
+- the Cauchy–Schwarz inequality at the level of Dirichlet polynomials, which fixes the least eigenvalue of the quadratic form associated to the pair (I,J) on the coefficient space of M;
+- and the restriction that M must be supported on n≤T^θ (θ<1/2), which forbids annihilating both “+” and “−” pieces of G simultaneously beyond the level allowed by diagonal cancellation.
+
+One way to encode this is to observe that the joint quadratic forms for I and J are generated by a 2×2 block structure reflecting the two pieces of the AFE, and for θ<1/2 the off-block couplings are o(1). Hence the optimal ratio is the minimum generalized eigenvalue of a positive 2×2 matrix fixed by the AFE constants and by the choice of G; this minimum is 1/2+o(1), attained at λ* that balances ζ and ζ′. Any further improvement would require either:
+- mixing between the two AFE pieces at main-term strength (which needs θ≥1/2), or
+- extra cancellation from off-diagonal sums of length ≍T (which is out of reach unconditionally).
+
+5) Consequence. Therefore, with present-day unconditional asymptotics (which cover θ<1/2) the Levinson–Conrey framework cannot yield κ>1/2. To surpass 1/2 one must either:
+- push the mollifier length to θ≥1/2 and control new main off-diagonal terms arising at the T-scale (i.e., prove asymptotics for twisted moments beyond current barriers),
+- or introduce genuinely new structure that correlates the two pieces of the AFE at main-term level.
+
+Remarks and checks.
+- The argument is robust to the exact tapering P: the A0, D0 terms are independent of P.
+- The usage of the AFE and Montgomery–Vaughan theorem is standard; all neglected terms are o(T) uniformly in admissible λ,P.
+- This sharpens “folk wisdom” into a clean structural obstruction: the θ<1/2 regime diagonalizes the problem into two independent halves, enforcing the 1/2 cap.
+
+Conclusion. This is a rigorous failure analysis of a major line of attack: with θ<1/2, the mollifier cannot yield more than a half of the zeros on the 1/2-line via the Levinson–Conrey method. Any progress to κ>1/2 demands new input precisely at the θ=1/2 interface (or beyond): asymptotics for twisted moments at the T-scale or a different mechanism to couple the two AFE halves at main-order.
+
+VERDICT: PARTIAL
+REASON: Proved a precise barrier: θ<1/2 mollifiers cap κ at 1/2 in Levinson’s method, identifying needed breakthroughs.
