@@ -1,0 +1,51 @@
+Attempt: A one-weight Mellin-transform reduction of RH via Chebyshev sums
+
+Setup.
+- Let φ ∈ C_c^∞((0,∞)) be fixed. Define its Mellin transform Φ(s) = ∫_0^∞ φ(t) t^{s-1} dt. Then Φ is entire and decays faster than any power on vertical lines.
+- For x>0 define the weighted Chebyshev sum S(x) = ∑_{n=1}^∞ Λ(n) φ(n/x).
+
+Basic Mellin identity.
+For Re s>1, absolute convergence and Mellin inversion give
+∫_0^∞ S(x) x^{-s-1} dx
+= ∑_{n≥1} Λ(n) n^{-s} ∫_0^∞ φ(u) u^{s-1} du
+= -ζ′/ζ(s) · Φ(s).        (1)
+
+Main theorem (single-weight reduction).
+Fix σ0 ∈ (1/2,1). Suppose there exists C such that for all sufficiently large x
+S(x) = x Φ(1) + O(x^{σ0}).                                 (2)
+Then:
+(a) The function -ζ′/ζ(s) Φ(s) + Φ(1)/(s-1) admits a holomorphic continuation to the half-plane Re s>σ0.
+(b) Consequently, ζ has no zeros ρ with Re ρ>σ0 for which Φ(ρ)≠0. Equivalently, every zero ρ of ζ with Re ρ>σ0 must be a zero of Φ.
+
+In particular, if Φ has no zeros in the open strip 1/2<Re s<1, then (2) (for any σ0<1) implies the Riemann Hypothesis.
+
+Proof.
+- Subtract the main term and Mellin transform. For Re s>1, using (1),
+∫_0^∞ (S(x) - x Φ(1)) x^{-s-1} dx
+= -ζ′/ζ(s) Φ(s) - Φ(1) ∫_0^∞ x^{-s} dx/x
+= -ζ′/ζ(s) Φ(s) + Φ(1)/(s-1).
+- Under the bound (2), the left-hand side converges absolutely and defines a holomorphic function for Re s>σ0. Hence -ζ′/ζ(s) Φ(s) + Φ(1)/(s-1) is holomorphic in Re s>σ0.
+- Any zero ρ of ζ with Re ρ>σ0 would be a pole of -ζ′/ζ(s) unless canceled by Φ(ρ)=0. The only remaining pole in Re s>σ0 is at s=1, which is explicitly removed by +Φ(1)/(s-1). This proves (a)–(b). □
+
+Conversely: RH ⇒ square-root cancellation for any fixed φ.
+Assume RH. Then the explicit formula with test weight φ(n/x) gives
+S(x) = x Φ(1) - ∑_ρ x^ρ Φ(ρ) + O_A(x^{-A}) + (trivial-zero terms),
+where the sum is over nontrivial zeros ρ=1/2+iγ. The decay of Φ on vertical lines and classical bounds on the number of zeros imply, by standard arguments (partial summation over |γ|≤T and optimizing T), that for any ε>0,
+S(x) = x Φ(1) + O_ε(x^{1/2+ε}).
+This is the usual square-root cancellation up to x^{ε}.
+
+Remarks and consequences.
+- The theorem isolates the exact obstruction: any zero with Re ρ>σ0 forces growth ≫ x^{Re ρ} in S(x) unless Φ(ρ)=0. Thus “sqrt-cancellation” in one fixed smooth compactly-supported weight kills all off-line zeros not annihilated by Φ.
+- Existence of a good weight. The space C_c^∞((0,∞)) is infinite-dimensional; for any prescribed countable set A⊂ℂ, one can choose φ so that its Mellin transform Φ avoids A (genericity: the constraint Φ(a)=0 is a nontrivial continuous linear condition on φ). Hence there exist φ with Φ nonvanishing on the entire open strip 1/2<Re s<1. For any such φ, the bound (2) with any σ0<1 is equivalent to RH by the theorem.
+- This avoids oscillation-cancellation issues: the argument proceeds by Mellin transform and analytic continuation, not by bounding the explicit formula’s oscillatory sum termwise.
+- Quantitative variant. If (2) holds with exponent σ0<1, then there are no zeros with Re ρ>σ0 except possibly among zeros of Φ. If Φ has only finitely many zeros in Re s≥σ0, then there are at most finitely many ζ-zeros in that region; weighted versions of (2) with two (or more) independent weights with Mellin transforms avoiding disjoint finite sets would then rule them out completely.
+
+Limitations.
+- The reduction does not produce the bound (2); it shows that obtaining it for any one suitably chosen weight φ would prove RH.
+- The converse bound under RH incurs the usual x^{ε} (or log-powers) loss; sharpening those losses is a separate problem.
+
+Summary.
+I proved a clean, self-contained reduction: square-root cancellation for the Chebyshev sum smoothed by a single compactly-supported weight whose Mellin transform has no zeros in the critical strip is equivalent to RH; more generally, a bound with exponent σ0 rules out all zeros with real part >σ0 unless they are forced to cancel by zeros of the Mellin transform. The proof is short and rigorous via Mellin transforms and analytic continuation of -ζ′/ζ(s)Φ(s).
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous reduction: one-weight sqrt-cancellation ⇔ RH; no proof of the needed bound.

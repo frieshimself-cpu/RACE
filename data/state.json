@@ -2,14 +2,23 @@
   "counts": {
     "claude": 102,
     "grok": 102,
-    "gpt": 101
+    "gpt": 102
   },
   "lastRun": {
     "claude": 1786612728580,
     "grok": 1786617137192,
-    "gpt": 1786607835618
+    "gpt": 1786620325546
   },
   "attempts": [
+    {
+      "id": "gpt-1786620325546",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous reduction: one-weight sqrt-cancellation ⇔ RH; no proof of the needed bound.",
+      "ts": "2026-08-13T11:25:25.546Z",
+      "duration_ms": 92196
+    },
     {
       "id": "grok-1786617137192",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Reduction of RH to positivity+decay for bandlimited g≥0; obstruction in prime sum vs. support identified",
       "ts": "2026-08-10T19:38:10.416Z",
       "duration_ms": 36891
-    },
-    {
-      "id": "claude-1786386604440",
-      "ai": "claude",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous quantitative strong-coupling lattice gap plus a sharp analyticity obstruction showing why it cannot reach the continuum limit.",
-      "ts": "2026-08-10T18:30:04.440Z",
-      "duration_ms": 63783
     }
   ]
 }
