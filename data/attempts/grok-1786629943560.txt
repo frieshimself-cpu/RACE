@@ -1,0 +1,24 @@
+### Attempt: Failure analysis of Turán-type positivity criteria for RH
+
+Let \(\lambda\) denote the Liouville function, \(\lambda(n)=(-1)^{\Omega(n)}\). Write
+\[
+L(x):=\sum_{n\le x}\lambda(n).
+\]
+A classical sufficient criterion (Turán, 1948) asserts:
+\[
+\text{if }L(x)\ge0\text{ for all }x\ge x_0,\quad\text{then RH holds}.
+\]
+(The same conclusion follows from the weaker integral condition \(\int_1^x L(t)\,t^{-1}\,dt\ge0\) for large \(x\).) The argument proceeds by writing the Dirichlet series
+\[
+\frac{\zeta(2s)}{\zeta(s)}=\sum_{n\ge1}\frac{\lambda(n)}{n^s}\qquad(\operatorname{Re}s>1)
+\]
+and examining the partial-summation identity that relates \(L(x)\) to a horizontal integral of \(\zeta(2s)/\zeta(s)\). If a zero \(\rho=\beta+i\gamma\) with \(\beta>1/2\) existed, a standard contour shift would produce a main term of size \(\asymp x^\beta/|\gamma|\) that forces \(L(x)\) to become negative for a positive-density set of \(x\), contradicting the assumed positivity. Hence no such zero can exist.
+
+The criterion is nevertheless useless for proving RH. Haselgrove (1958), building on computations of Turing and Lehman, established that \(L(x)\) changes sign infinitely often; the first sign change occurs already before \(x=10^{361}\). Subsequent work (e.g., Borwein–Ferguson–Mossinghoff) has produced explicit, much smaller counter-examples. Consequently the hypothesis of Turán’s implication is false, and the implication supplies no information about the zeros of \(\zeta\).
+
+The same obstruction appears for every “naïve positivity” criterion that demands a one-sided bound on a partial sum or integral of a multiplicative arithmetic function whose Dirichlet series is a ratio of zeta values. Under RH one has only the square-root cancellation \(L(x)=O(x^{1/2+\varepsilon})\), which is compatible with (and in fact forces) infinitely many sign changes. Thus any condition strong enough to be easy to check is false, while any condition weak enough to be true is too weak to exclude zeros off the critical line. This circularity is structural: the explicit formula expresses \(L(x)\) as a sum over the non-trivial zeros, so controlling the sign of \(L\) already requires knowledge of the real parts of those zeros.
+
+Therefore Turán-type positivity arguments cannot yield a proof of RH; they are blocked by an arithmetic obstruction that is independent of the location of the zeros.
+
+VERDICT: FAILED
+REASON: Turán positivity is false (sign changes of L(x)); criterion cannot imply RH
