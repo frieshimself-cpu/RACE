@@ -1,0 +1,29 @@
+### Attempt: Obstruction to extending the classical 3-4-1 inequality beyond the line \(\operatorname{Re}(s)=1\)
+
+Let \(\zeta(s)=\sum n^{-s}\) for \(\sigma>1\), and write \(-\zeta'/\zeta(s)=\sum_{n\ge1}\Lambda(n)n^{-s}\). The classical zero-free proof on \(\sigma=1\) proceeds from the non-negative trigonometric polynomial
+\[
+3+4\cos\theta+\cos 2\theta=2(1+\cos\theta)^2\ge0.
+\]
+For \(s=\sigma+it\) with \(\sigma>1\) one obtains
+\[
+\operatorname{Re}\bigl(-3\tfrac{\zeta'}{\zeta}(\sigma)-4\tfrac{\zeta'}{\zeta}(\sigma+it)-\tfrac{\zeta'}{\zeta}(\sigma+2it)\bigr)
+=\sum_n\Lambda(n)n^{-\sigma}(3+4\cos(t\log n)+\cos(2t\log n))\ge0.
+\]
+If \(\zeta(1+it_0)=0\) for some \(t_0\neq0\), the middle term produces a logarithmic singularity while the outer two terms remain \(O(\log|t_0|)\), contradicting the inequality for \(\sigma\downarrow1\). The same argument rules out a zero at \(s=1\).
+
+Now fix \(\theta\in(1/2,1)\) and attempt the identical construction on the line \(\sigma=\theta\). The Dirichlet series for \(-\zeta'/\zeta\) no longer converges absolutely, so one must work with a truncated explicit formula or a smoothed partial sum
+\[
+\sum_{n\le X}\Lambda(n)n^{-\theta}(3+4\cos(t\log n)+\cos(2t\log n))+O\bigl((X^{1-\theta}/\log X)+|t|X^{-\theta}\bigr).
+\]
+The error term is larger than the putative main-term singularity whenever a zero \(\rho=\theta+it_0\) is assumed: the contribution of that zero to the smoothed sum is \(\asymp X^{\theta-\theta}/\lvert\rho\rvert=O(1)\), while the trigonometric weight remains non-negative only on average. Because the phases \(t\log n\) for \(n\le X\) become equidistributed only after \(X\gg\exp(c|t|)\), the positive lower bound supplied by the 3-4-1 polynomial is overwhelmed by the oscillatory contribution of the remaining zeros and by the prime-power terms with \(n>X\). Consequently the inequality cannot be forced to produce a contradiction.
+
+A quantitative version of the same obstruction appears when one replaces the classical polynomial by any fixed non-negative trigonometric polynomial \(P(\cos\theta)=\sum_{k=0}^K a_k\cos(k\theta)\) with \(a_0>0\). The resulting linear combination of logarithmic derivatives yields a zero-free region of the shape
+\[
+\sigma\ge1-\frac{c}{\log(|t|+2)}
+\]
+(with \(c\) depending on the coefficients of \(P\)), but the constant \(c\) cannot be made large enough to reach any fixed abscissa \(\theta<1\). Optimizing the degree \(K\) and the coefficients improves the classical Vinogradov–Korobov region only by lower-order factors; it never produces a zero-free half-plane \(\sigma>\theta\) for \(\theta\le1\).
+
+Thus the positivity method that succeeds on \(\operatorname{Re}(s)=1\) is intrinsically limited by the lack of absolute convergence and by the necessity of truncation; both defects become fatal as soon as one moves left of the abscissa of absolute convergence. Any successful attack on the critical strip must therefore introduce cancellation that is invisible to non-negative trigonometric weights.
+
+VERDICT: FAILED
+REASON: Classical 3-4-1 positivity cannot cross \(\sigma=1\) due to truncation errors dominating the singularity.

@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 102,
-    "grok": 101,
+    "grok": 102,
     "gpt": 101
   },
   "lastRun": {
     "claude": 1786612728580,
-    "grok": 1786601077312,
+    "grok": 1786617137192,
     "gpt": 1786607835618
   },
   "attempts": [
+    {
+      "id": "grok-1786617137192",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Classical 3-4-1 positivity cannot cross \\(\\sigma=1\\) due to truncation errors dominating the singularity.",
+      "ts": "2026-08-13T10:32:17.192Z",
+      "duration_ms": 27732
+    },
     {
       "id": "claude-1786612728580",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorous quantitative strong-coupling lattice gap plus a sharp analyticity obstruction showing why it cannot reach the continuum limit.",
       "ts": "2026-08-10T18:30:04.440Z",
       "duration_ms": 63783
-    },
-    {
-      "id": "gpt-1786383155457",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous reduction: uniform mollified inversion on strips would imply RH; no full proof.",
-      "ts": "2026-08-10T17:32:35.457Z",
-      "duration_ms": 83931
     }
   ]
 }
