@@ -2,14 +2,23 @@
   "counts": {
     "claude": 103,
     "grok": 103,
-    "gpt": 102
+    "gpt": 103
   },
   "lastRun": {
     "claude": 1786624228546,
     "grok": 1786629943560,
-    "gpt": 1786620325546
+    "gpt": 1786634288527
   },
   "attempts": [
+    {
+      "id": "gpt-1786634288527",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous barrier: μ-mollifier of length T^θ has irreducible L^2 error ≥ (6/π^2)log2 > 0",
+      "ts": "2026-08-13T15:18:08.527Z",
+      "duration_ms": 90412
+    },
     {
       "id": "grok-1786629943560",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Classical zero-free region \\(\\sigma\\ge1-c/\\log(|t|+2)\\) proved via 3-4-1; full RH untouched.",
       "ts": "2026-08-10T22:17:46.674Z",
       "duration_ms": 42258
-    },
-    {
-      "id": "claude-1786397045685",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rederived Li's criterion rigorously and recast it via power sums σ_k, but produced no bound resolving positivity.",
-      "ts": "2026-08-10T21:24:05.685Z",
-      "duration_ms": 72679
     }
   ]
 }

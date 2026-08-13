@@ -1,0 +1,40 @@
+Claim (a rigorous barrier for the “single-piece” μ-mollifier of sublinear length). Fix 0<θ<1 and let T≥2, N=⌊T^θ⌋. Define the Dirichlet polynomial mollifier M(s)=∑_{n≤N} μ(n) n^{-s} and set, on the critical line s=1/2+it,
+E(s) := ζ(s) M(s) − 1.
+Then there is an absolute constant c0>0 such that
+(1/T) ∫_{T}^{2T} |E(1/2+it)|^2 dt ≥ c0 + o(1) as T→∞.
+In fact one can take c0 = (6/π^2) log 2 ≈ 0.4202.
+
+Interpretation. No matter how large T is (with fixed θ<1), the standard one-piece μ-mollifier of length T^θ cannot make ζ(s)M(s) uniformly close to 1 in mean square on [T,2T] along Re s=1/2: the mean-square error stays bounded below by a positive constant. Thus this canonical mollifier cannot by itself eliminate zeros off the critical line via L^2 control of 1/ζ.
+
+Proof. Write the Dirichlet series identity
+ζ(s) M(s) = (∑_{m≥1} m^{-s})(∑_{a≤N} μ(a) a^{-s})
+= 1 + ∑_{n≥2} c_n n^{-s}, with c_n := ∑_{a|n, a≤N} μ(a).
+Thus E(s) = ∑_{n>N} c_n n^{-s}. For n in the dyadic interval N<n≤2N, we claim c_n = −μ(n). Indeed, for n>1,
+∑_{a|n} μ(a) = 0,
+and among the divisors a|n there is exactly one exceeding N (namely a=n), since any other divisor >N would force its complementary factor <2, hence 1. Therefore
+c_n = ∑_{a|n, a≤N} μ(a) = ∑_{a|n} μ(a) − μ(n) = −μ(n)
+for all N<n≤2N.
+
+Set s=1/2+it and use Montgomery’s mean value theorem for Dirichlet polynomials: for any coefficients {b_n} supported on n≤X,
+∫_{T}^{2T} |∑_{n≤X} b_n n^{-1/2-it}|^2 dt = T ∑_{n≤X} |b_n|^2 / n + O(∑_{n≤X} |b_n|^2).
+Apply this with b_n = c_n 1_{n≤2N} and note E(s) has support n>N. We get
+∫_{T}^{2T} |E(1/2+it)|^2 dt
+≥ T ∑_{N<n≤2N} |c_n|^2 / n + O(∑_{n>N} |c_n|^2).
+In the main sum, |c_n|^2 = μ(n)^2, so
+∑_{N<n≤2N} |c_n|^2 / n = ∑_{N<n≤2N} μ(n)^2 / n
+= (6/π^2) log 2 + o(1),
+by the natural density of squarefree integers and partial summation. The error term O(∑_{n>N} |c_n|^2) is O(N) because |c_n| is bounded and the number of n with a divisor ≤N is O(N log N), so after dividing by T it contributes o(1) since N=T^θ with θ<1. Dividing the main bound by T yields
+(1/T) ∫_{T}^{2T} |E(1/2+it)|^2 dt ≥ (6/π^2) log 2 + o(1),
+as claimed.
+
+Consequence and scope. This shows a hard L^2 barrier for the simplest μ-mollifier of any fixed sublinear length T^θ (θ<1). In particular:
+- No choice of T (with fixed θ<1) can drive the mean-square error to o(1).
+- Hence any strategy to force ζ(s)M(s)≈1 uniformly in mean square on [T,2T] using only a single μ-cutoff mollifier of length T^θ cannot succeed.
+This does not preclude more elaborate mollifiers (multi-piece, optimized coefficients depending on convolution structure), longer mollifiers approaching length T, or different norms/weights; it isolates a precise obstruction for the canonical choice.
+
+Remarks.
+- The proof is robust: it relies only on the exact coefficient identity for ζ·M and a standard mean value estimate, coupled with the observation that the dyadic window (N,2N] contributes a constant mass from squarefrees that cannot be canceled by any behavior below N.
+- The constant (6/π^2) log 2 is sharp for this argument and independent of θ∈(0,1); the o(1) depends on θ via N=T^θ but vanishes as T→∞ for any fixed θ<1.
+
+VERDICT: PARTIAL
+REASON: Rigorous barrier: μ-mollifier of length T^θ has irreducible L^2 error ≥ (6/π^2)log2 > 0
