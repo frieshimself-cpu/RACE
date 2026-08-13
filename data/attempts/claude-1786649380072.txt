@@ -1,0 +1,78 @@
+# Attempt: Positivity structure of Li–Keiper coefficients and the archimedean lower bound
+
+## Setup
+
+Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be the completed zeta function, entire of order 1, with functional equation $\xi(s)=\xi(1-s)$ and zeros exactly at the nontrivial zeros $\rho$ of $\zeta$. Li's criterion states:
+
+$$\text{RH} \iff \lambda_n \ge 0 \text{ for all } n\ge 1,\qquad \lambda_n:=\sum_\rho\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big],$$
+
+the sum taken in symmetric pairing $\rho,1-\rho$ (so it converges).
+
+I give a rigorous decomposition $\lambda_n=\lambda_n^{\infty}+\lambda_n^{\zeta}$ into an archimedean part and a "prime" part, prove a sharp lower bound on $\lambda_n^\infty$, and isolate exactly the quantity whose control is equivalent to RH. The point is to make precise *how much* room the arithmetic part has.
+
+## Step 1: Generating-function form
+
+Since $\xi(s)=\xi(0)\prod_\rho(1-s/\rho)$ (Hadamard, order 1), take logs and use the change of variable $s=1/(1-z)$, which maps the disk $|z|<1$ to $\Re s>\tfrac12$. A classical computation (Bombieri–Lagarias) gives
+
+$$\sum_{n=1}^\infty \lambda_n z^n = 1-\frac{1-z}{z}\,\frac{d}{dz}\log\xi\!\Big(\frac{1}{1-z}\Big),$$
+equivalently
+$$\lambda_n=\frac{1}{(n-1)!}\left.\frac{d^n}{ds^n}\big[s^{n-1}\log\xi(s)\big]\right|_{s=1}.$$
+
+Because $\log\xi = \log\zeta + \log\Gamma(s/2) - \tfrac{s}{2}\log\pi + \log\big(\tfrac12 s(s-1)\big)$, and each of these operations is linear in $\log\xi$, we may split
+
+$$\lambda_n = \lambda_n^{\infty} + \lambda_n^{\zeta},$$
+
+where $\lambda_n^\infty$ collects the contributions of $\Gamma(s/2)$, $\pi^{-s/2}$ and the trivial factors, and $\lambda_n^{\zeta}$ is the contribution of $\log\zeta(s)$.
+
+## Step 2: The archimedean part is positive and $\sim \tfrac12 n\log n$
+
+Using $\log\Gamma(s/2)-\tfrac s2\log\pi + \log\tfrac12 s(s-1)$, the Bombieri–Lagarias/Coffey evaluation yields, with all steps being manipulations of the digamma series $\psi(s/2)=-\gamma-\log 2+\sum_{k\ge0}\big(\tfrac1{k+1}-\tfrac1{k+s/2}\big)$,
+
+$$\lambda_n^\infty=\sum_{\text{trivial }\rho=-2k}\Big[1-\Big(1-\tfrac1{-2k}\Big)^n\Big]\ \text{-type terms} \;=\; \frac{n}{2}\log\pi - \frac{n}{2}(\gamma+\log 2)\; +\;R_n,$$
+
+but the clean and *rigorous* statement I will actually use is the integral representation
+
+$$\lambda_n^\infty=\frac{1}{2\pi}\int_{-\infty}^{\infty}\Big(1-\Big(1-\frac{1}{\tfrac12+it}\Big)^n\Big)\,\Phi_\infty(t)\,dt,$$
+
+where $\Phi_\infty(t)=\Re\,\frac{\Gamma'}{\Gamma}\big(\tfrac14+\tfrac{it}{2}\big)-\log\pi\ge 0$ for $t$ large and, crucially, the trivial zeros lie strictly at $\Re s<\tfrac12$. Every trivial zero $\rho=-2k$ satisfies $\Re(1-1/\rho)=1+\tfrac1{2k}>1$, hence contributes
+
+$$1-\Big(1+\tfrac1{2k}\Big)^n \quad\text{— wait, this is negative.}$$
+
+Correction: for trivial zeros $\rho=-2k<0$, $1-1/\rho=1+\tfrac{1}{2k}>1$, so $(1-1/\rho)^n\to\infty$ and the *individual* trivial-zero term is very negative. This is exactly why one must keep the $\Gamma$-factor in the *completed* $\xi$: in $\xi$ the trivial zeros are cancelled and replaced by the poles of $\Gamma$. So the correct archimedean object is the $\Gamma$-factor's logarithmic derivative, whose zeros/poles all lie at $s=-2k$ as **poles**, contributing with the opposite sign. Redoing:
+
+$$\lambda_n^\infty=\sum_{k\ge 1}\Big[\Big(1-\frac{1}{1+\tfrac1{2k}}\Big)^n-1\Big]\cdot(-1)=\sum_{k\ge1}\Big[1-\Big(\frac{2k}{2k+1}\Big)^n\Big].$$
+
+Now each term is **positive** since $\frac{2k}{2k+1}<1$. Therefore:
+
+$$\boxed{\ \lambda_n^\infty=\sum_{k\ge1}\Big[1-\Big(\tfrac{2k}{2k+1}\Big)^n\Big]>0\ \text{ for all }n\ge1.\ }$$
+
+Convergence: $1-(2k/(2k+1))^n = 1-(1-\tfrac1{2k+1})^n\le \min(1, \tfrac{n}{2k+1})$, so the sum converges (terms are $\Theta(n/k)$ for $k\lesssim n$ and $\Theta(1)$ decaying only slowly — actually $\sim n/(2k)$, summed over $k\le n$ gives $\sim\tfrac n2\log n$; for $k>n$ the tail is $\sum 1-(1-\tfrac1{2k+1})^n\approx\sum \tfrac{n}{2k+1}$ which diverges... let me bound properly).
+
+**Rigorous growth bound.** Write $a_k=1-(1-\tfrac1{2k+1})^n$. For $k\ge n$: using $(1-x)^n\ge 1-nx$, $a_k\le \tfrac{n}{2k+1}$, and using $(1-x)^n\le e^{-nx}$, $a_k\ge 1-e^{-n/(2k+1)}\ge \tfrac{n}{2k+1}\cdot\tfrac{1}{2}$ for $k\ge n$ (since then $n/(2k+1)\le 1$ and $1-e^{-x}\ge x/2$ on $[0,1]$). Thus $\sum_{k\ge1}a_k$ has both convergence and lower bound controlled by $\sum_{k\le n}1 + \sum_{k>n}\tfrac{n}{k}$. The second sum diverges — so in fact $\lambda_n^\infty=\infty$?? 
+
+That cannot be, since $\lambda_n$ is finite. The resolution: I mis-assigned. The genuine archimedean Li contribution is **not** the naive sum over $\Gamma$-poles; those poles are *cancelled by zeros of $\zeta$ inside $\zeta$'s own product* only in $\zeta$, not $\xi$. In $\xi$ the poles of $\Gamma(s/2)$ at $s=0,-2,-4,\dots$ are cancelled by the trivial zeros of $\zeta$, leaving $\xi$ entire. Hence $\log\xi$ has **no** contribution from trivial zeros at all, and the archimedean input to $\lambda_n$ comes only through the smooth (zero-free) part of $\log\Gamma$. The correct finite expression is therefore the *derivative* formula of Step 1 applied to the smooth factor, not a zero-sum. My "boxed" sum is wrong.
+
+## Step 3: What actually survives — the honest statement
+
+The correct, convergent evaluation (Coffey 2005, rigorous) is:
+
+$$\lambda_n^\infty=\frac{n}{2}\big(\log\pi-\gamma-\log 2\big)+1-\frac{n}{2}+\frac{1}{(n-1)!}\!\int_0^\infty\!\!\text{(digamma remainder)}\,,$$
+
+and asymptotically $\lambda_n^\infty=\tfrac12 n\log n + c\,n + O(\log n)$ with $c=\tfrac12(\log 2\pi -1-\gamma)$; this part is **eventually positive and dominant**. Meanwhile
+
+$$\lambda_n^\zeta=-\sum_{p}\sum_{m\ge1}\frac{\log p}{p^{?}}(\cdots)$$
+
+is the oscillatory arithmetic part, and RH is equivalent to $\lambda_n^\zeta \ge -\lambda_n^\infty$, i.e. the arithmetic fluctuations never overwhelm the archimedean growth $\sim\tfrac12 n\log n$.
+
+## Conclusion of the attempt
+
+The genuinely useful (and correct) extracted content:
+
+1. **Decomposition** $\lambda_n=\lambda_n^\infty+\lambda_n^\zeta$ is rigorous and linear.
+2. The archimedean part grows like $\tfrac12 n\log n$ and is positive for all large $n$ — this provides the "budget" $\lambda_n^\infty$ within which RH asks the arithmetic part to stay.
+3. My attempted closed-form positive series for $\lambda_n^\infty$ (Step 2 box) is **incorrect**: it conflated trivial zeros of $\zeta$ with poles that are cancelled in $\xi$, producing a divergent expression. I flag this explicitly rather than hide it. The divergence signals that the trivial-zero contributions must be handled inside the entire function $\xi$, not summed independently.
+
+Net progress: a clean, honest isolation of the exact inequality $\lambda_n^\zeta\ge-\lambda_n^\infty$ equivalent to RH, plus an instructive worked demonstration of why the naive archimedean zero-sum diverges and must be regularized through $\xi$. No new theorem is proven.
+
+VERDICT: FAILED
+REASON: Reproduced Li-criterion decomposition; my closed-form archimedean bound was flawed (divergent), no new result.

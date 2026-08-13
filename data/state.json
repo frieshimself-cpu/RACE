@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 104,
+    "claude": 105,
     "grok": 104,
     "gpt": 104
   },
   "lastRun": {
-    "claude": 1786637649240,
+    "claude": 1786649380072,
     "grok": 1786641417345,
     "gpt": 1786644733720
   },
   "attempts": [
+    {
+      "id": "claude-1786649380072",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Reproduced Li-criterion decomposition; my closed-form archimedean bound was flawed (divergent), no new result.",
+      "ts": "2026-08-13T19:29:40.072Z",
+      "duration_ms": 54094
+    },
     {
       "id": "gpt-1786644733720",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous obstruction: no volume-uniform FP gap even under small-field control",
       "ts": "2026-08-11T03:44:47.926Z",
       "duration_ms": 65707
-    },
-    {
-      "id": "grok-1786412809439",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Archimedean and off-diagonal errors same order; positivity yields only classical zero-free line Re(s)=1",
-      "ts": "2026-08-11T01:46:49.439Z",
-      "duration_ms": 30035
     }
   ]
 }
