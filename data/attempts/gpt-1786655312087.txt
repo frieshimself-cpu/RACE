@@ -1,0 +1,47 @@
+Attempt: A one-line obstruction inequality in the Nyman–Beurling framework that turns L2-approximation into zero-exclusion
+
+Setup.
+- For α∈(0,1], define ρ_α(x) = {α/x} − α{1/x} on (0,1), where {·} is the fractional part. Let S be the linear span of {ρ_α : α∈(0,1]} in L2(0,1).
+- The Nyman–Beurling theorem states: RH is equivalent to 1 being in the L2-closure of S. A common discrete subspace uses α=1/n (n∈N).
+- Fix N and coefficients c_n supported on 1≤n≤N. Set
+  F_N(x) = ∑_{n≤N} c_n ρ_{1/n}(x).
+  Write the L2-approximation error as E_N = ||1 − F_N||_{L2(0,1)}.
+
+Key Mellin identity.
+- For 0 < Re s < 1, we have
+  ∫_0^1 {1/x} x^{s−1} dx = ζ(s)/s,
+  and consequently ∫_0^1 {1/(n x)} x^{s−1} dx = n^{−s} ζ(s)/s.
+- Therefore, for 0 < Re s < 1,
+  ∫_0^1 ρ_{1/n}(x) x^{s−1} dx = (ζ(s)/s)(n^{−s} − n^{−1}).
+- Hence the Mellin transform of the error is
+  M[1 − F_N](s) = ∫_0^1 (1 − F_N(x)) x^{s−1} dx = (1 − ζ(s)A_N(s))/s,
+  where A_N(s) = ∑_{n≤N} c_n (n^{−s} − n^{−1}) is a Dirichlet polynomial with A_N(1)=0.
+
+The obstruction inequality.
+- Let ρ be a nontrivial zero of ζ, ρ=β+iγ with β>1/2. Evaluating at s=ρ gives
+  M[1 − F_N](ρ) = (1 − ζ(ρ)A_N(ρ))/ρ = 1/ρ.
+- View the Mellin transform as an L2 inner product:
+  M[g](s) = ⟨g, x^{overline{s}−1}⟩_{L2(0,1)}.
+  Then by Cauchy–Schwarz,
+  |M[1 − F_N](ρ)| ≤ ||1 − F_N||_2 · ||x^{overline{ρ}−1}||_2.
+- Compute the kernel norm for β>1/2:
+  ||x^{overline{ρ}−1}||_2^2 = ∫_0^1 x^{2β−2} dx = 1/(2β−1),
+  so ||x^{overline{ρ}−1}||_2 = (2β−1)^{−1/2}.
+- Combine:
+  |1/ρ| ≤ E_N · (2β−1)^{−1/2}
+  ⇒ E_N ≥ (√(2β−1))/|ρ|.
+
+Consequences.
+- This lower bound holds for every choice of coefficients c_n and every N. In particular, if there exists any zero with β>1/2, then the Nyman–Beurling distance to 1 cannot be smaller than √(2β−1)/|ρ|, uniformly in N. Thus:
+  If there is a sequence of approximants F_N with E_N → 0 as N → ∞, then necessarily no zero with β>1/2 exists; i.e., RH holds.
+- Quantitatively, if one can construct F_N with E_N ≤ ε_N, then all zeros must satisfy
+  √(2β−1) ≤ |ρ| ε_N.
+  Hence any explicit rate ε_N → 0 that eventually beats 1/|ρ| for large |ρ| eliminates off-line zeros at high height. In particular, any power decay ε_N ≪ N^{−δ} implies exclusion for all sufficiently large |ρ|, and if it holds for all N it excludes all off-line zeros.
+
+Remarks on scope and limits.
+- The inequality is sharp in the sense that it isolates a clean, universal obstruction: any single off-critical zero forces a strictly positive, N-independent lower bound for the best possible NB approximation error.
+- Turning a quantitative decay rate E_N ≪ N^{−δ} into a fixed zero-free strip Re s ≥ 1/2+η, independent of |ρ|, is subtler and is not achieved by this one-line Cauchy–Schwarz bound alone; additional structural input would be needed to relate N to the vertical location of putative zeros.
+- Nevertheless, the lemma provides a rigorous, self-contained reduction: any method that produces NB-approximants with sufficiently small L2 error for infinitely many N disproves the existence of off-line zeros, hence proves RH.
+
+VERDICT: PARTIAL
+REASON: Proved a clean inequality: off-line zero ⇒ uniform NB distance lower bound; gives a concrete reduction.
