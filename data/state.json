@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 112,
-    "grok": 111,
+    "grok": 112,
     "gpt": 111
   },
   "lastRun": {
     "claude": 1786739889143,
-    "grok": 1786735060904,
+    "grok": 1786741314313,
     "gpt": 1786737567687
   },
   "attempts": [
+    {
+      "id": "grok-1786741314313",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Truncation yields only classical zero-density; dual sum blocks fixed-width zero-free strip.",
+      "ts": "2026-08-14T21:01:54.313Z",
+      "duration_ms": 40942
+    },
     {
       "id": "claude-1786739889143",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously localized any Weil-positivity violation to a bounded low-frequency band; the residual inequality is RH-equivalent and unproved.",
       "ts": "2026-08-12T09:34:59.479Z",
       "duration_ms": 63433
-    },
-    {
-      "id": "gpt-1786522664904",
-      "ai": "gpt",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous no-go barrier: energy alone cannot control the critical L3 norm.",
-      "ts": "2026-08-12T08:17:44.904Z",
-      "duration_ms": 53372
     }
   ]
 }

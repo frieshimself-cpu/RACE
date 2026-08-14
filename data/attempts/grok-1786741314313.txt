@@ -1,0 +1,55 @@
+### Attempt: Conditional reduction via truncated Dirichlet series and a zero-free half-plane obstruction
+
+Let \(\zeta(s)\) denote the Riemann zeta function, and write \(s=\sigma+it\). Let \(\mu\) be the Möbius function. It is classical that RH is equivalent to
+\[
+M(x):=\sum_{n\le x}\mu(n)=O_\varepsilon(x^{1/2+\varepsilon})\qquad(\forall\varepsilon>0).
+\]
+We examine a truncated Dirichlet-series approach that appears to force a zero-free region \(\sigma>1/2+\delta\) and isolate precisely where the argument collapses.
+
+#### Setup
+Fix \(T\ge 3\) and a truncation parameter \(X=T^\theta\) with \(0<\theta\le 1\). Define the partial sum
+\[
+M_X(s):=\sum_{n\le X}\mu(n)n^{-s}.
+\]
+For \(\sigma\ge\sigma_0>1/2\) the Euler product and partial summation give the elementary bound
+\[
+|M_X(s)|\le\sum_{n\le X}n^{-\sigma}\ll\begin{cases}
+X^{1-\sigma}/(1-\sigma) & \text{if }\sigma<1,\\
+\log X & \text{if }\sigma=1,\\
+\zeta(\sigma) & \text{if }\sigma>1.
+\end{cases}
+\]
+On the other hand, the identity \(1/\zeta(s)=\sum\mu(n)n^{-s}\) (valid for \(\sigma>1\)) and the approximate functional equation yield, for \(1/2<\sigma\le 1\) and \(|t|\le T\),
+\begin{equation}
+\label{eq:approx}
+\frac1{\zeta(s)}=M_X(s)+O\bigl(X^{-\sigma}(|t|+2)^{c(1-\sigma)}\log(|t|+2)\bigr)+R(s,X),
+\end{equation}
+where the remainder \(R\) collects the contribution of the dual sum arising from the functional equation of \(\zeta\) and is \(O(X^{\sigma-1}(|t|+2)^{1/2-\sigma+\varepsilon})\) under the convexivity bound.
+
+#### Attempted contradiction
+Suppose there exists a zero \(\rho_0=\beta+i\gamma\) with \(\beta>1/2\) and \(|\gamma|\le T\). Choose \(X=T^{2(1-\beta)+\varepsilon}\). Then the error terms in \eqref{eq:approx} are \(o(1)\) uniformly in a small disk of radius \(c(\beta-1/2)/\log T\) about \(\rho_0\), while \(M_X(\rho_0)\) remains bounded by \(O(X^{1-\beta})\). Hence
+\[
+\frac1{\zeta(s)}\quad\text{would be holomorphic and non-zero in that disk},
+\]
+contradicting the presence of \(\rho_0\). This would force \(\beta\le 1/2\), i.e., RH up to height \(T\).
+
+#### Where the argument fails
+The dual remainder \(R(s,X)\) cannot be made simultaneously smaller than the main term for all \(\sigma\in(1/2,1]\) with a single power-saving choice of \(X\). More precisely, the exponent of \(T\) in the dual sum is
+\[
+\frac12-\sigma+\frac{\theta}{2}(\sigma-\tfrac12)+O(\varepsilon).
+\]
+Optimizing \(\theta\) produces a zero-free region of the classical de la Vallée-Poussin shape
+\[
+\sigma\ge 1-\frac{c}{\log(|t|+2)}
+\]
+but never a fixed-width strip \(\sigma\ge 1/2+\delta\). Any attempt to push \(\theta\) larger re-introduces an error larger than \(|M_X|\) precisely when \(\beta\) approaches \(1/2\), so the putative holomorphic continuation of \(1/\zeta\) fails to materialize. The obstruction is therefore not merely technical: the functional equation forces a dual sum whose size is governed by the same convexivity exponent that prevents a direct bootstrap past the critical line.
+
+#### Partial positive statement recovered
+The same truncation does yield an effective zero-density estimate of the classical type
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}\log^A T\qquad(\tfrac12\le\sigma\le 1),
+\]
+which is already known, but the calculation isolates the precise convexivity barrier: any improvement of the hybrid bound for \(\zeta\) in the strip (e.g., a subconvex exponent \(\mu(\sigma)<(1-\sigma)/3\)) would enlarge the admissible \(\theta\)-range and improve the density exponent correspondingly. Thus the method reduces RH to a sufficiently strong subconvexity statement for \(\zeta\) on vertical lines, but does not itself supply that subconvexity.
+
+VERDICT: FAILED
+REASON: Truncation yields only classical zero-density; dual sum blocks fixed-width zero-free strip.
