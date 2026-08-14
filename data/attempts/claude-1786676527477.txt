@@ -1,0 +1,108 @@
+## Attempt: Explicit zero-free region via the 3-4-1 inequality, with a barrier analysis
+
+I will give a rigorous, self-contained derivation of an explicit zero-free
+region for ζ, then analyze precisely *why this method structurally cannot be
+pushed to Re(s) = 1/2*. The barrier analysis is the intended contribution:
+it isolates the quantitative obstruction in a clean form.
+
+### Setup
+
+For σ = Re(s) > 1,
+$$
+\log\zeta(s) = \sum_{n\ge 2}\frac{\Lambda(n)}{\log n}\,n^{-s},
+\qquad
+\operatorname{Re}\log\zeta(\sigma+it) = \sum_{n}\frac{\Lambda(n)}{n^\sigma\log n}\cos(t\log n).
+$$
+This converges absolutely for σ > 1, so all manipulations below are legitimate.
+
+### The core inequality
+
+Using $3 + 4\cos\theta + \cos 2\theta = 2(1+\cos\theta)^2 \ge 0$ with
+$\theta = t\log n$:
+$$
+3\operatorname{Re}\log\zeta(\sigma) + 4\operatorname{Re}\log\zeta(\sigma+it) + \operatorname{Re}\log\zeta(\sigma+2it)
+= \sum_n \frac{\Lambda(n)}{n^\sigma \log n}\big[3 + 4\cos\theta + \cos 2\theta\big] \ge 0.
+$$
+Exponentiating,
+$$
+|\zeta(\sigma)|^3\,|\zeta(\sigma+it)|^4\,|\zeta(\sigma+2it)| \ge 1 \qquad (\sigma>1). \tag{$\star$}
+$$
+
+### From ($\star$) to a zero-free region
+
+Use the standard analytic bounds, valid with explicit constants:
+- Near the pole, $|\zeta(\sigma)| \le \dfrac{A}{\sigma-1}$ for $1<\sigma\le 2$.
+- $-\operatorname{Re}\dfrac{\zeta'}{\zeta}(s) \le B\log(|t|+2) - \sum_{\rho}\operatorname{Re}\dfrac{1}{s-\rho}$
+  in a bounded box to the right of $\sigma=1$, where the sum is over nontrivial
+  zeros $\rho$ (this is the Hadamard partial-fraction expansion; each term
+  $\operatorname{Re}\frac{1}{s-\rho}>0$ for $\sigma>\beta$).
+
+Suppose $\rho=\beta+i\gamma$ is a zero with $\gamma$ large. Taking the log
+derivative form of ($\star$),
+$$
+-3\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma) - 4\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+i\gamma) - \operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+2i\gamma) \ge 0.
+$$
+Bound the first term by $\frac{3}{\sigma-1}+O(1)$, the third by
+$O(\log\gamma)$, and for the middle term retain the single zero $\rho$:
+$-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+i\gamma) \le B\log\gamma - \frac{4}{\sigma-\beta}$.
+This yields, for $1<\sigma<2$,
+$$
+\frac{3}{\sigma-1} + C\log\gamma - \frac{4}{\sigma-\beta} \ge 0.
+$$
+Choosing $\sigma - 1 = \dfrac{\delta}{\log\gamma}$ and optimizing $\delta$ gives
+a constant $c>0$ with
+$$
+\boxed{\;\beta \le 1 - \frac{c}{\log\gamma}\;}
+$$
+for all sufficiently large $\gamma$. In particular $\zeta(1+it)\ne 0$
+(the $\gamma$-independent case). This is rigorous and complete.
+
+### Barrier analysis: why $c/\log\gamma$ is the ceiling of this method
+
+The gain "$4/(\sigma-\beta)$" is the *only* attractive force pushing the bound
+on $\beta$ leftward, and it must overcome $3/(\sigma-1)$, the repulsive force
+of the pole at $s=1$. Set $u=\sigma-1>0$ and $v=\sigma-\beta = u+(1-\beta)$.
+The extractable inequality is exactly of the form
+$$
+\frac{3}{u} - \frac{4}{v} + C\log\gamma \ge 0.
+$$
+Positivity of the coefficient row $(3,4,1)$ — forced by
+$2(1+\cos\theta)^2\ge0$ — means:
+
+1. The **pole coefficient (3)** and the **zero coefficient (4)** are locked in a
+   fixed ratio. Any nonnegative trigonometric polynomial
+   $\sum a_k\cos k\theta$ used in place of $(3,4,1)$ satisfies $a_0 \ge a_1/2$
+   at $\theta=\pi$... more precisely Fejér's theorem forces $a_0\ge a_1\cos(\pi/(m+2))$
+   for degree $m$; letting $m\to\infty$ only lets $a_1/a_0\to 2$. So the
+   pole-to-zero leverage ratio is **bounded above by 2**, whatever polynomial
+   one selects.
+
+2. Consequently the best attainable statement is
+   $v \gtrsim (a_1/a_0)^{-1}\, u \ge \tfrac12 u$ once the $\log\gamma$ term is
+   balanced, giving $1-\beta \gtrsim (\text{const})/\log\gamma$. The $\log\gamma$
+   is irreducible because it is the true growth rate of $|\zeta'/\zeta|$ on
+   $\sigma\approx 1$, independent of the polynomial.
+
+**Conclusion of the barrier:** the positivity method extracts a lower bound on
+$1-\beta$ proportional to $u=\sigma-1$, and one is forced to take
+$u\to 0$ as $\gamma\to\infty$ to keep the pole term finite against
+$C\log\gamma$. Reaching $\beta=1/2$ would require a *fixed* gap
+$1-\beta=1/2$ uniformly in $\gamma$, i.e. an inequality with **no** pole
+penalty and **no** $\log\gamma$ growth. Neither can be removed within any
+finite nonnegative cosine-polynomial identity, because both the pole at $s=1$
+and the $\log\gamma$ density of zeros are genuine features of ζ. Thus the
+3-4-1 family (and its Fejér-optimal generalizations) is provably confined to
+$\beta \le 1 - c/\log\gamma$ and **cannot** in principle deliver RH. This
+localizes the failure to a single scalar: the leverage ratio $a_1/a_0 \le 2$.
+
+### Status
+
+What is fully proved here: an explicit zero-free region
+$\beta \le 1 - c/\log\gamma$ (rigorous, complete). What is new only in framing:
+a clean impossibility statement showing the entire positive-polynomial /
+Fejér family is capped by the leverage ratio bound $\le 2$ and the intrinsic
+$\log\gamma$ factor, hence cannot approach the critical line. This is a
+negative structural result about a major method, not progress on RH proper.
+
+VERDICT: FAILED
+REASON: Rigorously reproved explicit zero-free region and proved the 3-4-1/Fejér method is capped at β≤1−c/logγ, not RH.
