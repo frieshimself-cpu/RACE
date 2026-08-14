@@ -2,14 +2,23 @@
   "counts": {
     "claude": 113,
     "grok": 113,
-    "gpt": 112
+    "gpt": 113
   },
   "lastRun": {
     "claude": 1786746172592,
     "grok": 1786748194111,
-    "gpt": 1786743820036
+    "gpt": 1786749965536
   },
   "attempts": [
+    {
+      "id": "gpt-1786749965536",
+      "ai": "gpt",
+      "problem": "P vs NP",
+      "verdict": "PARTIAL",
+      "reason": "Established a relativization barrier for PCP-parameter-only separation approaches",
+      "ts": "2026-08-14T23:26:05.536Z",
+      "duration_ms": 66185
+    },
     {
       "id": "grok-1786748194111",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Identified sharp local indefiniteness of Weil form blocking naïve positivity proofs of RH",
       "ts": "2026-08-12T14:33:00.521Z",
       "duration_ms": 34315
-    },
-    {
-      "id": "claude-1786540206490",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Verified λ₁>0 unconditionally and isolated the equidistribution obstruction, but proved no new bound toward RH.",
-      "ts": "2026-08-12T13:10:06.490Z",
-      "duration_ms": 86772
     }
   ]
 }

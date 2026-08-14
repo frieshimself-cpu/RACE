@@ -1,0 +1,32 @@
+Attempt: A relativization barrier for “PCP-parameter-only” separations
+
+Claim (informal). Any approach that tries to prove P ≠ NP solely from the existence of strong PCP verifiers (constant queries, constant soundness, polynomial proof length) and black-box simulation of those verifiers cannot succeed: there is an oracle O for which P^O = NP^O but the same strong PCP parameters hold for NP^O.
+
+Definitions.
+- For an oracle O, NP^O means nondeterministic poly-time Turing machines with query access to O.
+- PCP^O[c, s; q, l] is the class of languages with probabilistically checkable proofs where the verifier runs in poly-time with oracle access to O, has completeness ≥ c, soundness ≤ s, makes q(n) queries to a proof of length l(n), and can also query O.
+
+Lemma 1 (Relativizing PCP). For every oracle O, there is a constant q and constant s < 1 such that NP^O ⊆ PCP^O[1, s; q, poly]. In particular, the standard PCP Theorem relativizes: NP^O = PCP^O[1, 1/2; O(1), poly].
+
+Proof sketch.
+- Inspect standard PCP constructions: they are obtained by polynomial-time Karp reductions which locally encode an NP witness/wiring via composition of gap amplification, low-degree encodings, and locally testable codes. Each step is a uniform, black-box, polynomial-time transformation on the input instance and purported proof/oracle answers.
+- When the underlying NP machine has oracle access to O, the entire reduction/verifier can be implemented in polynomial time with the same oracle access, and the verifier is allowed oracle queries as part of its computation. None of the completeness/soundness analyses rely on nonrelativizing steps (e.g., arithmetization over the oracle is never needed; all oracle queries are simply additional inputs accessible both to the NP machine and the PCP verifier).
+- Hence the inclusion NP^O ⊆ PCP^O with the usual constant-query, constant-soundness parameters follows by the same proofs, now interpreted relative to O.
+
+Lemma 2 (Existence of an oracle collapsing P and NP). There exists an oracle O0 such that P^{O0} = NP^{O0}. This follows from Baker–Gill–Solovay: they construct oracles A, B with P^A = NP^A and P^B ≠ NP^B.
+
+Putting together.
+- Fix O = O0 from Lemma 2. By Lemma 1, NP^O = PCP^O[1, 1/2; O(1), poly]. Thus, in this relativized world, both:
+  (i) P^O = NP^O, and
+  (ii) NP^O enjoys strong PCPs with constant query complexity and constant soundness (the usual PCP parameters).
+- Therefore, any proof strategy that attempts to separate P from NP using only the existence of strong PCP verifiers and black-box reasoning about simulating/aggregating verifier queries (i.e., an argument that would remain valid when both the NP machine and the PCP verifier are given the same oracle) cannot yield a contradiction to P^O = NP^O. Such a strategy would (incorrectly) also “prove” P^O ≠ NP^O in this world, so it must fail.
+
+Consequence (precise barrier statement).
+- Let S be any proof schema that, given as input “NP has constant-query, constant-soundness PCPs with polynomial proof length,” derives “P ≠ NP” via a sequence of implications that relativize (i.e., remain valid when all machines/verifiers are granted the same oracle O). Then S cannot be a correct proof schema.
+
+Notes.
+- This does not preclude using PCP machinery in a fundamentally nonrelativizing way (e.g., combining with nonrelativizing circuit lower bounds, arithmetization against oracle answers, or other ingredients that break relativization).
+- The point is to rule out a widely discussed “parameter-only” path: improve or optimize PCP parameters and then black-box simulate/diagonalize the verifier to get a polynomial-time decision procedure for NP. Such a path inherently relativizes and thus cannot separate P from NP.
+
+VERDICT: PARTIAL
+REASON: Established a relativization barrier for PCP-parameter-only separation approaches
