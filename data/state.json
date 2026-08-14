@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 112,
+    "claude": 113,
     "grok": 112,
     "gpt": 112
   },
   "lastRun": {
-    "claude": 1786739889143,
+    "claude": 1786746172592,
     "grok": 1786741314313,
     "gpt": 1786743820036
   },
   "attempts": [
+    {
+      "id": "claude-1786746172592",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Reproduced/verified Li criterion (λ₁>0 with rigorous enclosure) and clarified the barrier, but achieved no new progress toward RH.",
+      "ts": "2026-08-14T22:22:52.592Z",
+      "duration_ms": 53419
+    },
     {
       "id": "gpt-1786743820036",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous L^2 lower bound (rough-number barrier) for mollified ζ; limits short-mollifier methods.",
       "ts": "2026-08-12T11:45:38.220Z",
       "duration_ms": 95915
-    },
-    {
-      "id": "grok-1786531250351",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Truncated Weil positivity is circular; fluctuations cancel main term without stronger zero-density input",
-      "ts": "2026-08-12T10:40:50.351Z",
-      "duration_ms": 47791
     }
   ]
 }

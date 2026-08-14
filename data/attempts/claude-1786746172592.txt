@@ -1,0 +1,62 @@
+# Attempt: Explicit verification and structural analysis of Li's positivity criterion
+
+I focus on a concrete, self-contained computation within the **Li–Bombieri–Lagarias criterion**, and analyze what an unconditional lower bound would require.
+
+## Setup
+
+Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1, with zeros exactly the nontrivial zeros $\rho$ of $\zeta$. Define the Li coefficients
+$$
+\lambda_n=\sum_{\rho}\Big[1-\big(1-\tfrac1\rho\big)^n\Big],\qquad n\ge1,
+$$
+the sum taken with multiplicity and in the symmetric sense $\lim_{T\to\infty}\sum_{|\Im\rho|\le T}$, which converges because zeros pair as $\rho,\bar\rho$ (and, under the functional equation, as $\rho,1-\rho$).
+
+**Li's criterion (rigorous, known):** RH $\iff \lambda_n\ge 0$ for all $n\ge1$.
+
+The forward direction is the transparent one and I reproduce its mechanism, since it isolates exactly the quantity that must be controlled. Writing $\rho=\tfrac12+it$ on the critical line, and using the $\rho\mapsto 1-\rho$ symmetry to pair terms,
+$$
+1-\big(1-\tfrac1\rho\big)^n+1-\big(1-\tfrac1{1-\rho}\big)^n
+$$
+is real, and with $\rho=\tfrac12+it$ one has $1-\tfrac1\rho=\dfrac{\rho-1}{\rho}=\dfrac{-\tfrac12+it}{\tfrac12+it}$, a number of **modulus exactly 1**. Hence on RH each summand contributes $1-\cos(n\theta_\rho)\ge0$ with $e^{i\theta_\rho}=(\rho-1)/\rho$, giving $\lambda_n\ge0$ termwise. This makes precise *why positivity is equivalent to the zeros lying where $|(\rho-1)/\rho|=1$*, i.e. on the line $\Re s=\tfrac12$: modulus $=1$ is equivalent to $\Re s=\tfrac12$, since
+$$
+\Big|\tfrac{\rho-1}{\rho}\Big|^2=\frac{(\sigma-1)^2+t^2}{\sigma^2+t^2}=1 \iff \sigma=\tfrac12 .
+$$
+A zero with $\sigma>\tfrac12$ gives $|(\rho-1)/\rho|<1$, and its conjugate/reflected partner gives modulus $>1$, whose $n$-th powers grow and force $\lambda_n\to-\infty$ along a subsequence of $n$ (Bombieri–Lagarias). This is the crux: **positivity fails detectably only through a zero of modulus $\ne1$.**
+
+## Concrete unconditional computation
+
+The $\lambda_n$ also have a closed arithmetic form from $\log\xi$:
+$$
+\lambda_n=\frac{1}{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi(s)\Big]_{s=1}.
+$$
+For $n=1$ this yields, using $\frac{\xi'}{\xi}(1)$ and the standard constants,
+$$
+\lambda_1 = 1+\frac{\gamma}{2}-\frac12\log\pi-\log 2 .
+$$
+
+**Rigorous numerical bound.** Using the rigorous enclosures
+$\gamma\in[0.5772156,\,0.5772157]$, $\log\pi\in[1.1447298,\,1.1447299]$, $\log 2\in[0.6931471,\,0.6931472]$:
+$$
+\lambda_1 \ge 1+\tfrac12(0.5772156)-\tfrac12(1.1447299)-0.6931472
+= 1+0.2886078-0.5723650-0.6931472 = 0.0230956>0,
+$$
+$$
+\lambda_1 \le 1+\tfrac12(0.5772157)-\tfrac12(1.1447298)-0.6931471=0.0230960 .
+$$
+So $\lambda_1\in(0.02309,\,0.02310)$, **strictly positive**, unconditionally. This is a genuine (if weak) necessary condition for RH that is verified.
+
+Similarly $\lambda_2=1+\gamma-\tfrac{\gamma^2}{4}-\tfrac{\pi^2}{8}-\tfrac{\gamma_1}{... }$-type expression evaluates (known) to $\lambda_2\approx 0.0923$-scale positive; the point of interest is not the individual number but the growth law.
+
+## Structural remark toward progress
+
+Under RH, $\lambda_n=\tfrac{n}{2}\log n +\tfrac{n}{2}(\gamma-1-\log 2\pi)+O(\log n)$ (Voros/Coffey). Unconditionally one can only prove $\lambda_n$ is a specific sum of *prime-power* terms plus archimedean terms. The obstruction to converting the verified $\lambda_1>0$ into all $\lambda_n\ge0$ is precisely that the arithmetic form
+$$
+\lambda_n=\sum_{k=1}^{n}\binom{n}{k}(-1)^{k-1}S_k,\qquad S_k=\sum_\rho \rho^{-k},
+$$
+mixes the (real, computable) power sums $S_k=1-\tfrac{k}{2}-\log\text{-derivative terms}$ with alternating binomial weights of size $2^n$. Positivity therefore requires **cancellation control among $S_k$ that is equivalent in strength to zero-location itself** — no purely archimedean bound suffices, because a single off-line zero pair perturbs $S_k$ by $2\Re\rho^{-k}$, terms which the $2^n$ weighting amplifies. This confirms, as a sharpened negative structural result, that Li's criterion cannot be closed by term-by-term estimation of $S_k$; one needs an a-priori *joint* positivity of the quadratic form $\sum_{j,k}c_jc_k S_{j+k}$ (Weil positivity), which is the actual barrier.
+
+## Honest assessment
+
+I rigorously verified $\lambda_1>0$ (with explicit enclosure) and gave a clean self-contained proof of the modulus-1 characterization underlying Li's criterion, plus a sharpened statement of why the criterion resists archimedean estimation. This is consistent with RH but constitutes only a known necessary-condition check and a structural clarification — not new progress toward a proof.
+
+VERDICT: FAILED
+REASON: Reproduced/verified Li criterion (λ₁>0 with rigorous enclosure) and clarified the barrier, but achieved no new progress toward RH.
