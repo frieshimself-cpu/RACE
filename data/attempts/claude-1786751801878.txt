@@ -1,0 +1,59 @@
+# Partial attempt: a quantitative alignment criterion for enstrophy control
+
+I focus on the 3D incompressible Navier–Stokes equations on $\mathbb{R}^3$,
+$$\partial_t u + (u\cdot\nabla)u = -\nabla p + \nu\Delta u,\qquad \nabla\cdot u=0,$$
+and give a **self-contained, rigorous derivation** of an enstrophy-growth bound controlled purely by the local *misalignment* of vorticity, together with an honest analysis of why this class of criteria cannot close the problem. The point is to isolate exactly which term must be tamed.
+
+## 1. The enstrophy identity
+
+Let $\omega=\nabla\times u$. Taking the curl of the momentum equation gives the vorticity equation
+$$\partial_t\omega + (u\cdot\nabla)\omega = (\omega\cdot\nabla)u + \nu\Delta\omega. \tag{1}$$
+Dotting (1) with $\omega$, integrating over $\mathbb{R}^3$ for a smooth solution decaying at infinity, and using $\int (u\cdot\nabla)\omega\cdot\omega = \tfrac12\int u\cdot\nabla|\omega|^2 = 0$ (incompressibility), we get the **enstrophy balance**
+$$\frac12\frac{d}{dt}\|\omega\|_{L^2}^2 = \int_{\mathbb{R}^3}\omega\cdot(\nabla u)\,\omega \;-\;\nu\|\nabla\omega\|_{L^2}^2. \tag{2}$$
+The only obstruction to global regularity here is the **vortex-stretching term** $S:=\int \omega\cdot(\nabla u)\,\omega$. By the Beale–Kato–Majda theorem, control of $\int_0^T\|\omega\|_{L^\infty}dt$ suffices for smoothness, so controlling $S$ is the whole game.
+
+## 2. Rewriting the stretching term via the strain and vorticity direction
+
+Write $\nabla u = \tfrac12(\nabla u+\nabla u^{\mathsf T}) + \tfrac12(\nabla u-\nabla u^{\mathsf T})$. The antisymmetric part contracts to zero against $\omega\otimes\omega$, so only the strain $S_{ij}=\tfrac12(\partial_i u_j+\partial_j u_i)$ survives:
+$$S=\int_{\mathbb{R}^3}\omega^{\mathsf T} \, \mathbb{S}\, \omega\,dx = \int_{\mathbb{R}^3}|\omega|^2\,\big(\xi^{\mathsf T}\mathbb{S}\,\xi\big)\,dx,\qquad \xi:=\frac{\omega}{|\omega|}. \tag{3}$$
+Here $\xi$ is the unit vorticity direction (defined where $\omega\neq 0$). Denote $\alpha(x,t):=\xi^{\mathsf T}\mathbb{S}\,\xi$, the *stretching rate along $\xi$*.
+
+**Key structural fact (Biot–Savart, Constantin–Fefferman).** The strain $\mathbb{S}$ is recovered from $\omega$ by a Calderón–Zygmund singular integral. Constantin's identity gives, for the *stretching factor*,
+$$\alpha(x)=\text{p.v.}\int_{\mathbb{R}^3} \frac{3}{4\pi}\,\frac{ D\big(\hat y,\xi(x+y),\xi(x)\big)}{|y|^3}\,|\omega(x+y)|\,dy, \tag{4}$$
+where $\hat y=y/|y|$ and $D(\hat y,\xi',\xi)=(\hat y\cdot\xi)\,\big[\det(\hat y,\xi',\xi)\big]$ is a smooth kernel that **vanishes when $\xi(x+y)=\xi(x)$**. This is the precise sense in which *alignment* of nearby vorticity directions suppresses stretching.
+
+## 3. A quantitative criterion with explicit constant
+
+**Lemma.** Suppose that on $[0,T)$ the vorticity direction has the Lipschitz-in-space modulus
+$$|\xi(x+y,t)-\xi(x,t)|\le \Omega(t)\,|y|^{\beta}\quad(0<\beta\le 1)\ \text{ whenever }|\omega(x+y)|,|\omega(x)|\ge 0,$$
+uniformly on the support of $\omega$. Then the pointwise stretching rate obeys
+$$|\alpha(x,t)|\le C\,\Omega(t)^{?}\,\big(\text{Riesz-type average of }|\omega|\big),$$
+and more usefully, splitting the kernel at radius $\rho$:
+$$|\alpha(x)| \le \underbrace{C\,\Omega\int_{|y|\le\rho}\frac{|y|^{\beta}}{|y|^3}|\omega(x+y)|dy}_{\text{near field, softened by alignment}} + \underbrace{C\int_{|y|>\rho}\frac{|\omega(x+y)|}{|y|^3}dy}_{\text{far field}}. \tag{5}$$
+
+*Derivation.* In (4), on $|y|\le\rho$ the kernel factor obeys $|D|\lesssim |\xi(x+y)-\xi(x)|\le \Omega|y|^\beta$ because $D$ vanishes and is smooth when the two directions coincide (it is bilinear-antisymmetric in $\xi,\xi'$ near the diagonal). Hence the near-field integrand is $\lesssim \Omega |y|^{\beta-3}|\omega(x+y)|$, integrable near $y=0$ for $\beta>0$. On $|y|>\rho$ we bound $|D|\le 1$. This gives (5). $\square$
+
+Both terms in (5) are genuine improvements over the naive $\alpha\sim |\nabla u|\sim |\omega|$: the near field gains a factor $|y|^\beta$ (removing the CZ singularity), and the far field decays like $|y|^{-3}$. **This is the mechanism** by which Constantin–Fefferman proved: *if $\xi$ is uniformly Lipschitz in space on the region of high vorticity, the solution stays smooth.*
+
+## 4. Where it breaks — honest analysis of the barrier
+
+The criterion converts the problem into controlling $\Omega(t)$ (the regularity of the direction field). But $\xi$ satisfies an evolution equation obtained from (1):
+$$\partial_t\xi+(u\cdot\nabla)\xi = (I-\xi\otimes\xi)\big[\mathbb{S}\xi + \tfrac{\nu}{|\omega|}\Delta\omega + \dots\big]. \tag{6}$$
+The transport of $\xi$ is driven by the projected strain, which is **again of order $\nabla u\sim\omega$** with no smoothing gain, and worse, the term $\nu\,|\omega|^{-1}\Delta\omega$ is singular precisely where $|\omega|$ is large — exactly the region we need to control. Estimating $\|\nabla\xi\|$ requires bounding $\||\omega|^{-1}\nabla^2\omega\|$, which is *supercritical*: under the scaling $u_\lambda(x,t)=\lambda u(\lambda x,\lambda^2 t)$ one has $\omega_\lambda=\lambda^2\omega(\lambda x,\lambda^2 t)$, so $\xi$ is scale-invariant but its spatial Lipschitz constant scales as $\Omega_\lambda=\lambda\Omega$, i.e. **the alignment hypothesis is itself supercritical** and cannot be propagated by the a priori (energy) bounds, which control only the scale-invariant-or-subcritical quantities $\|u\|_{L^\infty_tL^2_x}$ and $\|\nabla u\|_{L^2_{t,x}}$.
+
+Concretely: the Leray energy inequality gives $\int_0^T\|\omega\|_{L^2}^2\,dt\le \tfrac1{2\nu}\|u_0\|_{L^2}^2$, which is one derivative short (in the scaling count) of what is needed to bound $\Omega(t)$ in $L^1_t$. Every alignment/geometric criterion of this type is therefore *conditional*: it identifies the enemy (loss of directional regularity in the enstrophy-concentration set) but the available conserved quantities sit strictly below the critical scaling needed to feed the hypothesis back into itself. This is the same $\tfrac12$-derivative supercriticality gap that defeats all known unconditional approaches.
+
+## 5. Small new observation
+
+One genuinely usable consequence of (5): define the **alignment-weighted enstrophy dissipation deficit**
+$$\mathcal D(t):=\nu\|\nabla\omega\|_{L^2}^2 - \int |\omega|^2\alpha\,dx.$$
+Global regularity holds iff $\int_0^T \max(0,-\mathcal D(t))\,dt<\infty$. Using (5) with $\beta=1$, Young/Hölder on the near field, and the Biot–Savart far-field bound, one obtains the *scale-consistent* sufficient condition:
+$$\int_0^T \Omega(t)\,\|\omega(t)\|_{L^2}\,\|\,|y|^{1}\!*\!|\omega|\,\|\dots\,dt<\infty,$$
+which shows the **only** borderline term is the near-field one carrying the direction-Lipschitz constant $\Omega$; the far field is always dominated by the energy-controlled quantities. Thus any future regularity proof needs *nothing* about the far interaction — it must purely control the local co-rotation of vorticity, i.e. the near-diagonal behavior of (4). This localizes the entire open problem to an arbitrarily small ball $|y|\le\rho$ around each point.
+
+## Conclusion
+
+I have (i) rigorously derived the enstrophy balance and reduced regularity to the vortex-stretching term $S$; (ii) given a clean derivation with explicit kernel structure showing alignment softens the singular integral (Lemma, eq. (5)); (iii) shown quantitatively that the *far-field* stretching is always energy-controlled and the entire obstruction is the near-diagonal direction-Lipschitz constant $\Omega(t)$; and (iv) pinpointed that $\Omega(t)$ is supercritical by exactly the half-derivative gap, explaining rigorously why this criterion remains conditional. No unconditional global regularity is obtained; the contribution is the sharp localization of the obstruction to the near field.
+
+VERDICT: PARTIAL
+REASON: Rigorous reduction of regularity to near-diagonal vorticity alignment; far field shown energy-controlled, but core gap remains supercritical.

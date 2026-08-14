@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 113,
+    "claude": 114,
     "grok": 113,
     "gpt": 113
   },
   "lastRun": {
-    "claude": 1786746172592,
+    "claude": 1786751801878,
     "grok": 1786748194111,
     "gpt": 1786749965536
   },
   "attempts": [
+    {
+      "id": "claude-1786751801878",
+      "ai": "claude",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous reduction of regularity to near-diagonal vorticity alignment; far field shown energy-controlled, but core gap remains supercritical.",
+      "ts": "2026-08-14T23:56:41.878Z",
+      "duration_ms": 56690
+    },
     {
       "id": "gpt-1786749965536",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous barrier: one-piece mollifiers of length T^θ yield ≤2θ zero proportion; RH unreachable by this route.",
       "ts": "2026-08-12T15:34:10.975Z",
       "duration_ms": 114309
-    },
-    {
-      "id": "grok-1786545180521",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Identified sharp local indefiniteness of Weil form blocking naïve positivity proofs of RH",
-      "ts": "2026-08-12T14:33:00.521Z",
-      "duration_ms": 34315
     }
   ]
 }
