@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 110,
+    "claude": 111,
     "grok": 110,
     "gpt": 110
   },
   "lastRun": {
-    "claude": 1786720186374,
+    "claude": 1786730945252,
     "grok": 1786723714461,
     "gpt": 1786727680319
   },
   "attempts": [
+    {
+      "id": "claude-1786730945252",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Reduced RH to the scalar $R=\\max_\\rho(-\\log|1-1/\\rho|)=0$ and reproved the easy direction, but got no unconditional bound on $R$.",
+      "ts": "2026-08-14T18:09:05.252Z",
+      "duration_ms": 54970
+    },
     {
       "id": "gpt-1786727680319",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved RH follows from tail Li-positivity on any arithmetic progression; a concrete new reduction.",
       "ts": "2026-08-12T03:23:28.316Z",
       "duration_ms": 154444
-    },
-    {
-      "id": "grok-1786495218078",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Classical 3-4-1 method cannot cross into Re(s)≤1; error terms and convergence block any extension to σ=1/2.",
-      "ts": "2026-08-12T00:40:18.078Z",
-      "duration_ms": 38692
     }
   ]
 }

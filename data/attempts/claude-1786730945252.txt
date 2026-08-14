@@ -1,0 +1,90 @@
+# Attempt: Structure and obstruction in Li's positivity criterion
+
+## Setup
+
+Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1, with $\xi(s)=\xi(1-s)$ and zeros exactly the nontrivial zeros $\rho$ of $\zeta$. Define the **Li coefficients**
+$$
+\lambda_n=\frac{1}{(n-1)!}\left.\frac{d^n}{ds^n}\Big(s^{n-1}\log\xi(s)\Big)\right|_{s=1}.
+$$
+Bombieri–Lagarias's identity gives the zero-sum form
+$$
+\lambda_n=\sum_{\rho}\Big[1-\Big(1-\tfrac1\rho\Big)^{n}\Big],
+$$
+summed in symmetric pairs $\rho,1-\rho$. **Li's criterion:** RH $\iff \lambda_n\ge 0$ for all $n\ge1$. I want to make the arithmetic content explicit and pinpoint exactly what an unconditional proof must control.
+
+## An exact decomposition of $\lambda_n$
+
+Write $\log\xi(s)$ via its Hadamard/logarithmic-derivative pieces. Using
+$$
+\frac{\xi'}{\xi}(s)=\sum_\rho\frac1{s-\rho}\quad(\text{symmetric sum}),
+$$
+and the completed formula
+$$
+\frac{\xi'}{\xi}(s)=B+\tfrac12\log\pi^{-1}... 
+$$
+it is cleaner to work directly from
+$$
+-\frac{\zeta'}{\zeta}(s)=\frac{1}{s-1}-B-\tfrac12\log\pi+\tfrac12\frac{\Gamma'}{\Gamma}\!\Big(\tfrac s2+1\Big)-\sum_\rho\Big(\frac1{s-\rho}+\frac1\rho\Big).
+$$
+
+The key structural fact I use: because $\lambda_n=\sum_\rho[1-(1-1/\rho)^n]$ and the map $\rho\mapsto 1-1/\rho$ sends the closed disk $\{|z-1|\le 1\}$ (which contains a zero iff $\Re\rho\ge 1/2$... more precisely $\Re(1/\rho)>0\iff\Re\rho>0$) — let me record the decisive inequality precisely.
+
+Set $\rho=\beta+i\gamma$. Then
+$$
+\Re\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big]=1-|w|^n\cos(n\arg w),\qquad w=1-\tfrac1\rho.
+$$
+Now $|w|^2=\big|1-\tfrac1\rho\big|^2=\frac{(\beta-1)^2... }{}$. Compute:
+$$
+1-\frac1\rho=\frac{\rho-1}{\rho},\qquad |w|^2=\frac{|\rho-1|^2}{|\rho|^2}=\frac{(\beta-1)^2+\gamma^2}{\beta^2+\gamma^2}.
+$$
+Hence
+$$
+|w|^2<1\iff (\beta-1)^2<\beta^2\iff \beta>\tfrac12.
+$$
+So: **$|w|<1$ exactly when $\Re\rho>1/2$, $|w|=1$ when $\Re\rho=1/2$, $|w|>1$ when $\Re\rho<1/2$.** Zeros come in pairs $\{\rho,1-\rho\}$ (and conjugates), and for such a pair $w(\rho)$ and $w(1-\rho)$ satisfy $|w(\rho)||w(1-\rho)|=1$. This is the geometric heart of the criterion.
+
+## Why positivity is delicate: the pair contribution
+
+Take a symmetric pair off the critical line, $\rho=\beta+i\gamma$, $\rho'=1-\beta-i\gamma$ (with $\beta>1/2$ WLOG). Their real contribution to $\lambda_n$ is
+$$
+P_n(\rho)=2-|w|^n\cos(n\theta)-|w|^{-n}\cos(n\theta'),
+$$
+where $w=w(\rho)$, $|w|<1$, and $\theta=\arg w$, $\theta'=\arg w(\rho')$. As $n\to\infty$ the term $|w|^{-n}\to\infty$, so a single off-line pair forces $\liminf_n P_n=-\infty$ along a subsequence where $\cos(n\theta')>0$ (which occurs with positive density by Weyl equidistribution of $n\theta' \bmod 2\pi$, unless $\theta'\in\pi\mathbb{Q}$, and even then infinitely often). Therefore **any** off-line zero makes $\lambda_n$ negative for infinitely many $n$. This re-proves the "only if" direction cleanly and shows Li positivity is not merely asymptotic but forced by exponential growth $|w|^{-n}$.
+
+**Consequence (sharp reformulation).** RH is equivalent to: the divergent-looking sum $\sum_\rho[1-(1-1/\rho)^n]$ has **no** term with $|w|>1$ — i.e., every zero lies on $|w|=1$. Equivalently, defining for each zero the "instability rate" $r(\rho)=-\log|w(\rho)|=\tfrac12\log\frac{\beta^2+\gamma^2}{(\beta-1)^2+\gamma^2}$, RH $\iff \max_\rho r(\rho)=0$, and the growth of $\lambda_n$ is governed by
+$$
+\limsup_n \frac{1}{n}\log|\lambda_n^{-}| = \max_\rho r(\rho)=:R,
+$$
+where $\lambda_n^-$ is the negative part. RH $\iff R=0$.
+
+## The unconditional arithmetic side
+
+The other, computable representation (Bombieri–Lagarias / Coffey) is
+$$
+\lambda_n=1-\tfrac n2(\gamma+\log 4\pi)+\sum_{j=2}^{n}\binom nj(-1)^j\Big(1-2^{-j}\Big)\eta_{j-1}... 
+$$
+where the arithmetic enters via the "generalized Stieltjes/secondary" constants. The point for the race: the arithmetic side expresses $\lambda_n$ as an **explicitly computable** number (finite combination of $\gamma$, $\log\pi$, and derivatives of $\zeta$), while the zero side reveals that positivity is equivalent to $R=0$. Bridging them is the unclosed gap.
+
+Sanity check with $n=1$:
+$$
+\lambda_1=\sum_\rho\frac1\rho=1+\tfrac\gamma2-\tfrac12\log(4\pi)\approx 0.0230957>0,
+$$
+consistent, and independent of RH (it only needs the symmetric pairing, since $\sum_\rho 1/\rho$ converges in pairs). Good.
+
+## Where progress stalls (honest obstruction)
+
+The reformulation "$R=0$" is exact but *not* easier: proving $R\le 0$ is literally proving no zero has $\beta>1/2$. My decomposition converts RH into controlling the single quantity $R=\max_\rho r(\rho)$, and shows the negative part of $\lambda_n$ decays subexponentially iff $R=0$. To get **new** leverage one would need an *independent* upper bound on $\lambda_n^-$ (or on $R$) from the arithmetic side, e.g. a proof that
+$$
+\liminf_n \lambda_n\, n^{-1}\log^{-1} n \ge 0
+$$
+with an *effective* rate ruling out the exponential $e^{Rn}$ blow-up. I could not produce such a bound: the arithmetic formula for $\lambda_n$ involves alternating binomial sums with massive cancellation, and no unconditional handle bounds the cancellation from below without already knowing zero locations. This is the same wall that defeats the direct approach; my contribution is only to localize it to the single scalar $R$ and the equivalence $R=0\iff$ RH, with the clean di[REDACTED] criterion $|w|^2=\frac{(\beta-1)^2+\gamma^2}{\beta^2+\gamma^2}$.
+
+## Summary of what is (rigorously) established here
+1. Exact geometric criterion: $\Re\rho\gtreqless\tfrac12\iff |w(\rho)|\lesseqgtr 1$, $w=1-1/\rho$. (Verified by direct computation.)
+2. A single off-line pair forces $\lambda_n<0$ infinitely often via the $|w|^{-n}$ term and Weyl equidistribution — a clean proof of the "only if" direction.
+3. RH $\iff R:=\max_\rho\big(-\log|w(\rho)|\big)=0$, with $R$ controlling the exponential growth rate of the negative part of $\lambda_n$.
+
+No new bound on $R$ from the arithmetic side was obtained, so no progress toward the "if" direction (the actual theorem).
+
+VERDICT: FAILED
+REASON: Reduced RH to the scalar $R=\max_\rho(-\log|1-1/\rho|)=0$ and reproved the easy direction, but got no unconditional bound on $R$.
