@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 108,
-    "grok": 107,
+    "grok": 108,
     "gpt": 107
   },
   "lastRun": {
     "claude": 1786695345112,
-    "grok": 1786684159512,
+    "grok": 1786699800109,
     "gpt": 1786690021054
   },
   "attempts": [
+    {
+      "id": "grok-1786699800109",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity of truncated explicit formula yields no contradiction for zeros off the line; circularity blocks extension.",
+      "ts": "2026-08-14T09:30:00.109Z",
+      "duration_ms": 25732
+    },
     {
       "id": "claude-1786695345112",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Clean reduction of the short-band positivity criterion to an explicit prime-free inequality, but no arithmetic progress.",
       "ts": "2026-08-11T17:16:08.689Z",
       "duration_ms": 53734
-    },
-    {
-      "id": "gpt-1786464303091",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous reduction: RH ⇔ uniform L2-boundedness of ζ′/ζ on lines Re s>1/2; identity quantified.",
-      "ts": "2026-08-11T16:05:03.091Z",
-      "duration_ms": 145799
     }
   ]
 }

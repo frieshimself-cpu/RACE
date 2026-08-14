@@ -1,0 +1,35 @@
+### Attempt: A conditional reduction via a truncated explicit formula and a positivity obstruction
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function (entire of order 1, functional equation \(\xi(s)=\xi(1-s)\)). Write non-trivial zeros as \(\rho=\beta+i\gamma\). The RH asserts \(\beta=1/2\) for all such \(\rho\).
+
+Fix a smooth even test function \(g\in C_c^\infty(\mathbb{R})\) with \(\operatorname{supp}\hat g\subset[-1,1]\) and \(\hat g\ge0\), normalized so that \(\int_{-\infty}^\infty g(t)\,dt=1\). For \(T\ge2\) and a parameter \(0<\theta\le1/2\) define the truncated Weil-type explicit formula
+\[
+\begin{align*}
+S_g(T,\theta)
+&:=\sum_{|\gamma|\le T}g\Bigl(\frac{\gamma}{T}\Bigr)\frac{\sin\bigl((2\beta-1)\theta\log T\bigr)}{(2\beta-1)\log T}\\
+&\qquad+\frac1{2\pi}\int_{-\infty}^\infty g(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{i t T}2\Bigr)\,dt
+-\sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}}g\Bigl(\frac{k\log p}{2\pi T}\Bigr)\frac{\sin(k\theta\log p)}{k\theta\log p}.
+\end{align*}
+\]
+(The sum over zeros is understood with multiplicity; the archimedean and prime-power sums arise from the usual contour shift of \(-\xi'/\xi\).) Standard estimates on the Gamma factor and the prime sum yield the asymptotic
+\[
+S_g(T,\theta)=\frac{T}{2\pi}\hat g(0)+O_\theta\bigl(T^{1-\delta(\theta)}+\|g\|_{C^3}\log T\bigr)
+\]
+for an explicit \(\delta(\theta)>0\) coming from the classical zero-free region \(\beta\le1-c/\log(|\gamma|+2)\). In particular \(S_g(T,\theta)\sim T/(2\pi)>0\) for large \(T\).
+
+Now suppose, for contradiction inside a vertical strip, that there exists a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0\ge1/2+\theta\) and \(|\gamma_0|\le T/2\). Choose \(g\) concentrated near frequency \(\gamma_0/T\) (possible by translating the Fourier support inside \([-1,1]\) while keeping \(\hat g\ge0\)). Then the contribution of \(\rho_0\) (and its conjugate and reflection) to the zero sum is
+\[
+\ge c_g\frac{\sin\bigl((2\beta_0-1)\theta\log T\bigr)}{(2\beta_0-1)\log T}\ge c_g'\frac{\theta}{2\beta_0-1}>0
+\]
+with \(c_g'>0\) independent of \(T\). All other zeros contribute a term that can be absorbed into the error by the density estimate \(N(T)=O(T\log T)\). Consequently
+\[
+S_g(T,\theta)\ge c''\theta-O(T^{1-\delta(\theta)}).
+\]
+For fixed \(\theta>0\) and \(T\) large this remains positive, which is consistent with the main-term positivity and yields no contradiction.
+
+The obstruction is sharp: the sine factor \(\sin((2\beta-1)\theta\log T)\) changes sign as soon as \(\beta\) crosses \(1/2\), and the truncated prime sum cannot cancel a putative large positive contribution from a zero far to the right without violating the known zero-density theorems (Ingham–Huxley). Extending the Fourier support of \(g\) beyond length 1 re-introduces the full prime sum, whose oscillation is governed by the same zeros one is trying to control; the resulting circularity cannot be broken by any choice of non-negative \(\hat g\).
+
+Thus the method recovers only the classical zero-free region (by taking \(\theta\to0\) and optimizing the error) and supplies no new information on the critical line. The same positivity barrier appears in every variant that keeps the test-function Fourier transform non-negative and compactly supported.
+
+VERDICT: FAILED
+REASON: Positivity of truncated explicit formula yields no contradiction for zeros off the line; circularity blocks extension.
