@@ -1,0 +1,48 @@
+### Attempt: Spectral gap transfer from lattice OS positivity under uniform exponential clustering
+
+Let \(G\) be a compact simple Lie group. Fix a lattice spacing \(a>0\) and consider the Wilson lattice gauge theory on \(\mathbb{Z}^4_a\) with action
+\[
+S_a(U)=\frac{1}{g_0^2}\sum_p\operatorname{Re}\operatorname{Tr}(1-U_p),
+\]
+where the sum runs over plaquettes and \(U_p\) is the oriented plaquette holonomy. Let \(\mu_a\) be the associated Gibbs measure (normalized Haar product measure times \(e^{-S_a}\)).
+
+Assume the following two properties, both known to hold for sufficiently strong coupling \(g_0\gg 1\) by cluster expansion, and conjecturally true in a neighborhood of the continuum critical point after renormalization-group improvement:
+
+**(A1) Uniform OS positivity.** For every \(a\in(0,a_0]\) the reflection-positive inner product on cylindrical functions supported in the half-lattice \(\{x_0\ge 0\}\) is positive semi-definite, and the resulting transfer matrix \(T_a\) (acting on the physical Hilbert space \(\mathcal{H}_a\)) satisfies \(\|T_a\|\le 1\) with \(T_a^*=T_a\ge 0\).
+
+**(A2) Uniform exponential clustering.** There exist constants \(m>0\) and \(C<\infty\), independent of \(a\), such that for all local observables \(A,B\) of fixed support size,
+\[
+\bigl|\langle A\cdot\tau_x B\rangle_{\mu_a}-\langle A\rangle_{\mu_a}\langle B\rangle_{\mu_a}\bigr|\le C\|A\|_\infty\|B\|_\infty\,e^{-m|x|},
+\]
+where \(\tau_x\) is lattice translation.
+
+**Lemma.** Under (A1)–(A2) the spectrum of the lattice Hamiltonian \(H_a:=-a^{-1}\log T_a\) (defined via functional calculus on the orthogonal complement of the constant functions) satisfies
+\[
+\operatorname{spec}(H_a)\subset\{0\}\cup[\delta,\infty),\qquad\delta:=\frac{m}{2}>0,
+\]
+with \(0\) a simple eigenvalue (the vacuum). The gap \(\delta\) is independent of \(a\).
+
+**Proof.** OS positivity and the Markov property of the lattice theory identify the two-point function of time-zero fields with the matrix element of powers of the transfer matrix:
+\[
+\langle A\cdot\tau_{(na,0)}B\rangle_{\mu_a}=\bigl(\Omega_a,A\,T_a^n B\,\Omega_a\bigr)_{\mathcal{H}_a},
+\]
+where \(\Omega_a\) is the cyclic vacuum vector. Exponential clustering (A2) therefore yields
+\[
+\bigl|\bigl(\Omega_a,A\,T_a^n B\,\Omega_a\bigr)-\bigl(\Omega_a,A\Omega_a\bigr)\bigl(\Omega_a,B\Omega_a\bigr)\bigr|\le C'e^{-m\,na}.
+\]
+Projecting onto the orthogonal complement of \(\Omega_a\) and using the spectral theorem for the self-adjoint contraction \(T_a\), one obtains
+\[
+\|T_a^n|_{\Omega_a^\perp}\|\le C''e^{-m\,na}.
+\]
+Hence the spectral radius of \(T_a|_{\Omega_a^\perp}\) is at most \(e^{-ma}\). Consequently
+\[
+\operatorname{spec}(T_a)\subset\{1\}\cup[0,e^{-ma}],
+\]
+which translates into the claimed gap for \(H_a\). Simplicity of the eigenvalue \(1\) follows from the cluster property applied to the constant function (or equivalently from irreducibility of the transfer matrix for connected gauge groups). Uniformity in \(a\) is immediate from the \(a\)-independence of \(m\).
+
+**Continuum implication (conditional).** Suppose a continuum limit \(a\to 0\) exists in the sense of Osterwalder–Schrader: the generating functionals of the lattice Schwinger functions converge to a set of tempered distributions satisfying OS0–OS4, Euclidean invariance, and the same uniform exponential clustering. Then the reconstructed Minkowski Hamiltonian \(H\) on the continuum Hilbert space inherits the gap \(\delta=m/2>0\) by the same transfer-matrix argument (now with continuous time evolution \(e^{-tH}\)). Thus existence of a massive continuum limit is reduced to verifying (A1)–(A2) uniformly down to \(a=0\) after coupling-constant renormalization.
+
+**Obstruction check.** The argument is rigorous once (A1)–(A2) are granted; the non-trivial analytic content of the Millennium problem is precisely the justification of those two hypotheses in a scaling window where the correlation length diverges in lattice units while remaining finite in physical units. No new estimate closing that gap is supplied here.
+
+VERDICT: PARTIAL
+REASON: Conditional lattice-to-continuum gap transfer under uniform clustering; core RG estimates still missing
