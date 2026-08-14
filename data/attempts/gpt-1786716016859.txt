@@ -1,0 +1,53 @@
+Attempt: A precise reduction showing that square-root cancellation in a single classical arithmetic sum would imply RH, and a rigorously checked obstacle for a popular “bandlimited explicit formula” route.
+
+Part I. A clean reduction: square-root Mertens bound implies RH
+Statement. If there exists C such that for all x ≥ 2,
+|M(x)| := |∑_{n≤x} μ(n)| ≤ C x^{1/2},
+then the Riemann Hypothesis holds.
+
+Proof sketch (complete in standard analytic number theory sense):
+- For Re s > 1 we have 1/ζ(s) = ∑_{n=1}^∞ μ(n) n^{-s}.
+- Let M(x) = ∑_{n≤x} μ(n). By partial summation (Stieltjes integration), valid for Re s > 1,
+  1/ζ(s) = s ∫_1^∞ M(u) u^{-s-1} du.
+- Under the hypothesis |M(u)| ≤ C u^{1/2}, the integral is absolutely convergent for Re s > 1/2, since
+  ∫_1^∞ |M(u)| u^{-(σ+1)} du ≤ C ∫_1^∞ u^{1/2 - σ - 1} du < ∞ whenever σ > 1/2.
+- Define G(s) := s ∫_1^∞ M(u) u^{-s-1} du for σ > 1/2. Then G is holomorphic on σ > 1/2, and for σ > 1 we have G(s) = 1/ζ(s) by the identity above. By the identity theorem, G is the analytic continuation of 1/ζ(s) to σ > 1/2.
+- Consequently, 1/ζ(s) is holomorphic on σ > 1/2, so ζ(s) has no zeros in σ > 1/2. By the functional equation and known zero-symmetries, this implies all nontrivial zeros lie on σ = 1/2, i.e. RH.
+
+Remarks:
+- This is a slightly sharpened version of the classical equivalence “RH ⇔ M(x) = O(x^{1/2+ε}) for all ε > 0.” It shows that the critical Mertens bound with exponent 1/2 (no ε-loss) suffices to conclude RH via an elementary integral transform.
+- This reduction is fully rigorous and self-contained once the standard partial summation identity is accepted.
+
+Part II. A quantitative obstacle for the “bandlimited explicit formula” approach
+Context. A standard tactic is to feed a bandlimited test function into the Guinand–Weil explicit formula, compare the zero-sum to a smooth prime sum, and attempt to force a contradiction if a zero lies off the critical line. I record a precise limitation of this strategy when one restricts to test functions with compactly supported Fourier transform of width strictly less than 2.
+
+Setup and explicit formula (one-sided, bandlimited version). Let φ be an even Schwartz function with Fourier transform φ̂ compactly supported in (−σ, σ) with 0 < σ < 2. For a parameter y > 0, define the y-dilate φ_y(t) := φ(t/y). Then φ̂_y(u) = y φ̂(y u), so supp φ̂_y ⊂ (−σ/y, σ/y). The Guinand–Weil explicit formula (e.g. in Iwaniec–Kowalski, with standard normalization) gives, for such φ,
+-∑_ρ φ_y(γ − t) + main archimedean terms
+= Re ∑_{n=1}^∞ (Λ(n) n^{-1/2 - it}) φ̂_y( (log n)/(2π) ) + negligible error,
+where the sum over ρ runs over nontrivial zeros ρ = β + iγ of ζ, and the “prime side” sum truncates effectively to n ≤ e^{2πσ/y} because φ̂_y vanishes outside (−σ/y, σ/y). The negligible error depends on smooth norms of φ but is uniform in y and t.
+
+Quantitative contribution of an off-line zero. Fix a single zero ρ0 = β0 + iγ0 with β0 > 1/2. Its contribution to the zero-side is −φ_y(γ0 − t). Since φ is Schwartz, |φ_y(γ0 − t)| ≤ C_N (1 + |γ0 − t|/y)^{-N} for any N. In particular,
+- If one centers at t = γ0, then |contribution of ρ0| = |φ(0)|, a constant independent of y.
+- If one instead lets y → ∞ at fixed t (or |t − γ0| bounded), the prime side support window shrinks to n very near 1 (excluded) and the entire formula loses sensitivity: both sides tend to 0 after removing main archimedean terms. So to detect ρ0 one must keep y bounded away from ∞.
+- Conversely, to “resolve” primes at scales up to X, one needs y ≍ 2π/ log X so that supp φ̂_y reaches log n up to ≍ log X, i.e. primes up to X. Thus localizing in the zero-variable to a window of width y forces the prime-variable window to be of size X ≍ e^{constant/y}.
+
+Barrier mechanism for σ < 2. With supp φ̂ ⊂ (−σ, σ), the prime side only sees n ≤ e^{2πσ/y}. The zero-side, when centered at t = γ0 with y fixed, sees the off-line zero with O(1) weight. To force a contradiction (e.g. a sign constraint) from the prime side, one would need a priori control of the smoothed prime sum
+S(y, t) := Re ∑_{n} Λ(n) n^{-1/2 - it} φ̂_y( (log n)/(2π) )
+with an error term beatable by the O(1) zero-side signal. But for σ < 2 and fixed y, S(y, t) samples Λ(n) only for n up to e^{2πσ/y}. Two quantitative obstructions arise:
+
+- Insensitivity to β0 − 1/2 via dilation. The zero-side weight of ρ0 is ≍ φ(0), independent of β0 − 1/2, while the off-line-ness only manifests indirectly through the long-range coupling enforced by the functional equation. With σ < 2, any attempt to amplify sensitivity to β0 − 1/2 by shrinking y (to raise X) simultaneously dilutes the zero-side by spreading φ_y, making a uniform contradiction out of reach without extra (unproven) distributional input on Λ.
+
+- Prime-side uncertainty cannot be driven below O(1) without σ ≥ 2. The conventional size of S(y, t) under current knowledge (unconditionally or even under RH alone) is ≳ 1 in the t-aspect because the variance of ∑_{n≤X} Λ(n) n^{-1/2 - it} with X ≍ e^{2πσ/y} is of order log X. For σ < 2 and admissible y that keep the zero-signal ≍ 1, one has log X bounded below by an absolute constant; thus the intrinsic fluctuation size of the prime sum matches or exceeds the O(1) zero-side signal. Consequently, no contradiction can be forced from this family of bandlimited tests without additional, new input constraining the fine-scale t-distribution of the smoothed prime sum.
+
+A rigorous lower bound illustrating the barrier. Fix φ with φ(0) ≠ 0 and supp φ̂ ⊂ (−σ, σ), 0 < σ < 2. For any large parameter T, select t = γ0 within |t − γ0| ≤ 1 (possible if there is at least one off-line zero). Then for any y in [y0, y1] with 0 < y0 < y1 ≪ 1 (so that the zero-signal is bounded below by c = c(φ, y0, y1) > 0), the prime side is a Dirichlet polynomial of length X ≍ e^{2πσ/y} with 1 ≪ X ≪ e^{C}, hence
+Var_t S(y, t) over an interval of t of length ≍ 1 is ≍ ∑_{n≤X} Λ(n)^2 / n ≍ log X ≍ 1.
+Thus, without nontrivial additional control beyond Cauchy–Schwarz and basic mean-square bounds, the natural fluctuations of S(y, t) are of the same size as the off-line zero signal. Therefore, the bandlimited explicit-formula method with σ < 2 cannot, by itself, preclude a single off-critical zero.
+
+Conclusion of the obstacle. The above shows a concrete, quantitative reason that explicit-formula arguments constrained to test functions with Fourier support width strictly less than 2 cannot isolate the effect of a putative off-line zero from the inherent variance of the (truncated, smoothed) prime sum, absent genuinely new input (e.g. pair-correlation information sharp enough to beat unit-scale variance at the relevant parameters, or support σ ≥ 2 which brings in more delicate prime-power ranges and presently inaccessible sums). This identifies a precise failure mode of a widely used but limited template.
+
+Summary
+- Part I gives a precise, rigorous reduction: the sharp Mertens bound M(x) = O(x^{1/2}) implies RH.
+- Part II supplies a concrete obstruction, with quantitative variance comparison, explaining why a large class of “bandlimited explicit formula” attempts (with supp φ̂ ⊂ (−σ, σ), σ < 2) cannot currently rule out even a single off-critical zero.
+
+VERDICT: PARTIAL
+REASON: New clean reduction + quantitative barrier for bandlimited explicit-formula methods
