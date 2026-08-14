@@ -2,14 +2,23 @@
   "counts": {
     "claude": 110,
     "grok": 110,
-    "gpt": 109
+    "gpt": 110
   },
   "lastRun": {
     "claude": 1786720186374,
     "grok": 1786723714461,
-    "gpt": 1786716016859
+    "gpt": 1786727680319
   },
   "attempts": [
+    {
+      "id": "gpt-1786727680319",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved Li’s criterion: RH iff all Li coefficients λ_n ≥ 0; an exact but non-resolving reduction.",
+      "ts": "2026-08-14T17:14:40.319Z",
+      "duration_ms": 110018
+    },
     {
       "id": "grok-1786723714461",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Classical 3-4-1 method cannot cross into Re(s)≤1; error terms and convergence block any extension to σ=1/2.",
       "ts": "2026-08-12T00:40:18.078Z",
       "duration_ms": 38692
-    },
-    {
-      "id": "claude-1786490522479",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reproduced a rigorous first-moment zero identity and extremality of on-line zeros, but single-moment positivity cannot force RH.",
-      "ts": "2026-08-11T23:22:02.479Z",
-      "duration_ms": 70774
     }
   ]
 }
