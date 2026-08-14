@@ -1,0 +1,52 @@
+### Attempt: Reduction of RH to a positivity statement on a truncated explicit formula, with obstruction analysis
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) and the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_{\rho}(1-s/\rho)
+\]
+(over the non-trivial zeros, counted with multiplicity) imply that RH is equivalent to all zeros of the entire function of order 1
+\[
+\Xi(z):=\xi\bigl(\tfrac12+iz\bigr)
+\]
+being real. Equivalently, the logarithmic derivative admits the representation
+\[
+\frac{\Xi'}{\Xi}(z)=\sum_{\rho}\frac{1}{z-\gamma},\qquad\rho=\tfrac12+i\gamma.
+\]
+(The sum is understood in the principal-value sense after pairing \(\gamma\) with \(-\gamma\).)
+
+Weil’s explicit formula converts this into an arithmetic statement. For a fixed even Schwartz test function \(g\) whose Fourier transform
+\[
+\hat g(t)=\int_{-\infty}^{\infty}g(x)e^{-itx}\,dx
+\]
+is supported in \((-2\log\Lambda,2\log\Lambda)\), one has
+\[
+\sum_{\gamma}\hat g(\gamma)= \hat g\bigl(\tfrac i2\bigr)+\hat g\bigl(-\tfrac i2\bigr)
+-\sum_p\sum_{m\ge1}\frac{\log p}{p^{m/2}}g(m\log p)
++\text{archimedean contribution involving }\frac{\Gamma'}{\Gamma}.
+\]
+RH is known to be equivalent to the positivity
+\[
+\sum_{\gamma}\hat g(\gamma)\ge0
+\]
+for every admissible \(g\ge0\) (Li’s criterion is the special case of the moments of \(\Xi'/\Xi\)).
+
+**Proposed reduction.** Fix a large height \(T\) and a small width \(\delta>0\). Let \(\phi_T\) be a non-negative even mollifier whose Fourier transform is supported in \([-1,1]\) and approximates the characteristic function of \([-T,T]\). Define the truncated Weil sum
+\[
+W(T,\delta):=\sum_{|\gamma|\le T}\widehat{\phi_T}(\gamma)+\delta\sum_{|\gamma|>T}e^{-\delta|\gamma|}\widehat{\phi_T}(\gamma).
+\]
+A routine contour shift of \(\frac{\xi'}{\xi}\) shows that
+\[
+W(T,\delta)=2\operatorname{Re}\sum_{n\le e^{T}}\frac{\Lambda(n)}{\sqrt n}\phi_T(\log n)+O\bigl(\log T+\delta^{-1}\bigr).
+\]
+If one could prove the uniform lower bound
+\[
+W(T,\delta)\ge c\log T\qquad(c>0\text{ absolute})
+\]
+for all sufficiently large \(T\) and all \(\delta\in(T^{-1},1)\), then every zero off the critical line would produce a negative contribution of size \(\asymp T^{\sigma-1/2}\) (by the usual density estimates), contradicting the lower bound once \(\sigma>1/2\). Thus RH would follow.
+
+**Obstruction.** The error term arising from the horizontal integrals in the contour shift is \(O(T^{\sigma_0-1/2}\log T)\) whenever a zero-free region \(\operatorname{Re}s\ge\sigma_0>1/2\) is assumed up to height \(2T\). This is circular: any attempt to absorb the error into the main term requires a zero-free region already stronger than what the positivity of \(W\) is supposed to deliver. Replacing \(\phi_T\) by a smoother cutoff only worsens the support of \(\hat\phi_T\), re-introducing long prime sums that cannot be controlled without RH-scale cancellation in \(\sum\Lambda(n)n^{-1/2}\). Consequently the reduction, while formally correct, cannot be closed by present methods of estimating prime-power sums.
+
+(The same circularity appears in every known positivity criterion that truncates the explicit formula at a height comparable to the zero being tested.)
+
+VERDICT: FAILED
+REASON: Circular dependence on zero-free regions blocks closing the positivity reduction

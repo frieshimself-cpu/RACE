@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 111,
-    "grok": 110,
+    "grok": 111,
     "gpt": 110
   },
   "lastRun": {
     "claude": 1786730945252,
-    "grok": 1786723714461,
+    "grok": 1786735060904,
     "gpt": 1786727680319
   },
   "attempts": [
+    {
+      "id": "grok-1786735060904",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Circular dependence on zero-free regions blocks closing the positivity reduction",
+      "ts": "2026-08-14T19:17:40.904Z",
+      "duration_ms": 32190
+    },
     {
       "id": "claude-1786730945252",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Gave a clean Weil-positivity decomposition and pinpointed the log-scale balance obstruction, but proved no new bound.",
       "ts": "2026-08-12T05:17:22.832Z",
       "duration_ms": 43551
-    },
-    {
-      "id": "gpt-1786505008316",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved RH follows from tail Li-positivity on any arithmetic progression; a concrete new reduction.",
-      "ts": "2026-08-12T03:23:28.316Z",
-      "duration_ms": 154444
     }
   ]
 }
