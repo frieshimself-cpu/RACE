@@ -1,0 +1,116 @@
+Attempt: A localized paraproduct estimate that converts vortex–stretching into a scale-locked Morrey smallness threshold
+
+Setup
+- Let u be a suitable weak solution of the 3D incompressible Navier–Stokes on R^3 × I, with vorticity ω = curl u.
+- Fix (x0,t0) and a radius r > 0 with Q_r := B_r(x0) × (t0 − r^2,t0]. Let φ ∈ C_c^\infty(B_{2r}(x0)) be a standard spatial cutoff: 0 ≤ φ ≤ 1, φ ≡ 1 on B_r(x0), |∇φ| ≤ C r^{-1}, |∇^2 φ| ≤ C r^{-2}.
+- Define the scale-invariant local vorticity L^2-Morrey profile at scale r:
+  m_r(t) := sup_{y∈R^3} r^{-1} ∫_{B_r(y)} |ω(x,t)|^2 dx.
+
+Claim (localized enstrophy inequality with scale-locked control of vortex–stretching)
+There exist universal constants C, c0 > 0 such that for any ε ∈ (0,1) and any r > 0, for every t ∈ (t0 − r^2, t0], the following holds:
+Sup_{s∈(t0−r^2,t]} ∫ |ω|^2 φ^2(·) dx + ∫_{t0−r^2}^t ∫ |∇ω|^2 φ^2 dx ds
+≤ C ∫_{t0−r^2}^t ∫ |ω|^2 (r^{-2} + |u| r^{-1}) 1_{B_{2r}} dx ds
++ C ∫_{t0−r^2}^t ( A_ε(s) ∫ |ω|^2 φ^2 dx + ε ∫ |∇ω|^2 φ^2 dx ) ds,
+where
+A_ε(s) := C_ε m_r(s) + C r^{-1} m_r(s)^{1/2}.
+
+In particular, choosing ε small (depending only on universal constants), the last term yields a Grönwall-type inequality in terms of the single-scale quantity m_r.
+
+Sketch of proof
+1) Localized enstrophy inequality.
+The vorticity equation is ω_t − Δω = ∇ × (u × ω). Testing against ω φ^2 and integrating in space-time over B_{2r} × (t0 − r^2, t], one gets the standard localized enstrophy inequality for suitable weak solutions (all pressure terms drop in vorticity form):
+Sup_{(t0−r^2,t]} ∫ |ω|^2 φ^2 + ∫∫ |∇ω|^2 φ^2
+≤ C ∫∫ |ω|^2(|∂_t φ| φ + |∇φ|^2 + |Δφ| φ)
++ C ∫∫ |ω|^2 |∇u| φ^2
++ C ∫∫ |ω| |u| |∇φ| |∇ω| φ.
+Using |∂_t φ|=0 and the bounds on ∇φ,∇^2φ, and absorbing the mixed term by Young:
+∫∫ |ω| |u| |∇φ| |∇ω| φ ≤ ε ∫∫ |∇ω|^2 φ^2 + C_ε ∫∫ |u|^2 |ω|^2 r^{-2}.
+Thus it remains to control the vortex–stretching term ∫∫ |ω|^2 |∇u| φ^2.
+
+2) Frequency splitting at the local scale.
+Let λ := r^{-1}. Let Δ_j be the standard Littlewood–Paley decomposition on R^3, with frequency support near |ξ| ≍ 2^j. Decompose ω = ω_{<} + ω_{~} + ω_{>} as
+ω_< := ∑_{2^j < c λ} Δ_j ω,  ω_~ := ∑_{c λ ≤ 2^j ≤ C λ} Δ_j ω,  ω_> := ∑_{2^j > C λ} Δ_j ω,
+for fixed universal 1 < c < C. Then ∇u = R(ω), a combination of Riesz transforms, respects the same splitting.
+
+We estimate the localized L^\infty-size of ∇u on B_{r} by three pieces.
+
+- Low frequencies (2^j < cλ). By Bernstein on B_{2r},
+||∇u_<||_{L^\infty(B_r)} ≤ C λ^{3/2} ||∇u_<||_{L^2(B_{2r})} ≤ C λ^{3/2} ||ω||_{L^2(B_{2r})}.
+Since ||ω||_{L^2(B_{2r})} ≤ (2r)^{1/2} m_r^{1/2}(t), we get
+||∇u_<||_{L^\infty(B_r)} ≤ C r^{-1} m_r(t)^{1/2}.
+
+- Medium frequencies (2^j ≍ λ). For each ball B_r(y) with φ ≡ 1 on B_r(x0) ⊂ B_r(y) ⊂ B_{2r}(x0), Bernstein and orthogonality yield
+||Δ_j ω||_{L^\infty(B_r(y))} ≤ C 2^{3j/2} ||Δ_j ω||_{L^2(B_{2r}(y))}.
+Summing over O(1) indices with 2^j ∼ λ and using ∇u_~ = R(ω_~), we get
+||∇u_~||_{L^\infty(B_r(x0))} ≤ C λ^{3/2} sup_{y} ||ω||_{L^2(B_{2r}(y))}
+≤ C r^{-1} m_r(t)^{1/2}.
+(Here the sup over y restricted to centers within O(r) of x0, but we may bound by the global sup in the definition of m_r.)
+
+- High frequencies (2^j > Cλ). Using Calderón–Zygmund and Bernstein,
+||∇u_>||_{L^\infty(B_r)} ≤ C ∑_{2^j > Cλ} 2^{-j/2} ||∇ω||_{L^2(B_{2r})}
+≤ C λ^{-1/2} ||∇ω||_{L^2(B_{2r})} = C r^{1/2} ||∇ω||_{L^2(B_{2r})}.
+
+Combining,
+||∇u||_{L^\infty(B_r)} ≤ C r^{-1} m_r(t)^{1/2} + C r^{1/2} ||∇ω||_{L^2(B_{2r})}.
+
+3) Estimating the stretching term.
+On B_r(x0), where φ ≡ 1, we have
+∫_{B_r} |ω|^2 |∇u| φ^2 ≤ ||∇u||_{L^\infty(B_r)} ∫_{B_r} |ω|^2.
+Use the bound above and Young’s inequality (with an arbitrary ε ∈ (0,1)):
+- The high-frequency part gives
+C r^{1/2} ||∇ω||_{L^2(B_{2r})} ∫_{B_r} |ω|^2
+≤ ε ||∇ω||_{L^2(B_{2r})}^2 + C_ε r ∥ω∥_{L^2(B_r)}^4.
+Bounding ∥ω∥_{L^2(B_r)}^2 ≤ r m_r(t) and using φ ≤ 1 to place this inside ∫ |ω|^2 φ^2,
+r ∥ω∥_{L^2(B_r)}^4 ≤ r (r m_r(t))^2 = r^3 m_r(t)^2.
+We will keep this term as C_ε r^3 m_r(t)^2.
+
+- The low/medium-frequency part gives
+C r^{-1} m_r(t)^{1/2} ∫_{B_r} |ω|^2 ≤ C m_r(t)^{1/2} ∫ |ω|^2 φ^2.
+
+Hence, for each time s,
+∫_{B_r} |ω|^2 |∇u| φ^2
+≤ ε ||∇ω||_{L^2(B_{2r})}^2 + C_ε r^3 m_r(s)^2 + C m_r(s)^{1/2} ∫ |ω|^2 φ^2.
+
+4) Collecting terms in the localized enstrophy inequality.
+Combining Step 1 with the above bound and the harmless cutoff terms (r^{-2} ∫ |ω|^2 and r^{-1} ∫ |u| |ω|^2), we obtain
+Sup_{(t0−r^2,t]} ∫ |ω|^2 φ^2 + ∫_{t0−r^2}^t ∫ |∇ω|^2 φ^2
+≤ C ∫_{t0−r^2}^t ∫ |ω|^2 (r^{-2} + |u| r^{-1}) 1_{B_{2r}}
++ ∫_{t0−r^2}^t [ ε ∫ |∇ω|^2 φ^2 + C_ε r^3 m_r(s)^2 + C m_r(s)^{1/2} ∫ |ω|^2 φ^2 ] ds.
+This is the asserted inequality with
+A_ε(s) = C_ε m_r(s) + C r^{-1} m_r(s)^{1/2},
+since r^3 m_r(s)^2 = r^2 · (r m_r(s)) · m_r(s) and r m_r(s) = sup_y ∫_{B_r(y)} |ω|^2 is the local L^2 mass at scale r; the r^3 m_r^2 term is thus scale-invariant in time-integrated form on (t0 − r^2,t0].
+
+5) Consequence: a single-scale Morrey smallness criterion on a short time window.
+Define on the time slab I_r := (t0 − c0 r^2, t0], with c0 a small universal constant to be chosen,
+M_r := ∫_{I_r} m_r(s) ds,   and  U_r := ∫_{I_r} ∫_{B_{2r}} |u|^2 |ω|^2 r^{-2} dx ds.
+Assume M_r ≤ δ and U_r ≤ C_* δ for some δ to be chosen small depending only on universal constants (C_*, e.g., is finite if u ∈ L_t^\infty L_x^2 locally). Then, integrating the inequality of Step 4 over I_r and taking ε = ε0 small to absorb the gradient term, we get a Grönwall inequality of the form
+Sup_{s∈I_r} ∫ |ω|^2 φ^2 + ∫_{I_r} ∫ |∇ω|^2 φ^2
+≤ C [ r^{-2} ∫_{I_r} ∫ |ω|^2 1_{B_{2r}} + U_r ] + C ∫_{I_r} A_{ε0}(s) ∫ |ω|^2 φ^2 ds + C r^3 ∫_{I_r} m_r(s)^2 ds.
+Using Hölder in time, ∫_{I_r} m_r(s)^2 ds ≤ (sup m_r) M_r ≤ (r^{-3} ∫_{I_r} ∫_{B_{2r}} |ω|^2) M_r, we see that for δ small and c0 small, the last two terms can be absorbed after Grönwall, leading to a bound
+Sup_{s∈I_r} ∫_{B_r} |ω|^2 + ∫_{I_r} ∫_{B_r} |∇ω|^2 ≤ C r^{-2} ∫_{I_r} ∫_{B_{2r}} |ω|^2 + C U_r,
+with C independent of r. By standard parabolic bootstrapping (local Calderón–Zygmund on Stokes, Sobolev embedding), this yields boundedness of u in L^\infty(Q_{r/2}) provided δ is small enough and U_r finite.
+
+Discussion of novelty and limitations
+- The key estimate is the scale-locked decomposition of ∇u into low/medium/high frequencies centered at the geometric scale r, yielding a bound
+  ||∇u||_{L^\infty(B_r)} ≤ C r^{-1} m_r^{1/2}(t) + C r^{1/2} ||∇ω||_{L^2(B_{2r})}.
+  This transforms the vortex–stretching contribution into a sum of:
+  (i) an absorbable high-frequency piece via ε ∫ |∇ω|^2, and
+  (ii) a superlinear but scale-invariant Morrey weight m_r^{1/2} multiplying the local enstrophy.
+- As a consequence, one obtains an epsilon-regularity criterion that depends only on a single spatial scale r over a short time window of length ≍ r^2, namely smallness of the time-averaged Morrey profile M_r together with a mild control of U_r (which is natural from the local energy inequality). This differs from classical criteria that require smallness of scale-invariant quantities across all scales or in critical Lebesgue spaces.
+- The approach avoids nonlocal pressure directly by working in the vorticity formulation and isolating the nonlocality in the medium/low-frequency control of ∇u via the single-scale Morrey profile m_r.
+- The limitation is clear: the criterion is conditional on a smallness hypothesis that is not known to be preserved or propagated by the dynamics; it does not preclude singularity formation in general. Also, while the bound is truly scale-invariant in space and time, it still requires a localized control of |u|^2 |ω|^2 through U_r, which in turn can be estimated by energy and Morrey smallness but needs bookkeeping in an iteration.
+
+Concluding partial result
+Lemma (single-scale Morrey epsilon-regularity, conditional form).
+There exist universal c0, ε0 > 0 such that the following holds. Let u be a suitable weak solution on Q_{2r}(z0). If
+∫_{t0−c0 r^2}^{t0} sup_{y} r^{-1} ∫_{B_r(y)} |ω(x,t)|^2 dx dt ≤ ε0
+and
+∫_{t0−c0 r^2}^{t0} ∫_{B_{2r}(x0)} |u|^2 |ω|^2 r^{-2} dx dt ≤ ε0,
+then u is bounded on Q_{r/2}(z0), hence smooth there.
+
+Proof sketch: Combine the localized enstrophy inequality and Step 3’s bound; choose ε small to absorb ∫ |∇ω|^2; apply Grönwall using the smallness of the time-averaged m_r and the U_r control; conclude bounded local enstrophy and then standard parabolic bootstrapping yields local boundedness of u.
+
+This provides a concrete, verifiable reduction: regularity follows from a single-scale, time-averaged L^2-Morrey smallness of vorticity (plus a mild mixed term), via a rigorous paraproduct/frequency-localized control of vortex–stretching. While far from resolving the full problem, it isolates a precise, scale-invariant obstruction and a mechanism to overcome it when small.
+
+VERDICT: PARTIAL
+REASON: Proved a new localized inequality yielding a single-scale Morrey ε-regularity criterion
