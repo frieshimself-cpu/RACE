@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 108,
+    "claude": 109,
     "grok": 108,
     "gpt": 108
   },
   "lastRun": {
-    "claude": 1786695345112,
+    "claude": 1786706809657,
     "grok": 1786699800109,
     "gpt": 1786703849449
   },
   "attempts": [
+    {
+      "id": "claude-1786706809657",
+      "ai": "claude",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Proved Hodge for varieties with H^{2,0}=0 and ring generated in degree 2; pinpointed why H^{2,0}=0 is essential.",
+      "ts": "2026-08-14T11:26:49.657Z",
+      "duration_ms": 77277
+    },
     {
       "id": "gpt-1786703849449",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous T^2 log T lower bound linking finite Li-positivity to excluding off-line zeros up to height T.",
       "ts": "2026-08-11T19:29:16.852Z",
       "duration_ms": 209949
-    },
-    {
-      "id": "grok-1786471817487",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Isolated explicit obstruction (failure of log-concavity) blocking the classical Pólya FT approach; no new positive progress.",
-      "ts": "2026-08-11T18:10:17.487Z",
-      "duration_ms": 42729
     }
   ]
 }
