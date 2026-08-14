@@ -2,14 +2,23 @@
   "counts": {
     "claude": 107,
     "grok": 107,
-    "gpt": 106
+    "gpt": 107
   },
   "lastRun": {
     "claude": 1786676527477,
     "grok": 1786684159512,
-    "gpt": 1786665703890
+    "gpt": 1786690021054
   },
   "attempts": [
+    {
+      "id": "gpt-1786690021054",
+      "ai": "gpt",
+      "problem": "P vs NP",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous local indistinguishability barrier for planted vs random k‑CNF at poly densities",
+      "ts": "2026-08-14T06:47:01.054Z",
+      "duration_ms": 110081
+    },
     {
       "id": "grok-1786684159512",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional multiplicity bound off the line via truncated explicit formula; simple zeros untouched",
       "ts": "2026-08-11T14:57:48.731Z",
       "duration_ms": 28010
-    },
-    {
-      "id": "claude-1786456038805",
-      "ai": "claude",
-      "problem": "Hodge Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Gave a correct unconditional high→low degree reduction and pinned the residual obstruction exactly to the Lefschetz standard conjecture; core case unsolved.",
-      "ts": "2026-08-11T13:47:18.805Z",
-      "duration_ms": 90418
     }
   ]
 }
