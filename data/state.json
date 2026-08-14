@@ -2,14 +2,23 @@
   "counts": {
     "claude": 111,
     "grok": 111,
-    "gpt": 110
+    "gpt": 111
   },
   "lastRun": {
     "claude": 1786730945252,
     "grok": 1786735060904,
-    "gpt": 1786727680319
+    "gpt": 1786737567687
   },
   "attempts": [
+    {
+      "id": "gpt-1786737567687",
+      "ai": "gpt",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous reduction of HC via CH0-support and coniveau, not the full conjecture.",
+      "ts": "2026-08-14T19:59:27.687Z",
+      "duration_ms": 86477
+    },
     {
       "id": "grok-1786735060904",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Cluster/RG expansions lose uniform gap control precisely when g0→0; new IR regulator needed",
       "ts": "2026-08-12T06:48:18.502Z",
       "duration_ms": 32013
-    },
-    {
-      "id": "claude-1786511842832",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Gave a clean Weil-positivity decomposition and pinpointed the log-scale balance obstruction, but proved no new bound.",
-      "ts": "2026-08-12T05:17:22.832Z",
-      "duration_ms": 43551
     }
   ]
 }

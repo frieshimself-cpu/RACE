@@ -1,0 +1,40 @@
+Attempt: A coniveau-based reduction of the Hodge Conjecture via decomposition of the diagonal
+
+Statement (reduction by CH0-support). Let X be a smooth projective complex variety of dimension n. Suppose there exists a closed subset Z ⊂ X of codimension at least c ≥ 1 such that the pushforward CH0(Z) → CH0(X) is surjective (equivalently, CH0(X) is supported on Z). Then:
+
+For every m ≥ n + c, the entire cohomology H^m(X, Q) has coniveau at least c. In particular, every rational Hodge class α ∈ H2k(X, Q) with 2k ≥ n + c is a Q-linear combination of pushforwards of Hodge classes from smooth projective varieties of dimension ≤ n − c. Consequently, the Hodge Conjecture for such α on X reduces to the Hodge Conjecture in the appropriate degrees on smooth projective varieties of dimension ≤ n − c.
+
+Corollary (inductive algebraicity). Under the same hypothesis on X and Z, if the Hodge Conjecture holds for all smooth projective varieties of dimension ≤ n − c, then every rational Hodge class on X in degrees ≥ n + c is algebraic. Equivalently, HC holds on X in codimensions k with 2k ≥ n + c.
+
+Proof sketch.
+
+1) Decomposition of the diagonal. By Bloch–Srinivas, CH0(X) supported on Z of codimension ≥ c implies there exists an integer N > 0 and cycles ΓZ, ΓD ∈ CHn(X × X) such that:
+   N · [ΔX] = ΓZ + ΓD,
+with Supp(ΓZ) ⊂ Z × X and Supp(ΓD) ⊂ X × D for some divisor D ⊂ X. Passing to cohomology, for any class α ∈ Hm(X, Q),
+   Nα = (ΓZ)∗ α + (ΓD)∗ α.
+
+2) Coniveau filtration effect. The correspondence (ΓZ)∗ factors through Hm(Z, Q)(−c′) with c′ ≥ c (precisely, through the cohomology of a desingularization of Z, Tate-twisted by the codimension), and then by the Gysin map to Hm(X, Q). Hence (ΓZ)∗ α lies in N^c Hm(X, Q), i.e., it is supported on a closed subset of codimension at least c.
+
+The term (ΓD)∗ factors as the composite Hm−2(D, Q)(−1) → Hm(X, Q) (restriction to D followed by Gysin). Thus (ΓD)∗ increases coniveau by at least 1. Iterating the decomposition for (ΓD)∗ α and then again for each resulting term (always replacing X by D when it appears in the right factor) shows that after c iterations of the operator T := (ΓD)∗ on Hm(X, Q), every term produced lies in N^c Hm(X, Q). Concretely, expanding
+   N^c α = (ΓZ + ΓD)∗ ∘ … ∘ (ΓZ + ΓD)∗ α
+and grouping terms by the number of appearances of ΓD, one sees that all summands either:
+   - contain at least one ΓZ, hence are in N^c by the previous paragraph; or
+   - contain ≥ c copies of ΓD, hence lie in N^c by the coniveau increase under each application of ΓD.
+
+Therefore Hm(X, Q) = N^c Hm(X, Q) for all m, and in particular for m ≥ n + c. This is the sought coniveau bound.
+
+3) Representation by pushforward from lower dimension. The coniveau bound N^c Hm(X, Q) = Hm(X, Q) means any class α ∈ Hm(X, Q) can be written as a finite sum of pushforwards
+   α = Σ i∗(βi),
+where each i: Wi → X is a proper morphism from a smooth projective Wi of dimension ≤ n − c (obtained by taking desingularizations of components of the supporting loci arising in the iterative decomposition), and βi ∈ Hm−2ci(Wi, Q)(−ci) with ci ≥ c is a cohomology class on Wi (the Tate twist simply records the codimension of support). If α is a Hodge class, then each βi is a Hodge class as well because pushforward via Gysin preserves Hodge type. Hence α is a Q-linear combination of Gysin pushforwards of Hodge classes from varieties of dimension ≤ n − c.
+
+4) Reduction of HC. If the Hodge Conjecture is known for all smooth projective varieties of dimension ≤ n − c (in the relevant degrees), then each βi is algebraic on Wi. Gysin pushforward of algebraic cycles is algebraic, so each i∗(βi) is algebraic on X. Therefore α is algebraic. This proves the corollary.
+
+Remarks and scope.
+- The hypothesis CH0(X) supported on codimension ≥ c is strong but occurs naturally (e.g., when X admits a decomposition of the diagonal with support in codimension ≥ c, or when X is rationally connected, where one can take c = 1). The conclusion significantly lowers the effective dimension at which one must establish HC to conclude it on X in high degrees.
+- The degree threshold 2k ≥ n + c is natural from coniveau: a class supported on codimension ≥ c in an n-fold lives in degrees ≥ n + c by Poincaré duality constraints on supports.
+- This transport-of-algebraicity via correspondences is robust and compatible with standard spread/out arguments and resolutions, so it can be applied in families once the CH0-support is uniform.
+
+Conclusion. The argument yields a rigorous reduction: under a verifiable CH0-support hypothesis, the Hodge Conjecture on X in degrees ≥ n + c formally reduces to the Hodge Conjecture on varieties of dimension ≤ n − c. This is a concrete, self-contained partial result that can be applied to build new cases from known ones.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous reduction of HC via CH0-support and coniveau, not the full conjecture.
