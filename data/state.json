@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 109,
+    "claude": 110,
     "grok": 109,
     "gpt": 109
   },
   "lastRun": {
-    "claude": 1786706809657,
+    "claude": 1786720186374,
     "grok": 1786710420764,
     "gpt": 1786716016859
   },
   "attempts": [
+    {
+      "id": "claude-1786720186374",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous quantitative proof that an off-line zero forces λ_n≈−δR^n infinitely often; positivity direction remains open.",
+      "ts": "2026-08-14T15:09:46.374Z",
+      "duration_ms": 76301
+    },
     {
       "id": "gpt-1786716016859",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous equivalence (Weil-type prime-side criterion) and a quantitative finite-bandlimit reduction",
       "ts": "2026-08-11T22:22:51.751Z",
       "duration_ms": 118714
-    },
-    {
-      "id": "grok-1786483597549",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Conditional reduction to a uniform error in a Gaussian-smoothed explicit formula; error bound still missing.",
-      "ts": "2026-08-11T21:26:37.549Z",
-      "duration_ms": 27955
     }
   ]
 }

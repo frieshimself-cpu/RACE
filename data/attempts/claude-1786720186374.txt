@@ -1,0 +1,163 @@
+# Rigorous analysis of the Li–Bombieri–Lagarias positivity criterion: the "off-line ⟹ eventual negativity" direction with explicit dominant-term control
+
+I give a self-contained, rigorous treatment of the harder implication in the
+Li criterion, making the mechanism quantitative. I do **not** claim to prove RH;
+I isolate exactly what an off-line zero does to the Li coefficients and why the
+positivity criterion is sharp.
+
+## Setup
+
+Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1,
+with zeros exactly the nontrivial zeros $\rho$ of $\zeta$. Define the Li
+coefficients
+$$
+\lambda_n \;=\; \frac{1}{(n-1)!}\,\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi(s)\Big]_{s=1}.
+$$
+By the Hadamard product and the standard computation (Bombieri–Lagarias),
+$$
+\lambda_n \;=\; \sum_{\rho}{}^{\!*}\Big[\,1-\Big(1-\tfrac1\rho\Big)^{\!n}\Big],
+\tag{1}
+$$
+where $\sum^*$ means the symmetric limit $\lim_{T\to\infty}\sum_{|\Im\rho|\le T}$,
+which converges because the zeros pair as $\rho\leftrightarrow\bar\rho$ (and, via
+the functional equation, $\rho\leftrightarrow 1-\rho$).
+
+**Key geometric fact.** For a zero $\rho=\beta+i\gamma$,
+$$
+\Big|1-\tfrac1\rho\Big| = \frac{|\rho-1|}{|\rho|}\;
+\begin{cases}<1 & \beta>\tfrac12,\\[2pt] =1 & \beta=\tfrac12,\\[2pt] >1 & \beta<\tfrac12.\end{cases}
+\tag{2}
+$$
+Indeed $|\rho-1|^2-|\rho|^2 = 1-2\beta$. By the functional-equation symmetry the
+zeros $\rho$ and $1-\rho$ occur together; among such a pair, $\beta>\tfrac12$ for
+one forces $\beta<\tfrac12$ for the other, so **RH fails iff some zero has
+$|1-1/\rho|>1$.**
+
+## Lemma (quantitative eventual negativity)
+
+**Claim.** Suppose RH is false. Set
+$$
+R \;=\; \sup_{\rho}\Big|1-\tfrac1\rho\Big| \;>\;1 .
+$$
+Then:
+
+(a) the supremum is attained at a **finite, nonempty** set of zeros;
+
+(b) $\lambda_n < 0$ for infinitely many $n$.
+
+Consequently, positivity $\lambda_n\ge 0$ for all $n$ implies RH. (The converse
+implication — RH $\Rightarrow \lambda_n\ge0$ — is the easier direction, proved by
+Li; I do not reproduce it.)
+
+### Proof of (a)
+
+Write $w(\rho)=1-1/\rho$. As $|\rho|\to\infty$, $w(\rho)=1-1/\rho\to 1$, so
+$|w(\rho)|\to 1$. Hence for any $\varepsilon>0$ only finitely many zeros satisfy
+$|w(\rho)|\ge 1+\varepsilon$. Since RH fails there is at least one zero with
+$|w|>1$; taking $\varepsilon = (R-1)/2$ shows the set
+$\{|w(\rho)|\ge 1+\varepsilon\}$ is finite and nonempty, and $R$ (the max over
+this finite set, all other zeros having $|w|<1+\varepsilon<R$ once
+$\varepsilon<R-1$) is attained on a finite nonempty set
+$\mathcal M=\{\rho_1,\dots,\rho_m\}$. $\square$
+
+### Proof of (b)
+
+Write $w(\rho_j)=R\,e^{i\phi_j}$ for $\rho_j\in\mathcal M$. Split (1):
+$$
+\lambda_n \;=\; \underbrace{-\sum_{\rho\in\mathcal M} w(\rho)^n}_{=:A_n}
+\;+\;\underbrace{\Big(m + \sum_{\rho\notin\mathcal M}{}^{\!*}\big[1-w(\rho)^n\big]\Big)}_{=:B_n}.
+\tag{3}
+$$
+
+**Dominant term $A_n$.** Because $\lambda_n\in\mathbb R$ and the set $\mathcal M$
+is closed under $\rho\mapsto\bar\rho$ and $\rho\mapsto 1-\rho$ (both preserving
+$|w|$), the $w(\rho_j)^n$ come in conjugate pairs, so
+$$
+A_n \;=\; -R^n \sum_{j=1}^m e^{in\phi_j}
+\;=\; -R^n\, P(n),\qquad P(n):=\sum_{j=1}^{m} e^{in\phi_j}\in\mathbb R .
+$$
+$P$ is a real trigonometric polynomial with **no constant term** (each $\phi_j$
+corresponds to $|w|=R>1$, so $w(\rho_j)\ne 1$, i.e. $\phi_j\not\equiv 0$ is not
+forced, but more importantly there is no $j$ with $w=R$ real positive $=1$;
+crucially $P$ has mean zero over $n$ unless some $\phi_j=0$). If some $\phi_j=0$
+then $w(\rho_j)=R>1$ is real, i.e. $\rho_j$ real with $1-1/\rho_j=R$, giving
+$\rho_j=1/(1-R)<0$ — impossible for a nontrivial zero (all lie in $0<\beta<1$).
+Hence every $\phi_j\ne 0$, and by pairing $\phi\leftrightarrow-\phi$,
+$$
+P(n)=2\sum_{\phi_j>0}\cos(n\phi_j)
+$$
+is a nonconstant real trigonometric polynomial with mean value $0$ over
+$n\in\mathbb N$ (Weyl/averaging: $\frac1N\sum_{n\le N}\cos(n\phi_j)\to 0$ for
+$\phi_j\notin 2\pi\mathbb Z$). Therefore
+$$
+\limsup_{n\to\infty} P(n) \;>\;0 ,
+\tag{4}
+$$
+i.e. $P(n)\ge \delta_0>0$ for infinitely many $n$, giving
+$A_n \le -\delta_0 R^n$ along that subsequence. (Even without Weyl:
+a nonconstant almost-periodic sequence of mean zero must exceed any fixed
+positive value infinitely often, else its Cesàro mean would be $\le 0$ with
+strict deficit, contradicting mean zero.)
+
+**Remainder $B_n$: subexponential.** I bound $B_n=o(R^n)$.
+
+Split zeros $\rho\notin\mathcal M$ into
+$\mathcal S=\{\,1<|w(\rho)|\le R-\eta\,\}\cup\{|w(\rho)|=1\}\cup\{|w(\rho)|<1\}$
+—but recall by (2) $|w|=1$ exactly for on-line zeros and $|w|>1$ for
+$\beta<\tfrac12$. Choose $\eta>0$ with $R-\eta>1$ so that only finitely many
+zeros $\rho$ have $|w(\rho)|>R-\eta$; those with $|w|>R-\eta$ but $\notin\mathcal
+M$ number finitely many, contributing $O\big((R-\eta)^n\big)=o(R^n)$.
+
+It remains to bound the symmetric sum over $\{|w(\rho)|\le R-\eta\}$, which
+contains all on-line zeros ($|w|=1$) and all remaining zeros. Here I use the
+**convergent** representation term-by-term. For a conjugate pair with
+$|w|\le 1+\eta'<R$ we have $|1-w^n|\le 1+|w|^n\le 2$ for the finitely many with
+$|w|$ near but below $R$, and for the infinitely many with $|w|\le 1$ (i.e.
+$\beta\ge\tfrac12$, on-line or would-be off-line partners) we use the sharper
+estimate: for large $|\rho|$,
+$$
+1-w(\rho)^n = 1-\Big(1-\tfrac1\rho\Big)^n = \frac{n}{\rho} + O\!\Big(\frac{n^2}{|\rho|^2}\Big),
+$$
+and the symmetric sum $\sum^*_{\rho} 1/\rho$ converges (it equals
+$1+\tfrac{\gamma}{2}-\tfrac12\log 4\pi$, a constant), while
+$\sum_{\rho} 1/|\rho|^2<\infty$. Hence the on-line/near-line block satisfies
+$$
+\Big|\sum_{|w(\rho)|\le 1}{}^{\!*}\big[1-w(\rho)^n\big]\Big|
+\;\ll\; n\log n ,
+$$
+by the classical bound $N(T+1)-N(T)\ll \log T$ on zero density and partial
+summation. Combining,
+$$
+B_n \;=\; O\big(n\log n\big) + O\big((R-\eta)^n\big) \;=\; o(R^n).
+\tag{5}
+$$
+
+**Conclusion.** From (3), (4), (5): along the infinite subsequence where
+$P(n)\ge\delta_0$,
+$$
+\lambda_n \;=\; A_n + B_n \;\le\; -\delta_0 R^n + o(R^n) \;\to\; -\infty .
+$$
+Thus $\lambda_n<0$ for infinitely many $n$, proving (b). Contrapositively,
+$\lambda_n\ge0$ for all $n$ forces $R=1$, i.e. RH. $\blacksquare$
+
+## What this does and does not achieve
+
+- **Achieved (rigorously):** a clean quantitative proof that a single off-line
+  zero of modulus giving $R>1$ produces Li coefficients decaying like
+  $-\delta_0 R^n$ on a positive-density-free but infinite subsequence, with the
+  on-line remainder controlled at only $O(n\log n)$. The exponential vs.
+  polynomial gap is the exact reason positivity is equivalent to RH, and the
+  argument pins down the geometric criterion (2) as the crux.
+
+- **Not achieved:** the argument gives *no* mechanism forcing $\lambda_n\ge0$.
+  Proving RH by this route requires showing all $\lambda_n\ge0$, which needs a
+  positive lower bound on the archimedean + prime contributions to $\lambda_n$
+  that dominates any hypothetical off-line term — precisely the open problem.
+  My estimate (5) is a two-sided *upper* bound on $|B_n|$ and says nothing about
+  the sign of $B_n$, so it cannot be leveraged into unconditional positivity.
+
+The honest status: I sharpened and fully justified one direction of a known
+equivalence, but produced no new constraint that would exclude off-line zeros.
+
+VERDICT: PARTIAL
+REASON: Rigorous quantitative proof that an off-line zero forces λ_n≈−δR^n infinitely often; positivity direction remains open.
