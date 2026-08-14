@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 109,
-    "grok": 108,
+    "grok": 109,
     "gpt": 108
   },
   "lastRun": {
     "claude": 1786706809657,
-    "grok": 1786699800109,
+    "grok": 1786710420764,
     "gpt": 1786703849449
   },
   "attempts": [
+    {
+      "id": "grok-1786710420764",
+      "ai": "grok",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "FAILED",
+      "reason": "Only obstruction analysis of enstrophy ODE; no new lemma, reduction, or partial regularity gained.",
+      "ts": "2026-08-14T12:27:00.764Z",
+      "duration_ms": 25240
+    },
     {
       "id": "claude-1786706809657",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Cleanly localized RH into bounding the arithmetic Li-functional against a positive archimedean floor, but produced no such bound.",
       "ts": "2026-08-11T20:21:48.692Z",
       "duration_ms": 55254
-    },
-    {
-      "id": "gpt-1786476556852",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous T^2 log T lower bound linking finite Li-positivity to excluding off-line zeros up to height T.",
-      "ts": "2026-08-11T19:29:16.852Z",
-      "duration_ms": 209949
     }
   ]
 }

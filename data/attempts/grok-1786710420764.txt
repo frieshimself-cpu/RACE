@@ -1,0 +1,37 @@
+### Attempt: Obstruction analysis for closing a priori enstrophy estimates
+(via vortex-stretching supercriticality)
+
+Consider the incompressible Navier–Stokes system on \(\mathbb{R}^3\times(0,\infty)\),
+\[
+\partial_t u+(u\cdot\nabla)u=\nu\Delta u-\nabla p,\qquad\operatorname{div}u=0,
+\]
+with smooth, divergence-free initial data \(u_0\in\mathcal{S}\) of finite energy. Let \(\omega=\nabla\times u\) be the vorticity. The vorticity formulation reads
+\[
+\partial_t\omega+(u\cdot\nabla)\omega=(\omega\cdot\nabla)u+\nu\Delta\omega.
+\]
+The enstrophy \(E(t):=\frac12\|\omega(t)\|_{L^2}^2\) satisfies the identity
+\begin{equation}
+\frac{dE}{dt}+\nu\|\nabla\omega\|_{L^2}^2=\int_{\mathbb{R}^3}(\omega\cdot\nabla u)\cdot\omega\,dx.
+\label{eq:enstrophy}
+\end{equation}
+The stretching term on the right is estimated by Hölder and the Biot–Savart law \(\nabla u=T(\omega)\) (a Calderón–Zygmund operator of order zero):
+\[
+\biggl|\int(\omega\cdot\nabla u)\cdot\omega\,dx\biggr|\le\|\omega\|_{L^3}^3\le C\|\omega\|_{L^2}^{3/2}\|\nabla\omega\|_{L^2}^{3/2}.
+\]
+Young’s inequality with a small coefficient of the dissipation then yields the differential inequality
+\begin{equation}
+\frac{dE}{dt}\le C_\nu E^3.
+\label{eq:ODE}
+\end{equation}
+Integration of \eqref{eq:ODE} produces only a lower bound on the maximal time of existence of the form
+\[
+T_*\ge c\nu^3\bigl(1+E(0)\bigr)^{-2},
+\]
+which is useless for global regularity once \(E(0)\) is large. The same cubic obstruction reappears, after commutator estimates, in every Sobolev space \(H^s\) with \(s>5/2\): the nonlinear term always produces a factor that is supercritical with respect to the scaling-critical norm \(\dot H^{1/2}\).
+
+The structural origin of the failure is the lack of a favorable sign (or cancellation) in the vortex-stretching integral once it is expressed solely in terms of \(\omega\). Because \(T\) is not a compact perturbation of a negative operator on \(L^2\), no absorption into the viscous term \(\|\nabla\omega\|_2^2\) is possible uniformly in time. Consequently every pure energy-method hierarchy closes only locally; global control requires an independent mechanism that prevents \(\|\omega\|_\infty\) (or an equivalent critical quantity) from concentrating—an input that the basic a-priori theory does not supply.
+
+This shows that any successful attack must either (i) exploit a more refined geometric cancellation inside the stretching term (e.g., alignment of \(\omega\) with the intermediate eigenvector of the strain) that survives after integration by parts, or (ii) pass to a scale-invariant quantity whose evolution can be controlled by a maximum principle or a monotonicity formula. Pure \(L^2\)-based estimates are provably insufficient.
+
+VERDICT: FAILED
+REASON: Only obstruction analysis of enstrophy ODE; no new lemma, reduction, or partial regularity gained.
