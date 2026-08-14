@@ -1,0 +1,115 @@
+# Attempt: Quantifying the exact criticality deficit of the Leray–Hopf a priori bounds
+
+I give a self-contained, rigorous computation isolating *precisely* how far the
+energy method sits from the Serrin regularity threshold, and pin the obstruction
+to a single supercritical scalar ODE. This is an "analysis of why a known
+approach fails," made quantitative.
+
+## Setup
+
+Consider the 3D incompressible NSE on $\mathbb{R}^3$ (or $\mathbb{T}^3$),
+viscosity $1$, with smooth rapidly-decaying divergence-free data. A Leray–Hopf
+weak solution satisfies the a priori bounds
+$$
+u \in L^\infty_t L^2_x, \qquad \nabla u \in L^2_t L^2_x .
+$$
+Via Sobolev $\dot H^1 \hookrightarrow L^6$ in 3D, the second bound gives
+$u \in L^2_t L^6_x$. These two are the *only* uniform quantities the energy
+inequality supplies.
+
+Serrin/LPS regularity: if $u \in L^p_t L^q_x$ with
+$$
+\frac{2}{p} + \frac{3}{q} = 1, \qquad q \in (3,\infty],
+$$
+then $u$ is smooth. The scaling $u_\lambda(x,t)=\lambda u(\lambda x,\lambda^2 t)$
+leaves $\frac{2}{p}+\frac{3}{q}$-value $=1$ norms invariant; these are *critical*.
+
+## Lemma (exact deficit of the energy family)
+
+**Every space–time Lebesgue bound obtainable by interpolating the two
+Leray–Hopf endpoints lies exactly on the line**
+$$
+\boxed{\ \frac{2}{p} + \frac{3}{q} = \tfrac{3}{2}\ }, \qquad q\in[2,6].
+$$
+Hence the interpolation family is separated from the entire Serrin line by a
+**constant scaling deficit of $\tfrac12$**, uniformly in $(p,q)$.
+
+**Proof.** Interpolate between $u\in L^\infty_t L^2_x$ and $u\in L^2_t L^6_x$.
+For $\theta\in[0,1]$ define the spatial exponent by
+$$
+\frac{1}{q} = \frac{1-\theta}{2} + \frac{\theta}{6},
+$$
+and the temporal exponent by
+$$
+\frac{1}{p} = \frac{1-\theta}{\infty} + \frac{\theta}{2} = \frac{\theta}{2},
+\quad\text{i.e. } p = 2/\theta .
+$$
+By Hölder in time and space (mixed-norm interpolation),
+$\|u\|_{L^p_tL^q_x} \le \|u\|_{L^\infty_tL^2_x}^{1-\theta}\|u\|_{L^2_tL^6_x}^{\theta}<\infty.$
+Now compute the scaling sum:
+$$
+\frac{2}{p}+\frac{3}{q}
+= \theta + 3\!\left(\frac{1-\theta}{2}+\frac{\theta}{6}\right)
+= \theta + \frac{3}{2} - \frac{3\theta}{2} + \frac{\theta}{2}
+= \frac{3}{2}.
+$$
+The $\theta$-dependence cancels identically. As $\theta$ ranges over $[0,1]$,
+$q$ ranges over $[2,6]$, and the sum is constant $=\tfrac32$. $\qquad\blacksquare$
+
+So the maximal reach of the raw energy bounds is the point $\theta=1$, i.e.
+$L^2_tL^6_x$ with $\frac{2}{p}+\frac{3}{q}=\tfrac32$ — exactly $\tfrac12$ above
+critical. No interpolation *within the energy class alone* can ever touch $=1$.
+
+## The obstruction as one supercritical ODE
+
+The deficit $\tfrac12$ is precisely the amount by which the enstrophy estimate
+is supercritical. Compute, for smooth solutions,
+$$
+\frac12\frac{d}{dt}\|\nabla u\|_2^2 + \|\Delta u\|_2^2
+= -\int (u\cdot\nabla)u\cdot\Delta u .
+$$
+Estimate the RHS with Hölder, Sobolev ($\|u\|_6\lesssim\|\nabla u\|_2$) and the
+3D Gagliardo–Nirenberg inequality $\|\nabla u\|_3\lesssim
+\|\nabla u\|_2^{1/2}\|\Delta u\|_2^{1/2}$:
+$$
+\Big|\int (u\cdot\nabla)u\cdot\Delta u\Big|
+\le \|u\|_6\,\|\nabla u\|_3\,\|\Delta u\|_2
+\lesssim \|\nabla u\|_2^{3/2}\,\|\Delta u\|_2^{3/2}.
+$$
+Young's inequality ($ab\le \tfrac12 b^{4/3\cdot 3/2}\dots$; explicitly
+$a\,b^{3/2}\le \tfrac12 b^2 + C a^4$ with $a=\|\nabla u\|_2^{3/2}$,
+$b=\|\Delta u\|_2$) absorbs $\tfrac12\|\Delta u\|_2^2$ and yields
+$$
+\frac{d}{dt}\|\nabla u\|_2^2 \le C\,\|\nabla u\|_2^{6}.
+$$
+Setting $y(t)=\|\nabla u\|_2^2$, this is
+$$
+y' \le C\,y^{3}.
+$$
+
+**Diagnosis.** The exponent $3>1$ is the quantitative signature of the same
+$\tfrac12$ deficit: the comparison ODE $y'=Cy^3$ blows up in finite time
+$T_\ast = \frac{1}{2C\,y(0)^2}$. Thus Grönwall/energy methods can only guarantee
+*local* regularity and cannot exclude blow-up, because the majorant genuinely
+does blow up. Closing the gap requires an *extra* quantity of scaling dimension
+$\tfrac12$ (equivalently, controlling $y'$ by $y^{1}$ times an integrable-in-time
+critical factor, e.g. $y'\le \phi(t)\,y$ with $\phi\in L^1_t$ scaling-critical) —
+exactly a critical norm such as $\|u(t)\|_{L^3}$ or $\|u(t)\|_{\dot H^{1/2}}$.
+That is why every unconditional proof stalls and every conditional theorem is
+scaling-critical.
+
+## Honest assessment
+
+The deficit-$\tfrac12$ computation and the supercritical ODE are, individually,
+classical. What I have made precise here is that the *entire* achievable
+interpolation family collapses onto the single line
+$\frac{2}{p}+\frac{3}{q}=\tfrac32$ with the $\theta$-cancellation being exact,
+and that the identical deficit reappears as the exponent $3$ in $y'\le Cy^3$.
+This sharpens the intuition "energy is supercritical" into two mutually
+consistent, exactly-computed constants, but it does **not** produce any new
+control of a critical quantity and therefore makes no genuine progress toward
+resolving existence/smoothness. I verified both computations (scaling sum
+cancellation and the GN/Young chain) directly above.
+
+VERDICT: FAILED
+REASON: Rigorously pinned the energy method's exact criticality deficit (1/2, and exponent 3 in y'≤Cy³) but no new critical control.
