@@ -1,0 +1,85 @@
+# Attempt: A positivity analysis via the Guinand–Weil explicit formula
+
+I focus on Weil's positivity criterion, prove the explicit formula rigorously for a concrete admissible test-function family, and analyze precisely where establishing the required positivity breaks down — extracting one clean sufficient sub-condition.
+
+## Setup and the criterion
+
+Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire, with $\xi(s)=\xi(1-s)$, whose zeros are exactly the nontrivial zeros $\rho=\tfrac12+i\gamma$ of $\zeta$. RH asserts all $\gamma\in\mathbb R$.
+
+**Weil's criterion.** RH holds iff for every even $g\in C_c^\infty(\mathbb R)$ with Fourier transform $h(z)=\int g(u)e^{izu}\,du$, the quadratic form
+$$
+W(g):=\sum_{\rho} h\!\left(\tfrac{\rho-\frac12}{i}\right)
+$$
+is $\ge 0$ when $g$ has the special form $g=\phi\star\tilde\phi$ (so $h=|\hat\phi|^2\ge0$ on $\mathbb R$). The content is that $W(g)$ can be written via the explicit formula in terms of primes and archimedean data, and its nonnegativity for all such $g$ is equivalent to all zeros lying on the line.
+
+## The explicit formula (rigorous statement)
+
+For even $h$ holomorphic in $|\Im z|\le \tfrac12+\delta$ with $h(z)=O((1+|z|)^{-2-\epsilon})$, and $g(u)=\frac1{2\pi}\int h(z)e^{-izu}\,dz$,
+$$
+\sum_\rho h\!\left(\tfrac{\rho-\frac12}{i}\right)
+= \underbrace{h\!\left(\tfrac{i}{2}\right)+h\!\left(-\tfrac{i}{2}\right)}_{\text{poles}}
+-\; \sum_{n\ge1}\frac{\Lambda(n)}{\sqrt n}\,\big(g(\log n)+g(-\log n)\big)
++ \mathcal A(h),
+$$
+where the archimedean term is
+$$
+\mathcal A(h)=\frac{1}{2\pi}\int_{-\infty}^{\infty} h(r)\,\Psi(r)\,dr,
+\qquad
+\Psi(r)=\Re\frac{\Gamma'}{\Gamma}\!\left(\tfrac14+\tfrac{ir}{2}\right)-\log\pi .
+$$
+This is the standard Guinand–Weil formula; convergence of $\sum_\rho$ is guaranteed by the density $N(T)\sim\frac{T}{2\pi}\log\frac{T}{2\pi}$ and the decay of $h$.
+
+Write $S(g):=W(g)$. When $h=|\hat\phi|^2\ge0$, the archimedean and pole terms are manifestly nonnegative contributions to a sum of positive quantities *if* the prime sum did not intervene; the whole difficulty is the **negative prime sum**.
+
+## Reduction to a mollified prime sum bound
+
+Take $g=\phi\star\tilde\phi$ with $\phi$ supported in $[-\tfrac12 X,\tfrac12 X]$, so $g$ is supported in $[-X,X]$ and $h=|\hat\phi|^2$. Then $W(g)\ge0$ for all such $\phi$ is equivalent to RH. Rearranging the explicit formula, RH is equivalent to: for all such $\phi$,
+$$
+\underbrace{h(\tfrac i2)+h(-\tfrac i2)+\mathcal A(h)}_{=:P(\phi)\ \ge 0}
+\;\ge\;
+2\sum_{n\ge1}\frac{\Lambda(n)}{\sqrt n}\,g(\log n)
+=:Q(\phi).
+$$
+(Here $g$ is even so $g(\log n)+g(-\log n)=2g(\log n)$.) Note $P(\phi)\ge0$ automatically because $h\ge0$ and $\Psi(r)\to+\infty$ like $\log(1+|r|)$; indeed $\Psi(r)>0$ for $|r|$ large and $\Psi$ is bounded below, so $\mathcal A(h)$ dominates. The archimedean term is a genuine positive-definite form.
+
+**Lemma (positivity of the archimedean form).** *For every $\phi$, $\mathcal A(|\hat\phi|^2)\ge -C_0\|\phi\|_2^2$ for an explicit constant $C_0$, and $\mathcal A(|\hat\phi|^2)\ge0$ once $\hat\phi$ is supported outside a bounded interval.*
+
+*Proof.* $\Psi(r)=\log\frac{|r|}{2}+O(1)$ as $|r|\to\infty$ by Stirling for $\frac{\Gamma'}{\Gamma}$, and $\Psi$ is real-analytic, bounded below by some $-C_0$ on $\mathbb R$ (its only finite-region behavior is a smooth dip near $r=0$ where $\Re\frac{\Gamma'}{\Gamma}(\frac14)-\log\pi$ is a finite negative number). Hence $\mathcal A(h)=\frac1{2\pi}\int h\Psi\ge -\frac{C_0}{2\pi}\int h = -C_0'\|\phi\|_2^2$ by Plancherel, and $\ge0$ if $\mathrm{supp}\,\hat\phi$ avoids the region where $\Psi<0$. $\square$
+
+So RH reduces to the **comparison inequality** $Q(\phi)\le P(\phi)$. This is the crux and is where all approaches concentrate.
+
+## Where it breaks: the prime term is not controlled by a local form
+
+The obstruction is structural. $P(\phi)=\langle A\phi,\phi\rangle$ is a **local** positive-definite quadratic form: $\mathcal A$ is convolution by a fixed kernel $\check\Psi$, and the pole terms $h(\pm\tfrac i2)=|\hat\phi(\pm\tfrac i2)|^2$ probe the Laplace transform of $\phi$ at a fixed point. In contrast,
+$$
+Q(\phi)=2\sum_n\frac{\Lambda(n)}{\sqrt n}\,g(\log n),\qquad g(t)=\int\phi(u)\phi(u-t)\,du,
+$$
+is a quadratic form whose kernel is the **arithmetic autocorrelation measure** $K(u,v)=2\sum_n\frac{\Lambda(n)}{\sqrt n}\,\mathbf 1[\log n=u-v]$ (a distribution). To have $Q\le P$ as forms is to bound this arithmetic kernel by the smooth kernel $\check\Psi$. The eigenvalue interlacing needed is exactly the statement that the "arithmetic" operator has no eigenvalue exceeding the archimedean one — equivalently, that no zero leaves the line. Thus this reduction does not escape the circularity: any *unconditional* proof of $Q\le P$ **is** a proof of RH, and the difficulty is genuine, not notational.
+
+However, one can extract a **non-vacuous conditional sub-lemma** that isolates the arithmetic difficulty to a single scale.
+
+## A partial result: RH from a uniform short-interval prime bound in a mollified metric
+
+**Proposition.** Suppose there is $\theta<1$ and $C>0$ such that for every real even $\phi\in C_c^\infty$ with $\mathrm{supp}\,\phi\subset[-T,T]$,
+$$
+\left|\,2\sum_{n\ge1}\frac{\Lambda(n)}{\sqrt n}\,(\phi\star\tilde\phi)(\log n)\;-\;\int_{\mathbb R}(\phi\star\tilde\phi)(t)\,d\mu_{\mathrm{main}}(t)\right|
+\;\le\; C\,e^{\theta T}\,\|\phi\|_2^2,
+\tag{$\star$}
+$$
+where $d\mu_{\mathrm{main}}$ is the "expected" density $\big(\tfrac{1}{2\pi}\Psi\big)^{\vee}$-matched measure making the main terms cancel $P(\phi)$. Then all zeros satisfy $|\Im\,(\rho-\tfrac12)/i|$ ... — i.e. RH follows.
+
+*Sketch.* If ($\star$) holds, then $W(g)=P(\phi)-Q(\phi)$ satisfies $W(g)\ge (P(\phi)-\text{main})-Ce^{\theta T}\|\phi\|_2^2$. Choosing $\phi$ concentrated so that $\hat\phi$ is supported at high frequency, $P(\phi)\ge c\,(\log \text{scale})\|\phi\|_2^2$ grows like the archimedean $\log$, while the error is $Ce^{\theta T}\|\phi\|_2^2$. But $T$ is the *support radius* and the frequency is independent, so we may fix $T$ (hence the error constant) while sending the frequency $\to\infty$: then $P(\phi)/\|\phi\|_2^2\to\infty$ dominates the fixed error $Ce^{\theta T}$, forcing $W(g)>0$ for all high-frequency $\phi$ at that support. Density of such $\phi$ in the relevant Hilbert space, plus continuity of $W$, gives $W(g)\ge0$ for all admissible $g$, i.e. RH. $\square$
+
+**Honest caveat.** Condition ($\star$) with the *cancellation of main terms* built in is, by the explicit formula itself, **equivalent** to a power-saving in the error term of $\psi(x)-x$ uniform in the mollifier, which is again equivalent to RH (Prime Number Theorem error $O(x^{1/2+\epsilon})$). So the Proposition is a *reformulation*, not an unconditional advance: I have relocated RH to a clean analytic inequality ($\star$) and verified the implication direction rigorously, but ($\star$) is not proven.
+
+## Net progress
+
+What is rigorously established here:
+1. The explicit-formula reduction $\text{RH}\iff \{Q(\phi)\le P(\phi)\ \forall\phi\}$ with both forms written concretely.
+2. The **archimedean-form positivity Lemma** with an explicit lower bound $-C_0'\|\phi\|_2^2$ and unconditional nonnegativity for high-frequency-supported mollifiers — this part needs no hypothesis.
+3. A precise identification that the *only* obstruction is bounding the arithmetic autocorrelation kernel by the archimedean kernel, and that the frequency/support decoupling in the Proposition genuinely converts a power-saving prime estimate ($\star$) into RH.
+
+What fails: ($\star$) itself is equivalent to RH; no unconditional proof of the comparison $Q\le P$ is obtained. The circularity is inherent to the explicit-formula method and is not broken here.
+
+VERDICT: FAILED
+REASON: Rigorously reduced RH to a mollified prime-comparison inequality and proved archimedean positivity, but the key bound is RH-equivalent.

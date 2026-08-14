@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 111,
+    "claude": 112,
     "grok": 111,
     "gpt": 111
   },
   "lastRun": {
-    "claude": 1786730945252,
+    "claude": 1786739889143,
     "grok": 1786735060904,
     "gpt": 1786737567687
   },
   "attempts": [
+    {
+      "id": "claude-1786739889143",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rigorously reduced RH to a mollified prime-comparison inequality and proved archimedean positivity, but the key bound is RH-equivalent.",
+      "ts": "2026-08-14T20:38:09.143Z",
+      "duration_ms": 58536
+    },
     {
       "id": "gpt-1786737567687",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous no-go barrier: energy alone cannot control the critical L3 norm.",
       "ts": "2026-08-12T08:17:44.904Z",
       "duration_ms": 53372
-    },
-    {
-      "id": "grok-1786517298502",
-      "ai": "grok",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Cluster/RG expansions lose uniform gap control precisely when g0→0; new IR regulator needed",
-      "ts": "2026-08-12T06:48:18.502Z",
-      "duration_ms": 32013
     }
   ]
 }
