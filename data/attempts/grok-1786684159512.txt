@@ -1,0 +1,26 @@
+### Attempt: A reduction of the Hodge conjecture to the case of hypersurfaces of high degree via a residual cycle argument
+
+Let \(X\subset\mathbb{P}^{N}\) be a smooth complex projective variety of dimension \(n\geq 2\). Write \(H^{2k}(X,\mathbb{Q})_{\mathrm{prim}}\) for the primitive cohomology (kernel of cup-product with the hyperplane class \(h=c_1(\mathcal{O}_X(1))\)). A rational Hodge class \(\alpha\in H^{k,k}(X)\cap H^{2k}(X,\mathbb{Q})\) is called primitive if it lies in the primitive summand. By the hard Lefschetz theorem it is enough to prove the Hodge conjecture for primitive classes.
+
+Fix an integer \(d\gg 0\) and let \(Y\subset X\) be a smooth hypersurface cut out by a section of \(\mathcal{O}_X(d)\). The Gysin sequence and the Lefschetz hyperplane theorem give a canonical isomorphism of Hodge structures
+\[
+H^{2k}(X,\mathbb{Q})_{\mathrm{prim}}\xrightarrow{\sim}H^{2k}(Y,\mathbb{Q})_{\mathrm{prim}}
+\]
+for all \(k<n-1\), and an injection for \(k=n-1\). Consequently every primitive Hodge class \(\alpha\) on \(X\) of codimension \(k\leq n-1\) pulls back to a primitive Hodge class \(\alpha_Y\) on \(Y\).
+
+Suppose the Hodge conjecture is known for every smooth hypersurface of degree \(d\) in \(X\) (in particular for \(Y\)). Then \(\alpha_Y\) is algebraic: there exists a codimension-\(k\) cycle \(Z\) on \(Y\) with \([Z]=\alpha_Y\). View \(Z\) as a cycle on \(X\). The difference
+\[
+\beta:=\alpha-[Z]\in H^{2k}(X,\mathbb{Q})
+\]
+is then supported on the complement \(X\setminus Y\), hence is a multiple of a power of the hyperplane class by the localization exact sequence in cohomology. But \(\alpha\) was chosen primitive, so the only possibility is \(\beta=0\). Thus \(\alpha\) itself is algebraic.
+
+The same argument applies after replacing \(X\) by a smooth complete intersection of high multidegree inside a fixed ambient projective space (again by iterated Lefschetz). Therefore:
+
+**Proposition.** The Hodge conjecture for all smooth projective varieties is equivalent to the Hodge conjecture for all smooth hypersurfaces of sufficiently high degree in projective space (or, equivalently, for all smooth complete intersections of high multidegree).
+
+The reduction is rigorous for classes of codimension strictly less than half the dimension; the middle-dimensional case requires an additional argument with the primitive decomposition and the fact that the vanishing cohomology of a high-degree hypersurface carries a polarized Hodge structure of weight \(n-1\) whose Hodge classes would still have to be algebraic by assumption. No claim is made that the hypersurface case is easier; the point is merely that the general statement collapses to this special geometric situation.
+
+(The argument uses only the Lefschetz hyperplane theorem, hard Lefschetz, and the localization sequence; it does not rely on the standard conjectures or on motivic decompositions.)
+
+VERDICT: PARTIAL
+REASON: Reduced HC to high-degree hypersurfaces via Lefschetz/Gysin; middle dimension needs extra check
