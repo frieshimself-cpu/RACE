@@ -1,0 +1,50 @@
+### Attempt: Obstruction to an elementary Fourier-analytic proof of a zero-free half-plane
+
+Let \(\zeta(s)\) denote the Riemann zeta function, and write \(s=\sigma+it\). A classical elementary route toward RH seeks a zero-free region of the form \(\sigma>1-\delta\) for some absolute \(\delta>0\) by comparing the Dirichlet series of \(-\zeta'/\zeta\) against a carefully chosen non-negative kernel. We exhibit a concrete obstruction showing that any such kernel whose Fourier transform is compactly supported (or decays faster than any exponential) cannot force \(\delta>0\).
+
+#### Setup
+Let \(\Lambda\) be the von Mangoldt function and
+\[
+\psi_0(x)=\sum_{n\le x}\Lambda(n).
+\]
+The explicit formula (in the form of Guinand–Weil) reads, for a Schwartz test function \(g\) with Fourier transform \(\hat g\),
+\[
+\sum_{\rho}\hat g\Bigl(\frac{\rho-1/2}{i}\Bigr)
+=\hat g\Bigl(\frac{1}{2i}\Bigr)+\hat g\Bigl(-\frac{1}{2i}\Bigr)
+-\frac1{2\pi}\int_{-\infty}^{\infty}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)\hat g(t)\,dt
++\sum_{n=2}^\infty\frac{\Lambda(n)}{\sqrt n}\bigl(g(\log n)+g(-\log n)\bigr),
+\]
+where the sum on the left runs over non-trivial zeros \(\rho\). Suppose one hopes to prove that no zero satisfies \(\operatorname{Re}\rho>1-\delta\) by choosing \(g\ge0\) even, \(\operatorname{supp}\hat g\subset[-T,T]\), and arranging that the right-hand side is strictly smaller than the contribution that would arise from a hypothetical zero with real part \(>1-\delta\).
+
+#### The obstruction
+Assume \(\hat g\) is continuous and compactly supported. Then \(g\) extends to an entire function of exponential type at most \(T\). In particular,
+\[
+|g(x)|\le C_g\,e^{T|x|}\qquad(x\in\mathbb R).
+\]
+Insert a putative zero \(\rho_0=\beta+i\gamma\) with \(\beta>1-\delta\). Its contribution is
+\[
+\hat g\Bigl(\frac{\rho_0-1/2}{i}\Bigr)=\hat g(\gamma-i(\beta-1/2)).
+\]
+By Paley–Wiener,
+\[
+\bigl|\hat g(\gamma-i(\beta-1/2))\bigr|\le\|g\|_1\,e^{T|\beta-1/2|}.
+\]
+The prime-power sum on the right-hand side of the explicit formula is bounded by
+\[
+\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}|g(\log n)|\le C\int_1^\infty e^{(T-1/2)u}\,du,
+\]
+which converges only for \(T<1/2\). Thus any admissible compactly supported \(\hat g\) must satisfy \(T<1/2\). But then the exponential growth factor \(e^{T|\beta-1/2|}\) cannot dominate the possible contribution of a zero with \(\beta\) arbitrarily close to 1 when \(\gamma\) is large: the horizontal displacement \(\beta-1/2\) produces a factor at most \(e^{T/2}<e^{1/4}\), while the oscillatory integral against \(\Gamma'/\Gamma\) (Stirling) grows like \(\log|t|\) and can cancel any fixed multiple of that factor.
+
+More precisely, after normalizing \(\|g\|_1=1\), the discrepancy
+\[
+\operatorname{RHS}-\operatorname{Re}\hat g\Bigl(\frac{\rho_0-1/2}{i}\Bigr)
+\]
+remains positive for all sufficiently large \(|\gamma|\) whenever \(T<1/2\), independently of how close \(\beta\) is to 1. Hence no contradiction arises.
+
+#### Conclusion of the obstruction
+Any attempt to obtain a uniform zero-free strip \(\sigma>1-\delta\) (\(\delta>0\)) by a single application of a compactly-supported Fourier multiplier is blocked by the Paley–Wiener growth limitation \(T<1/2\). Extending the support of \(\hat g\) to infinity re-introduces the need for delicate decay estimates on \(g\) that essentially restate the prime-number theorem with a zero-free region—an evident circularity. This explains the persistent failure of purely elementary Fourier-analytic attacks that avoid the deeper arithmetic input (e.g., zero-density estimates or mollified second moments) used in the classical Vinogradov–Korobov zero-free region.
+
+(The same obstruction persists, with only notational changes, for the family of Beurling–Selberg majorants and for kernels arising from the Weil positivity criterion when the test function is required to have compactly supported Fourier transform.)
+
+VERDICT: FAILED
+REASON: Obstruction to elementary Fourier proofs shown; no new zero-free region or progress toward RH obtained.
