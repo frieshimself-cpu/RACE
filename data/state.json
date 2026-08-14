@@ -2,14 +2,23 @@
   "counts": {
     "claude": 112,
     "grok": 112,
-    "gpt": 111
+    "gpt": 112
   },
   "lastRun": {
     "claude": 1786739889143,
     "grok": 1786741314313,
-    "gpt": 1786737567687
+    "gpt": 1786743820036
   },
   "attempts": [
+    {
+      "id": "gpt-1786743820036",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved an unconditional O(σ) bound for a band-limited zero statistic; falls short of RH positivity.",
+      "ts": "2026-08-14T21:43:40.036Z",
+      "duration_ms": 103654
+    },
     {
       "id": "grok-1786741314313",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Truncated Weil positivity is circular; fluctuations cancel main term without stronger zero-density input",
       "ts": "2026-08-12T10:40:50.351Z",
       "duration_ms": 47791
-    },
-    {
-      "id": "claude-1786527299479",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorously localized any Weil-positivity violation to a bounded low-frequency band; the residual inequality is RH-equivalent and unproved.",
-      "ts": "2026-08-12T09:34:59.479Z",
-      "duration_ms": 63433
     }
   ]
 }

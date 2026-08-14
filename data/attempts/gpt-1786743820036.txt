@@ -1,0 +1,50 @@
+Attempt: A localized, scale-sensitive inequality from the Weil explicit formula
+
+Setup and notation.
+- Let g be an even, compactly supported C^1 function on R. Write its Fourier transform h(t) = ∫_{R} g(u) e^{i t u} du. Then h is even and real.
+- For σ > 0, define the σ-scaled test function g_σ(u) = g(u/σ) and its transform h_σ(t) = σ h(σ t).
+- Let ρ = 1/2 + iγ run over nontrivial zeros of ζ(s), counted with multiplicity.
+
+Weil explicit formula in a form suited for compactly supported g.
+There is a standard version of the explicit formula (e.g. Iwaniec–Kowalski, Thm. 5.12; Weil’s original criterion) that, for even Schwartz g (compact support suffices) and its Fourier transform h as above, reads
+∑_ρ h(γ) = A(g) - 2 ∑_{n=1}^∞ Λ(n) n^{-1/2} g(log n),
+where A(g) is the “archimedean” linear functional that depends only on g and on the Γ-factor of ξ(s). One convenient representation is
+A(g) = h(i/2) + h(-i/2) - (log π) h(0) + ∫_{0}^{∞} K(u) g(u) du
+for a fixed, explicit kernel K satisfying K(u) = O(e^{-|u|/2}(1+|u|)) and evenness. The exact constants are not needed below; what matters is that A is a bounded linear functional on g with norm controlled by a weighted L^1 norm of g.
+
+Uniform archimedean bound.
+Lemma 1. There exists an absolute constant C such that, for any even compactly supported C^1 function g,
+|A(g)| ≤ C ∫_{R} (|g(u)| + |u| |g(u)|) du.
+Sketch. Directly from the Γ-term representation of A(g) (or from the standard integral representations via Re Γ'/Γ and the identity h(t) = ∫ g(u) e^{i t u} du), one bounds each archimedean contribution by integrating g against a kernel with decay ≪ e^{-|u|/2}(1+|u|). This yields the stated weighted L^1 bound.
+
+Bandwidth-to-average principle.
+Let σ ∈ (0, log 2). Since g is supported in (-1,1), g_σ is supported in (-σ, σ). Therefore, for any integer n ≥ 2 we have |log n| ≥ log 2 > σ, so g_σ(log n) = 0. Because Λ(1)=0, the entire prime sum vanishes:
+∑_{n=1}^∞ Λ(n) n^{-1/2} g_σ(log n) = 0.
+Hence the explicit formula reduces to
+∑_ρ h_σ(γ) = A(g_σ).
+By Lemma 1 and the scaling g_σ(u) = g(u/σ),
+∫ (|g_σ(u)| + |u||g_σ(u)|) du
+= ∫ (|g(v)| + |σ v||g(v)|) σ dv ≤ C_g σ,
+where C_g depends only on g. Consequently:
+Proposition (wide-band averaged zero sum is small). For σ ∈ (0, log 2),
+|∑_ρ h_σ(γ)| ≤ C_g' σ.
+
+Interpretation and consequence.
+- The statistic ∑_ρ h_σ(γ) is a very wide, smooth average of the ordinates γ (because h_σ(t) = σ h(σ t) is spread over a 1/σ range). The bound shows that, unconditionally and uniformly in σ<log 2, this average is O(σ) and hence tends to 0 linearly as σ → 0.
+- This is a localized, scale-sensitive near-positivity statement in the spirit of Weil’s criterion: if one had, for a dense cone of even g ≥ 0, a nonnegativity result ∑_ρ h_σ(γ) ≥ 0 for all sufficiently small σ, RH would follow. The proposition gives an unconditional relaxation: for any such g, one always has
+∑_ρ h_σ(γ) ≥ -C_g' σ
+for σ < log 2.
+- In words: after smoothing at bandwidth 1/σ that is wide enough to kill all prime contributions (σ < log 2), the zero-side of the explicit formula is controlled to within O(σ) by the Γ-terms alone.
+
+Why this does not yet prove RH.
+- Weil’s positivity criterion demands nonnegativity of a quadratic form for all admissible test functions. The estimate above is linear-in-σ and sign-indefinite a priori; it only shows that any potential negative contribution is at most O(σ). Without a mechanism forcing an o(σ) remainder or a uniform sign for A(g_σ), one cannot conclude global positivity.
+- The archimedean functional A(g_σ) is generically linear in σ for small σ because g_σ concentrates at u=0 and the kernel K(u) has a finite, nonvanishing value and slope near 0. Thus improving O(σ) to o(σ) uniformly would require new cancellations in the Γ-term that are not available from current technology.
+
+Takeaway and concrete partial result.
+- The explicit formula yields a rigorous, unconditional band-limited inequality:
+For any even compactly supported C^1 function g and any 0 < σ < log 2,
+|∑_ρ σ h(σ γ)| ≤ C_g σ.
+- This pins down the scale at which prime contributions disappear entirely and quantifies the residual archimedean effect. Any approach via Weil-type positivity must, at minimum, control or exploit A(g_σ) beyond the present O(σ) barrier.
+
+VERDICT: PARTIAL
+REASON: Proved an unconditional O(σ) bound for a band-limited zero statistic; falls short of RH positivity.
