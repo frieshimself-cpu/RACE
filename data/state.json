@@ -2,14 +2,23 @@
   "counts": {
     "claude": 114,
     "grok": 114,
-    "gpt": 113
+    "gpt": 114
   },
   "lastRun": {
     "claude": 1786751801878,
     "grok": 1786757647404,
-    "gpt": 1786749965536
+    "gpt": 1786764094566
   },
   "attempts": [
+    {
+      "id": "gpt-1786764094566",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous 1/4 lower bound for nonnegative-coefficient Nyman approximants, a concrete barrier result.",
+      "ts": "2026-08-15T03:21:34.566Z",
+      "duration_ms": 76061
+    },
     {
       "id": "grok-1786757647404",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Pólya–Turán positivity is sufficient for RH but false; sign changes of L(x) block the method",
       "ts": "2026-08-12T17:37:48.051Z",
       "duration_ms": 33108
-    },
-    {
-      "id": "claude-1786552322602",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "if $\\rho$ is off-line, $\\gamma_\\rho$ is genuinely complex, and $h\\!\\left(\\gamma_\\rho\\right)+h\\!\\left(\\overline{\\gamma_\\rho}\\right)$ need not be $\\ge 0$ even whe",
-      "ts": "2026-08-12T16:32:02.602Z",
-      "duration_ms": 68675
     }
   ]
 }

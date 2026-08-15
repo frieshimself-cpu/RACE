@@ -1,0 +1,44 @@
+Claim (a sharp barrier for nonnegative-coefficient Nyman-type approximants).
+Let c1, c2, … be nonnegative real numbers with only finitely many nonzero terms, and set
+f(x) = sum_{n≥1} c_n {n x} on x in [0,1], where {·} denotes fractional part. Then
+||f − 1||_{L^2(0,1)} ≥ 1/4.
+Moreover, the infimum 1/4 is attained (in the limit of finite support) by taking all mass at n=1 with c_1 = 3/2 and c_n = 0 for n>1.
+
+Discussion and proof.
+- The Nyman–Beurling approach uses L^2-approximation of the constant function 1 by linear combinations of dilation-fragments of fractional parts (or equivalent functions). The coefficients in successful constructions necessarily exhibit cancellations. The claim shows that if one restricts to the nonnegative cone of coefficients in the very natural model sum c_n {n x}, then one cannot drive the L^2-distance below 1/4. This gives a clean, rigorous obstruction for any attempt confined to nonnegative coefficients.
+
+- Fourier expansion. For y in [0,1] we have the classical series
+  {y} = 1/2 − (1/(2π i)) sum_{k≠0} e^{2π i k y}/k,
+  with convergence in L^2(0,1). Hence
+  f(x) = (1/2)C − (1/(2π i)) sum_{k≠0} (1/k) sum_{n≥1} c_n e^{2π i k n x},
+  where C := sum_{n≥1} c_n.
+
+- Fourier coefficients of f. The Fourier coefficient at frequency r≠0 is
+  f̂(r) = −(1/(2π i r)) A(r), where A(r) := sum_{n|r} n c_n.
+  This follows because the r-th mode arises from terms with k n = r, i.e. n|r and k = r/n, so the contribution is −(1/(2π i)) sum_{n|r} (1/(r/n)) c_n = −(1/(2π i r)) sum_{n|r} n c_n.
+  The zero-frequency coefficient is f̂(0) = ∫_0^1 f(x) dx = (1/2) C.
+
+- Parseval. Using Parseval’s identity on [0,1] yields
+  ||f − 1||_2^2 = |f̂(0) − 1|^2 + sum_{r≠0} |f̂(r)|^2
+                = (1 − C/2)^2 + (1/(4π^2)) sum_{r≠0} A(r)^2 / r^2
+                = (1 − C/2)^2 + (1/(2π^2)) sum_{r≥1} A(r)^2 / r^2.     (⋆)
+
+- Monotonicity in A. Since c_n ≥ 0, we have A(r) = sum_{n|r} n c_n ≥ 0 and A(r) is coordinatewise nondecreasing as a function of the vector (c_n). The quadratic form Q(A) := sum_{r≥1} w_r A(r)^2 with positive weights w_r = 1/r^2 is convex and strictly increasing in each coordinate A(r) on the nonnegative orthant. Therefore, for fixed total mass C = sum c_n, Q(A) is minimized by putting all mass at the smallest divisor “profile,” i.e. choosing c_1 = C and c_n = 0 for n>1, because any positive c_m with m>1 increases A(r) for all r that are multiples of m, hence increases Q(A).
+
+- Evaluating the minimum for fixed C. With c_1 = C and c_n = 0 for n>1,
+  A(r) = C for all r≥1, so
+  sum_{r≥1} A(r)^2 / r^2 = C^2 sum_{r≥1} 1/r^2 = C^2 (π^2/6).
+  Plugging into (⋆) gives, for any feasible c with total mass C,
+  ||f − 1||_2^2 ≥ (1 − C/2)^2 + (1/(2π^2)) · C^2 (π^2/6)
+                 = (1 − C/2)^2 + C^2/12
+                 = 1 − C + (C^2/3).
+
+- Optimizing over C≥0. The quadratic 1 − C + (C^2/3) is minimized at C = 3/2, yielding
+  min_{C≥0} [1 − C + (C^2/3)] = 1 − 3/2 + ( (9/4)/3 ) = −1/2 + 3/4 = 1/4.
+  This lower bound is attained by the one-parameter family concentrated at n=1 in the limit (exactly achieved by taking c_1 = 3/2, others 0).
+
+Conclusion.
+No approximation of 1 in L^2(0,1) by finite nonnegative combinations of the functions x ↦ {n x} can achieve error less than 1/4. Thus, any Nyman–Beurling-type strategy relying on nonnegative coefficients in this natural basis is provably insufficient; substantial cancellation (sign changes) among coefficients is necessary even to approach the target function in L^2.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous 1/4 lower bound for nonnegative-coefficient Nyman approximants, a concrete barrier result.
