@@ -1,0 +1,65 @@
+### Attempt: A conditional zero-density reduction via truncated Dirichlet polynomials
+
+Let \(\zeta(s)\) denote the Riemann zeta function, and write \(s=\sigma+it\). Let \(N(\sigma,T)\) count the number of zeros \(\rho=\beta+i\gamma\) (counted with multiplicity) satisfying \(\beta\ge\sigma\) and \(0<\gamma\le T\). A classical zero-density estimate of the shape
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}(\log T)^{O(1)}
+\]
+(for an absolute \(c>0\) and \(\sigma\ge1/2\)) already implies that almost all zeros lie on the critical line; the full Riemann Hypothesis is equivalent to \(N(\sigma,T)=0\) for every fixed \(\sigma>1/2\) and all sufficiently large \(T\).
+
+We attempt a reduction that would improve the exponent \(3/2\) to \(1+\varepsilon\) under a mild hypothesis on short Dirichlet polynomials, thereby pushing a larger proportion of zeros onto the line \(\operatorname{Re}s=1/2\).
+
+#### Setup
+Fix \(\sigma_0\in(1/2,1)\) and a large height \(T\). Let
+\[
+D_X(s)=\sum_{n\le X}n^{-s},\qquad X=T^{\theta},\quad\theta\in(0,1).
+\]
+By the approximate functional equation (or a smoothed Perron formula) one has, for \(t\in[T,2T]\) and \(\sigma\ge\sigma_0\),
+\[
+\zeta(s)=D_X(s)+X^{1-2s}\overline{D_X(1-\overline{s})}+\text{error},
+\]
+where the error is \(O(T^{-\delta})\) for some \(\delta=\delta(\theta,\sigma_0)>0\) provided the contour is shifted with a standard convexivity bound. Consequently any zero \(\rho=\beta+i\gamma\) with \(\beta\ge\sigma_0\) and \(\gamma\sim T\) forces
+\[
+\bigl|D_X(\rho)\bigr|\asymp X^{1-2\beta}\bigl|D_X(1-\overline{\rho})\bigr|.
+\]
+In particular, if \(\beta>\frac12+\eta\) then the right-hand side is \(\ll X^{-2\eta}\), so
+\[
+\bigl|D_X(\rho)\bigr|\ll X^{-2\eta}.
+\]
+
+#### Moment comparison
+Consider the second moment
+\[
+I(T,X)=\int_T^{2T}\bigl|D_X(\sigma_0+it)\bigr|^2\,dt.
+\]
+Expanding the square and using the mean-value theorem for Dirichlet polynomials yields the asymptotic
+\[
+I(T,X)=T\sum_{n\le X}n^{-2\sigma_0}+O\bigl(X^{2-2\sigma_0}\log X\bigr)+O(T^{1/2}X^{1-\sigma_0+\varepsilon}).
+\]
+The main term is \(\asymp T\) when \(X\le T^{1/(2\sigma_0-1)-\varepsilon}\). On the other hand, if there exist \(\gg N(\sigma_0,T)\) zeros with \(\beta\ge\sigma_0\), a standard large-value / Halász-type inequality for Dirichlet polynomials (Montgomery–Vaughan) produces a lower bound
+\[
+I(T,X)\gg N(\sigma_0,T)\cdot\min\bigl(T/X,\,X^{2-2\sigma_0}\bigr)
+\]
+provided the zeros are separated by \(\gg(\log T)^{-1}\) (which can be arranged by a standard clustering argument at the cost of a logarithmic factor).
+
+#### The reduction
+Equating the upper and lower bounds forces
+\[
+N(\sigma_0,T)\ll T\cdot\frac{X^{2\sigma_0-2}+\text{error}}{\min(T/X,X^{2-2\sigma_0})}.
+\]
+Choosing the optimal length \(X=T^{1/(2\sigma_0)}\) formally yields the density estimate
+\[
+N(\sigma_0,T)\ll T^{2(1-\sigma_0)+\varepsilon}.
+\]
+(The exponent \(2(1-\sigma_0)\) is already better than the classical \(c(1-\sigma)^{3/2}\) near \(\sigma=1\), and would imply that a positive proportion of zeros satisfy \(\beta\le\frac12+\varepsilon\) for every \(\varepsilon>0\).)
+
+#### Where the argument collapses
+The optimization \(X=T^{1/(2\sigma_0)}\) lies outside the range in which the error term of the approximate functional equation remains smaller than the main term: the convexivity bound only guarantees an admissible error for \(\theta\le\frac23-\delta\). For \(\sigma_0\) close to \(1/2\) one has \(1/(2\sigma_0)\approx1\), which exceeds \(2/3\). Inserting the largest admissible \(\theta=2/3-\delta\) recovers only the weaker density
+\[
+N(\sigma_0,T)\ll T^{c(1-\sigma_0)^{3/2}+\varepsilon},
+\]
+exactly the classical exponent. Improving the range of the approximate functional equation (or replacing it by a hybrid Euler–Hadamard product of sufficient length) would close the gap, but no such improvement is known unconditionally; any such improvement is itself essentially as hard as a quasi-RH zero-free region.
+
+Thus the reduction is valid only conditionally on a subconvex Dirichlet-polynomial approximation of length \(T^{1/2+o(1)}\), which remains out of reach. The argument therefore yields no new unconditional zero-density bound and supplies no information on the existence of zeros with \(\beta>1/2\).
+
+VERDICT: FAILED
+REASON: Conditional density reduction collapses to classical exponent; no new unconditional zero bound.
