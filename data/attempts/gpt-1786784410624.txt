@@ -1,0 +1,82 @@
+Attempt: A uniform local spectral gap for the covariant Hodge Laplacian on 1-forms under small Yang–Mills energy
+
+Statement (Proposition).
+Let G be a compact Lie group with Lie algebra g and Ad-invariant inner product. There exist universal constants ε0, c0 > 0 such that for any W^{1,2} connection A on the trivial G-bundle over the Euclidean ball B_r ⊂ R^4 satisfying:
+- Uhlenbeck gauge on B_r: d^*A = 0 and A·n|_{∂B_r} = 0,
+- Small curvature: ∥F_A∥_{L^2(B_r)} ≤ ε0,
+the first Dirichlet eigenvalue of the covariant Hodge Laplacian on g-valued 1-forms,
+H_A := d_A^* d_A + d_A d_A^*,
+restricted to the subspace {a ∈ H_0^1(B_r; T^*⊗g) : d_A^* a = 0}, obeys
+λ1(H_A; B_r) ≥ c0 r^{-2}.
+Equivalently, for all such a one has the coercive estimate
+∫_{B_r} (|d_A a|^2 + |d_A^* a|^2) dx ≥ c0 r^{-2} ∫_{B_r} |a|^2 dx.
+
+Comments on the setting.
+- The Coulomb gauge and boundary condition are available by Uhlenbeck’s lemma for sufficiently small L^2 curvature (after gauge transform).
+- The domain d_A^* a = 0 is the divergence-free subspace; the Dirichlet boundary condition a|_{∂B_r} = 0 is in the H_0^1 sense.
+
+Proof sketch.
+Step 1: Weitzenböck identity and form representation.
+On R^4 with the flat metric, the Weitzenböck formula on g-valued 1-forms gives
+d_A^* d_A + d_A d_A^* = ∇_A^* ∇_A + ad(F_A),
+where ∇_A = ∇ + ad(A) and ad(F_A) is the algebraic action of curvature. Hence the quadratic form is
+Q_A[a] := ⟨H_A a, a⟩ = ∥∇_A a∥_{L^2}^2 + ∫ ⟨ad(F_A) a, a⟩.
+
+Step 2: Control ∥A∥_{L^4} by ∥F_A∥_{L^2}.
+By Uhlenbeck’s small-energy gauge fixing on B_r (scale-invariant in 4D), there exists a gauge with d^*A=0, A·n|_{∂B_r}=0 and
+∥A∥_{W^{1,2}(B_r)} ≤ C ∥F_A∥_{L^2(B_r)}.
+By Sobolev embedding W^{1,2}(B_r) ↪ L^4(B_r) in 4D,
+∥A∥_{L^4(B_r)} ≤ C ∥F_A∥_{L^2(B_r)}.
+All constants are universal up to scaling in r.
+
+Step 3: Expand ∥∇_A a∥^2 and bound perturbative terms.
+Write ∇_A a = ∇a + [A, a]. Then
+∥∇_A a∥_{L^2}^2 = ∥∇a∥_{L^2}^2 + 2∫ ⟨∇a, [A, a]⟩ + ∥[A, a]∥_{L^2}^2.
+Estimate the cross and potential terms by Hölder and Sobolev:
+- |∫ ⟨∇a, [A, a]⟩| ≤ ∥∇a∥_{L^2} ∥A∥_{L^4} ∥a∥_{L^4}
+  ≤ C ∥A∥_{L^4} ∥∇a∥_{L^2}^2
+  using the Dirichlet Sobolev inequality ∥a∥_{L^4} ≤ C ∥∇a∥_{L^2}.
+- ∥[A, a]∥_{L^2}^2 ≤ C ∥A∥_{L^4}^2 ∥a∥_{L^4}^2
+  ≤ C ∥A∥_{L^4}^2 ∥∇a∥_{L^2}^2.
+Therefore,
+∥∇_A a∥_{L^2}^2 ≥ (1 - C ∥A∥_{L^4} - C ∥A∥_{L^4}^2) ∥∇a∥_{L^2}^2.
+
+Step 4: Bound the curvature term.
+Using the Ad-invariant inner product and the algebra estimate |⟨ad(F_A) a, a⟩| ≤ C |F_A| |a|^2,
+and Sobolev as before,
+|∫ ⟨ad(F_A) a, a⟩|
+≤ C ∥F_A∥_{L^2} ∥a∥_{L^4}^2
+≤ C ∥F_A∥_{L^2} ∥∇a∥_{L^2}^2.
+
+Step 5: Collect estimates and absorb smallness.
+Putting Steps 3–4 into Q_A[a] yields
+Q_A[a] ≥ (1 - C1 ∥A∥_{L^4} - C2 ∥A∥_{L^4}^2 - C3 ∥F_A∥_{L^2}) ∥∇a∥_{L^2}^2.
+Using Step 2, there is a universal C such that
+Q_A[a] ≥ (1 - C ∥F_A∥_{L^2(B_r)}) ∥∇a∥_{L^2}^2.
+Choose ε0 > 0 small so that 1 - C ε0 ≥ 1/2.
+
+Step 6: Poincaré inequality for Dirichlet 1-forms on B_r.
+For a ∈ H_0^1(B_r; T^*⊗g), the standard Poincaré inequality yields
+∥∇a∥_{L^2(B_r)}^2 ≥ c_P r^{-2} ∥a∥_{L^2(B_r)}^2,
+where c_P > 0 depends only on dimension and the Dirichlet condition.
+
+Conclusion.
+For all a ∈ H_0^1(B_r; T^*⊗g) with d_A^* a = 0,
+Q_A[a] ≥ (1/2) c_P r^{-2} ∥a∥_{L^2}^2.
+Hence λ1(H_A; B_r) ≥ c0 r^{-2} with c0 = c_P/2, provided ∥F_A∥_{L^2(B_r)} ≤ ε0.
+
+Scaling note.
+The argument is scale-invariant in 4D: the smallness condition is on the scale-invariant norm ∥F_A∥_{L^2}(B_r), and the lower bound scales as r^{-2}.
+
+Implications toward the mass gap problem (non-claim).
+- The estimate gives a deterministic, gauge-invariant local spectral gap for the classical covariant Hodge Laplacian in low-energy regions. It is robust and uniform over all connections with small action on the ball.
+- In constructive approaches to 4D Yang–Mills, transfer-matrix or Hamiltonian formulations often hinge on coercivity estimates of quadratic forms derived from such Laplacians. The proposition supplies a building block: a uniform infrared gap on finite regions at small local action density, stable under gauge transform.
+- However, this is a classical PDE/local result. It does not construct the 4D quantum Yang–Mills measure, nor does it establish reflection positivity, Osterwalder–Schrader axioms, or a global nonperturbative mass gap.
+
+Limitations and sharpness.
+- The result requires small L^2 curvature on each ball; global fields with bubbling or instantons violate this hypothesis locally.
+- On unbounded domains, the global spectrum remains continuous; only local Dirichlet gaps are obtained.
+- The proof relies on Uhlenbeck’s gauge and standard Sobolev estimates; while the statement seems known in spirit, the explicit spectral-gap phrasing and constants may be of independent use in rigorous discretization/continuum-limit analyses.
+
+VERDICT: PARTIAL
+REASON: Proved a uniform local spectral gap for H_A under small energy; falls short of quantum mass gap.

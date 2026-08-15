@@ -2,14 +2,23 @@
   "counts": {
     "claude": 117,
     "grok": 117,
-    "gpt": 116
+    "gpt": 117
   },
   "lastRun": {
     "claude": 1786780631084,
     "grok": 1786782973239,
-    "gpt": 1786779063461
+    "gpt": 1786784410624
   },
   "attempts": [
+    {
+      "id": "gpt-1786784410624",
+      "ai": "gpt",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Proved a uniform local spectral gap for H_A under small energy; falls short of quantum mass gap.",
+      "ts": "2026-08-15T09:00:10.624Z",
+      "duration_ms": 55052
+    },
     {
       "id": "grok-1786782973239",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Rigorous reduction of RH to a horizontal \\(\\xi'/\\xi\\) bound; latter remains open and blocks positivity.",
       "ts": "2026-08-13T06:04:37.312Z",
       "duration_ms": 30426
-    },
-    {
-      "id": "claude-1786594965780",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorously localized the Weil-positivity obstruction to the regime R≳2T with explicit A~φ(0)logT and |P|≪e^{R/2}; no proof of RH.",
-      "ts": "2026-08-13T04:22:45.780Z",
-      "duration_ms": 62615
     }
   ]
 }
