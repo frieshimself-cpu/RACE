@@ -2,14 +2,23 @@
   "counts": {
     "claude": 119,
     "grok": 119,
-    "gpt": 118
+    "gpt": 119
   },
   "lastRun": {
     "claude": 1786792893845,
     "grok": 1786794799646,
-    "gpt": 1786791334133
+    "gpt": 1786797436593
   },
   "attempts": [
+    {
+      "id": "gpt-1786797436593",
+      "ai": "gpt",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "PARTIAL",
+      "reason": "Identified a sharp Lorentz-space obstruction to weak-L3 ε-regularity via the pressure term.",
+      "ts": "2026-08-15T12:37:16.593Z",
+      "duration_ms": 61692
+    },
     {
       "id": "grok-1786794799646",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Turán positivity is false (sign changes of L(x)); criterion cannot imply RH",
       "ts": "2026-08-13T14:05:43.560Z",
       "duration_ms": 34933
-    },
-    {
-      "id": "claude-1786624228546",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reduced degree-2 Jensen criterion to explicit moment inequality and pinpointed obstruction, but no new theorem toward full RH.",
-      "ts": "2026-08-13T12:30:28.546Z",
-      "duration_ms": 66019
     }
   ]
 }

@@ -1,0 +1,60 @@
+Attempt: A precise obstruction to proving local ε-regularity from smallness in weak-L3
+
+Targeted claim (what one might hope to prove):
+There exists ε>0 such that any suitable weak solution (u,p) in Q_1 satisfies: if ||u||_{L^{3,∞}(Q_1)} ≤ ε, then u is Hölder continuous in Q_{1/2}.
+
+Why this would be useful:
+It would upgrade the classical Caffarelli–Kohn–Nirenberg-style local ε-regularity (which assumes smallness of a scale-invariant combination ∫|u|^3+|p|^{3/2}) to a criterion depending only on the critical weak-L3 norm of u, potentially opening a path to endpoint regularity.
+
+Main result (negative): The above hope cannot be achieved by the standard local energy inequality route because, at weak-L3 regularity, the pressure term cannot be controlled in L^1. Concretely, the best available Lorentz product and Calderón–Zygmund bounds place the pressure in L^{3/2,∞}, and the nonlinearity u·∇φ couples p and u only in L^{1,∞}, not in L^1. This lacks absolute continuity with respect to measure and prevents the decay/iteration step that underpins the ε-regularity scheme.
+
+Statement (precise obstruction):
+Let (u,p) be a suitable weak solution in Q_1, and φ be a standard cutoff supported in Q_1 with |∇φ| bounded and supported away from the inner cylinder Q_{1/2}. Then, from smallness of ||u||_{L^{3,∞}(Q_1)} alone, one cannot obtain a bound of the form
+∫_{Q_1} |p - p_{B_1(t)}| |u| |∇φ| dx dt ≤ C ||u||_{L^{3,∞}(Q_1)}^3
+with the right-hand side absolutely continuous in measure (i.e., in L^1), uniformly in the cutoff choice. The sharp functional-analytic bounds give only a weak-L^1 control, which is insufficient to run the Caffarelli–Kohn–Nirenberg decay argument.
+
+Proof sketch:
+- Pressure decomposition and mapping in Lorentz scales:
+  - Locally, with a cutoff η supported in B_1, write p = p_loc + p_harm with
+    p_loc(t,·) = R_i R_j(η u_i u_j)(t,·),  where R_i are Riesz transforms.
+  - If u ∈ L^{3,∞}(B_1) for a.e. t, then u⊗u ∈ L^{3/2,∞}(B_1) and, by boundedness of Calderón–Zygmund operators on Lorentz spaces L^{p,r} (1<p<∞, 1≤r≤∞), we have
+    p_loc(t,·) ∈ L^{3/2,∞}(B_1), with
+    ||p_loc(t,·)||_{L^{3/2,∞}} ≤ C ||u(t,·)||_{L^{3,∞}}^2.
+  - The harmonic part p_harm is controlled in the same L^{3/2,∞} class via local averages; its contribution is no better than p_loc.
+
+- The pressure term in the local energy inequality:
+  - The localized energy inequality contains the term
+    ∫∫ (p - p_{B_1(t)}) u · ∇φ dx dt.
+  - By Lorentz–Hölder (sharp version): for 1<p<∞ and 1≤r,s≤∞ with 1/p + 1/q = 1 and 1/r + 1/s ≥ 1, one has
+    ||fg||_{L^{1, r⋄s}} ≤ C ||f||_{L^{p,r}} ||g||_{L^{q,s}},
+    where r⋄s is determined by interpolation and, in particular,
+    L^{3/2,∞} · L^{3,∞} ↪ L^{1,∞} but not into L^1 in general.
+  - Applying this with f = p - p_{B_1(t)} ∈ L^{3/2,∞}, g = u ∈ L^{3,∞}, and the bounded ∇φ ∈ L^∞ with compact support (absorbed into constants), we obtain only
+    ||(p - p_{B_1(t)}) u||_{L^{1,∞}(Q_1)} ≤ C ||u||_{L^{3,∞}(Q_1)}^3.
+    There is no improvement to L^1 without extra structure.
+
+- Why L^{1,∞} is insufficient:
+  - The classical Caffarelli–Kohn–Nirenberg ε-regularity argument proceeds by deducing, from smallness at one scale, a decay inequality for a scale-invariant quantity:
+    Φ(r) = r^{-2} ∫_{Q_r} (|u|^3 + |p - (p)_{B_r}|^{3/2}).
+    The decay follows from the local energy inequality combined with strong L^1 control of the nonlinearities; one needs absolute continuity in measure to pass to limits and to control the defect measure.
+  - If the pressure contribution is only in L^{1,∞}, the defect cannot be excluded: weak-L^1 lacks absolute continuity, and one cannot ensure the key inequality
+    Φ(θ r) ≤ c θ^α Φ(r)
+    for small θ and small Φ(r), uniformly in the cutoff. The lack of absolute continuity allows concentration on sets of arbitrarily small measure, blocking the iteration.
+
+- Sharpness of the functional-analytic obstruction:
+  - Calderón–Zygmund operators do not improve the Lorentz index: L^{p,∞} is mapped to L^{p,∞}, not to L^{p,r} with r<∞. Thus, from u ∈ L^{3,∞}, one cannot hope to get p ∈ L^{3/2,1} (which would suffice since L^{3/2,1}·L^{3,∞} ↪ L^1).
+  - There exist sequences f_n, g_n supported in a fixed finite-measure set with uniformly bounded norms in L^{3/2,∞} and L^{3,∞}, respectively, such that ||f_n g_n||_{L^1} → ∞ while ||f_n g_n||_{L^{1,∞}} remains uniformly bounded. This shows no uniform L^1 control can be deduced from the given Lorentz bounds.
+
+Consequences:
+- Any attempt to prove local ε-regularity at the weak-L3 endpoint must introduce additional information beyond smallness of ||u||_{L^{3,∞}}:
+  - Either improve the pressure integrability (e.g., show p ∈ L^{3/2,1} locally) via structural cancellations or extra hypotheses;
+  - Or replace the local energy inequality iteration by a scheme that tolerates weak-L^1 bounds (e.g., via quantitative reverse Hölder or compensated compactness), which currently appears out of reach for Navier–Stokes nonlinearity;
+  - Or assume smallness in an endpoint-critical norm that controls the Lorentz index, such as L^{3,q} with q<∞, or critical Besov/BMO^{-1} norms with better product structure.
+
+- This pinpoints a concrete, verifiable obstruction in the classical route and clarifies why known endpoint results (e.g., Escauriaza–Seregin–Šverák) crucially exploit global L_t^∞ L_x^3 control and backward uniqueness rather than a purely local weak-L3 ε-regularity argument.
+
+Summary:
+The standard CKN ε-regularity machinery cannot be driven by smallness in L^{3,∞} of u alone; the pressure term only lands in L^{1,∞}, preventing the decisive decay estimate. Any successful endpoint approach must either upgrade the pressure’s Lorentz index or avoid reliance on L^1 control of the pressure–velocity product.
+
+VERDICT: PARTIAL
+REASON: Identified a sharp Lorentz-space obstruction to weak-L3 ε-regularity via the pressure term.
