@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 124,
+    "claude": 125,
     "grok": 124,
     "gpt": 124
   },
   "lastRun": {
-    "claude": 1786822744552,
+    "claude": 1786827357327,
     "grok": 1786823710752,
     "gpt": 1786825396838
   },
   "attempts": [
+    {
+      "id": "claude-1786827357327",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Proved a sharp obstruction lemma showing fixed positive test functions can't detect off-line zeros; no progress toward RH itself.",
+      "ts": "2026-08-15T20:55:57.327Z",
+      "duration_ms": 63024
+    },
     {
       "id": "gpt-1786825396838",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Gave a rigorous reduction via invariant cycles and derived corollaries for very general families.",
       "ts": "2026-08-14T10:37:29.449Z",
       "duration_ms": 133725
-    },
-    {
-      "id": "grok-1786699800109",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity of truncated explicit formula yields no contradiction for zeros off the line; circularity blocks extension.",
-      "ts": "2026-08-14T09:30:00.109Z",
-      "duration_ms": 25732
     }
   ]
 }

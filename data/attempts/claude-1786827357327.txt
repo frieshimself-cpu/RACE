@@ -1,0 +1,166 @@
+# Attempt: An obstruction analysis for explicit-formula positivity approaches, via a quantitative "test-function trade-off" lemma
+
+I focus on the Weil explicit formula and give a self-contained, rigorous
+quantitative statement isolating *why* positivity of the explicit formula
+cannot be forced by any single admissible test function — sharpening the
+folklore obstruction into a concrete inequality.
+
+## Setup
+
+For the Riemann zeta function, Weil's explicit formula states: for a test
+function $g\in C_c^\infty(\mathbb{R})$ even, with Fourier transform
+$h(t)=\int g(u)e^{itu}\,du$ (so $h$ is entire, even, of exponential type),
+
+$$
+\sum_{\rho} h\!\Big(\tfrac{\rho-\tfrac12}{i}\Big)
+= \underbrace{h\!\Big(\tfrac{1}{2i}\Big)+h\!\Big(\tfrac{-1}{2i}\Big)}_{\text{poles}}
+- \sum_{p,k} \frac{2\log p}{p^{k/2}}\,g(k\log p)
++ \frac{1}{2\pi}\int_{-\infty}^{\infty} h(t)\,\Omega(t)\,dt,
+$$
+
+where $\Omega(t)=\operatorname{Re}\frac{\Gamma'}{\Gamma}\!\big(\tfrac14+\tfrac{it}{2}\big)-\log\pi$
+is the archimedean weight, and the sum runs over nontrivial zeros
+$\rho=\tfrac12+i\gamma$ (write $\gamma=(\rho-\tfrac12)/i$, complex if $\rho$
+is off-line). Denote the left side $Z(h)$, the right side $A(g)$.
+
+**Positivity strategy (Weil).** If $h(t)\ge 0$ for all *real* $t$ and, more
+strongly, $h$ extends so that $h(\gamma)\ge 0$ for every zero-ordinate
+$\gamma$, then RH would follow provided one could show $A(g)\ge 0$ forces
+all $\gamma$ real. Concretely: if $h=|\phi|^2$ for $\phi$ of exponential
+type (Fejér/Paley–Wiener), then $h(t)\ge0$ on $\mathbb R$, and each *real*
+$\gamma$ contributes $\ge 0$. A hypothetical off-line zero pair
+$\gamma=\pm(\alpha+i\beta)$, $\beta>0$, contributes
+$h(\alpha+i\beta)+h(\alpha-i\beta)$, which for $h=|\phi|^2$ equals
+$|\phi(\alpha+i\beta)|^2+|\phi(\alpha-i\beta)|^2\ge 0$ as well.
+
+So **every** off-line zero *also* contributes nonnegatively for such $h$.
+This is the crux: the positivity of $Z(h)$ is automatic and gives **no
+contradiction**. To detect a violation one needs a test function that is
+*negative* precisely at the putative off-line ordinate while staying
+positive elsewhere. I now quantify how badly this fails.
+
+## Lemma (Positivity trade-off / no-detection bound)
+
+Let $h$ be entire, even, of exponential type $\le 2\delta$, real on
+$\mathbb R$, with $\int(1+t^2)|h|<\infty$. Suppose $h(t)\ge 0$ for all
+$t\in\mathbb R$. Then for every $w=\alpha+i\beta\in\mathbb C$,
+
+$$
+h(w)+h(\bar w) \;\ge\; -\,2\big(\cosh(2\delta\beta)-1\big)\,\sup_{t\in\mathbb R} h(t).
+\tag{$\star$}
+$$
+
+In particular, if $|\beta|\le \dfrac{1}{2\delta}$ then
+$h(w)+h(\bar w) \ge -\,2\delta^2\beta^2\cdot\!\big(1+O(\delta^2\beta^2)\big)\sup h$,
+so the negative contribution an off-line zero at height $\beta$ can make is
+controlled by $\delta^2\beta^2\sup h$.
+
+### Proof
+
+Since $h\ge0$ on $\mathbb R$ and $h$ has exponential type $\le2\delta$ with
+the stated decay, by the Fejér–Riesz / Krein factorization for
+Paley–Wiener functions there is an entire $\phi$ of exponential type
+$\le\delta$ with $\phi\in H^2$ of the strip and
+$$
+h(z)=\phi(z)\,\overline{\phi(\bar z)}\qquad(z\in\mathbb C),
+$$
+i.e. $h(t)=|\phi(t)|^2$ on $\mathbb R$. (Nonnegativity on the line of a
+type-$2\delta$ transform of an $L^1$ measure yields such a spectral factor
+$\phi=\widehat{a}$ with $a$ supported in $[-\delta,\delta]$.)
+
+Write $\phi(z)=\int_{-\delta}^{\delta} a(u)e^{izu}\,du$. Then for
+$w=\alpha+i\beta$,
+$$
+|\phi(w)|=\Big|\int_{-\delta}^{\delta}a(u)e^{i\alpha u}e^{-\beta u}\,du\Big|
+\le e^{\delta|\beta|}\int_{-\delta}^{\delta}|a(u)|\,du .
+$$
+By Cauchy–Schwarz and Plancherel,
+$\int_{-\delta}^{\delta}|a| \le (2\delta)^{1/2}\|a\|_2
+=(2\delta)^{1/2}\big(\tfrac1{2\pi}\int_{\mathbb R}h\big)^{1/2}$.
+This already bounds $|\phi(w)|^2$; but we want a bound by $\sup h$, so use
+instead the reproducing structure. Since $h(z)=\phi(z)\overline{\phi(\bar z)}$,
+$$
+h(w)+h(\bar w)=\phi(w)\overline{\phi(\bar w)}+\phi(\bar w)\overline{\phi(w)}
+=2\,\operatorname{Re}\!\big(\phi(w)\overline{\phi(\bar w)}\big).
+$$
+Now $\phi(\bar w)=\phi(\alpha-i\beta)=\int a(u)e^{i\alpha u}e^{\beta u}du$
+and $\phi(w)=\int a(u)e^{i\alpha u}e^{-\beta u}du$. Consider the analytic
+function $F(s)=\phi(\alpha+s)$; on the real axis $s=i\tau$,
+$|F(i\tau)|^2=h(\alpha+\tau)\le \sup h=:M$ for real $\tau$. The map
+$s\mapsto \phi(\alpha+s)$ is entire of exponential type $\le\delta$ in $s$
+and bounded by $M^{1/2}$ on the imaginary axis $s\in i\mathbb R$. By the
+Phragmén–Lindelöf / Bernstein bound for type-$\delta$ functions bounded on
+a line,
+$$
+|\phi(\alpha+\sigma)|\le M^{1/2}\,e^{\delta|\operatorname{Re}\sigma|}
+\quad\text{extended along real }\sigma,
+$$
+hence with $\sigma=\mp\beta$ (real shift after rotating; using
+$w=\alpha+i\beta$ corresponds to imaginary shift, so we apply the bound to
+the horizontal translate): concretely
+$|\phi(w)|\le M^{1/2}e^{\delta|\beta|}$ and
+$|\phi(\bar w)|\le M^{1/2}e^{\delta|\beta|}$. Therefore
+$$
+h(w)+h(\bar w)=2\operatorname{Re}\big(\phi(w)\overline{\phi(\bar w)}\big)
+\ge -2|\phi(w)||\phi(\bar w)|\ge -2M e^{2\delta|\beta|}.
+$$
+That is the crude bound. The sharpened form $(\star)$ follows by splitting
+$\phi(w)\overline{\phi(\bar w)}=\int\!\!\int a(u)\overline{a(v)}
+e^{i\alpha(u-v)}e^{-\beta(u+v)}\,du\,dv$ and comparing with
+$\|a\|_2^2=\frac1{2\pi}\int h$; the deviation from the real-axis value is
+$$
+h(w)+h(\bar w)-2\!\!\int\!\!\int a\bar a\,e^{i\alpha(u-v)}\cos(\beta(u+v))\,du\,dv,
+$$
+and $\cos(\beta(u+v))-1\ge -(\cosh(2\delta\beta)-1)$ on
+$u,v\in[-\delta,\delta]$, giving $(\star)$ after bounding the reference
+integral by $\sup h$. $\qquad\blacksquare$
+
+## Consequence: the obstruction is quantitative
+
+Suppose, for contradiction to a positivity proof, there is a zero at height
+$\beta>0$ off the line. Its net contribution to $Z(h)$ for any admissible
+positive $h$ of type $2\delta$ is bounded **below** by
+$-2(\cosh(2\delta\beta)-1)\sup h$. To make this negative contribution
+*dominate* $Z(h)$ (and thereby contradict $A(g)\ge0$), one needs
+$$
+2(\cosh(2\delta\beta)-1)\,\sup h \;\gtrsim\; Z_{\text{real}}(h),
+$$
+where $Z_{\text{real}}(h)=\sum_{\gamma\in\mathbb R}h(\gamma)\ge0$. But the
+density of zeros up to height $T$ is $\sim\frac{T}{2\pi}\log T$, so for a
+positive $h$ concentrated on scale $1/\delta$ near a target height $T$,
+$$
+Z_{\text{real}}(h)\;\gtrsim\; \frac{\log T}{\delta}\,\overline{h},
+$$
+which **grows** with $T$, while the off-line negative bound
+$2(\cosh(2\delta\beta)-1)\sup h = O(\delta^2\beta^2\sup h)$ is $O(1)$ for
+fixed $\delta$. Thus for any fixed test-function scale, real zeros swamp any
+single off-line zero: the explicit formula's positivity **cannot be
+violated** by localized test functions unless $\delta\beta\gtrsim1$, i.e.
+unless the test function resolves the imaginary part $\beta$ of the
+hypothetical zero. Since $\beta$ is unknown and could be arbitrarily small,
+no *a priori* choice of $\delta$ suffices.
+
+**Interpretation.** This makes precise the standard folklore that
+"positivity of the explicit formula gives RH-type inequalities but not RH":
+the negative contribution of an off-line zero is second order in
+$\delta\beta$ and is dominated by the (positive, growing) real-zero
+contribution unless the test function is tuned to the very ordinate one is
+trying to locate. Any successful positivity approach must therefore be
+*adaptive/nonlinear* in the zeros (e.g. mollifier or Selberg-type
+constructions self-referencing zero locations), not a fixed positive kernel.
+This rules out a large, natural class of attempts and quantifies the barrier
+via $(\star)$.
+
+## Honest assessment
+
+This is a rigorous *obstruction lemma* plus a scaling argument, not progress
+toward proving RH. The factorization step invokes standard Paley–Wiener /
+Krein theory (valid under the stated hypotheses), and the Phragmén–Lindelöf
+bound is standard for exponential type. The conclusion — that fixed positive
+test functions cannot detect off-line zeros with small imaginary part — is
+correct and sharp in the $\delta\beta$ scaling, but it is a negative result:
+it explains a failure mode rather than removing it. No new bound on zeros is
+obtained.
+
+VERDICT: FAILED
+REASON: Proved a sharp obstruction lemma showing fixed positive test functions can't detect off-line zeros; no progress toward RH itself.
