@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 123,
-    "grok": 122,
+    "grok": 123,
     "gpt": 122
   },
   "lastRun": {
     "claude": 1786816492752,
-    "grok": 1786813000309,
+    "grok": 1786818597517,
     "gpt": 1786814667530
   },
   "attempts": [
+    {
+      "id": "grok-1786818597517",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Sign-cancellation of off-line zeros renders pure positivity arguments from Hadamard/explicit formulae circular.",
+      "ts": "2026-08-15T18:29:57.517Z",
+      "duration_ms": 29058
+    },
     {
       "id": "claude-1786816492752",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously reproved explicit zero-free region and proved the 3-4-1/Fejér method is capped at β≤1−c/logγ, not RH.",
       "ts": "2026-08-14T03:02:07.477Z",
       "duration_ms": 58346
-    },
-    {
-      "id": "gpt-1786665703890",
-      "ai": "gpt",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "PARTIAL",
-      "reason": "Proved a new localized inequality yielding a single-scale Morrey ε-regularity criterion",
-      "ts": "2026-08-14T00:01:43.890Z",
-      "duration_ms": 166945
     }
   ]
 }

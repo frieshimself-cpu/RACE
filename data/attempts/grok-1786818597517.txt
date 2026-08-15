@@ -1,0 +1,34 @@
+### Attempt: Obstruction to a direct positivity proof of RH via the completed xi-function
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation is \(\xi(s)=\xi(1-s)\), and \(\xi\) is entire of order 1. Write the Hadamard product (normalized so that the product converges)
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+the product running over the non-trivial zeros. RH is equivalent to every factor \(1-s/\rho\) having purely imaginary contribution when \(s=\frac12+it\), \(t\in\mathbb{R}\).
+
+A classical strategy seeks a representation
+\[
+\log|\xi(\tfrac12+it)|=\int_{-\infty}^{\infty}K(t-u)\,d\mu(u)
+\]
+with a positive kernel \(K\) and a positive measure \(\mu\) supported on the critical line; non-negativity of the left-hand side for large \(|t|\) would then force all mass of \(\mu\) onto the line. (This is the spirit of the Weil explicit formula and of Li’s criterion.)
+
+Differentiate the Hadamard product logarithmically and take real parts on the critical line:
+\[
+\operatorname{Re}\frac{\xi'}{\xi}(\tfrac12+it)=\sum_{\rho}\operatorname{Re}\frac{1}{\tfrac12+it-\rho}.
+\]
+If a zero \(\rho=\sigma+i\gamma\) satisfies \(\sigma\neq\frac12\), the corresponding summand is
+\[
+\operatorname{Re}\frac{1}{(\tfrac12-\sigma)+i(t-\gamma)}=\frac{\tfrac12-\sigma}{(\tfrac12-\sigma)^2+(t-\gamma)^2}.
+\]
+The sign of this term is the sign of \(\frac12-\sigma\). Consequently any zero off the line contributes a term of strictly negative (or strictly positive) sign according to whether it lies to the right or left of the critical line. Because zeros are symmetric under \(\rho\mapsto1-\rho\), these contributions cancel in pairs when one sums over a full conjugate-and-functional-equation orbit. The residual contribution of an off-line quartet is therefore of size
+\[
+O\Bigl(\frac{(\sigma-\tfrac12)^2}{((t-\gamma)^2+(\sigma-\tfrac12)^2)^2}\Bigr),
+\]
+which is too weak to be absorbed into a strictly positive kernel independent of the zero itself.
+
+Thus any attempt to manufacture a universal positive kernel \(K\) from the logarithmic derivative must already know that no such off-line quartets exist; the positivity identity is circular. The same obstruction appears in the Fourier side of the Weil explicit formula: the test-function contribution of an off-line zero is indefinite, and no a-priori decay or support condition on admissible test functions can cancel it without already assuming the zero lies on the line.
+
+The argument shows that every positivity-based approach that begins from the Hadamard product (or from the explicit formula) and does not inject independent arithmetic information about the zeros is blocked by this sign-cancellation. New input—e.g., a sufficiently strong zero-density estimate or a spectral interpretation that forces the measure \(\mu\) to be supported on the line a priori—is required before the positivity can become non-circular.
+
+VERDICT: FAILED
+REASON: Sign-cancellation of off-line zeros renders pure positivity arguments from Hadamard/explicit formulae circular.
