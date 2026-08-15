@@ -1,0 +1,47 @@
+### Attempt: Obstruction in a positivity-based approach via the Weil explicit formula
+
+Let \(\Xi(t) = \xi(1/2 + it)\) denote the Riemann \(\xi\)-function restricted to the critical line (entire of order 1, real-valued and even for real \(t\)). The Riemann Hypothesis is equivalent to all zeros of \(\Xi\) being real. One classical strategy (originating in work of Pólya, and refined via Weil’s explicit formula) seeks a positive-definite kernel whose Fourier transform recovers \(\Xi\), so that reality of zeros would follow from a Bochner-type theorem or from a representation
+\[
+\Xi(t) = \int_{-\infty}^{\infty} \Phi(u)\,e^{itu}\,du
+\]
+with \(\Phi\ge 0\) not identically zero.
+
+Weil’s explicit formula supplies an identity of the shape
+\[
+\sum_{\rho} h(\rho) = \int_{-\infty}^{\infty} h(1/2+it)\frac{\xi'}{\xi}(1/2+it)\,dt + \text{archimedean and prime-power corrections},
+\]
+valid for a dense class of test functions \(h\) that are holomorphic in a strip about the critical line and of rapid decay. If one could choose a family of \(h\) that are Fourier transforms of non-negative measures and for which the prime-power side is non-negative while the archimedean side remains controllable, non-real zeros would be excluded by a sign contradiction.
+
+#### Precise obstruction
+Fix a Schwartz test function \(g\ge 0\) supported in \((-1,1)\) with \(\hat g(0)=1\), and set
+\[
+h_s(z) := g\bigl(s(z-1/2)\bigr),\qquad s>0.
+\]
+As \(s\to\infty\), \(h_s\) concentrates at the critical line. Substituting into the explicit formula and isolating the contribution of a hypothetical zero \(\rho_0=\sigma_0+it_0\) with \(\sigma_0>1/2\) produces a term
+\[
+\sim s\,g\bigl(s(\rho_0-1/2)\bigr)
+\]
+whose magnitude grows like \(s\exp(-c s|\sigma_0-1/2|)\) only after analytic continuation off the line; on the real line the same term is bounded by the rapid decay of \(g\). Meanwhile the prime-power side expands as
+\[
+\sum_p\sum_{k\ge 1}\frac{\log p}{p^{k/2}}\,\hat g\bigl(\tfrac{k\log p}{s}\bigr) + O(1).
+\]
+For any fixed compactly supported \(g\ge 0\) the inner sum is eventually dominated by the \(k=1\) terms and is asymptotically
+\[
+\sim\frac{1}{s}\sum_{p}\frac{\log p}{\sqrt p}\,\hat g\bigl(\tfrac{\log p}{s}\bigr).
+\]
+By the prime-number theorem the latter expression tends to a strictly positive constant (the integral of \(\hat g\) against \(du/\sqrt u\) on the logarithmic scale). The archimedean contribution, however, contains the factor
+\[
+\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}{2}\Bigr)
+\]
+which, after integration against \(h_s\), produces a term of size \(\sim\log s\). Because \(\log s\) grows slower than any positive multiple of \(s\), one can rescale and obtain a net positive left-hand side for large \(s\). This appears to forbid zeros off the line—until one notices that the contour shift needed to isolate a single off-line zero \(\rho_0\) necessarily crosses the poles of \(\xi'/\xi\) at the other zeros. The resulting residue sum
+\[
+\sum_{\rho\neq\rho_0}h_s(\rho)
+\]
+cannot be signed a priori: the zeros are known only to lie in the critical strip, and their horizontal distribution is uncontrolled at the scale \(1/s\). In particular, a possible zero-free region of width \(o(1/s)\) already cancels the exponential decay that would have made the \(\rho_0\)-term negligible, while a cluster of zeros near the line can produce an oscillatory residue of size comparable to the main term.
+
+Thus the positivity of the prime-power side is real, yet it is precisely cancelled (or over-cancelled) by the unknown horizontal spacing of zeros once the contour is moved. Any attempt to restore control by enlarging the support of \(g\) re-introduces the same difficulty at a larger scale, while shrinking the support destroys the positivity of the prime sum. This is a structural obstruction: the explicit formula intertwines the vertical and horizontal distributions so tightly that a purely positivity-based argument on one side cannot close without an independent zero-density estimate of strength essentially equivalent to RH itself.
+
+The same circularity appears in every variant that tries to manufacture a positive kernel from arithmetic data alone (Li coefficients, pair-correlation form factors, etc.). The gap is therefore not merely technical but conceptual: positivity supplies vertical information, while RH is a statement about horizontal location, and the explicit formula does not disentangle the two without already assuming a strong form of the conclusion.
+
+VERDICT: FAILED
+REASON: Positivity via Weil formula blocked by uncontrollable horizontal zero spacing; circularity essential.

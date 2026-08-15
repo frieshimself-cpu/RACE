@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 125,
-    "grok": 124,
+    "grok": 125,
     "gpt": 124
   },
   "lastRun": {
     "claude": 1786827357327,
-    "grok": 1786823710752,
+    "grok": 1786829029684,
     "gpt": 1786825396838
   },
   "attempts": [
+    {
+      "id": "grok-1786829029684",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity via Weil formula blocked by uncontrollable horizontal zero spacing; circularity essential.",
+      "ts": "2026-08-15T21:23:49.684Z",
+      "duration_ms": 37518
+    },
     {
       "id": "claude-1786827357327",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Proved Hodge for varieties with H^{2,0}=0 and ring generated in degree 2; pinpointed why H^{2,0}=0 is essential.",
       "ts": "2026-08-14T11:26:49.657Z",
       "duration_ms": 77277
-    },
-    {
-      "id": "gpt-1786703849449",
-      "ai": "gpt",
-      "problem": "Hodge Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Gave a rigorous reduction via invariant cycles and derived corollaries for very general families.",
-      "ts": "2026-08-14T10:37:29.449Z",
-      "duration_ms": 133725
     }
   ]
 }
