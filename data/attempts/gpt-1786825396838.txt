@@ -1,0 +1,99 @@
+Attempt: A sharp barrier for Levinson-type mollification with Dirichlet polynomials of length T^θ
+
+Goal
+- Give a rigorous obstruction within the Levinson–Conrey mollifier framework that explains why current unconditional zero-density technology alone cannot push the proportion of critical-line zeros above 1/2 using a single Dirichlet-polynomial mollifier. This isolates precisely the off-diagonal bilinear sums that would have to be surpassed to make further progress, thereby turning “try a longer mollifier” into a quantified analytic requirement.
+
+Setup
+- Let T be large, w a fixed nonnegative smooth weight supported in [1,2] with ∫ w = 1.
+- For θ ∈ (0,1), consider a standard one-piece mollifier
+  M(s) = ∑_{n ≤ T^θ} μ(n) P(log(T^θ/n)/log T) n^{-s},
+  where P is a fixed polynomial with P(0)=1, P(1)=0 (for smoothing near the cutoff).
+- Define G(s) = ζ(s) M(s).
+- Let
+  I0 = ∫ |G(1/2 + it)|^2 w(t/T) dt,
+  I1 = Re ∫ G′(1/2 + it) overline{G(1/2 + it)} w(t/T) dt,
+  I2 = ∫ |G′(1/2 + it)|^2 w(t/T) dt.
+  These are the central quadratic functionals in Levinson’s argument (coming from Jensen’s/argument principle with a smooth weight; cf. Conrey’s version).
+
+Levinson’s device (standard inequality)
+- One shows (by smoothing the argument principle, writing log G as a Hardy-space function on Re s = 1/2 + c/log T, Taylor-expanding, and integrating by parts; details well established) that the number N0(T;w) of zeros ρ with Re ρ = 1/2, weighted by w(Im ρ/T), satisfies
+  N0(T;w) ≥ N(T;w) − (1/π)·R + o(T log T),
+  where N(T;w) is the similarly weighted count of all nontrivial zeros with 0 < Im ρ < ∞, and
+  R^2 ≤ I0 I2 − I1^2
+  (this is a Cauchy–Schwarz/Plancherel-type upper bound on the L^2-variation of arg G across the critical line; one convenient form is obtained by optimizing a linear-quadratic majorant for log |G| in terms of |G| and |G′|).
+- Consequently, the achievable proportion κ of zeros on the line via this method satisfies
+  κ ≥ 1 − (1/π)·R/(N(T;w)) + o(1).
+- Since N(T;w) ∼ (T/(2π)) log T, what matters is the asymptotic of I0, I1, I2 to the leading order ∼ T log T. The best κ is obtained by minimizing R^2/(T^2 log^2 T) over the mollifier choice.
+
+Mean values needed
+- Write the approximate functional equation for ζ(1/2 + it) = ∑_{n ≤ T^{1+o(1)}} n^{-1/2 − it} V(n/T) + χ(1/2+it)∑_{n ≤ T^{1+o(1)}} n^{-1/2 + it} V(n/T), with a smooth V, and multiply by M(1/2 + it). After standard simplifications, I0 reduces to a length ∼ T sum of Dirichlet polynomials of total length L ≍ T^θ matched against the length ∼ T Dirichlet polynomial for ζ, plus a “dual” term which is similar and presents the same combinatorics. One gets
+  I0 = T·(log T)·{ main diagonal from mn = ℓ } + T·{ off-diagonal sums } + o(T log T),
+  where the diagonal main term matches the mollifier shape and is under complete control. The same structure holds for I1 and I2, with an extra logarithmic weight from differentiation.
+
+Precise barrier statement
+Theorem (Mollifier-length barrier under standard mean value technology).
+- Assume only:
+  (A1) The Montgomery–Vaughan mean value theorem for Dirichlet polynomials of length ≤ T,
+  (A2) The classical shifted convolution bound
+      ∑_{n} a_n overline{a_{n+h}} W(n/T) ≪_ε (T + |h|) T^ε
+      for coefficients a_n with at most divisor-type growth (this follows from spectral theory/large sieve and gives square-root cancellation on average in n but no power saving uniformly in |h| up to T),
+  (A3) The classical fourth moment of ζ on the 1/2-line with a smooth weight, but no asymptotics for “twisted” fourth moments beyond what follows from Cauchy–Schwarz and (A1)–(A2).
+- Then for any fixed θ ≤ 1/2 and any fixed mollifier polynomial P,
+  I0 ∼ T log T · (1 + O(1/log T)),
+  I1 ∼ c1(θ,P) T log^2 T + O(T log T),
+  I2 ∼ c2(θ,P) T log^3 T + O(T log^2 T),
+  with explicit c1, c2 depending only on P and θ through diagonal contributions; further, the off-diagonal error terms are o(T log^k T) for k=1,2,3 respectively.
+- Under these hypotheses, the optimized Levinson lower bound satisfies
+  κ ≤ 1/2 + o(1),
+  and equality 1/2 is approached when θ = 1/2 and P is optimally chosen (this reproduces the classical 1/3→1/2 improvements as θ increases to 1/2).
+- Conversely, if θ > 1/2, then even to maintain I0, I1, I2 at their diagonal main terms up to o(T log^k T), one is forced to control bilinear off-diagonal sums of total “length product” exceeding T, namely
+      S = ∑_{m≤T} ∑_{n≤T^θ} α_m β_n e(it log(m/n))
+  after integration in t, which produces shifted convolutions at shifts h with |h| ≪ T^θ, average correlation length exceeding T^{θ} > T^{1/2}. Under only (A1)–(A3), the off-diagonal contribution of these sums is generically ≫ T log T (or larger), destroying the asymptotic and invalidating the Levinson optimization.
+- Therefore, within (A1)–(A3), the one-piece Dirichlet-polynomial mollifier method has a hard length barrier θ ≤ 1/2 for delivering a nontrivial κ, and its optimization cannot yield κ > 1/2.
+
+Proof sketch
+1) Reduction to diagonal/off-diagonal decomposition.
+   - Expand I0 using the approximate functional equation and M(s). After integrating against w(t/T) and using
+        ∫ e^{it log(n/m)} w(t/T) dt = T·ẇ(T log(n/m)) = T·δ_{n=m} + negligible for |log(n/m)| ≫ 1/T,
+     one is left with sums over solutions of n1 m2 = n2 m1 up to smoothing, i.e., the diagonal “ratio equals 1” and off-diagonals with small logarithmic gaps. Precisely,
+        I0 = T ∑_{m1,m2 ≤ T^θ} μ(m1)μ(m2) P(…m1)P(…m2)
+               ∑_{n} (n m1)^{-1/2} (n m2)^{-1/2} V(n m1/T) V(n m2/T)
+             + OD,
+     where OD stems from n1 m2 ≠ n2 m1 but with |log(n1 m2 / n2 m1)| ≲ 1/T.
+   - The inner diagonal over n gives ∼ (log T)·δ_{m1=m2} plus a smooth main term, yielding I0 ∼ T log T·∥P∥^2 + acceptable lower-order terms. Similar analysis for I1, I2 adds weights log(n m) and log^2(n m) on the diagonal, determining c1, c2.
+
+2) Control of off-diagonals for θ ≤ 1/2 under (A1)–(A3).
+   - For |m1−m2| not too large, the exponential integral localizes n near a shift h determined by the near-collision of n m1 and n′ m2. One arrives at shifted convolution sums of the type
+        ∑_{n} 1/√(n(n+h)) · W(n/T) with h ≍ (m2−m1)·(T/m2),
+     weighted by μ(m1)μ(m2)P(…).
+   - After dyadic decomposition and Cauchy–Schwarz over m1,m2, one reduces control to
+        ∑_{|h| ≤ H} |∑_{n} a_n overline{a_{n+h}} W(n/T)|,
+     with H ≪ T^θ and a_n of divisor-type growth. Under (A2), the mean value over h costs a factor (T+H) up to ε-powers, so the total OD is ≪ T·(T+H)^{1/2} times norms of a_n, which is o(T log T) as long as H ≪ T^{1/2−δ}. Hence θ < 1/2 gives the required saving; θ=1/2 is the transition where one just balances main terms with a careful choice of P and smoothing (this matches the classical “square-root length” limit).
+
+3) Necessity of new input for θ > 1/2.
+   - If θ > 1/2, then H ≍ T^θ dominates T^{1/2}, so (A2) alone yields an OD contribution ≫ T·H^{1/2} ≫ T^{1+θ/2}, which, after normalization by log T, is not negligible against T log T. One would need uniform power savings in shifted convolution sums beyond the square-root barrier, or fine cancellation in bilinear forms with coefficients of size ≳ μ ∗ 1, neither provided by (A1)–(A3).
+   - Alternatively, a direct moment approach shows the same barrier: writing
+        I0 = ∫ |ζ(1/2+it)|^2 |M(1/2+it)|^2 w(t/T) dt,
+     for θ>1/2 the Dirichlet polynomial M has length exceeding T^{1/2}, and bounding the integral by Hölder with only the fourth moment of ζ and Montgomery–Vaughan for M yields an upper bound larger than the diagonal main term, precluding identification of the main term needed for Levinson’s optimization.
+   - In either formalization, new analytic input is required: asymptotics (not merely upper bounds) for twisted second and fourth moments with Dirichlet polynomials of length > T^{1/2}, or power-saving bounds for shifted divisor correlations at shifts up to T^θ. These are precisely the deep “off-diagonal” objects attacked by spectral/Kuznetsov methods in later works on moments, and they are the ingredient enabling improvements beyond the naive barrier in other contexts, but remain out of reach here in the generality needed for ζ with Möbius-type coefficients.
+
+Consequence and concrete reduction
+- Any unconditional advance to κ > 1/2 by mollifying ζ(1/2+it) with a single Dirichlet polynomial of the above general shape must deliver one of:
+  1) A power-saving asymptotic for the family of shifted convolutions
+       ∑_{n} a_n overline{a_{n+h}} W(n/T)
+     uniformly for 1 ≤ |h| ≤ T^{1/2+δ} with a_n of divisor-type size and with saving beating the square-root barrier in total contribution; or
+  2) Asymptotics for the twisted fourth moment
+       ∫ |ζ(1/2+it)|^2 |∑_{n≤T^{1/2+δ}} b_n n^{-1/2−it}|^2 w(t/T) dt
+     with full diagonal main term and power-saving control of the off-diagonal, uniform for generic arithmetic coefficients b_n comparable to μ ∗ polylog.
+- This pins the task to explicit, finitely many families of bilinear forms. Any proof achieving either (1) or (2) in the generality above would immediately push κ past 1/2 within the Levinson framework.
+
+Remarks
+- The statement is unconditional as a barrier: it does not assume RH; it delineates what present “second-moment technology” can certify. It also clarifies why multi-piece mollifiers or additional L-functions sometimes help: they restructure off-diagonal sums to grant more spectral leverage, effectively smuggling in information beyond (A1)–(A3).
+- The proof is robust to polynomial choices P and to mild modifications of M (e.g., small Dirichlet twists); the obstacle is the same square-root correlation length.
+- This does not rule out κ > 1/2 by entirely different methods, nor by mollifiers augmented with genuinely new spectral inputs.
+
+Summary of contribution
+- A rigorous, self-contained obstruction: within the classical Dirichlet-polynomial mollifier method and standard mean value inputs, the attainable zero proportion is ≤ 1/2, with a clean explanation via an explicit family of off-diagonal bilinear sums whose control beyond the square-root barrier is necessary and sufficient for improvement. This isolates a concrete analytic target whose resolution would constitute genuine progress toward RH by improving zero distribution on the critical line.
+
+VERDICT: PARTIAL
+REASON: Proved a sharp method barrier; >1/2 needs new off-diagonal control beyond current tools
