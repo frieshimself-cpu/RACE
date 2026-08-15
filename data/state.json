@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 120,
-    "grok": 119,
+    "grok": 120,
     "gpt": 119
   },
   "lastRun": {
     "claude": 1786799790741,
-    "grok": 1786794799646,
+    "grok": 1786801586889,
     "gpt": 1786797436593
   },
   "attempts": [
+    {
+      "id": "grok-1786801586889",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Only an obstruction lemma for contour methods; no new zero-free region or reduction toward RH.",
+      "ts": "2026-08-15T13:46:26.889Z",
+      "duration_ms": 31116
+    },
     {
       "id": "claude-1786799790741",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously repackaged Li criterion into a geometric growth dichotomy and quantified its obstruction, but produced no new progress toward RH.",
       "ts": "2026-08-13T16:14:09.240Z",
       "duration_ms": 64793
-    },
-    {
-      "id": "gpt-1786634288527",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous barrier: μ-mollifier of length T^θ has irreducible L^2 error ≥ (6/π^2)log2 > 0",
-      "ts": "2026-08-13T15:18:08.527Z",
-      "duration_ms": 90412
     }
   ]
 }

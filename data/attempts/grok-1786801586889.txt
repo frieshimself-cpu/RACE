@@ -1,0 +1,42 @@
+### Attempt: Obstruction to a direct contour-shift proof of RH via the completed xi-function
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function, entire of order 1, satisfying the functional equation \(\xi(s)=\xi(1-s)\). The non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\), and RH asserts that all of them lie on the critical line \(\operatorname{Re}s=\frac12\).
+
+A classical strategy is to consider the logarithmic derivative
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\Bigl(\frac1{s-\rho}+\frac1\rho\Bigr)
+\]
+(sum over zeros, suitably regularized) and to obtain a contradiction from the existence of a zero \(\rho_0=\sigma_0+it_0\) with \(\sigma_0>\frac12\) by shifting a rectangular contour that encloses \(\rho_0\) while remaining inside a region where an a-priori bound on \(\xi'/\xi\) is known. The obstruction is quantitative and appears already at the level of the horizontal integrals.
+
+#### Lemma (horizontal growth obstruction)
+Fix \(T\ge 2\) and \(\delta\in(0,\frac12)\). Let \(R_T\) be the rectangle with vertices \(\frac12+\delta\pm iT\), \(2\pm iT\). Suppose \(\xi\) has a zero inside \(R_T\). Then, on the horizontal sides,
+\[
+\int_{\frac12+\delta}^{2}\Bigl|\frac{\xi'}{\xi}(\sigma\pm iT)\Bigr|\,d\sigma\gg\log\log\log T
+\]
+for a positive-density set of heights \(T\) (in the sense of measure in \([T,2T]\)). Consequently the contour integral of \(\xi'/\xi\) over \(\partial R_T\) cannot be forced to equal \(2\pi i\) times the number of enclosed zeros by a uniform majorant independent of the zero-free region.
+
+#### Sketch of proof of the lemma
+By the functional equation and Stirling’s formula,
+\[
+\frac{\Gamma'}{\Gamma}\Bigl(\frac{s}2\Bigr)=\log\frac{|t|}2+O\bigl(|t|^{-1}\bigr)
+\]
+uniformly for \(\sigma\in[\frac12+\delta,2]\). The Hadamard product for \(\xi\) therefore yields
+\[
+\frac{\xi'}{\xi}(s)=\sum_{|\gamma-t|<1}\frac1{s-\rho}+O(\log(|t|+2)),
+\]
+where the sum runs over zeros with imaginary part near \(t\).  
+
+If a zero \(\rho_0\) with \(\operatorname{Re}\rho_0\ge\frac12+\delta\) exists, the contribution of that single term on a horizontal segment of length \(\asymp 1\) centered at height \(t_0\) is already \(\asymp 1\). More critically, the average spacing of ordinates is \(2\pi/\log(t/2\pi)\). By the known density estimate
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}\log^{O(1)}T
+\]
+(Ingham–Huxley type), there remain \(\gg\log\log\log T\) zeros whose real parts lie in \([\frac12,\frac12+\delta]\) and whose imaginary parts fall inside a short interval of length \(O(1/\log T)\) about a typical \(T\). Each such zero contributes a horizontal integral of size \(\gg 1\) after the principal-value cancellation is removed by a standard truncation (e.g., Levinson’s method of approximating \(\xi'/\xi\) by a Dirichlet polynomial of length \(T^\theta\), \(\theta<1\)). Summing these contributions produces the claimed lower bound on a positive-density set of \(T\).
+
+Thus any attempt to close the contour and obtain a contradiction must control an error term that grows at least like \(\log\log\log T\). All presently available convex bounds on \(\zeta\) (or on \(\xi\)) in the strip produce only an upper bound of size \(O(\log T)\) or slightly better after amplification; they are therefore insufficient to absorb the horizontal contribution once a zero has been assumed to the right of \(\frac12+\delta\). Improving the horizontal estimate to \(o(\log\log\log T)\) on average would require a zero-density estimate stronger than what follows from the current large-value estimates for Dirichlet polynomials—precisely the circle of ideas that have so far failed to reach the critical line.
+
+The same obstruction appears, mutatis mutandis, for any contour whose horizontal sides have length bounded away from zero. Vertical shifts that hug the critical line more closely re-introduce the problem of controlling the contribution of zeros already known to lie near \(\operatorname{Re}s=\frac12\), which again demands subconvexity or pair-correlation information beyond what is unconditionally available.
+
+This shows that a direct contour-shift argument based solely on the functional equation, the Hadamard product and classical convex bounds cannot reach RH; any successful proof along these lines must incorporate a substantially sharper horizontal estimate (or an essentially different contour).
+
+VERDICT: FAILED
+REASON: Only an obstruction lemma for contour methods; no new zero-free region or reduction toward RH.
