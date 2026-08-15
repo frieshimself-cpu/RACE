@@ -1,0 +1,36 @@
+### Attempt: A conditional reduction via truncated Li coefficients and a sign obstruction
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The completed function is entire of order 1, satisfies \(\xi(s)=\xi(1-s)\), and its non-trivial zeros are precisely those of \(\zeta\). Write the Hadamard factorization (normalized)
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+the product running over zeros of \(\xi\) counted with multiplicity (convergent after the usual Weierstrass grouping). Li’s coefficients are
+\[
+\lambda_n:=\sum_{\rho}\Bigl(1-\Bigl(1-\frac1\rho\Bigr)^n\Bigr),\qquad n\in\mathbb N.
+\]
+It is classical that RH is equivalent to \(\lambda_n\ge0\) for every \(n\). Expanding the binomial and using the functional equation yields the explicit arithmetic expression
+\[
+\lambda_n=\sum_{k=1}^n(-1)^{k-1}\binom nk\frac1{(k-1)!}\lim_{N\to\infty}\Bigl(\sum_{m\le N}\frac{\Lambda(m)(\log m)^{k-1}}{m}-\frac{(\log N)^k}k\Bigr)
+\]
+plus an elementary archimedean term coming from the Gamma factor; the limit exists by the prime-number theorem with classical zero-free region.
+
+Now fix an integer \(N\ge1\) and consider the truncated sums
+\[
+\lambda_n^{(N)}:=\sum_{|\Im\rho|\le T_N}\Bigl(1-\Bigl(1-\frac1\rho\Bigr)^n\Bigr),
+\]
+where \(T_N\to\infty\) is chosen so that the horizontal integral of \(\xi'/\xi\) on \(\Im s=\pm T_N\) is \(O((\log T_N)^2)\) (possible by standard convexity bounds on \(\zeta\)). The difference \(\lambda_n-\lambda_n^{(N)}\) is then controlled by the tail of the zero-counting function: if \(N(T)=\#\{\rho:|\Im\rho|\le T\}\), the classical estimate \(N(T)=\frac T{2\pi}\log\frac T{2\pi}-\frac T{2\pi}+O(\log T)\) implies
+\[
+|\lambda_n-\lambda_n^{(N)}|\le C n\cdot\frac{\log T_N}{T_N}\cdot\bigl(1+O(n/T_N)\bigr)
+\]
+uniformly for \(n\le T_N^{1/2}\). Consequently, if one could establish the strict positivity
+\[
+\lambda_n^{(N)}\ge c_n>0\qquad\text{for all }n\le T_N^{1/2}
+\]
+with an effective constant \(c_n\) independent of the possible off-line zeros of height \(\le T_N\), the tail would be absorbed for large \(N\) and RH would follow.
+
+To produce the lower bound one inserts the explicit formula for the truncated Dirichlet series into \(\lambda_n^{(N)}\) and attempts to dominate the oscillatory prime sum by the archimedean contribution. After summation by parts the prime sum becomes a weighted integral of \(\psi(x)-x\) against a kernel \(K_n(\log x)\) whose Fourier transform is essentially \((1-it)^{-n}\). The kernel is positive-definite on the critical line, yet acquires an exponentially growing factor \(e^{(\beta-1/2)|\tau|}\) as soon as a zero with real part \(\beta>1/2\) is present. This growth precisely cancels the decay of the archimedean term once \(\beta-1/2\gg(\log\log n)/\log n\), destroying the sign. Thus any zero off the line of moderate height forces some \(\lambda_n^{(N)}\) (with \(n\) still inside the allowable range) to become negative, which is consistent with Li’s criterion but does not yield a contradiction: the same zero also contributes a large positive spike to later coefficients, and the truncation error cannot be shown to remain smaller than that spike without already knowing a zero-free strip of width \(\gg1/\log\log T\).
+
+The obstruction is therefore sharp: the truncated positivity statement is true for all zeros discovered so far (all of which lie on the line), yet the passage to the limit \(N\to\infty\) requires a uniform spectral gap that is equivalent to RH itself. No new zero-free region is obtained, and the reduction merely recovers the known equivalence of RH with the full sequence \(\lambda_n\ge0\).
+
+VERDICT: FAILED
+REASON: Truncated Li positivity blocked by exponential growth from any off-line zero; no new gap or contradiction.
