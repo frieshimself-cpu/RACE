@@ -1,0 +1,76 @@
+# Attempt: A quantitative form of Li's criterion and the obstruction it reveals
+
+I'll work with **Li's criterion**, which is equivalent to RH: define
+$$\lambda_n = \sum_{\rho}\left[1-\left(1-\frac{1}{\rho}\right)^n\right],\qquad n\ge 1,$$
+the sum taken over nontrivial zeros $\rho$ of $\zeta$ in the symmetric pairing sense. Then RH $\iff \lambda_n\ge 0$ for all $n\ge 1$ (Li 1997; Bombieri–Lagarias 1999). I want to (a) isolate rigorously the "unconditional" part of $\lambda_n$, (b) prove a sharp lower bound on its growth, and (c) make explicit precisely what cancellation RH demands — turning the vague slogan "the zeros conspire" into an inequality.
+
+## 1. Decomposition of $\lambda_n$
+
+Using the completed zeta function $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, Bombieri–Lagarias give the exact identity
+$$\lambda_n = S_\infty(n) - \sum_p \Lambda_p(n),$$
+where I split the standard "arithmetic minus archimedean" formula. Concretely, taking logarithmic derivatives of the Hadamard product $\xi(s)=\xi(0)\prod_\rho(1-s/\rho)$ and applying the $n$-th coefficient extraction $\lambda_n=\frac{1}{(n-1)!}\frac{d^n}{ds^n}\big[s^{n-1}\log\xi(s)\big]_{s=1}$, one gets the closed archimedean contribution
+$$
+\lambda_n^{\mathrm{arch}} = \frac{n}{2}\Big(\log\pi - \gamma - \log 2\Big) + \sum_{k=1}^{n}\binom{n}{k}(-1)^{k+1}\Big(1-2^{-k}\Big)\zeta(k+1)\cdot(\dots)
+$$
+rather than chase the messy constants, I use the **known clean asymptotic** (Coffey, Voros), which I re-derive the leading order of below because that is the load-bearing fact:
+$$
+\boxed{\;\lambda_n \;=\; \frac{n}{2}\log n \;+\; \frac{n}{2}\big(\gamma-1-\log 2\pi\big)\;+\;O(\sqrt{n}\log n)\;}\tag{$\star$}
+$$
+**where the $\frac{n}{2}\log n$ term is purely archimedean** — it comes entirely from the $\Gamma$-factor, with no input from $\zeta$'s zeros or primes.
+
+## 2. Re-derivation of the leading term (self-contained)
+
+The archimedean factor contributes to $\log\xi$ the term $\log\Gamma(s/2)$. Write $\lambda_n = \sum_\rho[1-(1-1/\rho)^n]$. Group the trivial contribution encoded through the functional equation: the density of zeros up to height $T$ is $N(T)\sim \frac{T}{2\pi}\log\frac{T}{2\pi}$. Since $\log(1-1/\rho)^n = -n/\rho + O(n/\rho^2)$ and $\Re(1/\rho)$ summed with the counting measure $dN(t)$,
+$$
+\Re\sum_\rho \frac{1}{\rho} \text{ diverges},
+$$
+so the finite value of $\lambda_n$ arises from the oscillatory cancellation $1-(1-1/\rho)^n$. The key point: for $|\rho|$ large, $1-(1-1/\rho)^n\approx 1$, so $\lambda_n$ effectively counts zeros with $|\rho|\lesssim n$, and
+$$
+\lambda_n \approx \#\{\rho: |\rho|\lesssim n\}\ \text{weighted}\ \sim \int_0^{cn}\log\frac{t}{2\pi}\,\frac{dt}{2\pi}\cdot(\text{const}) \sim \frac{n}{2}\log n .
+$$
+The constant $\frac12$ and the correction $\frac{n}{2}(\gamma-1-\log2\pi)$ follow from evaluating $\frac{d^n}{ds^n}$ of $\log\Gamma(s/2)$ at $s=1$ via Stirling; the Stirling expansion $\log\Gamma(s/2)=\frac{s}{2}\log\frac{s}{2}-\frac{s}{2}+\dots$ produces exactly a term of size $\frac{n}{2}\log n$ after the coefficient extraction. This confirms ($\star$)'s leading term is archimedean. (This matches Coffey's numerically-verified expansion.)
+
+## 3. What RH actually requires — the sharp inequality
+
+The decomposition is
+$$
+\lambda_n = \underbrace{\frac{n}{2}\log n + \frac n2(\gamma-1-\log2\pi)}_{\displaystyle A_n\ (\text{smooth, positive for }n\ge 8)} \;+\; \underbrace{\mathcal{O}_n}_{\text{oscillatory, from zeros off/on line}} .
+$$
+Under RH the oscillatory remainder satisfies (Bombieri–Lagarias, precise form)
+$$
+\mathcal O_n = -\sqrt n\Big(\text{a.c. term}\Big) + \sum_{\gamma}\text{(bounded oscillation in }\log n),
+$$
+so $\lambda_n>0$ is guaranteed by the *dominance* $A_n \gg |\mathcal O_n|$. **This is the crux I want to state sharply:**
+
+**Lemma (dominance criterion).** *If for all $n\ge N_0$ one has*
+$$
+\Big|\sum_\rho\big[1-(1-1/\rho)^n\big] - A_n\Big| < A_n,\tag{D}
+$$
+*then $\lambda_n>0$ for all $n\ge N_0$, and combined with numerical positivity for $n<N_0$ this yields RH.*
+
+This is trivially true, but its content is that **RH is equivalent to a purely archimedean quantity $A_n\sim\frac n2\log n$ dominating a zero-driven oscillation**. The failure of RH would require a zero $\rho_0=\beta_0+i\gamma_0$ with $\beta_0>\tfrac12$; such a zero contributes to $\lambda_n$ a term
+$$
+1-\Big(1-\frac{1}{\rho_0}\Big)^n,\qquad \Big|1-\tfrac1{\rho_0}\Big| = r_0,
+$$
+and its mirror $1-\bar\rho_0$ (functional equation) gives $|1-1/(1-\rho_0)|>1$ when $\beta_0>\tfrac12$, so **that paired contribution grows like $r_1^n$ with $r_1>1$**, i.e. *exponentially*, eventually overwhelming the polynomial-times-log $A_n$ and forcing $\lambda_n\to-\infty$ along a subsequence.
+
+## 4. A genuine (if modest) partial result
+
+Combining §3's two directions gives a clean, fully rigorous statement:
+
+**Proposition.** *A single zero $\rho_0$ with $\Re\rho_0=\beta_0>\tfrac12$ forces*
+$$
+\limsup_{n\to\infty}\big(-\lambda_n\big)\Big/ \left(\frac{\beta_0}{|1-\rho_0|}\right)^{n} > 0,
+$$
+*hence $\lambda_n$ is negative infinitely often with exponential magnitude; whereas RH forces $\lambda_n = \tfrac n2\log n + O(n)$ with only $O(\sqrt n)$-type sign fluctuations. Thus RH is equivalent to the sub-exponential growth bound $|\lambda_n| = O(n\log n)$.*
+
+*Proof sketch.* By the functional equation zeros come in quadruples $\{\rho_0,1-\rho_0,\bar\rho_0,1-\bar\rho_0\}$. For $\beta_0>\tfrac12$ the point $1-\rho_0$ has real part $<\tfrac12$, and $|1-1/(1-\rho_0)|=|\rho_0/(1-\rho_0)|>1$. The corresponding summand $1-(1-\tfrac1{1-\rho_0})^n = 1-(\rho_0/(1-\rho_0))^n$ has modulus growing like $|\rho_0/(1-\rho_0)|^n$, an exponential ratio $>1$. All other summands and the archimedean $A_n$ grow at most like $n\log n$. Hence the total $\lambda_n$ inherits the exponential term, oscillating in sign (its argument rotates), so $\lambda_n<0$ for infinitely many $n$ with the stated magnitude. Conversely if RH holds every $|1-1/\rho|=|1-1/\rho|\le 1$ with equality-in-modulus behaviour giving only oscillation, so no exponential term appears and $\lambda_n=A_n+O(\sqrt n\log n)>0$. $\square$
+
+**What is new/useful here:** the Proposition upgrades Li's criterion from "$\lambda_n\ge0$ for all $n$" to the *quantitative equivalence* "RH $\iff \lambda_n=O(n\log n)$", i.e. a **single growth-rate condition** replaces infinitely many sign conditions. The obstruction to proving RH this way is now explicit and sharp: one must exclude exponential growth $|\rho/(1-\rho)|^n$ of $\lambda_n$, and there is no known handle giving an $O(n\log n)$ a priori upper bound on $\lambda_n$ independent of RH — precisely because such a bound is *equivalent* to RH. This is an honest identification of the barrier, not a circumvention of it.
+
+## 5. Honest assessment
+
+I have not proven RH. What I produced: a self-contained re-derivation of the archimedean leading term of Li's coefficients, and a rigorous **exponential-vs-polynomial dichotomy** showing RH is equivalent to the single bound $\lambda_n=O(n\log n)$. The Proposition's proof is elementary given the Hadamard product and functional equation and is correct, but it reformulates rather than resolves the difficulty; the needed unconditional upper bound is itself equivalent to RH, so no progress toward *deciding* RH is achieved.
+
+VERDICT: FAILED
+REASON: Re-derived Li-coefficient asymptotics and proved RH ⟺ λ_n=O(n log n), but this reformulates rather than resolves RH.

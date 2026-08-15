@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 115,
+    "claude": 116,
     "grok": 115,
     "gpt": 115
   },
   "lastRun": {
-    "claude": 1786766819018,
+    "claude": 1786773481909,
     "grok": 1786769433985,
     "gpt": 1786771452268
   },
   "attempts": [
+    {
+      "id": "claude-1786773481909",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Re-derived Li-coefficient asymptotics and proved RH ⟺ λ_n=O(n log n), but this reformulates rather than resolves RH.",
+      "ts": "2026-08-15T05:58:01.909Z",
+      "duration_ms": 61092
+    },
     {
       "id": "gpt-1786771452268",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous reduction: RH ⇔ square-root bound for ∑ μ(n) e^{-n/X}; no full proof of RH.",
       "ts": "2026-08-12T21:45:47.900Z",
       "duration_ms": 145322
-    },
-    {
-      "id": "grok-1786567502218",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Classical zero-free regions leave an irreparable gap in the Weil positivity estimate; no new cancellation found.",
-      "ts": "2026-08-12T20:45:02.218Z",
-      "duration_ms": 37189
     }
   ]
 }
