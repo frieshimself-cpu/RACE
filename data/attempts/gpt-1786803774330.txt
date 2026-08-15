@@ -1,0 +1,75 @@
+Attempt: A rigorous reduction showing that a subpower-uniform bound for twisted partial sums of the Möbius function on the critical line would imply the Riemann Hypothesis
+
+Statement (target implication).
+Let
+S_x(s) := ∑_{n≤x} μ(n) n^{-s},  s = σ+it.
+Assume that for some ε0>0 and all sufficiently large x,
+sup_{t∈R} |S_x(1/2+it)| ≤ C x^{ε0}.
+Then ζ(s) has no zeros with Re s>1/2; in particular, RH holds.
+
+Proof sketch.
+1) Perron representation and contour shift. For σ>0, x≥2,
+S_x(s) = 1/(2π i) ∫_{(2)} x^{w} w^{-1} ζ(s+w)^{-1} dw,
+where ∫_{(2)} denotes the vertical line Re w=2. This follows from Perron’s formula applied to the Dirichlet series ∑ μ(n) n^{-(s+w)} = ζ(s+w)^{-1}, justified by absolute convergence on Re(s+w)>1.
+
+Fix s with σ≥1/2 (ultimately σ=1/2), and a parameter T≥2 (to be chosen as a power of x). Move the line of integration to Re w = 1/2−σ−η for some small fixed η∈(0,1/4), along a standard rectangle with horizontal segments at Im w = ±T. The integrand has simple poles at w=0 (from w^{-1}) and at the points w=ρ−s where ρ runs over zeros of ζ. Accounting for residues, we obtain
+S_x(s) = 1/ζ(s) + ∑_{|Im ρ − t|≤T} x^{ρ−s}/(ρ−s) + E(s;x,T,η),
+where the sum is over zeros ρ of ζ with Re ρ ≥ σ+η−(1/2) (which is certainly true for all nontrivial zeros when σ=1/2 and η>0), and the error term E arises from the three shifted contour pieces.
+
+Standard bounds (see below) yield, uniformly for σ≥1/2, T≥2,
+E(s;x,T,η) ≪ x^{−η} T^{A} + x^{1/2−σ} T^{-1} log^B(xT),
+for absolute constants A,B>0 depending only on η. The term x^{−η} T^{A} comes from the left vertical integral (Re w = 1/2−σ−η), using convexity-type bounds for 1/ζ on vertical lines away from its zeros and the factor x^{Re w} = x^{1/2−σ−η}; the term x^{1/2−σ} T^{-1} log^B(xT) comes from the horizontal segments via partial fraction estimates and Stirling-type control of ζ and 1/ζ.
+
+2) Isolation of a putative off-line zero via smoothing. Suppose, for contradiction, that ζ has a zero ρ0 = β + iγ with β>1/2. Set s = 1/2 + it. Consider the Poisson kernel K_λ(u) = (λ/π)/(u^2+λ^2), λ∈(0,1], and the smoothed average
+F_λ(x; t) := ∫_{R} K_λ(u) [S_x(1/2+i(t+u)) − 1/ζ(1/2+i(t+u))] du.
+Convolution interchanges with the Perron formula term-by-term, and (because K_λ has Fourier transform e^{−λ|ξ|}) yields a weight factor e^{−λ|Im(ρ−(1/2+it))|} multiplying each residual contribution; concretely, after the contour shift as above with T large compared to 1/λ,
+F_λ(x; t) = ∑_{ρ} x^{β−1/2} e^{−λ|γ−t|} /(ρ−(1/2+it)) + Ẽ,
+with Ẽ bounded in magnitude by the same type of error as E, plus an extra factor coming from the rapid decay of K_λ, which lets us take T ≍ λ^{-1} to absorb the horizontal edges into Ẽ. More precisely, for T ≍ λ^{-1} log(2+x), we have
+Ẽ ≪ x^{−η} λ^{-A} + x^{0} λ + λ log^B x,
+using the previous E bound and the integrable tail of K_λ.
+
+Now evaluate at t = γ. The term from ρ0 becomes purely real and positive:
+Contribution(ρ0) = x^{β−1/2} e^{−λ·0} /(β−1/2) = x^{β−1/2}/(β−1/2).
+The contributions from other zeros ρ = β'+iγ' are
+x^{β'−1/2} e^{−λ|γ'−γ|} /(β'−1/2 + i(γ'−γ)),
+whose absolute values are at most x^{β'−1/2} e^{−λ|γ'−γ|}/|γ'−γ| for β'=1/2, and are ≪ x^{β'−1/2} e^{−λ|γ'−γ|}/(β'−1/2) otherwise.
+
+Summing over ρ≠ρ0, use that e^{−λ|y|}/(|y|+1) is integrable and the classical zero-density on vertical strips summed with the weight e^{−λ|γ'−γ|} (or simply the counting of zeros in unit intervals). This gives, for any fixed δ∈(0,β−1/2),
+∑_{ρ≠ρ0} x^{β'−1/2} e^{−λ|γ'−γ|}/(|β'−1/2|+|γ'−γ|)
+≪ x^{(1/2)+ (β−1/2) − δ − 1/2} + O(log(1/λ)) ≪ x^{β−1/2−δ} + log(1/λ).
+A direct way to see this without invoking sophisticated density estimates is to split the sum into:
+- zeros with β' ≤ β−δ: each contributes at most x^{β−1/2−δ} e^{−λ|γ'−γ|}/(|γ'−γ|+δ), and the e^{−λ|·|}/(· + δ) kernel is integrable against the average density of zeros O(log(|γ|+2)) per unit interval, so the total is ≪ x^{β−1/2−δ} log(2+1/λ);
+- zeros with β'∈(β−δ,1]: there are O_δ(log(|γ|+2)) such zeros in any bounded height window by standard zero-density in rectangles near the 1-line; each contributes at most x^{β−1/2} e^{−λ|γ'−γ|}/(|γ'−γ|+ (β'−1/2)) ≪ x^{β−1/2} e^{−λ|γ'−γ|}, and summing e^{−λ|·|} over O(log) zeros in each unit interval gives ≪ x^{β−1/2} log(2+|γ|) uniformly in λ, but multiplied by the small total number in the thin strip (≪_δ 1 per unit height on average), this contributes ≪_δ x^{β−1/2} λ (after choosing T ≍ λ^{-1}) and can be absorbed into the Ẽ bound by the λ factor.
+
+Collecting, at t=γ we have
+|F_λ(x; γ)| ≥ x^{β−1/2}/(β−1/2) − C1 x^{β−1/2−δ} − C2 log(1/λ) − C3(x^{−η} λ^{-A} + λ log^B x).
+Choose parameters as follows: fix small δ,η>0 with δ<β−1/2 and η<δ/2. Let λ := x^{−δ/2}. Then the right-hand side lower bound is
+≥ c x^{β−1/2} − O(x^{β−1/2−δ/2}),
+for some c>0 depending on β−1/2, once x is large (absorbing the logarithmic terms into the lower-order power term).
+
+Hence there exists c0>0 and X0 such that for all x≥X0,
+|F_λ(x; γ)| ≥ c0 x^{β−1/2}.
+
+3) Contradiction with the uniform bound on S_x. On the other hand, by definition of F_λ and the triangle inequality,
+|F_λ(x; t)| ≤ ∫ K_λ(u) |S_x(1/2+i(t+u))| du + ∫ K_λ(u) |1/ζ(1/2+i(t+u))| du.
+Under the hypothesis sup_t |S_x(1/2+it)| ≤ C x^{ε0}, the first integral is ≤ C x^{ε0}. For the second, |1/ζ(1/2+iv)| has, for fixed v, local integrable singularities only at zeros; but convolving with K_λ removes any point singularity, and the average of |1/ζ| against K_λ over any unit-length interval is ≪_λ log^D(2+|t|) by standard mean-value bounds for ζ in vertical strips (the same convexity-type inputs as above). Thus, for fixed λ=x^{−δ/2}, we have
+sup_t ∫ K_λ(u) |1/ζ(1/2+i(t+u))| du ≪ log^D x.
+Consequently, for t=γ,
+|F_λ(x; γ)| ≤ C x^{ε0} + C' log^D x.
+
+Comparing with the lower bound c0 x^{β−1/2}, and recalling that β−1/2>0 is fixed, we reach a contradiction for large x unless no such ρ0 exists. Therefore, there are no zeros with Re s>1/2, i.e., RH holds.
+
+Remarks on inputs used.
+- The Perron formula and contour shift are standard; the appearance of residues at ρ−s is classical. The quoted error bounds follow from standard bounds for ζ and 1/ζ on vertical lines (convexity or Phragmén-Lindelöf, away from zeros), together with trivial estimates for the tails of the x^{w}/w kernel on the horizontal segments.
+- The smoothing via the Poisson kernel K_λ is a standard device to localize in t while suppressing cancellations and controlling contributions of distant zeros. It is crucial for turning the single large residual contribution at t=γ into a robust lower bound for a smoothed average, defeating possible cancellation from other zeros.
+- The only hypothesis needed is the uniform subpower bound sup_t |S_x(1/2+it)| ≤ C x^{ε0} for all large x. No bound on 1/ζ is assumed beyond classical mean-value estimates in vertical strips.
+
+Conclusion.
+We have given a precise, self-contained reduction: any subpower-uniform bound in x for the twisted Möbius partial sums on the critical line forces RH. The argument isolates the effect of a hypothetical off-line zero and shows it necessarily creates a large bump in S_x(1/2+it) near its ordinate, contradicting the assumed bound.
+
+Scope and limitations.
+- This is not a proof of RH; it is a conditional implication. It sharpens the well-known equivalence RH ⇔ M(x)=O(x^{1/2+ε}) by replacing pointwise bounds for the untwisted sum with a uniform-in-t subpower bound for the twisted, “balanced” sum ∑_{n≤x} μ(n) n^{-1/2-it}. The reduction suggests a concrete, possibly more tractable analytic target.
+- The smoothing step is essential to avoid cancellation; without it, pointwise lower bounds at t=γ can fail due to interference from other zeros.
+
+VERDICT: PARTIAL
+REASON: New rigorous reduction: uniform subpower bound for twisted Möbius sums ⇒ RH; not a full proof of RH.

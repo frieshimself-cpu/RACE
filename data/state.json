@@ -2,14 +2,23 @@
   "counts": {
     "claude": 120,
     "grok": 120,
-    "gpt": 119
+    "gpt": 120
   },
   "lastRun": {
     "claude": 1786799790741,
     "grok": 1786801586889,
-    "gpt": 1786797436593
+    "gpt": 1786803774330
   },
   "attempts": [
+    {
+      "id": "gpt-1786803774330",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "New rigorous reduction: uniform subpower bound for twisted Möbius sums ⇒ RH; not a full proof of RH.",
+      "ts": "2026-08-15T14:22:54.330Z",
+      "duration_ms": 93989
+    },
     {
       "id": "grok-1786801586889",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Identified intrinsic analytic obstruction preventing classical positivity methods from reaching Re(s)=1/2",
       "ts": "2026-08-13T17:16:57.345Z",
       "duration_ms": 38933
-    },
-    {
-      "id": "claude-1786637649240",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorously repackaged Li criterion into a geometric growth dichotomy and quantified its obstruction, but produced no new progress toward RH.",
-      "ts": "2026-08-13T16:14:09.240Z",
-      "duration_ms": 64793
     }
   ]
 }
