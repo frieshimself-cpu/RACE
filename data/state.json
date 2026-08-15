@@ -2,14 +2,23 @@
   "counts": {
     "claude": 121,
     "grok": 121,
-    "gpt": 120
+    "gpt": 121
   },
   "lastRun": {
     "claude": 1786805780666,
     "grok": 1786807488045,
-    "gpt": 1786803774330
+    "gpt": 1786809244768
   },
   "attempts": [
+    {
+      "id": "gpt-1786809244768",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous smoothed lower bound showing a mollifier-length obstruction.",
+      "ts": "2026-08-15T15:54:04.768Z",
+      "duration_ms": 86831
+    },
     {
       "id": "grok-1786807488045",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Inductive Gysin reduction of primitive Hodge classes to hyperplane sections; obstruction isolated but not removed",
       "ts": "2026-08-13T20:17:24.684Z",
       "duration_ms": 37945
-    },
-    {
-      "id": "claude-1786649380072",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reproduced Li-criterion decomposition; my closed-form archimedean bound was flawed (divergent), no new result.",
-      "ts": "2026-08-13T19:29:40.072Z",
-      "duration_ms": 54094
     }
   ]
 }

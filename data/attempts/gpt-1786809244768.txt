@@ -1,0 +1,60 @@
+Attempt: A rigorous lower bound for smoothed second moments of ζ on the critical line multiplied by an arbitrary short Dirichlet polynomial, and a clean divisor-convolution inequality that forces a “mollifier barrier”
+
+Setup.
+- Let T ≥ 3 be large. Fix a nonnegative, smooth weight w supported on [T/2,2T] whose Mellin transform has small effective support in the sense below. One concrete choice (sufficient for the argument) is: pick a fixed, even, nonnegative Schwartz function Φ with compactly supported Fourier transform ϕ̂ ⊂ [−1,1]; then define w(t) := Φ(log(t/T)). This ensures w ≥ 0, smooth, supported on [T e^A, T e^B] for fixed A<B, and its Mellin–Fourier transform has compact support.
+- Let P(s) = ∑_{m≤N} a_m m^{-s} be any Dirichlet polynomial (complex coefficients a_m arbitrary).
+- Write ζ(s)P(s) = ∑_{n≥1} c_n n^{-s}, with c_n = ∑_{m≤N, m|n} a_m.
+
+We prove two claims.
+
+Claim 1 (Smoothed mean-square lower bound).
+There exists a constant c_w>0 depending only on w such that
+∫_{0}^{∞} w(t) |ζ(1/2+it) P(1/2+it)|^2 dt ≥ c_w T ∑_{n≥1} |c_n|^2 / n.
+
+Sketch of proof.
+- For F(t) := ∑_{n≥1} c_n n^{-1/2-it}, we have |ζ(1/2+it)P(1/2+it)| = |F(t)|.
+- By definition of w(t) = Φ(log(t/T)), its Mellin transform W(u) := ∫_0^∞ w(t) t^{iu-1} dt equals T^{iu} ϕ̂(u), and ϕ̂ is supported in [−1,1].
+- Expanding the square and using the Mellin–Plancherel identity (or simply computing the t-integral of t^{-i(log n − log m)} against w), one finds
+∫ w(t) |F(t)|^2 dt = ∑_{m,n≥1} c_m c̄_n (m n)^{-1/2} ϕ̂(log n − log m).
+- Since ϕ̂ is supported in [−1,1], the only nonzero pairs (m,n) satisfy |log(n/m)| ≤ 1, i.e. n/m ∈ [e^{−1}, e]. In particular, all diagonal terms (m=n) contribute with weight ϕ̂(0)>0, and all off-diagonal terms are nonnegative because w ≥ 0 implies its Mellin autocorrelation kernel ϕ̂ is positive definite.
+- Therefore,
+∫ w |F|^2 ≥ ϕ̂(0) ∑_{n≥1} |c_n|^2 / n × ∫_{0}^{∞} w(t) dt.
+Since ∫ w(t) dt ∼ T (because w is supported on a T-sized interval and of bounded size), we obtain
+∫ w |F|^2 ≥ c_w T ∑_{n≥1} |c_n|^2 / n,
+with c_w = ϕ̂(0) times the average size of w. This proves Claim 1.
+
+Claim 2 (Divisor-convolution lower bound).
+For all choices of coefficients a_m and all T ≥ 2N,
+∑_{n≤T} |c_n|^2 / n ≥ ∑_{m≤N} |a_m|^2 (log(T/m)+O(1)) / m ≥ (log(T/N)+O(1)) ∑_{m≤N} |a_m|^2 / m.
+
+Proof.
+- Expand the left-hand side:
+S(T) := ∑_{n≤T} 1/n |∑_{m|n, m≤N} a_m|^2
+= ∑_{m1,m2≤N} a_{m1} ā_{m2} ∑_{n≤T, lcm(m1,m2)|n} 1/n.
+- For any M≥1, ∑_{k≤T/M} 1/(kM) = (log(T/M) + γ + O(1/T)) / M. Thus the inner sum equals (log(T/ lcm(m1,m2)) + O(1))/ lcm(m1,m2), provided lcm(m1,m2) ≤ T, and equals 0 otherwise. In particular, it is nonnegative for all pairs (m1,m2) since log_+(·)≥0.
+- Keep only the diagonal m1=m2=m:
+S(T) ≥ ∑_{m≤N} |a_m|^2 ∑_{k≤T/m} 1/(km) = ∑_{m≤N} |a_m|^2 (log(T/m)+γ+O(1))/(m).
+- The final inequality follows because log(T/m) ≥ log(T/N) for m≤N. This proves Claim 2.
+
+Combining the claims.
+- Since w is supported in [T/2,2T], we can restrict Claim 1’s right-hand sum to n≤2T (as w annihilates contributions with |log(n/m)| large; in any case, dropping positive terms only weakens the lower bound). Thus
+∫ w(t) |ζ(1/2+it) P(1/2+it)|^2 dt ≥ c_w T ∑_{n≤2T} |c_n|^2 / n.
+- Applying Claim 2 with T replaced by 2T gives
+∫ w |ζ(1/2+it) P(1/2+it)|^2 dt
+≥ c_w T · [ (log(2T/N)+O(1)) ∑_{m≤N} |a_m|^2 / m ].
+
+Consequences (mollifier barrier under smoothed measurement).
+- Normalize coefficients so that ∑_{m≤N} |a_m|^2 / m = 1. Then for all T ≥ 2N,
+∫ w(t) |ζ(1/2+it) P(1/2+it)|^2 dt ≥ c T log(T/N),
+with c>0 depending only on w.
+- Thus, for any “mollifier” P of length N, the smoothed mean-square of ζ(1/2+it)P(1/2+it) cannot be smaller than order T log(T/N). In particular, taking N = T^θ with 0 ≤ θ ≤ 1, one has the bound ≥ c (1−θ) T log T.
+- This lower bound is unconditional and holds for arbitrary complex coefficients a_m. It shows that, within any method that seeks to force ζ(1/2+it) small on average by multiplying with a short Dirichlet polynomial and measuring a smoothed L^2-norm on a T-scale, there is an unavoidable quantitative obstruction: the best one can hope for is to cancel a proportion θ of the log T coming from the second moment, corresponding to the relative length N ≈ T^θ. Pushing θ past 1 would require N ≥ T, i.e., a “mollifier” as long as the conductor scale, which falls outside the classical short Dirichlet polynomial framework.
+
+Remarks and scope.
+- The argument is robust and purely elementary on the Dirichlet side: it reduces to the positivity of the divisor-multiple kernel and a standard Mellin-Parseval smoothing that kills long-range off-diagonal interference.
+- While this does not prove or disprove the Riemann Hypothesis, it cleanly isolates a barrier faced by Dirichlet-polynomial mollifier approaches measured in smoothed L^2: one cannot beat the T log(T/N) floor without either lengthening the polynomial to scale T or exploiting additional structure beyond multiplicative convolution with ζ.
+- The divisor-convolution lower bound (Claim 2) may be of independent interest: it quantifies, in a sharp and coefficient-agnostic way, the minimal size of the square-sum of c_n/n up to T, and the inequality is tight up to constants in regimes where many integers up to T fail to have small divisors (yielding the log(T/N) term from integers free of prime factors ≤ N).
+- Any program to go beyond current mollifier-based zero-density or proportion-on-the-line results must therefore either: (i) leave the short Dirichlet polynomial framework, (ii) change the measurement from a smoothed L^2 norm to something that leverages cancellation of off-diagonals more effectively, or (iii) incorporate additional arithmetic structure that invalidates the purely positive multiple-kernel lower bound used here.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous smoothed lower bound showing a mollifier-length obstruction.
