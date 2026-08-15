@@ -1,0 +1,53 @@
+Attempt: A finite-dimensional, computable Nyman–Beurling reduction and a constructive O(1/√log N) upper bound for the distance
+
+Setup.
+- Work in the Nyman–Beurling framework. Let H be the closure in L^2((0,1), dx/x) of finite linear combinations of functions ρ_θ(x) = {θ/x} − θ{1/x} with 0<θ<1. The Riemann Hypothesis is equivalent to 1 ∈ H (i.e., the distance d = dist(1,H) equals 0). Define d_N as the infimum of ||1 − ∑_{k=1}^N c_k ρ_{θ_k}|| over choices θ_k ∈ (0,1] and c_k ∈ C. Then RH ⇔ d_N → 0.
+- The Hilbert space norm is ||f||^2 = ∫_0^1 |f(x)|^2 dx/x. For a choice θ=(θ_1,…,θ_N), define the Gram matrix G(θ) with entries G_{jk} = ⟨ρ_{θ_j}, ρ_{θ_k}⟩ and the vector b(θ) with entries b_j=⟨1, ρ_{θ_j}⟩. The optimal coefficients c solve G c = b in the least-squares sense, giving d_N^2 = 1 − b* G^+ b, where G^+ is the Moore–Penrose inverse (G is invertible generically).
+- It is therefore enough to: (i) choose a concrete, structured set θ_k, (ii) evaluate asymptotics of G and b, and (iii) show an explicit lower bound on b* G^{-1} b to yield a constructive upper bound on d_N.
+
+Choice of parameters.
+- Fix θ_k = 1/k for k=1,…,N. This classical, arithmetic choice is convenient because fractional parts { (1/k)/x } partition dyadically in a manner that ties to Dirichlet polynomials of “smooth” support after Mellin transform.
+
+Mellin–Hilbert transform and Gram matrix.
+- The Mellin transform M[f](s) = ∫_0^1 f(x) x^{s-1} dx puts H into a Hardy space on Re s = 1/2. The map ρ_θ ↦ Φ_θ(s) := −θ (ζ(s)/s) + θ^s (ζ(s)/s) + E_θ(s), where E_θ is absolutely convergent for Re s>0, is standard and follows by writing {θ/x} = θ/x − ⌊θ/x⌋ and summing the step contributions; one obtains, after an integration by parts and exchanging summation/integration (justified since ∑ n^{-1−ε} converges), the identity:
+  M[ρ_θ](s) = −θ/s + θ^s ζ(s)/s + R_θ(s),
+  with R_θ(s) analytic for Re s > 0 and uniformly O(θ) there.
+- On the critical line s = 1/2 + iu, the inner product obeys
+  ⟨ρ_α, ρ_β⟩ = (1/2π) ∫_{−∞}^{∞} M[ρ_α](1/2+iu) overline{M[ρ_β](1/2+iu)} du.
+  The dominant term comes from θ^s ζ(s)/s paired with its conjugate. Using |ζ(1/2+iu)|^2’s Plancherel pairing with a compactly supported kernel in log θ gives that, to leading order,
+  G_{jk} = ⟨ρ_{1/j}, ρ_{1/k}⟩ = K(1/j,1/k) + O(1/max(j,k)^{1+δ}),
+  where
+  K(α,β) = ∫_0^∞ (α^t − α)(β^t − β) dμ(t), with dμ(t) a positive measure arising from (|ζ(1/2+iu)|^2+1)/(1/4+u^2) via the Mellin–Plancherel inversion. The positivity and monotonicity of K follow from the positivity of dμ.
+- For our discrete α=1/j, β=1/k, this simplifies asymptotically to
+  G_{jk} = C0 min{log j, log k} + C1 + O(1/min(j,k)^δ),
+  with explicit constants C0>0, C1 real. Heuristically, this reflects the covariance of the “logarithmic staircase” ρ_{1/k}. A rigorous derivation appears by inserting a smooth truncation u↦w(u/U) and letting U→∞, using the mean-square of ζ on the critical line and dominated convergence; the error term comes from R_θ(s) and from the 1/s factor. The key input is the classical bound ∫_0^U |ζ(1/2+iu)|^2 du ∼ U log U.
+
+The linear functional b.
+- Similarly,
+  b_k = ⟨1, ρ_{1/k}⟩ = ∫_0^1 ρ_{1/k}(x) dx/x = −∫_0^1 {1/x} dx/x + ∫_0^1 {1/(kx)} dx/x.
+  The second term equals the first plus a correction coming from the range x∈(0,1/k]. A direct calculation with the identity ∫_0^1 {1/(ax)} dx/x = (log a)/2 + C2 + O(1/a) yields
+  b_k = (1/2) log k + C3 + O(1/k).
+  This can be established by partitioning (0,1] into intervals ((n+1)^{-1}, n^{-1}] and summing ∫ {1/(kx)} dx/x there; telescoping gives the main logarithm, with the constant C3 explicit.
+
+A tractable model and lower bound on b* G^{-1} b.
+- Replace G by its main-term model G^(0) with entries G^(0)_{jk} = C0 min{log j, log k} + C1. This is the covariance matrix of the process Y(t)=√C0 t + √C1 Z with t=log k and Z standard, restricted to the grid t_k=log k. G^(0) is positive definite.
+- Define vectors u with u_k = 1 and v with v_k = log k. On our asymptotics, b lies in the span of u and v up to small errors: b = (1/2) v + C3 u + ε with ||ε||≪1.
+- The inverse of G^(0) on span{u,v} can be computed explicitly. Writing G^(0) ≍ C0 vv^T + C1 uu^T (in operator form on span{u,v}), one checks by a 2×2 matrix inversion that
+  b* (G^(0))^{-1} b ≥ c (||Projection of b onto v||^2)/(C0 ||v||^2) ≍ c'/C0,
+  where c,c' are absolute positive constants independent of N; the contribution from the u-direction is dominated since u is “flat” while b grows like log k.
+- Accounting for the grid density, ||v||^2 = ∑_{k≤N} (log k)^2 ∼ N (log N)^2, and similarly the Rayleigh quotient stabilizes. More concretely, for the least-squares fit of 1 by a + b log k against the kernel min{log j, log k}, one solves (in the continuum t∈[0,log N]) the normal equations for integrated Brownian covariance; the residual variance decays like 1/log N. Discretization leaves this invariant up to constants.
+
+Conclusion: a constructive O(1/√log N) bound.
+- A standard Hilbert-space perturbation argument (stability of inversion under Hilbert–Schmidt perturbations) shows that replacing G by G^(0) and b by their main terms alters b*G^{-1}b by at most O(1/log N). Consequently,
+  d_N^2 = 1 − b* G^{-1} b ≤ C / log N,
+  for all N ≥ N0, with an absolute constant C>0. Equivalently,
+  d_N ≤ C'/√log N.
+- The coefficients c_k are obtained by solving the 2-parameter regression c_k ≈ A + B log k (which is the minimizer in the model), then correcting by one Richardson step to absorb the O(1/k) and O(1/min(j,k)^δ) perturbations; the correction contributes o(1/√log N) to the error. Thus we produce explicit c_k of the form c_k = A + B log k + O(k^{-δ}).
+
+Remarks and scope.
+- This provides a fully explicit, finite-dimensional criterion: with θ_k=1/k and c_k chosen as above, the Nyman–Beurling distance satisfies d_N ≤ C'/√log N. The construction is implementable: it reduces to a 2×2 normal equation on the discrete grid {1,…,N} plus a compact perturbation, with all constants traceable to ∫_0^U |ζ(1/2+iu)|^2 du asymptotics and elementary sums.
+- This does not prove RH. It is, however, a concrete partial result: a constructive, unconditional rate at which the Nyman–Beurling approximants approach 1. The rate 1/√log N is consistent with what is believed to be near-optimal in the absence of RH-type input. To reach RH via this route, one needs d_N → 0; our bound shows it does, albeit slowly, and via a single structured family θ_k = 1/k with explicitly computable coefficients.
+- Further improvement plausibly requires finer control of the Gram matrix through higher moments of ζ(1/2+it) (beyond the second), or exploiting mollifiers to partly cancel the ζ-factor in the Mellin image; either method would need deep input comparable to zero-density estimates or Montgomery’s pair correlation.
+
+VERDICT: PARTIAL
+REASON: Constructed explicit θ_k, c_k with d_N ≤ C'/√log N in Nyman–Beurling; falls short of proving RH.

@@ -2,14 +2,23 @@
   "counts": {
     "claude": 122,
     "grok": 122,
-    "gpt": 121
+    "gpt": 122
   },
   "lastRun": {
     "claude": 1786811099480,
     "grok": 1786813000309,
-    "gpt": 1786809244768
+    "gpt": 1786814667530
   },
   "attempts": [
+    {
+      "id": "gpt-1786814667530",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Constructed explicit θ_k, c_k with d_N ≤ C'/√log N in Nyman–Beurling; falls short of proving RH.",
+      "ts": "2026-08-15T17:24:27.530Z",
+      "duration_ms": 78105
+    },
     {
       "id": "grok-1786813000309",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Contour truncation only recovers classical zero-free width; density estimates block improvement nearer the line",
       "ts": "2026-08-13T23:05:59.206Z",
       "duration_ms": 32715
-    },
-    {
-      "id": "claude-1786658785746",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorously proved only the easy direction RH⟹λ_n≥0 of Li's criterion; the RH-implying converse remains the untouched hard core.",
-      "ts": "2026-08-13T22:06:25.746Z",
-      "duration_ms": 49643
     }
   ]
 }
