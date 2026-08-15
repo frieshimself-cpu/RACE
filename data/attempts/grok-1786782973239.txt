@@ -1,0 +1,28 @@
+### Attempt: Obstruction in a contour-shift approach to zero location via the Hadamard product
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function, entire of order 1, satisfying \(\xi(s)=\xi(1-s)\) and the Hadamard factorization
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+where the product runs over the non-trivial zeros (counted with multiplicity) and is understood in the usual Weierstrass sense (grouped symmetrically). Write \(\rho=\beta+i\gamma\). The functional equation forces the zeros to be symmetric under \(\rho\mapsto 1-\rho\) and under complex conjugation, so it is enough to locate those with \(\gamma>0\).
+
+Suppose, for contradiction inside a fixed vertical strip, that there exists a zero with \(\beta_0>\frac12\). Consider the logarithmic derivative on a large rectangular contour \(C_T\) with vertices at \(\frac12\pm iT\) and \(2\pm iT\) (indented around any zeros on the edges in the standard way). By the argument principle,
+\[
+\frac1{2\pi i}\int_{C_T}\frac{\xi'}{\xi}(s)\,ds=N(T),
+\]
+the number of zeros (with multiplicity) inside \(C_T\). On the horizontal sides the integral is \(O(\log T)\) by the standard convex bound \(|\xi(\sigma+it)|\ll_\varepsilon |t|^{C(1-\sigma)+\varepsilon}\). On the right vertical side \(\operatorname{Re}s=2\) one has the absolutely convergent Dirichlet series for \(-\zeta'/\zeta\), hence
+\[
+\frac{\xi'}{\xi}(2+it)=O(\log\log(|t|+2)).
+\]
+The contribution of that side is therefore \(O(\log T)\). The left vertical side is the critical line itself; the functional equation converts \(\xi'/\xi(\frac12+it)\) into an expression involving \(\frac{\Gamma'}{\Gamma}\) and a slowly varying factor, plus the sum over the ordinates
+\[
+\sum_{\rho}\Bigl(\frac1{\frac12+it-\rho}+\frac1{\frac12+it-(1-\rho)}\Bigr).
+\]
+If a zero with \(\beta_0>\frac12\) exists, its pair \(1-\rho_0\) lies to the left of the critical line. Shifting the left side of the contour further leftward to \(\operatorname{Re}s=1-\beta_0-\delta\) would pick up a residue \(1\) at \(\rho_0\), but the horizontal integrals then become uncontrollable: the Phragmén–Lindelöf convex bound deteriorates to a power of \(T\) larger than any multiple of the main-term growth \(T\log T\) of \(N(T)\), destroying the asymptotic. In other words, the very existence of a zero off the line makes the error term on the new horizontal sides larger than the discrepancy one hoped to detect.
+
+Thus any attempt to obtain a strict zero-free half-plane \(\{\operatorname{Re}s>\frac12+\delta\}\) by a single contour shift is blocked by the absence of a sufficiently strong subconvex bound for \(\xi\) that remains uniform up to height \(T\) and width \(\delta\). (Known subconvexity saving a fixed power of \(t\) is still too weak to absorb the horizontal contributions once \(\delta>0\) is fixed.) This is a concrete analytic obstruction, not merely a technical inconvenience: the same growth that permits the classical zero-density estimates also prevents a direct contour argument from upgrading those density estimates into a full half-plane zero-free region.
+
+The obstruction disappears if one assumes a sufficiently strong Lindelöf-on-average hypothesis (e.g., the integral of \(|\zeta(\frac12+\delta+it)|^2\) up to \(T\) is \(\ll T^{1-\eta(\delta)}\)), which is known to be equivalent to a weak form of RH; hence the contour method cannot be closed without already essentially knowing the result.
+
+VERDICT: FAILED
+REASON: Contour-shift obstruction identified but yields no new zero-free region or reduction.
