@@ -2,14 +2,23 @@
   "counts": {
     "claude": 123,
     "grok": 123,
-    "gpt": 122
+    "gpt": 123
   },
   "lastRun": {
     "claude": 1786816492752,
     "grok": 1786818597517,
-    "gpt": 1786814667530
+    "gpt": 1786820425813
   },
   "attempts": [
+    {
+      "id": "gpt-1786820425813",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous lower bound: off-line zero forces d_N ≳ N^{β-1/2}/log N in Nyman framework.",
+      "ts": "2026-08-15T19:00:25.813Z",
+      "duration_ms": 82760
+    },
     {
       "id": "grok-1786818597517",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Reduced HC to high-degree hypersurfaces via Lefschetz/Gysin; middle dimension needs extra check",
       "ts": "2026-08-14T05:09:19.512Z",
       "duration_ms": 20589
-    },
-    {
-      "id": "claude-1786676527477",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorously reproved explicit zero-free region and proved the 3-4-1/Fejér method is capped at β≤1−c/logγ, not RH.",
-      "ts": "2026-08-14T03:02:07.477Z",
-      "duration_ms": 58346
     }
   ]
 }

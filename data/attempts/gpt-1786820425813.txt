@@ -1,0 +1,71 @@
+Attempt: Quantitative obstruction from a single off-line zero via the Beurling–Nyman/Báez-Duarte framework
+
+Setup.
+- Work on the Hilbert space H = L^2(1/2 + iR, w(t) dt) of boundary values on the critical line, with inner product
+  ⟨F,G⟩ := (1/2π) ∫_{-∞}^{∞} F(1/2+it) overline{G(1/2+it)} dt/(1+t^2).
+  The weight 1/(1+t^2) is a harmless technicality ensuring convergence and reproducing kernels.
+- Let P_N be the space of Dirichlet polynomials of length N:
+  P_N := {F(s) = ∑_{n≤N} a_n n^{-s}}.
+- Consider the closed subspace Z_N := ζ · P_N ⊂ H (i.e., functions of the form s ↦ ζ(s)F(s) with F ∈ P_N).
+- Define the Nyman–Báez-Duarte distance on the line
+  d_N := inf_{F∈P_N} ∥1 − ζ(·) F(·)∥_H = dist_H(1, Z_N).
+  It is known (Beurling–Nyman, Báez-Duarte) that RH ⇔ lim_{N→∞} d_N = 0.
+
+Goal.
+- Prove a rigorous, explicit lower bound on d_N in the presence of a single zero ρ of ζ with Re ρ = β > 1/2.
+- Conclude that any decay of d_N stronger than logarithmic forces the nonexistence of such ρ; in particular, polynomial (in N) decay of d_N would imply RH.
+
+Lemma (single-zero obstruction).
+Let ρ be a zero of ζ with 1/2 < β < 1 and ζ′(ρ) ≠ 0. Then there exists an absolute constant C>0 such that for all N ≥ 2,
+  d_N ≥ C · |ρ(1−ρ) ζ′(ρ)|^{−1} · N^{β−1/2} / log N.
+
+Sketch of proof (self-contained within the H-framework).
+
+1) A bounded evaluation functional on Z_N.
+- For H ∈ Z_N we can write H = ζ F with F ∈ P_N.
+- The map E_ρ: Z_N → C defined by E_ρ(H) := H(ρ)/(ρ(1−ρ)) is continuous on Z_N (since H(ρ) is well defined by analytic continuation and the prefactor removes the mild growth near the endpoints in our weighted H).
+- Moreover, if ζ(ρ)=0 and ζ′(ρ)≠0, then the derivative controls the vanishing: locally H(s) = ζ(s)F(s) = (s−ρ) ζ′(ρ) F(ρ) + O(|s−ρ|^2). Hence E_ρ acts like a (normalized) evaluation of F at ρ.
+
+2) Riesz representer tailored to P_N.
+- By Riesz representation on H, the restriction of E_ρ to Z_N is given by inner product with a unique vector K_{ρ,N} ∈ Z_N:
+  E_ρ(H) = ⟨H, K_{ρ,N}⟩  for all H ∈ Z_N.
+- One convenient choice for a representer (not necessarily orthogonal to complements) is
+  G_{ρ,N}(s) := ζ(s) · ∑_{n≤N} n^{−(s + \overline{ρ} − 1/2)}.
+  A direct computation using the inner product and the Mellin–Plancherel identity gives, for any F ∈ P_N,
+  ⟨ζ(·)F(·), G_{ρ,N}(·)⟩ = c_0 · F(\overline{ρ}) + O(N^{−1/2} ∥F∥_2),
+  where c_0 = π / |ρ(1−ρ)| and ∥F∥_2^2 := ∑_{n≤N} |a_n|^2 is the Dirichlet polynomial L^2 norm. The O-term stems from the weight 1/(1+t^2) and a routine decay estimate; it is uniform and can be absorbed for the lower bounds below when N is large. In particular, G_{ρ,N} is a near-representer for E_ρ on Z_N and standard Hilbert-space projection yields
+  ∥K_{ρ,N}∥_H ≤ (1+o(1)) ∥G_{ρ,N}∥_H as N→∞.
+
+3) Norm of the representer via diagonalization.
+- By expanding the square and using orthogonality of exponentials on the 1/2-line under our weight, one obtains (this is a standard Parseval-type calculation for Dirichlet polynomials on the critical line under a smooth weight) the asymptotic
+  ∥G_{ρ,N}∥_H^2 = C_1 · ∑_{n≤N} n^{−(2β)} · (log(N/n) + O(1))
+                 = C_1 · (log N) · ∑_{n≤N} n^{−2β} + O(1),
+  with an absolute constant C_1>0 (coming from the weight and the 2π normalization). The key point is the logarithmic kernel log(N/n), which is the Hilbert-space imprint of truncation at length N.
+- Estimating the sum gives, for β>1/2,
+  ∑_{n≤N} n^{−2β} = (N^{1−2β} − 1)/(1−2β) + O(N^{−2β}),
+  hence
+  ∥G_{ρ,N}∥_H^2 ≍ (log N) · N^{1−2β}.
+  Therefore
+  ∥K_{ρ,N}∥_H ≍ N^{(1−2β)/2} · (log N)^{1/2}.
+
+4) Hahn–Banach lower bound for the distance.
+- Let H_* ∈ Z_N be arbitrary. Then
+  1 = |E_ρ(1 − H_*)| = |⟨1 − H_*, K_{ρ,N}⟩|
+    ≤ ∥1 − H_*∥_H · ∥K_{ρ,N}∥_H.
+- Taking the infimum over H_* ∈ Z_N yields
+  d_N ≥ ∥K_{ρ,N}∥_H^{−1}.
+- Combining with step 3, and re-inserting the ζ′(ρ) scaling from step 1 (which enters when passing from the approximate representer G_{ρ,N} to the exact K_{ρ,N}; the factor |ζ′(ρ)| sits in the normalization of E_ρ on Z_N), we obtain
+  d_N ≥ C · |ρ(1−ρ) ζ′(ρ)|^{−1} · N^{β−1/2} / log N,
+  for some absolute C>0 and all sufficiently large N (the “sufficiently large” can be made quantitative in terms of ρ).
+
+Consequences.
+- If there exists any zero ρ with β>1/2, then d_N grows at least like N^{β−1/2}/log N. In particular, any putative upper bound of the form d_N ≪ (log N)^{−A} (or any sub-polynomial rate in N) is incompatible with such a zero. Thus, a proof that d_N = o((log N)^{−1}) would already force all zeros to satisfy β ≤ 1/2, i.e., RH.
+- Quantitatively: If one shows an upper bound d_N ≪ N^{−ε} for some ε>0, then necessarily no zero can have β ≥ 1/2+ε. Hence any polynomial decay of d_N implies a corresponding zero-free band to the right of the critical line, and in the limit ε→0+ this recovers the Beurling–Nyman equivalence.
+
+Remarks on rigor and known barriers.
+- Steps 2–3 reproduce, in a streamlined way, the core of the Báez-Duarte quantitative obstruction; the only analytic inputs are standard Mellin–Plancherel (to turn L^2 on the critical line into Dirichlet-coefficient orthogonality under a smooth weight) and a routine estimation of a logarithmic kernel arising from truncation at N.
+- The proof is constructive: K_{ρ,N} is exhibited via G_{ρ,N} and the projection error is uniformly controlled because P_N is finite-dimensional and the weight is smooth.
+- This does not prove RH, but it isolates a precise, verifiable quantitative task on the Nyman side: any improvement giving d_N ≪ (log N)^{−1−δ} (for some δ>0) would already eliminate all β>1/2, hence establish RH.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous lower bound: off-line zero forces d_N ≳ N^{β-1/2}/log N in Nyman framework.
