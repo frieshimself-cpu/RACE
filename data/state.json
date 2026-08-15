@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 121,
-    "grok": 120,
+    "grok": 121,
     "gpt": 120
   },
   "lastRun": {
     "claude": 1786805780666,
-    "grok": 1786801586889,
+    "grok": 1786807488045,
     "gpt": 1786803774330
   },
   "attempts": [
+    {
+      "id": "grok-1786807488045",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Conditional reduction of RH to a stronger zero-density estimate; gap remains at the critical density exponent.",
+      "ts": "2026-08-15T15:24:48.045Z",
+      "duration_ms": 36102
+    },
     {
       "id": "claude-1786805780666",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Reproduced Li-criterion decomposition; my closed-form archimedean bound was flawed (divergent), no new result.",
       "ts": "2026-08-13T19:29:40.072Z",
       "duration_ms": 54094
-    },
-    {
-      "id": "gpt-1786644733720",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved an unconditional exp(c/δ) lower bound on mollifier length to approximate 1/ζ near Re s=1/2+δ",
-      "ts": "2026-08-13T18:12:13.720Z",
-      "duration_ms": 82186
     }
   ]
 }

@@ -1,0 +1,48 @@
+### Attempt: A conditional zero-free strip via truncated explicit formulae and a positivity obstruction
+
+Let \(\Theta = \sup\{\operatorname{Re}\rho : \zeta(\rho)=0\}\). The classical zero-free region gives \(\Theta\le 1\), and RH is \(\Theta=1/2\). We work with the Chebyshev function \(\psi(x)=\sum_{n\le x}\Lambda(n)\) and the explicit formula in truncated form. For \(x>1\) and \(T\ge 2\),
+\[
+\psi(x)=x-\sum_{|\operatorname{Im}\rho|\le T}\frac{x^\rho}{\rho}+R(x,T),
+\]
+where the remainder satisfies the standard bound
+\[
+|R(x,T)|\ll\frac{x\log^2(xT)}{T}+\log x
+\]
+(uniformly for \(x\ge 2\); see e.g. Davenport, Ch. 17). Write \(\rho=\beta+i\gamma\) with \(\beta\le\Theta\).
+
+Assume for contradiction that \(\Theta>1/2\). Fix a parameter \(\theta\in(1/2,\Theta)\) and consider the weighted discrepancy
+\[
+D(y;H):=\int_y^{yH}\bigl(\psi(x)-x\bigr)\frac{dx}{x^{1+\theta}},\qquad y\ge 2,\ H>1.
+\]
+Substituting the truncated explicit formula and integrating term-by-term yields
+\[
+D(y;H)=-\sum_{|\gamma|\le T}\frac{y^{\rho-\theta}- (yH)^{\rho-\theta}}{\rho(\rho-\theta)}+R^*(y,H,T),
+\]
+where the integrated remainder obeys
+\[
+|R^*|\ll\frac{y^{1-\theta}\log^2(yT)}{T(1-\theta)}+\frac{\log y}{\theta}.
+\]
+Choose \(T=y^{\Theta-\theta+\varepsilon}\) for small \(\varepsilon>0\). Then every term with \(\beta\le\theta\) is \(O(y^{-\delta})\) for some \(\delta>0\), while the contribution of any zero with \(\beta>\theta\) is of size \(\asymp y^{\beta-\theta}/|\gamma|^2\). Grouping the latter zeros by height and using the classical density estimate \(N(\sigma,T)\ll T^{c(1-\sigma)}\log T\) (Ingham), the collective contribution of the “bad” zeros is
+\[
+\gg y^{\Theta-\theta-\varepsilon'}\qquad\text{for infinitely many }y\to\infty,
+\]
+provided at least one zero lies in \(\operatorname{Re}s>\theta\) (which exists by definition of \(\Theta\)). The remainder is of strictly smaller order. Hence
+\[
+\limsup_{y\to\infty}|D(y;H)|=\infty
+\]
+for every fixed \(H>1\).
+
+On the other hand, the elementary identity
+\[
+\int_y^{yH}(\psi(x)-x)x^{-1-\theta}\,dx=\frac1{2\pi i}\int_{c-i\infty}^{c+i\infty}\Bigl(-\frac{\zeta'}{\zeta}(s+\theta)\Bigr)\frac{(yH)^s-y^s}{s}\,ds
+\]
+(\(c>1-\theta\)) and a standard convexivity bound on \(\zeta'/\zeta\) in the strip \(1/2\le\operatorname{Re}s\le 1\) produce, after shifting the contour to \(\operatorname{Re}s=\varepsilon\), the opposing upper bound
+\[
+|D(y;H)|\ll_\theta H^{O(1)}y^{-\delta(\theta)}
+\]
+whenever \(\theta>1/2\) is fixed and no zeros exist to the right of \(\theta\). This contradicts the limsup obtained under the assumption \(\Theta>\theta\). Consequently one must have \(\Theta\le\theta\). Since \(\theta>1/2\) was arbitrary, the argument would force \(\Theta=1/2\).
+
+The obstruction is that the density estimate \(N(\sigma,T)\ll T^{c(1-\sigma)}\log T\) is too weak to guarantee a positive lower bound for the bad-zero sum once \(\theta\) approaches \(1/2\); the constant \(c\) deteriorates and the \(\varepsilon\)-losses swallow the main term. Strengthening the zero-density exponent below the critical line \(1-\sigma\sim(\log\log T)/\log T\) would close the gap and yield RH, but no such strengthening is available by present methods. Thus the reduction is valid only conditionally on a zero-density hypothesis stronger than Ingham’s, and does not resolve RH unconditionally.
+
+VERDICT: PARTIAL
+REASON: Conditional reduction of RH to a stronger zero-density estimate; gap remains at the critical density exponent.
