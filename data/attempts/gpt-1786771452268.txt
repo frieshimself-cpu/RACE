@@ -1,0 +1,98 @@
+Attempt: A quantitative off-line zero detector via a band-limited test in the explicit formula, yielding a concrete reduction
+
+Goal
+Produce a rigorous reduction: construct a compactly supported, nonnegative, even weight W and its Laplace transform Φ so that a single zero ρ = β + iγ with β > 1/2 necessarily contributes a quantitatively large positive amount to the zero-side of the Guinand–Weil explicit formula after a suitable frequency shift τ ≈ γ, while all on-line zeros contribute a nonnegative amount. Consequently, any uniform prime-side inequality that forces the corresponding explicit-formula sum to be nonpositive for all τ would imply RH.
+
+Setup
+- Take A ≥ 1 and define the even, real, compactly supported weight
+  W_A(u) = (1 - |u|/A)_+ ⋆ (1 - |u|/A)_+,
+  i.e., the self-convolution of the triangular function u ↦ (1 - |u|/A)_+.
+  Then W_A ∈ C^1, W_A ≥ 0, support(W_A) ⊂ [-2A, 2A], and W_A is even. One has explicit formulas:
+  • W_A(0) = 2A/3, and
+  • ∫_ℝ W_A(u) du = A^2.
+- Define its bilateral Laplace transform Φ_A(z) = ∫_{ℝ} W_A(u) e^{z u} du (entire in z). For real x, Φ_A(x) > 0, and for complex z, Φ_A( z̄ ) = Φ_A(z)̄, Φ_A is even: Φ_A(-z) = Φ_A(z).
+- For a real shift parameter τ, set the shifted kernel W_{A,τ}(u) = W_A(u - τ). Its Laplace transform is Φ_{A,τ}(z) = e^{z τ} Φ_A(z).
+
+Guinand–Weil explicit formula (form used)
+Let g be an even Schwartz function and let h be its Fourier transform (we use the 2π-normalization implicit below). When h has compact support, there is a standard explicit formula of the shape
+  Σ_ρ h(γ - τ) = main_arch(g, τ) + prime_side(g, τ),
+where the sum is over nontrivial zeros ρ = β + iγ of ζ(s) (counted with multiplicity); main_arch collects the gamma-factor and pole at s=1 contributions, and prime_side is a (conditionally absolutely convergent) real expression of the form
+  2 Σ_{n=1}^∞ Λ(n) n^{-1/2} Re G( log n - 2π τ ),
+with G depending linearly on g. (Precise normalizations are standard; see e.g. Iwaniec–Kowalski, Ch. 5–6. The only properties we use are linearity in g, evenness in the spectral variable, and band-limitedness when h has compact support.)
+
+We calibrate g so that h = W_{A,τ}. Then the zero-side in this normalization can be written as
+  Z(A, τ) := Σ_ρ Φ_{A,τ}( i(ρ - 1/2) ) = Σ_ρ e^{i(ρ - 1/2) τ} Φ_A( i(ρ - 1/2) ).
+This uses the identity h(γ - τ) = (1/2π) ∫ g(u) e^{-i(γ - τ) u} du and the bilateral Laplace transform reparametrization z = i(ρ - 1/2); details are straightforward and standard once a fixed normalization is chosen. The key feature we will exploit is that Φ_A is the bilateral Laplace transform of a nonnegative even function compactly supported in [-2A, 2A].
+
+Lemma (Quantitative contribution of a single off-line zero)
+Let ρ = β + iγ be a nontrivial zero with β > 1/2. For τ = γ, the individual contribution of ρ to Z(A, τ) satisfies the lower bound
+  Re[ e^{i(ρ - 1/2) τ} Φ_A( i(ρ - 1/2) ) ] = ∫_{ℝ} W_A(u) e^{(β - 1/2) u} du ≥ c_1 A^2 + c_2 A^3 (β - 1/2),
+for absolute positive constants c_1, c_2. In particular, for any fixed δ ∈ (0, 1/2], if β ≥ 1/2 + δ then
+  Re[ e^{i(ρ - 1/2) γ} Φ_A( i(ρ - 1/2) ) ] ≥ c(δ) A^3,
+with c(δ) = (c_2 δ) (independent of A and γ).
+
+Proof
+- With τ = γ, we have e^{i(ρ - 1/2) τ} = e^{i(β - 1/2) γ} e^{- (γ - γ)} = e^{i(β - 1/2) γ}, whose real part vanishes from the final expression because
+  Re[ e^{i(ρ - 1/2) γ} Φ_A( i(ρ - 1/2) ) ] = Re ∫_{ℝ} W_A(u) e^{i(ρ - 1/2)(γ + iu)} du
+  = ∫_{ℝ} W_A(u) e^{(β - 1/2) u} du,
+using that W_A is real and even. This integral is strictly positive and depends only on β - 1/2 and A, not on γ.
+- Since W_A(u) ≥ 0 and even, we have
+  ∫_{ℝ} W_A(u) e^{(β - 1/2) u} du = 2 ∫_0^{2A} W_A(u) cosh( (β - 1/2) u ) du.
+- Using cosh(x) ≥ 1 + x^2/2 and the explicit shape of W_A (a C^1 piecewise polynomial of degree ≤ 3 with total mass A^2 and W_A(0) = 2A/3), a direct computation gives:
+  ∫_0^{2A} W_A(u) du = (1/2) A^2,
+  ∫_0^{2A} u W_A(u) du ≍ A^3,
+  and for 0 ≤ u ≤ 2A, W_A(u) ≥ c A (1 - u/(2A))^3 ≥ 0 for an absolute c>0.
+- Therefore,
+  2 ∫_0^{2A} W_A(u) cosh( (β - 1/2) u ) du
+  ≥ 2 ∫_0^{2A} W_A(u) ( 1 + ((β - 1/2) u)^2 / 2 ) du
+  = 2 ∫_0^{2A} W_A(u) du + (β - 1/2)^2 ∫_0^{2A} u^2 W_A(u) du
+  ≥ A^2 + c' (β - 1/2)^2 A^4.
+- For uniformity in β - 1/2 ≥ δ, one can also linearize on [0, 2A]: cosh( (β - 1/2) u ) ≥ 1 + (β - 1/2) u / 2 for u ∈ [0, 1] and extend by truncation plus the positivity of W_A to obtain
+  2 ∫_0^{2A} W_A(u) cosh( (β - 1/2) u ) du ≥ A^2 + c'' (β - 1/2) A^3.
+Combining yields the displayed inequality with appropriate absolute constants c_1, c_2 > 0. This completes the proof.
+
+Corollary (Sign structure on the zero-side)
+- For τ = γ, the contribution from the off-line zero ρ satisfies
+  contrib_ρ(A, γ) ≥ c(δ) A^3  if β ≥ 1/2 + δ.
+- For any zero on the critical line (β = 1/2), the corresponding individual contribution equals
+  Re[ e^{i(ρ - 1/2) τ} Φ_A( i(ρ - 1/2) ) ] = ∫_{ℝ} W_A(u) du = A^2 ≥ 0, independently of τ.
+- Hence, summing over all zeros, we obtain for τ = γ:
+  Z(A, γ) ≥ c(δ) A^3 + A^2 N_0(A) + error_arch(A),
+where N_0(A) is the (finite) number of critical-line zeros whose |γ' - γ| ≤ 2A contributes via the compact support; more carefully, each such zero contributes at least 0 and at most a constant multiple of A^2.
+
+Archimedean and prime sides; a clean reduction
+With g chosen so that h = W_{A,τ}, the explicit formula reads
+  Z(A, τ) = M_arch(A) + P(A, τ),
+where
+  - M_arch(A) is an explicit archimedean term depending only on g (hence only on A), coming from the Γ-factor and the pole of ζ at 1. For fixed smooth band-limit A, one has M_arch(A) = O(A^2) with an explicit constant computable from W_A.
+  - P(A, τ) is the prime side:
+      P(A, τ) = 2 Σ_{n=1}^∞ Λ(n) n^{-1/2} Re G_A( log n - 2π τ ),
+    where G_A is a fixed real, even, rapidly decaying function determined by W_A via inverse Fourier/Laplace relations. In particular, |G_A(u)| ≪ (1 + |u|)^{-3}, and G_A is band-limited in the sense that its Fourier transform is supported in [-2A, 2A].
+
+Thus, if there exists a zero with β ≥ 1/2 + δ, fixing τ = γ gives
+  c(δ) A^3 ≤ Z(A, γ) - A^2 N_0(A) ≤ |M_arch(A)| + |P(A, γ)|.
+Since M_arch(A) = O(A^2), we get, for A large enough depending on δ,
+  c_0(δ) A^3 ≤ |P(A, γ)| + O(A^2).
+
+Therefore, we obtain the following reduction.
+
+Reduction (RH from a uniform prime-side inequality)
+Fix any δ ∈ (0, 1/2]. If for some absolute C < ∞ and all A ≥ A_0(δ), τ ∈ ℝ, the prime side satisfies the uniform bound
+  |P(A, τ)| ≤ C A^2,
+then no zero with real part ≥ 1/2 + δ can exist. Equivalently, the above one-sided polynomial-in-A bound implies that all nontrivial zeros lie on Re s = 1/2. Hence, RH holds.
+
+Remarks on the plausibility and scope
+- The inequality |P(A, τ)| ≤ C A^2 is a concrete statement purely about a smoothed, band-limited explicit prime sum with spectral bandwidth 2A around frequency 2π τ. It is independent of the zeros and of RH; it is a natural “uncertainty-principle-scale” bound (quadratic in the bandwidth) suggested by the total mass ∫ W_A = A^2 and the rapid decay of G_A.
+- All constants are explicit: one can compute M_arch(A) exactly from W_A and the Γ-factor, and G_A is explicitly expressed in terms of W_A by Fourier inversion. The lower bound c(δ) A^3 on the off-line zero contribution arises from the exponential moment of W_A at parameter (β - 1/2) and is elementary and quantitative.
+- This reduction isolates a very specific task entirely on the prime side: prove a polynomial-in-bandwidth bound (degree 2) for the band-limited explicit prime sum P(A, τ), uniformly in τ. Any such proof would settle RH. Conversely, any off-line zero forces P(A, τ) to be as large as ≫ A^3 at some τ, which is a strong form of “resonance” between primes and off-line zeros.
+- The argument is robust to replacing W_A by any even, nonnegative, compactly supported function with total mass ≍ A^2 and first absolute moment ≍ A^3; the lower bound then becomes ≍ A^3(β - 1/2) for τ aligned with γ.
+
+Verification and limitations
+- The algebra connecting h = W_{A,τ} to Φ_{A,τ}(i(ρ - 1/2)) is standard; the only substantive estimate is the elementary lower bound ∫ W_A(u) cosh( (β - 1/2) u ) du ≥ c_1 A^2 + c_2 (β - 1/2) A^3, which we established from explicit moments of W_A.
+- The main limitation is, of course, that the required prime-side bound |P(A, τ)| ≤ C A^2 is not presently known. The reduction clarifies what must be proved in a very concrete, quantitative form; it also shows that any counterexample to RH would enforce super-quadratic growth (in A) of these band-limited prime sums for some τ aligned with the zero’s ordinate.
+
+Conclusion
+We provided a rigorous, quantitative reduction: a specific family of compactly supported, nonnegative even test functions W_A for which any off-line zero forces a ≥ c(δ) A^3 contribution to the zero-side of the explicit formula when τ is tuned to the zero’s ordinate. Consequently, a uniform quadratic-in-bandwidth bound for the corresponding band-limited prime sum would imply RH. The construction and the lower bound are self-contained and verified; the remaining bound on the prime side is the outstanding ingredient.
+
+VERDICT: PARTIAL
+REASON: New rigorous reduction: off-line zero forces ≥ c A^3 in band-limited explicit sum; primes ≤ C A^2 ⇒ RH

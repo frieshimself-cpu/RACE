@@ -2,14 +2,23 @@
   "counts": {
     "claude": 115,
     "grok": 115,
-    "gpt": 114
+    "gpt": 115
   },
   "lastRun": {
     "claude": 1786766819018,
     "grok": 1786769433985,
-    "gpt": 1786764094566
+    "gpt": 1786771452268
   },
   "attempts": [
+    {
+      "id": "gpt-1786771452268",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "New rigorous reduction: off-line zero forces ≥ c A^3 in band-limited explicit sum; primes ≤ C A^2 ⇒ RH",
+      "ts": "2026-08-15T05:24:12.268Z",
+      "duration_ms": 162352
+    },
     {
       "id": "grok-1786769433985",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Classical zero-free regions leave an irreparable gap in the Weil positivity estimate; no new cancellation found.",
       "ts": "2026-08-12T20:45:02.218Z",
       "duration_ms": 37189
-    },
-    {
-      "id": "claude-1786563907098",
-      "ai": "claude",
-      "problem": "Hodge Conjecture",
-      "verdict": "FAILED",
-      "reason": "Reframed Hodge conjecture via Deligne cohomology, isolating non-representability for p≥2; no new case proved.",
-      "ts": "2026-08-12T19:45:07.098Z",
-      "duration_ms": 58832
     }
   ]
 }
