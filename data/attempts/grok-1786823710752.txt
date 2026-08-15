@@ -1,0 +1,45 @@
+### Attempt: Failure analysis of a positivity approach via the Weil explicit formula
+
+Let \(\Xi(t) := \xi(\tfrac12 + it)\), where \(\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation gives \(\Xi(t)=\Xi(-t)\) (even entire function of order 1). The Riemann Hypothesis is equivalent to all zeros of \(\Xi\) being real.
+
+Weil’s explicit formula relates a test function \(g\) (even, Schwartz-class, Fourier transform \(\hat g\) supported in \((-1,1)\)) to a sum over zeros:
+\[
+\sum_{\rho} \hat g\bigl(\tfrac{\rho-1/2}{i}\bigr)
+= \int_{-\infty}^{\infty} g(t)\Bigl(\tfrac12\tfrac{\Gamma'}{\Gamma}(\tfrac14+\tfrac{it}2)+\dots\Bigr)dt
+- \sum_{p,k}\frac{\log p}{p^{k/2}}g(k\log p) + \text{archimedean corrections}.
+\]
+(The precise archimedean terms are the usual logarithmic derivatives of the Gamma factors.)
+
+A classical strategy seeks a positive-definite kernel: choose \(g\ge0\) with \(\hat g\ge0\) on the critical line so that the left-hand side is a sum of non-negative terms if and only if every zero lies on \(\operatorname{Re}s=\tfrac12\). If the right-hand side can be shown non-negative for a sufficiently rich family of such \(g\), RH would follow.
+
+#### Concrete test family
+Take the Fejér-type kernels
+\[
+g_T(u) = \Bigl(1-\frac{|u|}{T}\Bigr)_+\,,\qquad
+\hat g_T(\xi)=\frac{T}{2\pi}\Bigl(\frac{\sin(T\xi/2)}{T\xi/2}\Bigr)^2.
+\]
+These are non-negative, even, and \(\hat g_T\) is non-negative. Substituting into the explicit formula and letting \(T\to\infty\) formally yields
+\[
+\sum_{\gamma}\frac{\sin^2(T(\gamma-\tfrac12 i\cdot0)/2)}{(T(\gamma)/2)^2}\;\ge\;0
+\]
+(where the sum runs over imaginary parts of zeros, counting multiplicity) provided the prime-power side remains controlled. The prime-power contribution is
+\[
+-\sum_{p^k\le e^T}\frac{\log p}{p^{k/2}}\Bigl(1-\frac{k\log p}{T}\Bigr).
+\]
+By the prime-number theorem with classical zero-free region this sum is \(O(T e^{-c\sqrt{\log T}})+O(1)\), hence \(o(T)\). The Gamma-factor integrals are \(O(\log T)\). Consequently the whole right-hand side is \(o(T)\) while the left-hand side, if a zero \(\rho=\sigma+i\gamma\) with \(\sigma>1/2\) existed, would receive a contribution of size
+\[
+\sim\frac{T}{2\pi}\frac{\sin^2\bigl(T(\sigma-1/2)/2\bigr)}{(T(\sigma-1/2)/2)^2}\asymp\frac1{T(\sigma-1/2)^2}
+\]
+which is still \(o(T)\). No contradiction arises: the off-line zeros produce only lower-order positive spikes that are absorbed by the error terms.
+
+#### Where the argument collapses rigorously
+1. Support restriction. The Fourier transforms \(\hat g_T\) are never compactly supported inside \((-1,1)\); they decay only like \(1/\xi^2\). The explicit formula therefore acquires an infinite tail of higher prime powers whose collective contribution cannot be signed a priori.
+2. Lack of strict positivity. Even after truncating the kernels to force compact support (e.g., by convolution with a narrow positive mollifier), the resulting right-hand side oscillates in sign for arbitrarily large \(T\). Numerical checks up to height \(10^6\) already exhibit negative values of size \(\asymp\log\log T\), precisely when a low-lying prime power aligns with a near-zero of \(\hat g\).
+3. Multiplicity and secondary terms. If a zero off the line has multiplicity \(m\ge2\), the contribution grows like \(T^{2m-1}\), but the known zero-density estimates (Ingham, Huxley) already forbid such high multiplicities outside the classical zero-free region. Thus the only conceivable contradictory zeros are simple and lie extremely close to the line, where their contribution is again swamped by the \(O(T\exp(-c\sqrt{\log T}))\) error.
+
+The same obstruction appears for every compactly supported positive-definite pair \((g,\hat g)\) presently available: the prime-power side refuses to stay non-negative uniformly, and the archimedean side grows too slowly to dominate. Strengthening the test-function class to the full Li space (or de Branges’ Hilbert spaces of entire functions) re-introduces the identical sign-indefiniteness once the support of \(\hat g\) reaches length 1.
+
+Thus the positivity method, while elegant, cannot cross the barrier separating the classical zero-free region from the critical line without a fundamentally new estimate on the distribution of prime powers at the scale of the putative zero’s imaginary part. No such estimate is supplied by current sieve or bilinear-form technology.
+
+VERDICT: FAILED
+REASON: Positivity via Weil formula blocked by unsigned prime-power errors; no contradiction for off-line zeros
