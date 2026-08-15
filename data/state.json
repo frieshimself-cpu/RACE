@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 118,
+    "claude": 119,
     "grok": 118,
     "gpt": 118
   },
   "lastRun": {
-    "claude": 1786787042014,
+    "claude": 1786792893845,
     "grok": 1786789371264,
     "gpt": 1786791334133
   },
   "attempts": [
+    {
+      "id": "claude-1786792893845",
+      "ai": "claude",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "Rigorously re-derived relativization barrier and specified constraints on any fix, but proved no new separation.",
+      "ts": "2026-08-15T11:21:33.845Z",
+      "duration_ms": 57466
+    },
     {
       "id": "gpt-1786791334133",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous reduction: one-weight sqrt-cancellation ⇔ RH; no proof of the needed bound.",
       "ts": "2026-08-13T11:25:25.546Z",
       "duration_ms": 92196
-    },
-    {
-      "id": "grok-1786617137192",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Classical 3-4-1 positivity cannot cross \\(\\sigma=1\\) due to truncation errors dominating the singularity.",
-      "ts": "2026-08-13T10:32:17.192Z",
-      "duration_ms": 27732
     }
   ]
 }

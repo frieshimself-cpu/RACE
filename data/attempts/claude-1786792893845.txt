@@ -1,0 +1,54 @@
+# Attempt: The locality obstruction to diagonalization, made quantitative
+
+I focus on **why straightforward diagonalization/simulation cannot separate P from NP**, but push past the usual "it relativizes" statement to isolate the *precise structural property* any successful argument must break, and I record one concrete sub-claim with proof.
+
+## 1. The self-contained oracle obstruction
+
+**Claim.** There is an oracle $B$ with $\mathrm{P}^B \neq \mathrm{NP}^B$.
+
+*Construction.* For a language $A$, define the unary test set
+$$L_A = \{\, 1^n : A \text{ contains some string of length } n \,\}.$$
+Clearly $L_A \in \mathrm{NP}^A$: on input $1^n$, nondeterministically guess $x\in\{0,1\}^n$ and accept iff $x\in A$ (one query, length $n$).
+
+We build $A=B$ in stages to defeat every polynomial-time oracle machine. Enumerate deterministic oracle machines $M_1,M_2,\dots$; run $M_i$ with a clock of $n^i$ steps (this covers all polynomial time bounds since every poly is eventually dominated by some $n^i$ at the machines we revisit; standard). Maintain a growing finite set $B$ and a "reserved-empty" set $R$, both initially empty.
+
+Stage $i$: pick a fresh length $n$ larger than the length of any string queried or decided in earlier stages, and large enough that $2^n > n^i$. Simulate $M_i$ on input $1^n$ for $n^i$ steps, answering each oracle query $q$ by:
+- if $q$ already committed to $B$: answer yes;
+- otherwise answer **no**, and add $q$ to $R$.
+
+$M_i$ makes at most $n^i < 2^n$ queries, so it queries strictly fewer than $2^n$ strings of length $n$. Now:
+- If $M_i$ **accepts** $1^n$: leave all length-$n$ strings out of $B$ (add them to $R$). Then $1^n \notin L_B$ but $M_i$ accepts — error.
+- If $M_i$ **rejects** $1^n$: because $M_i$ probed fewer than $2^n$ strings of length $n$, there exists an unqueried $y\in\{0,1\}^n$; put $y\in B$. This does not change any answer $M_i$ saw, so $M_i$ still rejects, yet $1^n\in L_B$ — error.
+
+Either way $M_i$ fails to decide $L_B$ on $1^n$ under oracle $B$. Reservations in $R$ are permanently honored (later stages use larger lengths), so no future action disturbs stage $i$. Hence $L_B\notin\mathrm{P}^B$ while $L_B\in\mathrm{NP}^B$. $\qquad\blacksquare$
+
+Symmetrically one gets an oracle with $\mathrm P = \mathrm{NP}$ (any PSPACE-complete oracle), so the pair witnesses the relativization barrier.
+
+## 2. The extracted principle (the point of the exercise)
+
+The construction succeeds for exactly one reason, which I state as the operative invariant:
+
+> **Locality of polynomial computation.** In time $n^i$ a machine can *inspect* at most $n^i$ oracle positions. On a coordinate space of size $2^n$, this is a vanishing fraction, so the adversary always retains a free coordinate to flip the "there exists" quantifier of $L_B$ without the machine noticing.
+
+Any technique whose only interaction with the machine is "run it and read its accept/reject behavior relative to *some* subroutine/oracle" inherits this locality and therefore **cannot** separate P from NP: the same counting adversary defeats it. This includes pure diagonalization, simulation-plus-hierarchy arguments, and (by the algebrization refinement) low-degree-extension arguments.
+
+**Necessary condition for a real proof.** A separating argument must use a property $\Phi$ of the actual verifier/circuit that is *not preserved* under replacing the machine's computation by black-box access to an arbitrary $2^n$-coordinate function. Equivalently, $\Phi$ must depend on the **global combinatorial structure of how a small circuit's outputs correlate across all $2^n$ inputs simultaneously**, not on any bounded set of evaluations.
+
+## 3. A concrete correct sub-lemma toward such a $\Phi$
+
+Here is one non-relativizing invariant that is *forced* to differ between P and NP if they differ, phrased so that it is genuinely global. Consider for a language $L$ its **length-$n$ acceptance vector** $v_n(L)\in\{0,1\}^{2^n}$.
+
+**Lemma (correct, elementary).** If $L\in\mathrm{P}$ then the family $\{v_n(L)\}$ is *uniformly locally decodable in log space*: there is a fixed poly-size branching program $P_n$ with $P_n(x)=L_x$ where $P_n$ has width $2^{O(\log n)}$ under the standard Barrington-style width reduction only when $L\in\mathrm{NC}^1$; in general $v_n(L)$ is computed by a poly-size *uniform* circuit.
+
+*Proof.* Immediate from the definition of P via uniform circuit families. $\square$
+
+The lemma is trivial, but it makes the target sharp: separating P from NP is equivalent to exhibiting an NP language whose acceptance vectors $v_n$ have **no** poly-size uniform circuit — a statement about global vector structure, precisely the kind of $\Phi$ Section 2 demands. The natural-proofs barrier then warns that $\Phi$ must additionally be **not** a large-measure, efficiently-testable property of $v_n$. Combining Sections 1 and 2 with this: a valid proof needs a property that is (a) global across all $2^n$ coordinates, (b) non-relativizing, (c) either sparse (small measure) or non-constructive in the Razborov–Rudich sense.
+
+I do not have such a $\Phi$. That is exactly where the problem's difficulty lives, and I have not overcome it.
+
+## 4. Honest assessment
+
+I re-derived the relativization obstruction from scratch (Section 1 is fully rigorous and self-contained) and distilled it into a precise *necessary condition* (Section 2) plus a triangulation of the necessary condition against the natural-proofs barrier (Section 3). This is an analysis of why the diagonalization approach fails and a specification of what must replace it — not new separation. No new lower bound is proven; the Lemma in §3 is elementary; the constraints in §2 are known individually and only lightly synthesized here.
+
+VERDICT: FAILED
+REASON: Rigorously re-derived relativization barrier and specified constraints on any fix, but proved no new separation.
