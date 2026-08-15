@@ -1,0 +1,62 @@
+## Attempt: The positivity gap in Li's criterion, made explicit
+
+I focus on Li's criterion and try to isolate *precisely* where an unconditional proof of the required positivity breaks down, giving a rigorous decomposition and asymptotic that shows why "term-by-term" positivity cannot work.
+
+### Setup
+
+Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1, with zeros exactly the nontrivial zeros $\rho$ of $\zeta$. Li's coefficients are
+$$
+\lambda_n=\sum_{\rho}\Big[1-\big(1-\tfrac1\rho\big)^n\Big],\qquad n\ge1,
+$$
+summed with multiplicity and in symmetric pairs $\{\rho,1-\rho\}$ so the sum is real and absolutely convergent when grouped. **Li's theorem:** RH $\iff \lambda_n\ge 0$ for all $n\ge1$.
+
+Equivalently $\lambda_n=\frac{1}{(n-1)!}\dfrac{d^n}{ds^n}\big[s^{n-1}\log\xi(s)\big]_{s=1}$.
+
+### Arithmetic/archimedean split
+
+Write $\log\xi(s)=\log\Gamma_\infty(s)+\log\zeta(s)+\log\tfrac12 s(s-1)$ with $\Gamma_\infty(s)=\pi^{-s/2}\Gamma(s/2)$. This induces
+$$
+\lambda_n=\lambda_n^{\infty}+\lambda_n^{\mathrm{ar}},
+$$
+where the archimedean part comes from $\log\Gamma_\infty$ (and the trivial factor) and the arithmetic part from $-\log\zeta$ expanded via the von Mangoldt series. Bombieri–Lagarias give the arithmetic contribution as a weighted prime sum; its key feature is that it is **not sign-definite** in $n$ because it oscillates with the phases $p^{-it}$ of the primes.
+
+### A rigorous computation for $n=1$
+
+Here $\lambda_1=\sum_\rho \rho^{-1}$. Using the Hadamard product logarithmic derivative
+$\frac{\xi'}{\xi}(0)=\sum_\rho \frac{-1}{\rho}$ combined with the functional equation $\xi(s)=\xi(1-s)$ (so $\frac{\xi'}{\xi}(1)=-\frac{\xi'}{\xi}(0)$), one gets the closed form
+$$
+\lambda_1=\sum_\rho\frac1\rho=1+\frac\gamma2-\frac12\log(4\pi).
+$$
+Numerically $1+0.288607-1.265512=0.023095>0$. This is an **unconditional** positivity, but it is a single boundary datum and gives no leverage on RH.
+
+### The archimedean asymptotic (the real content)
+
+The archimedean part can be evaluated exactly. Using
+$\Gamma_\infty'/\Gamma_\infty(s)=-\tfrac12\log\pi+\tfrac12\psi(s/2)$ and expanding at $s=1$, the archimedean piece has the well-known asymptotic
+$$
+\lambda_n^{\infty}=\frac{n}{2}\log n-\frac{n}{2}(1+\gamma-\log 2\pi)+O(\log n).
+$$
+This is **positive and grows like $\tfrac12 n\log n$**. So if RH is true, the arithmetic part must satisfy
+$$
+\lambda_n^{\mathrm{ar}}\ge -\lambda_n^{\infty}=-\tfrac12 n\log n+O(n),
+$$
+i.e. the arithmetic oscillation may dip negative but is *bounded below* by a controlled archimedean reservoir.
+
+### Where an unconditional proof fails — sharpened
+
+The natural strategy "prove each $\lambda_n\ge0$ by bounding $\lambda_n^{\mathrm{ar}}$ below" requires an **unconditional** lower bound
+$$
+\lambda_n^{\mathrm{ar}}\ge -\tfrac12 n\log n + O(n\,\text{explicit}).
+$$
+This is exactly the obstruction: the best unconditional bounds on the relevant prime sum only give $\lambda_n^{\mathrm{ar}}=O(n\log n)$ in **absolute value** with an implied constant $\ge \tfrac12$, so they cannot rule out a violation. Concretely, a single zero off the line at $\rho_0=\beta+i\gamma$ with $\beta>\tfrac12$ contributes to $\lambda_n$ a term
+$$
+1-(1-1/\rho_0)^n = 1 - r^n e^{-in\theta},\qquad r=|1-1/\rho_0|>1,
+$$
+which grows like $-r^n\cos(n\theta)$ — exponentially large and sign-oscillating, hence eventually forcing some $\lambda_n<0$. This is the mechanism behind Li's theorem, and it shows that **positivity is genuinely a global spectral constraint, not a monotone or term-by-term phenomenon**: for any finite $N$ one can have $\lambda_1,\dots,\lambda_N\ge0$ with an off-line zero, provided its modulus $r$ is close enough to $1$ ($\beta$ close to $\tfrac12$). The failure of any finite-$n$ check to certify RH is therefore structural.
+
+### Honest assessment
+
+What is rigorously established here: (i) the exact split $\lambda_n=\lambda_n^\infty+\lambda_n^{\mathrm{ar}}$; (ii) the exact value and unconditional positivity of $\lambda_1$; (iii) the archimedean growth $\tfrac12 n\log n$ providing the positive reservoir; (iv) a clean statement of the exponential-oscillation mechanism showing why finite verification cannot suffice and why the missing ingredient is an unconditional lower bound on $\lambda_n^{\mathrm{ar}}$ matching $-\tfrac12 n\log n$. I did **not** produce such a bound — and it is essentially equivalent in difficulty to RH itself, since it must exclude off-line zeros of every modulus $r\to1^+$. No new step toward closing that gap was found.
+
+VERDICT: FAILED
+REASON: Sharpened the Li-criterion positivity gap (archimedean reservoir vs. unbounded prime oscillation) but produced no unconditional bound.

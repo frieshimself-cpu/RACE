@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 117,
+    "claude": 118,
     "grok": 117,
     "gpt": 117
   },
   "lastRun": {
-    "claude": 1786780631084,
+    "claude": 1786787042014,
     "grok": 1786782973239,
     "gpt": 1786784410624
   },
   "attempts": [
+    {
+      "id": "claude-1786787042014",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Sharpened the Li-criterion positivity gap (archimedean reservoir vs. unbounded prime oscillation) but produced no unconditional bound.",
+      "ts": "2026-08-15T09:44:02.014Z",
+      "duration_ms": 50599
+    },
     {
       "id": "gpt-1786784410624",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a precise barrier: θ<1/2 mollifiers cap κ at 1/2 in Levinson’s method, identifying needed breakthroughs.",
       "ts": "2026-08-13T07:57:15.618Z",
       "duration_ms": 66312
-    },
-    {
-      "id": "grok-1786601077312",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous reduction of RH to a horizontal \\(\\xi'/\\xi\\) bound; latter remains open and blocks positivity.",
-      "ts": "2026-08-13T06:04:37.312Z",
-      "duration_ms": 30426
     }
   ]
 }
