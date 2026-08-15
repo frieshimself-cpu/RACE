@@ -1,0 +1,40 @@
+### Attempt: Barrier analysis — why naive diagonalization cannot separate P from NP
+
+#### Setup and notation
+Let \(\{M_i\}_{i\in\mathbb{N}}\) be a standard enumeration of deterministic Turing machines, and write \(T_i(n)\) for the worst-case running time of \(M_i\) on inputs of length \(n\). Define the complexity class
+\[
+\mathrm{P}=\bigcup_{k\ge1}\mathrm{DTIME}(n^k).
+\]
+A language \(L\) is in \(\mathrm{NP}\) if there exists a deterministic polynomial-time verifier \(V\) and a polynomial \(p\) such that
+\[
+x\in L\iff\exists w\in\{0,1\}^{p(|x|)}\,V(x,w)=1.
+\]
+We examine whether a direct diagonalization construction can produce an \(L\in\mathrm{NP}\setminus\mathrm{P}\).
+
+#### The deterministic diagonal language stays inside P
+Define a candidate diagonal language by
+\[
+D=\bigl\{1^i\bigm|M_i\text{ rejects }1^i\text{ within }i^{\log i}\text{ steps}\bigr\}.
+\]
+(The precise polynomial padding is immaterial.) By the deterministic time-hierarchy theorem, \(D\notin\mathrm{DTIME}(n^k)\) for every fixed \(k\), hence \(D\notin\mathrm{P}\). However, membership of \(1^i\) in \(D\) is decided by a deterministic simulation of \(M_i\) for a polynomial number of steps followed by a single bit-flip. Consequently \(D\in\mathrm{P}\), a contradiction only if one hoped \(D\) would lie outside \(\mathrm{P}\). In short: any language obtained by deterministic simulation-and-flip against all polynomial-time machines remains polynomial-time decidable.
+
+#### Attempted nondeterministic diagonalization collapses
+Suppose one tries to place the diagonal language into \(\mathrm{NP}\) by existentially guessing a “short proof” that \(M_i\) rejects. More formally, let
+\[
+L=\bigl\{x\bigm|\exists w\,(|w|\le|x|^c)\text{ and }V_{\mathrm{diag}}(x,w)=1\bigr\},
+\]
+where the verifier \(V_{\mathrm{diag}}\) is intended to check that the \(i\)-th deterministic machine (encoded in \(x\)) rejects \(x\) inside a polynomial bound. Two fatal obstacles appear:
+
+1. **Simulation cost.** Deterministic simulation of an arbitrary \(M_i\) still requires time essentially \(T_i(|x|)\). If \(T_i\) is super-polynomial, the verifier itself is no longer polynomial-time, so \(L\notin\mathrm{NP}\).
+2. **Self-reference inside P.** If one restricts the enumeration to machines already known to run in polynomial time (i.e., one diagonalizes only against \(\mathrm{P}\)), the same simulation becomes polynomial and the resulting \(L\) is again in \(\mathrm{P}\) (the existential quantifier is unnecessary). Thus the construction never escapes \(\mathrm{P}\).
+
+Hence no language defined by “guess a witness that a deterministic poly-time machine errs” can simultaneously sit in \(\mathrm{NP}\) and differ from every language in \(\mathrm{P}\).
+
+#### Relativization confirms the obstacle is structural
+The same diagonalization argument relativizes: for every oracle \(A\) the identical construction yields a language in \(\mathrm{P}^A\) (or fails to land in \(\mathrm{NP}^A\)). Baker–Gill–Solovay oracles exist with \(\mathrm{P}^A=\mathrm{NP}^A\) and with \(\mathrm{P}^B\neq\mathrm{NP}^B\). Therefore any proof technique that continues to work in the presence of arbitrary oracles—precisely the techniques based on simulation and diagonalization—cannot resolve \(\mathrm{P}\) versus \(\mathrm{NP}\).
+
+#### Conclusion of the attempt
+Straightforward diagonalization is blocked by a complexity-class inclusion that is tighter than the mere existence of a hierarchy: the “hard” diagonal language is forced back into \(\mathrm{P}\) as soon as the simulating verifier is required to be deterministic and polynomial. Overcoming the barrier requires a non-relativizing, non-diagonalizing ingredient (circuit lower bounds that evade natural proofs, interactive-proof techniques, etc.). No such ingredient is supplied here; the analysis only sharpens why the most classical approach is information-theoretically insufficient.
+
+VERDICT: FAILED
+REASON: Diagonalization barrier analysis only; no new separation or non-relativizing technique obtained.

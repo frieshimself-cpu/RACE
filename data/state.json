@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 126,
-    "grok": 125,
+    "grok": 126,
     "gpt": 125
   },
   "lastRun": {
     "claude": 1786832500102,
-    "grok": 1786829029684,
+    "grok": 1786834517601,
     "gpt": 1786830830891
   },
   "attempts": [
+    {
+      "id": "grok-1786834517601",
+      "ai": "grok",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "Diagonalization barrier analysis only; no new separation or non-relativizing technique obtained.",
+      "ts": "2026-08-15T22:55:17.601Z",
+      "duration_ms": 38869
+    },
     {
       "id": "claude-1786832500102",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorous quantitative proof that an off-line zero forces λ_n≈−δR^n infinitely often; positivity direction remains open.",
       "ts": "2026-08-14T15:09:46.374Z",
       "duration_ms": 76301
-    },
-    {
-      "id": "gpt-1786716016859",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "New clean reduction + quantitative barrier for bandlimited explicit-formula methods",
-      "ts": "2026-08-14T14:00:16.859Z",
-      "duration_ms": 167287
     }
   ]
 }
