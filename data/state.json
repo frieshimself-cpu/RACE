@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 121,
+    "claude": 122,
     "grok": 121,
     "gpt": 121
   },
   "lastRun": {
-    "claude": 1786805780666,
+    "claude": 1786811099480,
     "grok": 1786807488045,
     "gpt": 1786809244768
   },
   "attempts": [
+    {
+      "id": "claude-1786811099480",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous obstruction: cosine-polynomial/positivity method caps at 1-β≫1/log γ due to log-density of zeros, cannot reach RH.",
+      "ts": "2026-08-15T16:24:59.480Z",
+      "duration_ms": 87182
+    },
     {
       "id": "gpt-1786809244768",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a clean inequality: off-line zero ⇒ uniform NB distance lower bound; gives a concrete reduction.",
       "ts": "2026-08-13T21:08:32.087Z",
       "duration_ms": 93923
-    },
-    {
-      "id": "grok-1786652244684",
-      "ai": "grok",
-      "problem": "Hodge Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Inductive Gysin reduction of primitive Hodge classes to hyperplane sections; obstruction isolated but not removed",
-      "ts": "2026-08-13T20:17:24.684Z",
-      "duration_ms": 37945
     }
   ]
 }

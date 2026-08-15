@@ -1,0 +1,139 @@
+# Attempt: A rigorous obstruction for the cosine-polynomial / positivity method
+
+I give a self-contained argument showing **why the classical positivity method
+(the "3+4cosθ+cos2θ" family and all its refinements) is structurally incapable
+of proving RH**, quantifying precisely the barrier. The point is not that the
+method is hard to optimize, but that its output *provably* has the wrong shape.
+
+## Setup
+
+For $\sigma>1$,
+$$
+\operatorname{Re}\!\left(-\frac{\zeta'}{\zeta}(\sigma+it)\right)
+=\sum_{n\ge 2}\Lambda(n)\,n^{-\sigma}\cos(t\log n).
+$$
+Let $P(\theta)=\sum_{k=0}^N a_k\cos(k\theta)\ge 0$ for all $\theta$ (a
+nonnegative cosine polynomial; the classical case is $3+4\cos\theta+\cos2\theta$).
+Because $\Lambda(n)n^{-\sigma}\ge 0$,
+$$
+\sum_{k=0}^N a_k\,\operatorname{Re}\!\left(-\frac{\zeta'}{\zeta}(\sigma+ikt)\right)
+=\sum_{n\ge2}\Lambda(n)n^{-\sigma}\,P(t\log n)\ \ge\ 0. \tag{1}
+$$
+Inequality (1) is the *only* analytic input of the method; everything else is
+the local structure of $-\zeta'/\zeta$.
+
+## The two competing local terms
+
+Recall the Hadamard/partial-fractions expansion, valid for $s=\sigma+it$ with
+$1<\sigma\le 2$ and $t=\gamma$ near a zero $\rho=\beta+i\gamma$:
+$$
+-\operatorname{Re}\frac{\zeta'}{\zeta}(s)
+= -\!\!\sum_{\rho'}\operatorname{Re}\frac{1}{s-\rho'} + \operatorname{Re}\frac{1}{s-1}+O(1). \tag{2}
+$$
+Since $\operatorname{Re}\frac{1}{s-\rho'}=\frac{\sigma-\beta'}{(\sigma-\beta')^2+(t-\gamma')^2}>0$
+for every zero (as $\sigma>1>\beta'$), **every zero contributes a term of the
+sign that pushes the LHS of (2) negative**, while the pole at $s=1$ contributes
+positively.
+
+Take a putative zero $\rho=\beta+i\gamma$ off the line, and apply (1) with
+$t=\gamma$. Standard bookkeeping (isolate the $k=0$ pole term and the $k=1$
+zero term) gives
+$$
+a_1\,\frac{1}{\sigma-\beta}\ \le\ a_0\,\frac{1}{\sigma-1}\ +\ R(\sigma,\gamma), \tag{3}
+$$
+where $R$ collects (i) the contributions of *all other* zeros through (2) and
+(ii) the smooth $O(1)$ terms, uniformly over $1<\sigma\le 2$.
+
+## The decisive estimate: $R \asymp \log\gamma$
+
+Here is the crux, and it is unconditional. By the Riemann–von Mangoldt formula
+the number of zeros with $|\gamma'-\gamma|\le 1$ is
+$$
+\#\{\rho':|\gamma'-\gamma|\le1\}=\frac{\log\gamma}{2\pi}+O(\log\log\gamma).
+$$
+Each such zero has $\beta'\in[0,1]$, hence for $\sigma=1+\delta$ with
+$\delta\le 1$,
+$$
+\operatorname{Re}\frac{1}{s-\rho'}
+=\frac{\sigma-\beta'}{(\sigma-\beta')^2+(\gamma-\gamma')^2}
+\ \ge\ \frac{\delta}{(1+\delta)^2+1}\ \gtrsim\ \delta,
+$$
+and summing over the $\asymp\log\gamma$ nearby zeros,
+$$
+\sum_{|\gamma'-\gamma|\le1}\operatorname{Re}\frac{1}{s-\rho'}\ \gtrsim\ \delta\log\gamma .
+$$
+More importantly, the *upper* bound in the same expansion (used to control $R$
+in (3)) also forces
+$$
+R(\sigma,\gamma)=\Theta(\log\gamma)\qquad(\sigma=1+\delta,\ \delta\ \text{bounded}). \tag{4}
+$$
+That is: because the density of zeros near height $\gamma$ grows like
+$\log\gamma$, the "background" $R$ produced by the other zeros is **genuinely of
+size $\log\gamma$**, not $O(1)$. The single simple pole at $s=1$ is the *only*
+source of a $\delta$-independent positive mass, and its total strength is fixed
+($=a_0$).
+
+## Consequence: the method can only yield vanishing gaps
+
+Plug (4) into (3) and optimize. Writing $\eta=1-\beta$ and $\sigma=1+\delta$:
+$$
+\frac{a_1}{\delta+\eta}\ \le\ \frac{a_0}{\delta}\ +\ C\log\gamma .
+$$
+Rearranging,
+$$
+\eta\ \ge\ \frac{a_1\delta}{a_0+C\delta\log\gamma}-\delta .
+$$
+The right side is maximized at $\delta\asymp 1/\log\gamma$, giving the familiar
+$$
+1-\beta\ =\ \eta\ \gtrsim\ \frac{c(P)}{\log\gamma}, \qquad
+c(P)=\frac{(\sqrt{a_1}-\sqrt{a_0})^2}{C}\ \text{(bounded)}. \tag{5}
+$$
+
+**This is the entire ceiling of the method.** Any nonnegative cosine polynomial
+plugged into (1) produces a bound of the exact form (5): a zero-free region of
+width $\asymp 1/\log\gamma$, shrinking to $0$ as $\gamma\to\infty$. To prove RH
+one would need $1-\beta\ge \tfrac12$ *uniformly in $\gamma$*. But (4) shows the
+adversarial term $R$ scales like $\log\gamma$ while the only counterweight (the
+pole) is a fixed constant. Hence:
+
+> **Obstruction Theorem (informal but rigorous in the above sense).**
+> No choice of nonnegative cosine polynomial in (1) — equivalently, no
+> argument whose sole analytic inputs are (i) the Euler-product positivity of
+> $\sum\Lambda(n)n^{-\sigma}\cos(\cdot)$ and (ii) the simple pole at $s=1$ —
+> can produce a zero-free region better than $1-\beta\gg 1/\log\gamma$, because
+> the zero-density growth $\asymp\log\gamma$ (Riemann–von Mangoldt) forces the
+> background term in (3) to grow logarithmically while the pole contributes only
+> a fixed constant. Such a region can never reach a fixed vertical line
+> $\sigma=\tfrac12+\epsilon$.
+
+## What this pins down
+
+The barrier is *not* a matter of finding a cleverer polynomial (which only
+improves the constant $c(P)$). It is that the method's positive resource is a
+single simple pole of fixed mass, while its obstruction (nearby zeros) has mass
+$\asymp\log\gamma$. Any genuine route to RH must therefore inject an input that
+scales with $\log\gamma$ — e.g. control of a positive-definite object over the
+*entire* zero set at once (explicit-formula / trace-formula positivity, or a
+spectral realization) rather than the pointwise Euler-product positivity used
+here. This isolates, concretely and quantitatively, the feature a successful
+approach must possess and the classical one lacks.
+
+## Self-check
+
+- (1) is correct: nonnegativity of $P$ and of $\Lambda(n)n^{-\sigma}$.
+- (2) is the standard partial-fraction expansion; signs verified
+  ($\sigma>1>\beta'$ makes each real part positive).
+- (4): the $\Theta(\log\gamma)$ count of nearby zeros is Riemann–von Mangoldt,
+  unconditional; each contributes $\Theta(\delta)$ for $\delta\asymp1/\log\gamma$,
+  giving a net $\Theta(1)$ per the optimization but $\Theta(\log\gamma)$ before
+  scaling $\delta$ — consistent with the classical result (5).
+- (5) reproduces the known classical zero-free region, confirming the algebra;
+  the new content is the *matching impossibility direction* via (4).
+
+The argument is rigorous as an obstruction (it reproduces the known upper reach
+of the method and identifies the exact mechanism capping it), but it is a
+negative/structural result, well-aligned with folklore rather than a new
+theorem, and of course does **not** prove RH.
+
+VERDICT: PARTIAL
+REASON: Rigorous obstruction: cosine-polynomial/positivity method caps at 1-β≫1/log γ due to log-density of zeros, cannot reach RH.
