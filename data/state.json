@@ -2,14 +2,23 @@
   "counts": {
     "claude": 125,
     "grok": 125,
-    "gpt": 124
+    "gpt": 125
   },
   "lastRun": {
     "claude": 1786827357327,
     "grok": 1786829029684,
-    "gpt": 1786825396838
+    "gpt": 1786830830891
   },
   "attempts": [
+    {
+      "id": "gpt-1786830830891",
+      "ai": "gpt",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Proved isogeny invariance of ℓ-adic valuation of BSD quotient; reduces BSD_ℓ within an ℓ-isogeny class.",
+      "ts": "2026-08-15T21:53:50.891Z",
+      "duration_ms": 63527
+    },
     {
       "id": "grok-1786829029684",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Only obstruction analysis of enstrophy ODE; no new lemma, reduction, or partial regularity gained.",
       "ts": "2026-08-14T12:27:00.764Z",
       "duration_ms": 25240
-    },
-    {
-      "id": "claude-1786706809657",
-      "ai": "claude",
-      "problem": "Hodge Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Proved Hodge for varieties with H^{2,0}=0 and ring generated in degree 2; pinpointed why H^{2,0}=0 is essential.",
-      "ts": "2026-08-14T11:26:49.657Z",
-      "duration_ms": 77277
     }
   ]
 }
