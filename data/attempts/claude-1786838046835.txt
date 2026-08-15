@@ -1,0 +1,66 @@
+# Attempt: A rigorous positivity analysis via the Li criterion, with a concrete obstruction
+
+I will not restate the problem. I focus on the **Li coefficients** and give a self-contained rigorous treatment of one direction of Li's criterion together with an explicit evaluation, then state precisely why this line cannot close to a full proof (the honest partial-result part).
+
+## Setup
+
+Let $\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1, with $\xi(s)=\xi(1-s)$ and zeros exactly the nontrivial zeros $\rho$ of $\zeta$. Define the Li coefficients
+$$
+\lambda_n = \sum_{\rho}\left[1-\left(1-\frac1\rho\right)^n\right],\qquad n\ge 1,
+$$
+the sum taken in the symmetric sense (pairing $\rho$ with $1-\rho$), which converges since $\sum_\rho \rho^{-1}(1-\rho)^{-1}<\infty$.
+
+**Li's theorem.** RH $\iff \lambda_n\ge 0$ for all $n\ge1$.
+
+## Lemma 1 (RH $\Rightarrow$ positivity), rigorous proof of the easy direction
+
+Assume RH: every $\rho = \tfrac12 + i\gamma$. Consider the Möbius map
+$$
+w=\phi(s)=\frac{s}{s-1},\qquad s=\frac{w}{w-1}.
+$$
+This sends the critical line $\Re s=\tfrac12$ to the unit circle $|w|=1$. Indeed with $s=\tfrac12+it$,
+$$
+\phi(s)=\frac{\tfrac12+it}{-\tfrac12+it}=\frac{(\tfrac12+it)}{(-\tfrac12+it)}.
+$$
+Its modulus is $\frac{\sqrt{1/4+t^2}}{\sqrt{1/4+t^2}}=1$. So $|\phi(\rho)|=1$ for every zero.
+
+Now note $1-\frac1\rho = \frac{\rho-1}{\rho} = \frac{1}{\phi(\rho)}$. Hence
+$$
+\lambda_n = \sum_\rho\Big[1-\phi(\rho)^{-n}\Big].
+$$
+Pairing $\rho\leftrightarrow 1-\rho$: since $\xi(s)=\xi(1-s)$, zeros come in pairs $\rho,1-\rho$, and $\phi(1-\rho)=\frac{1-\rho}{-\rho}=\frac{\rho-1}{\rho}=\phi(\rho)^{-1}$. Therefore in the symmetric sum each pair contributes
+$$
+\big[1-\phi(\rho)^{-n}\big]+\big[1-\phi(\rho)^{n}\big] = 2 - \big(w^n+w^{-n}\big),\quad w=\phi(\rho).
+$$
+Under RH, $|w|=1$, write $w=e^{i\theta}$; then $w^n+w^{-n}=2\cos(n\theta)\le 2$, so each paired term is $2-2\cos(n\theta)\ge 0$. Real zeros of the pair-sum are handled identically (self-paired $\rho=1-\rho$ impossible off the line under RH except $\rho=1/2$, contributing $2-2\cos(n\cdot 0)... $ but $\phi(1/2)$: $s=1/2\Rightarrow w=(1/2)/(-1/2)=-1$, giving $2-2\cos(n\pi)\ge0$). Summing, $\lambda_n\ge0$. $\qquad\blacksquare$
+
+This reproves the trivial direction cleanly; the geometry ("RH = zeros land on the circle $|w|=1$, where $\Re(1-w^{-n})\ge0$ termwise after symmetrization") is the honest content.
+
+## Lemma 2 (Explicit value of $\lambda_1$, unconditional)
+
+From the Hadamard product $\frac{\xi'}{\xi}(s)=B+\sum_\rho\big(\frac1{s-\rho}+\frac1\rho\big)$ one derives the standard identity
+$$
+\lambda_n=\frac1{(n-1)!}\left.\frac{d^n}{ds^n}\Big(s^{n-1}\log\xi(s)\Big)\right|_{s=1}.
+$$
+For $n=1$: $\lambda_1=\frac{\xi'}{\xi}(1)$. Using the arithmetic evaluation,
+$$
+\lambda_1 = 1+\frac{\gamma}{2}-\frac12\log(4\pi)\approx 0.02309\ldots >0,
+$$
+consistent with RH. This is a genuine finite check but not new.
+
+## The honest obstruction (why this approach does not close)
+
+The reformulation reduces RH to: **for all $n$, $\sum_{\text{pairs}}\big(2-2\cos(n\theta_\rho)\big)\ge0$ where $w_\rho=r_\rho e^{i\theta_\rho}=\phi(\rho)$.** Off RH, $r_\rho\ne1$ for the off-line pair, and its contribution becomes
+$$
+2-\big(r^n e^{in\theta}+r^{-n}e^{-in\theta}\big)=2-2r^n\cos(n\theta)\cdot(\text{sym})\ \text{— unbounded below as }n\to\infty
+$$
+because $r^n+r^{-n}\to\infty$ geometrically for $r\ne1$. So a **single** off-line zero forces $\lambda_n\to-\infty$ along a subsequence — this is exactly Li's converse. The difficulty: proving $\lambda_n\ge0$ requires controlling the *global* cancellation among infinitely many on-line terms $2-2\cos(n\theta_\rho)$ against the analytic (arithmetic) growth of $\lambda_n$, i.e.
+$$
+\lambda_n = \frac{n}{2}\log n + c\,n + O(\log n)\quad(\text{conjectural, under RH}),
+$$
+and no unconditional lower bound of the form $\lambda_n\ge 0$ is available: the arithmetic side (prime sums) provides only $\lambda_n = \tfrac{n}{2}(\log \tfrac{n}{2\pi}+\gamma-1)+\ldots$ with an error term that is *conditionally* small but unconditionally could dip negative if zeros were off-line. Thus the criterion is exactly as hard as RH; the positivity has no independent nontrivial lower bound. I could not produce one.
+
+**Concrete negative finding.** Any attempt to bound $\lambda_n$ below purely from the explicit-formula (prime) side fails because the prime contribution to $\lambda_n$ and the archimedean contribution together only determine $\lambda_n$ *up to the zero sum itself*; there is no term-independent coercivity. So this direction offers a clean equivalent formulation but no lever unconditionally.
+
+VERDICT: FAILED
+REASON: Reproved easy direction of Li's criterion rigorously and located the obstruction, but produced no unconditional positivity lower bound.

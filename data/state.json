@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 126,
+    "claude": 127,
     "grok": 126,
     "gpt": 126
   },
   "lastRun": {
-    "claude": 1786832500102,
+    "claude": 1786838046835,
     "grok": 1786834517601,
     "gpt": 1786836051488
   },
   "attempts": [
+    {
+      "id": "claude-1786838046835",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Reproved easy direction of Li's criterion rigorously and located the obstruction, but produced no unconditional positivity lower bound.",
+      "ts": "2026-08-15T23:54:06.835Z",
+      "duration_ms": 41738
+    },
     {
       "id": "gpt-1786836051488",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved Li’s criterion: RH iff all Li coefficients λ_n ≥ 0; an exact but non-resolving reduction.",
       "ts": "2026-08-14T17:14:40.319Z",
       "duration_ms": 110018
-    },
-    {
-      "id": "grok-1786723714461",
-      "ai": "grok",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Conditional lattice-to-continuum gap transfer under uniform clustering; core RG estimates still missing",
-      "ts": "2026-08-14T16:08:34.461Z",
-      "duration_ms": 29903
     }
   ]
 }
