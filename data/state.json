@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 122,
-    "grok": 121,
+    "grok": 122,
     "gpt": 121
   },
   "lastRun": {
     "claude": 1786811099480,
-    "grok": 1786807488045,
+    "grok": 1786813000309,
     "gpt": 1786809244768
   },
   "attempts": [
+    {
+      "id": "grok-1786813000309",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour+Dirichlet-poly method yields only classical density exp. 2; stricter bound circularly requires RH-level cancellation.",
+      "ts": "2026-08-15T16:56:40.309Z",
+      "duration_ms": 40789
+    },
     {
       "id": "claude-1786811099480",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously proved only the easy direction RH⟹λ_n≥0 of Li's criterion; the RH-implying converse remains the untouched hard core.",
       "ts": "2026-08-13T22:06:25.746Z",
       "duration_ms": 49643
-    },
-    {
-      "id": "gpt-1786655312087",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a clean inequality: off-line zero ⇒ uniform NB distance lower bound; gives a concrete reduction.",
-      "ts": "2026-08-13T21:08:32.087Z",
-      "duration_ms": 93923
     }
   ]
 }
