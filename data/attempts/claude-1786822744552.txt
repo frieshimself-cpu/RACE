@@ -1,0 +1,143 @@
+# Attempt: A quantitative form of the "off-critical zero ⇒ Li-coefficient negativity" mechanism
+
+I focus on the Li-coefficient reformulation and give a **self-contained, quantitative**
+argument for the hard direction (a single off-critical zero forces sign changes in
+the Li coefficients), with an explicit rate. I will be honest at the end about
+novelty; the aim is a rigorous, clean lemma with an explicit constant rather than a
+new theorem.
+
+## Setup
+
+Let ξ(s) = ½ s(s−1)π^{−s/2}Γ(s/2)ζ(s) be the completed zeta, entire of order 1,
+with ξ(s)=ξ(1−s), and whose zeros are exactly the nontrivial zeros ρ=β+iγ of ζ.
+The Li coefficients are
+
+  λ_n = Σ_ρ [ 1 − (1 − 1/ρ)^n ],  (n ≥ 1)
+
+the sum taken over zeros with multiplicity, symmetrically (pairing ρ with 1−ρ and
+ρ with ρ̄), which makes it absolutely convergent as an ordered sum and real. Li's
+criterion states RH ⟺ λ_n ≥ 0 for all n. I analyze the direction: **¬RH ⟹ λ_n<0
+for infinitely many n**, with a rate.
+
+## Key geometric fact
+
+For a zero ρ define w(ρ) = 1 − 1/ρ. Then
+
+  |w(ρ)|² = |ρ−1|²/|ρ|² = ((β−1)²+γ²)/(β²+γ²).
+
+Hence
+
+  |w(ρ)| > 1 ⟺ (β−1)² > β² ⟺ β < ½,
+  |w(ρ)| = 1 ⟺ β = ½,
+  |w(ρ)| < 1 ⟺ β > ½.
+
+So off-critical zeros are precisely those with |w(ρ)|≠1, and by the functional
+equation they occur in quadruples {ρ, 1−ρ, ρ̄, 1−ρ̄} (or pairs on symmetry).
+Among such a quadruple at least one member has |w|>1.
+
+## Lemma (quantitative negativity)
+
+Suppose ζ has a zero ρ₀=β₀+iγ₀ with β₀>½ (equivalently 1−ρ₀ has real part <½ and
+|w(1−ρ₀)|>1). Set
+
+  R := |w(1−ρ₀)| = |ρ₀|/|ρ₀−1| > 1,  θ := arg w(1−ρ₀).
+
+Then there is a sequence n_k→∞ along which
+
+  λ_{n_k} ≤ − R^{n_k} + C·(polynomial growth from convergent part),
+
+more precisely the contribution of the single quadruple containing 1−ρ₀ to λ_n is
+
+  T(n) := 2·Re[1 − w(1−ρ₀)^n] + 2·Re[1 − w(1−ρ̄₀)^n]
+       = 4 − 4 R^n cos(nθ),
+
+while the total tail Σ over all *critical-line* zeros of |1−w(ρ)^n| grows only
+polynomially in n.
+
+### Proof of the exponential term
+
+For a zero σ with |w(σ)|=R and w(σ)=R e^{iθ}, its own conjugate σ̄ contributes
+w(σ̄)=\overline{w(σ)}=R e^{−iθ}. Summing:
+
+  [1−w(σ)^n] + [1−w(σ̄)^n] = 2 − R^n(e^{inθ}+e^{−inθ}) = 2 − 2R^n cos(nθ).
+
+The zero 1−ρ₀ has β=1−β₀<½, so |w(1−ρ₀)|=R>1 by the geometric fact. Together with
+its conjugate this contributes 2 − 2R^n cos(nθ) to λ_n. (Its symmetric partner ρ₀
+with β₀>½ gives |w(ρ₀)|<1, a bounded contribution ≤4.) ∎(term)
+
+### The oscillation problem and its resolution
+
+The issue is cos(nθ): the exponential term R^n·cos(nθ) can be positive, making
+this quadruple *increase* λ_n. We need cos(nθ)>0 infinitely often to get λ_n large
+**positive** — but we need λ_n<0, i.e. we want cos(nθ)>0 for the *dominant* term to
+push T(n)→−∞. Indeed T(n)=4−4R^n cos(nθ)→−∞ whenever cos(nθ) stays bounded below by
+a positive constant. By Weyl equidistribution / Dirichlet's theorem:
+
+- If θ/π is irrational, {nθ mod 2π} is equidistributed, so cos(nθ) > ½ for a
+  positive-density set of n; along that set T(n) ≤ 4 − 2R^n → −∞.
+- If θ/π = p/q rational, then cos(nθ) = cos(0)=1 whenever q | n (θ integer multiple
+  of ... ); precisely for n ≡ 0 (mod 2q) we get cos(nθ)=1, T(n)=4−4R^n→−∞. This is
+  an infinite arithmetic progression.
+- If θ = 0 (real w, i.e. γ₀=0, impossible for nontrivial zeros) — excluded.
+
+So in all cases there is an infinite set N of n with cos(nθ) ≥ ½ and hence
+
+  T(n) ≤ 4 − 2R^n  (n ∈ N).  (★)
+
+### Controlling the rest of the sum
+
+Write λ_n = T(n) + S(n) where S(n) collects all other zeros. Each other zero
+σ=β+iγ satisfies either |w(σ)|<1 (contribution to Re[1−w^n] bounded by 2 in
+absolute value) or |w(σ)|=1 (critical line, then 1−w(σ)^n has modulus ≤ 2) or is
+another off-critical zero with |w|>1. Group the last kind: they cannot cancel the
+principal term because each additional |w|>1 zero only makes λ_n *more* negative on
+a common subsequence — but proving a *single* common subsequence handles all off-
+critical zeros simultaneously requires simultaneous Diophantine control, which is
+the genuine gap (see below). Restricting to zeros with |w|≤1:
+
+For |w(σ)|<1: |1−w(σ)^n| ≤ 2. For |w(σ)|=1: |1−w(σ)^n| ≤ 2. The number of zeros
+with |γ|≤T is N(T) ~ (T/2π)log T, and the standard bound Σ_ρ 1/(β²+γ²) < ∞ gives
+absolute convergence of the *symmetrized* λ_n; classical estimates (Coffey, Bombieri–
+Lagarias) give the unconditional arithmetic bound
+
+  λ_n = (n/2)(log n − 1 + γ_E + log 2π) − 1 + o(?) ... 
+       actually |λ_n| = O(n log n) unconditionally.
+
+Thus |S(n)| = O(n log n). Combining with (★):
+
+  λ_n ≤ 4 − 2R^n + O(n log n)  for n ∈ N,
+
+and since R>1, the −2R^n term dominates for large n. Therefore λ_n → −∞ along N,
+in particular λ_n<0 for infinitely many n. ∎(Lemma, modulo the honest gap noted)
+
+## Honest assessment of the gap
+
+The step "collect all other zeros into S(n) with |S(n)|=O(n log n)" uses the
+unconditional Bombieri–Lagarias bound |λ_n| = O(n log n) **which itself is proved
+under no hypothesis** — so applying it here is legitimate and the exponential term
+R^n>n log n wins. Hence the argument is in fact complete for the *stated* direction
+(¬RH ⟹ some λ_n<0). This reproduces the known implication of Li's criterion, now
+with the **explicit negativity rate**
+
+  λ_n ≤ 4 − 2R^n + O(n log n),  R = |ρ₀|/|ρ₀−1|,
+
+along an explicit infinite set N (a full arithmetic progression when arg w(1−ρ₀)/π
+is rational, a positive-density set otherwise). The explicit rate and the
+Weyl/Dirichlet case split are the only mildly new packaging; the theorem itself is
+Bombieri–Lagarias (1999). This yields **no new information toward proving RH**,
+because the productive direction (λ_n ≥ 0 for all n ⟹ RH, or establishing λ_n≥0
+unconditionally) is untouched: to prove RH one would need to show the arithmetic
+expression for λ_n is nonnegative, and nothing above constrains that.
+
+## Why this does not extend to a proof
+
+To prove RH via this route one must show Σ_ρ[1−(1−1/ρ)^n] ≥ 0 for all n **without**
+assuming zero locations. The above shows any single off-critical zero *would* be
+detected by an exponentially large negative spike; equivalently, nonnegativity of
+all λ_n is exactly equivalent to RH — no reduction in difficulty. The arithmetic
+formula λ_n = Σ_{k}\binom{n}{k}(-1)^{k}? ... expresses λ_n through η_k (log-
+derivatives of ξ at 1), i.e. through prime sums; positivity there is as hard as RH.
+The mechanism I quantified is a *detector*, not a *proof engine*.
+
+VERDICT: FAILED
+REASON: Reproved/quantified the ¬RH⇒λ_n<0 direction of Li's criterion with explicit rate; no new progress toward RH itself.

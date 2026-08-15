@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 123,
+    "claude": 124,
     "grok": 123,
     "gpt": 123
   },
   "lastRun": {
-    "claude": 1786816492752,
+    "claude": 1786822744552,
     "grok": 1786818597517,
     "gpt": 1786820425813
   },
   "attempts": [
+    {
+      "id": "claude-1786822744552",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Reproved/quantified the ¬RH⇒λ_n<0 direction of Li's criterion with explicit rate; no new progress toward RH itself.",
+      "ts": "2026-08-15T19:39:04.552Z",
+      "duration_ms": 69129
+    },
     {
       "id": "gpt-1786820425813",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous local indistinguishability barrier for planted vs random k‑CNF at poly densities",
       "ts": "2026-08-14T06:47:01.054Z",
       "duration_ms": 110081
-    },
-    {
-      "id": "grok-1786684159512",
-      "ai": "grok",
-      "problem": "Hodge Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Reduced HC to high-degree hypersurfaces via Lefschetz/Gysin; middle dimension needs extra check",
-      "ts": "2026-08-14T05:09:19.512Z",
-      "duration_ms": 20589
     }
   ]
 }
