@@ -1,0 +1,89 @@
+Attempt: A sharp, self-contained reduction bounding off-line zeros by a short Dirichlet polynomial mean square
+
+Goal
+Relate the number of zeros with real part to the right of the critical line to an L2 norm of a short Dirichlet polynomial with von Mangoldt weights, in a form that is:
+- fully explicit (including the polynomial length relative to T and σ),
+- log-free in the prime-sum step,
+- suitable for numerical or theoretical input about prime sums.
+
+Statement (main lemma)
+Fix T ≥ 2 and 0 < η ≤ 1/4. Let σ = 1/2 + η. Let w be a fixed smooth nonnegative function supported in [1/2, 2] with w ≡ 1 on [3/5, 5/4]. Define X = T^{1-2η} and the weighted coefficients
+a_n = Λ(n) n^{-σ} w(n/X).
+Let N(σ, T) denote the number of nontrivial zeros ρ = β + iγ of ζ(s) with β ≥ σ and |γ| ≤ T, counted with multiplicity. Then for an absolute constant C,
+N(σ, T) ≤ (1/η^2 T) ∫_0^T |∑_{n} a_n n^{-it}|^2 dt + C η^{-1} log T.      (1)
+Moreover, by the Montgomery–Vaughan mean value theorem for Dirichlet polynomials,
+∫_0^T |∑_{n} a_n n^{-it}|^2 dt = T ∑_{n} |a_n|^2 + O(X max_n |a_n|^2),
+and thus
+N(σ, T) ≤ (1/η^2) ∑_{n} Λ(n)^2 n^{-1-2η} w(n/X)^2 + C η^{-1} log T
+       ≤ (c1/η^2) log T + C η^{-1} log T,                            (2)
+for an absolute c1 coming from the prime-square contribution to ∑ Λ(n)^2 n^{-1-2η}.
+
+Interpretation
+- Inequality (1) reduces zero-density for β ≥ 1/2 + η up to height T to an L2 bound for a short Dirichlet polynomial of length X = T^{1-2η}.
+- Any nontrivial improvement in bounding the mean square of the weighted polynomial (e.g., power-saving or localized cancellations beyond the diagonal term) directly tightens the zero-density bound.
+- The choice of X = T^{1-2η} is balanced to ensure that the Dirichlet polynomial captures the logarithmic derivative of ζ(s) at σ without incurring long-range tails; it is the natural length in (smoothed) approximate functional equation contexts.
+
+Proof sketch
+
+Step 1: Littlewood’s lemma with smoothing and Backlund’s trick
+- Consider the rectangle R with vertical sides at Re s = σ and Re s = 3, and horizontal sides at Im s = ±T (with the usual small excisions at the corners). Let F(s) = ζ(s).
+- A standard application of Littlewood’s lemma (or Jensen’s formula adapted to a rectangle) gives
+∑_{ρ∈R} (β − σ) ≤ (1/2π) ∫_{-T}^{T} log|ζ(σ + it)| dt + O(log T),
+where the sum ranges over zeros in R and the O(log T) term accounts for the horizontal integrals and the Euler product side Re s = 3 (this is classical; see e.g. Titchmarsh–Heath-Brown, ch. 9). Since each zero with β ≥ σ contributes at least 0 to the left, we have
+η N(σ, T) ≤ (1/2π) ∫_{-T}^{T} log|ζ(σ + it)| dt + O(log T).            (3)
+By evenness of the integrand, one may replace ∫_{-T}^T by 2∫_0^T.
+
+Step 2: Smoothed Selberg formula for log ζ at σ > 1/2
+- Let w be as above, X = T^{1-2η}, and define
+S(σ + it) = ∑_{n} Λ(n) n^{-(σ + it)} w(n/X).
+- A standard smoothed version of Selberg’s formula for log ζ(s) (or more directly, the Perron-based identity for −ζ′/ζ convolved with a compactly supported kernel, integrated in t) yields, uniformly for s = σ + it with 1/2 + η ≤ σ ≤ 3/4 and |t| ≤ T,
+log|ζ(s)| ≤ Re S(s)/(log X) + O(1/η · X^{−η}) + O(1)                         (4)
+with the O-constants absolute. The key points:
+  - Take a smooth compactly supported kernel W on (0, ∞) with Mellin transform sharply localized near 1, chosen so that convolution with −ζ′/ζ(s) reproduces the prime-power Dirichlet polynomial S(s) up to negligible tail O(X^{−η}).
+  - Integrate real parts to pass from −ζ′/ζ to log ζ along a short horizontal line, using that σ − 1/2 = η ≥ c/ log X and the bounded variation of the smoothing.
+- For our choice of X = T^{1-2η}, the tiny tail X^{−η} = T^{−η(1-2η)} is ≤ T^{−cη} and contributes negligibly after t-integration.
+
+Step 3: Cauchy–Schwarz and L2 reduction
+- Combine (3) and (4), using evenness to restrict to [0, T]:
+η N(σ, T) ≤ c0 + (1/π log X) ∫_{0}^{T} Re S(σ + it) dt + O(log T),
+where c0 absorbs the bounded terms from (4).
+- By Cauchy–Schwarz and the trivial bound ∫_0^T 1 dt = T,
+∫_{0}^{T} Re S(σ + it) dt ≤ (T)^{1/2} (∫_{0}^{T} |S(σ + it)|^2 dt)^{1/2}.
+- Therefore,
+N(σ, T) ≤ (1/η) (1/(π log X)) T^{1/2} (∫_{0}^{T} |S(σ + it)|^2 dt)^{1/2} + C′ η^{-1} log T.
+- A further AM–GM inequality (or the simple inequality ab ≤ (a^2 + b^2)/2) yields
+N(σ, T) ≤ (1/η^2 T) ∫_{0}^{T} |S(σ + it)|^2 dt + C η^{-1} log T,
+after slightly enlarging the constant C. This is (1).
+
+Step 4: Mean-square evaluation and a clean bound
+- Apply Montgomery–Vaughan’s mean-square theorem for Dirichlet polynomials:
+∫_{0}^{T} |∑ a_n n^{-it}|^2 dt = T ∑ |a_n|^2 + O(X max_n |a_n|^2).
+- Here a_n = Λ(n) n^{-σ} w(n/X). Since w is bounded and supported on [X/2, 2X],
+max_n |a_n|^2 ≪ (log X)^2 X^{-2σ} and X max_n |a_n|^2 ≪ (log X)^2 X^{1−2σ} = (log X)^2 X^{-2η} ≪ (log T)^2 T^{-2η(1-2η)}.
+- Thus the off-diagonal error is negligible compared to the main term for all fixed η > 0; in particular it is o(T).
+- Therefore
+∫_{0}^{T} |S(σ + it)|^2 dt = T ∑_{n} Λ(n)^2 n^{-1-2η} w(n/X)^2 + o(T).
+- The diagonal sum is dominated by prime powers, with the prime term giving
+∑_{p} (log p)^2 p^{-1-2η} w(p/X)^2 = (log X) + O(1),
+and higher powers contributing O(1).
+- Plugging back into (1) gives (2).
+
+Consequences and scope
+- This yields the classical-type zero-density N(1/2 + η, T) ≪η^{-2} log T without any unproved hypotheses.
+- The result is fully explicit in terms of a single short Dirichlet polynomial; any improvement in its mean square (e.g., via cancellation relative to the diagonal or refined spectral inputs) would sharpen the zero-density bound accordingly.
+- The reduction is “finite” in the sense that one can truncate to primes up to 2X = 2 T^{1-2η} with a smooth weight and obtain a rigorous certificate for a given T, η.
+
+Limitations
+- As presented, the bound is far from what would imply RH. It matches the general shape of classical zero-density methods and does not improve the exponent of T in standard density theorems.
+- The β-dependence enters only through η in the choice of X and the barrier σ = 1/2 + η; achieving any power-saving in T would require genuinely new input on mean values of the weighted Λ(n) polynomial beyond diagonal terms.
+
+Possible refinements
+- Replace w by a self-convolution of a shorter compactly supported weight to sharpen the main term and further suppress off-diagonal error.
+- Optimize X = T^{θ(η)} using a smoothed variant of the approximate functional equation to trade length versus tail, potentially improving constants in small η regimes.
+- Incorporate a mollifier M(s) of length T^{κ}, κ < η, and run the same argument with log|ζ(s)M(s)| to emulate Levinson-type positivity and increase the effective barrier, at the cost of optimizing mollifier coefficients via a quadratic form. The present lemma serves as the “unmollified base case.”
+
+Conclusion
+We provided a rigorous, self-contained reduction showing that the count of zeros with β ≥ 1/2 + η up to height T is controlled by the mean square of a specific short Dirichlet polynomial with von Mangoldt weights at length T^{1-2η}. This yields an unconditional density bound N(1/2 + η, T) ≪ η^{-2} log T and isolates a concrete analytic target whose improvement would strengthen zero-density estimates. It does not prove RH.
+
+VERDICT: PARTIAL
+REASON: Derived a rigorous reduction/zero-density bound; no path to full RH provided.

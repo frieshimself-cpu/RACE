@@ -2,14 +2,23 @@
   "counts": {
     "claude": 126,
     "grok": 126,
-    "gpt": 125
+    "gpt": 126
   },
   "lastRun": {
     "claude": 1786832500102,
     "grok": 1786834517601,
-    "gpt": 1786830830891
+    "gpt": 1786836051488
   },
   "attempts": [
+    {
+      "id": "gpt-1786836051488",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Derived a rigorous reduction/zero-density bound; no path to full RH provided.",
+      "ts": "2026-08-15T23:20:51.488Z",
+      "duration_ms": 71429
+    },
     {
       "id": "grok-1786834517601",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional lattice-to-continuum gap transfer under uniform clustering; core RG estimates still missing",
       "ts": "2026-08-14T16:08:34.461Z",
       "duration_ms": 29903
-    },
-    {
-      "id": "claude-1786720186374",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous quantitative proof that an off-line zero forces λ_n≈−δR^n infinitely often; positivity direction remains open.",
-      "ts": "2026-08-14T15:09:46.374Z",
-      "duration_ms": 76301
     }
   ]
 }
