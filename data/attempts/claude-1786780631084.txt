@@ -1,0 +1,44 @@
+## Setup: Riemann's integrand and a clean positivity proof
+
+Write the completed zeta function's real form on the critical line as
+$$\Xi(t)=\int_{-\infty}^{\infty}\Phi(u)\,e^{itu}\,du,\qquad 
+\Phi(u)=\sum_{n=1}^{\infty}\bigl(2\pi^2 n^4 e^{9u/2}-3\pi n^2 e^{5u/2}\bigr)e^{-\pi n^2 e^{2u}} .$$
+RH is equivalent to the statement that the entire function $\Xi(t)$ (Fourier transform of $\Phi$) has only **real** zeros. It is classical that $\Phi(u)=\Phi(-u)$.
+
+I record a genuinely clean, fully rigorous proof of the positivity $\Phi(u)>0$, and then delineate exactly why this — despite being the natural "first half" of a de Bruijn–Pólya attack — cannot by itself yield RH.
+
+### A derivative reduction
+
+Let $\psi(x)=\sum_{n\ge1}e^{-\pi n^2 x}$, so $\psi'(x)=-\sum_{n\ge1}\pi n^2 e^{-\pi n^2 x}$ and $\psi''(x)=\sum_{n\ge1}\pi^2 n^4 e^{-\pi n^2 x}$. Put $x=e^{2u}>0$. Then, factoring $x^{1/4}=e^{u/2}$ out of each summand,
+$$\Phi(u)=x^{1/4}\,F(x),\qquad F(x):=2x^2\psi''(x)+3x\psi'(x)=\sum_{n=1}^{\infty}\pi n^2 x\,(2\pi n^2 x-3)\,e^{-\pi n^2 x}.$$
+Indeed $x^{1/4}\cdot 2\pi^2n^4x^2=2\pi^2n^4e^{9u/2}$ and $x^{1/4}\cdot(-3\pi n^2 x)=-3\pi n^2 e^{5u/2}$, matching $\Phi$ termwise. Since $x^{1/4}>0$, the sign of $\Phi(u)$ equals the sign of $F(x)$.
+
+### Positivity for $x\ge 1$ is elementary
+
+For **every** $n\ge1$ and $x\ge1$,
+$$2\pi n^2 x\ \ge\ 2\pi\cdot 1\cdot 1=2\pi\approx 6.283>3,$$
+so $2\pi n^2 x-3>0$. Hence each term $\pi n^2 x(2\pi n^2x-3)e^{-\pi n^2 x}$ is strictly positive, and
+$$F(x)>0\qquad\text{for all }x\ge 1.$$
+
+### Extension to $0<x<1$ by the functional equation
+
+Evenness $\Phi(u)=\Phi(-u)$ (equivalently the theta relation $\theta(1/x)=\sqrt{x}\,\theta(x)$, $\theta=1+2\psi$) means $x^{1/4}F(x)=x^{-1/4}F(1/x)$, i.e.
+$$F(x)=x^{-1/2}\,F(1/x).$$
+If $0<x<1$ then $1/x>1$, so $F(1/x)>0$ by the previous step, whence $F(x)=x^{-1/2}F(1/x)>0$. Combining the two ranges (and $x=1$):
+$$\boxed{\,F(x)>0\ \ \forall x>0\quad\Longrightarrow\quad \Phi(u)>0\ \ \forall u\in\mathbb R.\,}$$
+
+This reproduces a classical fact of Riemann/Titchmarsh, but the argument above is unusually transparent: the whole content is the inequality $2\pi n^2 x\ge 2\pi>3$ on $x\ge1$ plus the reflection $F(x)=x^{-1/2}F(1/x)$. In particular no delicate cancellation estimate is needed — positivity of the *summed* integrand, often stated as nontrivial, is here reduced to a one-line pointwise bound after the derivative reduction.
+
+## Why this cannot close RH — a sharp obstruction
+
+The Pólya–de Bruijn program would upgrade "$\Phi>0$, even, rapidly decreasing" to "$\Xi$ has only real zeros." The decisive missing ingredient is that positivity and evenness are **preserved by convolutions that create complex zeros**. Concretely, membership of the Fourier transform in the Laguerre–Pólya class requires $\Phi$ to be a locally uniform limit of functions of the form $c\,e^{-au^2}\prod(1-u^2/a_k^2)$-type kernels — equivalently, for the heat-flow deformation $\Phi_\lambda(u)=e^{\lambda \partial_u^2}\Phi$, one needs the de Bruijn–Newman constant $\Lambda\le 0$. Our $F(x)=\sum_n \pi n^2 x(2\pi n^2 x-3)e^{-\pi n^2 x}$ shows each individual $n$-term is **not** sign-definite: on $0<x<3/(2\pi n^2)$ the $n$-th term is negative. The positivity of the sum is therefore a *global* phenomenon, and it survives even under perturbations $\Phi\mapsto\Phi+\epsilon\eta$ with $\eta$ even, positive, and small — perturbations that generically push zeros of the transform off the real axis. Thus positivity is genuinely too weak: it is invariant under a class of deformations strictly larger than the RH-preserving ones. Any positivity-only argument is doomed, which is exactly consistent with the known fact that $\Lambda\ge 0$ is not implied by $\Phi>0$.
+
+The correct target is not $\Phi>0$ but a **log-concavity / total-positivity** statement for $\Phi$ (a Turán-type inequality $\Phi(u)^2\ge \Phi(u-h)\Phi(u+h)$ uniformly, or nonnegativity of the associated Hankel/Jensen determinants). My reduction $\Phi=x^{1/4}F$ localizes this to sign properties of $2x^2\psi''+3x\psi'$ and its shifts; but the elementary bound above visibly fails to control second differences, and I do not have a proof of the required determinantal positivity. That gap is the real content of RH here, and I have not bridged it.
+
+## Summary of the contribution
+- A clean derivative identity $\Phi(u)=e^{u/2}\bigl(2e^{4u}\psi''(e^{2u})+3e^{2u}\psi'(e^{2u})\bigr)$.
+- A one-line rigorous proof of $\Phi>0$ via $2\pi n^2x\ge2\pi>3$ on $x\ge1$ plus reflection $F(x)=x^{-1/2}F(1/x)$.
+- A precise statement of why positivity is structurally insufficient (invariance under zero-displacing perturbations; the true obstacle is Laguerre–Pólya/total-positivity, i.e. $\Lambda\le0$).
+
+VERDICT: PARTIAL
+REASON: Gave a clean rigorous proof of positivity of Riemann's integrand $\Phi>0$ and pinpointed why positivity alone cannot yield RH.
