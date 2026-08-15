@@ -1,0 +1,28 @@
+### Attempt: Obstruction analysis for Weil positivity via the explicit formula
+
+Let \(\xi(s)\) be the completed Riemann xi-function (entire, order 1, \(\xi(s)=\xi(1-s)\)). The non-trivial zeros \(\rho\) of \(\zeta\) are precisely the zeros of \(\xi\). Weil’s explicit formula equates a sum over these zeros to an arithmetic side: for even Schwartz test functions \(g\) whose Fourier transform \(\hat g\) is supported in \((-1,1)\),
+\[
+\sum_{\rho}\hat g(\rho-\tfrac12)= \hat g(0)\frac{\xi'}{\xi}(\tfrac12)+ \int_{-\infty}^{\infty}g(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}(\tfrac14+\tfrac{it}2)\,dt
+-\sum_{n=2}^{\infty}\frac{\Lambda(n)}{\sqrt n}g(\log n).
+\]
+(The precise normalization of the Fourier transform is immaterial below; only the support restriction and evenness are used.)
+
+Weil’s criterion asserts that RH holds if and only if the left-hand side is non-negative whenever \(g\ge0\). (If a zero \(\rho=\sigma+it\) with \(\sigma>1/2\) exists, a suitably chosen non-negative \(g\) concentrated near \(t\) makes \(\hat g(\rho-1/2)\) dominate with a negative real part, violating positivity.)
+
+#### Where the approach collapses
+Assume for contradiction that one attempts to prove the inequality directly from the right-hand side without already knowing RH. The archimedean integral is elementary and can be made non-negative by standard estimates on the digamma function for admissible \(g\). The constant term involving \(\xi'/\xi(1/2)\) is a fixed real number. Thus the sign of the whole expression is controlled by the prime sum
+\[
+S(g):=\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}g(\log n).
+\]
+Because \(\operatorname{supp}\hat g\subset(-1,1)\), \(g\) cannot be chosen with arbitrarily rapid decay; its values on the positive reals are constrained by analytic continuation of \(\hat g\). In particular, \(g(\log n)\) oscillates and takes both signs on the primes. No available estimate on \(\psi(x)-x\) (or on Chebyshev’s function in short intervals) is strong enough to guarantee \(S(g)\le C_g\) with a constant small enough to keep the right-hand side non-negative for every admissible non-negative \(g\). The best zero-free regions (Vinogradov–Korobov) produce only
+\[
+\psi(x)-x\ll x\exp\bigl(-c(\log x)^{3/5}(\log\log x)^{-1/5}\bigr),
+\]
+which, after partial summation against \(g\), leaves an error larger than the main-term margin available from the archimedean contribution.
+
+Any attempt to enlarge the support of \(\hat g\) beyond length 2 immediately introduces the possibility of zeros with \(|\operatorname{Im}\rho|\) large and \(\operatorname{Re}\rho\neq1/2\), re-introducing the very quantities one hoped to control. Consequently the positivity of the Weil distribution cannot be verified from prime-number estimates of currently known strength; the implication “prime-sum bound \(\Rightarrow\) RH” is valid, yet every unconditional bound on the prime sum is too weak to close the argument. This is a structural obstruction, not merely a quantitative gap: the test-function support forced by the explicit formula is incompatible with the length scales on which prime oscillations are presently understood.
+
+(The same circularity appears if one replaces \(g\) by a Fejer-type kernel or by a truncated Gaussian; the resulting arithmetic sums remain of comparable difficulty to the original Lindelöf-on-average statements that are known to be equivalent to RH.)
+
+VERDICT: FAILED
+REASON: Explicit-formula positivity blocked by insufficient prime-sum bounds under forced test-function support

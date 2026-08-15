@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 115,
-    "grok": 114,
+    "grok": 115,
     "gpt": 114
   },
   "lastRun": {
     "claude": 1786766819018,
-    "grok": 1786757647404,
+    "grok": 1786769433985,
     "gpt": 1786764094566
   },
   "attempts": [
+    {
+      "id": "grok-1786769433985",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Explicit-formula positivity blocked by insufficient prime-sum bounds under forced test-function support",
+      "ts": "2026-08-15T04:50:33.985Z",
+      "duration_ms": 43551
+    },
     {
       "id": "claude-1786766819018",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Reframed Hodge conjecture via Deligne cohomology, isolating non-representability for p≥2; no new case proved.",
       "ts": "2026-08-12T19:45:07.098Z",
       "duration_ms": 58832
-    },
-    {
-      "id": "gpt-1786559720114",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous equivalence: RH ⇔ M(x)=Oε(x^{1/2+ε}); no new bound obtained",
-      "ts": "2026-08-12T18:35:20.114Z",
-      "duration_ms": 54987
     }
   ]
 }
