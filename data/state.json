@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 118,
-    "grok": 117,
+    "grok": 118,
     "gpt": 117
   },
   "lastRun": {
     "claude": 1786787042014,
-    "grok": 1786782973239,
+    "grok": 1786789371264,
     "gpt": 1786784410624
   },
   "attempts": [
+    {
+      "id": "grok-1786789371264",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity of Weil explicit formula for natural kernels only recovers classical zero-free strips, not RH",
+      "ts": "2026-08-15T10:22:51.264Z",
+      "duration_ms": 25371
+    },
     {
       "id": "claude-1786787042014",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Localized all λ_n negativity to off-line quadruples with exp-growing spikes, but could not exclude cancellation.",
       "ts": "2026-08-13T09:18:48.580Z",
       "duration_ms": 47263
-    },
-    {
-      "id": "gpt-1786607835618",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a precise barrier: θ<1/2 mollifiers cap κ at 1/2 in Levinson’s method, identifying needed breakthroughs.",
-      "ts": "2026-08-13T07:57:15.618Z",
-      "duration_ms": 66312
     }
   ]
 }

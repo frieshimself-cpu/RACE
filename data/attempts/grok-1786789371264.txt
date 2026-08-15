@@ -1,0 +1,42 @@
+### Attempt: Obstruction to a positivity-based proof of RH via the Weil explicit formula
+
+Let \(\Xi(t) := \xi(1/2 + it)\), where \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The Riemann Hypothesis is equivalent to all zeros of \(\Xi\) being real. Weil’s explicit formula relates a test function \(g\) (even, Schwartz-class, Fourier transform supported in \((-1,1)\)) to
+\[
+\sum_{\rho} \hat g\bigl(\tfrac{\rho-1/2}{i}\bigr)
+= \int_{-\infty}^{\infty} g(t)\frac{\Xi'}{\Xi}(t)\,dt
++ \text{(explicit archimedean and prime-power terms)},
+\]
+where the sum runs over non-trivial zeros \(\rho\).
+
+A classical strategy (Weil, Li, Bombieri–Hejhal) seeks a positive-definite kernel whose Fourier transform forces the left-hand side to be non-negative only when every \(\rho\) satisfies \(\operatorname{Re}\rho=1/2\). Concretely, one looks for a continuous even function \(F\) of positive type such that
+\[
+\sum_{\rho} F\bigl(\tfrac{\rho-1/2}{i}\bigr) \ge 0
+\]
+holds with equality if and only if all imaginary parts are real, while the right-hand side of the explicit formula can be rewritten as an integral of \(F\) against a measure built from primes that is itself non-negative.
+
+#### Proposed kernel and the obstruction
+Define
+\[
+F(u) := \bigl(1-|u|\bigr)_+\,e^{-\pi u^2}.
+\]
+This is positive-definite (product of the Fejér kernel and a Gaussian). Its Fourier transform \(\hat F\) is entire of exponential type and decays rapidly on the real line. Substituting into the explicit formula and shifting contours yields the identity
+\[
+\sum_{\gamma} \hat F(\gamma) = \int_0^\infty \frac{\vartheta'(t)}{\vartheta(t)} \hat F(t)\,dt + \sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}} \bigl(\hat F(k\log p)+\hat F(-k\log p)\bigr),
+\]
+where \(\gamma\) runs over the imaginary parts of the zeros (counted with multiplicity) and \(\vartheta\) is the Riemann–Siegel theta function.
+
+The archimedean integral is positive for this choice of \(F\). The double sum over primes is likewise positive. Hence the left-hand side is positive. If one could deduce from \(\sum\gamma\hat F(\gamma)>0\) that every \(\gamma\) is real, RH would follow.
+
+#### Where the argument collapses
+The implication “\(\sum\hat F(\gamma)>0\) for every positive-definite \(F\) of the above class \(\Rightarrow\) all \(\gamma\in\mathbb{R}\)” is false. Counter-examples exist already inside the larger class of Hermite–Biehler entire functions of order one: one can construct a function \(\Xi_\varepsilon(t)=\Xi(t)+\varepsilon\eta(t)\) (with a small entire perturbation \(\eta\) of exponential type less than 1) that possesses a complex-conjugate pair of zeros off the real axis yet still satisfies
+\[
+\sum\hat F(\gamma_\varepsilon)>0
+\]
+for every \(F\) whose Fourier transform is supported in \((-1+\delta,1-\delta)\). The support restriction is forced by the prime-power terms; enlarging the support re-introduces oscillatory contributions that destroy positivity of the prime sum. Consequently the positivity certificate never “sees” zeros whose imaginary parts lie farther than distance 1 from the real axis, and a finite-density set of off-line zeros can hide inside the gaps.
+
+Thus the method yields only a zero-free region of the classical shape \(\lvert\operatorname{Im}\rho\rvert\le C\), which is already known by other means and does not force \(\operatorname{Re}\rho=1/2\).
+
+(The same obstruction appears, mutatis mutandis, for the Li coefficients and for the de Branges Hilbert-space approach: the necessary positivity is compatible with a positive proportion of zeros off the critical line provided their horizontal distance remains smaller than the width of the admissible test-function support.)
+
+VERDICT: FAILED
+REASON: Positivity of Weil explicit formula for natural kernels only recovers classical zero-free strips, not RH
