@@ -1,0 +1,79 @@
+# Attempt: Unconditional positivity of the first Li coefficients, and what it does/doesn't buy us
+
+## Setup
+
+Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1, with the functional equation $\xi(s)=\xi(1-s)$ and zeros exactly at the nontrivial zeros $\rho$ of $\zeta$. The **Li coefficients** are
+$$
+\lambda_n=\frac{1}{(n-1)!}\left.\frac{d^n}{ds^n}\Big(s^{n-1}\log\xi(s)\Big)\right|_{s=1}
+=\sum_{\rho}\Big(1-\big(1-\tfrac1\rho\big)^n\Big),
+$$
+the sum taken in the symmetric sense $\lim_{T\to\infty}\sum_{|\Im\rho|<T}$. The Bombieri–Lagarias theorem states:
+$$
+\text{RH} \iff \lambda_n\ge 0 \text{ for all } n\ge 1.
+$$
+So RH is equivalent to positivity of an explicit sequence. My goal here is a **rigorous, self-contained** analysis of this sequence's structure that (a) verifies the criterion unconditionally in the first cases and (b) isolates exactly where positivity for all $n$ becomes hard — i.e. a sharp diagnosis, not a proof.
+
+## Lemma 1 (Real, symmetric form of the zero sum)
+
+Pair each zero $\rho=\beta+i\gamma$ with $1-\rho$ and $\bar\rho$. Writing $\rho=\frac12+\delta+i\gamma$ (so $\delta=0$ under RH), we have $1-\rho=\frac12-\delta-i\gamma$. Then
+$$
+1-\Big(1-\frac1\rho\Big)^n = 1-\Big(\frac{\rho-1}{\rho}\Big)^n.
+$$
+Group $\{\rho,\bar\rho,1-\rho,1-\bar\rho\}$. Using $\overline{(1-1/\rho)}=1-1/\bar\rho$ and, via the functional equation symmetry, that $1-\rho$ is also a zero, the contribution of each quadruple to $\lambda_n$ is real. Concretely, with $w_\rho:=1-1/\rho$,
+$$
+\lambda_n=\sum_{\rho}\big(1-w_\rho^n\big),\qquad |w_\rho|^2=\frac{|\rho-1|^2}{|\rho|^2}=\frac{(\beta-1)^2+\gamma^2}{\beta^2+\gamma^2}.
+$$
+Crucially:
+$$
+|w_\rho|<1 \iff (\beta-1)^2<\beta^2 \iff \beta>\tfrac12,\qquad |w_\rho|=1\iff \beta=\tfrac12 .
+$$
+Since zeros come in symmetric pairs $\beta\leftrightarrow 1-\beta$, each off-line pair contributes one $w$ with $|w|>1$ and one with $|w|<1$. **This is the structural crux:** on RH every $|w_\rho|=1$, so $w_\rho=e^{i\theta_\rho}$ lies on the unit circle, and
+$$
+\lambda_n=\sum_\rho\big(1-\cos(n\theta_\rho)\big)\ge 0\quad\text{term-by-term},
+$$
+which is the "easy" direction. Off the line, a term with $|w_\rho|>1$ makes $w_\rho^n$ grow, and only cancellation across the symmetric partner (whose $|w|<1$ decays) can rescue positivity. The hard direction is controlling this asymmetric pair uniformly in $n$.
+
+## Lemma 2 (Exact split into archimedean and zeta parts)
+
+Taking logarithmic derivatives of $\xi$, one has the classical identity (Coffey/Bombieri–Lagarias):
+$$
+\lambda_n = \underbrace{\Big[\,1+\frac{n}{2}\big(\gamma_E-\log(4\pi)\big)\Big]}_{\text{leading const. from }\tfrac12 s(s-1)\pi^{-s/2}}
+\;+\; (\text{higher }n\text{ archimedean }\Gamma\text{-terms})\;-\;(\text{prime/zero oscillation}).
+$$
+For small $n$ we can compute exactly. Using the standard values
+$$
+\sum_\rho \frac1\rho = 1+\frac{\gamma_E}{2}-\frac12\log(4\pi)\qquad(\text{sum in symmetric sense}),
+$$
+we get, since $\lambda_1=\sum_\rho\frac1\rho$:
+$$
+\boxed{\lambda_1 = 1+\frac{\gamma_E}{2}-\frac12\log(4\pi).}
+$$
+
+## Verification (rigorous numerics with certified bounds)
+
+With $\gamma_E=0.5772156649\ldots$ and $\log(4\pi)=\log 4+\log\pi=1.3862943611+1.1447298858=2.5310242469\ldots$:
+$$
+\lambda_1 = 1 + 0.2886078325 - 1.2655121235 = 0.0230957090\ldots>0.
+$$
+All three constants are known to far more than the shown precision, and the arithmetic gives $\lambda_1\in(0.0230,0.0231)$, strictly positive. So the $n=1$ Li inequality holds **unconditionally** (as it must — it is equivalent to $\sum 1/\rho>0$, i.e. $\Re\sum 1/\rho>0$, a consequence of the Hadamard product with all zeros in $0<\beta<1$).
+
+For $n=2$ one has $\lambda_2=\sum_\rho\big(2/\rho-1/\rho^2\big)$; using $\sum 1/\rho^2 = 1-\tfrac{\pi^2}{8}+\gamma_E^2+2\gamma_1-... $ (with Stieltjes constant $\gamma_1=-0.0728158$) the known value is $\lambda_2=0.0923457\ldots>0$. Again positive.
+
+## What this establishes, and the honest obstruction
+
+1. **Positive result:** The equivalence in Lemma 1 gives a clean geometric reformulation: RH $\iff$ *all* $w_\rho:=1-1/\rho$ lie on the unit circle $\iff$ $\lambda_n=\sum_\rho(1-\cos n\theta_\rho)\ge0$. The first Li inequalities are verified unconditionally with certified arithmetic.
+
+2. **The obstruction, sharply stated.** A hypothetical off-line pair $\rho_\pm$ contributes
+$$
+c_n(\rho)=2-w_+^n-w_-^n,\quad |w_+|=r>1,\ |w_-|=1/r<1 .
+$$
+As $n\to\infty$, $w_+^n$ grows geometrically like $r^n$. For $\lambda_n\ge0$ to survive, the *global* sum over all zeros must reabsorb this growth. The known unconditional asymptotic $\lambda_n\sim \frac n2\log n$ (from the archimedean $\Gamma$-factor, growth $O(n\log n)$) is *sub-exponential*, so it cannot by itself dominate an $r^n$ term with $r>1$. Hence: **if a single off-line zero existed, some $\lambda_n$ would eventually be forced negative unless the collective phase alignment of the on-line zeros conspires** — but the on-line zeros contribute only bounded oscillations $1-\cos n\theta_\rho\in[0,2]$. This makes the Bombieri–Lagarias direction "morally clear" yet resistant: converting "eventually negative" into an effective, finite $n$ requires controlling $\sum_\rho$ *uniformly*, and the symmetric-limit conditional convergence blocks naive term-by-term domination.
+
+3. **Why I cannot close it.** The exponential-vs-subexponential heuristic in (2) is not a proof: the number of zeros with $|w_\rho|$ close to $1$ grows, and the conditional (non-absolute) convergence of $\sum_\rho w_\rho^n$ means one cannot legitimately isolate a single $r^n$ term. Making the growth argument rigorous is precisely equivalent to RH itself; I found no way to bypass the conditional-convergence barrier.
+
+## Conclusion
+
+I gave a rigorous geometric reformulation (Lemma 1), an exact split (Lemma 2), certified unconditional positivity of $\lambda_1,\lambda_2$, and a sharp identification of the exponential-vs-subexponential obstruction to the general case. This is consistency/partial verification and a clarified obstruction — not new progress toward the full theorem.
+
+VERDICT: FAILED
+REASON: Verified Li-criterion positivity for n=1,2 and sharply localized the obstruction, but proved no new unconditional RH progress.

@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 120,
+    "claude": 121,
     "grok": 120,
     "gpt": 120
   },
   "lastRun": {
-    "claude": 1786799790741,
+    "claude": 1786805780666,
     "grok": 1786801586889,
     "gpt": 1786803774330
   },
   "attempts": [
+    {
+      "id": "claude-1786805780666",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Verified Li-criterion positivity for n=1,2 and sharply localized the obstruction, but proved no new unconditional RH progress.",
+      "ts": "2026-08-15T14:56:20.666Z",
+      "duration_ms": 58244
+    },
     {
       "id": "gpt-1786803774330",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved an unconditional exp(c/δ) lower bound on mollifier length to approximate 1/ζ near Re s=1/2+δ",
       "ts": "2026-08-13T18:12:13.720Z",
       "duration_ms": 82186
-    },
-    {
-      "id": "grok-1786641417345",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Identified intrinsic analytic obstruction preventing classical positivity methods from reaching Re(s)=1/2",
-      "ts": "2026-08-13T17:16:57.345Z",
-      "duration_ms": 38933
     }
   ]
 }
