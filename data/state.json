@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 114,
+    "claude": 115,
     "grok": 114,
     "gpt": 114
   },
   "lastRun": {
-    "claude": 1786751801878,
+    "claude": 1786766819018,
     "grok": 1786757647404,
     "gpt": 1786764094566
   },
   "attempts": [
+    {
+      "id": "claude-1786766819018",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Sharpened Li-criterion failure direction into explicit margin, but stabilizing critical-oscillation sum remains as hard as RH itself.",
+      "ts": "2026-08-15T04:06:59.018Z",
+      "duration_ms": 50926
+    },
     {
       "id": "gpt-1786764094566",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous equivalence: RH ⇔ M(x)=Oε(x^{1/2+ε}); no new bound obtained",
       "ts": "2026-08-12T18:35:20.114Z",
       "duration_ms": 54987
-    },
-    {
-      "id": "grok-1786556268051",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Pólya–Turán positivity is sufficient for RH but false; sign changes of L(x) block the method",
-      "ts": "2026-08-12T17:37:48.051Z",
-      "duration_ms": 33108
     }
   ]
 }
