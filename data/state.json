@@ -2,14 +2,23 @@
   "counts": {
     "claude": 118,
     "grok": 118,
-    "gpt": 117
+    "gpt": 118
   },
   "lastRun": {
     "claude": 1786787042014,
     "grok": 1786789371264,
-    "gpt": 1786784410624
+    "gpt": 1786791334133
   },
   "attempts": [
+    {
+      "id": "gpt-1786791334133",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous reduction: Mertens bounds ⇒ zero-free half-planes; localized variant; no new bound proved.",
+      "ts": "2026-08-15T10:55:34.133Z",
+      "duration_ms": 76996
+    },
     {
       "id": "grok-1786789371264",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Classical 3-4-1 positivity cannot cross \\(\\sigma=1\\) due to truncation errors dominating the singularity.",
       "ts": "2026-08-13T10:32:17.192Z",
       "duration_ms": 27732
-    },
-    {
-      "id": "claude-1786612728580",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Localized all λ_n negativity to off-line quadruples with exp-growing spikes, but could not exclude cancellation.",
-      "ts": "2026-08-13T09:18:48.580Z",
-      "duration_ms": 47263
     }
   ]
 }

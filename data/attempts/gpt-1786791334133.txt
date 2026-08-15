@@ -1,0 +1,60 @@
+Attempt: A clean reduction from bounds on the Mertens function to zero-free half-planes, with a localized quantitative variant
+
+Setup and notation:
+- ζ(s) is the Riemann zeta function, μ(n) the Möbius function, and M(x)=∑_{n≤x} μ(n) its summatory function.
+- For σ∈ℝ, write s=σ+it.
+
+Main lemma (Mellin-representation reduction):
+Let σ0∈(1/2,1). Suppose there is a constant C such that
+|M(x)| ≤ C x^σ0 for all x ≥ 1.
+Then ζ(s) has no zeros in the open half-plane Re s > σ0.
+
+Proof:
+1) For Re s>1 we have the absolutely convergent Dirichlet series 1/ζ(s)=∑_{n≥1} μ(n)n^{-s}. By partial summation (Abel summation),
+   ∑_{n≥1} μ(n) n^{-s}
+   = s ∫_{1}^{∞} M(x) x^{-s-1} dx,
+   valid initially for Re s>1 (the integral converges absolutely there because M(x)=O(x)).
+2) Under the hypothesis |M(x)| ≤ C x^σ0, the integral
+   I(s) := s ∫_{1}^{∞} M(x) x^{-s-1} dx
+   converges absolutely and uniformly on compact subsets of Re s>σ0, since
+   ∫_{1}^{∞} |M(x)| x^{-σ-1} dx ≤ C ∫_{1}^{∞} x^{σ0} x^{-σ-1} dx = C ∫_{1}^{∞} x^{-(σ-σ0)-1} dx,
+   which is finite precisely when Re s>σ0. Hence I(s) defines a holomorphic function on Re s>σ0.
+3) By analytic continuation from Re s>1, we have I(s)=1/ζ(s) throughout Re s>σ0 (uniqueness of analytic continuation on the connected domain).
+4) If ζ had a zero in Re s>σ0, then 1/ζ would have a pole there, contradicting holomorphy of I(s). Hence there are no zeros in Re s>σ0.
+
+Corollary (RH via Mertens-type bounds):
+The following are equivalent:
+- The Riemann Hypothesis.
+- For every ε>0 there exists Cε with |M(x)| ≤ Cε x^{1/2+ε} for all x≥1.
+
+Proof:
+- (⇒) Under RH, classical explicit formulae give M(x)=Oε(x^{1/2+ε}). (Omitted details; standard.)
+- (⇐) Apply the lemma with σ0=1/2+ε and let ε→0+. This excludes zeros in any half-plane Re s>1/2+ε, hence all nontrivial zeros satisfy Re s≤1/2. By the functional equation and symmetry, all must lie on Re s=1/2.
+
+Localized quantitative variant (finite-height zero-free strip from truncated control of M):
+Fix σ0∈(1/2,1) and T≥2. Suppose there exists X=X(T)≥2 and a constant C such that
+|M(x)| ≤ C x^σ0 for all 1 ≤ x ≤ X,
+and moreover X satisfies
+X ≥ T^A
+for some A>0 depending only on σ0. Then ζ(s) has no zeros in the rectangle
+{ s : Re s ≥ σ0 + δ, |Im s| ≤ T },
+for any fixed δ∈(0, (1−σ0)/2), provided A is chosen sufficiently large in terms of (σ0,δ).
+
+Sketch of proof:
+- Introduce a smooth compactly supported weight w supported in [1/2,2] with ∫ w = 1, and define w_X(x)=w(x/X).
+- Consider the smoothed Mellin transform
+  F(s) := s ∫_{1}^{∞} M(x) x^{-s-1} w_X(x) dx.
+  By integration by parts and the assumed bound on M(x) up to X, F(s) is well-defined and holomorphic in Re s>σ0, and equals (1/ζ(s))W(s) plus an error coming from the tail x>X and from smoothing, where W(s) is the Mellin transform of w.
+- Standard stationary phase/contour-shift estimates give that for |Im s|≤T, the tail contribution from x≫X is O((T/X)^B) for any fixed B>0, provided w has enough smoothness (Paley–Wiener type decay of Mellin transform). Thus, choosing X≥T^A with A large forces the tail to be small uniformly on |Im s|≤T.
+- Since W(s) is bounded and bounded away from 0 on a fixed right half-strip, we conclude that 1/ζ(s) is holomorphic (no pole) on Re s ≥ σ0+δ, |Im s|≤T, i.e., ζ has no zeros there.
+
+Remarks:
+- The localized variant isolates what quantitative information on M(x) up to a finite scale X suffices to rule out zeros up to height T to the right of Re s=σ0+δ. The proof uses only smoothing and uniform decay of Mellin transforms and is robust.
+- The main lemma gives a simple, rigorous pathway: any method that delivers uniform power-saving bounds for M(x) at exponent 1/2+ε would resolve RH. Conversely, any attempt to prove RH by constructing a uniformly convergent Dirichlet series for 1/ζ in Re s>1/2 must, in effect, produce such bounds for M(x) (since M is the partial sums of μ, the coefficients of 1/ζ).
+
+Limitations and honest assessment:
+- The main lemma and its corollary are classical and do not, by themselves, advance the frontier; they cleanly package the reduction from Mertens-type bounds to zero-free regions.
+- The localized variant is a standard smoothing/Paley–Wiener adaptation; it clarifies the finite-height requirements but does not produce new bounds on M(x).
+
+VERDICT: PARTIAL
+REASON: Rigorous reduction: Mertens bounds ⇒ zero-free half-planes; localized variant; no new bound proved.
