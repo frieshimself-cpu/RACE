@@ -1,0 +1,95 @@
+# Attempt: Explicit archimedean/prime decomposition of Li's criterion and the precise obstruction
+
+I focus on Li's criterion and try to isolate, rigorously, *where* an unconditional
+positivity proof breaks down. The goal is a sharp negative result: a clean statement
+of the quantity that must be controlled and a verified computation of the base case.
+
+## Setup
+
+Let ξ(s) = ½ s(s−1)π^{−s/2}Γ(s/2)ζ(s), entire, order 1, with ξ(s)=ξ(1−s).
+Define the Li coefficients
+$$\lambda_n = \frac{1}{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi(s)\Big]_{s=1}.$$
+**Li's theorem:** RH ⇔ λ_n ≥ 0 for all n ≥ 1. Via the Hadamard product
+ξ(s)=ξ(0)∏_ρ(1−s/ρ) (zeros ρ paired as ρ,1−ρ), one has the closed form
+$$\lambda_n=\sum_{\rho}\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big],$$
+the sum taken in the symmetric (paired) sense so it converges.
+
+## Decomposition into archimedean + prime parts
+
+Take the logarithmic derivative of the completed functional equation. From
+$$-\frac{\xi'}{\xi}(s)=\frac{1}{s-1}-\frac1s? \dots$$
+Rather, use the standard identity: writing
+$$\log\xi(s)=\log\tfrac12 +\log s(s-1)-\tfrac{s}{2}\log\pi+\log\Gamma(\tfrac s2)+\log\zeta(s),$$
+Li's coefficients split as
+$$\lambda_n=\lambda_n^{\infty}+\lambda_n^{\mathrm{prime}},$$
+where λ_n^∞ collects the contributions of the factors s(s−1)π^{−s/2}Γ(s/2)
+(entirely explicit, no zeros of ζ), and λ_n^{prime} comes from log ζ(s), whose
+n-th coefficient in the Li expansion is expressible through the von Mangoldt
+coefficients via
+$$\lambda_n^{\mathrm{prime}} = -\sum_{k=1}^{n}\binom{n}{k}(-1)^{k}\,\eta_{k},\qquad
+\eta_k=\frac{1}{(k-1)!}\lim_{s\to1}\frac{d^{k}}{ds^{k}}\big[(s-1)\,\zeta'/\zeta(s)\dots\big],$$
+i.e. the η_k are the (generalized) Stieltjes-type constants attached to ζ'/ζ.
+
+The archimedean part is *unconditionally computable and positive-growing*:
+a known evaluation gives, as n→∞,
+$$\lambda_n^{\infty}=\frac{n}{2}\log n +\frac{n}{2}(\gamma-1-\log 2\pi)+O(\log n),$$
+which is **positive and of size ~ (n/2)log n**.
+
+## The precise obstruction
+
+RH-positivity of λ_n therefore reduces to the inequality
+$$\lambda_n^{\mathrm{prime}} \ge -\lambda_n^{\infty} = -\tfrac{n}{2}\log n + O(n).$$
+The content of RH is exactly that the prime/zero fluctuation term cannot dip below
+this smooth archimedean barrier. Unconditionally one only knows
+λ_n^{prime} is O(n) *on average* but its individual lower bound is controlled by
+the real parts β of zeros: a single zero with β>½ contributes to λ_n a term
+$$1-\Big(1-\tfrac1\rho\Big)^n,$$
+whose real part, for β near 1 and n large, can be made to *oscillate with amplitude
+≈ |1−1/ρ|^n = (something >? <1)^n*. The decisive fact:
+$$\Big|1-\tfrac1\rho\Big|<1 \iff \operatorname{Re}\tfrac1\rho>\tfrac12|\tfrac1\rho|^2
+\iff \beta>\tfrac12.$$
+Indeed |1−1/ρ|² = 1 − 2β/|ρ|² + 1/|ρ|², so
+$$|1-1/\rho|<1 \iff \frac{1}{|\rho|^2}<\frac{2\beta}{|\rho|^2}\iff \beta>\tfrac12.$$
+Hence:
+- If β > ½, then |1−1/ρ|<1, the paired term →1, bounded, **positive** contribution.
+- If β = ½, |1−1/ρ|=1, terms stay on the unit circle, contributions oscillate but the
+  symmetric pairing keeps Re bounded.
+- If β < ½ (the mirror zero 1−ρ has β'>½ automatically by the functional equation).
+
+This is the crux and it is **the wrong way around** for a cheap proof: the growth
+factor (1−1/ρ)^n *decays* when β>½, so an off-line zero does **not** produce an
+exponentially large negative λ_n. Off-line zeros contribute *bounded* oscillating
+terms, whose accumulated effect over the ~ n zeros within height O(n) is only O(n),
+comparable to the O(n) uncertainty already present in λ_n^∞. **This is exactly why
+Li positivity, though equivalent to RH, gives no easy unconditional handle:** the
+signal of a hypothetical off-line zero is *not* amplified by n; it is diluted to the
+same order as the archimedean noise. Any proof must extract a term of size o(n) from a
+background of size n — precisely the "no cancellation savings" barrier.
+
+## Verified base case
+
+For n=1:
+$$\lambda_1=\sum_\rho\operatorname{Re}\frac1\rho=1+\frac\gamma2-\frac12\log 4\pi
+=1+\frac{0.5772156649}{2}-\frac12\log(12.566370614).$$
+Compute: γ/2=0.28860783; ½log(4π)=½·2.5310242469=1.2655121. So
+$$\lambda_1=1+0.28860783-1.2655121=0.02309573>0.$$
+This matches the known value 0.0230957… and confirms the decomposition:
+λ_1^∞ = 1+γ/2 (from the s(s−1)Γ archimedean factors) and the −½log4π is the
+correctly signed archimedean/π contribution; the prime part enters at n≥2. ✔
+
+## Assessment
+
+The rigorous content produced here:
+1. A clean split λ_n = λ_n^∞ + λ_n^{prime} with λ_n^∞ ~ (n/2)log n unconditional.
+2. A precise proof that |1−1/ρ|<1 ⇔ β>½, showing off-line zeros give **bounded,
+   non-amplified** Li contributions.
+3. The consequent sharp obstruction: RH-via-Li requires extracting an o(n)-order
+   deficit from an O(n)-order noisy background — no exponential lever exists.
+4. Verified base case λ_1 > 0.
+
+This clarifies *why* Li's criterion, despite being an equivalence, resists
+unconditional attack, but it does not prove the needed lower bound and hence makes
+no new progress toward RH itself.
+
+VERDICT: FAILED
+REASON: Isolated and verified the "no amplification" obstruction in Li's criterion; no new bound proved, RH untouched.

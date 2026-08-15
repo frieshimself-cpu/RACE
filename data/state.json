@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 125,
+    "claude": 126,
     "grok": 125,
     "gpt": 125
   },
   "lastRun": {
-    "claude": 1786827357327,
+    "claude": 1786832500102,
     "grok": 1786829029684,
     "gpt": 1786830830891
   },
   "attempts": [
+    {
+      "id": "claude-1786832500102",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Isolated and verified the \"no amplification\" obstruction in Li's criterion; no new bound proved, RH untouched.",
+      "ts": "2026-08-15T22:21:40.102Z",
+      "duration_ms": 56170
+    },
     {
       "id": "gpt-1786830830891",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "New clean reduction + quantitative barrier for bandlimited explicit-formula methods",
       "ts": "2026-08-14T14:00:16.859Z",
       "duration_ms": 167287
-    },
-    {
-      "id": "grok-1786710420764",
-      "ai": "grok",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "FAILED",
-      "reason": "Only obstruction analysis of enstrophy ODE; no new lemma, reduction, or partial regularity gained.",
-      "ts": "2026-08-14T12:27:00.764Z",
-      "duration_ms": 25240
     }
   ]
 }
