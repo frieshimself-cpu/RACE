@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 116,
-    "grok": 115,
+    "grok": 116,
     "gpt": 115
   },
   "lastRun": {
     "claude": 1786773481909,
-    "grok": 1786769433985,
+    "grok": 1786776660526,
     "gpt": 1786771452268
   },
   "attempts": [
+    {
+      "id": "grok-1786776660526",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour method for density bound reduces circularly to hybrid subconvexity as hard as RH itself",
+      "ts": "2026-08-15T06:51:00.526Z",
+      "duration_ms": 37679
+    },
     {
       "id": "claude-1786773481909",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Correct identities/reduction to $\\limsup\\lambda_n^{1/n}=1$ obtained, but no new bound proving zeros lie on the line.",
       "ts": "2026-08-12T22:41:12.518Z",
       "duration_ms": 72155
-    },
-    {
-      "id": "gpt-1786571147900",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous reduction: RH ⇔ square-root bound for ∑ μ(n) e^{-n/X}; no full proof of RH.",
-      "ts": "2026-08-12T21:45:47.900Z",
-      "duration_ms": 145322
     }
   ]
 }

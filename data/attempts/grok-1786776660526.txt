@@ -1,0 +1,54 @@
+### Attempt: Obstruction analysis for a contour-shift approach to a zero-density bound implying RH
+
+Let \(N(\sigma,T)\) denote the number of non-trivial zeros \(\rho=\beta+i\gamma\) of \(\zeta(s)\) with \(\beta\ge\sigma\) and \(0<\gamma\le T\). A classical density theorem of Ingham type asserts
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}(\log T)^A
+\]
+for absolute \(c,A>0\). If the exponent of \(T\) could be improved to any quantity strictly less than \(2(1-\sigma)\) uniformly for \(\sigma\ge1/2+\delta\), RH would follow by standard convexity and the fact that \(N(T)\sim(T/2\pi)\log(T/2\pi)\). We examine a natural contour-integral attempt to obtain such an improvement and isolate the precise analytic obstruction.
+
+Fix \(\delta\in(0,1/2)\) and a large parameter \(T\). Let
+\[
+S=\sum_{\substack{\rho\\\beta\ge1/2+\delta\\| \gamma-T|\le T^{1/2}}}1.
+\]
+(The short vertical window of length \(T^{1/2}\) is chosen so that a zero-free region of classical width \(c/\log T\) already removes all zeros near the edge of the window; the argument is local and may be repeated.) Consider the meromorphic function
+\[
+F(s)=\frac{\zeta'}{\zeta}(s)\cdot\frac{1}{(s-\tfrac12-\delta)^2+T}.
+\]
+Integrate \(F\) over the rectangle with vertices
+\[
+\tfrac12+\delta\pm i(T\pm T^{1/2}),\qquad 2\pm i(T\pm T^{1/2}).
+\]
+The horizontal integrals are \(O(T^{-1/2+\varepsilon})\) by the convexivity bound \(\zeta'/\zeta=\!O(\log^2(|t|+2))\) on \(\operatorname{Re}s\ge1/2+\delta/2\) away from zeros (or by a standard truncated Dirichlet series for \(\zeta'/\zeta\)). The right-hand vertical integral is \(O(T^{-1}\log T)\) because \(\zeta'/\zeta\ll\log t\) for \(\operatorname{Re}s\ge2\).
+
+By the residue theorem the left-hand vertical integral therefore equals
+\[
+2\pi i\sum\operatorname{Res}+O(T^{-1/2+\varepsilon}),
+\]
+where the sum runs over zeros inside the rectangle (each contributing a simple pole of \(\zeta'/\zeta\)) together with the double pole of the rational factor at \(s=1/2+\delta+iT\). The latter residue is \(O(T^{-1})\). Hence
+\[
+\int_{1/2+\delta-iT^{1/2}}^{1/2+\delta+iT^{1/2}}\frac{\zeta'}{\zeta}(\sigma+it)\,dt=2\pi i\,S+O(T^{-1/2+\varepsilon}).
+\]
+If one could show that the left-hand side is \(o(T^{1/2})\), the desired bound \(S=o(T^{1/2})\) would follow, and summing dyadic windows would give \(N(1/2+\delta,T)=o(T)\), which is already strong enough to force all but \(o(N(T))\) zeros onto the critical line and, by known zero-density bootstrapping, the full RH.
+
+The obstruction appears when one attempts to bound the vertical integral. Write the Dirichlet series
+\[
+-\frac{\zeta'}{\zeta}(s)=\sum_{n=1}^\infty\frac{\Lambda(n)}{n^s}\qquad(\operatorname{Re}s>1)
+\]
+and shift to the line \(\operatorname{Re}s=1/2+\delta\). After truncation at \(n\le T^C\) (the tail is negligible), the integral becomes a linear combination of terms
+\[
+\int_{-T^{1/2}}^{T^{1/2}}n^{-1/2-\delta-it}\,dt=\frac{2\sin\bigl(T^{1/2}\log n\bigr)}{n^{1/2+\delta}\log n}.
+\]
+Summing against \(\Lambda(n)\) produces a sum of the shape
+\[
+\sum_{n\le T^C}\frac{\Lambda(n)}{n^{1/2+\delta}}\cdot\frac{\sin(T^{1/2}\log n)}{\log n}.
+\]
+The square-root cancellation that would make this \(o(T^{1/2})\) is precisely equivalent to a non-trivial bound on the exponential sum
+\[
+\sum_{n\le X}\Lambda(n)e^{it\log n},\qquad t=T^{1/2},\quad X=T^C,
+\]
+i.e., a subconvex bound for \(\zeta(1/2+\delta+it)\) of hybrid quality far beyond the Weyl or even the best current subconvexity exponents. In other words, the contour shift reduces the original density problem to a statement about the zeta function on a line still to the right of the critical line that is essentially as hard as RH itself (by the classical equivalence of RH with \(\zeta(1/2+it)=O(t^\varepsilon)\)).
+
+Thus the method is circular: every attempt to estimate the vertical integral re-introduces a zeta-sum whose cancellation is known only under hypotheses at least as strong as the density bound one set out to prove. This obstruction persists for any fixed power-saving window length \(T^\theta\) with \(\theta<1\) and for any rational factor of polynomial decay; only an essentially square-root cancellation on vertical lines \(\operatorname{Re}s>1/2\) would close the argument, which is unavailable unconditionally.
+
+VERDICT: FAILED
+REASON: Contour method for density bound reduces circularly to hybrid subconvexity as hard as RH itself
