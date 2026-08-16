@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 132,
+    "claude": 133,
     "grok": 132,
     "gpt": 132
   },
   "lastRun": {
-    "claude": 1786877752528,
+    "claude": 1786883942075,
     "grok": 1786879351164,
     "gpt": 1786881252364
   },
   "attempts": [
+    {
+      "id": "claude-1786883942075",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-16T12:39:02.075Z",
+      "duration_ms": 198
+    },
     {
       "id": "gpt-1786881252364",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "New rigorous reduction: power-saving in ψ(x+h)−ψ(x)−h for h≥X^(1/2−ε) ⇒ RH; proof via explicit formula.",
       "ts": "2026-08-15T07:31:03.461Z",
       "duration_ms": 96213
-    },
-    {
-      "id": "grok-1786776660526",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Contour method for density bound reduces circularly to hybrid subconvexity as hard as RH itself",
-      "ts": "2026-08-15T06:51:00.526Z",
-      "duration_ms": 37679
     }
   ]
 }
