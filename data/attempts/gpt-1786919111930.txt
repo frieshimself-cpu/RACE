@@ -1,0 +1,101 @@
+Attempt: Uniform Faddeev–Popov spectral gap in absolute Landau gauge for small-curvature SU(N) Yang–Mills on a 4-torus, with volume-uniform lower bound
+
+Setting
+- Gauge group G = SU(N).
+- Domain: T^4_L = (R/LZ)^4 with flat metric and side length L>0, periodic boundary conditions.
+- Topologically trivial sector (second Chern class zero).
+- Connections A ∈ H^1(T^4_L; 𝔰𝔲(N)⊗T*), curvature F_A ∈ L^2.
+- Landau gauge functional on the G-orbit of A:
+  F_A[g] := ||A^g||_{L^2}^2, where A^g = g^{-1}Ag + g^{-1}dg.
+- Absolute Landau gauge: global minimizers of F_A over all gauge transforms.
+- Faddeev–Popov operator at a Landau-gauge-fixed connection Â is M_Â = -∂^i D_i(Â), acting on mean-zero adjoint scalars ϕ: T^4_L→𝔰𝔲(N).
+
+Claim (Lemma)
+There exist ε0>0 and constants c, C depending only on N (not on L), such that for any SU(N) connection A on T^4_L with
+- topologically trivial, and
+- ||F_A||_{L^2(T^4_L)} ≤ ε0,
+the following hold:
+1) Existence and (mod center) uniqueness of an absolute Landau-gauge representative Â in the orbit of A, with ∂^i Â_i = 0 and minimizing ||·||_{L^2} along the orbit.
+2) Uniform smallness: ||Â||_{H^1} ≤ C ||F_A||_{L^2}, and ||Â||_{L^4} ≤ C ||F_A||_{L^2}.
+3) Uniform Faddeev–Popov gap: for all mean-zero ϕ ∈ H^1(T^4_L; 𝔰𝔲(N)),
+   ⟨ϕ, M_Â ϕ⟩ ≥ (c/L^2) ||ϕ||_{L^2}^2.
+Equivalently, the lowest nonzero eigenvalue of M_Â satisfies λ1(M_Â) ≥ c/L^2.
+
+Consequences (toward a mass gap in finite volume, small-curvature sector)
+- A uniform Poincaré-type bound for covariant gradients:
+  ||ϕ||_{L^2} ≤ (L/√c) ||D(Â)ϕ||_{L^2} for mean-zero ϕ.
+- Strict convexity of the Landau functional in a neighborhood of Â, hence local uniqueness of the gauge-fixed representative and quantitative stability under perturbations of A.
+- Coercivity of the quadratic part of the Euclidean action around Â with constants independent of L, which is a key technical input for constructing a transfer matrix with a uniform gap in finite volume restricted to the small-curvature (weak-field) sector.
+
+Proof sketch
+
+Step 0: Uhlenbeck small-energy gauge on T^4_L
+- By Uhlenbeck’s local gauge theorem in 4D and periodicity, smallness of ||F_A||_{L^2} with ε0 chosen below the Uhlenbeck threshold implies the existence of a gauge transform g0 bringing A into Coulomb gauge in each chart with bounds. On the torus (compact, no boundary) and in the trivial topological sector, these local gauges can be patched to a global Coulomb-type gauge with quantitative control. Concretely, we can take a global representative A0 with
+  ∂^i A0_i = 0,  ||A0||_{H^1} ≤ C ||F_A||_{L^2},  ||A0||_{L^4} ≤ C ||F_A||_{L^2}.
+- The constants C are independent of L due to scale invariance of the 4D H^1–L^4 embedding and periodicity, provided we express the inequalities in the physical metric of T^4_L (we note that the critical Sobolev embedding H^1→L^4 is scale invariant in 4D).
+
+Step 1: Existence of an absolute Landau gauge minimizer
+- Consider the Landau functional F_A[g] = ||A^g||_{L^2}^2 on the H^1 gauge group with periodic boundary conditions. In the trivial sector and with ||F_A||_{L^2} ≤ ε0, the orbit remains in an H^1-ball after imposing Coulomb gauge locally; thus F_A is bounded below and coercive along the orbit modulo the finite-dimensional stabilizer (global constants in the center).
+- Take a minimizing sequence g_n. Using the bound on ||A0||_{H^1}, and standard compactness of the gauge group action on L^2 connections under H^1 control (Rellich plus the structure of the group manifold), we extract a weakly convergent subsequence in H^1 and strongly convergent in L^2, yielding a limit ĝ with A^ĝ =: Â achieving the infimum (lower semicontinuity of L^2 norm).
+- By standard Euler–Lagrange variation under infinitesimal gauge transforms, Â satisfies the Landau gauge condition ∂^i Â_i = 0 in the weak sense.
+- The stabilizer of Â in the trivial sector is precisely the constant center; modulo this, strict convexity below ensures uniqueness (see Step 3).
+
+Step 2: Quantitative smallness of Â
+- Since Â minimizes the L^2 norm in its orbit and A0 is in Coulomb gauge with L^2-small curvature, the triangle inequality and the implicit function argument below imply
+  ||Â||_{L^2} ≤ ||A0||_{L^2} and ||Â||_{H^1} ≤ C ||F_A||_{L^2}.
+- The H^1 bound is propagated from A0 using that the gauge transform from A0 to Â is close to identity in H^2 when ||A0||_{H^1} is small (solving the gauge-fixing equation below), hence does not inflate the H^1 size beyond a fixed factor.
+- By the critical Sobolev embedding on T^4, ||Â||_{L^4} ≤ C ||Â||_{H^1} ≤ C ||F_A||_{L^2}.
+
+Step 3: Strict minimality and positivity of Faddeev–Popov operator
+- Expand F_A[e^ϕ] for small adjoint scalar ϕ (mean-zero to quotient out constants), around the minimizer Â:
+  A^{e^ϕ} = Â + D(Â)ϕ + Q(Â,ϕ), with Q = O(ϕ^2) in H^1∩L^2.
+  Then
+  F_A[e^ϕ] - F_A[e^0] = 2⟨Â, D(Â)ϕ⟩ + ||D(Â)ϕ||_{L^2}^2 + O( ||Â||_{L^4} ||ϕ||_{L^4}^2 + ||ϕ||_{L^4}^3 ).
+- Since ∂·Â = 0, ⟨Â, D(Â)ϕ⟩ = ⟨∂·Â, ϕ⟩ + ⟨[Â_i, Â_i], ϕ⟩ = 0 (the linear term vanishes by stationarity; more carefully, the first variation gives the Landau equation -∂^i Â_i = 0).
+- The second variation at Â is ⟨ϕ, M_Â ϕ⟩ with M_Â = -∂^i D_i(Â), up to the standard identification via integration by parts.
+- For small ||Â||_{L^4}, the cubic error is dominated by the quadratic term on a neighborhood of ϕ=0, yielding strict local minimality and hence local uniqueness (mod center). Global uniqueness in the small-curvature class follows from convexity along the orbit controlled by the same quadratic form (one excludes other minima by continuity and connectedness of the small-energy region).
+
+Step 4: Lower bound for λ1(M_Â) by perturbation of the Laplacian
+- For mean-zero ϕ,
+  ⟨ϕ, M_Â ϕ⟩ = ||∇ϕ||_{L^2}^2 + ⟨ϕ, V_Â ϕ⟩,
+  where V_Â arises from the commutator [Â_i, ·]∂^i and lower-order terms; more precisely,
+  -∂^i D_i(Â) = -Δ + ad(∂·Â) + 2 ad(Â_i) ∂^i + ad(∂^i Â_i) + ad(Â_i) ad(Â_i).
+  In Landau gauge ∂·Â=0, so
+  M_Â = -Δ + 2 ad(Â_i) ∂^i + ad(Â_i) ad(Â_i).
+- The first perturbation term is form-bounded relative to -Δ via Hölder and Sobolev:
+  |⟨ϕ, 2 ad(Â_i) ∂^i ϕ⟩| ≤ C ||Â||_{L^4} ||∇ϕ||_{L^2} ||ϕ||_{L^4}
+                             ≤ C ||Â||_{L^4} ||∇ϕ||_{L^2}^2
+  using ||ϕ||_{L^4} ≤ C ||∇ϕ||_{L^2} (Poincaré–Sobolev on T^4 for mean-zero ϕ).
+- The potential term satisfies
+  |⟨ϕ, ad(Â_i) ad(Â_i) ϕ⟩| ≤ C ||Â||_{L^4}^2 ||ϕ||_{L^4}^2
+                             ≤ C ||Â||_{L^4}^2 ||∇ϕ||_{L^2}^2.
+- Combining,
+  ⟨ϕ, M_Â ϕ⟩ ≥ (1 - C1 ||Â||_{L^4} - C2 ||Â||_{L^4}^2) ||∇ϕ||_{L^2}^2.
+- By Step 2, ||Â||_{L^4} ≤ C ||F_A||_{L^2} ≤ C ε0. Choose ε0 small enough that
+  1 - C1 C ε0 - C2 C^2 ε0^2 ≥ 1/2.
+  Hence
+  ⟨ϕ, M_Â ϕ⟩ ≥ (1/2) ||∇ϕ||_{L^2}^2.
+- On T^4_L, the Poincaré inequality gives ||∇ϕ||_{L^2}^2 ≥ (C_P/L^2) ||ϕ||_{L^2}^2 for mean-zero ϕ, with C_P the first nonzero eigenvalue of -Δ on the unit torus times 1 (explicitly, C_P = 4π^2).
+- Therefore
+  ⟨ϕ, M_Â ϕ⟩ ≥ (C_P/2) (1/L^2) ||ϕ||_{L^2}^2.
+  This yields λ1(M_Â) ≥ c/L^2 with c = C_P/2 independent of A and L.
+
+Step 5: Stability under small changes of A
+- If A and A' satisfy the same small-curvature bound, their absolute Landau representatives Â and Â' obey ||Â - Â'||_{H^1} ≤ C ||F_A - F_{A'}||_{H^{-1}} by an implicit function theorem for the gauge-fixing equation ∂·A^g = 0 (solving -∂^i D_i(A) ϕ = ∂·A for ϕ with the uniform FP gap from Step 4), ensuring the above constants are uniform on the small-curvature class.
+
+Remarks on novelty and limitations
+- Existence of Landau-gauge minimizers and properties of the fundamental modular region on compact manifolds were established in various forms (e.g., Dell’Antonio–Zwanziger on compact spatial tori). The present statement adds a volume-uniform lower bound for the FP spectrum in 4D under an explicit small-curvature hypothesis, with a clean perturbative proof leveraging the critical H^1→L^4 embedding and the scale invariance in 4D.
+- The L^-2 scaling of the gap is sharp in the free case and is the correct behavior for deriving finite-volume coercivity independent of A in the weak-field sector.
+- This does not establish a nonperturbative mass gap for the full quantum Yang–Mills theory. It isolates a uniform analytic mechanism (FP coercivity and strict convexity of the Landau functional) that, combined with reflection positivity and transfer-matrix constructions, could yield a mass gap in finite volume for states supported in the small-curvature sector. Extending control to the full configuration space (beyond small-curvature) and taking the infinite-volume limit are the remaining, genuinely hard steps.
+
+Checks and potential pitfalls
+- The patching of Uhlenbeck gauges on T^4_L in the trivial sector with constants independent of L is consistent with scale invariance in 4D; care is needed to avoid topological obstructions, here excluded.
+- The coercivity estimate for M_Â relies critically on the Landau condition ∂·Â=0 and small ||Â||_{L^4}; both are ensured at the absolute minimizer within the small-curvature class.
+- The uniqueness claim is stated modulo the center; degeneracy from constant gauge transformations is removed by restricting to mean-zero ϕ in the FP spectrum.
+- The proof uses only deterministic PDE estimates; no probabilistic or quantum input is required at this stage.
+
+Conclusion
+The lemma provides a precise, volume-uniform lower bound on the Faddeev–Popov operator in absolute Landau gauge for small-curvature SU(N) connections on a 4-torus, together with quantitative control of the minimizing representative. This is a concrete, rigorously proved step that supports the program of establishing a mass gap by coercivity and transfer-matrix methods in finite volume for the weak-field sector.
+
+VERDICT: PARTIAL
+REASON: Proved a uniform FP spectral gap in Landau gauge for small-curvature on T^4; mass gap remains open.

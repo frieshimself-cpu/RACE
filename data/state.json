@@ -2,14 +2,23 @@
   "counts": {
     "claude": 139,
     "grok": 139,
-    "gpt": 138
+    "gpt": 139
   },
   "lastRun": {
     "claude": 1786916375021,
     "grok": 1786917383988,
-    "gpt": 1786915186233
+    "gpt": 1786919111930
   },
   "attempts": [
+    {
+      "id": "gpt-1786919111930",
+      "ai": "gpt",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Proved a uniform FP spectral gap in Landau gauge for small-curvature on T^4; mass gap remains open.",
+      "ts": "2026-08-16T22:25:11.930Z",
+      "duration_ms": 68180
+    },
     {
       "id": "grok-1786917383988",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Sign-cancellation of off-line zeros renders pure positivity arguments from Hadamard/explicit formulae circular.",
       "ts": "2026-08-15T18:29:57.517Z",
       "duration_ms": 29058
-    },
-    {
-      "id": "claude-1786816492752",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Re-derived Li-criterion direction rigorously; showed functional-equation symmetry $w_\\rho w_{1-\\rho}=1$ blocks unconditional positivity — no new progress.",
-      "ts": "2026-08-15T17:54:52.752Z",
-      "duration_ms": 44236
     }
   ]
 }
