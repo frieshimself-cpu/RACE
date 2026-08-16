@@ -1,0 +1,61 @@
+Attempt: An obstruction and a quantitative replacement for “almost-everywhere square-root cancellation of the Möbius sum implies RH”
+
+Set-up. Recall the identity (valid for Re s>1)
+1/ζ(s) = s ∫_1^∞ M(x) x^{-s-1} dx,
+where M(x) = ∑_{n≤x} μ(n). A common hope is: if |M(x)| ≤ x^{1/2} for “almost all” x (say, outside a set of small logarithmic measure), then the integral should converge on Re s>1/2 and thus give 1/ζ(s) there, implying RH. I establish a sharp obstruction to this hope, and then give a precise quantitative condition on the exceptional set that does suffice to move the half-plane of analyticity past 1/2.
+
+Part I: A rigorous obstruction (counterexample template)
+
+Lemma (barrier for “a.e. square-root” bounds). There exists a measurable F:[1,∞)→[0,∞) and a measurable exceptional set E⊂[1,∞) with finite logarithmic measure ∫_E dx/x < ∞ such that:
+- 0 ≤ F(x) ≤ x for all x≥1;
+- F(x) ≤ x^{1/2} for all x∉E;
+- For every σ∈(1/2,1), the Mellin integral ∫_1^∞ F(x) x^{-σ-1} dx diverges to +∞.
+
+Proof. Work on the log-scale: write x = e^t, t≥0, so dx = e^t dt and x^{-σ-1} dx = e^{-(σ+1)t} e^t dt = e^{-σ t} dt. We will take E as a union of disjoint short intervals Ik = [ek, e^{k} e^{wk}], where the “log-widths” wk>0 will be chosen summable (hence E has finite log-measure: ∑ wk < ∞). Define F(x) by
+- F(x) = x on E,
+- F(x) = x^{1/2} on [1,∞)\E.
+Then clearly 0≤F(x)≤x always and F(x)≤x^{1/2} off E.
+
+Fix σ∈(1/2,1). The contribution of the complement [1,∞)\E is bounded by
+∫_{[1,∞)\E} x^{1/2} x^{-σ-1} dx = ∫_{[1,∞)\E} x^{-(σ+1/2)} dx < ∞
+since σ+1/2>1.
+
+On Ik (t∈[k,k+wk]) we have x≈e^{k} and dx≈e^{k} dt, and F(x)=x. Hence the contribution of Ik is
+∫_{Ik} x · x^{-σ-1} dx = ∫_{t∈[k,k+wk]} e^{t} · e^{-σ t} dt = ∫_{k}^{k+wk} e^{(1-σ)t} dt
+≥ wk e^{(1-σ)k}.
+Summing over k gives
+∑_{k} wk e^{(1-σ)k}.
+Choose, for instance, wk = 1/k^2. Then ∑ wk<∞ (so E has finite logarithmic measure), but for every fixed σ∈(1/2,1) one has e^{(1-σ)k}/k^2 → ∞ and hence ∑_k wk e^{(1-σ)k} diverges. Therefore ∫_1^∞ F(x) x^{-σ-1} dx diverges for all σ∈(1/2,1). This proves the lemma.
+
+Consequence. Any strategy that aims to deduce analyticity of 1/ζ(s) in Re s>1/2 merely from a bound of the form |M(x)| ≤ C x^{1/2} (even strengthened to x^{1/2} (log x)^{-A}) outside a set of finite logarithmic measure cannot succeed without further quantitative control on the exceptional set: the Mellin transform can be forced to diverge by spikes on an exceptionally thin (even finite log-measure) set. Thus “logarithmic density one” control of the square-root bound is intrinsically insufficient.
+
+Part II: A quantitative sufficient condition (exceptional set criterion for a zero-free half-plane)
+
+Proposition (quantitative exceptional-set criterion). Let E⊂[1,∞) be measurable and suppose there exists σ0∈(1/2,1) and constants C, X0 such that
+- |M(x)| ≤ C x^{1/2} for all x≥X0 with x∉E;
+- The weighted log-thickness of E is finite at rate σ0:
+S(σ0) := ∑_{n=⌈log X0⌉}^{∞} e^{(1-σ0)n} m_log(E ∩ [e^{n}, e^{n+1})) < ∞,
+where m_log denotes logarithmic measure: m_log(A) = ∫_{A} dx/x.
+Then the integral s∫_1^∞ M(x) x^{-s-1} dx converges absolutely for Re s>1 and converges (as an improper integral) and defines a holomorphic function for Re s>σ0. Consequently, ζ(s) ≠ 0 for Re s>σ0.
+
+Proof (sketch, rigorous estimates). Write s = σ+it. Split the integral over [1,∞) into dyadic log-slabs [e^{n}, e^{n+1}). For each n≥N0:=⌈log X0⌉, decompose [e^{n}, e^{n+1}) into the “good part” G_n := ([e^{n}, e^{n+1})\E) and “bad part” B_n := E∩[e^{n}, e^{n+1}).
+
+On G_n we use |M(x)| ≤ C x^{1/2} to get
+∫_{G_n} |M(x)| x^{-σ-1} dx ≤ C ∫_{e^{n}}^{e^{n+1}} x^{-(σ+1/2)} dx ≤ C' e^{-(σ-1/2) n}.
+Summing over n gives convergence for all σ>1/2.
+
+On B_n use the trivial bound |M(x)| ≤ x and the size of B_n in x-scale. Let w_n := m_log(B_n) = ∫_{B_n} dx/x. Then the x-length of B_n is at most (sup x on the slab) times w_n, i.e., |B_n|_x ≤ e^{n+1} w_n. Hence
+∫_{B_n} |M(x)| x^{-σ-1} dx ≤ ∫_{B_n} x · x^{-σ-1} dx ≤ |B_n|_x · e^{-σ n}
+≤ e^{n+1} w_n · e^{-σ n} = e · w_n · e^{(1-σ) n}.
+By assumption, ∑_{n≥N0} e^{(1-σ0) n} w_n = S(σ0) < ∞. Hence for any σ>σ0,
+∑_{n≥N0} e^{(1-σ) n} w_n ≤ ∑_{n≥N0} e^{-(σ-σ0) n} · e^{(1-σ0) n} w_n
+≤ (sup_{n≥N0} e^{-(σ-σ0) n}) · S(σ0) < ∞.
+Therefore the series ∑_n ∫_{B_n} |M(x)| x^{-σ-1} dx converges, and the total integral over E converges. Combining with the good part gives convergence of ∫_1^∞ M(x) x^{-s-1} dx for Re s>σ0. Standard dominated convergence on compacta in σ>σ0 shows holomorphy. Since the integral equals 1/ζ(s) for σ>1, uniqueness of analytic continuation implies ζ(s) has no zeros on Re s>σ0. This proves the proposition.
+
+Remarks and implications.
+- The obstruction shows a precise barrier: any a.e. square-root bound without quantitative exceptional-set thinning cannot yield RH via the Mellin route. In particular, “full logarithmic density” does not help; one needs exponentially weighted thinning in the log-scale comparable to S(σ0)<∞ to gain a zero-free half-plane Re s>σ0.
+- The positive criterion is sharp in spirit with respect to the obstruction: the weight e^{(1-σ0)n} is exactly the growth rate of the Mellin kernel on the log-scale, so the finiteness of S(σ0) is (up to constants) the right condition to force convergence.
+- As a corollary, any future approach that proves |M(x)| ≤ x^{1/2} outside E together with S(1/2+ε)<∞ for every ε>0 would imply RH. Conversely, any attempt lacking such an exponentially weighted control on E cannot conclude RH by this line.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous barrier and a quantitative criterion linking Möbius a.e. bounds to zero-free half-planes
