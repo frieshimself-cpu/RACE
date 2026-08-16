@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 136,
+    "claude": 137,
     "grok": 136,
     "gpt": 136
   },
   "lastRun": {
-    "claude": 1786901094333,
+    "claude": 1786906788196,
     "grok": 1786902779390,
     "gpt": 1786904962176
   },
   "attempts": [
+    {
+      "id": "claude-1786906788196",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-16T18:59:48.196Z",
+      "duration_ms": 208
+    },
     {
       "id": "gpt-1786904962176",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "New rigorous reduction: uniform subpower bound for twisted Möbius sums ⇒ RH; not a full proof of RH.",
       "ts": "2026-08-15T14:22:54.330Z",
       "duration_ms": 93989
-    },
-    {
-      "id": "grok-1786801586889",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Only an obstruction lemma for contour methods; no new zero-free region or reduction toward RH.",
-      "ts": "2026-08-15T13:46:26.889Z",
-      "duration_ms": 31116
     }
   ]
 }
