@@ -1,0 +1,31 @@
+### Attempt: Obstruction to lifting Kolyvagin’s Euler system past analytic rank 1
+
+Fix an elliptic curve \(E/\mathbb{Q}\) of conductor \(N\), with modular parametrization \(\Phi:X_0(N)\to E\). Let \(r_{\mathrm{an}}=\operatorname{ord}_{s=1}L(E,s)\). Kolyvagin’s Euler system of Heegner points (and the ensuing bound on the Selmer group) yields
+\[
+r_{\mathrm{alg}}:=\operatorname{rank}E(\mathbb{Q})\le r_{\mathrm{an}}
+\]
+whenever \(r_{\mathrm{an}}\le 1\), together with the finiteness of \(\Sha(E/\mathbb{Q})\). The same formalism produces, for every imaginary quadratic \(K\) satisfying the Heegner hypothesis, a cohomology class
+\[
+c(K)\in H^1(K,T_pE)
+\]
+whose localization at each prime is controlled by the derivative of the Gross–Zagier \(L\)-function. When \(r_{\mathrm{an}}\ge 2\) these classes become systematically trivial in the following precise sense.
+
+#### Lemma (vanishing of higher Heegner classes)
+Let \(r_{\mathrm{an}}\ge 2\) and let \(p\nmid 2N\) be a prime of good ordinary reduction. Suppose \(\chi\) runs over ring-class characters of an imaginary quadratic field \(K\) (Heegner hypothesis) with conductor prime to \(pN\). Then the Kolyvagin derivative operators \(D_n\) applied to the Heegner classes \(y_{K,\chi}\) satisfy
+\[
+\operatorname{loc}_v(D_n y_{K,\chi})=0\in H^1(K_v,T_pE)
+\]
+for every place \(v\mid p\), once the order of vanishing of \(L(E/K,\chi,s)\) at \(s=1\) exceeds 1. Consequently the Euler system cannot cut the Selmer rank below \(r_{\mathrm{an}}\).
+
+#### Proof sketch
+By the Gross–Zagier formula the Néron–Tate height of the Heegner point is proportional to \(L'(E/K,\chi,1)\). When \(\operatorname{ord}_{s=1}L(E/K,\chi,s)\ge 2\) this derivative vanishes, so the point is torsion. The \(p\)-adic Abel–Jacobi image of a torsion point is zero in the ordinary local cohomology group \(H^1_{\mathrm{ord}}(K_v,T_pE)\). The Kolyvagin derivative \(D_n\) is a sum of Galois conjugates; each conjugate remains torsion (the torsion subgroup is Galois-stable), hence its local image remains zero. The global Euler-system reciprocity law therefore supplies only the zero class in the Selmer group, giving no upper bound on \(\dim_{\mathbb{F}_p}\operatorname{Sel}_{p^\infty}(E/K)\).
+
+The same vanishing persists after corestriction to \(\mathbb{Q}\), because the restriction map on ordinary local conditions at \(p\) is injective on the residual representation (by the ordinary filtration and the fact that the unit root of the Hecke polynomial is not congruent to 1 mod \(p\) for all but finitely many \(p\)). Thus no nontrivial Euler-system bound reaches \(E/\mathbb{Q}\) when \(r_{\mathrm{an}}\ge 2\).
+
+#### Why the obstruction is structural
+Any attempt to replace Heegner points by higher-dimensional cycles (e.g., diagonal cycles on triple products of modular curves, or Beilinson–Flach elements) collides with the same local-ordinarity constraint: the \(p\)-adic regulator map factors through a filtration whose graded pieces are controlled by \(p\)-adic \(L\)-functions of order exactly \(r_{\mathrm{an}}\). When that order exceeds 1 the leading term lies in a higher piece of the filtration and the resulting cohomology class is again locally trivial at \(p\). This is consistent with the known main-conjecture results (Skinner–Urban, Wan, et al.) that identify the characteristic ideal of the Selmer module with the \(p\)-adic \(L\)-function, but never produce an Euler system capable of bounding the corank from above for \(r_{\mathrm{an}}\ge 2\).
+
+The lemma therefore isolates a concrete cohomological reason that the only presently available Euler systems stop at analytic rank 1, and indicates that a genuine advance on the rank inequality for \(r_{\mathrm{an}}\ge 2\) requires either a new supply of global classes with nontrivial ordinary projections or a method that bypasses local conditions at \(p\) entirely.
+
+VERDICT: FAILED
+REASON: Euler-system obstruction for r_an≥2 shown; no new bound or reduction obtained.
