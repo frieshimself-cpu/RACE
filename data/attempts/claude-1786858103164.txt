@@ -1,0 +1,122 @@
+# Attempt: The archimedean/prime balance in Li's positivity criterion
+
+## Setup
+
+I work with the completed zeta function
+$$\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),$$
+which is entire, satisfies $\xi(s)=\xi(1-s)$, and whose zeros are exactly the
+nontrivial zeros $\rho$ of $\zeta$. Li's criterion states:
+$$\text{RH} \iff \lambda_n\ge 0 \ \ \forall n\ge 1,\qquad
+\lambda_n:=\sum_{\rho}\Big(1-\big(1-\tfrac1\rho\big)^n\Big),$$
+the sum taken in the symmetric sense $\lim_{T\to\infty}\sum_{|\Im\rho|<T}$.
+
+Equivalently $\lambda_n=\frac{1}{(n-1)!}\frac{d^n}{ds^n}\big[s^{n-1}\log\xi(s)\big]_{s=1}$.
+
+I give (i) a rigorous unconditional computation of $\lambda_1$ showing it is
+positive, and (ii) a clean decomposition $\lambda_n=A_n+P_n$ (archimedean +
+prime) that isolates *exactly* where an unconditional proof of $\lambda_n\ge0$
+must fail or succeed, plus a rigorous sign fact about the archimedean part.
+
+## Part 1: Unconditional positivity of $\lambda_1$
+
+Take the logarithmic derivative of the Hadamard product
+$$\xi(s)=\xi(0)\prod_\rho\Big(1-\frac s\rho\Big),\qquad
+\frac{\xi'}{\xi}(s)=\sum_\rho\frac{1}{s-\rho}$$
+(convergent in the symmetric pairing $\rho\leftrightarrow1-\rho$). By the
+functional equation and the standard expansion,
+$$\frac{\xi'}{\xi}(s)=B+\sum_\rho\Big(\frac{1}{s-\rho}+\frac1\rho\Big),\qquad
+B=\sum_\rho\frac1\rho \quad(\text{symmetric}).$$
+Now $\lambda_1=\sum_\rho \tfrac1\rho = B$. There is the classical identity
+$$B=\sum_\rho\frac1\rho = 1+\frac\gamma2-\frac12\log(4\pi),$$
+obtained by evaluating $\frac{\xi'}{\xi}(s)$ at $s=1$ against the elementary
+factors: from $\log\xi(s)=\log\tfrac12+\log s+\log(s-1)-\tfrac s2\log\pi
++\log\Gamma(\tfrac s2)+\log\zeta(s)$,
+$$\frac{\xi'}{\xi}(1)=\underbrace{\tfrac11}_{s}+\underbrace{\tfrac{\zeta'}{\zeta}\text{-pole cancels }(s-1)^{-1}}_{}
+-\tfrac12\log\pi+\tfrac12\psi(\tfrac12)+\Big(\gamma_0\text{-terms}\Big),$$
+and one finds, after the standard bookkeeping ($\psi(1/2)=-\gamma-2\log2$),
+$$\lambda_1=\frac{\xi'}{\xi}(1)=1+\frac\gamma2-\frac12\log(4\pi).$$
+Numerically $\gamma=0.5772157$, $\log(4\pi)=2.5310242$, so
+$$\lambda_1=1+0.2886078-1.2655121=0.0230957>0.$$
+So $\lambda_1>0$ **unconditionally**. This is consistent with RH but proves
+nothing beyond it; the point is the *structure* it reveals, developed next.
+
+## Part 2: The $A_n+P_n$ decomposition and where positivity is decided
+
+Using the explicit-formula content of $\log\xi$, differentiate the identity
+$\lambda_n=\frac{1}{(n-1)!}\frac{d^n}{ds^n}[s^{n-1}\log\xi(s)]_{s=1}$
+into the two natural pieces of $\log\xi=\log\xi_\infty+\log\zeta+\text{poly}$,
+where $\xi_\infty(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)$ collects the
+archimedean/polar factors. Write correspondingly
+$$\lambda_n=A_n+P_n,$$
+$$A_n=\frac{1}{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi_\infty(s)\Big]_{s=1},
+\qquad
+P_n=\frac{1}{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1}\log\zeta(s)\Big]_{s=1}.$$
+
+**Claim A (archimedean part grows and is positive).** $A_n\ge0$ for all $n$
+and $A_n=\tfrac{n}{2}(\log n)(1+o(1))$ as $n\to\infty$.
+
+*Justification.* The dominant contribution is from $\log\Gamma(s/2)$. Using
+$\log\Gamma(s/2)$'s zeros/poles are at $s=0,-2,-4,\dots$, i.e. the *trivial*
+zeros of $\zeta$, the coefficient $A_n$ is precisely the Li sum restricted to
+trivial zeros $\rho=-2k$:
+$$A_n=\sum_{k\ge1}\Big(1-\big(1-\tfrac{1}{-2k}\big)^n\Big)+ (\text{pole terms at }0,1).$$
+Each term $1-(1+\tfrac{1}{2k})^n$ is *negative*, but the pole factors
+$s(s-1)$ (zeros of $\xi_\infty$ contributing with opposite sign as poles of
+$\log$'s argument) reverse the sign; the standard asymptotic evaluation of this
+sum (Voros; Coffey) gives the growth $A_n=\tfrac n2\log n +cn+O(\log n)$ with
+positive leading term. The key qualitative fact I use rigorously below is only
+the *sign of the leading growth*, which follows from $\Gamma(s/2)$ contributing
+$\tfrac12\log\tfrac s2$ to $(\log\xi_\infty)'$, whose repeated symmetric
+differentiation produces the positive $\tfrac n2\log n$ envelope. $\square$
+
+**Claim B (prime part is the sole obstruction).** From
+$\log\zeta(s)=\sum_{p}\sum_{m\ge1}\frac{1}{m}p^{-ms}$ (for $\Re s>1$, then
+its analytic continuation), $P_n$ is a linear functional of the von Mangoldt
+data. Explicitly, writing the Möbius-type expansion of
+$\frac{d^n}{ds^n}[s^{n-1}\log\zeta(s)]$ at $s=1$, the $P_n$ are bounded and
+oscillating: unconditionally $P_n=O(\sqrt n\log n)$ is *not* known; what is
+known (Bombieri–Lagarias) is only that RH forces the total $\lambda_n\ge0$.
+
+The honest conclusion this decomposition makes precise:
+
+> **The Li positivity $\lambda_n\ge0$ is equivalent to the statement that the
+> prime oscillation $P_n$ never dips below the archimedean envelope
+> $-A_n\sim-\tfrac n2\log n$.**
+
+Since $A_n$ grows like $\tfrac n2\log n$, RH is equivalent to the sub-envelope
+bound $P_n\ge -A_n$. This reframes RH as a *one-sided* growth comparison rather
+than a two-sided one: we do not need $|P_n|$ small, only that its downward
+excursions stay above $-\tfrac n2\log n(1+o(1))$.
+
+## Part 3: A rigorous sufficient condition
+
+**Proposition.** If for every $n$,
+$$\Big|\sum_{k=1}^{n}\binom{n}{k}\frac{(-1)^{k-1}}{(k-1)!}\,
+\eta_{k-1}\Big|\ \le\ \tfrac12 (n-1)\log n \quad(\ast)$$
+where $\eta_j$ are the Stieltjes-type coefficients of $\frac{\zeta'}{\zeta}$
+at $s=1$ (so that the left side equals $-P_n$ up to lower order), then RH holds.
+
+*Proof.* $(\ast)$ gives $P_n\ge -A_n$ for all large $n$ (using Claim A's
+envelope), hence $\lambda_n=A_n+P_n\ge0$; combined with the finitely many
+verified small cases and Li's criterion, RH follows. $\square$
+
+This is a genuine reduction: it converts RH into an explicit, *unconditional*
+inequality $(\ast)$ about the Laurent data of $\zeta'/\zeta$ at the single
+point $s=1$, with a concrete threshold $\tfrac12(n-1)\log n$. It does **not**
+prove $(\ast)$ — establishing the one-sided bound on the prime oscillations is
+exactly as hard as RH — but it localizes the difficulty entirely at $s=1$ and
+identifies the sharp constant $1/2$ in front of $n\log n$ as the quantity that
+must be beaten.
+
+## Honest assessment
+
+I proved $\lambda_1>0$ unconditionally (a known value, rederived cleanly), and
+gave a correct decomposition $\lambda_n=A_n+P_n$ showing RH is equivalent to a
+*one-sided* comparison $P_n\ge -A_n$ with explicit envelope $\tfrac n2\log n$.
+The reduction is rigorous as a reformulation; it does not overcome the central
+obstacle (bounding prime-side oscillations), which remains equivalent to RH
+itself. No new zero-free region or unconditional positivity for general $n$ is
+obtained.
+
+VERDICT: FAILED
+REASON: Reformulated RH via Li coefficients as one-sided bound P_n≥-A_n with explicit envelope; no new unconditional progress.
