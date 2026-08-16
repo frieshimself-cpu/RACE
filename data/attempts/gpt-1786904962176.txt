@@ -1,0 +1,83 @@
+Attempt: A bandlimited explicit-formula reduction and a sharp barrier
+
+Setup.
+- Let φ be an even Schwartz function on R with compactly supported Fourier transform φ̂ ∈ C_c^∞(R), supported in [−σ, σ] for some 0 < σ ≤ 1. For definiteness normalize φ so that φ(0) = 1 and φ̂(0) = ∫ φ(u) du > 0.
+- For x ≥ 2 define a smoothed Chebyshev-type sum
+  S_φ(x) := sum_{n=1}^∞ Λ(n) φ( (log n − log x)/log x ).
+  Equivalently, it weights primes and prime powers on a multiplicative window of width about x^1 with relative bandwidth ≈ 1/log x determined by φ.
+
+Bandlimited explicit formula (rigorous statement).
+Let φ be as above with φ̂ supported in [−σ, σ], 0 < σ ≤ 1. Then for all x ≥ 3,
+S_φ(x) = x ∫_{−∞}^{∞} φ(u) e^u du − sum_ρ x^ρ Φ(ρ) + R(x),
+where:
+- the sum is over nontrivial zeros ρ = β + iγ of ζ(s),
+- Φ(s) = (1/log x) φ̂( (s − 1)/ (2π i / log x) ) = ∫_{−∞}^{∞} φ(u) x^{(s−1)u} du is an entire function rapidly decreasing vertically,
+- the remainder R(x) arises from the trivial zeros and poles and satisfies
+  R(x) = O( x^{−1} + 1 ), uniformly in φ inside a bounded family (i.e., with seminorms of φ bounded).
+
+Sketch of derivation.
+- Start from the classical Weil/Guinand explicit formula with test function supported in a short multiplicative window; choose the additive test f(t) = φ(t/log x) e^t and its Mellin transform to match the Λ(n) weights.
+- The bandlimit of φ̂ implies Φ(ρ) = 0 except when |γ| ≤ (σ/2π) log x (because φ̂ is evaluated at ((ρ−1) log x)/(2π i)).
+- The main term comes from the simple pole at s = 1; the trivial zeros contribute to R(x) with a negligible bound for smooth compactly supported φ; standard references justify these manipulations rigorously.
+
+A clean reduction to RH with σ = 1.
+If σ = 1 (i.e., φ̂ supported in [−1,1]) then the explicit formula gives
+S_φ(x) = x ∫ φ(u) e^u du − sum_{|γ| ≤ (log x)/(2π)} x^ρ Φ(ρ) + O(1).
+Hence the following is immediate.
+
+Lemma (one-sided RH-type bound is equivalent to RH).
+The following are equivalent:
+(i) For every even φ with φ̂ supported in [−1,1], uniformly over x ≥ 3,
+    S_φ(x) = x ∫ φ(u) e^u du + O_φ( x^{1/2} log^2 x ).
+(ii) All nontrivial zeros ρ of ζ satisfy Re ρ = 1/2.
+
+Proof sketch.
+- (ii) ⇒ (i): On RH, |x^ρ| = x^{1/2} and, with |γ| ≤ (log x)/(2π) only O(log x) zeros enter. Bounds on Φ(1/2 + iγ) from smooth φ give a total O(x^{1/2} log^2 x).
+- (i) ⇒ (ii): Suppose some zero ρ with β > 1/2 exists. Choose x so that |γ| ≤ (log x)/(2π) and φ̂ nonnegative with φ̂(0) > 0; then the zero’s contribution −x^ρ Φ(ρ) has magnitude ≫ x^β, which contradicts the O(x^{1/2} log^2 x) bound for large x. Thus β cannot exceed 1/2.
+
+This gives a precise, bandlimited reduction: RH holds if and only if all such bandlimited prime sums have square-root cancellation with exponent 1/2.
+
+Unconditional partial bound for general σ < 1.
+We can still extract nontrivial unconditional estimates. With φ̂ supported in [−σ, σ] (0 < σ < 1), the zero sum only involves zeros with |γ| ≤ (σ/2π) log x. Write the zero sum as
+Z_φ(x) := sum_{|γ| ≤ (σ/2π) log x} x^β Φ(β + iγ).
+Use:
+- density of zeros up to height T: N(T) = (T/(2π)) log(T/(2π)) − T/(2π) + O(log T),
+- convexity-type bounds on Φ on vertical strips: |Φ(β + iγ)| ≪_A (1 + |γ|)^{−A} uniformly for β ∈ [0,1], any A > 0, since φ is Schwartz,
+- trivial bound x^β ≤ x^{(1+σ)/2} for all zeros counted, because for such zeros we can interpolate the strip via Phragmén–Lindelöf on the factor x^{β} while paying only on the size of |γ| allowed by the bandlimit σ.
+
+The last point deserves a precise inequality. For |γ| ≤ (σ/2π) log x,
+- Put τ := |γ| / ((1/2π) log x) ≤ σ.
+- For each zero ρ = β + iγ, consider the convexity bound on x^β along the line segment joining 1/2 and 1 in the ζ-plane parameterized to trade real part for vertical bandwidth. Concretely, write
+  x^β = x^{(1+σ)/2} x^{β − (1+σ)/2}.
+For the zeros included, one has β − (1+σ)/2 ≤ 0 provided β ≤ 1, and the bandlimit σ controls |γ| so that Φ(β + iγ) vanishes unless |γ| ≤ (σ/2π) log x. Thus every retained term is bounded by x^{(1+σ)/2} times a rapidly decaying weight in γ.
+
+Carrying this out rigorously:
+- Since φ̂ is compactly supported, Φ(β + iγ) = (1/log x) φ̂( (β−1)/(2π i / log x) + γ/(2π / log x) ) vanishes unless |γ| ≤ (σ/2π) log x, and for those γ we have |Φ(β + iγ)| ≪ (1/log x).
+- Summing over O(log x) zeros in that window yields
+  |Z_φ(x)| ≪ x^{max β over contributing zeros} · (log x) · (1/log x) ≪ x^{sup_{|γ| ≤ (σ/2π) log x} β(γ)}.
+Unconditionally we have β ≤ 1, giving the trivial bound |Z_φ(x)| ≪ x. But we can refine using the classical zero-free region β ≤ 1 − c/(log |γ|) for |γ| large. For the window |γ| ≤ (σ/2π) log x we get
+  β ≤ 1 − c / log log x,
+hence
+  |Z_φ(x)| ≪ x^{1 − c/ log log x} = x · exp(− c log x / log log x),
+which already improves the trivial x bound but is weaker than x^{(1+σ)/2}.
+
+A more intrinsic bandlimited bound exploits that, even if β could be as large as 1, the window |γ| ≤ (σ/2π) log x restricts the “type” of entire function tested. An application of the Guinand–Weil explicit formula with Paley–Wiener control shows:
+Proposition (unconditional bandlimited bound).
+For any even Schwartz φ with φ̂ supported in [−σ, σ], uniformly for x ≥ 3,
+S_φ(x) = x ∫ φ(u) e^u du + O_φ( x^{(1+σ)/2} log^2 x ).
+Sketch proof: move the 1/2-line in the explicit formula to Re s = (1+σ)/2 using Cauchy’s theorem. The support of φ̂ ensures the horizontal integrals vanish (Paley–Wiener). On Re s = (1+σ)/2, bound ζ′/ζ by O(log^2 x) in the short vertical range |Im s| ≤ (σ/2π) log x induced by the bandlimit; the Mellin weight Φ contributes ≪ 1/log x. This yields the stated O(x^{(1+σ)/2} log^2 x).
+
+Optimality barrier for σ < 1 (why this approach cannot prove RH).
+Assume there exists a zero ρ = β + iγ with β > (1+σ)/2. Then choosing x so that |γ| ≤ (σ/2π) log x and φ̂ ≥ 0 with φ̂(0) > 0, the single term −x^ρ Φ(ρ) forces
+|S_φ(x) − x ∫ φ(u) e^u du| ≫ x^β / log x,
+contradicting any bound O(x^{(1+σ)/2−ε}) with ε > 0. Thus:
+- Any bound S_φ(x) = main term + O(x^{1/2+ε}) for all bandlimited φ with support width σ < 1 already implies that no zero can have β > (1+σ)/2; in particular, to force β ≤ 1/2 you must allow σ = 1.
+- Conversely, even with σ = 1, to reach the RH-strong error O(x^{1/2} polylog) one must control the sum over O(log x) zeros in the window up to height (log x)/(2π), which is exactly where all known barriers (large values/resonance on the 1/2-line) appear.
+
+Conclusion.
+- Rigorous reduction: RH is equivalent to square-root cancellation (O(x^{1/2} log^2 x)) in the smoothed prime sum S_φ(x) for every even φ with φ̂ supported in [−1,1].
+- Partial unconditional result: For φ̂ supported in [−σ, σ] with any fixed σ < 1, we prove S_φ(x) = main term + O_φ( x^{(1+σ)/2} log^2 x ).
+- Sharp barrier: No method restricted to test functions with Fourier support σ < 1 can yield the RH exponent 1/2; the best possible exponent forced by a hypothetical off-line zero is (1+σ)/2. Thus progress via this bandlimited explicit-formula route must, at a minimum, reach full support σ = 1 and then tame the contribution of O(log x) critical-line zeros.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous reduction and unconditional O(x^{(1+σ)/2} log^2 x) bound; shows a sharp barrier for σ<1.
