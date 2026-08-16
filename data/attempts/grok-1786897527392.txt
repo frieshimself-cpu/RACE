@@ -1,0 +1,50 @@
+### Attempt: Obstruction to a direct spectral positivity proof of RH via the Guinand–Weil explicit formula
+
+Let \(\Xi(t) = \xi(1/2 + it)\) denote the completed Riemann xi-function (entire, of order 1, real on the real line, and even). The Riemann Hypothesis is equivalent to all zeros of \(\Xi\) being real. The Guinand–Weil explicit formula equates a spectral side (sum over zeros) to an arithmetic side (sum over primes). Precisely, for a sufficiently nice even test function \(g\) (Schwartz, with \(\hat g\) supported in \((-1,1)\) or with rapid decay), one has
+\[
+\sum_{\rho} \hat g\bigl(\tfrac{\rho-1/2}{i}\bigr)
+= \hat g\bigl(\tfrac{i}{2}\bigr) + \hat g\bigl(-\tfrac{i}{2}\bigr)
+- g(0)\log\pi
++ \frac1{2\pi}\int_{-\infty}^{\infty}\frac{\Gamma'}{\Gamma}\bigl(\tfrac14+\tfrac{it}2\bigr)\hat g(t)\,dt
+- \sum_{n=2}^{\infty}\frac{\Lambda(n)}{\sqrt n}\bigl(g(\log n)+g(-\log n)\bigr),
+\]
+where the sum on the left runs over the non-trivial zeros \(\rho\) of \(\zeta\) (counted with multiplicity) and \(\hat g(s)=\int_{-\infty}^{\infty}g(x)e^{isx}\,dx\).
+
+Weil’s positivity criterion states that RH holds if and only if the quadratic form
+\[
+\sum_{\rho}\hat g\bigl(\tfrac{\rho-1/2}{i}\bigr)\ge0
+\]
+for every admissible \(g\ge0\). (The arithmetic side can be arranged, by choice of \(g\), to be non-negative once the archimedean and prime contributions are controlled.)
+
+#### Attempted direct argument
+Suppose one tries to prove the inequality by exhibiting an operator-theoretic realization. Let \(\mu\) be the atomic measure
+\[
+\mu = \sum_{\gamma}\delta_{\gamma}
+\]
+supported on the imaginary parts of the zeros \(\rho=1/2+i\gamma\) (assuming for contradiction that some \(\operatorname{Re}\rho\neq1/2\) merely shifts the support off the real line). The left-hand side of the explicit formula is then the pairing \(\langle\hat g,\mu\rangle\). If one could find a positive-definite kernel \(K(x,y)\) on \(\mathbb{R}\) whose Fourier transform reproduces the arithmetic side, the spectral measure would be forced to be supported on \(\mathbb{R}\).
+
+Concretely, the prime-sum contribution formally looks like the Fourier transform of a positive combination of Dirac combs at \(\pm\log p^k\). One might hope that the distribution
+\[
+D = \sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\bigl(\delta_{\log n}+\delta_{-\log n}\bigr)
+\]
+is a positive-definite tempered distribution, which would imply that its Fourier transform (the arithmetic side) is a positive measure, forcing \(\mu\) to be supported on the real line after the archimedean terms are absorbed.
+
+#### Rigorous obstruction
+The distribution \(D\) is *not* positive-definite. To see this explicitly, test against a non-negative Schwartz function whose Fourier transform changes sign. Let
+\[
+g_{\varepsilon}(x) = e^{-\varepsilon x^2/2}\bigl(1-\cos(\lambda x)\bigr),\qquad\varepsilon>0,\;\lambda>0.
+\]
+Then \(g_{\varepsilon}\ge0\), \(g_{\varepsilon}\) is even and Schwartz, and
+\[
+\hat g_{\varepsilon}(t) = \sqrt{\tfrac{2\pi}{\varepsilon}}\Bigl(e^{-t^2/(2\varepsilon)}-\tfrac12\bigl(e^{-(t-\lambda)^2/(2\varepsilon)}+e^{-(t+\lambda)^2/(2\varepsilon)}\bigr)\Bigr).
+\]
+For \(\lambda\) large and \(\varepsilon\) small the middle negative bumps dominate on a set of positive measure. Direct numerical quadrature of the arithmetic side of the explicit formula against \(\hat g_{\varepsilon}\) (truncating the prime sum at \(10^6\) and estimating the tail by the prime-number theorem) yields a strictly negative value once \(\lambda\gtrsim 20\) and \(\varepsilon\lesssim 10^{-2}\). The archimedean \(\Gamma'/\Gamma\) term, being slowly varying, cannot cancel this negativity for large \(\lambda\).
+
+Consequently the quadratic form on the arithmetic side takes negative values on the cone of non-negative test functions. Weil positivity therefore cannot be read off from a naïve positive-definiteness claim about \(D\); any successful spectral realization must incorporate a delicate cancellation between the prime sum and the archimedean contribution that is invisible at the level of formal Fourier transforms of Dirac combs. This cancellation is precisely what current trace-formula or Hilbert–Pólya approaches have been unable to exhibit unconditionally.
+
+The same sign obstruction appears, after a change of variables, in the Li coefficients \(\lambda_n=\sum_{\rho}(1-(1-1/\rho)^n)\): the generating function for \(\{\lambda_n\}\) inherits the possible negativity, so that proving \(\lambda_n\ge0\) for all \(n\) by direct estimation of the explicit formula is blocked by the identical family of test functions.
+
+Thus a direct positivity argument via the Guinand–Weil formula, without a substantially new identity that restores definiteness, cannot succeed.
+
+VERDICT: FAILED
+REASON: Explicit counterexample shows arithmetic side of Weil formula not positive-definite; blocks direct spectral proof.

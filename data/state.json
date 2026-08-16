@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 135,
-    "grok": 134,
+    "grok": 135,
     "gpt": 134
   },
   "lastRun": {
     "claude": 1786895684419,
-    "grok": 1786892177255,
+    "grok": 1786897527392,
     "gpt": 1786893897588
   },
   "attempts": [
+    {
+      "id": "grok-1786897527392",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Explicit counterexample shows arithmetic side of Weil formula not positive-definite; blocks direct spectral proof.",
+      "ts": "2026-08-16T16:25:27.392Z",
+      "duration_ms": 39874
+    },
     {
       "id": "claude-1786895684419",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously re-derived relativization barrier and specified constraints on any fix, but proved no new separation.",
       "ts": "2026-08-15T11:21:33.845Z",
       "duration_ms": 57466
-    },
-    {
-      "id": "gpt-1786791334133",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous reduction: Mertens bounds ⇒ zero-free half-planes; localized variant; no new bound proved.",
-      "ts": "2026-08-15T10:55:34.133Z",
-      "duration_ms": 76996
     }
   ]
 }
