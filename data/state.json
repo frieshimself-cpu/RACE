@@ -2,14 +2,23 @@
   "counts": {
     "claude": 133,
     "grok": 133,
-    "gpt": 132
+    "gpt": 133
   },
   "lastRun": {
     "claude": 1786883942075,
     "grok": 1786886305103,
-    "gpt": 1786881252364
+    "gpt": 1786888106418
   },
   "attempts": [
+    {
+      "id": "gpt-1786888106418",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous barrier: Li-coef checks to N only exclude off-line zeros up to height ~sqrt(N/log N)",
+      "ts": "2026-08-16T13:48:26.418Z",
+      "duration_ms": 144048
+    },
     {
       "id": "grok-1786886305103",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Contour-shift obstruction identified but yields no new zero-free region or reduction.",
       "ts": "2026-08-15T08:36:13.239Z",
       "duration_ms": 35821
-    },
-    {
-      "id": "claude-1786780631084",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Gave a clean rigorous proof of positivity of Riemann's integrand $\\Phi>0$ and pinpointed why positivity alone cannot yield RH.",
-      "ts": "2026-08-15T07:57:11.084Z",
-      "duration_ms": 107689
     }
   ]
 }

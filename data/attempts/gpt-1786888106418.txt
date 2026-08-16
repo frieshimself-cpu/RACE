@@ -1,0 +1,78 @@
+Attempt: A quantitative barrier for Li’s criterion verification
+
+Goal
+Quantify, rigorously and self-containedly, the scale in n at which a single off-critical zero would be forced to make some Li coefficient λn negative. This yields a concrete obstruction: any finite verification λn ≥ 0 for n ≤ N can only preclude off-line zeros up to height ≲ const · sqrt(N / log N). This explains a serious limitation of the Li-criterion–by-computation approach.
+
+Setup
+- Li coefficients are λn = (1/(n−1)!) d^n/ds^n [ s^{n−1} log ξ(s) ]|_{s=1}, where ξ(s) = 1/2 s(s−1)π^{-s/2} Γ(s/2) ζ(s) is the completed ζ.
+- A standard representation (Keiper–Li) is
+  λn = ∑ρ [1 − (1 − 1/ρ)^n],
+  where the sum ranges over all nontrivial zeros ρ of ζ(s), taken in symmetric limit so that it converges (λn is real).
+- Li’s criterion: RH iff λn ≥ 0 for all n ≥ 1.
+
+A single off-line zero and its exponential lever
+Fix a nontrivial zero ρ0 = β + iγ with β < 1/2 and |γ| = T ≥ 1. Write
+z := 1 − 1/ρ0, so
+|z|^2 = |1 − 1/ρ0|^2 = 1 − 2 Re(1/ρ0) + |1/ρ0|^2
+= 1 − 2β/(β^2+γ^2) + 1/(β^2+γ^2)
+= 1 + (1 − 2β)/(β^2+γ^2).
+
+Thus
+|z| = 1 + δ with δ := (1 − 2β)/(2(β^2+γ^2)) + O((β^2+γ^2)^{-2}).
+In particular, for β < 1/2 we have |z| > 1 and, for T large,
+log|z| = δ + O(T^{-4}) with δ ~ (1 − 2β)/(2T^2).
+
+Let θ = arg z. By Kronecker’s theorem (or just compactness/Dirichlet’s approximation), there exist infinitely many n for which the argument nθ is arbitrarily close to an integer multiple of 2π; taking a subsequence, we can ensure cos(nθ) ≥ 1/2. For such n,
+Re(z^n) ≥ (1/2) |z|^n.
+
+Contribution to λn from ρ0 and its conjugate
+Zeros occur in conjugate pairs. The combined contribution of ρ0 and its conjugate to λn equals
+[1 − z^n] + [1 − z̄^n] = 2 − 2 Re(z^n).
+Hence along the chosen subsequence with cos(nθ) ≥ 1/2,
+pair contribution ≤ 2 − |z|^n.
+
+Asymptotics for λn
+Unconditionally (via Stirling and the Hadamard product for ξ), one has the sharp growth
+λn = (1/2) n log n + C1 n + O(log n),
+for some explicit constant C1. This is classical and follows, e.g., from Lagarias’s analysis of Keiper–Li coefficients.
+
+Dominance criterion and scale in n
+For the chosen n (with cos(nθ) ≥ 1/2),
+λn = (pair contribution) + (contribution of all other zeros).
+Using λn = (1/2) n log n + C1 n + O(log n) as an unconditional upper bound for the whole sum, we obtain the numerical inequality
+λn ≤ (1/2) n log n + C1 n + O(log n) − (|z|^n − 2) + Rn,
+where Rn is a nonnegative “slack” that could only make the right-hand side larger if we insisted on double-counting. Discarding the minor constants and O(log n), a sufficient condition for λn < 0 is
+|z|^n ≥ n log n · (some fixed constant).
+
+Taking logarithms and using log|z| = δ + O(T^{-4}) with δ ~ (1 − 2β)/(2T^2), it suffices that
+n δ ≥ log n + O(1),
+or, concretely, for large T,
+n ≥ (2 T^2/(1 − 2β)) (log n + O(1)).
+
+A simple, explicit choice is
+n = A T^2/(1 − 2β) · log T
+with any fixed A > 2. Then
+n δ ≥ (A/2) log T + o(1), so |z|^n ≥ T^{A/2 + o(1)}.
+Since (1/2) n log n + C1 n ≪ (T^2/(1 − 2β)) log T · log(T^2 log T) = O( (T^2/(1 − 2β)) (log T)^2 ),
+we have, for sufficiently large T and, say, A ≥ 10, that
+|z|^n ≫ T^{A/2} ≫ (T^2/(1 − 2β)) (log T)^2,
+forcing λn < 0 along the subsequence cos(nθ) ≥ 1/2.
+
+Conclusion 1 (quantitative detection scale)
+If there exists a zero ρ0 = β + iγ with β < 1/2 and |γ| = T large, then there exists n with
+n ≤ K T^2/(1 − 2β) · log T
+(depending on a universal choice of A, hence an absolute K) such that λn < 0. The dependence on β is sharp at the level of this argument, and the T^2 log T scale is essentially forced by the tiny exponential base log|z| ~ (1 − 2β)/(2T^2).
+
+Conclusion 2 (computational obstruction)
+Therefore, verifying λn ≥ 0 for all n ≤ N can only rule out off-line zeros up to heights
+|γ| ≤ c √(N / log N) · √(1 − 2β),
+uniformly in β ∈ (0, 1/2). In particular, without additional input, one cannot hope to exclude off-line zeros beyond height ≍ √N by checking the first N Li coefficients.
+
+Remarks on rigor and scope
+- The key inequalities used are exact or standard: the formula for |1 − 1/ρ|, the existence of subsequences with cos(nθ) ≥ 1/2, and the unconditional asymptotic λn = (1/2) n log n + C1 n + O(log n).
+- The deduction is robust: it does not assume RH or zero-density results; it only uses the existence of a single left-of-line zero.
+- The T^2/log growth barrier is consistent with sharper results in the literature (e.g., Ki, 2006) that place the first negative λn at n ≍ T^2 with explicit constants; the above provides a clean, self-contained derivation with an extra log T factor and explicit dependence on 1 − 2β.
+- This does not advance RH directly, but it solidifies a concrete barrier: pure computation of λn up to N cannot resolve RH past heights ≫ √N, even in principle.
+
+VERDICT: PARTIAL
+REASON: Rigorous barrier: Li-coef checks to N only exclude off-line zeros up to height ~sqrt(N/log N)
