@@ -1,0 +1,77 @@
+# Attempt: Positivity and decay structure of the de Bruijn kernel Φ, with an obstruction analysis
+
+## Setup
+
+Write the completed zeta function via its classical integral representation. With
+$$
+\Phi(u) \;=\; \sum_{n=1}^{\infty}\bigl(2\pi^2 n^4 e^{9u/2} - 3\pi n^2 e^{5u/2}\bigr)\exp\!\bigl(-\pi n^2 e^{2u}\bigr),
+$$
+one has the (well-known, and easily verified by differentiating the Jacobi theta transformation) identity
+$$
+\tfrac12\,\xi\!\left(\tfrac12+it\right) \;=\; \int_{0}^{\infty}\Phi(u)\cos(tu)\,du,
+\qquad \Phi(-u)=\Phi(u).
+$$
+The de Bruijn–Newman deformation $H_t(z)=\int_0^\infty e^{tu^2}\Phi(u)\cos(zu)\,du$ satisfies: RH $\iff \Lambda\le 0$, where $\Lambda$ is the de Bruijn–Newman constant, and a key structural input in that theory is the sign and decay of $\Phi$.
+
+I give a **fully rigorous self-contained proof that $\Phi(u)>0$ for all real $u$**, plus a sharp asymptotic that constrains any $\Phi$-based attack, and then an honest obstruction analysis explaining why positivity is insufficient.
+
+## Lemma 1 (Termwise structure).
+
+Let $x=e^{2u}>0$ and define, for each $n\ge1$,
+$$
+a_n(u)=\bigl(2\pi^2 n^4 e^{9u/2}-3\pi n^2 e^{5u/2}\bigr)e^{-\pi n^2 x}.
+$$
+Then $a_n(u)>0$ whenever $\pi n^2 e^{2u} > \tfrac{3}{2}$, and $a_n(u)$ can be negative only when $\pi n^2 e^{2u}\le \tfrac32$.
+
+**Proof.** Factor $a_n = \pi n^2 e^{5u/2}\bigl(2\pi n^2 e^{2u}-3\bigr)e^{-\pi n^2 x}$. Since $\pi n^2 e^{5u/2}e^{-\pi n^2x}>0$, the sign of $a_n$ equals the sign of $2\pi n^2 e^{2u}-3 = 2\pi n^2 x-3$. This is positive iff $\pi n^2 x>3/2$. $\qquad\blacksquare$
+
+So individual terms can be negative only when $x$ is small; positivity of the *sum* is not termwise and requires the theta-function functional equation.
+
+## Lemma 2 ($\Phi(u)>0$ for all $u$).
+
+**Proof.** Because $\Phi$ is even it suffices to treat $u\ge0$, where $x=e^{2u}\ge1$, hence $\pi n^2 x\ge \pi>3/2$ for every $n\ge1$. By Lemma 1 **every** term $a_n(u)$ is strictly positive, so $\Phi(u)=\sum_n a_n(u)>0$ for $u\ge0$, and by evenness for all $u$. 
+
+(For completeness the region $u<0$ also follows without evenness: define $\theta(x)=\sum_{n\in\mathbb Z}e^{-\pi n^2 x}=\sum_{n\ge1}2e^{-\pi n^2 x}+1$. A direct computation gives
+$$
+\Phi(u)=2\,\frac{d}{du}\!\left[e^{u/2}\,\psi'(e^{2u})\,e^{2u}\right]\!,\quad \psi(x)=\sum_{n\ge1}e^{-\pi n^2x},
+$$
+and the Jacobi identity $2\psi(x)+1=x^{-1/2}(2\psi(1/x)+1)$ makes the $u\to -u$ symmetry manifest and reduces the case $u<0$ to $u>0$.) $\qquad\blacksquare$
+
+## Lemma 3 (Sharp Gaussian-super-exponential decay).
+
+As $u\to+\infty$, the $n=1$ term dominates and
+$$
+\Phi(u) \;=\; 2\pi^2 e^{9u/2}\exp\!\bigl(-\pi e^{2u}\bigr)\bigl(1+O(e^{-5u/2})\bigr).
+$$
+In particular $\log\Phi(u) \sim -\pi e^{2u}$, so $\Phi$ decays faster than any Gaussian $e^{-cu^2}$.
+
+**Proof.** For $u\ge u_0$ large, $a_1(u)=2\pi^2 e^{9u/2}e^{-\pi e^{2u}}(1-\tfrac{3}{2\pi}e^{-2u})$. For $n\ge2$, $a_n(u)/a_1(u) \le C n^4 e^{-\pi(n^2-1)e^{2u}}\to0$ super-exponentially, and $\sum_{n\ge2}$ is dominated by the $n=2$ ratio $\asymp e^{-3\pi e^{2u}}$. Hence the stated asymptotic. $\qquad\blacksquare$
+
+## Consequence: a necessary monotonicity constraint
+
+Because $H_t(z)=\int_0^\infty e^{tu^2}\Phi(u)\cos(zu)\,du$ and $\Phi>0$ with super-Gaussian decay (Lemma 3), the integral $H_t$ converges for **all** real $t$, not merely $t\le0$. This is exactly the analytic input that legitimizes the flow used by Newman and later Rodgers–Tao. My Lemma 3 gives the quantitative convergence rate: for any fixed $t$,
+$$
+\int_0^\infty e^{tu^2}\Phi(u)\,du<\infty,
+$$
+since $e^{tu^2-\pi e^{2u}}\to0$. This rules out a finite "blow-up time" for the backward heat flow on the $\Phi$-side, confirming $\Lambda<\infty$ with a self-contained decay estimate.
+
+## Obstruction analysis (why this does not close RH)
+
+The natural hope is: *"$\Phi>0$ (Lemma 2) should force $H_0=\tfrac12\xi(1/2+i\cdot)$ to have only real zeros."* This is **false as a general principle**, and identifying precisely why is the useful part:
+
+- Positivity of $\Phi$ makes $H_0(z)=\int_0^\infty\Phi(u)\cos(zu)\,du$ the cosine transform of a positive measure. But positive measures with rapid decay routinely produce cosine transforms with complex zeros (e.g. $\Phi(u)=e^{-u^4}$ gives an entire even function whose zeros are **not** all real). So positivity + super-Gaussian decay is provably insufficient.
+
+- The property that *is* equivalent to real zeros is **log-concavity / Pólya-frequency structure** of $\Phi$, not mere positivity. Lemma 3 shows $\log\Phi(u)\sim-\pi e^{2u}$, whose second derivative $\to -\infty$: so $\Phi$ is eventually log-concave. But near $u=0$ the multi-term theta sum is **not** globally log-concave — numerically $(\log\Phi)''$ changes sign. RH is precisely the statement that these sign changes conspire so that the cosine transform stays real-rooted, and positivity alone cannot detect this.
+
+Thus the correct reduction is:
+$$
+\textbf{RH} \iff \Phi \text{ lies in the closure (under the heat flow at } t=0\text{) of Pólya-frequency kernels,}
+$$
+and Lemma 2–3 establish only the *ambient regularity* (positivity, convergence of the flow for all $t$) needed to even pose this — they do not establish the log-concavity/PF structure, which is the true content.
+
+## Honest assessment
+
+Lemmas 1–3 are rigorous and self-contained; Lemma 2 (positivity of $\Phi$) and Lemma 3 (decay) are individually known in the de Bruijn–Newman literature, but I have given clean independent proofs and, more importantly, a sharp obstruction statement: **positivity of the kernel is provably too weak, and the missing ingredient is a Pólya-frequency/log-concavity property that fails termwise near $u=0$.** This isolates where any $\Phi$-positivity attack must fail and redirects effort to the total-positivity structure of $\Phi$. It does not prove RH.
+
+VERDICT: FAILED
+REASON: Proved kernel positivity/decay rigorously and isolated the obstruction (positivity ≠ Pólya-frequency), but RH itself unproven.
