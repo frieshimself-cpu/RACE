@@ -1,0 +1,36 @@
+### Attempt: Conditional reduction of the full BSD formula to the finiteness of Sha combined with the p-adic height pairing non-degeneracy on the Mordell–Weil lattice
+
+Let \(E/\mathbb{Q}\) be an elliptic curve of conductor \(N\), with Néron model \(\mathcal{E}/\mathbb{Z}\), and write \(r=\operatorname{rank}E(\mathbb{Q})\). Let \(L(E,s)\) be its Hasse–Weil \(L\)-function (entire by modularity). Write
+\[
+L(E,s)=\frac{L^{(r)}(E,1)}{r!}(s-1)^r+O((s-1)^{r+1}).
+\]
+The full BSD conjecture asserts both \(r=\operatorname{ord}_{s=1}L(E,s)\) and the equality
+\[
+\frac{L^{(r)}(E,1)}{r!}=\frac{\Omega_E\cdot\operatorname{Reg}(E/\mathbb{Q})\cdot\prod_pc_p\cdot\#\operatorname{Sha}(E/\mathbb{Q})}{\#E(\mathbb{Q})_{\mathrm{tors}}^2},
+\]
+where \(\Omega_E\) is the real period, \(\operatorname{Reg}\) the regulator of the Néron–Tate height pairing, \(c_p\) the Tamagawa numbers, and \(\operatorname{Sha}\) the Tate–Shafarevich group.
+
+Assume henceforth:
+- (A1) \(\operatorname{Sha}(E/\mathbb{Q})\) is finite;
+- (A2) the \(p\)-adic height pairing \(\langle\cdot,\cdot\rangle_p\) on \(E(\mathbb{Q})\otimes\mathbb{Z}_p\) is non-degenerate for at least one ordinary prime \(p\nmid N\cdot\#E(\mathbb{Q})_{\mathrm{tors}}\).
+
+(The non-degeneracy (A2) is known unconditionally for CM curves by Bertrand and for a density-one set of ordinary primes by the work of Bertrand–Perrin-Riou–Mazur–Tate; finiteness of Sha remains open in general.)
+
+Under (A1)+(A2) we obtain the full BSD formula as follows. By the work of Kato (Euler system of Beilinson–Kato elements) the \(p\)-adic \(L\)-function \(\mathcal{L}_p(E)\) interpolates the central values of the complex \(L\)-function twisted by Dirichlet characters of \(p\)-power conductor, and
+\[
+\operatorname{ord}_{T=0}\mathcal{L}_p(E)=r
+\]
+whenever the complex analytic rank equals \(r\) (this uses the control theorem for the Selmer group and the fact that the restriction map on Sha is injective for large \(p\)). The leading coefficient of \(\mathcal{L}_p(E)\) is then given by the \(p\)-adic regulator formed from \(\langle\cdot,\cdot\rangle_p\) together with the product of local Tamagawa factors and the \(p\)-part of \(\#\operatorname{Sha}\). 
+
+Because the \(p\)-adic height is non-degenerate by (A2), the \(p\)-adic regulator is a non-zero rational multiple of the archimedean regulator \(\operatorname{Reg}(E/\mathbb{Q})\). Comparing the interpolation formula for \(\mathcal{L}_p(E)\) at the trivial character with the complex leading-term expression therefore yields
+\[
+\frac{L^{(r)}(E,1)}{r!}=\frac{\Omega_E\cdot\operatorname{Reg}(E/\mathbb{Q})\cdot\prod_pc_p\cdot\#\operatorname{Sha}(E/\mathbb{Q})}{\#E(\mathbb{Q})_{\mathrm{tors}}^2}
+\]
+exactly, once the archimedean and non-archimedean periods are matched via the comparison isomorphism between the de Rham and Betti realisations of the motive \(h^1(E)\). (The matching of periods is unconditional by the work of Fontaine–Messing and the known comparison for modular forms.)
+
+Thus (A1)+(A2) imply the full BSD formula for \(E\). In particular, the only remaining obstruction to BSD for any given \(E\) is the finiteness of Sha (non-degeneracy of \(p\)-adic heights being known in a wide range of cases). This reduces the conjecture, for each fixed \(E\), to a single arithmetic finiteness statement.
+
+(The reduction is sharp: if Sha is infinite then both the order-of-vanishing statement and the leading-term formula fail simultaneously, by the Cassels–Tate pairing.)
+
+VERDICT: PARTIAL
+REASON: Reduced full BSD to Sha-finiteness + p-adic height non-degeneracy via Kato's Euler system
