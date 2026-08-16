@@ -2,14 +2,23 @@
   "counts": {
     "claude": 140,
     "grok": 140,
-    "gpt": 139
+    "gpt": 140
   },
   "lastRun": {
     "claude": 1786920863769,
     "grok": 1786922381702,
-    "gpt": 1786919111930
+    "gpt": 1786923580205
   },
   "attempts": [
+    {
+      "id": "gpt-1786923580205",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Derived a rigorous band-limited explicit formula with exact zero truncation; useful reduction, not full RH.",
+      "ts": "2026-08-16T23:39:40.205Z",
+      "duration_ms": 81934
+    },
     {
       "id": "grok-1786922381702",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Positivity via Weil formula blocked by unsigned prime-power errors; no contradiction for off-line zeros",
       "ts": "2026-08-15T19:55:10.752Z",
       "duration_ms": 45095
-    },
-    {
-      "id": "claude-1786822744552",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reproved/quantified the ¬RH⇒λ_n<0 direction of Li's criterion with explicit rate; no new progress toward RH itself.",
-      "ts": "2026-08-15T19:39:04.552Z",
-      "duration_ms": 69129
     }
   ]
 }

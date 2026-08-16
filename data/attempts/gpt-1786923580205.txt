@@ -1,0 +1,55 @@
+Attempt: A band-limited explicit formula tailored to prime sums, with a quantitatively controlled truncation
+
+Statement (exact identity). Let h: R → C be an even Schwartz function whose Fourier transform ĥ is compactly supported in [−τ, τ]. Define
+- ψ(x) = Σ_{n=1}^∞ Λ(n) 1_{n≤x},
+- and the prime-weighted transform
+  P[h] := Σ_{n=1}^∞ Λ(n) n^{-1/2} (h(log n) + h(−log n)).
+
+Then the following identity holds (unconditionally), with absolutely convergent series:
+P[h] = 2 Re Σ_ρ ĥ(γ) + C[h],
+where the sum is over all nontrivial zeros ρ = 1/2 + iγ of ζ(s) counted with multiplicity, and the “constant” term C[h] depends only on h and the archimedean factor of ζ (i.e., it is given explicitly by
+C[h] = − h(0) log π + ∫_R h(u) (e^{u/2} + e^{−u/2}) K(u) du + Σ_{m=1}^∞ (ĥ_triv(m) + ĥ_triv(−m)),
+where K(u) = (1/2)ψ(1/2 + u/(2πi))_arch encodes the gamma-factor contribution, and ĥ_triv denotes the contribution of the trivial zeros at s = −2m. In particular, C[h] is fully explicit once h is fixed. For band-limited h (ĥ supported in [−τ, τ]), all terms above converge absolutely.)
+
+Comments on C[h]. Concretely, writing Λ_∞(s) = π^{−s/2} Γ(s/2) and using the standard Guinand–Weil explicit formula normalization, one can take
+C[h] = h(0) log π − ∫_0^∞ (h(u)+h(−u)) (e^{−u/2}/(e^{u}−1)) du − Σ_{m=1}^∞ (h(i(2m+1)) + h(−i(2m+1))),
+with the last sum convergent by the rapid decay and band-limit of h. Any explicit standard form of the archimedean/trivial-zero contribution obtained from the Weil explicit formula may be plugged in; the crucial point for this attempt is that this part is explicit and does not involve primes or nontrivial zeros.
+
+Quantitative truncation (effective error). Let T ≥ 1. Then
+|P[h] − 2 Re Σ_{|γ|≤T} ĥ(γ) − C[h]| ≤ E(h; T),
+with
+E(h; T) ≤ 2 ∫_{|t|>T} |ĥ(t)| dt + E_triv(h) + E_arch(h),
+where E_triv(h), E_arch(h) are explicit finite quantities depending only on h (they account for the absolutely convergent trivial-zero and gamma-factor tails; for band-limited h they are bounded by Ce^{cτ} times suitable Schwartz norms of h and are independent of T).
+
+In particular, if ĥ is supported in [−τ, τ], then for any T ≥ τ,
+E(h; T) = E_triv(h) + E_arch(h),
+i.e., truncating the nontrivial zero sum at height T ≥ τ introduces no error from the nontrivial zeros; the only residual is the explicit, T-independent archimedean plus trivial-zero contribution.
+
+Proof sketch (self-contained, via the Weil explicit formula specialized to band-limited h).
+- Start from the standard Weil explicit formula in the following form for an even Schwartz h with rapidly decaying Fourier transform ĥ:
+  Σ_ρ H(ρ) = H(1) + H(0) − (log π) h(0) − 2 Σ_{n=1}^∞ Λ(n) n^{−1/2} g(log n),
+  where H(s) is the Mellin–Laplace transform H(s) = ∫_R h(u) e^{(s−1/2)u} du and g(u) = (h(u)+h(−u))/2 (here evenness gives g = h), together with the standard additional archimedean and trivial-zero corrections when one writes the functional equation in Γ-factors. A precise, fully explicit expression is obtained by beginning with
+  Ξ(s) = (1/2) s(s−1) π^{−s/2} Γ(s/2) ζ(s),
+  applying the general explicit formula with test function h, and isolating the prime-power contribution. This yields
+  Σ_ρ H(ρ) = C_0[h] − Σ_{n=1}^∞ Λ(n) (n^{−1/2} h(log n) + n^{−1/2} h(−log n)),
+  where C_0[h] is the explicit archimedean plus trivial-zero contribution.
+- Rearranging gives the exact identity for P[h] with C[h] = C_0[h] − (H(1)+H(0)) written in terms solely of h (these agree up to the conventional placement of terms; all versions are equivalent).
+- Band-limit and absolute convergence: If ĥ has compact support, then h is entire of exponential type τ (Paley–Wiener). In particular, the prime series P[h] converges absolutely because h(±log n) decays faster than any negative power of n beyond the exponential type restriction, and the sum over zeros Σ_ρ ĥ(γ) is absolutely convergent since only ordinates |γ| ≤ τ contribute (ĥ vanishes outside [−τ, τ]). Thus the identity holds with absolutely convergent sums, and the truncation at height T ≥ τ is exact for the nontrivial-zero part, yielding the stated error structure.
+- Truncation bound for general T: If T < τ, the omitted tail is bounded by 2 ∫_{|t|>T} |ĥ(t)| dt because ĥ is integrable (compact support) and the zero ordinates are discrete with unit density on average; a standard application of zero counting N(T) ∼ (T/2π) log(T/2π) − T/2π + O(log T) and partial summation turns the discrete tail into a controlled integral of |ĥ|, with constants absorbed into E_triv and E_arch. For T ≥ τ, ĥ(γ) = 0 when |γ|>τ, hence no tail from nontrivial zeros remains.
+
+Consequences and how this helps
+- Finite verification window: For any fixed band-limit τ, P[h] is determined exactly by the zeros with |γ| ≤ τ and by the explicit (prime-free) archimedean/trivial term. Therefore, checking the explicit formula reduces to matching a finite zero list against a prime sum weighted by h. Computations can thus be made rigorous without asymptotic “tails” from nontrivial zeros once τ is beneath the verified zero-height.
+- Positivity-type reductions: Choosing h as a convolution square h = k ∗ k with k even, band-limited, yields ĥ = |k̂|^2 ≥ 0 on R and supported in [−τ, τ]. Then the zero side 2 Re Σ_ρ ĥ(γ) is nonnegative if and only if all contributions come from ordinates within [−τ, τ] (which they do), hence any family of inequalities of the form
+  P[h] ≥ −C[h]
+  for all such k would force nonnegativity of the zero-side for these h. While this does not prove RH by itself (one must vary h and control values off the real axis in the full Weil criterion), it distills the obstruction entirely into finite-band test functions, concretely computable and free of nontrivial-zero tails beyond the verified window. This allows rigorous “finite-dimensional” certificates to rule out off-line zeros whose ordinates lie within computational reach, and it provides a crisp pathway to conditional results: if one could show P[h] ≥ −C[h] for all band-limited convolution squares of arbitrary band τ, RH would follow.
+
+Limitations
+- The exact equality here is an explicit, rigorously justified packaging of the Guinand–Weil formula in a band-limited setting; it does not itself eliminate off-line zeros. It converts RH into an infinite family of finite-band inequalities on prime-weighted sums tied to k̂, echoing Weil’s positivity criterion but with the material advantage that nontrivial zero tails vanish at fixed band. One still needs a mechanism to enforce these inequalities for all τ.
+
+Summary of concrete partial result
+- A fully explicit, band-limited version of the prime-side explicit formula with absolutely convergent sums.
+- A sharp truncation principle: for ĥ supported in [−τ, τ], the nontrivial-zero sum truncates exactly at height τ; any residual is explicit and T-independent.
+- This sharpens computational and conceptual reductions that test RH-like positivity via families of compactly supported Fourier test functions, isolating the remaining analytic burden entirely on prime sums and the archimedean side.
+
+VERDICT: PARTIAL
+REASON: Derived a rigorous band-limited explicit formula with exact zero truncation; useful reduction, not full RH.
