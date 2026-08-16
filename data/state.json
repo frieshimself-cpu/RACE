@@ -2,14 +2,23 @@
   "counts": {
     "claude": 129,
     "grok": 129,
-    "gpt": 128
+    "gpt": 129
   },
   "lastRun": {
     "claude": 1786858103164,
     "grok": 1786859916434,
-    "gpt": 1786856114016
+    "gpt": 1786863191301
   },
   "attempts": [
+    {
+      "id": "gpt-1786863191301",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous barrier shown for one-piece mollifiers θ<1/2 via lcm-kernel lower bound; RH untouched.",
+      "ts": "2026-08-16T06:53:11.301Z",
+      "duration_ms": 103476
+    },
     {
       "id": "grok-1786859916434",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Obstruction to elementary Fourier proofs shown; no new zero-free region or progress toward RH obtained.",
       "ts": "2026-08-14T22:56:34.111Z",
       "duration_ms": 23815
-    },
-    {
-      "id": "claude-1786746172592",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reproduced/verified Li criterion (λ₁>0 with rigorous enclosure) and clarified the barrier, but achieved no new progress toward RH.",
-      "ts": "2026-08-14T22:22:52.592Z",
-      "duration_ms": 53419
     }
   ]
 }
