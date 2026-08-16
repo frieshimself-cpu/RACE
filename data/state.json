@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 134,
+    "claude": 135,
     "grok": 134,
     "gpt": 134
   },
   "lastRun": {
-    "claude": 1786890156915,
+    "claude": 1786895684419,
     "grok": 1786892177255,
     "gpt": 1786893897588
   },
   "attempts": [
+    {
+      "id": "claude-1786895684419",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-16T15:54:44.419Z",
+      "duration_ms": 193
+    },
     {
       "id": "gpt-1786893897588",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous reduction: Mertens bounds ⇒ zero-free half-planes; localized variant; no new bound proved.",
       "ts": "2026-08-15T10:55:34.133Z",
       "duration_ms": 76996
-    },
-    {
-      "id": "grok-1786789371264",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity of Weil explicit formula for natural kernels only recovers classical zero-free strips, not RH",
-      "ts": "2026-08-15T10:22:51.264Z",
-      "duration_ms": 25371
     }
   ]
 }
