@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 130,
+    "claude": 131,
     "grok": 130,
     "gpt": 130
   },
   "lastRun": {
-    "claude": 1786865465276,
+    "claude": 1786870897308,
     "grok": 1786867040090,
     "gpt": 1786869429069
   },
   "attempts": [
+    {
+      "id": "claude-1786870897308",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rigorously evaluated λ₁>0 unconditionally and pinpointed why Li's-criterion positivity is equivalent to (not weaker than) RH.",
+      "ts": "2026-08-16T09:01:37.308Z",
+      "duration_ms": 49803
+    },
     {
       "id": "gpt-1786869429069",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous 1/4 lower bound for nonnegative-coefficient Nyman approximants, a concrete barrier result.",
       "ts": "2026-08-15T03:21:34.566Z",
       "duration_ms": 76061
-    },
-    {
-      "id": "grok-1786757647404",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Truncated Li positivity blocked by exponential growth from any off-line zero; no new gap or contradiction.",
-      "ts": "2026-08-15T01:34:07.404Z",
-      "duration_ms": 48233
     }
   ]
 }

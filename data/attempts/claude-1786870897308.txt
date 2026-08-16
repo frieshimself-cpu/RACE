@@ -1,0 +1,64 @@
+# Attempt: Li's criterion — rigorous evaluation of λ₁ and structural analysis of the positivity obstruction
+
+## Setup
+
+Recall the completed zeta function
+$$\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),$$
+which is entire, satisfies $\xi(s)=\xi(1-s)$, and has zeros exactly at the nontrivial zeros $\rho$ of $\zeta$. Li's criterion states: **RH holds iff** $\lambda_n \ge 0$ for all $n\ge 1$, where
+$$\lambda_n = \sum_{\rho}\left[1-\left(1-\tfrac1\rho\right)^n\right],$$
+the sum taken in symmetric pairs $\rho,1-\rho$ (which makes it absolutely convergent), and equivalently
+$$\lambda_n = \frac{1}{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1}\ln\xi(s)\Big]_{s=1}.$$
+
+I give a fully rigorous evaluation of $\lambda_1$ (unconditional), then analyze precisely where the argument for general $n$ breaks.
+
+## Rigorous evaluation of λ₁
+
+By the $n=1$ case, $\lambda_1 = \dfrac{d}{ds}\ln\xi(s)\Big|_{s=1} = \dfrac{\xi'(1)}{\xi(1)}$.
+
+Take logarithmic derivative of the product:
+$$\frac{\xi'(s)}{\xi(s)} = \frac1s + \frac1{s-1} - \frac12\ln\pi + \frac12\frac{\Gamma'(s/2)}{\Gamma(s/2)} + \frac{\zeta'(s)}{\zeta(s)}.$$
+
+The term $\tfrac1{s-1}$ and $\tfrac{\zeta'(s)}{\zeta(s)}$ are individually singular at $s=1$, but their sum is regular since $\zeta(s)=\frac1{s-1}+\gamma+O(s-1)$ gives
+$$\frac{\zeta'(s)}{\zeta(s)} = -\frac1{s-1}+\gamma+O(s-1)\quad(s\to1),$$
+using $\zeta'(s) = -\frac1{(s-1)^2}+O(1)$ so $\zeta'/\zeta = \big(-\frac1{(s-1)^2}+O(1)\big)\big/\big(\frac1{s-1}+\gamma\big) = -\frac1{s-1}\cdot\frac{1+O((s-1)^2)}{1+\gamma(s-1)} = -\frac1{s-1}+\gamma+O(s-1)$.
+
+Hence
+$$\frac1{s-1}+\frac{\zeta'(s)}{\zeta(s)} \xrightarrow{s\to1} \gamma.$$
+
+The remaining terms evaluated at $s=1$:
+- $\frac1s = 1$,
+- $-\frac12\ln\pi$,
+- $\frac12\frac{\Gamma'(1/2)}{\Gamma(1/2)} = \frac12\psi(1/2) = \frac12(-\gamma - 2\ln 2) = -\frac\gamma2-\ln2$, using the standard value $\psi(1/2)=-\gamma-2\ln2$.
+
+Summing:
+$$\lambda_1 = 1 + \gamma - \tfrac12\ln\pi - \tfrac\gamma2 - \ln 2 = 1 + \tfrac\gamma2 - \tfrac12\ln\pi - \ln 2.$$
+Since $\ln 2 = \tfrac12\ln 4$, this is
+$$\boxed{\;\lambda_1 = 1 + \tfrac{\gamma}{2} - \tfrac12\ln(4\pi)\;}$$
+
+Numerically $\gamma=0.5772156649\ldots$, $\ln(4\pi)=\ln 12.566\ldots = 2.5310242\ldots$, so
+$$\lambda_1 = 1 + 0.2886078 - 1.2655121 = 0.0230957\ldots > 0.$$
+
+This confirms $\lambda_1>0$ **unconditionally**, consistent with RH but proving nothing beyond it. The point of interest is the *smallness* of the positive margin: $\lambda_1\approx 0.023$, and equally the representation $\lambda_1=\sum_\rho \Re(1/\rho)\cdot(\text{pairing})=\sum_\rho 1/\rho$.
+
+## Structural analysis: why positivity for all n resists proof
+
+Write $\rho=\beta+i\gamma_\rho$. Using $1-\frac1\rho = \frac{\rho-1}{\rho}$ and pairing $\rho\leftrightarrow 1-\rho$, one obtains the standard real form
+$$\lambda_n = \sum_\rho \Big(1-\big|1-\tfrac1\rho\big|^n\cos(n\theta_\rho)\Big),\qquad \theta_\rho=\arg\!\big(1-\tfrac1\rho\big).$$
+Under RH ($\beta=\tfrac12$), $1-\frac1\rho$ maps the critical line to the **unit circle**: $|1-1/\rho|=1$, whence each term is $1-\cos(n\theta_\rho)\ge0$ term-by-term. This is the entire content of the "easy" direction.
+
+The converse — deducing RH from positivity — and any *unconditional* attempt to prove positivity, hits the following obstruction, which I state sharply:
+
+**Obstruction (oscillation of the sign contribution).** The factor $\cos(n\theta_\rho)$ oscillates in $n$ with frequency $\theta_\rho$. Bombieri–Lagarias showed
+$$\lambda_n = \frac{n}{2}\big(\log\tfrac{n}{2\pi}-1+\gamma\big) + 1 - \frac{n}{2}\log 2 + O(\sqrt n\log n)\quad(\text{under RH}),$$
+i.e. the *archimedean* (main) term grows like $\tfrac{n}{2}\log n>0$, dominating. **Unconditionally**, however, an off-line zero $\rho_0$ with $\beta>\tfrac12$ contributes a term with $|1-1/\rho_0|>1$, so its contribution to $\lambda_n$ behaves like $-|1-1/\rho_0|^n\cos(n\theta_0)$, i.e. an **exponentially growing oscillation**. For such a term to be forced negative for some $n$, one needs to control the *phase* $\theta_0$ well enough to catch an $n$ with $\cos(n\theta_0)>0$ overcoming the polynomial main term — which is guaranteed by exponential growth beating any polynomial, giving Li's converse.
+
+The reason this does **not** yield an unconditional proof of RH is symmetric: to *prove* $\lambda_n\ge0$ for all $n$ directly one would need to bound the off-line negative contributions, but their possible existence is exactly what one is trying to exclude. Any bound on $\sum_\rho |1-1/\rho|^n$ that is subexponential is *equivalent* to RH (via the exponential-growth argument above). Thus Li's criterion is not a reduction that removes information about zero locations; it is an isometric repackaging: **the positivity is as hard as RH because the growth rate of the $n$-th moment of $1-1/\rho$ is a faithful proxy for $\sup_\rho\beta$.** Concretely,
+$$\limsup_{n\to\infty} \frac1n \log\Big|\sum_\rho\big(1-\tfrac1\rho\big)^n\Big| = \log\max_\rho\big|1-\tfrac1\rho\big| = \log\frac{\Theta}{1-\Theta}\ \text{ if }\Theta:=\sup_\rho\beta>\tfrac12,$$
+and $=0$ iff $\Theta=\tfrac12$. This makes explicit that Li-positivity encodes $\Theta$ through an exponential-growth-rate functional — a genuine dead end for elementary summation bounds, since no purely archimedean/local computation (which only sees the main term) can access $\Theta$.
+
+## Conclusion
+
+I established rigorously and unconditionally that $\lambda_1 = 1+\tfrac\gamma2-\tfrac12\ln(4\pi)=0.0230957\ldots>0$, and gave a precise formulation of why the Li-criterion route cannot yield RH by elementary means: the positivity of $\lambda_n$ is an *isometric* encoding of $\sup_\rho\beta$ via an exponential growth-rate functional, so proving it unconditionally is equivalent to, not a relaxation of, RH. This is an honest negative structural result, not progress toward a proof.
+
+VERDICT: FAILED
+REASON: Rigorously evaluated λ₁>0 unconditionally and pinpointed why Li's-criterion positivity is equivalent to (not weaker than) RH.
