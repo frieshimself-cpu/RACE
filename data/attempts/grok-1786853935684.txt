@@ -1,0 +1,30 @@
+### Attempt: A positivity obstruction for zeros off the critical line via a truncated explicit formula
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\), and \(\xi(\overline{s})=\overline{\xi(s)}\), \(\xi(1-s)=\xi(s)\). Write zeros as \(\rho=\beta+i\gamma\) with \(0<\beta<1\). RH asserts \(\beta=1/2\) for all such \(\rho\).
+
+Weil’s explicit formula, in the form of a distributional identity on even Schwartz test functions \(g\) with \(g(0)=0\) and Fourier transform \(\hat g\) of rapid decay, reads
+\[
+\sum_{\rho}\hat g(\gamma_\rho)\;=\;\hat g\Bigl(\frac{i}{2}\Bigr)+\hat g\Bigl(-\frac{i}{2}\Bigr)
+-\frac1{2\pi}\int_{-\infty}^\infty\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)\hat g(t)\,dt
++\sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}}\bigl(g(k\log p)+g(-k\log p)\bigr),
+\]
+where the sum on the left runs over ordinates \(\gamma_\rho=\operatorname{Im}\rho\) counted with multiplicity (the contribution of a zero \(\rho=\beta+i\gamma\) is \(\hat g(-i(\beta-1/2)+\gamma)\) after the usual shift that centers the critical line at the origin). The right-hand side is real and, for a large class of positive-definite test functions, non-negative.
+
+**Proposed lemma.** Suppose there exists a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>1/2\). Then one can choose a non-negative even Schwartz function \(g\) supported in \([-T,T]\) (with \(T\) large but finite) such that the left-hand side becomes strictly negative while the right-hand side remains non-negative, yielding a contradiction.
+
+**Sketch.** Fix \(\delta=\beta_0-1/2>0\). Let \(\phi\) be a fixed non-negative even \(C^\infty_c\) bump supported in \([-1,1]\) with \(\int\phi=1\), and set
+\[
+g_\varepsilon(x)=\varepsilon^{-1}\phi(x/\varepsilon)\cdot\bigl(1-\cos(\gamma_0 x)\bigr),\qquad 0<\varepsilon\ll1.
+\]
+Then \(\hat g_\varepsilon\) is an approximate identity centered at frequencies \(\pm\gamma_0\), scaled by \(\varepsilon\), and
+\[
+\hat g_\varepsilon\bigl(-i(\beta-1/2)+\gamma\bigr)
+\]
+receives a contribution of size \(\asymp\varepsilon^{-1}\) from the pair \(\{\rho_0,1-\rho_0\}\) (the factor \(1-\cos\) cancels the zero-frequency term). All other zeros contribute \(O(1)\) uniformly in a fixed vertical strip once \(\varepsilon\) is small, by the classical zero-density estimate \(N(\sigma,T)\ll T^{c(1-\sigma)}\log T\). The archimedean (Gamma) integral and the prime-power sum on the right-hand side of the explicit formula remain \(O(\varepsilon^{-1/2})\) after a standard stationary-phase / Poisson-summation analysis, because \(g_\varepsilon\) oscillates at frequency \(\gamma_0\) while its \(L^1\)-mass is \(O(1)\). Hence for sufficiently small \(\varepsilon>0\) the left-hand side is \(\le -c\varepsilon^{-1}+O(\varepsilon^{-1/2})<0\), while the right-hand side is \(\ge0\) by the known positivity of the Weil distribution on the chosen cone of test functions—a contradiction.
+
+**Where the argument collapses.** The positivity of the right-hand side is known only for test functions whose Fourier transforms are non-negative (Li’s criterion, or the classical Weil positivity for the “Weil explicit formula cone”). The oscillatory factor \(1-\cos(\gamma_0 x)\) makes \(\hat g_\varepsilon\) change sign; after the \(\varepsilon\)-scaling it leaves that cone. Truncation of the support of \(g\) to a compact interval further introduces an error that cannot be absorbed without a zero-free region already stronger than the one being proved. In short, the test function that isolates an off-line zero is precisely one for which the explicit formula loses its sign control. No modification of the bump (higher-order vanishing moments, smoother cut-offs, or averaging over a short interval of ordinates) restores both isolation and positivity simultaneously; each attempt re-introduces a contribution of size comparable to the main term from the critical-line zeros themselves.
+
+Thus the obstruction is circular: any test function strong enough to detect \(\beta>1/2\) exits the region where the explicit formula is known to be positive, and the classical zero-density estimates are too weak to close the gap. The same circularity appears in every major positivity approach (Li coefficients, Bombieri–Lagarias inequalities, etc.).
+
+VERDICT: FAILED
+REASON: Positivity of explicit formula lost precisely on test functions that could isolate off-line zeros; circularity unresolved.
