@@ -1,0 +1,47 @@
+### Blow-up stability of the Hodge conjecture
+
+Let \(X\) be a smooth complex projective variety and \(Z\subset X\) a smooth closed subvariety of codimension \(c\geq 2\). Write \(\pi:\widetilde{X}=\mathrm{Bl}_Z X\to X\) for the blow-up, with exceptional divisor \(E=\mathbb{P}(N_{Z/X})\). The goal is to relate the Hodge conjecture for \(\widetilde{X}\) to the same conjecture for \(X\) and for \(Z\).
+
+The Chow ring (with rational coefficients) decomposes as graded rings
+\[
+\mathrm{CH}^\bullet(\widetilde{X})_{\mathbb{Q}}\ \simeq\
+\mathrm{CH}^\bullet(X)_{\mathbb{Q}}\ \oplus\
+\bigoplus_{i=1}^{c-1}\mathrm{CH}^{\bullet-i}(Z)_{\mathbb{Q}},
+\]
+where the summands are realized by the correspondences \(\Gamma_\pi\) (the graph of \(\pi\)) and \(\Gamma_j= [E]^j\circ\Gamma_{\pi_E}\) for \(j=1,\dots,c-1\) (here \(\pi_E:E\to Z\)). Exactly the same decomposition holds on rational cohomology:
+\[
+H^{2\bullet}(\widetilde{X},\mathbb{Q})\ \simeq\
+H^{2\bullet}(X,\mathbb{Q})\ \oplus
+\bigoplus_{i=1}^{c-1}H^{2(\bullet-i)}(Z,\mathbb{Q}),
+\]
+and the isomorphism is induced by the same correspondences (which are algebraic). Moreover, the decomposition is compatible with the Hodge filtration: each summand on the right is a direct sum of pure Hodge structures of the expected weights, and the projectors are morphisms of Hodge structures.
+
+Consequently the cycle-class maps fit into a commutative diagram of graded \(\mathbb{Q}\)-vector spaces
+\[
+\begin{CD}
+\mathrm{CH}^\bullet(\widetilde{X})_{\mathbb{Q}}
+@>>>
+H^{2\bullet}(\widetilde{X},\mathbb{Q})\cap F^\bullet
+\\
+@VV{\simeq}V
+@VV{\simeq}V
+\\
+\mathrm{CH}^\bullet(X)_{\mathbb{Q}}\oplus\bigoplus_i\mathrm{CH}^{\bullet-i}(Z)_{\mathbb{Q}}
+@>>>
+\bigl(H^{2\bullet}(X,\mathbb{Q})\cap F^\bullet\bigr)
+\oplus
+\bigoplus_i\bigl(H^{2(\bullet-i)}(Z,\mathbb{Q})\cap F^{\bullet-i}\bigr).
+\end{CD}
+\]
+It follows at once that the cycle-class map for \(\widetilde{X}\) is surjective onto the space of Hodge classes if and only if the same is true for both \(X\) and \(Z\).
+
+In particular:
+- if the Hodge conjecture holds for all smooth projective varieties of dimension \(<\dim X\), then it holds for \(\widetilde{X}\) if and only if it holds for \(X\);
+- the full Hodge conjecture (for every smooth projective variety) is therefore equivalent to the same statement restricted to the class of varieties that cannot be obtained by blowing up a lower-dimensional center (e.g., varieties of general type with Picard number 1, or smooth hypersurfaces of degree \(\geq 3\) in projective space after a generic linear projection and resolution, the exceptional loci of the resolution being controlled by induction).
+
+The same argument applies verbatim to the integral Hodge conjecture after replacing \(\mathbb{Q}\) by \(\mathbb{Z}\) and tracking torsion, and likewise to the variational Hodge conjecture (the decomposition is algebraic and therefore varies holomorphically in families).
+
+This yields a concrete inductive reduction, but does not produce new algebraic cycles in middle degree; the obstruction remains the construction of cycles whose classes generate the primitive Hodge classes on the “minimal” varieties appearing at the end of the induction.
+
+VERDICT: PARTIAL
+REASON: Blow-up decomposition gives clean inductive reduction of HC to "minimal" varieties; no new cycles constructed.

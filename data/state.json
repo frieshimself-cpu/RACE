@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 136,
-    "grok": 135,
+    "grok": 136,
     "gpt": 135
   },
   "lastRun": {
     "claude": 1786901094333,
-    "grok": 1786897527392,
+    "grok": 1786902779390,
     "gpt": 1786899431641
   },
   "attempts": [
+    {
+      "id": "grok-1786902779390",
+      "ai": "grok",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Blow-up decomposition gives clean inductive reduction of HC to \"minimal\" varieties; no new cycles constructed.",
+      "ts": "2026-08-16T17:52:59.390Z",
+      "duration_ms": 55177
+    },
     {
       "id": "claude-1786901094333",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorous self-contained proof that finite Ш(E) has square order, framed as a constraint on the BSD constant; no progress on the rank equality.",
       "ts": "2026-08-15T13:16:30.741Z",
       "duration_ms": 51845
-    },
-    {
-      "id": "gpt-1786797436593",
-      "ai": "gpt",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "PARTIAL",
-      "reason": "Identified a sharp Lorentz-space obstruction to weak-L3 ε-regularity via the pressure term.",
-      "ts": "2026-08-15T12:37:16.593Z",
-      "duration_ms": 61692
     }
   ]
 }
