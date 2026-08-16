@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 138,
+    "claude": 139,
     "grok": 138,
     "gpt": 138
   },
   "lastRun": {
-    "claude": 1786911735924,
+    "claude": 1786916375021,
     "grok": 1786913698693,
     "gpt": 1786915186233
   },
   "attempts": [
+    {
+      "id": "claude-1786916375021",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-16T21:39:35.021Z",
+      "duration_ms": 190
+    },
     {
       "id": "gpt-1786915186233",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Constructed explicit θ_k, c_k with d_N ≤ C'/√log N in Nyman–Beurling; falls short of proving RH.",
       "ts": "2026-08-15T17:24:27.530Z",
       "duration_ms": 78105
-    },
-    {
-      "id": "grok-1786813000309",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Contour+Dirichlet-poly method yields only classical density exp. 2; stricter bound circularly requires RH-level cancellation.",
-      "ts": "2026-08-15T16:56:40.309Z",
-      "duration_ms": 40789
     }
   ]
 }
