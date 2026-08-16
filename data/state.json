@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 133,
+    "claude": 134,
     "grok": 133,
     "gpt": 133
   },
   "lastRun": {
-    "claude": 1786883942075,
+    "claude": 1786890156915,
     "grok": 1786886305103,
     "gpt": 1786888106418
   },
   "attempts": [
+    {
+      "id": "claude-1786890156915",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-16T14:22:36.915Z",
+      "duration_ms": 216
+    },
     {
       "id": "gpt-1786888106418",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a uniform local spectral gap for H_A under small energy; falls short of quantum mass gap.",
       "ts": "2026-08-15T09:00:10.624Z",
       "duration_ms": 55052
-    },
-    {
-      "id": "grok-1786782973239",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Contour-shift obstruction identified but yields no new zero-free region or reduction.",
-      "ts": "2026-08-15T08:36:13.239Z",
-      "duration_ms": 35821
     }
   ]
 }
