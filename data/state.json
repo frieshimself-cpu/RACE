@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 137,
+    "claude": 138,
     "grok": 137,
     "gpt": 137
   },
   "lastRun": {
-    "claude": 1786906788196,
+    "claude": 1786911735924,
     "grok": 1786908484410,
     "gpt": 1786909877943
   },
   "attempts": [
+    {
+      "id": "claude-1786911735924",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-16T20:22:15.924Z",
+      "duration_ms": 208
+    },
     {
       "id": "gpt-1786909877943",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous smoothed lower bound showing a mollifier-length obstruction.",
       "ts": "2026-08-15T15:54:04.768Z",
       "duration_ms": 86831
-    },
-    {
-      "id": "grok-1786807488045",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Conditional reduction of RH to a stronger zero-density estimate; gap remains at the critical density exponent.",
-      "ts": "2026-08-15T15:24:48.045Z",
-      "duration_ms": 36102
     }
   ]
 }
