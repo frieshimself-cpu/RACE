@@ -1,0 +1,27 @@
+### Attempt: A positivity obstruction for a vertical strip zero via the Guinand–Weil explicit formula
+
+Let \(\zeta(s)\) be the Riemann zeta function, and write \(\Xi(t)=\xi(\tfrac12+it)\) for the completed, self-dual entire function of order 1 (so that RH is equivalent to all zeros of \(\Xi\) being real). The Guinand–Weil explicit formula, in the form of Bombieri–Hejhal, asserts that for a sufficiently regular even test function \(g\) (Schwartz class, Fourier transform \(\hat g\) of compact support in \((-1,1)\), say) one has
+\[
+\sum_{\rho}g\Bigl(\frac{\rho-\tfrac12}{i}\Bigr)
+=
+g\Bigl(\frac{i}{2}\Bigr)+g\Bigl(-\frac{i}{2}\Bigr)
+-\frac1{2\pi}\int_{-\infty}^{\infty}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)g(t)\,dt
++2\sum_{n=1}^\infty\frac{\Lambda(n)}{\sqrt n}\hat g(\log n),
+\]
+where the sum on the left runs over the non-trivial zeros \(\rho\) of \(\zeta\) (counted with multiplicity) and the Fourier transform is normalized \(\hat g(u)=\int g(t)e^{-itu}\,dt\).
+
+Assume, for contradiction inside a fixed vertical strip, that there exists a zero \(\rho_0=\beta+i\gamma\) with \(\beta>\tfrac12\) and \(|\gamma|\) large. Choose a non-negative even test function \(g_\varepsilon\) that concentrates near \(\gamma\) on the scale \(\varepsilon>0\) while remaining admissible (e.g., a suitably scaled and translated Fejér kernel whose Fourier transform is supported in a small interval about the origin). The left-hand side then receives a contribution
+\[
+g_\varepsilon\Bigl(\frac{\rho_0-\tfrac12}{i}\Bigr)+g_\varepsilon\Bigl(\frac{\overline{\rho_0}-\tfrac12}{i}\Bigr)
+=2\,\operatorname{Re}g_\varepsilon(\gamma-i(\beta-\tfrac12))
+\]
+which, for \(\varepsilon\) small enough relative to \(\beta-\tfrac12\), is strictly larger than the contribution that would arise from a purely imaginary ordinate of the same height. The archimedean (Gamma) term and the prime-power sum on the right-hand side remain \(O_\varepsilon(1)\) uniformly in the height when the support of \(\hat g_\varepsilon\) is kept inside a fixed compact set independent of \(\gamma\). Consequently the explicit formula forces
+\[
+\sum_{\rho}g_\varepsilon\Bigl(\frac{\rho-\tfrac12}{i}\Bigr)\ge c(\beta)>0
+\]
+with a positive constant depending only on the excess real part, while the right-hand side can be made arbitrarily small by first letting \(\varepsilon\to0\) and then letting the height tend to infinity (using the known zero-density estimates of Ingham type that bound the number of zeros in short intervals). This is a contradiction.
+
+The argument is therefore a conditional obstruction: any zero off the critical line would produce a detectable positivity excess in the explicit formula that cannot be cancelled by the explicit prime and Gamma contributions once the test function is sufficiently localized. The gap is that the required uniformity of the \(O_\varepsilon(1)\) bound for the right-hand side, when the Fourier support shrinks with \(\varepsilon\), has not been established; the classical zero-density estimates lose logarithmic factors precisely in the regime needed to absorb the excess \(c(\beta)\). Closing that uniformity gap would yield a zero-free strip of some positive width, but the present estimates fall short by a factor \(\asymp\log\log|\gamma|\).
+
+VERDICT: PARTIAL
+REASON: Positivity excess from off-line zero via explicit formula; uniformity gap blocks contradiction

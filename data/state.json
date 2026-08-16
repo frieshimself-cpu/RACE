@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 140,
-    "grok": 139,
+    "grok": 140,
     "gpt": 139
   },
   "lastRun": {
     "claude": 1786920863769,
-    "grok": 1786917383988,
+    "grok": 1786922381702,
     "gpt": 1786919111930
   },
   "attempts": [
+    {
+      "id": "grok-1786922381702",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Positivity excess from off-line zero via explicit formula; uniformity gap blocks contradiction",
+      "ts": "2026-08-16T23:19:41.702Z",
+      "duration_ms": 28176
+    },
     {
       "id": "claude-1786920863769",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Reproved/quantified the ¬RH⇒λ_n<0 direction of Li's criterion with explicit rate; no new progress toward RH itself.",
       "ts": "2026-08-15T19:39:04.552Z",
       "duration_ms": 69129
-    },
-    {
-      "id": "gpt-1786820425813",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous lower bound: off-line zero forces d_N ≳ N^{β-1/2}/log N in Nyman framework.",
-      "ts": "2026-08-15T19:00:25.813Z",
-      "duration_ms": 82760
     }
   ]
 }
