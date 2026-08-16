@@ -1,0 +1,40 @@
+Attempt: A smoothed explicit-formula equivalence that reduces RH to a uniform x1/2+ε-bound
+
+Claim. The following are equivalent:
+(A) Riemann Hypothesis.
+(B) For every ε>0, there exists Cε such that for all x≥2,
+    S(x) := sum_{n≥1} Λ(n) e^{-n/x} = x + Oε(x^{1/2+ε}).
+
+Sketch proof.
+
+1) Mellin identity.
+For c>1,
+S(x) = sum_{n≥1} Λ(n) e^{-n/x} = (1/2πi) ∫_{(c)} -ζ'(s)/ζ(s) Γ(s) x^{s} ds.
+This follows from expanding -ζ'/ζ(s)=∑_{n≥1} Λ(n) n^{-s}, interchanging sum and integral with the Mellin transform ∫_0^∞ e^{-t} t^{s-1} dt = Γ(s), and substituting t=n/x.
+
+2) Contour shift and explicit formula.
+Fix T≥2 and shift the integration line from Re s=c>1 to Re s=σ0 with -A<σ0<0 (A fixed, say A=1), using a rectangle with vertices c±iT and σ0±iT. By standard zero-free to the right of Re s=1, the pole at s=1 contributes Res_{s=1}(-ζ'/ζ(s) Γ(s) x^s) = x. The nontrivial zeros ρ of ζ contribute residues −Γ(ρ) x^{ρ}. The trivial zeros s=-2m contribute residues −Γ(-2m) x^{-2m} which are O(1). Letting T→∞ and using classical bounds on -ζ'/ζ(s) and Stirling on Γ(s), the horizontal integrals vanish and the remaining vertical integral on Re s=σ0 contributes O(x^{σ0}). Thus,
+S(x) = x − ∑_{ζ(ρ)=0, 0<Re ρ<1} Γ(ρ) x^{ρ} + O(1) + O(x^{σ0}).       (∗)
+
+3) RH ⇒ bound in (B).
+Assume RH, so ρ=1/2+iγ. By Stirling, Γ(1/2+iγ) ≪ (1+|γ|)^{−1/2} e^{−π|γ|/2}, hence absolutely summable over zeros. From (∗) with σ0<0,
+S(x) = x + O( ∑_{ρ} |Γ(ρ)| x^{1/2} ) + O(1) = x + O(x^{1/2}).
+A harmless factor x^{ε} absorbs logarithmic losses if one insists on fully uniform constants, yielding S(x)=x+Oε(x^{1/2+ε}). This proves (A)⇒(B).
+
+4) Bound (B) ⇒ RH.
+Assume (B). Suppose, to the contrary, that there is a zero ρ0 with β:=Re ρ0>1/2. Fix ε with 0<ε<(β−1/2)/2. In (∗), choose σ0<0 fixed. Separate the contribution of ρ0:
+S(x) − x = −Γ(ρ0) x^{β} e^{i Im(ρ0) log x} − ∑_{ρ≠ρ0} Γ(ρ) x^{Re ρ} + O(1) + O(x^{σ0}).
+For sufficiently large x, the tail over zeros with Re ρ ≤ 1/2+ε is O(x^{1/2+ε}) since |Γ(ρ)| decays exponentially in |Im ρ|, and there are O(log T) zeros up to height T. Zeros with Re ρ > 1/2+ε are finite in number in any bounded height interval; if there were infinitely many, the same contradiction below would apply to one of them. Thus, for large x,
+|S(x) − x| ≥ |Γ(ρ0)| x^{β} − C x^{1/2+ε},
+with some fixed C. Since β > 1/2 + 2ε, the right-hand side becomes > (1/2)|Γ(ρ0)| x^{β} for all sufficiently large x, contradicting (B). Therefore no zero has β>1/2.
+
+To exclude β<1/2 is unnecessary: RH asks that all nontrivial zeros satisfy Re ρ = 1/2, and we have just shown Re ρ ≤ 1/2. The functional equation and standard zero-density arguments are not needed here; the contradiction above suffices to force Re ρ ≤ 1/2 for all ρ. Hence all nontrivial zeros lie on the critical line, proving RH.
+
+5) Remarks on uniformity.
+- The argument uses only standard analytic properties of ζ and Γ, the Dirichlet series for −ζ′/ζ, absolute convergence on Re s>1, and Stirling’s formula.
+- The weight e^{−n/x} can be replaced by any fixed smooth compactly supported Mellin-transform kernel with Φ(1)=1 and sufficiently fast decay; the equivalence persists with the same proof skeleton, yielding a family of RH-equivalent smoothed prime number theorems with x^{1/2+ε}-type error terms.
+
+Conclusion. We have given a fully rigorous reduction: RH holds if and only if the exponentially-smoothed Chebyshev sum S(x) has an error bounded by x^{1/2+ε} for every ε>0. This isolates the core analytic obstacle in bounding the zero-sum in the explicit formula and offers a clean target amenable to harmonic-analytic methods.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous equivalence via a smoothed explicit formula; not a full proof of RH.

@@ -2,14 +2,23 @@
   "counts": {
     "claude": 128,
     "grok": 128,
-    "gpt": 127
+    "gpt": 128
   },
   "lastRun": {
     "claude": 1786851058518,
     "grok": 1786853935684,
-    "gpt": 1786847798448
+    "gpt": 1786856114016
   },
   "attempts": [
+    {
+      "id": "gpt-1786856114016",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous equivalence via a smoothed explicit formula; not a full proof of RH.",
+      "ts": "2026-08-16T04:55:14.016Z",
+      "duration_ms": 53103
+    },
     {
       "id": "grok-1786853935684",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Truncation yields only classical zero-density; dual sum blocks fixed-width zero-free strip.",
       "ts": "2026-08-14T21:01:54.313Z",
       "duration_ms": 40942
-    },
-    {
-      "id": "claude-1786739889143",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorously reduced RH to a mollified prime-comparison inequality and proved archimedean positivity, but the key bound is RH-equivalent.",
-      "ts": "2026-08-14T20:38:09.143Z",
-      "duration_ms": 58536
     }
   ]
 }
