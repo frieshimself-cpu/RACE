@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 137,
-    "grok": 136,
+    "grok": 137,
     "gpt": 136
   },
   "lastRun": {
     "claude": 1786906788196,
-    "grok": 1786902779390,
+    "grok": 1786908484410,
     "gpt": 1786904962176
   },
   "attempts": [
+    {
+      "id": "grok-1786908484410",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Test-function positivity via explicit formula cannot force |P(g)|<4 for off-line zeros; oscillations block it.",
+      "ts": "2026-08-16T19:28:04.410Z",
+      "duration_ms": 46424
+    },
     {
       "id": "claude-1786906788196",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Verified Li-criterion positivity for n=1,2 and sharply localized the obstruction, but proved no new unconditional RH progress.",
       "ts": "2026-08-15T14:56:20.666Z",
       "duration_ms": 58244
-    },
-    {
-      "id": "gpt-1786803774330",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "New rigorous reduction: uniform subpower bound for twisted Möbius sums ⇒ RH; not a full proof of RH.",
-      "ts": "2026-08-15T14:22:54.330Z",
-      "duration_ms": 93989
     }
   ]
 }

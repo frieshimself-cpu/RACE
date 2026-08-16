@@ -1,0 +1,68 @@
+### Attempt: A positivity obstruction for off-line zeros via a truncated Weil explicit formula
+
+Let \(\xi(s)=s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function, entire of order 1, satisfying \(\xi(s)=\xi(1-s)\) and \(\xi(\overline{s})=\overline{\xi(s)}\). Write the non-trivial zeros as \(\rho=\beta+i\gamma\) (with multiplicity). The goal is a conditional obstruction: if a zero with \(\beta>1/2\) exists, then a certain explicitly constructed test function \(g\) must violate a positivity identity forced by the prime-power side of the explicit formula.
+
+#### Setup
+Weil’s explicit formula, for a Schwartz test function \(h\) even and of rapid decay (or a compactly supported \(C^2\) approximation thereto), reads
+\[
+\sum_{\rho}h(\rho)=\frac{1}{2\pi}\int_{-\infty}^{\infty}h\Bigl(\tfrac12+it\Bigr)\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}{2}\Bigr)\,dt
++h(0)+h(1)-\sum_{n=1}^{\infty}\frac{\Lambda(n)}{\sqrt{n}}\bigl(\widehat{h}(\log n)+\widehat{h}(-\log n)\bigr),
+\]
+where \(\widehat{h}(u)=\int_{-\infty}^{\infty}h(1/2+it)e^{-itu}\,dt\) (Fourier transform normalized so that the dual of a Gaussian is a Gaussian). Equivalently, working with the completed form,
+\[
+\sum_{\rho}g(\rho)=2\sum_{n\ge1}\frac{\Lambda(n)}{\sqrt{n}}\widehat{g}(\log n)+ \text{(archimedean + trivial terms)},
+\]
+where \(g(s)=h(s)+h(1-s)\) is forced to be symmetric.
+
+#### Choice of test function
+Fix a hypothetical zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>1/2\) and \(\gamma_0>0\) large. Choose a non-negative even bump \(\phi\in C_c^\infty((-1,1))\) with \(\phi(0)=1\), and set
+\[
+g_{\delta,T}(s)=\phi\Bigl(\frac{s-\rho_0}{\delta}\Bigr)+\phi\Bigl(\frac{s-(1-\rho_0)}{\delta}\Bigr)
++\phi\Bigl(\frac{s-\overline{\rho_0}}{\delta}\Bigr)+\phi\Bigl(\frac{s-(1-\overline{\rho_0})}{\delta}\Bigr),
+\]
+scaled and translated so that \(\operatorname{supp}g_{\delta,T}\) lies in four small disks of radius \(\delta\) about the four points \(\{\rho_0,1-\rho_0,\overline{\rho_0},1-\overline{\rho_0}\}\), and further cut off in the imaginary direction by a smooth factor supported in \(|\operatorname{Im}s|\le T\) with \(T=|\gamma_0|+2\). For \(\delta<\beta_0-1/2\) the supports about \(\rho_0\) and \(1-\rho_0\) are disjoint from the critical line. The Fourier transform \(\widehat{g}_{\delta,T}\) is then an explicit linear combination of modulated sinc-type functions whose \(L^1\)-mass on the positive reals is \(O(\delta)\) while the value at the four zeros is \(4+O(\delta)\).
+
+#### Archimedean contribution
+The Gamma-factor contribution is
+\[
+A(g)=\frac{1}{2\pi}\int g\Bigl(\tfrac12+it\Bigr)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}{2}\Bigr)\,dt.
+\]
+By the Stirling expansion \(\operatorname{Re}(\Gamma'/\Gamma)(1/4+it/2)=\frac12\log(|t|/2)+O(1/|t|)\), and because \(g\) is supported away from the critical line at height \(\approx\gamma_0\), one obtains the bound
+\[
+|A(g)|\le C\delta\log(|\gamma_0|+2)
+\]
+uniformly for \(\delta\le1\). The polar terms \(g(0)+g(1)\) vanish for \(\delta\) small and \(T\) large.
+
+#### Prime-power side
+The arithmetic side is
+\[
+P(g)=-\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt{n}}\bigl(\widehat{g}(\log n)+\widehat{g}(-\log n)\bigr).
+\]
+Since \(\widehat{g}\) decays rapidly outside an interval of length \(O(\delta^{-1})\) about the origin (by the smoothness of \(\phi\)), the sum is effectively finite. For any fixed \(\delta>0\) one may therefore evaluate \(P(g)\) to arbitrary precision by summing over \(n\le\exp(C/\delta)\). Crucially, \(\widehat{g}(u)\) oscillates with frequencies \(\pm\gamma_0\) and \(\pm(\beta_0-1/2)\); the leading term is of size
+\[
+P(g)=4\cdot\operatorname{Re}\Bigl(e^{-i\gamma_0\log p}\ p^{-\beta_0}\Bigr)+O\bigl(\delta\log(1/\delta)\bigr)
+\]
+when a prime power \(p^k\) lies near the stationary point of the phase, but in general
+\[
+|P(g)|\le C_\varepsilon\delta^{-1-\varepsilon}\sum_{n\le\exp(C/\delta)}n^{-1/2+\varepsilon}.
+\]
+(The constant is absolute once \(\phi\) is fixed.)
+
+#### Formal identity and obstruction
+The explicit formula asserts
+\[
+\sum_{\rho}g(\rho)=A(g)+P(g).
+\]
+The left-hand side is at least \(4-O(\delta)\) (contribution of the four symmetric zeros) plus a possible contribution from any other zeros that happen to lie inside the four disks; the latter is non-negative if one assumes a simple zero or works with multiplicity. Hence
+\[
+4-O(\delta)\le C\delta\log(|\gamma_0|+2)+P(g).
+\]
+If one can exhibit a height \(\gamma_0\) and a width \(\delta\in(0,\beta_0-1/2)\) for which the right-hand side is strictly less than 3, a contradiction follows.
+
+#### Where the argument fails
+For any concrete choice of \(\phi\) and any numerically accessible \(\gamma_0\), the rapid oscillation of \(\widehat{g}\) forces massive cancellation on the prime side only after summing many terms; the effective bound on \(|P(g)|\) remains larger than 4 for all \(\delta\) small enough to separate the disks from the critical line. In other words, the archimedean saving \(O(\delta\log\gamma_0)\) is overwhelmed by the trivial estimate on \(P(g)\), and no unconditional sign-definiteness of \(P(g)\) is available. (Under RH the same test functions recover the classical zero-density estimates, but they do not rule out zeros off the line.) Improving the bound on \(P(g)\) to \(o(1)\) uniformly in \(\gamma_0\) would require subconvexity or pair-correlation input far beyond what is known, and would in fact be equivalent to a strong form of RH itself.
+
+Thus the positivity obstruction cannot be closed with present technology; the approach yields only a reformulation of the difficulty, not a contradiction.
+
+VERDICT: FAILED
+REASON: Test-function positivity via explicit formula cannot force |P(g)|<4 for off-line zeros; oscillations block it.
