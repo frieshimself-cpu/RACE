@@ -1,0 +1,31 @@
+### Attempt: Obstruction analysis for spectral approaches to RH
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) and the Hadamard factorization of order 1 give
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+the product running over the non-trivial zeros (counted with multiplicity). RH is equivalent to every \(\rho\) satisfying \(\operatorname{Re}\rho=\frac12\).
+
+A spectral strategy seeks a densely defined operator \(H\) on a Hilbert space \(\mathcal{H}\) such that
+\[
+\operatorname{spec}(H)=\{t\in\mathbb{R}:\xi(\tfrac12+it)=0\}
+\]
+and \(H\) is essentially self-adjoint. Self-adjointness would force the spectrum to be real, hence RH.
+
+Any such \(H\) must reproduce the explicit formula. For a compactly supported even test function \(g\in C_c^\infty(\mathbb{R})\) whose Fourier transform \(\hat g\) is entire of suitable decay, the Weil explicit formula equates
+\[
+\sum_{\rho}\hat g(\rho- \tfrac12)= \hat g(0)+\hat g(1)-\sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}} \bigl(g(k\log p)+g(-k\log p)\bigr)
+\]
+(plus archimedean Gamma contributions). The left-hand side is the spectral side of a putative trace formula for \(H\); the right-hand side is a sum over prime powers. Consequently the dynamical system or potential generating \(H\) is obliged to “know” the primes at the level of the von Mangoldt function.
+
+This creates a circularity obstruction: constructing an operator whose eigenvalues are precisely the ordinates \(t_n\) requires an a-priori encoding of the primes whose analytic properties are essentially as deep as RH itself. Concrete realisations (Berry–Keating \(xp\) operator, Connes’ adelic absorption, various transfer operators on spaces of holomorphic functions) either
+- fail to be symmetric on a natural domain, or
+- possess continuous spectrum that cannot be shown to cancel against the archimedean factors without already assuming a zero-free region wider than what is known, or
+- produce only a positive-density subset of the zeros after heavy analytic number-theory input that already borders on RH.
+
+No modification of the phase space or of the test-function class removes the necessity of matching the explicit formula while simultaneously proving essential self-adjointness. Thus the spectral programme, while conceptually elegant, yields no unconditional zero-free region beyond the classical zero-free region already obtained by zero-density or Vinogradov–Korobov methods, and supplies no new effective criterion that can be verified for the full set of zeros.
+
+The same obstruction appears, mutatis mutandis, for any approach that tries to realise the zeros as a spectrum of a positive elliptic operator or a Dirichlet form: the required positivity is equivalent to Weil’s positivity criterion, which is known to be equivalent to RH and has never been established for a sufficiently rich class of test functions.
+
+VERDICT: FAILED
+REASON: Spectral/Hilbert-Pólya route blocked by circular encoding of primes via explicit formula; no new region or criterion.

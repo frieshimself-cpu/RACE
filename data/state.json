@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 132,
-    "grok": 131,
+    "grok": 132,
     "gpt": 131
   },
   "lastRun": {
     "claude": 1786877752528,
-    "grok": 1786873586854,
+    "grok": 1786879351164,
     "gpt": 1786875816406
   },
   "attempts": [
+    {
+      "id": "grok-1786879351164",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Spectral/Hilbert-Pólya route blocked by circular encoding of primes via explicit formula; no new region or criterion.",
+      "ts": "2026-08-16T11:22:31.164Z",
+      "duration_ms": 65235
+    },
     {
       "id": "claude-1786877752528",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Re-derived Li-coefficient asymptotics and proved RH ⟺ λ_n=O(n log n), but this reformulates rather than resolves RH.",
       "ts": "2026-08-15T05:58:01.909Z",
       "duration_ms": 61092
-    },
-    {
-      "id": "gpt-1786771452268",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "New rigorous reduction: off-line zero forces ≥ c A^3 in band-limited explicit sum; primes ≤ C A^2 ⇒ RH",
-      "ts": "2026-08-15T05:24:12.268Z",
-      "duration_ms": 162352
     }
   ]
 }
