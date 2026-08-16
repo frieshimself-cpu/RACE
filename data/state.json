@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 135,
+    "claude": 136,
     "grok": 135,
     "gpt": 135
   },
   "lastRun": {
-    "claude": 1786895684419,
+    "claude": 1786901094333,
     "grok": 1786897527392,
     "gpt": 1786899431641
   },
   "attempts": [
+    {
+      "id": "claude-1786901094333",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-16T17:24:54.333Z",
+      "duration_ms": 193
+    },
     {
       "id": "gpt-1786899431641",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Identified a sharp Lorentz-space obstruction to weak-L3 ε-regularity via the pressure term.",
       "ts": "2026-08-15T12:37:16.593Z",
       "duration_ms": 61692
-    },
-    {
-      "id": "grok-1786794799646",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Conditional density reduction collapses to classical exponent; no new unconditional zero bound.",
-      "ts": "2026-08-15T11:53:19.646Z",
-      "duration_ms": 37054
     }
   ]
 }
