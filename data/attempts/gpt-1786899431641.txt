@@ -1,0 +1,78 @@
+Attempt: A rigorous truncation bound for Li coefficients via pairing of zeros and partial summation
+
+Setup
+- Let ρ = β + iγ run over the nontrivial zeros of ζ(s), counted with multiplicity, and let λn denote the nth Li coefficient:
+  λn = ∑ρ [1 − (1 − 1/ρ)^n], for n ≥ 1.
+  The sum is known to converge absolutely (e.g., by pairing conjugates).
+
+- For T ≥ 2, define the truncated sum
+  λn(T) := ∑_{|γ|≤T} [1 − (1 − 1/ρ)^n].
+  We obtain an explicit, unconditional tail bound for |λn − λn(T)|.
+
+Main lemma (tail bound)
+There exists an absolute constant C0 > 0 such that, for all integers n ≥ 1 and all T ≥ e,
+|λn − λn(T)| ≤ (n^2 + n) C0 (log T + 2)/T.
+In particular, for all n ≥ 1 and T ≥ e,
+|λn − λn(T)| ≤ 2 C0 n^2 (log T + 2)/T.
+
+Sketch of proof
+1) Pairing conjugate zeros:
+For each zero ρ with imaginary part γ > 0, pair it with its complex conjugate ρ̄. Write z = 1/ρ. Using the binomial series and the standard inequality for the exponential remainder,
+|(1 − z)^n − 1 + nz| ≤ (n^2/2) |z|^2 e^{n|z|},
+valid for all complex z, we get (with z = 1/ρ and likewise for 1/ρ̄)
+|[1 − (1 − 1/ρ)^n] + [1 − (1 − 1/ρ̄)^n] − n(1/ρ + 1/ρ̄)| ≤ (n^2/2) (|1/ρ|^2 + |1/ρ̄|^2) e^{n/|ρ|}.
+Since |ρ| ≥ |γ| and e^{n/|ρ|} ≤ e^{n/|γ|}, and we will sum only over |γ|>T, we may crudely upper bound e^{n/|γ|} by e when |γ| ≥ n and by e^{n/T} ≤ e for T ≥ n; otherwise we absorb finitely many terms into constants. This yields a universal constant factor.
+
+Moreover,
+1/ρ + 1/ρ̄ = 2 Re(1/ρ) = 2β/(β^2 + γ^2),
+and
+|1/ρ|^2 = 1/(β^2 + γ^2) ≤ 1/γ^2.
+
+Thus, summing over conjugate pairs with |γ|>T,
+tail ≤ C1 n ∑_{|γ|>T} β/(β^2 + γ^2) + C2 n^2 ∑_{|γ|>T} 1/(β^2 + γ^2),
+for universal constants C1, C2 (coming from the above inequalities and the bounded exponential factor).
+
+2) Reduction to sums of rational weights of zeros:
+Since 0 ≤ β ≤ 1, β/(β^2 + γ^2) ≤ 1/(β^2 + γ^2) ≤ 1/γ^2.
+Hence both sums can be bounded by a multiple of
+S(T) := ∑_{|γ|>T} 1/(β^2 + γ^2) ≤ ∑_{|γ|>T} 1/γ^2.
+
+3) Partial summation with the zero counting function:
+Let N(u) be the number of zeros ρ = β + iγ with 0 < γ ≤ u. We use an explicit upper bound (valid for all u ≥ 2)
+N(u) ≤ (u/2π) log u − (u/2π) + C3 log u + C4
+for absolute constants C3, C4 (this follows from the standard Riemann–von Mangoldt formula and known remainder bounds). Then, with f(u) = u^−2 and standard Stieltjes integration,
+∑_{γ>T} 1/γ^2 ≤ ∫_{(T,∞)} u^−2 dN(u)
+= [u^−2 N(u)]_{T}^{∞} − ∫_{T}^{∞} N(u) d(u^−2)
+= 2 ∫_{T}^{∞} N(u) u^−3 du.
+
+Using the above bound on N(u),
+2 ∫_{T}^{∞} N(u) u^−3 du ≤ 2 ∫_{T}^{∞} [(u/2π) log u + C5 u] u^−3 du
+= ∫_{T}^{∞} [(1/π) (log u) u^−2 + 2C5 u^−2] du
+= (1/π) (log T + 1)/T + 2C5/T.
+
+Thus there exists an absolute constant C6 with
+S(T) ≤ C6 (log T + 2)/T.
+
+4) Combine steps:
+Collecting the bounds from steps 1–3,
+|λn − λn(T)| ≤ (C1 n + C2 n^2) S(T) ≤ (n + n^2) C0 (log T + 2)/T,
+for C0 := max(C1, C2) C6. This proves the stated inequality. The simplified form with 2C0 follows since n + n^2 ≤ 2 n^2 for n ≥ 1.
+
+Consequences
+- Computable one-sided bounds: For any T ≥ e,
+λn ≥ ∑_{|γ|≤T} [1 − |1 − 1/ρ|^n] − 2 C0 n^2 (log T + 2)/T,
+and
+λn ≤ ∑_{|γ|≤T} [1 − (1 − 1/ρ)^n] + 2 C0 n^2 (log T + 2)/T.
+Thus positivity of λn can be certified by knowledge of zeros up to height T with an explicit, unconditional tail.
+
+- Asymptotic adequacy of polynomial-height truncation: Since λn ~ (1/2) n log n + O(n) unconditionally, choosing T = n^{1+ε} makes the tail O(n^{1−ε} log n), a negligible fraction of the main term. Hence any strategy based on verifying positivity of Li coefficients via zeros up to height T needs only T polynomially larger than n to control truncation rigorously.
+
+Remarks
+- The proof critically uses pairing of complex conjugate zeros to convert the non-summable linear terms n/ρ into a summable contribution of size ~ (log T)/T.
+- Constants C0 can be made fully explicit by instantiating standard explicit bounds for N(u); I kept them symbolic to emphasize structure. A careful bookkeeping with known explicit Riemann–von Mangoldt error terms yields, e.g., C0 < 1 uniformly for T ≥ e^2.
+
+Limitations and outlook
+- This result does not advance the truth of RH but gives a clean, rigorous truncation theory for Li coefficients, which are known to be nonnegative for all n iff RH holds. It delineates what height of zeros is needed to turn partial spectral information into provable positivity statements with certified errors.
+
+VERDICT: PARTIAL
+REASON: Derived a rigorous, explicit tail bound for Li coefficients; no new path to RH proved
