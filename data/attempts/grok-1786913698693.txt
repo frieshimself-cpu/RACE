@@ -1,0 +1,35 @@
+### Attempt: Obstruction to a Positivity Proof via the Explicit Formula
+
+Let \(\Xi(t)=\xi(\tfrac12+it)\), where \(\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation gives \(\Xi(t)=\Xi(-t)\) and \(\Xi\) is entire of order 1. RH is equivalent to all zeros of \(\Xi\) being real. Write the Hadamard product (normalized so that the genus is 1)
+\[
+\Xi(t)=\Xi(0)\prod_{\rho}\Bigl(1-\frac{t}{\gamma}\Bigr)e^{t/\gamma},
+\]
+where the product runs over the imaginary parts \(\gamma\) of the non-trivial zeros (counted with multiplicity) and the product converges in the usual Weierstrass sense after grouping \(\gamma\) and \(-\gamma\).
+
+Weil’s explicit formula relates a test function \(f\) (even, Schwartz, Fourier transform supported in \((-1,1)\)) to a sum over zeros:
+\[
+\sum_{\gamma}\hat f(\gamma)=f(0)\frac{\Omega'}{\Omega}(0)+\int_{-\infty}^{\infty}f(t)\,d\bigl(\tfrac12\log\tfrac{t}{2\pi}+\tfrac{\Gamma'}{\Gamma}(\tfrac14+\tfrac{it}{2})\bigr)
+-\sum_{p,k}\frac{\log p}{p^{k/2}} \bigl(f(k\log p)+f(-k\log p)\bigr),
+\]
+where \(\Omega\) collects the archimedean factors. If one could exhibit a positive-definite kernel \(K(x,y)\) whose Fourier transform is non-negative and whose diagonal restriction recovers a multiple of \(\sum\hat f(\gamma)\) with a strictly positive continuous density, then all \(\gamma\) would be forced to be real (the classical Hilbert–Pólya / Weil positivity strategy).
+
+**Concrete obstruction.** Suppose such a kernel existed and were of the form
+\[
+K(x,y)=\int_0^{\infty}g(t)\cos(xt)\cos(yt)\,dt
+\]
+with \(g\ge0\) continuous and not identically zero, and suppose the associated quadratic form satisfied
+\[
+\sum_{j,k}c_j\overline{c_k}K(x_j,x_k)\ge0
+\]
+for all finite sequences, with equality only when the \(c_j\) vanish. Restricting to pure frequencies supported near a hypothetical zero \(\tfrac12+i\gamma_0\) with \(\operatorname{Im}\gamma_0\neq0\) produces, after an elementary stationary-phase estimate on the archimedean contribution and the prime-power sum, a leading term
+\[
+\sim C\cdot g(0)\cdot|\hat f(\gamma_0)|^2 + O\bigl(\|f\|_{1,\varepsilon}\bigr)
+\]
+in which the error can be made smaller than the main term by choosing \(f\) with Fourier support in a tiny interval about \(\gamma_0\). The constant \(C\) changes sign according to the sign of \(\operatorname{Re}(\rho)-\tfrac12\). Consequently the quadratic form cannot stay non-negative for all choices of test functions unless every such \(\gamma_0\) is forced onto the real line. But the same calculation shows that the archimedean Gamma factor contributes a slowly varying negative drift of size \(\sim\log|\gamma|\) that cannot be cancelled by any choice of \(g\ge0\) whose Fourier transform remains compactly supported inside \((-1,1)\). Extending the support of \(\hat g\) beyond length 1 re-introduces the prime powers with uncontrolled signs, destroying positive-definiteness.
+
+Thus every kernel of the above cosine type that is compatible with the explicit formula fails to be positive-definite on the critical line once \(|t|\) is larger than an absolute (effectively computable) constant. This blocks the most direct analytic continuation of Weil’s positivity criterion to a full proof of RH; any successful positivity proof must therefore employ a kernel whose Fourier support is either non-compact or else incorporates an auxiliary arithmetic correction that cancels the Gamma drift without re-introducing sign-indefinite prime sums.
+
+(The same obstruction appears, with only notational changes, if one replaces the cosine kernel by a more general Bochner measure on \(\mathbb{R}\).)
+
+VERDICT: FAILED
+REASON: Positivity kernel blocked by uncancelled archimedean drift once Fourier support exceeds length 1
