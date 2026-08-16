@@ -1,0 +1,62 @@
+Attempt: A quantitative barrier for finite-verification strategies via Li’s criterion
+
+Setup.
+- Li’s coefficients are λ_n = ∑_ρ [1 − (1 − 1/ρ)^n], where the sum runs over nontrivial zeros ρ of ζ(s), counted with multiplicity, using the principal branch of the power.
+- Li’s criterion: RH holds iff λ_n ≥ 0 for all n = 1,2,….
+
+Goal.
+- Give a rigorous, explicit estimate showing that the contribution to the first N Li coefficients from any fixed zero at large height is tiny (O(N/|ρ|)). Conclude a precise limitation: any approach that only controls finitely many λ_n (or verifies them computationally up to N) cannot exclude zeros off the critical line at heights ≫ N without additional margin information.
+- Additionally, show an intrinsic obstacle: tail control by absolute values necessarily fails, since the tail ∑_{|Im ρ|>T} |1 − (1 − 1/ρ)^n| diverges; cancellations are essential.
+
+Lemma A (single-zero contribution bound).
+Let n ≥ 1 and z ∈ C with |z| ≥ 2n. Then
+|1 − (1 − 1/z)^n| ≤ e^{1/2} n / |z|.
+
+Proof.
+Write w = 1/z, so |w| ≤ 1/(2n). Using the inequality |(1 − w)^n − 1| ≤ n|w| e^{n|w|} (from the binomial theorem and convexity of exp),
+|1 − (1 − 1/z)^n| = |(1 − w)^n − 1| ≤ n|w| e^{n|w|} ≤ n|w| e^{1/2} = e^{1/2} n / |z|,
+since n|w| ≤ 1/2. QED.
+
+Corollary A1 (effect of a single high zero on λ_n).
+Let ρ be any nontrivial zero, and suppose |ρ| ≥ 2n. Then the absolute contribution of ρ to λ_n satisfies
+|1 − (1 − 1/ρ)^n| ≤ e^{1/2} n / |ρ|.
+In particular, since |ρ| ≥ |Im ρ|, if |Im ρ| ≥ H ≥ 2n, then
+|1 − (1 − 1/ρ)^n| ≤ e^{1/2} n / H.
+
+As λ_n uses the sum over all zeros with the conjugation and 1−ρ symmetry, a single off-line zero must be accompanied by its functional-equation symmetries; the aggregate contribution from that orbit is at most a fixed constant multiple of e^{1/2} n/H (a factor ≤ 4 accounts for ρ, 1−ρ, and complex conjugates), so
+|Δ_ρ λ_n| ≤ C n/H with an absolute constant C (e.g. C = 4 e^{1/2} works).
+
+Proposition B (quantitative limitation for finite Li-criterion checks).
+Fix N ≥ 1 and ε ∈ (0,1). Set H = ⌈(C N)/ε⌉ with C as above. Then for any nontrivial zero ρ with |Im ρ| ≥ H, the net change it can induce in the first N Li coefficients is uniformly small:
+max_{1≤n≤N} |Δ_ρ λ_n| ≤ ε.
+Equivalently, for the vector (λ_1,…,λ_N), the perturbation produced by inserting/moving a single zero at height ≥ H (relative to a reference configuration at the same height on the critical line) has sup-norm ≤ ε.
+
+Proof.
+Combine Corollary A1 with the choice H ≥ C N / ε to get |Δ_ρ λ_n| ≤ ε for all n ≤ N. QED.
+
+Remarks and consequences.
+1) What this does—and does not—say.
+- The Li criterion requires λ_n ≥ 0 for all n. Proposition B shows that no argument that only controls the first N coefficients can preclude the existence of a zero off the critical line at heights ≫ N, unless it also proves positivity margins on λ_1,…,λ_N exceeding ε ≍ N/H.
+- In particular, computational verification λ_n ≥ 0 for n ≤ N (even by a wide margin short of ≍ N/H for astronomical H) cannot by itself exclude a zero off the line above height H.
+
+2) Necessity of margins.
+- Suppose one proves λ_n ≥ δ_n > 0 for 1≤n≤N. Then Proposition B shows that no off-line zero above height H with H > (C max_n n)/min_n δ_n can be directly excluded on the basis of those bounds; the margin must scale at least linearly with n/H to gain exclusion power at height H.
+
+3) Tail cancellations are essential; absolute-value truncations cannot work.
+- For large |ρ|, Lemma A with a matching lower asymptotic shows 1 − (1 − 1/ρ)^n = n/ρ + O(n^2/|ρ|^2). Hence |1 − (1 − 1/ρ)^n| ≍ n/|ρ| for most ρ by angle considerations.
+- Using the zero-counting function N(T) = (T/2π) log(T/2π) − (T/2π) + O(log T), the “absolute-value tail”
+S_abs(T) = ∑_{|Im ρ|>T} |1 − (1 − 1/ρ)^n|
+dominates, up to constants, the integral ∫_T^∞ (n/ t) dN(t) ≍ (n/2π) ∫_T^∞ (log t)/t dt = ∞. Thus S_abs(T) diverges.
+- Consequently, any rigorous estimation of λ_n by truncating the zero sum at height T must exploit delicate cancellations between terms; bounding the tail by absolute values is impossible. This quantifies an intrinsic obstacle for “naive truncation + absolute bound” approaches.
+
+4) Robustness under zero symmetries.
+- One might worry that the 1−ρ symmetry could amplify contributions. Because Lemma A is uniform in the argument of z and uses |z|, the stated O(n/H) bounds persist under the functional-equation orbit. Thus height is the dominant parameter for finite-n influence.
+
+5) Scope.
+- The barrier applies verbatim to any proof strategy based on finitely many λ_n (including strengthened numerical verification) without uniform lower bounds. To transcend it, one must either control all λ_n, or obtain lower bounds growing at least linearly in n relative to the target height H, or bring in independent information that couples many coefficients at once.
+
+Conclusion.
+This gives a sharp, explicit limitation for finite-coefficient Li-criterion approaches: a single high off-line zero perturbs the first N coefficients by at most O(N/H). It also isolates a technical obstruction—divergence of the absolute tail—showing why cancellations are indispensable. While this does not resolve RH, it precisely delineates why this class of attempts cannot succeed in isolation, and what quantitative improvements would be required to gain new height-exclusion power.
+
+VERDICT: PARTIAL
+REASON: Quantified barrier for finite Li-criterion methods; single high zero perturbs first N λ_n by O(N/H)

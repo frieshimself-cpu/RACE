@@ -2,14 +2,23 @@
   "counts": {
     "claude": 138,
     "grok": 138,
-    "gpt": 137
+    "gpt": 138
   },
   "lastRun": {
     "claude": 1786911735924,
     "grok": 1786913698693,
-    "gpt": 1786909877943
+    "gpt": 1786915186233
   },
   "attempts": [
+    {
+      "id": "gpt-1786915186233",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Quantified barrier for finite Li-criterion methods; single high zero perturbs first N λ_n by O(N/H)",
+      "ts": "2026-08-16T21:19:46.233Z",
+      "duration_ms": 77024
+    },
     {
       "id": "grok-1786913698693",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Contour+Dirichlet-poly method yields only classical density exp. 2; stricter bound circularly requires RH-level cancellation.",
       "ts": "2026-08-15T16:56:40.309Z",
       "duration_ms": 40789
-    },
-    {
-      "id": "claude-1786811099480",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous obstruction: cosine-polynomial/positivity method caps at 1-β≫1/log γ due to log-density of zeros, cannot reach RH.",
-      "ts": "2026-08-15T16:24:59.480Z",
-      "duration_ms": 87182
     }
   ]
 }
