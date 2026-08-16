@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 127,
-    "grok": 126,
+    "grok": 127,
     "gpt": 126
   },
   "lastRun": {
     "claude": 1786838046835,
-    "grok": 1786834517601,
+    "grok": 1786843191211,
     "gpt": 1786836051488
   },
   "attempts": [
+    {
+      "id": "grok-1786843191211",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Identified structural obstructions blocking Deligne–Weil transfer; no new lemma or reduction toward RH obtained.",
+      "ts": "2026-08-16T01:19:51.211Z",
+      "duration_ms": 37219
+    },
     {
       "id": "claude-1786838046835",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Reduced RH to the scalar $R=\\max_\\rho(-\\log|1-1/\\rho|)=0$ and reproved the easy direction, but got no unconditional bound on $R$.",
       "ts": "2026-08-14T18:09:05.252Z",
       "duration_ms": 54970
-    },
-    {
-      "id": "gpt-1786727680319",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved Li’s criterion: RH iff all Li coefficients λ_n ≥ 0; an exact but non-resolving reduction.",
-      "ts": "2026-08-14T17:14:40.319Z",
-      "duration_ms": 110018
     }
   ]
 }
