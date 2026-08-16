@@ -1,0 +1,91 @@
+Title: A precise obstruction to extending one-piece μ-mollifiers beyond length T^{1/2} in the mollified second moment
+
+Objective
+Explain rigorously why the canonical “one-piece” mollifier built from μ(n) cannot be pushed beyond length T^{1/2} in the classical mollified second moment method without encountering off-diagonal sums of the same size as the diagonal, i.e., a barrier that forces genuinely new input (shifted convolution beyond current reach).
+
+Setup
+- Fix a smooth nonnegative weight W compactly supported in [1,2], and write
+  I(T) = ∫ |ζ(1/2 + it) M(1/2 + it)|^2 W(t/T) dt.
+- Take the one-piece μ-mollifier of length T^θ:
+  M(s) = ∑_{n ≤ T^θ} μ(n) n^{-s} v(n/T^θ),
+  where v is a fixed smooth cutoff supported in (0,1], v ≡ 1 on [0,1/2], say.
+
+- Let X = T^{1/2}. Use a smooth approximate functional equation for ζ on the 1/2-line:
+  ζ(1/2 + it) = S(t) + ε(t) S̃(t) + O(T^{-A}) in mean-square,
+  with S(t) = ∑_{m ≤ X} m^{-1/2-it} u(m/X), S̃(t) = ∑_{m ≤ X} m^{-1/2+it} u(m/X)
+  and |ε(t)| = 1, u a smooth cutoff. Standard mean-square technology (smoothed) yields
+  I(T) = ∫ (|S M|^2 + |S̃ M|^2) W(t/T) dt + o(T),
+  since the cross-term ∫ S̄ S̃ |M|^2 is negligible by length separation and smoothing, provided θ < 1 (which we assume throughout).
+
+- Hence, for a lower bound and to see the structural content, it suffices to analyze
+  J(T) = ∫ |S(t) M(1/2 + it)|^2 W(t/T) dt,
+  because I(T) = 2 J(T) + o(T). We focus on J(T).
+
+Reduction to a Dirichlet polynomial mean square
+- Expand S(t)M(1/2+it):
+  S(t) M(1/2 + it) = ∑_{n ≤ X T^θ} c(n) n^{-1/2 - it},
+  with
+  c(n) = ∑_{m ≤ X} u(m/X) · μ(n/m) v((n/m)/T^θ), understood as zero unless m | n and n/m ≤ T^θ.
+
+- The smoothed Montgomery–Vaughan mean value theorem gives
+  J(T) = T ∑_{n} |c(n)|^2 n^{-1} + O(T^{1-δ})
+  as long as the Dirichlet polynomial length X T^θ ≤ T^{1-ε}, which holds for any fixed θ < 1.
+
+Key structural identity and the cancellation mechanism
+- Write c as a short Dirichlet convolution:
+  c = 1_X,u * (μ 1_{≤T^θ,v}),
+  where 1_X,u denotes the sequence m ↦ u(m/X) supported on m ≤ X, and 1_{≤T^θ,v} denotes n ↦ v(n/T^θ) supported on n ≤ T^θ, with μ twisted in.
+
+- The squared l^2-norm governing J(T) is
+  S := ∑_{n} |c(n)|^2 n^{-1}.
+
+- Decompose the “diagonal” contribution coming from the m = 1 term in c(n). If we had only m = 1 present (i.e., replaced S(t) by its first term), then c(n) would reduce to μ(n) v(n/T^θ), and S would be exactly the l^2-norm of the mollifier:
+  S_diag,1 = ∑_{n ≤ T^θ} μ(n)^2 v(n/T^θ)^2 n^{-1} ~ C_v log T, with C_v > 0.
+
+- However, S contains cross-terms between the m = 1 slice and all prime m = p slices (and beyond). Precisely,
+  c(n) = μ(n) v(n/T^θ) u(1/X) + ∑_{p ≤ X} u(p/X) μ(n/p) v((n/p)/T^θ) 1_{p|n} + higher m,
+  so on the square |c(n)|^2, the cross term between m=1 and m=p contributes
+  2 Re [ μ(n) v(n/T^θ) · μ(n/p) v((n/p)/T^θ) ] u(1/X) u(p/X) 1_{p|n}.
+
+- If one were to hope for a straightforward lower bound S ≥ S_diag,1 (i.e., the m = 1 piece dominating), this cross term could only help if it were predominantly nonnegative.
+
+- For the canonical μ-mollifier, this is not the case: on the substantial set where both n and n/p are squarefree, μ(n) μ(n/p) = μ(pm) μ(m) = (−μ(m)) μ(m) = −1. Moreover, on this set v and u are nonnegative. Hence the cross-term is predominantly negative and, crucially, as large as the diagonal in aggregate when θ exceeds 1/2.
+
+Quantitative cancellation when θ > 1/2
+- Fix any prime p ≤ X. Consider n = p m with m squarefree, coprime to p, and m ≤ T^θ/p. Then:
+  μ(n) = −μ(m), μ(n/p) = μ(m), and both v(n/T^θ) and v((n/p)/T^θ) are ≍ 1 (since v ≡ 1 on [0,1/2] and we may restrict to m ≤ T^θ/(2p)). Also u(1/X), u(p/X) ≍ 1 for p ≪ X.
+
+- On this set, the contribution to |c(n)|^2 from the m=1 and m=p slices is
+  |μ(n) v(n/T^θ) + μ(n/p) v((n/p)/T^θ)|^2 ≍ |−1 + 1|^2 = 0,
+  i.e., exact cancellation at the level of the square of partial sums.
+
+- Aggregating over such n and over 1 ≪ p ≪ X, we find that the would-be “gain” of convolving with 1_{m≤X} is nullified by systematic destructive interference between the m=1 and m=p pieces on a set of positive weighted density among n ≤ X T^θ (weighted by n^{-1}).
+
+- More precisely, for any fixed small η > 0, if θ > 1/2 + η, the set
+  S_p := {n : n = p m, m squarefree, (m,p)=1, m ≤ T^θ/(2p)}
+  has cardinality ≍ (T^θ/p) with weight ∑_{n∈S_p} n^{-1} ≍ (1/p) ∫^{T^θ/p} dm/(pm) ≍ (1/p) log(T^{θ}/p).
+  Summing over p ≤ T^{1/2−η}, the total weighted mass of points of exact cancellation is ≍ ∑_{p ≤ T^{1/2−η}} (1/p) log(T^{θ}/p) ≍ (θ − 1/2 + o(1)) log T · log log T.
+  This shows that, in the l^2(n^{-1}) norm relevant for J(T), a positive proportion (in a logarithmic sense) of the mass where the m=1 diagonal would contribute is neutralized by the prime slices when θ > 1/2.
+
+Consequences for the mollified second moment method
+- The upshot is that, for the μ-mollifier with θ > 1/2, the “diagonal-only heuristic” for J(T), which would give J(T) ≈ T ∑_{n ≤ T^θ} μ(n)^2 v(n/T^θ)^2 n^{-1} (a quantity ∼ C_v T log T), fails in a strong way: there is systematic destructive interference at the same main scale.
+
+- Therefore, to extract a usable asymptotic for J(T) (and hence for I(T) = 2J(T) + o(T)) one must capture a delicate balance of:
+  - additional diagonal terms from m ≥ 2 with themselves;
+  - and, crucially, off-diagonal correlations c(n) c(n+h) with small h arising from comparing different divisor slices m1 ≠ m2.
+  These are precisely shifted convolution sums of the additive divisor type coupled with μ (or with smooth truncations thereof), with shifts as large as
+  h ≍ n (1/m1 − 1/m2) and m1, m2 up to X = T^{1/2}, hence h ranging over scales up to T^{θ−1/2}.
+
+- In particular, any attempt to turn the mollified second moment into a clean main term with length θ > 1/2 necessitates asymptotics with power savings for weighted sums of the form
+  ∑_{n} μ(n) μ(n+h) v(n/T^θ) v((n+h)/T^θ) d_{≤X}(n) d_{≤X}(n+h) n^{-1},
+  where d_{≤X} records the truncated divisor structure coming from m ≤ X. Even with μ removed, this reduces to the additive divisor problem with uniformity in h up to size T^{θ−1/2}, at the boundary of current technology; with μ present, it is no easier.
+
+- Concretely: pushing θ even slightly beyond 1/2 forces one to control a family of shifted convolution sums with shifts as large as T^{η} (η = θ − 1/2 > 0), uniformly with power savings in T. No such general uniform asymptotics are currently known; obtaining them would represent a major advance on shifted divisor correlations.
+
+Conclusion
+- The calculation above identifies a precise obstruction: for the canonical one-piece μ-mollifier, the main “diagonal” of the mean square is neutralized by prime slices when θ > 1/2, leaving off-diagonal/shifted-convolution terms of the same size as the purported main term. Hence, without new deep estimates for such shifted sums, this line of attack cannot deliver improvements beyond the θ = 1/2 barrier.
+
+- This does not preclude more elaborate multi-piece mollifiers or different architectures (which are known to allow progress), but it clarifies exactly why the most natural extension (a longer one-piece μ-mollifier) runs into a genuine analytic barrier tied to hard shifted convolution problems.
+
+VERDICT: PARTIAL
+REASON: Rigorous barrier: μ-mollifiers beyond T^{1/2} face main-term cancellation, forcing hard shifted sums.

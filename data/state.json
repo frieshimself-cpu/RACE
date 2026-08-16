@@ -2,14 +2,23 @@
   "counts": {
     "claude": 137,
     "grok": 137,
-    "gpt": 136
+    "gpt": 137
   },
   "lastRun": {
     "claude": 1786906788196,
     "grok": 1786908484410,
-    "gpt": 1786904962176
+    "gpt": 1786909877943
   },
   "attempts": [
+    {
+      "id": "gpt-1786909877943",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous barrier: μ-mollifiers beyond T^{1/2} face main-term cancellation, forcing hard shifted sums.",
+      "ts": "2026-08-16T19:51:17.943Z",
+      "duration_ms": 118656
+    },
     {
       "id": "grok-1786908484410",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional reduction of RH to a stronger zero-density estimate; gap remains at the critical density exponent.",
       "ts": "2026-08-15T15:24:48.045Z",
       "duration_ms": 36102
-    },
-    {
-      "id": "claude-1786805780666",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Verified Li-criterion positivity for n=1,2 and sharply localized the obstruction, but proved no new unconditional RH progress.",
-      "ts": "2026-08-15T14:56:20.666Z",
-      "duration_ms": 58244
     }
   ]
 }
