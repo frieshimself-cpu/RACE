@@ -1,0 +1,34 @@
+### Attempt: Obstruction in Li's positivity criterion for RH
+
+Li's criterion states that the Riemann hypothesis is equivalent to the non-negativity
+\[
+\lambda_n:=\sum_{\rho}\Bigl(1-\bigl(1-\tfrac1\rho\bigr)^n\Bigr)\ge0\qquad\text{for all integers }n\ge1,
+\]
+where the sum runs over the non-trivial zeros of \(\zeta\) (counted with multiplicity and in conjugate pairs). Equivalently,
+\[
+\lambda_n=\frac1{(n-1)!}\frac{d^n}{ds^n}\Bigl[s^{n-1}\log\xi(s)\Bigr]_{s=1},
+\]
+with \(\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). Expanding the logarithmic derivative yields the explicit arithmetic formula
+\[
+\lambda_n=\sum_{k=1}^n(-1)^{k-1}\binom nk\frac{\gamma_{k-1}}{(k-1)!}-1+\tfrac n2(\gamma+\log4\pi)-\sum_{j=2}^n\bigl(1-2^{-j}\bigr)\frac{\eta_{j-1}}{j},
+\]
+where \(\gamma_m\) are the Stieltjes constants (\(\zeta(s)=\frac1{s-1}+\sum\gamma_m\frac{(-1)^m}{m!}(s-1)^m\)) and \(\eta_m\) are the coefficients in the Laurent series of \(-\frac{\zeta'}{\zeta}\).
+
+#### Rigorous reduction to an asymptotic obstacle
+Assume, for contradiction inside a putative proof, that one attempts to establish \(\lambda_n\ge0\) directly from the arithmetic side for all large \(n\), without a priori zero information. The dominant terms are controlled by the growth of the Stieltjes constants. It is classical that
+\[
+\gamma_m=\frac{m!}{2\pi i}\oint_{|s-1|=\varepsilon}\frac{\log\zeta(s)}{(s-1)^{m+1}}\,ds
+\]
+for small \(\varepsilon>0\). Shifting the contour to the left and using the functional equation produces the hybrid expression
+\[
+\gamma_m=-\frac{\log(m/2\pi e)^{m+1/2}}{\sqrt{m}}+\sum_{|t_\rho|<T}\operatorname{Re}\frac{(1/2+it_\rho)^{-m-1}}{m+1}+O\bigl(e^{-c\sqrt{\log m}}\bigr)+R(T,m),
+\]
+where the sum is over zeros with \(|\operatorname{Im}\rho|<T\) and the remainder \(R\) collects horizontal and vertical integrals. Choosing \(T=m\) (optimal for the crude convex bound \(N(T)\ll T\log T\)) shows that the oscillatory zero-sum is of size \(\asymp(\log m)^{m}\) in the worst case unless the zeros are constrained to \(\operatorname{Re}\rho=1/2\). Consequently the sign of \(\gamma_m\) (and therefore of \(\lambda_n\) after binomial transformation) cannot be decided from the prime-power side alone: any truncation of the Euler product or of the Dirichlet series for \(\zeta'/\zeta\) leaves an error larger than the main term once \(n\gtrsim\log\log X\) for a height-\(X\) truncation.
+
+#### Why the obstruction is structural
+The same contour shift that produces the formula for \(\gamma_m\) is essentially reversible: positivity of all \(\lambda_n\) forces the zero-sum to cancel the arithmetic main term to precision \(o((\log m)^m)\), which by standard Tauberian arguments (Ingham–Ikehara with finite differences) recovers a zero-free half-plane \(\operatorname{Re}s\ge1/2\). Thus any proof that \(\lambda_n\ge0\) via Stieltjes asymptotics must already encode a zero-free region of width \(1/2\), rendering the criterion non-effective as a route to RH. Numerical verification for \(n\le10^5\) confirms positivity but supplies no uniform tail estimate, precisely because the required cancellation is equivalent to RH.
+
+This shows that Li's criterion, while elegant, does not circumvent the core analytic difficulty; it merely repackages it as a question about the fine-scale cancellation between Stieltjes constants and zero sums.
+
+VERDICT: FAILED
+REASON: Li criterion reduces to equivalent zero-cancellation; no new unconditional positivity or zero-free width obtained

@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 131,
-    "grok": 130,
+    "grok": 131,
     "gpt": 130
   },
   "lastRun": {
     "claude": 1786870897308,
-    "grok": 1786867040090,
+    "grok": 1786873586854,
     "gpt": 1786869429069
   },
   "attempts": [
+    {
+      "id": "grok-1786873586854",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Li criterion reduces to equivalent zero-cancellation; no new unconditional positivity or zero-free width obtained",
+      "ts": "2026-08-16T09:46:26.854Z",
+      "duration_ms": 50098
+    },
     {
       "id": "claude-1786870897308",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Sharpened Li-criterion failure direction into explicit margin, but stabilizing critical-oscillation sum remains as hard as RH itself.",
       "ts": "2026-08-15T04:06:59.018Z",
       "duration_ms": 50926
-    },
-    {
-      "id": "gpt-1786764094566",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous 1/4 lower bound for nonnegative-coefficient Nyman approximants, a concrete barrier result.",
-      "ts": "2026-08-15T03:21:34.566Z",
-      "duration_ms": 76061
     }
   ]
 }
