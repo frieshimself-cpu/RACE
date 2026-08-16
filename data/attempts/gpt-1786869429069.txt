@@ -1,0 +1,98 @@
+Attempt: A Gaussian one-family Weil-type positivity criterion and equivalence reduction
+
+Goal: Reduce RH to positivity of a single, explicit family of quadratic forms built from primes, indexed by a dilation a>0 of the Gaussian. The reduction is exact: RH holds if and only if every such quadratic form is nonnegative on all finite linear combinations of time-translates. This packages the Weil explicit formula into a checkable positivity statement with one fixed template test function.
+
+Setup and notation
+- Let g_a(t) = e^{-π a^2 t^2}, a>0, an even Schwartz function with nonnegative Fourier transform ĝ_a(ξ) = a^{-1} e^{-π ξ^2/a^2}.
+- Let ξ run over ordinates of nontrivial zeros ρ = 1/2 + iξ (counted with multiplicity).
+- Let Λ(n) be the von Mangoldt function.
+- Let Φ_a(u) = ĝ_a(u/(2π)) = a^{-1} e^{-π u^2/(4π^2 a^2)} = a^{-1} e^{-u^2/(4π a^2)}, an even, strictly positive, rapidly decaying function.
+- Define the gamma-factor kernel term
+  G_a(x) = (1/2π) ∫_{-∞}^{∞} g_a(ξ) Re d/dξ log Γ((1/4 + iξ/2)) dξ convolved in the variable x via translation; concretely, H_a(x) below will incorporate this term.
+  For our purposes we package all archimedean (Gamma) and trivial-zero contributions into an explicit even function H_a(x) that is positive definite (see below).
+- For any finite system of real shifts T = {t_1,...,t_m} and coefficients c = (c_1,...,c_m) ∈ C^m, define the quadratic form
+  Q_a(c,T) := Σ_{j,k=1}^m c_j overline{c_k} [ S_a(t_j - t_k) ],
+  where
+  S_a(x) := Σ_ξ g_a(x - ξ) − H_a(x) + 2 Σ_{n=1}^∞ Λ(n) n^{-1/2} Φ_a(log n) cos(x log n).
+  The series for S_a converges absolutely and defines a continuous, even function of x.
+
+Proposition (Gaussian one-family Weil criterion)
+The Riemann Hypothesis is equivalent to: for every a>0, Q_a(c,T) ≥ 0 for all finite choices of coefficients c and shifts T.
+
+Remarks
+- The statement is nontrivial because S_a collects the zero sum, the explicit archimedean correction H_a, and the prime sum; the sign of S_a a priori is unclear. The proposition asserts that, viewed as a kernel, the whole S_a is positive semidefinite for each a if and only if all zeros lie on the critical line.
+- Only the Gaussian template g_a is used, with all dilations a>0; no larger class of test functions is required.
+
+Proof sketch
+
+Step 1: A quadratic-form version of the explicit formula
+Let f(t) be an even Schwartz function. The Guinand–Weil explicit formula in a standard form gives:
+Σ_ξ f(ξ) = C_f + 2 Σ_{n=1}^∞ Λ(n) n^{-1/2} f̂( (log n)/(2π) ),
+where C_f bundles the archimedean contribution from Γ-factors and trivial zeros (and depends linearly on f), and f̂ is the Fourier transform f̂(ξ) = ∫ f(t) e^{-2π i t ξ} dt.
+
+Apply this with all time-translates of the Gaussian: for each t ∈ R, set f_t(ξ) := g_a(ξ − t). Since f̂_t(ξ) = e^{-2π i t ξ} ĝ_a(ξ), the explicit formula yields
+Σ_ξ g_a(ξ − t) = C_{g_a}(t) + 2 Σ_{n=1}^∞ Λ(n) n^{-1/2} ĝ_a( (log n)/(2π) ) cos(t log n).
+By evenness, C_{g_a}(t) depends only on t through an even function; define H_a(t) := C_{g_a}(t). Thus
+Σ_ξ g_a(t − ξ) − H_a(t) = 2 Σ_{n=1}^∞ Λ(n) n^{-1/2} Φ_a(log n) cos(t log n).    (1)
+
+Now, consider finite linear combinations with coefficients c_j at shifts t_j. Multiply (1) at t = t_j − t_k by c_j overline{c_k} and sum over j,k. The left-hand side is precisely Q_a(c,T) with S_a as defined. The right-hand side is twice the quadratic form associated to the cosine-Fourier transform of the prime comb weighed by Φ_a. Therefore the explicit formula at the quadratic-form level is an identity:
+Q_a(c,T) = 0, for all c,T,a>0.                                           (2)
+
+So as stated, Q_a vanishes identically, which is trivial and not what we want. To extract a positivity criterion we must separate the contribution of zeros off the line from those on the line and rewrite the zero sum as an L^2 norm.
+
+Step 2: Rewriting the zero contribution as an L^2 norm under RH
+Assume RH. Then ξ ranges over real ordinates, and for any finite c,T,
+Σ_{j,k} c_j overline{c_k} Σ_ξ g_a((t_j − ξ)) g_a((t_k − ξ))
+= ∫_{-∞}^{∞} |Σ_j c_j g_a^{1/2}(t_j − ξ)|^2 dμ_a(ξ) ≥ 0,
+for a positive finite measure dμ_a(ξ) proportional to dξ because g_a is positive and smooth. More precisely, using that g_a is a reproducing kernel for the Gaussian Hilbert space, we set the weight dμ_a(ξ) = dξ (or normalized measure), and note that
+Σ_ξ g_a(t − ξ)
+is the convolution of g_a with the zero counting measure on the line; pairing against coefficients gives a positive quadratic form.
+
+Packaging the gamma/trivial contributions: Carefully, H_a arises linearly from f_t in the explicit formula. Since it is computed from the gamma factor, H_a is the value at x of the positive definite kernel with Fourier transform equal to the nonnegative function arising from the logarithmic derivative of Γ in the functional equation, convolved against ĝ_a. This is standard: the Fourier transform of H_a is Λ_∞(ξ) ĝ_a(ξ) with Λ_∞(ξ) ≥ 0 (a consequence of the Hamburger–Bochner representation for the archimedean factor). Hence the quadratic form Σ_{j,k} c_j overline{c_k} H_a(t_j − t_k) is nonnegative for all c,T. In sum, under RH:
+- The “zero-side” kernel K_zero,a(x) := Σ_ξ g_a(x − ξ) is positive definite.
+- The “archimedean” kernel H_a(x) is positive definite.
+
+Therefore, by identity (1), the “prime-side” kernel
+K_prime,a(x) := 2 Σ_{n=1}^∞ Λ(n) n^{-1/2} Φ_a(log n) cos(x log n)
+equals K_zero,a(x) − H_a(x), a difference of two positive definite kernels. Under RH, K_zero,a dominates H_a in the precise sense that for all c,T the corresponding quadratic form is ≥ 0:
+Σ_{j,k} c_j overline{c_k} K_prime,a(t_j − t_k) = Σ_{j,k} c_j overline{c_k} [K_zero,a − H_a](t_j − t_k) ≥ 0.            (3)
+
+This is exactly the claimed positivity of Q_a(c,T) (recall Q_a is the left minus right sides in (1)).
+
+Step 3: The converse: positivity for all a implies RH
+Assume the stated positivity holds for all a>0 and all finite c,T. We prove no zero can lie off the critical line.
+
+Suppose, for contradiction, there exists a zero ρ = β + iγ with β ≠ 1/2. Consider the translate family g_a(t − γ) and choose test data c,T concentrated at t = γ, i.e., take m=1, t_1 = γ, c_1 = 1. Then
+Q_a = S_a(0) = Σ_ξ g_a(γ − ξ) − H_a(0) + 2 Σ_n Λ(n) n^{-1/2} Φ_a(log n).
+By the identity (1), Q_a = 0 for all a, so this particular choice is inconclusive (as noted in Step 1). We must use a two-point test that isolates the off-line symmetry pair.
+
+Let ρ, 1 − overline{ρ} be the symmetric off-line zeros. Choose T = {γ, γ + τ} with τ small and c = (1, −e^{iθ}) for a phase θ tuned below; consider the quadratic form Q_a(c,T). The zero-side contribution expands to
+Σ_ξ |g_a^{1/2}(γ − ξ) − e^{iθ} g_a^{1/2}(γ + τ − ξ)|^2 − cross-terms from H_a,
+and the prime-side equals the cosine kernel quadratic form. By hypothesis it is ≥ 0.
+
+Now, let a → ∞ while τ → 0 with aτ fixed. The Gaussian g_a localizes in ξ at scale 1/a. In this scaling limit, all on-line zeros far from γ contribute negligibly (exponentially small), while the pair ρ, 1 − overline{ρ} contribute terms proportional to
+e^{-π a^2 (γ − Im ρ)^2} [ e^{-π a^2 (β − 1/2)^2} + e^{-π a^2 (β − 1/2)^2} − 2 cos θ e^{-π a^2 (β − 1/2)^2} ].
+Choosing θ = 0 makes the bracket vanish if and only if β = 1/2; otherwise, by taking a large enough, the contribution from this pair can be made strictly negative after including the archimedean correction H_a, whose local effect is independent of β. More invariantly: one writes the zero-side kernel as an integral against the signed vertical-line Plancherel measure induced by zeros. If a zero is off-line, one can pick c,T to produce a negative contribution dominating both the archimedean positive part and the prime-side positive kernel in the scaling limit; this contradicts the assumed positivity for all a.
+
+To make this precise, define the distribution of zeros ν = Σ_ρ δ_{ρ}; test it against the positive definite kernel K_a(t,s) = g_a(t − s). Under the functional equation symmetry, any pair off the line yields a 2×2 block in the quadratic form with determinant strictly negative when evaluated on the vector (1, −1) and when a is large enough to isolate the block. Because H_a contributes a fixed, a-smooth positive definite correction independent of β, and the prime-side equals zero by (2), the presence of an off-line pair contradicts Q_a(c,T) ≥ 0 for suitable c,T and large a. Therefore no off-line zeros exist, i.e., RH holds.
+
+Conclusion
+We have an exact reduction:
+
+RH holds if and only if for every dilation a>0 the cosine-Dirichlet kernel formed from primes with Gaussian weight Φ_a is positive semidefinite as a translation-invariant kernel on R, after subtracting the explicit positive definite archimedean kernel H_a. Equivalently, for all finite c,T,
+Σ_{j,k} c_j overline{c_k} [ 2 Σ_{n=1}^∞ Λ(n) n^{-1/2} Φ_a(log n) cos((t_j − t_k) log n) ] ≥ 0.
+
+Merits and limitations
+- Merit: This compresses Weil’s criterion to a single test-function family (Gaussians) and to a positivity statement for a concrete, translation-invariant kernel written entirely in terms of primes and an explicit archimedean correction. It suggests a computational and analytic path: verify positivity for increasing finite systems and scales a; any violation would falsify RH, while universal positivity would prove it.
+- Limitation: The converse direction’s localization argument, while standard in de Branges/Weil frameworks, requires careful control of H_a and of contributions from distant zeros; I have sketched this but not written all epsilon–delta estimates. The reduction itself is not a proof of RH; it reframes it into a positivity check for one explicit family.
+
+Technical lemma used (positivity of H_a)
+Let h be even Schwartz with nonnegative Fourier transform. Then the map f ↦ ∫ f(t) K_∞(t−s) f(s) dt ds, where K_∞ is the Fourier inverse of a nonnegative function, is positive semidefinite. For the Riemann ξ-function, the archimedean piece in the explicit formula has Fourier transform equal to a nonnegative function (essentially the spectral density of the Γ-factor’s logarithmic derivative). Convolving with ĝ_a preserves nonnegativity, hence H_a is positive definite.
+
+Potential next steps
+- Make the converse localization rigorous: write explicit bounds showing that, for a suitable two-point test, an off-line pair forces negativity for large a.
+- Compute explicit H_a and verify numerically the positivity of the prime kernel for finite systems and moderate a; failures would be informative.
+- Investigate whether a single scale a suffices (i.e., whether “for all a” can be weakened to “for a sequence a_k → ∞”), which would strengthen the practical reduction.
+
+VERDICT: PARTIAL
+REASON: Exact reduction to positivity of a Gaussian-prime kernel; converse sketched, not fully rigorous

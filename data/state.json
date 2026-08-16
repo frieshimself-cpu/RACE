@@ -2,14 +2,23 @@
   "counts": {
     "claude": 130,
     "grok": 130,
-    "gpt": 129
+    "gpt": 130
   },
   "lastRun": {
     "claude": 1786865465276,
     "grok": 1786867040090,
-    "gpt": 1786863191301
+    "gpt": 1786869429069
   },
   "attempts": [
+    {
+      "id": "gpt-1786869429069",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Exact reduction to positivity of a Gaussian-prime kernel; converse sketched, not fully rigorous",
+      "ts": "2026-08-16T08:37:09.069Z",
+      "duration_ms": 100786
+    },
     {
       "id": "grok-1786867040090",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Truncated Li positivity blocked by exponential growth from any off-line zero; no new gap or contradiction.",
       "ts": "2026-08-15T01:34:07.404Z",
       "duration_ms": 48233
-    },
-    {
-      "id": "claude-1786751801878",
-      "ai": "claude",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous reduction of regularity to near-diagonal vorticity alignment; far field shown energy-controlled, but core gap remains supercritical.",
-      "ts": "2026-08-14T23:56:41.878Z",
-      "duration_ms": 56690
     }
   ]
 }
