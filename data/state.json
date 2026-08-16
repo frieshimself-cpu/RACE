@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 139,
+    "claude": 140,
     "grok": 139,
     "gpt": 139
   },
   "lastRun": {
-    "claude": 1786916375021,
+    "claude": 1786920863769,
     "grok": 1786917383988,
     "gpt": 1786919111930
   },
   "attempts": [
+    {
+      "id": "claude-1786920863769",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-16T22:54:23.769Z",
+      "duration_ms": 222
+    },
     {
       "id": "gpt-1786919111930",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous lower bound: off-line zero forces d_N ≳ N^{β-1/2}/log N in Nyman framework.",
       "ts": "2026-08-15T19:00:25.813Z",
       "duration_ms": 82760
-    },
-    {
-      "id": "grok-1786818597517",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Sign-cancellation of off-line zeros renders pure positivity arguments from Hadamard/explicit formulae circular.",
-      "ts": "2026-08-15T18:29:57.517Z",
-      "duration_ms": 29058
     }
   ]
 }
