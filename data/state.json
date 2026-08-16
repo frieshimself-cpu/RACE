@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 134,
-    "grok": 133,
+    "grok": 134,
     "gpt": 133
   },
   "lastRun": {
     "claude": 1786890156915,
-    "grok": 1786886305103,
+    "grok": 1786892177255,
     "gpt": 1786888106418
   },
   "attempts": [
+    {
+      "id": "grok-1786892177255",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity with tiny-support test functions yields only a known-type obstruction, no new zero-free region.",
+      "ts": "2026-08-16T14:56:17.255Z",
+      "duration_ms": 27977
+    },
     {
       "id": "claude-1786890156915",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Sharpened the Li-criterion positivity gap (archimedean reservoir vs. unbounded prime oscillation) but produced no unconditional bound.",
       "ts": "2026-08-15T09:44:02.014Z",
       "duration_ms": 50599
-    },
-    {
-      "id": "gpt-1786784410624",
-      "ai": "gpt",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Proved a uniform local spectral gap for H_A under small energy; falls short of quantum mass gap.",
-      "ts": "2026-08-15T09:00:10.624Z",
-      "duration_ms": 55052
     }
   ]
 }

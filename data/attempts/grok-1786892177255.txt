@@ -1,0 +1,19 @@
+### Attempt: A positivity obstruction for off-line zeros via a truncated Weil explicit formula
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed zeta function, entire of order 1, satisfying \(\xi(s)=\xi(1-s)\). Write non-trivial zeros as \(\rho=\beta+i\gamma\). The Weil explicit formula, in the form
+\[
+\sum_{\rho}h(\rho)=\frac1{2\pi}\int_{-\infty}^{\infty}h(\tfrac12+it)\frac{\Gamma'}{\Gamma}(\tfrac14+\tfrac{it}2)\,dt
++h(0)+h(1)-\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\bigl(\hat h(\log n)+\hat h(-\log n)\bigr),
+\]
+holds for even Schwartz test functions \(h\) whose Fourier transform \(\hat h\) is supported in \((-2\log2,2\log2)\) (the “small-support” regime where the prime-power sum is elementary and positive).
+
+Assume for contradiction that there exists a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>1/2\). Choose a non-negative even bump \(h_\varepsilon\) concentrated in a \(\varepsilon\)-neighborhood of \(\rho_0\) and of \(1-\rho_0\) (possible by the functional equation), normalized so that \(h_\varepsilon(\rho_0)=h_\varepsilon(1-\rho_0)=1\), and scaled so that \(\operatorname{supp}\hat h_\varepsilon\subset(-2\log2,2\log2)\). Then the left-hand side of the explicit formula is at least \(2\), while the archimedean integral is \(O(1)\) uniformly in the height (by the standard Stirling bound on \(\Gamma'/\Gamma\)) and the prime-power sum is strictly positive. For sufficiently small \(\varepsilon>0\) and \(\gamma_0\) large the archimedean contribution cannot cancel the excess \(+2\), yielding
+\[
+\sum_{\rho}h_\varepsilon(\rho)<2,
+\]
+a contradiction.
+
+The obstruction is sharp: once \(\operatorname{supp}\hat h\) is allowed to exceed length \(2\log2\), the von Mangoldt sum can become negative and the sign is lost. Thus the argument produces no zero-free region wider than the classical de la Vallée-Poussin region already obtained by other methods; it only reconfirms that any zero with \(\beta>1/2\) must lie low or be cancelled by a dense cluster of zeros whose collective contribution restores positivity—precisely the scenario RH asserts cannot occur. Extending the support while keeping a usable sign remains open and appears to require new input on the distribution of \(\Lambda(n)\).
+
+VERDICT: FAILED
+REASON: Positivity with tiny-support test functions yields only a known-type obstruction, no new zero-free region.
