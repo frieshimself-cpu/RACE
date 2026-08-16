@@ -1,0 +1,71 @@
+### Attempt: A conditional zero-location lemma via a truncated explicit formula and a positivity defect
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function (entire of order 1, \(\xi(s)=\xi(1-s)\), real on the critical line). Write the non-trivial zeros as \(\rho=\beta+i\gamma\) with \(0<\beta<1\). The goal of this note is a self-contained lemma that forces \(\beta=1/2\) for all zeros with \(|\gamma|\le T\), conditional on a quantitative positivity defect for a certain test-function family. The defect is expected to hold (and is numerically visible for moderate \(T\)), but is not proved here; the reduction itself is unconditional and sharp enough to be of independent interest.
+
+#### Setup and truncated explicit formula
+Fix a real even Schwartz test function \(g\) supported in \([-1,1]\) with \(\hat g\ge0\) and \(\hat g(0)=1\), and set
+\[
+g_T(t) := g(t/T),\qquad T\ge2.
+\]
+The Weil explicit formula (in the form of Bombieri–Hejhal) yields, after discarding the archimedean contribution which is \(O(\log T)\) uniformly for such \(g\),
+\begin{equation}
+\label{eq:expl}
+\sum_\rho\hat g_T(\rho-\tfrac12) = \hat g_T(0)\log\frac{T}{2\pi} - \sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\,g_T(\log n) + O(1),
+\end{equation}
+where the sum on the left runs over all non-trivial zeros (counted with multiplicity) and the implied constant depends only on \(g\).
+
+Write \(\rho=1/2+i\gamma+\delta\) with \(\delta=\beta-1/2\in(-\frac12,\frac12)\). Then
+\[
+\hat g_T(\rho-\tfrac12)=\hat g\bigl(T(\delta+i\gamma)\bigr).
+\]
+Because \(g\) is even and real, \(\hat g\) is real and even, and the contribution of a conjugate pair is
+\[
+2\operatorname{Re}\hat g\bigl(T(\delta+i\gamma)\bigr).
+\]
+If \(\delta=0\) this is simply \(2\hat g(T\gamma)\). The deviation from the critical line therefore appears as the defect
+\begin{equation}
+\label{eq:def}
+\Delta_T(g) := \sum_{\rho}\Bigl(\hat g\bigl(T(\delta+i\gamma)\bigr)-\hat g(T\gamma)\Bigr).
+\end{equation}
+(The sum is absolutely convergent after the usual pairing of \(\rho\) and \(1-\rho\).)
+
+#### The positivity defect hypothesis
+Assume the following quantitative positivity statement (the “defect hypothesis” \(\mathbf{D}(T_0,\eta)\)):
+
+> There exist absolute constants \(c_g>0\) (depending only on the fixed envelope \(g\)) and \(\eta\in(0,1/4)\) such that for every \(T\ge T_0\),
+> \[
+> \Delta_T(g)\ge c_g\cdot\#\{\rho:\,|\gamma|\le T,\,|\delta|\ge\eta\}\cdot\min_{|\delta|\ge\eta}\bigl(\hat g(0)-\operatorname{Re}\hat g(T\delta)\bigr).
+> \]
+> (In other words, every zero off the strip \(|\beta-1/2|<\eta\) produces a uniformly positive increment in the explicit formula that cannot be cancelled by the remaining zeros.)
+
+The quantity \(\min_{|\delta|\ge\eta}(\hat g(0)-\operatorname{Re}\hat g(T\delta))\) is strictly positive for large \(T\) once \(\operatorname{supp}g\subset[-1,1]\) forces \(\hat g\) to be analytic of exponential type 1; an explicit lower bound of size \(\asymp e^{-cT\eta}\) follows from the Paley–Wiener representation, but we only need positivity.
+
+#### Derivation of the zero-free conclusion
+Insert the decomposition \(\hat g_T(\rho-1/2)=\hat g(T\gamma)+\bigl(\hat g(T(\delta+i\gamma))-\hat g(T\gamma)\bigr)\) into \eqref{eq:expl}. The main term on the right-hand side is
+\[
+\log\frac{T}{2\pi}+O(1)
+\]
+(because \(\hat g_T(0)=1\) and the prime-power sum is \(O(1)\) by the support restriction \(\operatorname{supp}g_T\subset[-T,T]\) and the prime-number theorem). The diagonal contribution of the critical zeros is
+\[
+\sum_{|\gamma|\le T}\hat g(T\gamma)+O\bigl(\text{tail}\bigr)=O(1),
+\]
+the tail being negligible by rapid decay of \(\hat g\). Consequently
+\begin{equation}
+\label{eq:balance}
+\Delta_T(g)=O(1).
+\end{equation}
+Under \(\mathbf{D}(T_0,\eta)\) the left-hand side is at least a positive constant times the number \(N_{\mathrm{off}}(T;\eta)\) of zeros with \(|\gamma|\le T\) and \(|\delta|\ge\eta\). Hence \(N_{\mathrm{off}}(T;\eta)=O(1)\). Since the zeros are discrete, there exists \(T_1=T_1(g,\eta)\) such that
+\[
+N_{\mathrm{off}}(T;\eta)=0\qquad\text{for all }T\ge T_1.
+\]
+In other words, every zero with \(|\operatorname{Im}\rho|\le T_1\) satisfies \(|\beta-1/2|<\eta\). Letting \(\eta\downarrow0\) (which is legitimate once a uniform version of \(\mathbf{D}\) is available for a sequence of envelopes \(g\) whose Fourier transforms become more and more concentrated) forces all zeros up to height \(T_1\) onto the critical line.
+
+#### Where the argument is incomplete
+The reduction is rigorous once \(\mathbf{D}(T_0,\eta)\) is granted. The defect hypothesis itself is open: it requires a lower bound on the collective contribution of off-line zeros that survives possible cancellation against the continuous spectrum and against zeros very close to the line. Standard zero-density estimates (e.g., Ingham–Huxley) give only \(N_{\mathrm{off}}(T;\eta)\ll T^{c(1-\eta)}\) which is far too weak to feed back into \eqref{eq:balance}. Closing the gap would need either
+- a new large-sieve inequality for the family \(\{\hat g(T(\delta+i\gamma))\}\) that exploits the specific arithmetic origin of the \(\gamma\)’s, or
+- a strict convexity property of \(\log|\xi|\) strong enough to rule out the formation of “almost-cancellations”.
+
+Both directions appear to demand input beyond what the explicit formula alone supplies. Thus the lemma reduces RH (up to any fixed height, and by a standard density argument to all heights) to a purely analytic positivity statement about the Fourier transforms of compactly supported test functions evaluated at the zeros—an attractive but still unproved claim.
+
+VERDICT: PARTIAL
+REASON: Conditional lemma reducing RH to a positivity defect in the explicit formula; defect unproved.

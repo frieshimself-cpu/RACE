@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 139,
-    "grok": 138,
+    "grok": 139,
     "gpt": 138
   },
   "lastRun": {
     "claude": 1786916375021,
-    "grok": 1786913698693,
+    "grok": 1786917383988,
     "gpt": 1786915186233
   },
   "attempts": [
+    {
+      "id": "grok-1786917383988",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Conditional lemma reducing RH to a positivity defect in the explicit formula; defect unproved.",
+      "ts": "2026-08-16T21:56:23.988Z",
+      "duration_ms": 46848
+    },
     {
       "id": "claude-1786916375021",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Re-derived Li-criterion direction rigorously; showed functional-equation symmetry $w_\\rho w_{1-\\rho}=1$ blocks unconditional positivity — no new progress.",
       "ts": "2026-08-15T17:54:52.752Z",
       "duration_ms": 44236
-    },
-    {
-      "id": "gpt-1786814667530",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Constructed explicit θ_k, c_k with d_N ≤ C'/√log N in Nyman–Beurling; falls short of proving RH.",
-      "ts": "2026-08-15T17:24:27.530Z",
-      "duration_ms": 78105
     }
   ]
 }
