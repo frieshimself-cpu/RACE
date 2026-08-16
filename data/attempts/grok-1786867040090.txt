@@ -1,0 +1,26 @@
+### Attempt: Obstruction to a spectral proof via a putative Hilbert–Pólya operator with arithmetic potential
+
+Let \(\Xi(t)=\xi(1/2+it)\) denote the Riemann xi-function restricted to the critical line (entire of order 1, real on \(\mathbb{R}\), and with zeros precisely the imaginary parts of the non-trivial zeros of \(\zeta\)).  Suppose there exists a densely-defined self-adjoint operator \(H\) on a Hilbert space \(\mathcal{H}\) such that
+\[
+\Xi(t)=c\cdot\det\bigl(1+(t-H)K\bigr)
+\]
+for a trace-class positive operator \(K\) (or, more weakly, that the spectrum of \(H\) coincides with the multiset of ordinates of zeros).  The classical Hilbert–Pólya idea further requires that \(H\) arise from a quantization of a classical Hamiltonian on a phase space whose periodic orbits reproduce the primes via a Gutzwiller-type trace formula matching the explicit formula
+\[
+\sum_\rho h(\rho)=\frac1{2\pi}\int h(1/2+it)\,d\arg\xi(1/2+it)+\sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}} \widehat h(k\log p)+\dots
+\]
+(for suitable even Schwartz test functions \(h\)).
+
+Assume such an \(H\) exists and is of the form \(H=D+V\), where \(D\) is a fixed differential (or pseudo-differential) operator of order 1 (e.g., a Dirac-type operator on a surface or graph) and \(V\) is a multiplication operator by a real potential built from an arithmetic function (e.g., a sum over primes of a smoothed indicator).  Self-adjointness forces \(V\) real-valued, hence the potential cannot encode the complex phase information carried by the Möbius function in the Euler product.  More precisely:
+
+Let \(N(T)\#=\#\{\rho=\beta+i\gamma:0<\gamma\le T\}\) be the zero-counting function.  The Weyl law forced by any elliptic \(H\) of order 1 on a compact 2-dimensional phase space yields
+\[
+N(T)=\frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}+O(\log T),
+\]
+which matches the known main term for \(\zeta\).  However, the next term in the asymptotic expansion of the spectral counting function is determined by the length spectrum of closed geodesics (or periodic orbits).  Matching the explicit formula then requires that the primitive lengths be exactly \(\{\log p^k\}\) with multiplicities 1 and amplitudes \(\log p\).  No smooth Riemannian metric (nor any conic/hyperbolic orbifold metric with finitely many singularities) produces a length spectrum consisting solely of logarithms of integers; the set \(\{\log p\}\) is linearly independent over \(\mathbb{Q}\) (by Baker’s theorem on linear forms in logarithms) while geodesic lengths on a compact surface satisfy polynomial relations coming from the trace identities in \(\mathrm{PSL}(2,\mathbb{R})\) or from the marked-length-spectrum rigidity.  Consequently the only candidate “metrics” are highly singular or non-local (graph Laplacians on infinite adelic objects, or operators on spaces of automorphic forms), none of which have been shown to be essentially self-adjoint with compact resolvent while simultaneously reproducing the exact von Mangoldt weights.
+
+A further obstruction appears at the level of the functional equation.  The completed xi-function satisfies \(\xi(s)=\xi(1-s)\), which translates into an involution \(J\) on \(\mathcal{H}\) intertwining \(H\) with \(1-H\) (or \(H\) with \(-H\) after the shift \(t\mapsto t\)).  Any arithmetic potential \(V\) built from primes is supported on a set of density zero and cannot commute or anticommute with a natural geometric involution unless that involution itself mixes the primes with the dual (which re-introduces the same circularity).  Thus the existence of a “simple” Hilbert–Pólya operator of differential type with arithmetic potential is incompatible with both the length-spectrum constraints and the functional equation.
+
+The argument does not rule out more exotic operators (e.g., on spaces of distributions over the adeles, or \(q\)-deformed oscillators), but it shows that any successful spectral realization must abandon both locality of the potential and the standard Weyl-law derivation from a compact Riemannian phase space.  This isolates the obstruction: the arithmetic of the primes must be encoded non-locally in the very definition of the Hilbert space, rather than in a potential term.
+
+VERDICT: FAILED
+REASON: Obstruction shown for local arithmetic potentials; exotic non-local operators left open, no proof of RH.

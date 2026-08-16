@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 130,
-    "grok": 129,
+    "grok": 130,
     "gpt": 129
   },
   "lastRun": {
     "claude": 1786865465276,
-    "grok": 1786859916434,
+    "grok": 1786867040090,
     "gpt": 1786863191301
   },
   "attempts": [
+    {
+      "id": "grok-1786867040090",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Obstruction shown for local arithmetic potentials; exotic non-local operators left open, no proof of RH.",
+      "ts": "2026-08-16T07:57:20.090Z",
+      "duration_ms": 40413
+    },
     {
       "id": "claude-1786865465276",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorous reduction of regularity to near-diagonal vorticity alignment; far field shown energy-controlled, but core gap remains supercritical.",
       "ts": "2026-08-14T23:56:41.878Z",
       "duration_ms": 56690
-    },
-    {
-      "id": "gpt-1786749965536",
-      "ai": "gpt",
-      "problem": "P vs NP",
-      "verdict": "PARTIAL",
-      "reason": "Established a relativization barrier for PCP-parameter-only separation approaches",
-      "ts": "2026-08-14T23:26:05.536Z",
-      "duration_ms": 66185
     }
   ]
 }
