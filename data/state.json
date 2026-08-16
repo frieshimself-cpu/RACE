@@ -2,14 +2,23 @@
   "counts": {
     "claude": 131,
     "grok": 131,
-    "gpt": 130
+    "gpt": 131
   },
   "lastRun": {
     "claude": 1786870897308,
     "grok": 1786873586854,
-    "gpt": 1786869429069
+    "gpt": 1786875816406
   },
   "attempts": [
+    {
+      "id": "gpt-1786875816406",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rigorous no-go lemma: finite λn positivity can't preclude off-line zeros; no progress on RH itself.",
+      "ts": "2026-08-16T10:23:36.406Z",
+      "duration_ms": 75575
+    },
     {
       "id": "grok-1786873586854",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Explicit-formula positivity blocked by insufficient prime-sum bounds under forced test-function support",
       "ts": "2026-08-15T04:50:33.985Z",
       "duration_ms": 43551
-    },
-    {
-      "id": "claude-1786766819018",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Sharpened Li-criterion failure direction into explicit margin, but stabilizing critical-oscillation sum remains as hard as RH itself.",
-      "ts": "2026-08-15T04:06:59.018Z",
-      "duration_ms": 50926
     }
   ]
 }

@@ -1,0 +1,81 @@
+Attempt: A rigorous “no-go” lemma for finite Li-coefficient verification
+
+Objective
+Show a concrete obstruction to proving RH via checking positivity of only finitely many Keiper–Li coefficients λn. Specifically, prove that for any fixed finite set of indices, one can add a finite set of hypothetical off-line zeros at very large height (respecting all functional symmetries) whose total contribution to those finitely many λn is arbitrarily small. Hence, unconditional verification of λn > 0 for n ≤ N cannot, by itself, preclude the existence of off-line zeros at high height.
+
+Setup
+Recall Li’s coefficients can be written as an absolutely convergent sum over nontrivial zeros ρ of ζ(s), with multiplicity, using the standard symmetric enumeration (including conjugates and reflections 1−ρ):
+λn = Σρ [1 − (1 − 1/ρ)n]
+where the branch of the logarithm in the equivalent formulas is chosen consistently; the series is absolutely convergent for each fixed n (e.g., via the O(n^2/|ρ|^2) tail bound below). For this argument we only need the additivity of λn under multisets of zeros and the tail estimates.
+
+Lemma (no-go for finite λn verification)
+Fix a finite index set S ⊂ N and ε > 0. There exists a finite multiset Z of complex numbers playing the role of “zeros” that:
+- is symmetric under complex conjugation and under ρ ↦ 1 − ρ,
+- contains at least one element with Re ρ ≠ 1/2 (an “off-line” zero),
+such that, if Δλn(Z) denotes the contribution of Z to λn,
+then for every n ∈ S we have |Δλn(Z)| < ε.
+
+In particular, the positivity of λn for n ∈ S can coexist with the presence of off-line zeros at high height; thus, verifying finitely many λn > 0 cannot exclude off-line zeros.
+
+Proof
+- Single-term expansion:
+For a single complex number ρ with large modulus, expand:
+(1 − 1/ρ)n = exp(n log(1 − 1/ρ))
+= exp(−n/ρ + O(n/|ρ|^2)),
+where the O-term is uniform in arg ρ away from the point ρ = 0, and valid for fixed n with |ρ| large. Hence
+1 − (1 − 1/ρ)n = n/ρ + O(n^2/|ρ|^2).
+- Symmetric pack to respect functional equations:
+Zeros of ζ(s) come in quartets {ρ, 1−ρ, ρ̄, 1−ρ̄}. Consider such a quartet with ρ = β + iγ, γ ≠ 0. Let Z be a multiset made of m disjoint such quartets, all with the same β ≠ 1/2 but with very large |γ|, and spaced so that their imaginary parts are distinct and large. Define Δλn(Z) as the sum of contributions from all members of Z to λn.
+
+For one quartet Q(ρ), the leading n/ρ terms partly cancel. Write:
+Δλn(Q(ρ)) = Ση∈{ρ,1−ρ,ρ̄,1−ρ̄} [1 − (1 − 1/η)n]
+= n Ση 1/η + O(n^2 Ση 1/|η|^2).
+
+Compute the leading sum:
+Ση 1/η = 1/ρ + 1/(1−ρ) + 1/ρ̄ + 1/(1−ρ̄)
+= 2 Re(1/ρ + 1/(1−ρ)).
+
+Now
+1/ρ + 1/(1−ρ) = (1−ρ + ρ)/(ρ(1−ρ)) = 1/(ρ(1−ρ)).
+Thus
+Ση 1/η = 2 Re(1/(ρ(1−ρ))).
+
+If β ≠ 1/2 and |γ| is large, we have
+ρ(1−ρ) = (β + iγ)(1−β − iγ) = (β(1−β) + γ^2) + iγ(1−2β),
+so
+|ρ(1−ρ)| ≥ γ^2 − |β(1−β)|,
+and hence
+|Re(1/(ρ(1−ρ)))| ≤ 1/|ρ(1−ρ)| ≤ 2/γ^2
+for all sufficiently large |γ| (once γ^2 ≥ 2|β(1−β)|). Therefore,
+|n Ση 1/η| ≤ 4n/γ^2 for |γ| large.
+
+For the error term, each 1/|η|^2 is O(1/γ^2), so
+O(n^2 Ση 1/|η|^2) = O(n^2/γ^2).
+
+Combining,
+Δλn(Q(ρ)) = O(n/γ^2) + O(n^2/γ^2) = O(n^2/γ^2),
+uniformly in β ≠ 1/2 once |γ| is large enough.
+
+- Summing m quartets:
+Take m quartets with imaginary parts γ1, …, γm, all sufficiently large. Then
+|Δλn(Z)| ≤ C n^2 Σj 1/γj^2
+for some absolute C independent of n (once all |γj| exceed a fixed threshold depending on β’s boundedness).
+
+- Achieving the ε bound simultaneously over S:
+Let S be finite and set n0 := max S. Choose γj so large that
+C n0^2 Σj 1/γj^2 < ε.
+This is possible by taking γj to grow fast (e.g., γj = R·2^j with R large). Then for all n ∈ S,
+|Δλn(Z)| ≤ C n^2 Σj 1/γj^2 ≤ C n0^2 Σj 1/γj^2 < ε.
+
+Moreover, by construction each quartet has β ≠ 1/2, so Z contains off-line zeros and respects all symmetries. This completes the proof.
+
+Consequences and remarks
+- The lemma shows a precise obstruction: finite positivity checks of {λn} cannot rule out off-line zeros at large height. Any strategy based solely on verifying λn > 0 for n ≤ N (no matter how large N is) cannot, on logical grounds, prove RH.
+- The proof is robust: it only uses the quartic symmetry and the 1/ρ expansion; it does not assume any unproven properties of ζ(s). It is a “black-box” obstruction to a popular computational approach based on Li’s criterion.
+- To extract implications toward RH from Li’s coefficients, one must control the entire tail over all n (or at least n → ∞ in a way that detects any off-line zero), not just finitely many initial coefficients.
+
+Scope
+This is not a proof of RH or a new zero-free region. It is a rigorous reduction-of-approach result: it closes off a tempting finite-verification line by a clean quantitative bound, clarifying where genuine progress must occur (global control over the spectrum of zeros, or asymptotics of λn).
+
+VERDICT: FAILED
+REASON: Rigorous no-go lemma: finite λn positivity can't preclude off-line zeros; no progress on RH itself.
