@@ -1,0 +1,96 @@
+# Attempt: strictness of Hodge structures and the "decomposability obstruction" for algebraicity
+
+I isolate one correct, self-contained structural lemma about how the Hodge
+conjecture propagates through morphisms of Hodge structures, then use it to
+locate *precisely* where the naive "generation by divisor classes" strategy
+breaks. The point of the write-up is the sharp identification of the
+obstruction, not a claim of new theorems.
+
+## Setup and notation
+
+For a smooth projective variety $X/\mathbb C$ write
+$\mathrm{Hdg}^p(X)=H^{2p}(X,\mathbb Q)\cap H^{p,p}(X)$ for the rational Hodge
+classes, and $A^p(X)\subseteq \mathrm{Hdg}^p(X)$ for the classes of algebraic
+cycles. The Hodge conjecture asserts $A^p(X)=\mathrm{Hdg}^p(X)$.
+
+Recall the two facts I use as inputs:
+- **(L)** Lefschetz $(1,1)$: $A^1(X)=\mathrm{Hdg}^1(X)$.
+- **(S)** The category of polarizable pure $\mathbb Q$-Hodge structures is
+  semisimple abelian, and every morphism is strict for the Hodge filtration.
+
+## Lemma 1 (Hodge-class transfer under surjections of Hodge structures)
+
+Let $f:A\twoheadrightarrow B$ be a surjective morphism of polarizable pure
+$\mathbb Q$-Hodge structures of weight $2p$. Then
+$$f\big(\mathrm{Hdg}(A)\big)=\mathrm{Hdg}(B),\qquad
+\mathrm{Hdg}(A):=A_{\mathbb Q}\cap A^{p,p}.$$
+
+**Proof.** $\subseteq$ is clear since $f$ preserves types. For $\supseteq$:
+by **(S)** the sequence $0\to\ker f\to A\to B\to 0$ splits in the category of
+Hodge structures, so there is a section $s:B\to A$ *defined over $\mathbb Q$*
+and compatible with the bigrading. If $b\in\mathrm{Hdg}(B)$ then $s(b)$ is
+rational and of type $(p,p)$, i.e. $s(b)\in\mathrm{Hdg}(A)$, and
+$f(s(b))=b$. $\qquad\blacksquare$
+
+## Corollary (algebraicity descends along algebraic surjections)
+
+Suppose $\Gamma\in A^{d}(X\times Y)$ is an algebraic correspondence whose
+induced map $\Gamma_*:H^{2p}(X,\mathbb Q)\to H^{2p}(Y,\mathbb Q)$ is
+*surjective*. If the Hodge conjecture holds for $X$ in codimension $p$, it
+holds for $Y$ in codimension $p$.
+
+**Proof.** By Lemma 1, every $b\in\mathrm{Hdg}^p(Y)$ equals $\Gamma_*(a)$ for
+some $a\in\mathrm{Hdg}^p(X)$. By hypothesis $a=[Z]$ for an algebraic cycle
+$Z$; then $\Gamma_*[Z]=[\Gamma\cdot(Z\times Y)]$ (image under the algebraic
+correspondence) is algebraic. $\qquad\blacksquare$
+
+This recovers, cleanly, the standard stability of the Hodge conjecture under
+direct summands cut out by algebraic correspondences (motives).
+
+## Where the "generation by divisors" strategy fails
+
+The most tempting elementary route is: *if $H^{2p}(X,\mathbb Q)$ is spanned by
+$p$-fold cup products of classes in $H^2$, deduce Hodge from Lefschetz
+$(1,1)$.* Lemma 1 shows exactly why this is **insufficient**, and quantifies
+the gap.
+
+Consider the cup-product map of Hodge structures
+$$\mu:\ \operatorname{Sym}^p H^2(X,\mathbb Q)\ \longrightarrow\ H^{2p}(X,\mathbb Q).$$
+Assume $\mu$ is surjective (the "generation" hypothesis). By Lemma 1,
+$$\mathrm{Hdg}^p(X)=\mu\big(\mathrm{Hdg}(\operatorname{Sym}^p H^2)\big).$$
+So every degree-$2p$ Hodge class *does* lift to a Hodge class in
+$\operatorname{Sym}^p H^2$. **But** the Hodge classes of
+$\operatorname{Sym}^p H^2$ are **not** in general the symmetric products of
+Hodge classes of $H^2$. Explicitly, with $h^{2,0}=\dim H^{2,0}>0$, a class
+such as
+$$\alpha\smile\bar\alpha,\qquad \alpha\in H^{2,0},$$
+lies in type $(p,p)$ (here $p=2$), is real, and can be rational, yet is built
+from transcendental $(2,0)$ and $(0,2)$ pieces, **not** from
+$\mathrm{Hdg}^1=\mathrm{NS}\otimes\mathbb Q$.
+
+Thus the exact obstruction is the **indecomposable part**
+$$\mathrm{Hdg}\big(\operatorname{Sym}^p H^2\big)\ \Big/\ \operatorname{Sym}^p\!\big(\mathrm{Hdg}^1\big),$$
+i.e. Hodge classes in the symmetric power that do not come from products of
+divisor classes. Lefschetz $(1,1)$ handles $\operatorname{Sym}^p(\mathrm{Hdg}^1)$
+(products of divisors are algebraic); the entire difficulty of the Hodge
+conjecture, even under the strong generation hypothesis, is concentrated in
+that quotient. This is a precise, correct localization of the difficulty:
+*generation of cohomology by $H^2$ does not help unless the generation
+respects Hodge classes.* The only varieties for which the strategy closes are
+those where $H^{2p}$ is spanned by products of **divisor** classes (e.g.
+cellular varieties: flag varieties, toric varieties), where $\mathrm{Hdg}^1$
+already fills $H^2$ and no transcendental $(2,0)$ exists — a known trivial
+case.
+
+## Honest assessment
+
+Lemma 1 and its corollary are rigorous but essentially reformulations of
+known semisimplicity/strictness facts. The genuinely useful output here is the
+*sharp isolation* of the obstruction: even granting that $H^{2p}$ is generated
+in degree $2$, the Hodge conjecture is equivalent to algebraicity of the
+indecomposable Hodge classes in $\operatorname{Sym}^p H^2$ that mix positive
+$(2,0)$-content. I did not produce algebraic cycles for those classes, so this
+is not progress on the conjecture itself.
+
+VERDICT: FAILED
+REASON: Only reproved known strictness-based transfer facts; pinned the obstruction to indecomposable Hodge classes but built no cycles.

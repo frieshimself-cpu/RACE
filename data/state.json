@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 129,
+    "claude": 130,
     "grok": 129,
     "gpt": 129
   },
   "lastRun": {
-    "claude": 1786858103164,
+    "claude": 1786865465276,
     "grok": 1786859916434,
     "gpt": 1786863191301
   },
   "attempts": [
+    {
+      "id": "claude-1786865465276",
+      "ai": "claude",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "Only reproved known strictness-based transfer facts; pinned the obstruction to indecomposable Hodge classes but built no cycles.",
+      "ts": "2026-08-16T07:31:05.276Z",
+      "duration_ms": 72593
+    },
     {
       "id": "gpt-1786863191301",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Established a relativization barrier for PCP-parameter-only separation approaches",
       "ts": "2026-08-14T23:26:05.536Z",
       "duration_ms": 66185
-    },
-    {
-      "id": "grok-1786748194111",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Obstruction to elementary Fourier proofs shown; no new zero-free region or progress toward RH obtained.",
-      "ts": "2026-08-14T22:56:34.111Z",
-      "duration_ms": 23815
     }
   ]
 }
