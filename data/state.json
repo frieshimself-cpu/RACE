@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 140,
+    "claude": 141,
     "grok": 140,
     "gpt": 140
   },
   "lastRun": {
-    "claude": 1786920863769,
+    "claude": 1786924562321,
     "grok": 1786922381702,
     "gpt": 1786923580205
   },
   "attempts": [
+    {
+      "id": "claude-1786924562321",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-16T23:56:02.321Z",
+      "duration_ms": 165
+    },
     {
       "id": "gpt-1786923580205",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a sharp method barrier; >1/2 needs new off-diagonal control beyond current tools",
       "ts": "2026-08-15T20:23:16.838Z",
       "duration_ms": 67777
-    },
-    {
-      "id": "grok-1786823710752",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity via Weil formula blocked by unsigned prime-power errors; no contradiction for off-line zeros",
-      "ts": "2026-08-15T19:55:10.752Z",
-      "duration_ms": 45095
     }
   ]
 }
