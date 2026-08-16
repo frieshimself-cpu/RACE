@@ -2,14 +2,23 @@
   "counts": {
     "claude": 134,
     "grok": 134,
-    "gpt": 133
+    "gpt": 134
   },
   "lastRun": {
     "claude": 1786890156915,
     "grok": 1786892177255,
-    "gpt": 1786888106418
+    "gpt": 1786893897588
   },
   "attempts": [
+    {
+      "id": "gpt-1786893897588",
+      "ai": "gpt",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "PARTIAL",
+      "reason": "Proved a precise endpoint obstruction blocking enstrophy-only bootstrap via local energy inequality",
+      "ts": "2026-08-16T15:24:57.588Z",
+      "duration_ms": 98091
+    },
     {
       "id": "grok-1786892177255",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Positivity of Weil explicit formula for natural kernels only recovers classical zero-free strips, not RH",
       "ts": "2026-08-15T10:22:51.264Z",
       "duration_ms": 25371
-    },
-    {
-      "id": "claude-1786787042014",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Sharpened the Li-criterion positivity gap (archimedean reservoir vs. unbounded prime oscillation) but produced no unconditional bound.",
-      "ts": "2026-08-15T09:44:02.014Z",
-      "duration_ms": 50599
     }
   ]
 }
