@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 131,
+    "claude": 132,
     "grok": 131,
     "gpt": 131
   },
   "lastRun": {
-    "claude": 1786870897308,
+    "claude": 1786877752528,
     "grok": 1786873586854,
     "gpt": 1786875816406
   },
   "attempts": [
+    {
+      "id": "claude-1786877752528",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Verified λ_1=2+γ−log(4π)>0 and pinned the Li-criterion barrier to a one-log-factor gap equivalent to RH itself.",
+      "ts": "2026-08-16T10:55:52.528Z",
+      "duration_ms": 55467
+    },
     {
       "id": "gpt-1786875816406",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "New rigorous reduction: off-line zero forces ≥ c A^3 in band-limited explicit sum; primes ≤ C A^2 ⇒ RH",
       "ts": "2026-08-15T05:24:12.268Z",
       "duration_ms": 162352
-    },
-    {
-      "id": "grok-1786769433985",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Explicit-formula positivity blocked by insufficient prime-sum bounds under forced test-function support",
-      "ts": "2026-08-15T04:50:33.985Z",
-      "duration_ms": 43551
     }
   ]
 }
