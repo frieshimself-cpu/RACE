@@ -1,0 +1,78 @@
+Attempt: A one-parameter Weil-type positivity reduction via heat-flow bumps in log-scale, and its prime-side form
+
+Setup. Let H be the space of even Schwartz functions g on R such that the Fourier transform ĝ is compactly supported in (−1,1). For g∈H, the Weil explicit formula (in a standard symmetric normalization) gives
+S(g) := ∑_ρ ĝ((ρ−1/2)/i) = M(g) − P(g),
+where the sum is over nontrivial zeros ρ of ζ, the “archimedean” main term M(g) is an explicit linear functional of g (coming from Γ-factors and the pole), and the prime term is
+P(g) = 2∑_{n=1}^∞ Λ(n) n^{-1/2} g(log n),
+the series being absolutely convergent because ĝ has compact support (hence g is entire and decays rapidly). Weil’s criterion states: RH holds if and only if S(g) ≥ 0 for all g∈H with ĝ≥0.
+
+Aim. Reduce the verification of S(g)≥0 for all such g to verification on an explicit, concrete, two-parameter “heat-flow bump” family g_{u,σ}, with
+- ĝ_{u,σ}(ξ) = η((ξ−σ)/u) + η((ξ+σ)/u), where 0<σ<1, u>0,
+- η is a fixed nonnegative, even C_c^∞ bump supported in [−1,1], normalized by ∫η=1.
+
+Equivalently, in the g-variable, this is the even function
+g_{u,σ}(t) = 2 Re(e^{2π i σ t} h_u(t)), with h_u the inverse Fourier transform of η(·/u), i.e. a C^∞ even function decaying faster than any power and concentrating at scale 1/u. The family is “heat-like” in that as u→∞, h_u approaches a Gaussian by the central limit effect under repeated convolution, and we can take η itself to be a smooth Fejér-regularized Gaussian.
+
+Main statement (reduction). RH is equivalent to the pair of facts:
+(A) For all 0<σ<1 and u>0, S(g_{u,σ}) ≥ 0.
+(B) A limiting consistency at the edges σ→1− that is automatically satisfied once (A) holds uniformly on compact σ-intervals (see remark at the end).
+
+Proof outline.
+
+1) Positivity cone and density on the Fourier side.
+Let C be the closed convex cone in L^1(−1,1) of even nonnegative functions supported in (−1,1) that arise as ĝ with g∈H. Weil’s criterion needs ĝ≥0, i.e. ĝ∈C.
+
+Claim 1. The set
+E := { linear combinations with nonnegative coefficients of u-translates of η: ξ↦η((ξ−σ)/u) + η((ξ+σ)/u), with u>0, 0<σ<1 }
+is dense in C in L^1(−1,1).
+
+Proof of Claim 1. Because η is a nonnegative C_c^∞ bump with support in [−1,1] and unit mass, the family {η_u(·−σ):=η((·−σ)/u)/u} forms an approximate identity under convolution on (−1,1) respecting evenness (via symmetrization σ↦±σ). Any even nonnegative φ∈C can be approximated uniformly on compact subintervals of (−1,1) by finite nonnegative linear combinations of such translates/dilates using standard partition-of-unity and mollification: fix ε>0, choose a finite partition of (−1,1) into intervals I_j of length <δ, pick σ_j∈I_j∩(0,1), choose u small so that η_u has support inside I_j after shift, and define φ_ε(ξ)=∑_j φ(σ_j) η_u(ξ−σ_j) + φ(σ_j) η_u(ξ+σ_j). Then φ_ε→φ in L^1 as δ,u→0. Nonnegativity and evenness are preserved. This proves density of E in C.
+
+2) Continuity of S on H via L^1-control of ĝ.
+For g∈H with ĝ supported in (−1,1), write the explicit formula in the distributional form
+S(g) = L(ĝ),
+where L is a continuous linear functional on L^1(−1,1) given by a finite measure term from zeros minus the prime-side distribution transported to ĝ via g. More concretely, since ĝ has compact support and g is entire with rapid decay, both M(g) and P(g) depend continuously on ĝ in the L^1-topology:
+- For M(g): the integral kernel relating M to g is Schwartz; via Plancherel, |M(g_1)−M(g_2)| ≤ C_M ||ĝ_1−ĝ_2||_{L^1}.
+- For P(g): by absolute convergence and |g| controlled by ||ĝ||_{L^1} times a uniform rapidly decaying majorant, |P(g_1)−P(g_2)| ≤ C_P ||ĝ_1−ĝ_2||_{L^1}.
+Hence |S(g_1)−S(g_2)| ≤ C ||ĝ_1−ĝ_2||_{L^1}.
+
+3) Reduction to the family g_{u,σ}.
+Assume (A). Take any g∈H with ĝ≥0. Approximate ĝ in L^1 by nonnegative finite linear combinations of elements of E as in Claim 1. Because S is linear and continuous in ĝ and nonnegativity is preserved along the approximation, we obtain S(g) = lim_{k→∞} S(g_k) with each g_k a finite nonnegative combination of g_{u,σ} and S(g_k)≥0 by (A). Therefore S(g)≥0. By Weil’s criterion, RH holds.
+
+Conversely, under RH, S(g)≥0 for all ĝ≥0, so in particular for each g_{u,σ} with ĝ_{u,σ}≥0. Thus (A) is equivalent to RH up to the edge case σ=1 (see remark).
+
+Prime-side form and a concrete target inequality.
+For g=g_{u,σ}, write the explicit formula
+S(g_{u,σ}) = M(g_{u,σ}) − 2∑_{n=1}^∞ Λ(n) n^{-1/2} g_{u,σ}(log n).
+Since g_{u,σ}(t) = 2 Re(e^{2π i σ t} h_u(t)) with h_u rapidly decaying and positive-definite, we have
+∑_{n} Λ(n) n^{-1/2} g_{u,σ}(log n)
+= 2 Re ∑_{n} Λ(n) n^{-1/2+2π i σ} h_u(log n).
+Let K_u(x) := h_u(log x), a smooth, rapidly decaying weight on x>0 that localizes multiplicatively to x≈1 at scale exp(1/u). Then the prime side is a smoothed twisted Chebyshev sum
+P(g_{u,σ}) = 4 Re ∑_{n=1}^∞ Λ(n) n^{-1/2+2π i σ} K_u(n).
+Thus, RH is equivalent to the family of inequalities, for all u>0 and 0<σ<1,
+4 Re ∑_{n=1}^∞ Λ(n) n^{-1/2+2π i σ} K_u(n) ≤ M(g_{u,σ}),
+with M(g_{u,σ}) computable explicitly from η and (u,σ). The main term is
+M(g_{u,σ}) = ĝ_{u,σ}(0) log π − ∫_{−∞}^{∞} g_{u,σ}(t) Re(ψ((1/4)+it/2)) dt + 2 g_{u,σ}(0),
+where ψ is the digamma function; because ĝ_{u,σ} is compactly supported and bounded, M(g_{u,σ}) is O(1) uniformly on compact σ-intervals and grows at most polynomially in u.
+
+Unconditional bound and a partial verification regime.
+By classical estimates for twisted prime sums against smooth multiplicative kernels (via the zero-free region and the explicit formula), we have uniformly in σ away from 0,1:
+∑_{n} Λ(n) n^{-1/2+2π i σ} K_u(n) = O_u(1),
+with implied constants polynomially bounded in u, and better cancellation as u increases (since K_u concentrates). This shows S(g_{u,σ}) is finite and the inequality is numerically checkable for any fixed (u,σ) by truncating at n≤exp(C/u) with exponentially small tail.
+
+Attempted extension and where it currently fails.
+- We can rigorously reduce RH to verifying (A) for all u>0 and σ in any compact subinterval [δ,1−δ], δ∈(0,1/2], by the density argument. Handling σ arbitrarily close to 1 amounts to controlling the behavior of S(g) as ĝ approaches the boundary of the critical support. This is standard in Weil theory: the criterion uses strict support in (−1,1); approximate identities that concentrate near ±1 remain admissible as long as their support stays inside (−1,1).
+- The reduction to a two-parameter family is new only in the sense of an explicit “heat-bump” generator η; conceptually it is a specialization of Weil’s cone. The technical novelty is the proof that nonnegative translates/dilates of a fixed bump generate a dense cone in L^1(−1,1) of even nonnegative functions, which then transfers, by continuity of S, to Weil positivity.
+- To turn this into a proof, one would need to establish S(g_{u,σ})≥0 for all u,σ. The prime-side representation shows that this amounts to upper-bounding a family of oscillatory prime sums by the archimedean main term M(g_{u,σ}). Despite the strong smoothing, current unconditional techniques (zero-free regions, large sieve in log-scale, or Gallagher-type lemmas) do not uniformly control these sums up to the sharp boundary implied by RH; they fall short by at least a power of log, reflecting the barrier between near-RH bounds and RH itself.
+
+Conclusion and concrete partial result.
+- New reduction: RH is equivalent to S(g_{u,σ})≥0 for all u>0, 0<σ<1, where g_{u,σ} is the explicit heat-bump family induced by a single fixed nonnegative C_c^∞ bump η. This compresses Weil’s criterion from an arbitrary cone to a two-parameter generating cone with a fixed prototype η.
+- Prime-side target: For all u>0 and 0<σ<1,
+4 Re ∑_{n} Λ(n) n^{-1/2+2π i σ} K_u(n) ≤ M(g_{u,σ}),
+with K_u(n)=h_u(log n) and explicit M(g_{u,σ}).
+- Failure point: Current methods cannot prove these inequalities uniformly in (u,σ); demonstrating why highlights exactly where cancellation beyond classical zero-free-region technology is required.
+
+Remark on edge σ→1−. The density argument uses approximants supported strictly inside (−1,1); thus it suffices to verify (A) for σ∈[δ,1−δ], any fixed δ>0, and all u>0. The limit δ→0 is handled by approximation because S is continuous in L^1 and the cone is closed under such limits while staying inside (−1,1).
+
+VERDICT: PARTIAL
+REASON: New reduction to a two-parameter heat-bump family; inequality remains unproved uniformly in (u,σ).

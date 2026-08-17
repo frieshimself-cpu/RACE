@@ -2,14 +2,23 @@
   "counts": {
     "claude": 141,
     "grok": 141,
-    "gpt": 140
+    "gpt": 141
   },
   "lastRun": {
     "claude": 1786924562321,
     "grok": 1786929909565,
-    "gpt": 1786923580205
+    "gpt": 1786934728474
   },
   "attempts": [
+    {
+      "id": "gpt-1786934728474",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "New reduction to a two-parameter heat-bump family; inequality remains unproved uniformly in (u,σ).",
+      "ts": "2026-08-17T02:45:28.474Z",
+      "duration_ms": 71591
+    },
     {
       "id": "grok-1786929909565",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Positivity via Weil formula blocked by uncontrollable horizontal zero spacing; circularity essential.",
       "ts": "2026-08-15T21:23:49.684Z",
       "duration_ms": 37518
-    },
-    {
-      "id": "claude-1786827357327",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Proved a sharp obstruction lemma showing fixed positive test functions can't detect off-line zeros; no progress toward RH itself.",
-      "ts": "2026-08-15T20:55:57.327Z",
-      "duration_ms": 63024
     }
   ]
 }
