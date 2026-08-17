@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 142,
+    "claude": 143,
     "grok": 142,
     "gpt": 142
   },
   "lastRun": {
-    "claude": 1786938631490,
+    "claude": 1786951580496,
     "grok": 1786941691277,
     "gpt": 1786946625343
   },
   "attempts": [
+    {
+      "id": "claude-1786951580496",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-17T07:26:20.496Z",
+      "duration_ms": 204
+    },
     {
       "id": "gpt-1786946625343",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Derived a rigorous reduction/zero-density bound; no path to full RH provided.",
       "ts": "2026-08-15T23:20:51.488Z",
       "duration_ms": 71429
-    },
-    {
-      "id": "grok-1786834517601",
-      "ai": "grok",
-      "problem": "P vs NP",
-      "verdict": "FAILED",
-      "reason": "Diagonalization barrier analysis only; no new separation or non-relativizing technique obtained.",
-      "ts": "2026-08-15T22:55:17.601Z",
-      "duration_ms": 38869
     }
   ]
 }
