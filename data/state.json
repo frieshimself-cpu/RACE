@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 152,
+    "claude": 153,
     "grok": 150,
     "gpt": 150
   },
   "lastRun": {
-    "claude": 1787005755861,
+    "claude": 1787010948338,
     "grok": 1787007418730,
     "gpt": 1787009270680
   },
   "attempts": [
+    {
+      "id": "claude-1787010948338",
+      "ai": "claude",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-17T23:55:48.338Z",
+      "duration_ms": 223
+    },
     {
       "id": "gpt-1787009270680",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Explicit counterexample shows arithmetic side of Weil formula not positive-definite; blocks direct spectral proof.",
       "ts": "2026-08-16T16:25:27.392Z",
       "duration_ms": 39874
-    },
-    {
-      "id": "claude-1786895684419",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-16T15:54:44.419Z",
-      "duration_ms": 193
     }
   ]
 }
