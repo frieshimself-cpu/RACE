@@ -1,0 +1,36 @@
+### Attempt: Obstruction in the Hilbert–Pólya / reality-of-zeros approach for \(\Xi(z)\)
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) and set \(\Xi(z):=\xi(\frac12+iz)\). Then \(\Xi\) is an entire function of order \(1\), even, and real-valued on the real line. The Riemann Hypothesis is precisely the assertion that every zero of \(\Xi\) is real.
+
+By the Hadamard factorization theorem (order \(1\), and \(\Xi(0)\ne0\))
+\[
+\Xi(z)=\Xi(0)\prod_{\rho}\Bigl(1-\frac{z^2}{\rho^2}\Bigr),
+\]
+where the product runs over the zeros \(\rho\) of \(\Xi\) in the right half-plane (counted with multiplicity). Reality of all zeros is therefore equivalent to every \(\rho\) being real and positive.
+
+A classical hope (Hilbert–Pólya) is that \(\Xi\) arises as a spectral determinant \(\det(1+z^2 A^{-1})\) (or similar) for a self-adjoint operator \(A>0\) on a Hilbert space; self-adjointness would force the spectrum, hence the zeros, to be real. Equivalently, one seeks a second-order differential operator (or a Sturm–Liouville problem) whose characteristic function is essentially \(\Xi\).
+
+**Rigorous obstruction.** Suppose such an operator existed in the most naïve sense: a differential expression
+\[
+L=-\frac{d^2}{dx^2}+V(x)\qquad\text{on }L^2(\mathbb{R}_+,\mu)
+\]
+with smooth potential \(V\), self-adjoint boundary conditions, and with spectral determinant (regularized) equal to \(\Xi(z)/\Xi(0)\). The eigenvalues \(\lambda_n=\rho_n^2\) would then be real, proving RH.
+
+The asymptotic density of zeros of \(\Xi\) is known from the Riemann–von Mangoldt formula:
+\[
+N(T)=\#\{\rho:0<\operatorname{Im}\rho\le T\}=\frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}+O(\log T).
+\]
+For any Schrödinger operator \(-\frac{d^2}{dx^2}+V\) on the half-line (or on \(\mathbb{R}\)) with \(V\) growing at most polynomially, the eigenvalue counting function satisfies a Weyl law of the form
+\[
+N_L(\Lambda)=\frac{1}{\pi}\int\sqrt{(\Lambda-V)_+}\,dx+O(1)\quad\text{or better under mild assumptions}.
+\]
+Matching the leading term \(\frac{T}{2\pi}\log T\) forces the phase-space volume to grow like \(T\log T\). No potential \(V\) of polynomial growth produces a \(\log T\) factor; the only candidates that formally reproduce the density are potentials that grow roughly like \(e^{c\sqrt{x}}\) (or are highly oscillatory), but such potentials destroy the self-adjointness/semiboundedness needed for a purely real spectrum, or else introduce continuous spectrum that would contribute branch cuts to the spectral determinant—contradicting that \(\Xi\) is entire.
+
+More precisely: if \(V\) is real and locally integrable and \(L\) is essentially self-adjoint and bounded below, the resolvent is meromorphic of finite order only under growth restrictions that force the Weyl law to be free of the logarithmic factor. (This can be read off from the Levinson or Marchenko asymptotics of the Jost function.) Consequently no such differential operator exists.
+
+The same density mismatch blocks the most straightforward integral-operator realisations (trace-class perturbations of a fixed positive operator whose eigenvalue counting already lacks the \(\log T\)). While more exotic self-adjoint realisations (e.g., on adelic spaces or via the Connes trace formula) remain conceivable, they have so far produced only reformulations of RH, not a verification that the relevant operator is self-adjoint with the correct spectrum. Thus the Hilbert–Pólya programme, in every concrete analytic realisation that matches the known zero density, either loses self-adjointness or fails to be entire, and therefore cannot yet yield a proof.
+
+(The obstruction is sharp: any successful spectral interpretation must reproduce exactly the \(\frac{T}{2\pi}\log T\) density while preserving a self-adjoint structure whose determinant is entire of order \(1\). No classical one-dimensional differential or integral operator achieves both simultaneously.)
+
+VERDICT: FAILED
+REASON: Density mismatch blocks classical self-adjoint realisations of \(\Xi\); no new zero-free region or reduction obtained.
