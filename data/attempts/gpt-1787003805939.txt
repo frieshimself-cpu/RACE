@@ -1,0 +1,76 @@
+Attempt: A quantitative obstruction for proving RH via short Dirichlet-polynomial approximants on the 1/2-line
+
+Statement. Let T ≥ 2, N ≥ 1, and P(s) = ∑_{n≤N} a_n n^{-s}. For t ∈ ℝ define
+E_T(P) := (1/2T) ∫_{-T}^T |1 − ζ(1/2+it) P(1/2+it)|^2 dt.
+For X ∈ [1, T/2], write
+c_m := ∑_{n≤N, n|m} a_n  for m ∈ ℕ, and set δ_m := 1 if m=1 and 0 otherwise.
+
+Then:
+1) (Mean-square lower bound via Dirichlet-polynomial truncation)
+For any X ≤ T/2, we have
+E_T(P) ≥ (1/2) ∑_{m≤X} |δ_m − c_m|^2 / m.
+
+2) (Stability of Möbius recovery from short divisor sums)
+Fix M ≤ min{N, X}. Consider the linear operator S_M on vectors (a_n)_{n≤M} given by
+(S_M a)(m) = ∑_{n≤M, n|m} a_n for 1 ≤ m ≤ M.
+Let S_M^{-1} denote its inverse, given explicitly by Möbius inversion:
+(S_M^{-1} c)(n) = ∑_{d|n} μ(n/d) c_d, 1 ≤ n ≤ M.
+
+There exists an absolute C > 0 such that for all M ≥ 2,
+‖S_M‖_{ℓ^2(1/n)→ℓ^2(1/n)} ≤ C (log M)^2 exp(C √log M),
+‖S_M^{-1}‖_{ℓ^2(1/n)→ℓ^2(1/n)} ≤ C (log M)^2 exp(C √log M).
+
+Consequently, for any X ≥ M and any choice of a_n,
+∑_{n≤M} |a_n − μ(n)|^2 / n ≤ C' (log M)^4 exp(C' √log M) · ∑_{m≤X} |δ_m − c_m|^2 / m,
+for some absolute C' > 0.
+
+Interpretation. Item (1) shows that small mean-square error E_T(P) forces the initial divisor sums c_m = ∑_{n≤N, n|m} a_n to be close to δ_m for all m up to any X ≲ T. Item (2) shows that, once c_m is close to δ_m up to M, the coefficients a_n must be close (in ℓ^2(1/n)) to the Möbius function μ(n) up to M, with only a moderately growing stability loss.
+
+Thus any strategy that seeks to drive E_T(P) → 0 as T → ∞ using Dirichlet polynomials P necessarily recovers the Möbius function on longer and longer initial segments, in a quantitatively stable way. In particular, this gives a concrete obstruction: one cannot achieve small E_T(P) with “short” polynomials or with coefficients that avoid the arithmetic complexity of μ; the error decays only insofar as the coefficients replicate μ(n) to length M comparable to the spectral window X ≲ T, up to a polyexp(log M) stability loss.
+
+Proof of (1).
+Let d_m denote the Dirichlet coefficients of 1 − ζ(s)P(s) on Re s > 1:
+d_1 = 1 − a_1, and for m ≥ 2, d_m = −∑_{n≤N, n|m} a_n = −c_m.
+Formally, 1 − ζ(s)P(s) = ∑_{m=1}^∞ d_m m^{-s}.
+
+Fix X ≤ T/2. Truncate to S_X(t) := ∑_{m≤X} d_m m^{-1/2-it}. By the Montgomery–Vaughan mean value inequality for Dirichlet polynomials, for T ≥ 2X,
+(1/2T) ∫_{-T}^T |S_X(t)|^2 dt ≥ (1 − X/T) ∑_{m≤X} |d_m|^2 / m ≥ (1/2) ∑_{m≤X} |d_m|^2 / m.
+Since E_T(P) ≥ (1/2T) ∫ |S_X(t)|^2 dt and d_m = δ_m − c_m, the claim follows.
+
+Proof of (2): norm bounds and stability.
+Define the weighted Hilbert space with norm ‖a‖^2 = ∑_{n≤M} |a_n|^2 / n. For any a,
+‖S_M a‖^2 = ∑_{m≤M} |∑_{n|m} a_n|^2 / m.
+Apply Cauchy–Schwarz inside the sum:
+|∑_{n|m} a_n|^2 ≤ τ(m) ∑_{n|m} |a_n|^2,
+hence
+‖S_M a‖^2 ≤ ∑_{m≤M} τ(m) m^{-1} ∑_{n|m} |a_n|^2
+= ∑_{n≤M} |a_n|^2 ∑_{k≤M/n} τ(kn)/(kn).
+Using τ(kn) ≤ τ(k) τ(n), we get
+‖S_M a‖^2 ≤ ∑_{n≤M} |a_n|^2 (τ(n)/n) ∑_{k≤M/n} τ(k)/k.
+Now, ∑_{k≤Y} τ(k)/k ≪ (log Y)^2 and τ(n) ≤ exp(O(√log n)) (well-known maximal order). Therefore
+‖S_M a‖^2 ≤ C (log M)^4 exp(C √log M) ∑_{n≤M} |a_n|^2 / n,
+giving the stated bound for ‖S_M‖.
+
+For S_M^{-1}, note it is the Möbius matrix: (S_M^{-1} c)(n) = ∑_{d|n} μ(n/d) c_d. The same argument with μ replaced by |μ| ≤ 1 gives
+‖S_M^{-1} c‖^2 = ∑_{n≤M} |∑_{d|n} μ(n/d) c_d|^2 / n
+≤ ∑_{n≤M} (∑_{d|n} |c_d|)^2 / n
+≤ ∑_{d≤M} |c_d|^2 ∑_{k≤M/d} τ(k)/(kd)
+≤ C (log M)^2 exp(C √log M) ∑_{d≤M} |c_d|^2 / d,
+establishing the claimed bound.
+
+Finally, take c_m = ∑_{n≤N, n|m} a_n for m ≤ X, and let c^{(0)}_m = δ_m. Then, by (1),
+∑_{m≤X} |c_m − c^{(0)}_m|^2 / m ≤ 2 E_T(P).
+Applying S_M^{-1} to c − c^{(0)} (restricted to m ≤ M) and using the operator norm bound gives
+∑_{n≤M} |a_n − μ(n)|^2 / n ≤ ‖S_M^{-1}‖^2 ∑_{m≤M} |c_m − c^{(0)}_m|^2 / m
+≤ C' (log M)^4 exp(C' √log M) · ∑_{m≤X} |c_m − c^{(0)}_m|^2 / m,
+as claimed.
+
+Consequence and barrier for “short” approximants.
+- To make E_T(P) ≤ ε, one must have ∑_{m≤X} |c_m − δ_m|^2 / m ≲ ε for some X ≍ T. By the stability inequality, this forces ∑_{n≤M} |a_n − μ(n)|^2 / n ≲ ε · polyexp(log M), for every M ≤ X.
+- Hence any method attempting to prove small mean-square error on the 1/2-line with Dirichlet polynomials P must, in a quantitatively stable sense, reconstruct μ(n) on initial segments whose length grows proportionally to the spectral window scale X ≲ T.
+- In particular, mollifiers or approximants with length N ≪ T that do not emulate μ(n) up to scales ≍ T incur an irreducible lower bound on E_T(P), given by (1), regardless of any additional analytic input.
+
+This does not prove RH or rule out all such strategies, but it isolates a concrete algebraic-analytic bottleneck: achieving small mean-square on the critical line is equivalent to solving a stable deconvolution problem for the divisor operator, i.e., recovering μ on long intervals. Any genuine advance via these approximants must overcome this barrier, for example by constructing coefficients that match μ far out or by exploiting cancellation beyond pure divisor convolution (which (1) blocks at the level of L^2 mean-square).
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous tradeoff showing short mollifiers cannot force small mean-square on 1/2 without recovering μ.

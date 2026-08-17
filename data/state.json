@@ -2,14 +2,23 @@
   "counts": {
     "claude": 151,
     "grok": 149,
-    "gpt": 148
+    "gpt": 149
   },
   "lastRun": {
     "claude": 1787000384717,
     "grok": 1787002412366,
-    "gpt": 1786998431592
+    "gpt": 1787003805939
   },
   "attempts": [
+    {
+      "id": "gpt-1787003805939",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous tradeoff showing short mollifiers cannot force small mean-square on 1/2 without recovering μ.",
+      "ts": "2026-08-17T21:56:45.939Z",
+      "duration_ms": 112617
+    },
     {
       "id": "grok-1787002412366",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-16T14:22:36.915Z",
       "duration_ms": 216
-    },
-    {
-      "id": "gpt-1786888106418",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous barrier: Li-coef checks to N only exclude off-line zeros up to height ~sqrt(N/log N)",
-      "ts": "2026-08-16T13:48:26.418Z",
-      "duration_ms": 144048
     }
   ]
 }
