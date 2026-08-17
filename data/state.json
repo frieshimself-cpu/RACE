@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 143,
-    "grok": 142,
+    "grok": 143,
     "gpt": 142
   },
   "lastRun": {
     "claude": 1786951580496,
-    "grok": 1786941691277,
+    "grok": 1786954923393,
     "gpt": 1786946625343
   },
   "attempts": [
+    {
+      "id": "grok-1786954923393",
+      "ai": "grok",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "Injectivity hypothesis on Hodge classes false; coniveau reduction collapses to known cases only",
+      "ts": "2026-08-17T08:22:03.393Z",
+      "duration_ms": 41092
+    },
     {
       "id": "claude-1786951580496",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Reproved easy direction of Li's criterion rigorously and located the obstruction, but produced no unconditional positivity lower bound.",
       "ts": "2026-08-15T23:54:06.835Z",
       "duration_ms": 41738
-    },
-    {
-      "id": "gpt-1786836051488",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Derived a rigorous reduction/zero-density bound; no path to full RH provided.",
-      "ts": "2026-08-15T23:20:51.488Z",
-      "duration_ms": 71429
     }
   ]
 }

@@ -1,0 +1,33 @@
+### Attempt: A conditional reduction of middle-dimensional Hodge classes via a refined coniveau filtration and a failed algebraicity criterion
+
+Let \(X\) be a smooth complex projective variety of dimension \(n=2m\). Write \(H^{2m}(X,\mathbb{Q})\) for rational Betti cohomology and
+\[
+\operatorname{Hdg}^{2m}(X) := H^{2m}(X,\mathbb{Q})\cap H^{m,m}(X)
+\]
+for the space of middle-dimensional Hodge classes. The Hodge conjecture asserts that every class in \(\operatorname{Hdg}^{2m}(X)\) is a rational linear combination of classes of codimension-\(m\) algebraic subvarieties.
+
+Recall the coniveau filtration on cohomology: a class \(\alpha\in H^{i}(X,\mathbb{Q})\) has coniveau at least \(c\) if it vanishes on the complement of a closed algebraic subset of codimension \(\ge c\). Write \(N^c H^{i}(X,\mathbb{Q})\) for the corresponding subspace. It is classical that algebraic cycle classes lie in \(N^m H^{2m}(X,\mathbb{Q})\). Thus any Hodge class of coniveau \(<m\) is automatically transcendental in the strongest sense; the interesting part of the conjecture concerns classes of maximal coniveau.
+
+#### Proposed criterion
+We attempt to prove the following conditional statement, which would reduce the middle-dimensional case to a purely cohomological vanishing statement.
+
+**Proposed Lemma.** Suppose that for every smooth projective \(Y\) of dimension \(2m-1\) the restriction map
+\[
+\operatorname{Hdg}^{2m}(X)\to H^{2m}(X\setminus Z,\mathbb{Q})
+\]
+is injective whenever \(Z\subset X\) is a smooth ample divisor (i.e., no nonzero middle Hodge class is supported on a hyperplane section). Then every class in \(\operatorname{Hdg}^{2m}(X)\cap N^{m-1}H^{2m}(X,\mathbb{Q})\) is algebraic.
+
+#### Sketch of argument
+Let \(\alpha\in\operatorname{Hdg}^{2m}(X)\) have coniveau at least \(m-1\), so there exists a closed subset \(W\subset X\) of pure codimension \(m-1\) such that \(\alpha\) vanishes on \(X\setminus W\). Resolve singularities and blow up to assume \(W\) is a smooth divisor in a smooth ambient variety; after a further hyperplane section we may replace \(W\) by a smooth ample divisor \(Z\subset X\) of dimension \(2m-1\) without changing the vanishing of \(\alpha\) off \(Z\). (Hard Lefschetz and the Lefschetz hyperplane theorem supply the necessary isomorphisms on the complementary degrees.)
+
+By the proposed injectivity hypothesis, \(\alpha=0\). This is absurd unless the coniveau is actually \(m\), in which case \(\alpha\) is supported on a codimension-\(m\) subscheme and is therefore (after resolution) the class of an algebraic cycle by the usual Gysin argument. Hence every maximal-coniveau Hodge class would be algebraic, and the remaining lower-coniveau Hodge classes would have to vanish by a separate (and presently unavailable) purity statement.
+
+#### Where the argument collapses
+The injectivity hypothesis is false in general. Counter-examples already appear for abelian fourfolds: there exist nonzero Hodge classes of type \((2,2)\) that remain nonzero after restriction to the complement of any ample divisor (they arise from products of divisor classes on factors and are detected by the Mumford–Tate group). The same phenomenon occurs for certain rigid Calabi–Yau threefolds times an elliptic curve. Consequently the proposed reduction does not hold, and the coniveau filtration alone cannot force algebraicity without an independent control on the transcendental lattice.
+
+The failure is sharp: the same circle of ideas recovers the known Lefschetz \((1,1)\)-theorem (where coniveau \(0\) in degree \(2\) is controlled by the exponential sequence) but supplies no new information in middle degree. No modification of the argument that replaces “ample divisor” by “complete intersection of higher codimension” restores injectivity, because the relevant primitive cohomology can still carry Hodge classes of intermediate coniveau.
+
+Thus the approach yields only a restatement of the conjecture in the language of coniveau, not a genuine reduction or partial unconditional result.
+
+VERDICT: FAILED
+REASON: Injectivity hypothesis on Hodge classes false; coniveau reduction collapses to known cases only
