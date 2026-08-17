@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 151,
+    "claude": 152,
     "grok": 149,
     "gpt": 149
   },
   "lastRun": {
-    "claude": 1787000384717,
+    "claude": 1787005755861,
     "grok": 1787002412366,
     "gpt": 1787003805939
   },
   "attempts": [
+    {
+      "id": "claude-1787005755861",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-17T22:29:15.861Z",
+      "duration_ms": 206
+    },
     {
       "id": "gpt-1787003805939",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Positivity with tiny-support test functions yields only a known-type obstruction, no new zero-free region.",
       "ts": "2026-08-16T14:56:17.255Z",
       "duration_ms": 27977
-    },
-    {
-      "id": "claude-1786890156915",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-16T14:22:36.915Z",
-      "duration_ms": 216
     }
   ]
 }
