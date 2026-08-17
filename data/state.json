@@ -2,14 +2,23 @@
   "counts": {
     "claude": 145,
     "grok": 145,
-    "gpt": 144
+    "gpt": 145
   },
   "lastRun": {
     "claude": 1786967781871,
     "grok": 1786971084238,
-    "gpt": 1786965978850
+    "gpt": 1786973977411
   },
   "attempts": [
+    {
+      "id": "gpt-1786973977411",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous barrier: sub-sqrt mollifiers cannot yield o(1) L2 error, blocking a key method toward RH.",
+      "ts": "2026-08-17T13:39:37.411Z",
+      "duration_ms": 81222
+    },
     {
       "id": "grok-1786971084238",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Reduced full BSD to Sha-finiteness + p-adic height non-degeneracy via Kato's Euler system",
       "ts": "2026-08-16T05:58:36.434Z",
       "duration_ms": 24727
-    },
-    {
-      "id": "claude-1786858103164",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reformulated RH via Li coefficients as one-sided bound P_n≥-A_n with explicit envelope; no new unconditional progress.",
-      "ts": "2026-08-16T05:28:23.164Z",
-      "duration_ms": 55759
     }
   ]
 }

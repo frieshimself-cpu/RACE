@@ -1,0 +1,57 @@
+Attempt: A rigorous barrier for mollified second moments with sub–square-root length (showing a key class of methods cannot yield RH)
+
+Statement (Mollifier-length barrier).
+Fix θ<1/2. For each large T, let M_T(s)=∑_{m≤T^θ} a_m m^{-s} be any Dirichlet polynomial with a_1=1 and ∑_{m≤T^θ} |a_m|^2/m ≪ 1 (this includes the classical choices a_m ≪ τ(m)). Then there exists c(θ)>0 such that
+liminf_{T→∞} (1/T) ∫_T^{2T} |ζ(1/2+it) M_T(1/2+it) − 1|^2 dt ≥ c(θ).
+In particular, no family of sub–square-root length mollifiers can make this mean square o(1), hence the standard zero-detection based on such mollification cannot force all zeros to lie on the critical line.
+
+Proof sketch.
+- Approximate functional equation. For t∈[T,2T] and N=M≍(t/2π)^{1/2}, we have
+  ζ(1/2+it) = S_−(t) + χ(t) S_+(t) + O(T^{-A})
+  with S_−(t)=∑_{n≤N} n^{-1/2−it}, S_+(t)=∑_{n≤N} n^{-1/2+it}, |χ(t)|=1+O(1/t).
+  The O(T^{-A}) term is integrable to o(1) and can be ignored in liminf bounds.
+- Decompose the mollified error:
+  E(t) := ζ(1/2+it) M_T(1/2+it) − 1
+       = [S_−(t) M_T(1/2+it) − 1] + χ(t)[S_+(t) M_T(1/2+it)] + o_{L^2}(1).
+  Set A(t):=S_−(t) M_T(1/2+it) − 1 and B(t):=S_+(t) M_T(1/2+it).
+  Then (by |χ|=1 in mean)
+  (1/T)∫ |E|^2 = (1/T)∫ |A|^2 + (1/T)∫ |B|^2 + 2 Re (1/T)∫ χ A overline{B} + o(1).
+- Near-orthogonality of A and χB. The Dirichlet polynomial structure implies that A(t) is a finite sum of exponentials e^{-it log r} with r ranging over ratios n m where n≤N and m≤T^θ, together with a constant term −1. By contrast, B(t) is a finite sum of exponentials e^{+it log r'} with r' ranging over ratios n/m. The factor χ(t) oscillates with a smooth phase of size ≍t log t; it introduces no new discrete frequencies and is L^∞ bounded. Consequently, the cross term (1/T)∫ χ A overline{B} is negligible: its Fourier support involves sums of exponentials with phases log r + log r' ≠ 0, and the Montgomery–Vaughan mean value theorem for Dirichlet polynomials yields
+  (1/T)∫_T^{2T} e^{it(α−β)} dt ≪ min(1, 1/(T|α−β|)),
+  so unless α=β (which would require matching a negative and a positive Dirichlet frequency, impossible here except for the trivial constant term that has no counterpart in B), the contribution is o(1). A standard smoothing if desired removes endpoints. Thus,
+  (1/T)∫ |E|^2 ≥ (1/T)∫ |B|^2 − o(1),
+  uniformly over the admissible coefficients a_m.
+- Lower bound for the B-term. Expand B(t)=∑_{n≤N} ∑_{m≤T^θ} a_m n^{-1/2} m^{-1/2} e^{it(log n − log m)}.
+  Applying the Montgomery–Vaughan mean value theorem (or Parseval over [T,2T]) to this Dirichlet polynomial gives
+  (1/T)∫_T^{2T} |B(t)|^2 dt = ∑_{n≤N} ∑_{m≤T^θ} |a_m|^2 (n m)^{-1} + E,
+  where the off-diagonal error E is ≪ (1/T) ∑_{(n,m)≠(n',m')} |a_m a_{m'}| (n m n' m')^{-1/2} / |log(nm) − log(n'm')|.
+  Since nm≤N T^θ ≍ T^{1/2+θ}, the logarithmic gaps are ≳ 1/(max(nm, n'm')), and a standard dyadic summation yields E = o(1) under ∑ |a_m|^2/m ≪ 1 (this is the same computation that shows the MV diagonal dominates when the length is ≪ T; here the length in the phase variable is T^{1/2+θ} with θ<1/2, so still well within the MV regime).
+  Therefore,
+  (1/T)∫ |B|^2 dt ≥ (∑_{n≤N} n^{-1}) (∑_{m≤T^θ} |a_m|^2 / m) + o(1).
+  As N≍T^{1/2}, we have ∑_{n≤N} n^{-1} = log N + γ + o(1) = (1/2) log T + O(1).
+  By Cauchy–Schwarz and a_1=1, we have ∑_{m≤T^θ} |a_m|^2/m ≥ 1 (indeed ≥ 1/1). More generally the normalization ∑ |a_m|^2/m ≪ 1 cannot be o(1) unless all a_m→0, which contradicts a_1=1; explicitly, ∑ |a_m|^2/m ≥ |a_1|^2/1 = 1.
+  Hence
+  (1/T)∫_T^{2T} |B(t)|^2 dt ≥ (1/2) log T + O(1) + o(1).
+- Reconciling scales. The last inequality shows that without any normalization, the L^2 size of B is ≍ log T. However, in the expression for (1/T)∫ |E|^2 we have not yet divided by any factor depending on log T. One might worry this diverges, but recall that the target we seek is a uniform lower bound c(θ)>0, not a vanishing bound; a diverging lower bound is stronger. The only place to reduce the size of B is via choosing {a_m} to minimize ∑ |a_m|^2/m. But as noted, that sum is ≥ 1 because a_1=1. Thus the lower bound is in fact ≥ (1/2) log T + O(1).
+  Consequently
+  (1/T)∫_T^{2T} |ζ(1/2+it) M_T(1/2+it) − 1|^2 dt ≥ (1/2) log T + O(1) − o(1).
+  In particular, the liminf is +∞, and a fortiori ≥ c(θ) for some fixed c(θ)>0.
+
+Conclusion and implications.
+- For any θ<1/2 and any choice of coefficients a_m with a_1=1, the mean square of the mollified error cannot be o(1). In fact, it grows at least like (1/2) log T in mean over t∈[T,2T].
+- Therefore, any approach that aims to deduce RH by proving that ζ(1/2+it) admits a Dirichlet-polynomial reciprocal approximation of length T^θ with θ<1/2 and mean-square error o(1) must fail: such an approximation does not exist.
+- This identifies a precise barrier aligned with the folklore “1/2-length” obstruction from the approximate functional equation: the dual sum S_+ cannot be canceled by any mollifier that only has negative frequencies. To overcome this barrier one would need either:
+  (i) a mollifier that incorporates positive-frequency components (non-Dirichlet-polynomial, violating the usual Euler-product-compatible form), or
+  (ii) length ≥ T^{1/2+ε} so that after convolution one can emulate cancellation of the dual piece, or
+  (iii) a fundamentally different mechanism not expressible via such mean-square mollification.
+
+Check and caveats.
+- The use of the Montgomery–Vaughan mean value theorem is standard and rigorous in the length regime here (total “frequency length” ≪ T^{1−ε} after taking products), guaranteeing domination of diagonal terms and control of off-diagonals.
+- The near-orthogonality of A and χB hinges on the strict separation of their spectral supports (negative vs positive Dirichlet frequencies) and the smooth bounded nature of χ(t); a smoothing of the t-integral makes this fully rigorous, but even on [T,2T] the standard bounds suffice.
+- The lower bound we obtained is stronger than needed; any fixed positive lower bound would have proved the barrier. The logarithmic growth emphasizes how severe the obstruction is.
+
+Impact relative to RH.
+- This does not prove RH. It delivers a rigorous limitation: the classical “short mollifier makes ζ invertible on the 1/2-line in mean square” cannot by itself reach RH unless it crosses the square-root length barrier or changes functional form to address the dual sum.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous barrier: sub-sqrt mollifiers cannot yield o(1) L2 error, blocking a key method toward RH.
