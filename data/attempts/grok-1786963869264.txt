@@ -1,0 +1,56 @@
+### Attempt: Obstruction to an elementary contour-shift proof of a zero-free half-plane wider than the classical zero-free region
+
+Let \(\zeta(s)\) denote the Riemann zeta function, \(s=\sigma+it\). Write the completed xi-function
+\[
+\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),
+\]
+which is entire of order 1 and satisfies the functional equation \(\xi(s)=\xi(1-s)\). The non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\), and they lie in the critical strip \(0<\operatorname{Re}s<1\). The Riemann Hypothesis (RH) asserts that every such zero satisfies \(\operatorname{Re}s=1/2\).
+
+A classical strategy for producing a zero-free region is to start from the logarithmic derivative
+\[
+-\frac{\zeta'}{\zeta}(s)=\sum_{n=1}^\infty\Lambda(n)n^{-s}\qquad(\sigma>1)
+\]
+and to shift a contour leftward while controlling the horizontal and vertical integrals by means of convexivity bounds on \(\zeta\) (or on \(\xi\)). The best elementary convexivity bound available from the functional equation and Stirling’s formula is
+\[
+|\zeta(\sigma+it)|\ll_\varepsilon |t|^{(1-\sigma)/2+\varepsilon}\qquad(0\le\sigma\le1,\;|t|\ge2).
+\]
+(The subconvexity improvements of Weyl–van der Corput, Burgess, etc., improve the exponent but do not change the qualitative obstruction described below.)
+
+#### Contour and moment estimate
+Fix \(T\ge2\) large and \(\delta\in(0,1/2)\). Consider the rectangular contour with vertices
+\[
+1+\delta\pm iT,\qquad \tfrac12+\delta\pm iT.
+\]
+On the right vertical side the Dirichlet series converges absolutely. On the horizontal sides the convexivity bound together with the standard estimate
+\[
+\bigl|\tfrac{\Gamma'}{\Gamma}(\sigma+it)\bigr|\ll\log(|t|+2)
+\]
+yields
+\[
+\int_{\text{horiz.}}\Bigl|\frac{\xi'}{\xi}(s)\Bigr|\,|ds|\ll_\delta T^{\delta}\log^2 T.
+\]
+If one could show that the left vertical integral is \(o(T)\) (or even \(O(T^{1-\eta})\) for some \(\eta>0\)), the argument principle would imply that the number of zeros with real part \(>\frac12+\delta\) and imaginary part in \([0,T]\) is \(o(T)\). A standard density theorem would then upgrade this to a zero-free region \(\sigma\ge\frac12+\delta\) for large \(|t|\).
+
+#### Where the argument collapses
+The left vertical integral is
+\[
+\int_{-T}^{T}\Bigl|\frac{\xi'}{\xi}(\tfrac12+\delta+it)\Bigr|\,dt.
+\]
+By the functional equation the values of \(\xi'/\xi\) on the line \(\operatorname{Re}s=\frac12+\delta\) are essentially the complex conjugates of the values on \(\operatorname{Re}s=\frac12-\delta\). Consequently any bound that does not already know something about the horizontal distribution of zeros on both sides of the critical line is circular: the only a-priori information available is the convexivity bound itself, which produces merely
+\[
+\int_{-T}^{T}\Bigl|\frac{\xi'}{\xi}(\tfrac12+\delta+it)\Bigr|\,dt\ll_\delta T^{1+\delta}\log^2 T.
+\]
+This is larger than the main term \(T\log T\) coming from the right vertical side by a factor \(T^\delta\), and therefore supplies no cancellation. In other words, the contour shift yields only the classical zero-density estimate
+\[
+N(\sigma,T)\ll_\varepsilon T^{c(1-\sigma)+\varepsilon}\qquad(\sigma\ge\tfrac12),
+\]
+with an exponent \(c\ge2\) that is too weak to push the zero-free abscissa left of \(1-c/\log\log\log T\).
+
+Any attempt to improve the left-hand integral by inserting a mollifier (or a short Dirichlet polynomial) immediately re-introduces the problem of estimating mean values of \(\zeta\) (or of \(\xi\)) on lines \(\operatorname{Re}s=\frac12+\delta\), which are known to be equivalent in strength to RH itself once \(\delta\) is fixed. Thus the elementary contour-shift method is blocked by a circular dependence on precisely the horizontal spacing information that RH asserts.
+
+(The same obstruction appears, mutatis mutandis, when one works with the explicit formula and tries to absorb the contribution of a putative zero with real part \(>\frac12\) into a positive-definite quadratic form; the off-diagonal terms cannot be shown to be negligible without an a-priori density hypothesis stronger than what the method produces.)
+
+This shows that any successful proof of RH must either (i) obtain a subconvex bound whose exponent is itself sensitive to the location of zeros, or (ii) replace contour integration by an essentially different positivity or spectral argument that does not rely on shifting past the critical line.
+
+VERDICT: FAILED
+REASON: Contour-shift blocked by circular dependence on horizontal zero spacing; no new zero-free region.

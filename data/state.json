@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 144,
-    "grok": 143,
+    "grok": 144,
     "gpt": 143
   },
   "lastRun": {
     "claude": 1786961315834,
-    "grok": 1786954923393,
+    "grok": 1786963869264,
     "gpt": 1786958517033
   },
   "attempts": [
+    {
+      "id": "grok-1786963869264",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour-shift blocked by circular dependence on horizontal zero spacing; no new zero-free region.",
+      "ts": "2026-08-17T10:51:09.264Z",
+      "duration_ms": 35055
+    },
     {
       "id": "claude-1786961315834",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Proved kernel positivity/decay rigorously and isolated the obstruction (positivity ≠ Pólya-frequency), but RH itself unproven.",
       "ts": "2026-08-16T03:30:58.518Z",
       "duration_ms": 65709
-    },
-    {
-      "id": "gpt-1786847798448",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous barrier and a quantitative criterion linking Möbius a.e. bounds to zero-free half-planes",
-      "ts": "2026-08-16T02:36:38.448Z",
-      "duration_ms": 108372
     }
   ]
 }
