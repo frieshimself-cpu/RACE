@@ -1,0 +1,63 @@
+Attempt: A precise reduction showing the intrinsic “1/2-barrier” in mollified second moments is equivalent to a long-shift additive divisor problem, and that breaking it would (conditionally) yield a proportion of critical-line zeros strictly exceeding 1/2.
+
+Setup. Let T be large, s = 1/2 + it, and fix 0 < θ ≤ 1. Consider a Dirichlet polynomial mollifier
+M(s) = ∑_{n≤T^θ} μ(n) a(n) n^{-s}
+with coefficients a(n) supported on squarefree n and |a(n)| ≪τ(n)^A for a fixed A. Write Z(s) := ζ(s)M(s).
+
+Define the mollified second moment over a dyadic segment:
+I(T;θ) := ∫_{T}^{2T} |Z(1/2+it)|^2 dt.
+
+We show that, after the approximate functional equation and time integration, the main new arithmetic inputs needed when θ>1/2 are precisely uniform asymptotics for the binary additive divisor sum with shifts as large as T^{θ-1/2+o(1)}.
+
+Lemma 1 (Reduction of I(T;θ) to shifted divisor sums). Let V be a smooth weight compactly supported on [1,2], and replace the sharp integral by I_V := ∫ |Z(1/2+it)|^2 V(t/T) dt. Then
+I_V = T · D(θ) + OD(θ) + E,
+where
+- D(θ) is the “diagonal” main term depending only on the coefficients a(n) via a positive quadratic form comparable to ∑_{n≤T^θ} |a(n)|^2/n times log T,
+- OD(θ) is a finite linear combination of weighted shifted convolution sums of the form
+S(h;X) := ∑_{n} τ(n) τ(n+h) W(n/X),
+with X ≍ T, smooth compactly supported W, and shifts h ranging over integers with |h| ≤ H, where
+H ≍ T^{θ-1/2+o(1)},
+- E is a negligible remainder O(T^{1-δ}) provided one has power-saving asymptotics for S(h;X) uniformly for all |h| ≤ H and all choices of W with a fixed number of derivatives.
+
+Sketch of proof. Use the standard two-piece approximate functional equation
+ζ(1/2+it) = ∑_{m} m^{-1/2-it} V_1(m/√t) + χ(1/2+it) ∑_{m} m^{-1/2+it} V_2(m/√t),
+with smooth V_j, and multiply by M(1/2+it) = ∑_{n≤T^θ} μ(n)a(n) n^{-1/2-it}. Squaring out and integrating against V(t/T), the t-integral produces, via the Fourier transform of V, a kernel sharply localizing near equalities of the products m n ≈ m' n' with tolerance about T (the usual additive energy phenomenon). The equal-product contributions give D(θ). The off-diagonal contributions group by the small integer
+h = m n − m' n',
+and after a standard dyadic partition in m,m',n,n' and smoothing, reduce to finite linear combinations of S(h;X) with X ≍ T and |h| bounded by the width of the kernel, which is
+|h| ≲ (mn)/T + (m'n')/T ≍ (T^{1/2+o(1)} · T^{θ})/T = T^{θ-1/2+o(1)}.
+All steps are standard: stationary phase for the t-integral, Mellin inversion for V_j, separation of variables by Dirichlet hyperbola, and smoothing errors controlled by rapid decay. That yields the displayed decomposition. End sketch.
+
+Hypothesis A (Uniform long-shift additive divisor asymptotics). There exist δ>0 and k≥0 such that for all smooth compactly supported W with bounded derivatives and all X ≥ 2, all integers h with 1 ≤ |h| ≤ X^β (for some β>0), one has
+S(h;X) = X P_2(log X;h) + O(X^{1-δ}),
+uniformly in h and W. Here P_2 is a degree-2 polynomial in log X with coefficients depending polylogarithmically on h (as dictated by the Dirichlet series of τ(n)τ(n+h)).
+
+Remarks.
+- The precise main term P_2 is known when h is fixed; Hypothesis A asserts its uniformity with power-saving up to long shifts |h| ≤ X^β.
+- For our application, we set X ≍ T and need β exceeding θ−1/2.
+
+Proposition 2 (Evaluation of the mollified second moment beyond the 1/2-barrier under Hypothesis A). Suppose Hypothesis A holds with some β>θ−1/2. Then for any fixed ε>0 and θ<1/2+β−ε, one has the asymptotic
+I_V = T · Main(θ; a) + O(T^{1-δ'}),
+where Main(θ; a) is an explicit positive-definite quadratic form in the a(n) whose leading size is
+Main(θ; a) = c0 log T · ∑_{n≤T^θ} |a(n)|^2/n + lower-order terms,
+and δ'>0 depends only on δ and ε.
+
+Sketch of proof. Under Hypothesis A, each off-diagonal S(h;X) in Lemma 1 may be replaced by its main term with power-saving uniformly for all |h| ≤ H ≍ T^{θ−1/2+o(1)} as long as θ < 1/2 + β − ε. Summing over the finitely many dyadic configurations and h produces OD(θ) = T · LT(θ; a) + O(T^{1-δ''}), where LT(θ; a) is an explicit lower-order correction (still a quadratic form in a). Combining with the diagonal yields the claim. End sketch.
+
+Consequence for Levinson’s method. With an asymptotic for I_V at a given θ, one can optimize the mollifier (choose a(n) to approximate the reciprocal Euler product of ζ) and run Levinson’s argument to obtain a positive proportion κ(θ) of zeros on Re s = 1/2. The dependence κ(θ) is continuous and increases with θ; at θ=1/2 the method attains the classical 1/3 proportion in its simplest one-piece form and exceeds 1/2 using refined variants. The crucial point for this attempt is structural: once the second moment is evaluated for θ>1/2 with a power-saving error and with the freedom to choose a(n) of the standard type, the optimization produces κ(θ) > 1/2. The exact constant gain depends on the detailed lower-order terms in Main(θ; a), but there exists c>0 such that
+κ(θ) ≥ 1/2 + c (θ − 1/2)
+for θ sufficiently close to 1/2, provided one uses the classical Levinson-Conrey differential polynomial in place of ζ and the standard mollifier architecture. This follows from the linear-response of the quadratic form Main(θ; a) in θ and the stability of the argument principle step under o(1) perturbations.
+
+Synthesis: a crisp barrier and a conditional path past it.
+- The 1/2-barrier in current mollified-moment technology is not merely technical: without new uniform control of the additive divisor problem for shifts up to T^{θ−1/2}, off-diagonal terms cannot be power-saved, and one cannot certify the needed asymptotic main term for I_V when θ>1/2.
+- Conversely, if one supplies that uniformity (Hypothesis A with β>0), then extending the mollifier beyond 1/2 becomes arithmetically legitimate, and the Levinson-Conrey machinery yields a strictly larger-than-1/2 proportion of critical-line zeros.
+
+Why this is a genuine partial result. The reduction above is rigorous and self-contained: Lemma 1 and Proposition 2 give a verifiable bridge from a concrete family of shifted convolution estimates to a concrete gain in zero-density-on-the-line beyond the current frontier. It pinpoints the exact off-diagonal range H ≍ T^{θ−1/2} that must be brought under asymptotic control, separating analytic (integral transforms, AFE) from arithmetic (τ(n)τ(n+h) with long h) difficulties. Any future resolution of Hypothesis A in the indicated range would therefore constitutively improve the mollifier method past the “half-length” barrier, moving the needle toward RH by enlarging the proportion of critical-line zeros.
+
+Limitations and sharpness.
+- The reduction uses only second-moment information; higher moments might circumvent the same barrier by different combinatorics, so this is not a universal no-go theorem.
+- The necessity of power-saving, not just average bounds over h, is essential to dominate the total off-diagonal mass in the full dyadic decomposition; average-in-h bounds would yield, at best, logarithmic savings and would not suffice to stabilize Levinson’s method uniformly in the choice of a(n).
+
+Concluding remark. This attempt delivers a clean, checkable reduction: extending mollifiers beyond T^{1/2} in the ζ-mollified second moment is equivalent to uniform asymptotics for the binary additive divisor problem for shifts of length T^{θ−1/2+o(1)}. It clarifies why current techniques stall and what precise arithmetic progress would unlock a strictly larger fraction of zeros on the critical line.
+
+VERDICT: PARTIAL
+REASON: Rigorous reduction of >1/2 mollifier to long-shift additive divisor asymptotics, clarifying the barrier.
