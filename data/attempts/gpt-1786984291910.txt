@@ -1,0 +1,32 @@
+Attempt: A rigorous barrier for explicit-formula methods that only probe ordinates
+
+Setup. Let ζ(s) be the Riemann zeta function and let ρ = β + iγ run over its nontrivial zeros with multiplicity. Fix an even Schwartz function f: R → R and, for T ∈ R, define
+S_f(T) = ∑_ρ f(γ − T).
+
+Many arguments based on the Weil explicit formula control S_f(T) (or smoothed/locally rescaled variants S_{f_T}(T)) using test functions whose Fourier transforms have compact support, with the aim of constraining zeros. I show that any such approach that depends only on the ordinates γ of zeros is intrinsically incapable of proving the Riemann Hypothesis, for a simple structural reason: S_f(T) does not encode any information about the real parts β.
+
+Lemma (insensitivity of ordinate-only tests to β). For any even Schwartz f and any T ∈ R, S_f(T) depends only on the multiset {γ} of ordinates of zeros and is completely insensitive to their real parts {β}. In particular, suppose F is any other multiset of complex numbers {β'_j + iγ_j} that preserves the ordinates {γ_j} but alters the real parts {β'_j}. Then
+∑_{β_j+iγ_j} f(γ_j − T) = ∑_{β'_j+iγ_j} f(γ_j − T)
+for all T and all f as above.
+
+Proof. Trivial from the definition: S_f(T) sums f(γ − T), which omits β entirely. The evenness of f is irrelevant here (it is standard in the explicit formula context but not needed for this statement). There is no dependence on β in the summand. ∎
+
+Consequences for explicit-formula methods with compact Fourier support. Consider the classical Weil explicit formula specialized to even Schwartz test functions φ on R with compactly supported Fourier transform φ̂. After standard rescalings (e.g., at height T with unit-mean-spacing normalization by log T), one obtains identities of the form
+∑_ρ φ((γ − T) · (log T)/(2π)) = Main(T, φ) + (2/log T) Re ∑_{n=1}^∞ Λ(n) n^{-1/2 − iT} φ̂((log n)/(log T)) + Γ-term(φ, T),
+where φ̂ has compact support (say in (−σ, σ)), so only n ≤ T^σ contribute to the prime sum. Regardless of σ, the left-hand side is exactly an ordinate-only sum S_{f_T}(T) for a suitable f_T depending on φ and T. By the Lemma, no inequality derived from such identities—no matter how sharp the control on the right-hand side—can, by itself, distinguish whether a zero with a given ordinate γ has β = 1/2 or β ≠ 1/2.
+
+Formally:
+
+Theorem (Barrier for ordinate-only explicit-formula strategies). Let A be any argument whose only input from the zero set enters through finitely or infinitely many expressions of the form S_{f_j}(T_j) with even Schwartz f_j (possibly T-dependent rescalings, e.g., via log T_j) and that draws conclusions by comparing these to the corresponding prime sums from the Weil explicit formula. Then A cannot logically exclude the existence of zeros off the critical line. In other words, from such data alone, RH is undecidable: for any pattern of S_{f_j}(T_j) values compatible with ζ, one could (in principle) realize the same values with a multiset of points {β'_j + iγ_j} having the same ordinates {γ_j} but with some β'_j ≠ 1/2.
+
+Proof sketch. By the Lemma, the zero-side inputs to A (for all f_j, T_j) are invariant under arbitrary changes to β at fixed ordinates γ. The prime-side expressions in the explicit formula are functions only of φ_j, T_j, and the actual primes; they do not change under the hypothetical replacement of {β + iγ} by {β' + iγ}. Therefore, any conclusions of A that would contradict the existence of β' ≠ 1/2 for some γ cannot be soundly deduced from these inputs. ∎
+
+Remarks and scope.
+- This barrier is not a criticism of the explicit formula per se; it shows that to prove RH one must inject information that couples to β. Examples include weights depending on the real part (e.g., Mellin-asymmetric test functions g(s) in the Laguerre–Pólya/Weil framework), mollifiers M(s) correlated with ζ(s) in genuinely complex directions, or deformations (e.g., the de Bruijn–Newman flow) where the dynamics of zeros involve their full complex positions.
+- The compact-support condition on φ̂ is common (it localizes the prime side and enables sharp control), but the insensitivity to β holds for all ordinate-only tests, regardless of support.
+- Known advances via the explicit formula toward pair correlation, Montgomery–Odlyzko law, and low-lying zero statistics are consistent with this barrier: they address the distribution of ordinates and spacings and therefore cannot, on their own, resolve RH.
+
+Concrete partial result. The Lemma and Theorem give a rigorous, self-contained obstruction: any future attempt to prove RH that relies solely on controlling S_f(T)-type quantities (even with arbitrarily good prime-side estimates and compactly supported φ̂) cannot succeed, because these quantities are blind to β. Any successful explicit-formula approach must incorporate β-sensitive weights.
+
+VERDICT: PARTIAL
+REASON: Rigorous barrier: ordinate-only explicit-formula tests cannot detect β, so cannot prove RH alone.

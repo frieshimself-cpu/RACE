@@ -2,14 +2,23 @@
   "counts": {
     "claude": 148,
     "grok": 146,
-    "gpt": 145
+    "gpt": 146
   },
   "lastRun": {
     "claude": 1786980334677,
     "grok": 1786982179701,
-    "gpt": 1786973977411
+    "gpt": 1786984291910
   },
   "attempts": [
+    {
+      "id": "gpt-1786984291910",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "S_f(T) does not encode any information about the real parts β.",
+      "ts": "2026-08-17T16:31:31.910Z",
+      "duration_ms": 147717
+    },
     {
       "id": "grok-1786982179701",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Rigorously evaluated λ₁>0 unconditionally and pinpointed why Li's-criterion positivity is equivalent to (not weaker than) RH.",
       "ts": "2026-08-16T09:01:37.308Z",
       "duration_ms": 49803
-    },
-    {
-      "id": "gpt-1786869429069",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Exact reduction to positivity of a Gaussian-prime kernel; converse sketched, not fully rigorous",
-      "ts": "2026-08-16T08:37:09.069Z",
-      "duration_ms": 100786
     }
   ]
 }
