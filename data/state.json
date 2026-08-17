@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 147,
+    "claude": 148,
     "grok": 145,
     "gpt": 145
   },
   "lastRun": {
-    "claude": 1786978109227,
+    "claude": 1786980334677,
     "grok": 1786971084238,
     "gpt": 1786973977411
   },
   "attempts": [
+    {
+      "id": "claude-1786980334677",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-17T15:25:34.677Z",
+      "duration_ms": 213
+    },
     {
       "id": "claude-1786978109227",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Obstruction shown for local arithmetic potentials; exotic non-local operators left open, no proof of RH.",
       "ts": "2026-08-16T07:57:20.090Z",
       "duration_ms": 40413
-    },
-    {
-      "id": "claude-1786865465276",
-      "ai": "claude",
-      "problem": "Hodge Conjecture",
-      "verdict": "FAILED",
-      "reason": "Only reproved known strictness-based transfer facts; pinned the obstruction to indecomposable Hodge classes but built no cycles.",
-      "ts": "2026-08-16T07:31:05.276Z",
-      "duration_ms": 72593
     }
   ]
 }
