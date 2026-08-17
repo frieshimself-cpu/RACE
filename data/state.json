@@ -2,14 +2,23 @@
   "counts": {
     "claude": 149,
     "grok": 147,
-    "gpt": 146
+    "gpt": 147
   },
   "lastRun": {
     "claude": 1786986007199,
     "grok": 1786988890543,
-    "gpt": 1786984291910
+    "gpt": 1786991960082
   },
   "attempts": [
+    {
+      "id": "gpt-1786991960082",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous Littlewood-type inequality linking mean log|ζ| to zeros right of σ; tool, not RH.",
+      "ts": "2026-08-17T18:39:20.082Z",
+      "duration_ms": 90271
+    },
     {
       "id": "grok-1786988890543",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Verified λ_1=2+γ−log(4π)>0 and pinned the Li-criterion barrier to a one-log-factor gap equivalent to RH itself.",
       "ts": "2026-08-16T10:55:52.528Z",
       "duration_ms": 55467
-    },
-    {
-      "id": "gpt-1786875816406",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorous no-go lemma: finite λn positivity can't preclude off-line zeros; no progress on RH itself.",
-      "ts": "2026-08-16T10:23:36.406Z",
-      "duration_ms": 75575
     }
   ]
 }

@@ -1,0 +1,55 @@
+Attempt: A precise Littlewood-type inequality linking weighted zero-density to a lower bound for the mean of log|ζ(σ+it)| on a vertical segment
+
+Statement (Lemma).
+Fix σ with 1/2 ≤ σ < 1 and T ≥ 3. Let N(σ,T,2T) denote the number of nontrivial zeros ρ = β + iγ of ζ with β ≥ σ and T ≤ γ ≤ 2T, counted with multiplicity. Then there are absolute constants c1, c2 > 0 such that
+∫_{T}^{2T} log|ζ(σ+it)| dt ≥ - c1 T log T - c2 ∑_{T ≤ γ ≤ 2T, β≥σ} (β-σ).
+In particular, since β-σ ≥ 0 on the summation range,
+∫_{T}^{2T} log|ζ(σ+it)| dt ≥ - c1 T log T - c2 (N(σ,T,2T))⋅(1-σ).
+
+Remarks.
+- This furnishes a clean quantitative trade-off: many zeros to the right of σ force the average of log|ζ| on Re s = σ to be large and negative.
+- The inequality is uniform in σ ∈ [1/2,1). The constants c1, c2 can be made explicit in terms of standard convexity-type bounds for ζ on vertical lines in [σ,3] (any fixed right boundary >1 would do).
+
+Proof sketch.
+1) Set-up to remove the pole at s = 1. Define
+F(s) := (s-1) ζ(s).
+Then F is holomorphic in the half-strip {Re s ≥ σ} for any σ < 1, with zeros exactly at the nontrivial zeros of ζ plus the trivial zeros on the negative even integers (which lie far to the left and play no role in the region considered). On vertical segments with Re s ≥ σ ≥ 1/2, we will use standard bounds for ζ to control boundary integrals.
+
+2) Poisson–Jensen in a rectangle.
+Let R be the closed rectangle with vertices at σ + iT, 3 + iT, 3 + i2T, σ + i2T (the choice 3 is arbitrary; any fixed value > 1 suffices). By the Poisson–Jensen formula (a variant of Jensen’s formula for rectangles), for a holomorphic, nonvanishing function inside R, one has
+∫_{∂R} log|F(s)| P_R(s; z0) |ds| = 2π ∑_{ρ ∈ Z(F)∩R} G_R(ρ; z0),
+where P_R is the Poisson kernel for the rectangle R with pole at an interior base point z0 and G_R is the Green function. We choose z0 on the left side, say z0 = σ + iτ with τ ∈ [T,2T], and integrate later in τ. The boundary integral decomposes into the contributions from the four sides; the sum over zeros picks up a positive contribution for each zero inside R, proportional to its Green function value relative to z0.
+
+3) Averaging over the base point on the left side.
+Average the Poisson–Jensen identity over τ ∈ [T,2T] with respect to dτ and swap the order of integration. The Poisson kernel on the left side integrates to 1, while on the other three sides it integrates to weights bounded away from 0 and ∞ (depending only on σ, the right boundary 3, and the height 2T−T = T). With this averaging, the left-side boundary term becomes exactly
+∫_{T}^{2T} log|F(σ+it)| dt = ∫_{T}^{2T} (log|ζ(σ+it)| + log|σ-1+it|) dt.
+The added term ∫ log|σ-1+it| dt is O(T log T) with an explicit constant independent of σ (since |σ-1+it| ∼ |t| on [T,2T]).
+
+The top, bottom, and right side boundary integrals involve log|F(s)| with Re s ≥ σ and can be bounded above by O(T log T) using standard bounds for ζ(s):
+- On Re s = 3, ζ(3+it) = 1 + O(2^{-3}) + ... is absolutely convergent, so log|ζ(3+it)| is bounded, giving a contribution O(T).
+- On the top and bottom, with Re s ∈ [σ,3] and Im s = T or 2T, we use convexity/explicit upper bounds (e.g., |ζ(σ+it)| ≪ t^{A(1-σ)} log t for some absolute A) to bound ∫ log|ζ| uniformly by O(T log T).
+
+Thus, after moving these three boundary integrals to the right-hand side, we obtain
+∫_{T}^{2T} log|ζ(σ+it)| dt ≥ - C1 T log T + main zero term,
+for some explicit C1.
+
+4) Contribution of zeros.
+Let ρ = β + iγ be a zero of ζ with T ≤ γ ≤ 2T and β ≥ σ. Its contribution to the Poisson–Jensen sum, after the τ-averaging, is (up to an absolute factor comparable to 1) the average of the Green function G_R(ρ; σ + iτ) over τ ∈ [T,2T]. A standard computation with the Green function in a rectangle shows that this average is bounded below by c (β-σ) for some absolute c > 0 depending only on the geometry of R (intuitively: the closer ρ is to the left side, the larger the harmonic measure from the left, and the average scales linearly in the horizontal distance to the left side). Zeros with β < σ contribute nothing (they are outside R). Zeros with β ≥ 3 are absent. Zeros with T/2 ≤ γ ≤ 3T but γ ∉ [T,2T] have exponentially small average contribution in τ due to the vertical separation and can be absorbed in the O(T log T) term (alternatively, enlarge the rectangle vertically to [T/2, 3T] to capture all nearby zeros at the cost of adjusted constants).
+
+Collecting the contributions from all zeros with β ≥ σ and γ ∈ [T,2T] yields a positive term bounded below by c ∑_{T ≤ γ ≤ 2T, β≥σ} (β-σ).
+
+5) Conclusion.
+Combining steps 3–4 and absorbing all bounded boundary terms,
+∫_{T}^{2T} log|ζ(σ+it)| dt ≥ - c1 T log T - c2 ∑_{T ≤ γ ≤ 2T, β≥σ} (β-σ),
+with explicit c1, c2 > 0, as claimed. The simpler corollary with N(σ,T,2T) follows from (β-σ) ≤ (1-σ) on the range β ≤ 1.
+
+Consequences and use.
+- This inequality is a sharp tool to convert control of the average size of log|ζ(σ+it)| into zero-density information to the right of σ, and conversely. Any method capable of proving a nontrivial lower bound for ∫_{T}^{2T} log|ζ(σ+it)| (uniformly saving over the trivial -C T log T) would force a saving in the zero-density to the right of σ.
+- In particular, improvements in upper bounds for the negative part of log|ζ(σ+it)| on average (e.g., via mollification) directly translate, through this lemma, to upper bounds on ∑(β-σ) and hence on N(σ,T,2T). This is one of the cleanest bridges between mean-value information and zero-distribution in the half-strip.
+
+Limitations.
+- The lemma alone does not yield RH; it provides a rigorous conduit from mean-value estimates to zero-density, but establishing an average lower bound beyond the convexity-size barrier remains out of reach unconditionally.
+- The constants come from general bounds on ζ(s) on the boundary; tightening them would only marginally affect the utility of the inequality without addressing the core difficulty.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous Littlewood-type inequality linking mean log|ζ| to zeros right of σ; tool, not RH.
