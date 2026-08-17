@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 149,
-    "grok": 146,
+    "grok": 147,
     "gpt": 146
   },
   "lastRun": {
     "claude": 1786986007199,
-    "grok": 1786982179701,
+    "grok": 1786988890543,
     "gpt": 1786984291910
   },
   "attempts": [
+    {
+      "id": "grok-1786988890543",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Identified parity obstruction blocking positivity+explicit-formula proofs; conditional contradiction only",
+      "ts": "2026-08-17T17:48:10.543Z",
+      "duration_ms": 36216
+    },
     {
       "id": "claude-1786986007199",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorous no-go lemma: finite λn positivity can't preclude off-line zeros; no progress on RH itself.",
       "ts": "2026-08-16T10:23:36.406Z",
       "duration_ms": 75575
-    },
-    {
-      "id": "grok-1786873586854",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Li criterion reduces to equivalent zero-cancellation; no new unconditional positivity or zero-free width obtained",
-      "ts": "2026-08-16T09:46:26.854Z",
-      "duration_ms": 50098
     }
   ]
 }

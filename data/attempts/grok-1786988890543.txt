@@ -1,0 +1,28 @@
+### Attempt: A conditional reduction via truncated explicit formulae and a parity obstruction
+
+We work throughout with the completed zeta function \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\), which is entire of order 1 and satisfies \(\xi(s)=\xi(1-s)\). Write the non-trivial zeros as \(\rho=\beta+i\gamma\) (repeated according to multiplicity). The Riemann–von Mangoldt explicit formula for the Chebyshev function, truncated at height \(T\ge2\) and with a smooth test function \(\phi\) supported in \([1,X]\) whose Fourier transform \(\hat\phi\) decays rapidly, reads
+\[
+\sum_{n\le X}\Lambda(n)\phi(n)=\phi(1)-\sum_{|\gamma|\le T}\hat\phi\Bigl(\frac{\gamma}{2\pi}\Bigr)+O\Bigl(\frac{X\log(XT)}{T}+\|\phi'\|_1\log X\Bigr).
+\]
+(The error is standard; see e.g. Davenport, Multiplicative Number Theory, Ch. 17.)
+
+**Lemma (parity obstruction for off-critical zeros).**  
+Assume there exists a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>1/2\) and \(|\gamma_0|\le T\). Let \(\overline{\rho_0}=1-\rho_0\) be its functional-equation twin (also a zero). Choose a non-negative even Schwartz test function \(\psi\) on \(\mathbb{R}\) whose Fourier transform \(\hat\psi\) is supported in \([-1,1]\) and satisfies \(\hat\psi(0)=1\), \(\hat\psi\ge0\). Scale it by a large parameter \(Y>0\):
+\[
+\phi(u)=\psi\bigl(Y\log(u/x_0)\bigr),\qquad x_0=\exp\bigl((\beta_0-1/2)^{-1}\bigr).
+\]
+Then \(\hat\phi(\xi)=Y^{-1}\hat\psi(\xi/Y)\,x_0^{-2\pi i\xi}\). Substituting into the truncated explicit formula and isolating the pair \(\{\rho_0,\overline{\rho_0}\}\) produces a main-term contribution
+\[
+\hat\phi\Bigl(\frac{\gamma_0}{2\pi}\Bigr)+\hat\phi\Bigl(\frac{-\gamma_0}{2\pi}\Bigr)=2Y^{-1}\hat\psi\bigl(\gamma_0/(2\pi Y)\bigr)\,x_0^{\beta_0-1/2}\cos\bigl(\gamma_0\log x_0+\theta\bigr)
+\]
+for an explicit phase \(\theta\) coming from the Gamma factor (Stirling). The left-hand side of the explicit formula is \(\ge0\) for \(Y\) large enough that the support of \(\phi\) lies inside an interval free of prime powers (possible by choosing \(x_0\) slightly larger if needed and using the prime-number theorem in short intervals on average). The remaining zeros on the critical line contribute an amount \(O(Y^{-1}\log T)\) by the Riemann–von Mangoldt formula \(N(T)\sim(T/2\pi)\log(T/2\pi)\). The truncated error is \(O(X\log(XT)/T)\).  
+
+Choosing \(Y=\log T\) and \(T=\exp(c\sqrt{\log x_0})\) with a sufficiently small absolute \(c>0\) makes the twin-pair contribution asymptotically larger than all error terms whenever \(\beta_0-1/2\ge(\log\log T)/\log T\). The cosine factor, however, oscillates through both signs as \(x_0\) varies by a relative factor \(1+O(1/|\gamma_0|)\). Because the test function was forced to be even (to keep \(\phi\) real and non-negative), one cannot cancel the negative excursions without introducing an odd component that would make \(\phi\) change sign, destroying the positivity of the prime-power side. Consequently the inequality cannot hold uniformly in the phase, yielding a contradiction.
+
+**Where the argument fails to be unconditional.**  
+The construction requires an a-priori zero-free strip of width \((\log\log T)/\log T\) in which to place the twin pair; without it the size of \(x_0\) cannot be controlled and the error terms swamp the main term. Existing zero-density estimates \(N(\sigma,T)\ll T^{c(1-\sigma)}\log T\) are too weak to guarantee such a strip for a single zero. The same parity (evenness) obstruction appears in every attempt to convert the Guinand–Weil explicit formula into a positivity criterion that would force \(\beta=1/2\): the functional equation identifies zeros in pairs symmetric about the critical line, and any real even test function is blind to the relative phase between a zero and its twin. Breaking the evenness re-introduces sign changes that invalidate the comparison with \(\sum\Lambda(n)\phi(n)\).
+
+Thus the reduction shows that any proof of RH via explicit formulae and positivity must either (i) employ genuinely complex (non-even) test functions whose contribution can still be bounded from below, or (ii) obtain a zero-density estimate strong enough to rule out zeros with \(\beta-1/2\gg(\log\log T)/\log T\) by other means. Both routes remain open; the parity obstruction explains the failure of a large class of attempted positivity proofs.
+
+VERDICT: PARTIAL
+REASON: Identified parity obstruction blocking positivity+explicit-formula proofs; conditional contradiction only
