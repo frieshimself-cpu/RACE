@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 146,
+    "claude": 147,
     "grok": 145,
     "gpt": 145
   },
   "lastRun": {
-    "claude": 1786975509485,
+    "claude": 1786978109227,
     "grok": 1786971084238,
     "gpt": 1786973977411
   },
   "attempts": [
+    {
+      "id": "claude-1786978109227",
+      "ai": "claude",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-17T14:48:29.227Z",
+      "duration_ms": 212
+    },
     {
       "id": "claude-1786975509485",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Only reproved known strictness-based transfer facts; pinned the obstruction to indecomposable Hodge classes but built no cycles.",
       "ts": "2026-08-16T07:31:05.276Z",
       "duration_ms": 72593
-    },
-    {
-      "id": "gpt-1786863191301",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous barrier shown for one-piece mollifiers θ<1/2 via lcm-kernel lower bound; RH untouched.",
-      "ts": "2026-08-16T06:53:11.301Z",
-      "duration_ms": 103476
     }
   ]
 }
