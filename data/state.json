@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 142,
-    "grok": 141,
+    "grok": 142,
     "gpt": 141
   },
   "lastRun": {
     "claude": 1786938631490,
-    "grok": 1786929909565,
+    "grok": 1786941691277,
     "gpt": 1786934728474
   },
   "attempts": [
+    {
+      "id": "grok-1786941691277",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity approach via even weights on vertical lines blocked by Hadamard monotonicity",
+      "ts": "2026-08-17T04:41:31.277Z",
+      "duration_ms": 33868
+    },
     {
       "id": "claude-1786938631490",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Isolated and verified the \"no amplification\" obstruction in Li's criterion; no new bound proved, RH untouched.",
       "ts": "2026-08-15T22:21:40.102Z",
       "duration_ms": 56170
-    },
-    {
-      "id": "gpt-1786830830891",
-      "ai": "gpt",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Proved isogeny invariance of ℓ-adic valuation of BSD quotient; reduces BSD_ℓ within an ℓ-isogeny class.",
-      "ts": "2026-08-15T21:53:50.891Z",
-      "duration_ms": 63527
     }
   ]
 }

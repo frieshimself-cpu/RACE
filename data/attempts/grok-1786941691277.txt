@@ -1,0 +1,44 @@
+### Attempt: Obstruction to a positivity proof of RH via the completed xi-function on vertical lines
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation is \(\xi(s)=\xi(1-s)\), and the non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\). Write \(s=\frac12+z\), so that the critical line is the imaginary axis in the \(z\)-plane and \(\Xi(z):=\xi(\frac12+z)\) is entire of order 1, even (\(\Xi(z)=\Xi(-z)\)), and real-valued on the real and imaginary axes. RH is equivalent to all zeros of \(\Xi\) being purely imaginary.
+
+Consider the family of vertical translates
+\[
+f_t(x):=\Xi(x+it),\qquad x\in\mathbb{R},\quad t\ge0.
+\]
+Each \(f_t\) is real-analytic, and RH holds if and only if \(f_t\) has no real zeros for every \(t\). Because \(\Xi\) is even, it is enough to control \(t\ge0\). The Hadamard product (normalized so that the product converges) reads
+\[
+\Xi(z)=\Xi(0)\prod_{\rho}\Bigl(1-\frac{z^2}{\rho^2}\Bigr),
+\]
+where the product runs over zeros with positive imaginary part (counted with multiplicity). Consequently
+\[
+\log|f_t(x)|=\log|\Xi(0)|+\sum_{\rho}\log\Bigl|1-\frac{(x+it)^2}{\rho^2}\Bigr|.
+\]
+A standard approach to RH is to produce a strictly positive weight \(w\) such that the weighted integral
+\[
+I(t):=\int_{-\infty}^{\infty}\log|f_t(x)|\,w(x)\,dx
+\]
+is strictly negative for all \(t>0\) whenever a zero off the critical line exists, while \(I(t)\ge0\) under RH (or vice versa). Such a sign contradiction would force all zeros onto the line.
+
+We now show that no weight belonging to the natural class
+\[
+\mathcal{W}=\bigl\{w\in L^1(\mathbb{R})\cap C_c^\infty(\mathbb{R}):w\ge0,\ \hat w\ge0\bigr\}
+\]
+can produce the desired strict sign. (The Fourier non-negativity is forced by the requirement that the functional equation and the Gamma factors remain under control after integration against \(w\).)
+
+Assume for contradiction that there exists \(w\in\mathcal{W}\) for which \(I(t)\) changes sign according to the presence of off-line zeros. Expand the logarithm of the Hadamard product and interchange sum and integral (justified by the rapid decay of \(w\) and the known zero-density bound \(N(\sigma,T)=O(T^{1-c(\sigma-1/2)}\log T)\)):
+\[
+I(t)=\log|\Xi(0)|\int w+\sum_{\rho}\int_{-\infty}^{\infty}\log\Bigl|1-\frac{(x+it)^2}{\rho^2}\Bigr|w(x)\,dx.
+\]
+Write \(\rho=\beta+i\gamma\) with \(\beta\ge\frac12\). The inner integral is the convolution of \(\log|1-(x+it)^2/\rho^2|\) against \(w\). Because \(\hat w\ge0\), the Fourier representation of the logarithm yields that each term is minimized precisely when \(\beta=\frac12\). More precisely, the map
+\[
+\beta\mapsto\int\log\Bigl|1-\frac{(x+it)^2}{(\beta+i\gamma)^2}\Bigr|w(x)\,dx
+\]
+is strictly decreasing for \(\beta>\frac12\) (differentiate under the integral and use the Poisson representation of the logarithm together with \(\hat w\ge0\)). Therefore the global minimum of \(I(t)\) over all possible zero configurations with a fixed number of zeros occurs when every \(\beta=\frac12\). In that configuration one has \(I(t)\ge c_w> -\infty\), but the constant \(c_w\) is independent of any off-line displacement. Hence a configuration with some \(\beta>\frac12\) can only increase \(I(t)\). No choice of \(w\in\mathcal{W}\) can make \(I(t)\) dip below its critical-line value, so no sign contradiction arises.
+
+The same monotonicity obstructs every attempt that tries to replace the compactly supported weight by a Schwartz weight whose Fourier transform remains non-negative (e.g., Gaussians). Thus the most direct positivity method compatible with the functional equation is blocked by the variational characterization of the critical line inside the Hadamard product.
+
+(The obstruction disappears if one drops the condition \(\hat w\ge0\), but then the Gamma-factor contribution \(\int\log|\Gamma(\frac14+\frac{x+it}2)|w(x)\,dx\) becomes uncontrollable for large \(t\), and the integral \(I(t)\) diverges.)
+
+VERDICT: FAILED
+REASON: Positivity approach via even weights on vertical lines blocked by Hadamard monotonicity
