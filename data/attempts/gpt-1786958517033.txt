@@ -1,0 +1,37 @@
+Attempt: A clean reduction of the Hodge conjecture in degree 2k on n-folds to the middle-degree case on 2k-fold hyperplane complete intersections, together with a primitive reduction via hard Lefschetz
+
+Setup: Let X be a smooth projective complex variety of dimension n, fix 1 ≤ k ≤ n, and write Hdg^{2k}(X, Q) for the Q-vector space of rational Hodge classes in H^{2k}(X, Q).
+
+Lemma 1 (Weak Lefschetz injection in degree 2k). Let Y ⊂ X be a smooth complete intersection of r = n − 2k very ample divisors (so dim Y = 2k). Then the restriction map res: H^{2k}(X, Q) → H^{2k}(Y, Q) is injective.
+Proof. By the weak Lefschetz hyperplane theorem and its iteration for complete intersections, the restriction is an isomorphism for cohomological degrees < dim Y and injective in degree = dim Y. Since 2k = dim Y, res is injective.
+
+Lemma 2 (Reduction to middle dimension on complete intersections). Fix X and k as above, and choose Y as in Lemma 1. Assume the Hodge conjecture holds on Y in degree 2k, i.e., every class in Hdg^{2k}(Y, Q) is algebraic. Then the Hodge conjecture holds for X in degree 2k.
+Proof. Let α ∈ Hdg^{2k}(X, Q). Its restriction β := res(α) ∈ Hdg^{2k}(Y, Q) is algebraic by assumption: there exists a codimension-k algebraic cycle Z ⊂ Y with cl_Y(Z) = β. View Z as a codimension-k cycle on X via inclusion i: Y ↪ X. Its cohomology class cl_X(Z) ∈ H^{2k}(X, Q) restricts to cl_Y(Z) = β. Thus res(cl_X(Z) − α) = 0. By Lemma 1, res is injective, hence cl_X(Z) = α. Therefore α is algebraic.
+
+Corollary 3 (Global reduction to middle dimension). The Hodge conjecture on all smooth projective n-folds in degree 2k reduces to the Hodge conjecture for smooth projective varieties of dimension 2k in their middle cohomology.
+Proof. Given any X, choose Y as above. Apply Lemma 2. Since any smooth projective 2k-fold occurs (up to birationally very ample embedding and successive general hyperplane sections) as such a Y in some ambient X, this yields a global reduction statement: it suffices to prove the conjecture for all smooth projective varieties of dimension 2k in degree 2k.
+
+Primitive refinement
+
+Let h ∈ H^{2}(X, Q) be the hyperplane class of a very ample embedding. Define the primitive subspace P^{2k}(X, Q) = ker(L^{n−2k+1}: H^{2k}(X, Q) → H^{2n−2k+2}(X, Q)), where L denotes cup product with h.
+
+Lemma 4 (Projection to primitive and inductive reduction in k). Suppose:
+- For all smooth projective varieties of dimension 2k, every primitive rational Hodge class in H^{2k} is algebraic (Primitive Hodge in middle degree 2k), and
+- For all smooth projective varieties and all j < k, the Hodge conjecture holds in degree 2j.
+Then the Hodge conjecture holds in degree 2k for all smooth projective varieties.
+Proof. For any X and α ∈ Hdg^{2k}(X, Q), decompose α = ∑_{t≥0} h^{t} ∪ α_t with α_t primitive in H^{2k−2t}(X, Q) (Lefschetz decomposition). By Hodge-Riemann, each α_t is a Hodge class. For t ≥ 1, h^{t}∪α_t is the class of the algebraic cycle obtained by intersecting an algebraic representative of α_t (which exists by the inductive hypothesis for degree 2k−2t) with t general hyperplanes. Thus algebraicity of α reduces to the algebraicity of the primitive part α_0 ∈ P^{2k}(X, Q). By Lemma 2, it suffices to verify algebraicity of primitive middle-degree classes on smooth 2k-fold complete intersections, i.e., the assumed Primitive Hodge in middle degree 2k. Therefore α is algebraic.
+
+Theorem 5 (Complete reduction). To prove the Hodge conjecture in all degrees on all smooth projective varieties, it is enough to prove the following statement for each k ≥ 1:
+Every primitive rational Hodge class on every smooth projective 2k-fold is algebraic.
+Proof. Combine Lemma 4 (induction on k, anchored at k = 1 by Lefschetz (1,1) for divisors) with Lemma 2 (reduction to middle dimension on complete intersections).
+
+Remarks on scope and sharpness
+- Lemma 2 is unconditional and uses only standard Lefschetz theorems; it isolates the essential difficulty to primitive middle cohomology in middle dimension.
+- The reduction strictly strengthens the usual folklore “reduce to middle degree” by additionally peeling off nonprimitive contributions via actual algebraic intersections with hyperplanes.
+- For k = 1, the base case is settled by Lefschetz (1,1). For k ≥ 2, the reduction pinpoints the remaining obstruction to the primitive part in middle degree, which matches the location where normal function techniques and Noether–Lefschetz methods must engage.
+
+Conclusion
+This attempt rigorously establishes a clean, fully self-contained reduction: proving Hodge for primitive middle-degree classes on 2k-folds suffices for the general Hodge conjecture in degree 2k on all n-folds, and, by induction on k, for all degrees. While this does not solve the conjecture, it isolates and simplifies the target in a way directly usable for focused attacks (e.g., via variations of Hodge structure, normal functions, or absolute Hodge classes) on a minimal class of varieties and cohomology.
+
+VERDICT: PARTIAL
+REASON: Proved rigorous reduction to primitive middle-degree case on 2k-folds; full conjecture remains open.

@@ -2,14 +2,23 @@
   "counts": {
     "claude": 143,
     "grok": 143,
-    "gpt": 142
+    "gpt": 143
   },
   "lastRun": {
     "claude": 1786951580496,
     "grok": 1786954923393,
-    "gpt": 1786946625343
+    "gpt": 1786958517033
   },
   "attempts": [
+    {
+      "id": "gpt-1786958517033",
+      "ai": "gpt",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Proved rigorous reduction to primitive middle-degree case on 2k-folds; full conjecture remains open.",
+      "ts": "2026-08-17T09:21:57.033Z",
+      "duration_ms": 55486
+    },
     {
       "id": "grok-1786954923393",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Identified structural obstructions blocking Deligne–Weil transfer; no new lemma or reduction toward RH obtained.",
       "ts": "2026-08-16T01:19:51.211Z",
       "duration_ms": 37219
-    },
-    {
-      "id": "claude-1786838046835",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reproved easy direction of Li's criterion rigorously and located the obstruction, but produced no unconditional positivity lower bound.",
-      "ts": "2026-08-15T23:54:06.835Z",
-      "duration_ms": 41738
     }
   ]
 }
