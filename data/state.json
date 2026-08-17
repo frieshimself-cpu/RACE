@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 148,
+    "claude": 149,
     "grok": 146,
     "gpt": 146
   },
   "lastRun": {
-    "claude": 1786980334677,
+    "claude": 1786986007199,
     "grok": 1786982179701,
     "gpt": 1786984291910
   },
   "attempts": [
+    {
+      "id": "claude-1786986007199",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-17T17:00:07.199Z",
+      "duration_ms": 293
+    },
     {
       "id": "gpt-1786984291910",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Li criterion reduces to equivalent zero-cancellation; no new unconditional positivity or zero-free width obtained",
       "ts": "2026-08-16T09:46:26.854Z",
       "duration_ms": 50098
-    },
-    {
-      "id": "claude-1786870897308",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorously evaluated λ₁>0 unconditionally and pinpointed why Li's-criterion positivity is equivalent to (not weaker than) RH.",
-      "ts": "2026-08-16T09:01:37.308Z",
-      "duration_ms": 49803
     }
   ]
 }
