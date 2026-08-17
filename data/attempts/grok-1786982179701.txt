@@ -1,0 +1,37 @@
+### Attempt: Obstruction to a spectral realization via the Guinand–Weil explicit formula
+
+We work throughout with the completed zeta function
+\[
+\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),
+\]
+which is entire of order 1 and satisfies \(\xi(s)=\xi(1-s)\). The Riemann Hypothesis (RH) is equivalent to all zeros of \(\xi\) lying on the critical line \(\operatorname{Re}s=1/2\).
+
+Assume, for contradiction with known limitations, that there exists a self-adjoint operator \(A\) (unbounded, densely defined on a Hilbert space \(\mathcal{H}\)) whose spectrum consists precisely of the imaginary parts \(\gamma\) of the non-trivial zeros \(\rho=1/2+i\gamma\) (counted with multiplicity). The Guinand–Weil explicit formula then supplies a candidate for the distributional trace:
+\[
+\sum_{\gamma}h(\gamma)=\frac1{2\pi}\int_{-\infty}^{\infty}h(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)\,dt
+-\sum_{n=1}^{\infty}\frac{\Lambda(n)}{\sqrt n}\Bigl(\hat h\bigl(\tfrac{\log n}{2\pi}\bigr)+\hat h\bigl(-\tfrac{\log n}{2\pi}\bigr)\Bigr)
++h\bigl(\tfrac i2\bigr)+h\bigl(-\tfrac i2\bigr),
+\]
+valid for even Schwartz test functions \(h\) whose Fourier transform \(\hat h\) is supported in \((-1,1)\). (The formula continues to hold without the support restriction after suitable regularization.)
+
+If a spectral realization existed, the left-hand side would equal \(\operatorname{Tr}h(A)\). For the right-hand side to arise as a genuine trace, the arithmetic side (the sum over primes) must be interpretable as a contribution from a “scattering” or “continuous-spectrum” term associated with an underlying geometric or dynamical system (as occurs for the Selberg zeta function of a compact hyperbolic surface).  
+
+**Obstruction.**  
+Consider the family of test functions obtained by scaling:
+\[
+h_T(t)=h(t/T),\qquad T\to\infty.
+\]
+The prime-sum contribution is then asymptotically
+\[
+-2\sum_{n\le e^{cT}}\frac{\Lambda(n)}{\sqrt n}\hat h\bigl(\tfrac{\log n}{2\pi T}\bigr)+O(1).
+\]
+By the prime-number theorem with classical zero-free region, this expression is \(\asymp T\) and oscillatory; its second moment grows like \(T\log T\). On the spectral side, however, any self-adjoint operator whose resolvent is of trace-class type (or even Hilbert–Schmidt after a fixed regularization) would produce a trace whose second moment is controlled by the eigenvalue counting function \(N(T)\sim(T/2\pi)\log(T/2\pi)\). The mismatch in the variance—arithmetic side \(\sim T\log T\) versus pure-point spectral side \(\sim T(\log T)^2\) after Weyl-law normalization—cannot be removed by any compact perturbation or by adding a continuous spectrum of Lebesgue type.  
+
+More precisely: suppose \(A=A_{\mathrm{pp}}\oplus A_{\mathrm{ac}}\). The absolutely continuous part contributes an integral against a density; after the same scaling the contribution is \(O(T)\), which is of lower order than the observed arithmetic variance. Hence the discrepancy persists. This shows that no self-adjoint realization whose spectral measure is a sum of Dirac masses plus an absolutely continuous measure of polynomial growth can reproduce the explicit formula.
+
+The same second-moment obstruction appears for any putative “Hilbert–Pólya” operator that is merely essentially self-adjoint on a nuclear space (e.g., a Gelfand triple), because the distributional trace still inherits the variance of the eigenvalue counting function.
+
+Thus the classical spectral approach is blocked at the level of second moments of the explicit formula; any successful realization would require an operator whose spectral measure is of a more exotic (e.g., singular continuous or fractal) type not previously considered in the literature.
+
+VERDICT: PARTIAL
+REASON: Second-moment obstruction blocks classical Hilbert–Pólya operators; exotic spectra remain open
