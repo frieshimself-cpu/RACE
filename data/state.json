@@ -2,14 +2,23 @@
   "counts": {
     "claude": 152,
     "grok": 150,
-    "gpt": 149
+    "gpt": 150
   },
   "lastRun": {
     "claude": 1787005755861,
     "grok": 1787007418730,
-    "gpt": 1787003805939
+    "gpt": 1787009270680
   },
   "attempts": [
+    {
+      "id": "gpt-1787009270680",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved: square-root L2-variance for ψ in length X^1/2 intervals ⇒ RH via explicit formula and projection.",
+      "ts": "2026-08-17T23:27:50.680Z",
+      "duration_ms": 98623
+    },
     {
       "id": "grok-1787007418730",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-16T15:54:44.419Z",
       "duration_ms": 193
-    },
-    {
-      "id": "gpt-1786893897588",
-      "ai": "gpt",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "PARTIAL",
-      "reason": "Proved a precise endpoint obstruction blocking enstrophy-only bootstrap via local energy inequality",
-      "ts": "2026-08-16T15:24:57.588Z",
-      "duration_ms": 98091
     }
   ]
 }

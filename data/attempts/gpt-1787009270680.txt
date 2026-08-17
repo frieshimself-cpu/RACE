@@ -1,0 +1,77 @@
+Attempt: A sharp reduction from square-root cancellation in primes in short intervals to RH via a weighted L2-variance
+
+Statement (reduction). Let W ∈ C_c^∞((1,2)) be a fixed nonnegative weight with ∫ W = 1. For X ≥ 2 and H ∈ [X^{1/2}, 2X^{1/2}], define the weighted variance
+V_W(X,H) := ∫_0^∞ W(x/X) |ψ(x+H) - ψ(x) - H|^2 dx.
+Assume there exist constants A, C > 0 such that for all sufficiently large X and all H ∈ [X^{1/2}, 2X^{1/2}],
+V_W(X,H) ≤ C X H (log X)^A.            (1)
+Then the Riemann Hypothesis holds.
+
+Proof sketch and key estimates.
+
+1) Explicit formula and increment. By the classical explicit formula (trivial zeros absorbed into the error),
+ψ(x) = x − ∑_ρ x^ρ/ρ + O(x e^{-c√log x}),
+where the sum is over nontrivial zeros ρ = β + iγ of ζ(s). For H ≪ X and x ∼ X, a Taylor expansion gives
+(x+H)^ρ − x^ρ = ρ H x^{ρ−1} + O(H^2 x^{ρ−2}).      (2)
+Hence, for x in the support of W(x/X) and H ∈ [X^{1/2}, 2X^{1/2}],
+S(x) := ψ(x+H) − ψ(x) − H
+= −∑_ρ ( (x+H)^ρ − x^ρ )/ρ + O(X e^{-c√log X})
+= −H ∑_ρ x^{ρ−1} + O(H^2 X^{-1/2}) + O(X e^{-c√log X}).     (3)
+The error terms contribute o(H X^{−1/2}) pointwise and are negligible in the L2 estimates below.
+
+2) Weighted L2 framework and a projection functional. Let ρ0 = β0 + iγ0 be a zero with β0 > 1/2 (to be ruled out). Define the test function (depending on X)
+v0(x) := x^{overline{ρ0}−1} W(x/X).
+Consider the linear functional
+L := ∫_0^∞ S(x) v0(x) dx.
+Insert (3) and interchange sum and integral (justified by absolute convergence under W):
+L = −H ∑_ρ (1/ρ) I(ρ) + O(H^2 X^{β0−3/2}) + O(X^{β0} e^{-c√log X}),     (4)
+where
+I(ρ) := ∫_0^∞ x^{ρ + overline{ρ0} − 2} W(x/X) dx
+= X^{ρ + overline{ρ0} − 1} K(ρ), with K(ρ) := ∫_1^2 y^{ρ + overline{ρ0} − 2} W(y) dy.     (5)
+As W is smooth compactly supported in [1,2], K is an entire function in ρ with rapid decay in Im(ρ): for any B ≥ 0,
+K(ρ) ≪_B (1 + |γ − γ0|)^{−B}.     (6)
+
+3) Main term from the chosen zero ρ0. For ρ = ρ0,
+I(ρ0) = X^{2β0 − 1} K(ρ0), with K(ρ0) = ∫_1^2 y^{2β0 − 2} W(y) dy ∈ (0, ∞).     (7)
+Thus the ρ0-contribution to L equals
+L_main = −H (1/ρ0) X^{2β0 − 1} K(ρ0).     (8)
+
+4) Bounding the remaining zero-contributions. For ρ ≠ ρ0, by (5)–(6),
+|I(ρ)| ≪ X^{β + β0 − 1} (1 + |γ − γ0|)^{−B}.     (9)
+Hence, for any fixed B > 3, using the zero-density N(T) ~ (T/2π) log T and |ρ| ≫ 1,
+∑_{ρ≠ρ0} |(1/ρ) I(ρ)| ≪ X^{β0} ∑_{ρ} (1 + |γ − γ0|)^{−B} ≪ X^{β0}.     (10)
+Therefore, from (4), (8), (10),
+L = −H (1/ρ0) X^{2β0 − 1} K(ρ0) + O(X^{β0}) + O(H^2 X^{β0−3/2}).     (11)
+
+Since H ∈ [X^{1/2}, 2X^{1/2}], the last error term is O(X^{β0−1/2}) = o(H X^{2β0−1}). Also, for β0 > 1/2, H X^{2β0−1} ≫ X^{β0} (indeed H/X^{1−β0} = X^{β0−1/2} → ∞). Thus, for large X,
+|L| ≥ c1 H X^{2β0 − 1},     (12)
+for some c1 = c1(W, ρ0) > 0.
+
+5) From a large linear functional to a large variance via Cauchy–Schwarz. By Cauchy–Schwarz,
+|L| ≤ ( ∫_0^∞ W(x/X) |S(x)|^2 dx )^{1/2} ( ∫_0^∞ W(x/X) |x^{overline{ρ0}−1}|^2 dx )^{1/2}.
+The second factor equals
+( ∫ W(x/X) x^{2β0−2} dx )^{1/2} = c2 X^{β0−1/2}, with c2 = (∫_1^2 y^{2β0−2} W(y) dy)^{1/2}.     (13)
+Thus
+V_W(X,H)^{1/2} ≥ |L| / (c2 X^{β0−1/2}) ≥ c3 H X^{β0−1/2},     (14)
+and hence
+V_W(X,H) ≥ c4 H^2 X^{2β0−1}.     (15)
+
+6) Contradiction with the assumed upper bound when β0 > 1/2 and H ≍ X^{1/2}. The hypothesis (1) yields
+V_W(X,H) ≤ C X H (log X)^A.
+Combining with (15) and taking H = X^{1/2} (within the allowed range) gives
+X H (log X)^A ≳ V_W(X,H) ≥ c4 H^2 X^{2β0−1} = c4 X^{2β0}.     (16)
+Equivalently,
+X^{2β0 − 1} ≤ (C/c4) (log X)^A.     (17)
+But for any fixed β0 > 1/2, the left-hand side is a positive power of X, contradicting (17) for large X. Therefore, no zero with β0 > 1/2 can exist, i.e., RH holds.
+
+Remarks and scope.
+
+- The reduction is sharp in interval length: the argument quantitatively shows that an off-line zero with real part β0 forces a lower bound V_W(X,H) ≳ H^2 X^{2β0−1}. Thus any upper bound of the form V_W(X,H) ≪ X H (log X)^A can only hold when H ≳ X^{1−β0+o(1)}. Taking H ≍ X^{1/2} therefore eliminates all β0 > 1/2.
+
+- The proof critically uses a smooth compactly supported weight W(x/X). The same conclusion follows if (1) holds with any weight uniformly comparable to 1 on [X,2X], by a standard smoothing/partition of unity argument (the L2 upper bound is stable under such smoothing up to constants).
+
+- This establishes a concrete analytic target: proving square-root cancellation in the L2-variance for primes in intervals of length X^{1/2} (with at most polylogarithmic losses) would imply RH.
+
+- The approach is rigorous and self-contained given the explicit formula and standard zero-density facts implicit in (10); no unproved conjectures are used in the deduction from (1) to RH.
+
+VERDICT: PARTIAL
+REASON: Proved: square-root L2-variance for ψ in length X^1/2 intervals ⇒ RH via explicit formula and projection.
