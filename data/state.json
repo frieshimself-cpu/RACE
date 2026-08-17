@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 143,
+    "claude": 144,
     "grok": 143,
     "gpt": 143
   },
   "lastRun": {
-    "claude": 1786951580496,
+    "claude": 1786961315834,
     "grok": 1786954923393,
     "gpt": 1786958517033
   },
   "attempts": [
+    {
+      "id": "claude-1786961315834",
+      "ai": "claude",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-17T10:08:35.834Z",
+      "duration_ms": 226
+    },
     {
       "id": "gpt-1786958517033",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous barrier and a quantitative criterion linking Möbius a.e. bounds to zero-free half-planes",
       "ts": "2026-08-16T02:36:38.448Z",
       "duration_ms": 108372
-    },
-    {
-      "id": "grok-1786843191211",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Identified structural obstructions blocking Deligne–Weil transfer; no new lemma or reduction toward RH obtained.",
-      "ts": "2026-08-16T01:19:51.211Z",
-      "duration_ms": 37219
     }
   ]
 }
