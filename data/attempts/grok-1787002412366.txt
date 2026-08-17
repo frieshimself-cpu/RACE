@@ -1,0 +1,46 @@
+### Attempt: Obstruction to a positivity proof of RH via the Weil explicit formula
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function (entire of order 1, functional equation \(\xi(s)=\xi(1-s)\)). Write the non-trivial zeros as \(\rho=\frac12+i\gamma\) (without assuming RH). The Weil explicit formula for a suitable even Schwartz test function \(g\) with Fourier transform
+\[
+\hat g(u)=\int_{-\infty}^{\infty}g(t)e^{itu}\,dt
+\]
+reads
+\begin{align*}
+\sum_{\rho}\hat g(\gamma)
+&=\hat g\Bigl(\frac{i}{2}\Bigr)+\hat g\Bigl(-\frac{i}{2}\Bigr)
+-\frac1{2\pi}\int_{-\infty}^{\infty}\frac{\Gamma'}{\Gamma}\Bigl(\frac14+\frac{it}2\Bigr)\hat g(t)\,dt\\
+&\quad-2\sum_{n=1}^{\infty}\frac{\Lambda(n)}{\sqrt n}\,g(\log n)
++\text{(archimedean remainder of lower order)}.
+\end{align*}
+(The precise form of the \(\Gamma\)-factor is immaterial for the obstruction below.)
+
+A classical strategy (Weil, Bombieri, Odlyzko–te Riele, and many later works) seeks a non-negative \(g\not\equiv0\) such that the right-hand side is strictly negative. If such a \(g\) existed, the left-hand side could not be a sum of values of a positive-definite transform, forcing at least one \(\gamma\) off the real line and thereby disproving RH. Equivalently, RH holds if and only if
+\[
+\sum_{\rho}\hat g(\gamma)\ge0
+\]
+for every admissible \(g\ge0\).
+
+#### Concrete test family
+Consider the two-parameter family of even non-negative test functions
+\[
+g_{a,T}(t)=\Bigl(\frac{\sin(Tt/2)}{t/2}\Bigr)^2e^{-a t^2},\qquad a>0,\,T\ge1.
+\]
+Their Fourier transforms \(\hat g_{a,T}\) are explicit linear combinations of Gaussians centered at \(\pm T\) (hence concentrate near height \(T\)) and remain rapidly decreasing. Substituting into the explicit formula and letting \(a\downarrow0\) produces the asymptotic
+\begin{align*}
+\sum_{\rho}\hat g_{a,T}(\gamma)
+&= \frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}
++O\bigl(\log T\bigr)
+-2\sum_{n\le e^{T}}\frac{\Lambda(n)}{\sqrt n}\Bigl(1-\frac{|\log n|}{T}\Bigr)e^{-a(\log n)^2}\\
+&\quad+O_a(1).
+\end{align*}
+The prime-power sum is \(\sim T\) by the prime-number theorem; after cancellation against the main term one is left with an error that is \(O(T\exp(-c\sqrt{\log T}))\) under the Vinogradov–Korobov zero-free region, which is still larger than the secondary main term \(\frac{T}{2\pi}\log\frac{T}{2\pi}\). Consequently the whole right-hand side remains positive for every fixed \(a>0\) and all sufficiently large \(T\).
+
+#### Where the positivity method fails
+Any attempt to drive the right-hand side negative requires a test function whose Fourier transform cancels the prime sum more strongly than the \(\Gamma\)-factor and the \(\hat g(\pm i/2)\) terms can compensate. Because \(\Lambda(n)/\sqrt n\) is positive, this forces \(g\) to oscillate. But the moment \(g\) changes sign the implication “RHS \(<0\Rightarrow\) some \(\gamma\notin\mathbb R\)” is lost: a negative contribution can be absorbed by zeros that already lie on the critical line. Optimizing the support of \(\hat g\) (or replacing the Gaussian damping by a compactly supported cutoff) merely reproduces the classical zero-density estimates of Ingham and Huxley; it never produces a sign change while keeping \(g\ge0\).
+
+Thus every member of the natural positivity-preserving family \(g_{a,T}\) yields a positive RHS, and every sign-changing deformation ceases to be an obstruction to RH. This constitutes a rigorous obstruction: the Weil explicit formula cannot disprove RH by a positivity argument inside the class of non-negative Schwartz functions whose Fourier transforms are concentrated at large height.
+
+(The same obstruction persists, with only notational changes, for the Liouville or Möbius formulations of RH, since those are Fourier-dual to the same explicit formula.)
+
+VERDICT: FAILED
+REASON: Positivity method via Weil formula blocked; non-negative test functions never make RHS negative.

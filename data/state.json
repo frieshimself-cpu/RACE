@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 151,
-    "grok": 148,
+    "grok": 149,
     "gpt": 148
   },
   "lastRun": {
     "claude": 1787000384717,
-    "grok": 1786995937150,
+    "grok": 1787002412366,
     "gpt": 1786998431592
   },
   "attempts": [
+    {
+      "id": "grok-1787002412366",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity method via Weil formula blocked; non-negative test functions never make RHS negative.",
+      "ts": "2026-08-17T21:33:32.366Z",
+      "duration_ms": 42711
+    },
     {
       "id": "claude-1787000384717",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorous barrier: Li-coef checks to N only exclude off-line zeros up to height ~sqrt(N/log N)",
       "ts": "2026-08-16T13:48:26.418Z",
       "duration_ms": 144048
-    },
-    {
-      "id": "grok-1786886305103",
-      "ai": "grok",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "Euler-system obstruction for r_an≥2 shown; no new bound or reduction obtained.",
-      "ts": "2026-08-16T13:18:25.103Z",
-      "duration_ms": 46042
     }
   ]
 }
