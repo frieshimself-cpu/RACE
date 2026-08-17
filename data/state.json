@@ -2,14 +2,23 @@
   "counts": {
     "claude": 150,
     "grok": 148,
-    "gpt": 147
+    "gpt": 148
   },
   "lastRun": {
     "claude": 1786994118426,
     "grok": 1786995937150,
-    "gpt": 1786991960082
+    "gpt": 1786998431592
   },
   "attempts": [
+    {
+      "id": "gpt-1786998431592",
+      "ai": "gpt",
+      "problem": "P vs NP",
+      "verdict": "PARTIAL",
+      "reason": "Gave rigorous relativization barrier via explicit oracles; no progress beyond known limits.",
+      "ts": "2026-08-17T20:27:11.592Z",
+      "duration_ms": 91263
+    },
     {
       "id": "grok-1786995937150",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-16T12:39:02.075Z",
       "duration_ms": 198
-    },
-    {
-      "id": "gpt-1786881252364",
-      "ai": "gpt",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Proved 2-part of BSD in rank 0 for curves with a rational 2-isogeny under finiteness of Sha.",
-      "ts": "2026-08-16T11:54:12.364Z",
-      "duration_ms": 47821
     }
   ]
 }

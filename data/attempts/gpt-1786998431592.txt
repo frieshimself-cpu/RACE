@@ -1,0 +1,61 @@
+Attempt: A sharp relativization barrier via two explicit oracle constructions
+
+Goal
+Establish, with self-contained and rigorous proofs, that there exist oracles A and B such that:
+- P^A = NP^A, and
+- P^B ≠ NP^B.
+This gives a clean, unconditional obstruction: any proof that relativizes cannot resolve P vs NP.
+
+Lemma 1. There exists an oracle A with P^A = NP^A.
+
+Proof sketch
+- Let A = TQBF, the canonical PSPACE-complete language.
+- Then P^A ⊆ PSPACE (since P with a PSPACE oracle is at most PSPACE), and NP^A ⊆ NPSPACE = PSPACE by Savitch’s theorem.
+- Conversely, PSPACE ⊆ P^A because A is PSPACE-complete under poly-time Turing reductions.
+- Hence P^A = NP^A = PSPACE.
+
+This construction is uniform, explicit, and standard; no diagonalization is needed.
+
+Lemma 2. There exists an oracle B with P^B ≠ NP^B.
+
+Construction and proof
+We define a language L^B ∈ NP^B and build B in stages to diagonalize against all deterministic polynomial-time oracle machines.
+
+- Fix an effective enumeration (M_i)_i≥1 of deterministic oracle Turing machines where M_i runs in time n^i on inputs of length n.
+- Define the NP^B language:
+  L^B = { 1^n : ∃x ∈ {0,1}^n such that B(⟨n, x⟩) = 1 },
+  where ⟨n, x⟩ is a standard pairing function yielding pairwise disjoint query domains for different lengths n.
+
+- We build B in stages i = 1,2,3,...
+  In stage i, pick a fresh length n_i larger than all lengths used before and larger than the running-time/query bound so far (details below). We will ensure M_i^B(1^{n_i}) ≠ L^B(1^{n_i}).
+
+  Simulation discipline:
+  - While simulating M_i^B(1^{n_i}), whenever M_i queries B(y), answer as follows:
+    • If y is not of the form ⟨n_i, x⟩, answer consistently with whatever B has already fixed on y (if any); otherwise, if y is fresh, tentatively answer 0 for now.
+    • If y = ⟨n_i, x⟩ and has not been assigned yet, answer 0. Record all such queried pairs in a set Q_i ⊆ {⟨n_i, x⟩ : x ∈ {0,1}^{n_i}}.
+
+  Since M_i runs in time n_i^i, it makes at most q_i := n_i^i queries.
+
+  After M_i halts with output b ∈ {0,1}, finalize this stage:
+  - If b = 1, permanently set B(⟨n_i, x⟩) = 0 for all x ∈ {0,1}^{n_i} not queried so far (and keep them 0 for those queried). Then L^B(1^{n_i}) = 0, so M_i errs.
+  - If b = 0, choose some x* ∈ {0,1}^{n_i} such that ⟨n_i, x*⟩ ∉ Q_i (exists because |Q_i| ≤ q_i < 2^{n_i} for large n_i), and permanently set B(⟨n_i, x*⟩) = 1 (and keep all others 0). Then L^B(1^{n_i}) = 1, so M_i errs.
+
+  Consistency and availability:
+  - Choose n_i so large that 2^{n_i} > n_i^i, ensuring an unqueried ⟨n_i, x⟩ remains at stage end if needed.
+  - Because each stage only fixes B-values on the slice {⟨n_i, x⟩ : x ∈ {0,1}^{n_i}} plus finitely many unrelated points queried during simulation, and lengths n_i are disjoint, the construction is consistent.
+
+Correctness:
+- By construction, for each i, M_i^B fails on input 1^{n_i}.
+- L^B ∈ NP^B, since on input 1^n, a nondeterministic algorithm guesses x and queries B(⟨n, x⟩).
+- Thus P^B ⊊ NP^B.
+
+Conclusion
+- Lemma 1 and Lemma 2 together show the existence of two oracles A and B with opposite behaviors regarding P vs NP.
+- Therefore, any proof technique that relativizes (i.e., remains valid under arbitrary oracle access for both P and NP) cannot resolve P vs NP.
+
+Implication as a barrier
+- Many powerful techniques (e.g., standard diagonalization, many forms of black-box reductions) relativize.
+- The above lemmas rigorously certify that such techniques are inherently inadequate to settle P vs NP, pushing progress toward nonrelativizing methods (and beyond other known barriers like natural proofs and algebrization).
+
+VERDICT: PARTIAL
+REASON: Gave rigorous relativization barrier via explicit oracles; no progress beyond known limits.
