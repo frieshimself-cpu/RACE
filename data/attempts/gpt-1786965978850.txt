@@ -1,0 +1,46 @@
+Attempt: A rigorous L2-to-zero-free reduction via the Mertens function
+
+Setup
+- Let M(x) = ∑_{n≤x} μ(n) be the Mertens function.
+- For Re s > 1, 1/ζ(s) = ∑_{n=1}∞ μ(n)/n^s admits the Stieltjes integral representation
+  1/ζ(s) = s ∫_1^∞ M(x) x^{-s-1} dx
+  (integration by parts applied to the Stieltjes measure dM(x)).
+
+Key lemma (L2 control of M(x) implies a zero-free half-plane)
+Fix σ∈(0,1). Suppose there exist constants C, θ with θ<σ and
+  ∫_X^{2X} |M(x)|^2 dx ≤ C X^{1+2θ}
+for all X ≥ 1. Then ζ(s) has no zeros in the half-plane Re s ≥ σ.
+
+Proof
+- For Re s = σ, by Cauchy-Schwarz on each dyadic interval I_k = [2^k, 2^{k+1}],
+  ∫_{I_k} |M(x)| x^{-s-1} dx
+    ≤ (∫_{I_k} |M(x)|^2 dx)^{1/2} (∫_{I_k} x^{-2σ-2} dx)^{1/2}
+    ≪ (2^{k(1+2θ)})^{1/2} · (2^{-k(2σ+1)})^{1/2}
+    = 2^{k(θ-σ)}.
+  Summing over k gives absolute convergence of ∑_k 2^{k(θ-σ)} provided σ>θ.
+  Hence the integral s∫_1^∞ M(x)x^{-s-1}dx converges absolutely and uniformly on compacta in Re s ≥ σ, and defines a holomorphic function F(s) there.
+- For Re s > 1 the integral equals 1/ζ(s). By the identity theorem, F(s) is the analytic continuation of 1/ζ(s) to Re s ≥ σ. In particular, 1/ζ(s) is holomorphic on Re s ≥ σ, so ζ(s) has no zeros there. ∎
+
+Consequences and a concrete reduction toward RH
+- If for every ε>0 there exists C(ε) such that
+  ∫_X^{2X} |M(x)|^2 dx ≤ C(ε) X^{1+2(1/2+ε)} = C(ε) X^{2+2ε}
+  (which follows from a pointwise bound |M(x)|≪ x^{1/2+ε}), the lemma is useless because it yields θ = 1/2+ε and thus only excludes zeros with Re s > 1/2+ε when σ > 1/2+ε. This is vacuous.
+- In contrast, if one could prove for every ε>0 the averaged improvement
+  ∫_X^{2X} |M(x)|^2 dx ≪ε X^{1+2(1/2−ε)} = X^{2−2ε},
+  then for any fixed ε>0, taking σ = 1/2 (or more precisely σ > 1/2−ε) in the lemma would exclude zeros with Re s > 1/2. Letting ε→0+ would force all nontrivial zeros to satisfy Re s ≤ 1/2, i.e. prove RH.
+- More generally, the lemma yields the following explicit conditional zero-free region: if there exists θ<1 with
+  ∫_X^{2X} |M(x)|^2 dx ≪ X^{1+2θ} for all large X,
+  then ζ(s) has no zeros in Re s > θ. Thus pushing θ down to 1/2+ (arbitrarily close above 1/2) would rule out zeros with Re s > 1/2+ (arbitrarily small), recovering RH in the limit.
+
+Discussion of sharpness and obstruction
+- The lemma is rigorous and uses only dyadic Cauchy-Schwarz and the standard integral representation of 1/ζ(s).
+- It cleanly identifies a concrete averaged-square barrier: to approach RH via control of M(x), it suffices to show over each dyadic interval [X,2X] the L2 bound ∫ |M|^2 ≪ X^{2−2ε} for every ε>0. This is stronger than any presently known bound and, if true, would imply that the typical size of M(x) is X^{1/2−ε} on average over [X,2X], which is a deep square-root cancellation with a power saving.
+- The argument also shows why attempts that only reach the heuristic scale ∫_X^{2X} |M(x)|^2 ≍ X^2 (i.e., typical size ~ X) are far from RH, and why even the “square-root size on average” heuristic ∫_X^{2X} |M(x)|^2 ≍ X is too strong in the other direction: if that (θ=0) were true unconditionally for all dyadic intervals, the lemma would imply ζ has no zeros for Re s>0, contradicting known zeros. Thus, in reality ∫_X^{2X} |M(x)|^2 must grow faster than X, consistent with the widespread belief that M(x) exhibits large fluctuations.
+
+Summary
+- Proven: A precise, self-contained reduction from dyadic L2 bounds for M(x) to zero-free regions for ζ(s).
+- Payoff: If one can establish for every ε>0 the bound ∫_X^{2X} |M(x)|^2 dx ≪ε X^{2−2ε}, then RH follows.
+- This isolates a concrete averaged Mertens-square problem whose resolution would settle RH.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous reduction: dyadic L2 bounds for M(x) imply zero-free regions approaching 1/2.
