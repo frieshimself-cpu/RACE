@@ -1,0 +1,25 @@
+### Attempt: Obstruction in the Pólya–Fourier approach to RH
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) and \(\Xi(t) := \xi(\frac12 + it)\). The functional equation \(\xi(s)=\xi(1-s)\) implies that \(\Xi(t)\) is entire of order 1, even, and real-valued on the real line. RH is equivalent to all zeros of \(\Xi\) being real.
+
+The Jacobi theta function \(\vartheta(u) = \sum_{n=-\infty}^\infty e^{-n^2\pi u}\) (\(u>0\)) satisfies the modular relation \(\vartheta(1/u)=\sqrt{u}\,\vartheta(u)\). Differentiating and rearranging produces the representation
+\[
+\Xi(t) = \int_0^\infty \Phi(u)\cos(tu)\,du,
+\]
+where
+\[
+\Phi(u) = 2\sum_{n=1}^\infty\bigl(2n^4\pi^2 u^2 - 3n^2\pi u\bigr)e^{-n^2\pi u} > 0
+\]
+for all \(u>0\) (the series converges rapidly and the leading term dominates). Thus \(\Xi\) is the Fourier cosine transform of a strictly positive rapidly decreasing function.
+
+A classical sufficient condition of Pólya states that if a function \(F(t)=\int_0^\infty\phi(u)\cos(tu)\,du\) with \(\phi>0\) belongs to the Laguerre–Pólya class \(\mathcal{LP}\) (i.e., is a locally uniform limit of real polynomials with only real zeros), then all zeros of \(F\) are real. Membership in \(\mathcal{LP}\) is equivalent to the Turán inequalities on the Maclaurin coefficients of \(F\), or to complete monotonicity of certain associated transforms.
+
+The obstruction is that positivity of \(\Phi\) alone does not force \(\Xi\in\mathcal{LP}\). Explicitly:
+- The Fourier transform of a positive Schwartz function need not lie in \(\mathcal{LP}\). A counter-example (after rescaling) is \(\phi(u)=e^{-u^{1/4}}\) for large \(u\) (smoothed near the origin); its cosine transform is an entire function of order \(4\) whose indicator diagram forces non-real zeros by the Ahlfors–Heins theorem.
+- For the concrete \(\Phi\) arising from \(\vartheta\), the associated Hankel determinants that encode the Turán inequalities can be expanded via the same Poisson summation that produces \(\Phi\). The resulting multiple sums over lattices do not admit an obvious sign; the first few determinants are positive (consistent with the known zeros on the critical line), but no inductive or asymptotic sign control is visible from the modular relation alone.
+- Any proof that \(\Xi\in\mathcal{LP}\) from the integral representation would therefore require an additional global property of \(\Phi\) (e.g., that \(\log\Phi\) is concave after a quadratic change of variable, or that \(\Phi\) is a Pfaffian or totally positive kernel). No such property follows from the theta transformation formula without essentially re-encoding the Euler product for \(\zeta\), which circularly returns to RH.
+
+Consequently the Pólya–Fourier representation, while elegant and sufficient for proving that a positive proportion of zeros are real (by truncated Turán inequalities or Levinson’s method), cannot be closed to a full proof of RH without a new structural input on \(\Phi\) that is presently unavailable. This isolates the precise analytic gap: positivity of the kernel is necessary but far from sufficient for reality of all zeros.
+
+VERDICT: FAILED
+REASON: Classical obstruction analysis only; no new lemma, reduction, or partial advance on RH itself.

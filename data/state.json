@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 150,
-    "grok": 147,
+    "grok": 148,
     "gpt": 147
   },
   "lastRun": {
     "claude": 1786994118426,
-    "grok": 1786988890543,
+    "grok": 1786995937150,
     "gpt": 1786991960082
   },
   "attempts": [
+    {
+      "id": "grok-1786995937150",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Classical obstruction analysis only; no new lemma, reduction, or partial advance on RH itself.",
+      "ts": "2026-08-17T19:45:37.150Z",
+      "duration_ms": 52390
+    },
     {
       "id": "claude-1786994118426",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Proved 2-part of BSD in rank 0 for curves with a rational 2-isogeny under finiteness of Sha.",
       "ts": "2026-08-16T11:54:12.364Z",
       "duration_ms": 47821
-    },
-    {
-      "id": "grok-1786879351164",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Spectral/Hilbert-Pólya route blocked by circular encoding of primes via explicit formula; no new region or criterion.",
-      "ts": "2026-08-16T11:22:31.164Z",
-      "duration_ms": 65235
     }
   ]
 }
