@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 141,
+    "claude": 142,
     "grok": 141,
     "gpt": 141
   },
   "lastRun": {
-    "claude": 1786924562321,
+    "claude": 1786938631490,
     "grok": 1786929909565,
     "gpt": 1786934728474
   },
   "attempts": [
+    {
+      "id": "claude-1786938631490",
+      "ai": "claude",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-17T03:50:31.490Z",
+      "duration_ms": 222
+    },
     {
       "id": "gpt-1786934728474",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved isogeny invariance of ℓ-adic valuation of BSD quotient; reduces BSD_ℓ within an ℓ-isogeny class.",
       "ts": "2026-08-15T21:53:50.891Z",
       "duration_ms": 63527
-    },
-    {
-      "id": "grok-1786829029684",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity via Weil formula blocked by uncontrollable horizontal zero spacing; circularity essential.",
-      "ts": "2026-08-15T21:23:49.684Z",
-      "duration_ms": 37518
     }
   ]
 }
