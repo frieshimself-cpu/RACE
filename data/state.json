@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 149,
+    "claude": 150,
     "grok": 147,
     "gpt": 147
   },
   "lastRun": {
-    "claude": 1786986007199,
+    "claude": 1786994118426,
     "grok": 1786988890543,
     "gpt": 1786991960082
   },
   "attempts": [
+    {
+      "id": "claude-1786994118426",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-17T19:15:18.426Z",
+      "duration_ms": 214
+    },
     {
       "id": "gpt-1786991960082",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Spectral/Hilbert-Pólya route blocked by circular encoding of primes via explicit formula; no new region or criterion.",
       "ts": "2026-08-16T11:22:31.164Z",
       "duration_ms": 65235
-    },
-    {
-      "id": "claude-1786877752528",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Verified λ_1=2+γ−log(4π)>0 and pinned the Li-criterion barrier to a one-log-factor gap equivalent to RH itself.",
-      "ts": "2026-08-16T10:55:52.528Z",
-      "duration_ms": 55467
     }
   ]
 }
