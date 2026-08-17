@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 145,
-    "grok": 144,
+    "grok": 145,
     "gpt": 144
   },
   "lastRun": {
     "claude": 1786967781871,
-    "grok": 1786963869264,
+    "grok": 1786971084238,
     "gpt": 1786965978850
   },
   "attempts": [
+    {
+      "id": "grok-1786971084238",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Quantitative positivity obstruction for dilated BN kernels off the critical line; full RH still open",
+      "ts": "2026-08-17T12:51:24.238Z",
+      "duration_ms": 40875
+    },
     {
       "id": "claude-1786967781871",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Reformulated RH via Li coefficients as one-sided bound P_n≥-A_n with explicit envelope; no new unconditional progress.",
       "ts": "2026-08-16T05:28:23.164Z",
       "duration_ms": 55759
-    },
-    {
-      "id": "gpt-1786856114016",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous equivalence via a smoothed explicit formula; not a full proof of RH.",
-      "ts": "2026-08-16T04:55:14.016Z",
-      "duration_ms": 53103
     }
   ]
 }

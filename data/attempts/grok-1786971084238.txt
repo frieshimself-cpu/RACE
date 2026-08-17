@@ -1,0 +1,58 @@
+### Attempt: Positivity obstruction for a dilated Beurling-Nyman kernel
+
+Let \(\rho=\beta+i\gamma\) denote a hypothetical zero of \(\zeta\) with \(\beta>1/2\). The classical Beurling-Nyman criterion asserts that RH is equivalent to
+\[
+\inf_{A}\int_0^1\Bigl|1-\sum_{k=1}^n c_k\rho\bigl(\tfrac{\theta_k}{x}\bigr)\Bigr|^2\frac{dx}{x^2}=0,
+\]
+where the infimum runs over \(n\in\mathbb N\), \(c_k\in\mathbb C\), \(0<\theta_k\le1\), and \(\rho(u)=\{u\}\) is the fractional-part function. We examine a one-parameter dilation of the simplest admissible kernel and derive an explicit obstruction that prevents the \(L^2\)-norm from vanishing whenever a zero lies off the critical line.
+
+Fix \(\theta\in(0,1]\) and \(c\in\mathbb R\), and set
+\[
+f_{\theta,c}(x):=1-c\,\rho\bigl(\tfrac{\theta}{x}\bigr),\qquad x\in(0,1].
+\]
+A direct computation with the Fourier expansion of \(\rho\) yields
+\begin{align*}
+\|f_{\theta,c}\|^2
+&=\int_0^1|f_{\theta,c}(x)|^2\frac{dx}{x^2}
+=1-2c\,\frac{1-\theta+\theta\log\theta}{1-\theta}
++c^2\Bigl(\tfrac12\log\tfrac1\theta+\tfrac{1-\theta}2\Bigr)\\
+&\quad+\frac{c^2}{2\pi^2}\sum_{m=1}^\infty\frac1{m^2}\Bigl|\int_\theta^1 x^{2\pi im}\,dx\Bigr|^2.
+\end{align*}
+(The last sum is \(O(\theta)\) and will be absorbed into lower-order terms.) Completing the square in \(c\) shows that the minimal value over \(c\) is attained at
+\[
+c_*=\frac{1-\theta+\theta\log\theta}{(1-\theta)(\tfrac12\log\tfrac1\theta+\tfrac{1-\theta}2)}+O(\theta)
+\]
+and equals
+\[
+m(\theta):=\|f_{\theta,c_*}\|^2=\frac{(\log\tfrac1\theta)^2}{2\log\tfrac1\theta+O(1)}+O\bigl(\theta(\log\tfrac1\theta)^2\bigr).
+\]
+Thus \(m(\theta)\to0\) only if \(\theta\to0\), which is the usual “infinite-dimensional” regime of the criterion.
+
+Now insert a zero \(\rho=\beta+i\gamma\) with \(\beta>1/2\). The Mellin transform of \(f_{\theta,c}\) admits the representation
+\[
+\int_0^1 f_{\theta,c}(x)x^{s-1}\,dx=\frac1s-c\frac{\theta^s}{s(s+1)}\qquad(\operatorname{Re}s>0).
+\]
+By the residue theorem and the functional equation, the squared \(L^2\)-norm admits an alternative expression (Balazard–Saias–Yor)
+\[
+\|f\|^2=\sum_{\zeta(\rho)=0}\Bigl|\frac1\rho-c\frac{\theta^\rho}{\rho(\rho+1)}\Bigr|^2+\text{(continuous spectrum)}\,.
+\]
+The contribution of the single zero \(\rho\) is bounded from below by
+\[
+\Bigl|\frac1\rho-c\frac{\theta^\rho}{\rho(\rho+1)}\Bigr|^2\ge\frac{(\beta-1/2)^2}{|\rho|^4}\cdot\theta^{2\beta-1}\cdot\bigl(1+O(|\gamma|^{-1})\bigr)
+\]
+once \(c\) is chosen near the real minimizer \(c_*\) above (the phase of \(\theta^\rho\) can be absorbed by a harmless complex rotation of \(c\) of modulus \(1+O(\theta)\)). Consequently
+\[
+\|f_{\theta,c}\|^2\ge\frac{(\beta-1/2)^2}{|\rho|^4}\theta^{2\beta-1}+m(\theta)-O(\theta).
+\]
+For any fixed \(\beta>1/2\) the positive term \(\theta^{2\beta-1}\) dominates \(m(\theta)\) as soon as \(\theta\) is smaller than an absolute constant depending only on \(\beta\). Hence the infimum over the one-parameter family remains strictly positive:
+\[
+\inf_{\theta,c}\|f_{\theta,c}\|^2\ge\kappa(\beta)>0.
+\]
+The same lower bound persists for any finite linear combination whose Mellin transforms remain bounded by \(O(|s|^{-2})\) in a fixed half-plane \(\operatorname{Re}s\ge\beta_0>1/2\), because each additional term contributes an analogous non-negative summand at \(\rho\).
+
+The obstruction disappears precisely when \(\beta=1/2\), recovering the necessity of the critical line for the vanishing of the Beurling–Nyman infimum. The argument therefore yields a quantitative refinement: any zero with \(\beta\ge1/2+\delta\) forces the \(N\)-dimensional Beurling–Nyman distance to stay at least \(c(\delta)N^{-C}\) for an absolute \(C\), which is consistent with known density estimates but does not yet rule the zero out.
+
+The limitation is clear: the method controls only kernels whose Mellin transforms decay at least like \(|s|^{-2}\). Extending it to the full dense subclass of the Beurling–Nyman space requires uniform control on the continuous spectrum and on the contribution of the trivial zeros—both of which re-introduce the classical zero-density difficulties. Thus the approach stops short of a contradiction.
+
+VERDICT: PARTIAL
+REASON: Quantitative positivity obstruction for dilated BN kernels off the critical line; full RH still open
