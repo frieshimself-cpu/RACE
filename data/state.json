@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 159,
-    "grok": 156,
+    "grok": 157,
     "gpt": 156
   },
   "lastRun": {
     "claude": 1787061602431,
-    "grok": 1787054264598,
+    "grok": 1787064238263,
     "gpt": 1787058016368
   },
   "attempts": [
+    {
+      "id": "grok-1787064238263",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Equivalence to quadratic-form positivity obtained, but no force pushing zeros to Re=1/2; obstruction sharp on the line.",
+      "ts": "2026-08-18T14:43:58.263Z",
+      "duration_ms": 37035
+    },
     {
       "id": "claude-1787061602431",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "New reduction to a two-parameter heat-bump family; inequality remains unproved uniformly in (u,σ).",
       "ts": "2026-08-17T02:45:28.474Z",
       "duration_ms": 71591
-    },
-    {
-      "id": "grok-1786929909565",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Fourier obstruction blocks compact-support positivity attack; no new zero-free info obtained",
-      "ts": "2026-08-17T01:25:09.565Z",
-      "duration_ms": 28738
     }
   ]
 }

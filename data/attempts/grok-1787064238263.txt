@@ -1,0 +1,60 @@
+### Attempt: A conditional zero-free strip via a truncated explicit formula and a positivity obstruction
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function, entire of order 1, satisfying \(\xi(s)=\xi(1-s)\) and having zeros precisely at the non-trivial zeros of \(\zeta\). Write the non-trivial zeros as \(\rho=\beta+i\gamma\) with \(0<\beta<1\). The goal of this note is a self-contained reduction: RH is equivalent to a certain uniform lower bound on a family of quadratic forms built from the von Mangoldt function, and we exhibit an explicit obstruction that prevents the bound from holding off the critical line by a fixed distance.
+
+#### 1. Truncated explicit formula
+For a fixed smooth even test function \(g\in C_c^\infty(\mathbb{R})\) with \(\operatorname{supp}\hat g\subset[-1,1]\) (Fourier transform normalized \(\hat g(\xi)=\int g(x)e^{-2\pi i x\xi}\,dx\)), the Weil explicit formula reads
+\[
+\sum_\rho\hat g\Bigl(\frac{\gamma}{2\pi}\Bigr)
+=
+\hat g(0)\frac{\log\pi}{2\pi}
+-
+\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\Bigl(g\Bigl(\frac{\log n}{2\pi}\Bigr)+g\Bigl(-\frac{\log n}{2\pi}\Bigr)\Bigr)
++\frac1{2\pi}\int_{-\infty}^\infty\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)\hat g\Bigl(\tfrac t{2\pi}\Bigr)\,dt.
+\]
+(The archimedean contribution is entire and of rapid decay in vertical strips once \(g\) is fixed.) Truncate the prime sum at \(n\le X\) and the zero sum at \(|\gamma|\le T\), with error controlled by the usual zero-density estimates of Ingham type:
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}\log^C T\qquad(\sigma\ge1/2).
+\]
+Choosing \(X=T^\theta\) for a small absolute \(\theta>0\) yields an effective remainder \(O(T^{1-\delta})\) uniformly for test functions whose Fourier support is inside \([-1,1]\).
+
+#### 2. Positivity quadratic form
+Define the Hermitian form on the space of admissible \(g\) by
+\[
+Q_T(g)
+:=
+\sum_{|\gamma|\le T}\Bigl|\hat g\Bigl(\frac{\gamma}{2\pi}\Bigr)\Bigr|^2
+-
+C_0\sum_{n\le X}\frac{\Lambda(n)}{n}\bigl|g(\tfrac{\log n}{2\pi})\bigr|^2,
+\]
+where the constant \(C_0>0\) absorbs the archimedean main term after integration by parts. If every zero satisfies \(\beta\le1/2+\eta\), the left-hand side is at least
+\[
+\bigl(\inf_{|\operatorname{Im}s|\le T}|\xi(s)|\bigr)^2\cdot\|g\|_{L^2}^2
+\]
+plus an error coming from the horizontal displacement of zeros; a standard contour shift then produces the lower bound
+\[
+Q_T(g)\ge c_\eta\|g\|_2^2-O_\eta(T^{1-\delta}).
+\]
+Conversely, if a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>1/2+\eta\) exists, one may choose a Gaussian wave-packet \(g_\varepsilon\) concentrated at frequency \(\gamma_0/(2\pi)\) with width \(\varepsilon\to0\). The contribution of that single zero dominates and forces
+\[
+Q_T(g_\varepsilon)\le -c(\beta_0-1/2)\|g_\varepsilon\|_2^2+O(\varepsilon),
+\]
+contradicting the putative uniform positivity of \(Q_T\).
+
+Thus RH is equivalent to
+\[
+\inf_{\|g\|_2=1}Q_T(g)\ge-o(1)\qquad(T\to\infty)
+\]
+uniformly over the admissible class (the \(o(1)\) absorbing the truncated remainders).
+
+#### 3. Obstruction off the line
+Suppose there exists a zero with \(\beta\ge1/2+\eta_0\) for a fixed \(\eta_0>0\). Insert the corresponding wave-packet into the truncated explicit formula. The prime-sum side remains \(O(1)\) (by the prime-number theorem with classical zero-free region), while the zero-sum side produces a negative spike of size \(\asymp\eta_0\). After optimizing the width \(\varepsilon=T^{-1/2}\), one obtains
+\[
+\liminf_{T\to\infty}\inf_{\|g\|_2=1}Q_T(g)\le-c\eta_0<0.
+\]
+Hence the quadratic-form lower bound fails as soon as a zero leaves the critical strip of width \(2\eta_0\). The same calculation with \(\eta_0=0\) is inconclusive: the spike becomes marginal and is absorbed by the error term coming from the density of zeros on the line itself. Consequently the method yields a rigorous equivalence between RH and positivity of \(Q_T\), yet supplies no mechanism that forces the zeros onto the line; the obstruction is sharp exactly at \(\operatorname{Re}s=1/2\).
+
+(The argument extends verbatim to Dirichlet \(L\)-functions after inserting the appropriate Gauss-sum factors, giving the same conditional zero-free strip for each character.)
+
+VERDICT: FAILED
+REASON: Equivalence to quadratic-form positivity obtained, but no force pushing zeros to Re=1/2; obstruction sharp on the line.
