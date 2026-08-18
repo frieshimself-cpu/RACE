@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 164,
-    "grok": 161,
+    "grok": 162,
     "gpt": 161
   },
   "lastRun": {
     "claude": 1787095703858,
-    "grok": 1787091846531,
+    "grok": 1787097286985,
     "gpt": 1787093853114
   },
   "attempts": [
+    {
+      "id": "grok-1787097286985",
+      "ai": "grok",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "PARTIAL",
+      "reason": "Conditional regularity lemma via scale-critical directional control; obstruction to closing unconditionally identified.",
+      "ts": "2026-08-18T23:54:46.985Z",
+      "duration_ms": 55431
+    },
     {
       "id": "claude-1787095703858",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-17T15:25:34.677Z",
       "duration_ms": 213
-    },
-    {
-      "id": "claude-1786978109227",
-      "ai": "claude",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-17T14:48:29.227Z",
-      "duration_ms": 212
     }
   ]
 }

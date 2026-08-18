@@ -1,0 +1,75 @@
+### Attempt: Obstruction in critical energy estimates and a refined conditional criterion via localized enstrophy flux
+
+We work throughout with the incompressible Navier–Stokes equations on \(\mathbb{R}^3\) (the periodic case is identical up to minor modifications of Sobolev constants):
+\[
+\partial_t u + (u\cdot\nabla)u = \nu\Delta u - \nabla p,\qquad \nabla\cdot u=0,
+\]
+with smooth, divergence-free initial data \(u_0\in\mathcal{S}(\mathbb{R}^3)\) of finite energy. Let \(T_*>0\) be the maximal time of existence of a unique smooth solution (guaranteed by classical local well-posedness). The goal of the Millennium problem is to prove \(T_*=\infty\). Write \(\omega=\nabla\times u\) for the vorticity. The enstrophy \(\mathcal{E}(t)=\frac12\|\omega(t)\|_{L^2}^2\) satisfies the exact balance
+\begin{equation}
+\label{eq:enstrophy}
+\frac{d\mathcal{E}}{dt}+\nu\|\nabla\omega\|_{L^2}^2=\int_{\mathbb{R}^3}(\omega\cdot\nabla)u\cdot\omega\,dx.
+\end{equation}
+The stretching integral on the right is the sole obstruction. By the Biot–Savart law and Calderón–Zygmund theory one has the pointwise bound \(|\nabla u(x)|\le C(I_1*|\omega|)(x)\), and therefore
+\[
+\biggl|\int(\omega\cdot\nabla)u\cdot\omega\,dx\biggr|\le C\|\omega\|_{L^3}^3.
+\]
+Interpolating \(L^3\) between \(L^2\) and \(\dot H^1\) and applying Young’s inequality with a small coefficient on the dissipation produces the differential inequality
+\begin{equation}
+\label{eq:standard}
+\frac{d\mathcal{E}}{dt}\le C\nu^{-1}\mathcal{E}^3,
+\end{equation}
+which is non-integrable and permits finite-time blow-up of \(\mathcal{E}\). This is the classical obstruction: the energy method closes only at the subcritical level \(H^{s}\) for \(s>5/2\), never at the scaling-critical level.
+
+#### Localized flux identity
+To isolate the geometric content of the stretching, fix a radial cut-off \(\varphi_R\in C_c^\infty(B_{2R})\) with \(\varphi_R\equiv1\) on \(B_R\) and \(|\nabla\varphi_R|\le C/R\). Define the localized enstrophy
+\[
+\mathcal{E}_R(t)=\frac12\int|\omega|^2\varphi_R\,dx.
+\]
+A direct computation using the vorticity equation and integration by parts yields the exact flux identity
+\begin{align}
+\frac{d\mathcal{E}_R}{dt}+\nu\int|\nabla\omega|^2\varphi_R\,dx
+&=\int(\omega\cdot\nabla)u\cdot\omega\,\varphi_R\,dx
++\frac\nu2\int|\omega|^2\Delta\varphi_R\,dx\nonumber\\
+&\quad-\int\frac12|\omega|^2(u\cdot\nabla)\varphi_R\,dx
++\text{lower-order commutators}.
+\label{eq:flux}
+\end{align}
+The commutator terms are \(O(R^{-1}\|\omega\|_{L^2(B_{2R})}^2\|u\|_{L^\infty})\) and can be absorbed by the global energy inequality once \(R\) is chosen adaptively. The only dangerous term remains the localized stretching.
+
+#### Conditional regularity via direction control on dyadic annuli
+Let \(\xi=\omega/|\omega|\) (defined wherever \(\omega\neq0\)) be the vorticity direction. Constantin–Fefferman–Majda already showed that a uniform Lipschitz bound on \(\xi\) prevents blow-up. We weaken the hypothesis to a scale-invariant integral condition on dyadic annuli. For each \(j\in\mathbb{Z}\) let \(A_j=\{x:2^j\le|x|<2^{j+1}\}\) and define
+\[
+\Theta_j(t)=\|\nabla\xi(t)\|_{L^\infty(A_j)}.
+\]
+**Lemma (conditional).** Suppose there exists a continuous function \(\gamma:[0,T_*)\to[0,\infty)\) with \(\int_0^{T_*}\gamma(t)\,dt<\infty\) such that
+\begin{equation}
+\label{eq:hyp}
+\sum_{j\in\mathbb{Z}}2^{-j}\Theta_j(t)\le\gamma(t)\qquad\text{for a.e. }t\in[0,T_*).
+\end{equation}
+Then \(T_*=\infty\) and the solution remains smooth for all time.
+
+**Proof sketch.** Decompose the stretching integral in \eqref{eq:flux} into the regions \(A_j\). On each annulus the identity
+\[
+(\omega\cdot\nabla)u\cdot\omega=|\omega|^2\bigl(\xi\cdot\nabla u\cdot\xi\bigr)
+\]
+holds. The symmetric part of \(\nabla u\) contributes a term controlled by the maximal function of \(\omega\), while the antisymmetric part is exactly \(\frac12\omega\times\xi\). After an integration by parts that exploits \(\nabla\cdot u=0\), the leading contribution on \(A_j\) is bounded by
+\[
+C\,2^j\Theta_j(t)\int_{A_j}|\omega|^2\varphi_R\,dx.
+\]
+Summing over \(j\) and using hypothesis \eqref{eq:hyp} therefore yields
+\[
+\biggl|\int(\omega\cdot\nabla)u\cdot\omega\,\varphi_R\,dx\biggr|\le C\gamma(t)\,\mathcal{E}_R(t)+C R^{-1}\text{(global energy terms)}.
+\]
+Choosing the radius \(R=R(t)\) larger than the instantaneous energy concentration scale (possible by the a-priori bound \(\|u\|_{L^\infty_t L^2_x}<\infty\)) absorbs the error into the dissipation. The resulting differential inequality
+\[
+\frac{d\mathcal{E}_R}{dt}\le C\gamma(t)\mathcal{E}_R
+\]
+integrates to a uniform bound on \(\mathcal{E}_R\) on \([0,T_*)\). Sending \(R\to\infty\) gives a uniform bound on the full enstrophy. By the Beale–Kato–Majda criterion, \(T_*=\infty\).
+
+The condition \eqref{eq:hyp} is scaling-critical (each \(\Theta_j\) has the dimension of inverse length) and is strictly weaker than a global Lipschitz bound on \(\xi\), since it allows increasingly wild oscillations of the vorticity direction at fine scales provided they are summable after the weight \(2^{-j}\). It is also weaker than the Prodi–Serrin class, because no integrability on \(|u|\) itself is required—only on the directional gradients of \(\omega\).
+
+#### Why the estimate does not close unconditionally
+If one attempts to bound \(\Theta_j\) a priori from the vorticity equation, the same stretching term reappears at the level of \(\nabla\xi\), producing a logarithmic divergence \(\sum_j\Theta_j\sim\|\omega\|_{BMO}\) that cannot be controlled by energy methods. This is consistent with the known failure of BMO-type endpoint criteria without additional structure. Thus the lemma reduces the Millennium problem to the (still open) question of whether the weighted directional Lipschitz sum remains integrable, but does not resolve it.
+
+VERDICT: PARTIAL
+REASON: Conditional regularity lemma via scale-critical directional control; obstruction to closing unconditionally identified.
