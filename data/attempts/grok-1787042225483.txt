@@ -1,0 +1,40 @@
+### Attempt: Failure analysis of a contour-integral positivity approach to force zeros onto the critical line
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) is entire of order 1, and the non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\). Write \(s=\frac12+z\), so the critical line is the imaginary axis in the \(z\)-plane and the functional equation becomes \(\xi(\frac12+z)=\xi(\frac12-z)\). Define the entire function
+\[
+\Xi(z)\,:=\,\xi\bigl(\tfrac12+z\bigr).
+\]
+Then \(\Xi(z)=\Xi(-z)\) (even) and RH is equivalent to all zeros of \(\Xi\) being real.
+
+Consider the contour integral that would encode a positivity certificate. For \(T>0\) large and \(\varepsilon\in(0,1/2)\) fixed, let \(\mathcal{C}_{T,\varepsilon}\) be the positively oriented rectangle with vertices \(\pm\varepsilon\pm iT\). By the argument principle,
+\[
+N(T,\varepsilon)\,:=\,\frac1{2\pi i}\int_{\mathcal{C}_{T,\varepsilon}}\frac{\Xi'}{\Xi}(z)\,dz
+\]
+counts zeros of \(\Xi\) inside the strip \(|\operatorname{Re}z|<\varepsilon\), \(|\operatorname{Im}z|<T\) (counted with multiplicity). The horizontal contributions vanish as \(T\to\infty\) through values avoiding the zeros (standard growth \(\Xi(x+iy)=O(\exp(C|y|\log|y|))\) uniformly for \(|x|\le\varepsilon\)). The vertical sides yield
+\[
+N(\infty,\varepsilon)=\frac1{2\pi}\Bigl(\Delta_{\varepsilon}\arg\Xi(\varepsilon+it)-\Delta_{-\varepsilon}\arg\Xi(-\varepsilon+it)\Bigr),
+\]
+where \(\Delta\) denotes total variation of argument as \(t\) runs over \(\mathbb{R}\). Evenness of \(\Xi\) forces the two vertical contributions to be negatives of each other, so
+\[
+N(\infty,\varepsilon)=\frac1\pi\Delta_{\varepsilon}\arg\Xi(\varepsilon+it).
+\]
+If one could prove that \(\arg\Xi(\varepsilon+it)\) is strictly monotone of total variation exactly equal to the number of zeros predicted by the Riemann–von Mangoldt formula (i.e., \(\frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}+O(\log T)\)), then every zero would satisfy \(|\operatorname{Re}z|<\varepsilon\). Letting \(\varepsilon\downarrow0\) would force all zeros onto the imaginary axis.
+
+The obstruction is absolute: monotonicity of \(\arg\Xi(\varepsilon+it)\) is equivalent to the horizontal derivative satisfying
+\[
+\operatorname{Re}\Bigl(\frac{\Xi'}{\Xi}(\varepsilon+it)\Bigr)>0\qquad\text{for all large }|t|.
+\]
+But
+\[
+\frac{\Xi'}{\Xi}(z)=\frac1{z+\frac12}+\frac1{z-\frac12}+\frac12\log\pi-\frac12\frac{\Gamma'}{\Gamma}\Bigl(\frac{z}{2}+\frac14\Bigr)-\frac{\zeta'}{\zeta}\Bigl(\frac12+z\Bigr).
+\]
+The Gamma term is \(O(\log|t|)\) and the rational terms are \(O(1)\). The sign of the real part is therefore controlled by \(-\operatorname{Re}(\zeta'/\zeta(\frac12+\varepsilon+it))\). On the half-plane \(\operatorname{Re}s>1\) one has the absolutely convergent representation
+\[
+-\frac{\zeta'}{\zeta}(s)=\sum_{n\ge1}\Lambda(n)n^{-s},
+\]
+whose real part is positive. Analytic continuation across the critical strip, however, introduces the zeros themselves as simple poles of \(\zeta'/\zeta\). Any zero with real part \(>\frac12+\varepsilon\) contributes a negative residue that drives \(\operatorname{Re}(\zeta'/\zeta)\) negative in a neighbourhood of that zero, destroying the hoped-for strict positivity. Even under the weaker assumption that all zeros satisfy \(\operatorname{Re}\rho\le\frac12+\varepsilon\), the contribution of a zero extremely close to the line \(\operatorname{Re}s=\frac12+\varepsilon\) still produces arbitrarily large negative spikes. Thus the inequality \(\operatorname{Re}(\Xi'/\Xi(\varepsilon+it))>0\) cannot be established a priori; it is essentially equivalent to the absence of zeros off the line, rendering the contour argument circular.
+
+The same circularity appears in every attempt to replace the rectangular contour by a deformed contour that hugs the critical line more closely, or by a smoothed weight (e.g., a Gaussian mollifier): the necessary positivity of a real-part kernel is equivalent to a zero-free half-plane that is already as strong as RH. Consequently the method yields no new zero-free region and no reduction of RH to a simpler arithmetic statement.
+
+VERDICT: FAILED
+REASON: Contour-positivity argument is circular; sign of Re(Ξ'/Ξ) already encodes the zero locations.

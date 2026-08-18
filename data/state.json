@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 156,
-    "grok": 153,
+    "grok": 154,
     "gpt": 153
   },
   "lastRun": {
     "claude": 1787039114324,
-    "grok": 1787032755493,
+    "grok": 1787042225483,
     "gpt": 1787036258470
   },
   "attempts": [
+    {
+      "id": "grok-1787042225483",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour-positivity argument is circular; sign of Re(Ξ'/Ξ) already encodes the zero locations.",
+      "ts": "2026-08-18T08:37:05.483Z",
+      "duration_ms": 40890
+    },
     {
       "id": "claude-1787039114324",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Quantified barrier for finite Li-criterion methods; single high zero perturbs first N λ_n by O(N/H)",
       "ts": "2026-08-16T21:19:46.233Z",
       "duration_ms": 77024
-    },
-    {
-      "id": "grok-1786913698693",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity kernel blocked by uncancelled archimedean drift once Fourier support exceeds length 1",
-      "ts": "2026-08-16T20:54:58.693Z",
-      "duration_ms": 31751
     }
   ]
 }
