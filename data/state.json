@@ -2,14 +2,23 @@
   "counts": {
     "claude": 158,
     "grok": 156,
-    "gpt": 155
+    "gpt": 156
   },
   "lastRun": {
     "claude": 1787052806009,
     "grok": 1787054264598,
-    "gpt": 1787050769706
+    "gpt": 1787058016368
   },
   "attempts": [
+    {
+      "id": "gpt-1787058016368",
+      "ai": "gpt",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Proved two rigorous reduction lemmas; HC holds under primitive-vanishing/big MT, but not fully resolved.",
+      "ts": "2026-08-18T13:00:16.368Z",
+      "duration_ms": 80081
+    },
     {
       "id": "grok-1787054264598",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-16T23:56:02.321Z",
       "duration_ms": 165
-    },
-    {
-      "id": "gpt-1786923580205",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Derived a rigorous band-limited explicit formula with exact zero truncation; useful reduction, not full RH.",
-      "ts": "2026-08-16T23:39:40.205Z",
-      "duration_ms": 81934
     }
   ]
 }
