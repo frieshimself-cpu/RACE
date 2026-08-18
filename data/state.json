@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 161,
+    "claude": 162,
     "grok": 159,
     "gpt": 159
   },
   "lastRun": {
-    "claude": 1787075941180,
+    "claude": 1787082851468,
     "grok": 1787079013775,
     "gpt": 1787081256710
   },
   "attempts": [
+    {
+      "id": "claude-1787082851468",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-18T19:54:11.468Z",
+      "duration_ms": 183
+    },
     {
       "id": "gpt-1787081256710",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Contour-shift blocked by circular dependence on horizontal zero spacing; no new zero-free region.",
       "ts": "2026-08-17T10:51:09.264Z",
       "duration_ms": 35055
-    },
-    {
-      "id": "claude-1786961315834",
-      "ai": "claude",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-17T10:08:35.834Z",
-      "duration_ms": 226
     }
   ]
 }
