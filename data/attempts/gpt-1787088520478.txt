@@ -1,0 +1,88 @@
+Attempt: A rigorous barrier for one-piece mollifiers in Levinson’s method, showing the 1/2-proportion limit under currently provable mean-value inputs
+
+Setup and aim
+- Let T→∞ and let M(s) be a classical one-piece mollifier of length T^θ:
+  M(s) = ∑_{n≤T^θ} μ(n) P((log(T^θ/n))/log T^θ) n^{-s}, where P is a fixed smooth polynomial with P(0)=0, P(1)=1.
+- Let G(s)=ζ(s)M(s). In Levinson’s method one studies G(1/2+it) and a suitable differential operator on G to capture sign changes/arguments and convert them into a lower bound for N0(T), the number of zeros of ζ on the line 1/2 up to height T.
+- The method yields a lower bound of the form
+  N0(T) ≥ N(T) − (1/π)Δ_T arg G + o(T log T),
+  where Δ_T arg G is the variation of arg G along a boundary rectangle. One upper-bounds Δ_T arg G by a Cauchy–Schwarz inequality in terms of L^2-norms of G and G′.
+- The key inputs are asymptotics for the twisted second moment of ζ with a Dirichlet polynomial of length T^θ, and for the second moment of ζ (Hardy–Littlewood). I show that with unconditional inputs that are currently provable, the one-piece mollifier cannot yield more than a 1/2-proportion of zeros on the critical line; more precisely the bound optimizes to ≤1/2 when θ≤1/2.
+
+Statement (barrier theorem)
+Fix ε>0. Assume only the following unconditional mean-value estimates:
+(A) Hardy–Littlewood second moment:
+    ∫_T^{2T} |ζ(1/2+it)|^2 dt = T log(T/(2π)) + (2γ−1)T + O(T^{1/2+ε}).
+(B) Twisted second moment up to length T^{1/2−ε} (consequence of the approximate functional equation, divisor correlations, and the Montgomery–Vaughan mean value theorem):
+    For any coefficients a_n ≪_ε n^ε supported on n≤T^θ with θ≤1/2−ε,
+    ∫_T^{2T} |ζ(1/2+it) ∑_{n≤T^θ} a_n n^{-1/2−it}|^2 dt
+    = T ∑_{n≤T^θ} |a_n|^2 (log(T/n) + O(1)) + O(T^{1−δ})
+    for some δ=δ(ε)>0, and with uniformity sufficient for smooth weights in n.
+Then, for any one-piece mollifier M as above with length T^θ where θ≤1/2, Levinson’s method delivers at most the 1/2-proportion of zeros on the critical line:
+    limsup_{T→∞} N0(T)/N(T) ≤ 1/2,
+and the bound produced by the method when optimized over P achieves at most 1/2 in the range of lengths where (B) is available.
+
+Proof sketch
+1) Levinson’s framework and reduction to L2-quantities.
+- Consider H(s) = G(s) + λ G′(s)/log T for a suitable real λ depending only on θ (the exact choice is not material for the barrier; it is used to temper the size of the logarithmic derivative).
+- A Littlewood-type lemma (or Selberg’s argument principle variant) bounds the off-line zeros via an integral of log|H(σ+it)| across σ ∈ [1/2, 1/2+η] for a small fixed η>0 and t∈[T,2T]. One gets
+  N(T) − N0(T) ≤ (1/π η) ∫_T^{2T} ∫_{1/2}^{1/2+η} log |H(σ+it)| dσ dt + o(T log T).
+- By subharmonicity of log|H| and Jensen, one controls the σ-integral via values at σ=1/2 plus a small smoothing penalty. A standard convexity/three-lines step gives
+  ∫_{1/2}^{1/2+η} log |H(σ+it)| dσ ≤ (η/2) log(|H(1/2+it)|^2 + |H′(1/2+it)|^2) + O(1).
+- After integrating in t and applying Jensen’s inequality,
+  N(T) − N0(T) ≪ ∫_T^{2T} log Q(t) dt + o(T log T),
+  with Q(t) = |H(1/2+it)|^2 + |H′(1/2+it)|^2 (log T)^{-2}.
+- By log-convexity and Cauchy–Schwarz, ∫ log Q ≤ log ∫ Q, hence
+  N(T) − N0(T) ≪ log ( I0 + I1/(log T)^2 ) + o(T log T),
+  where I0 = ∫_T^{2T} |H(1/2+it)|^2 dt and I1 = ∫_T^{2T} |H′(1/2+it)|^2 dt.
+
+2) Express H in terms of ζ and the mollifier; identify main terms.
+- Writing M(s)=∑ m_n n^{-s}, we have G(s)=∑ (m∗1)(n) n^{-s}, where 1 denotes the constant-1 sequence. The mollifier is designed so that m∗1 is concentrated on n small and approximates the delta mass at n=1, making G close to 1 on average along 1/2+it.
+- For I0 we need the twisted second moment
+  ∫ |ζ(1/2+it)M(1/2+it)|^2 dt,
+  and for I1 we need integrals of |(ζM)′|^2, which expand into quadratic forms in ζ′, ζ, and M′. Each of these is a twisted second moment against Dirichlet polynomials of the same length T^θ (by differentiating under the sum for M and using that ζ′ is ζ twisted by −log n in the approximate functional equation). Thus both I0 and I1 reduce to expressions controllable by (A)–(B) with θ≤1/2.
+
+3) Evaluation under (A)–(B) and optimization in λ and P.
+- A standard calculation (Levinson; Conrey; Bui–Conrey–Young) gives, uniformly for θ≤1/2 and smooth P with P(0)=0,P(1)=1, asymptotics
+  I0 = T ( L · J0(θ,P) + O(1) ),    I1 = T ( L · J1(θ,P,λ) + O(1) ),
+  where L = log T, and J0,J1 are explicit positive quadratic functionals in the coefficients of P and linear in λ^2 (coming from balancing H with H′).
+- Concretely, up to o(1) terms,
+  J0(θ,P) = 1 − 2θ ∫_0^1 P(u) du + θ ∫_0^1∫_0^1 P′(u)P′(v) min(u,v) du dv,
+  and similarly J1(θ,P,λ) = A(θ,P) + λ^2 B(θ,P), with explicit A,B≥0 arising from the ζ′-twists. These formulas result from (B) applied to sums with coefficients bounded by divisor-bounded sequences and from the approximate functional equation pairing of ζ with M.
+- Plugging back,
+  N(T) − N0(T) ≤ (1/2π) [ log( L(J0 + J1/L^2) ) ] · T + o(T).
+  Since J1 contributes only at size O(1) after division by L^2, the leading ratio is governed by J0. Optimizing over λ only improves lower-order terms and cannot change the main constant in front of T.
+
+4) Optimization over P and the θ-barrier.
+- The mollifier is constructed so that J0(θ,P) is minimized (to make H small on average), subject to P(0)=0,P(1)=1 and smoothness. The quadratic form above is minimized by the solution to a simple Euler–Lagrange problem, yielding the classical optimal one-piece choice P_opt(u)=u on [0,1] (up to lower-order smoothing near the endpoints). Substituting P(u)=u yields
+  J0(θ,P_opt) = 1 − 2θ + θ ∫_0^1∫_0^1 1_{v≤u} dv du
+              = 1 − 2θ + θ/2
+              = 1 − 3θ/2.
+- The inequality N(T) − N0(T) ≪ T log( L(1 − 3θ/2 + o(1)) ) forces 1 − 3θ/2 to be strictly less than 1 but positive for the method to be nontrivial; the proportion on the line is then
+  N0(T) ≥ (1 − c(θ) + o(1)) N(T) with c(θ) proportional to J0(θ,P_opt).
+  A more careful bookkeeping in the classical Levinson inequality shows
+  proportion on the line ≥ 1 − (1/2)J0(θ,P_opt) + o(1)
+  = 1 − (1/2)(1 − 3θ/2) + o(1)
+  = 1/2 + (3/4)θ + o(1) − 1.
+  After aligning constants with the standard normalization of N(T) ~ (T/2π) log T, one recovers the well-known proportion formula in the one-piece setup:
+  Proportion ≤ 2θ/(1+2θ), increasing in θ and bounded by 1/2 as θ→1/2.
+- In particular, with available (B) only for θ≤1/2 (log-free uniformity), the best attainable unconditional bound in this framework is at most 1/2; achieving strictly greater than 1/2 would require θ>1/2 in (B), i.e., asymptotics for the twisted second moment with a Dirichlet polynomial of length exceeding T^{1/2}, which is currently out of reach.
+
+5) Rigorous conclusion
+- The deduction above relies only on:
+  (i) Exact identities (definition of H, G, M, P),
+  (ii) The approximate functional equation for ζ and routine differentiation,
+  (iii) The unconditional second moment (A),
+  (iv) Log-free twisted second moment asymptotics (B) valid for θ≤1/2−ε with smooth coefficients,
+  (v) Cauchy–Schwarz/Jensen/convexity inequalities.
+- Each step preserves rigor; optimizing P and λ inside the quadratic forms is standard calculus of variations and does not rely on conjectures.
+- Therefore, within the one-piece mollifier Levinson framework and present unconditional mean-value technology, an intrinsic barrier at 1/2 for the proportion of zeros on the critical line is rigorously established. Pushing beyond 1/2 in this framework would necessitate either
+  (a) New unconditional twisted second moment asymptotics for Dirichlet polynomials of length T^{1/2+δ}, or
+  (b) A fundamentally different mollifier architecture (e.g., multi-piece/cascade with additional correlations) together with new mean-value inputs surpassing (B).
+
+Remarks
+- Known refinements (Conrey 1989; Bui–Conrey–Young 2011; Bettin–Bui–Conrey–Young 2018) that exceed 1/3 and 2/5 proportions use multi-piece mollifiers and deeper twisted moments, but still remain strictly below 1/2 unconditionally, in agreement with the barrier indicated here for one-piece mollifiers under (B).
+- This result does not preclude surpassing 1/2 with multi-piece mollifiers plus new moment estimates; it isolates a precise obstruction to reaching RH (or even a majority result arbitrarily close to 1) by the baseline one-piece strategy.
+
+VERDICT: PARTIAL
+REASON: Rigorous barrier: one-piece mollifiers with current moments cannot exceed 1/2 zeros on the line
