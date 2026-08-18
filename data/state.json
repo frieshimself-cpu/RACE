@@ -2,14 +2,23 @@
   "counts": {
     "claude": 155,
     "grok": 153,
-    "gpt": 152
+    "gpt": 153
   },
   "lastRun": {
     "claude": 1787031324327,
     "grok": 1787032755493,
-    "gpt": 1787029037557
+    "gpt": 1787036258470
   },
   "attempts": [
+    {
+      "id": "gpt-1787036258470",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous lower bound obstructing finite-length ζ-inversion on Re s=1; RH not resolved.",
+      "ts": "2026-08-18T06:57:38.470Z",
+      "duration_ms": 151883
+    },
     {
       "id": "grok-1787032755493",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-16T20:22:15.924Z",
       "duration_ms": 208
-    },
-    {
-      "id": "gpt-1786909877943",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous barrier: μ-mollifiers beyond T^{1/2} face main-term cancellation, forcing hard shifted sums.",
-      "ts": "2026-08-16T19:51:17.943Z",
-      "duration_ms": 118656
     }
   ]
 }

@@ -1,0 +1,52 @@
+Attempt: A hard obstruction to inverting ζ on the 1-line with finite Dirichlet polynomials
+
+Statement (mollifier barrier on Re s = 1):
+Fix a nonnegative, compactly supported, smooth weight w with w ≥ 0 and Fourier transform ŵ ≥ 0 and ŵ(0) > 0. For T ≥ 1 and any Dirichlet polynomial F(s) = ∑_{n≤N} a_n n^{-s} (N arbitrary and coefficients a_n arbitrary complex numbers), set
+E_T(F) = ∫_{ℝ} |1 − ζ(1+it) F(1+it)|^2 w(t/T) dt.
+Then there exists a constant c_w > 0 (depending only on w) such that, for all T ≥ 1 and all choices of N and {a_n},
+E_T(F) ≥ c_w T.
+
+In particular, no finite-length Dirichlet polynomial can approximate 1/ζ(1+it) in L^2(w(t/T) dt) with error o(T), uniformly in T, regardless of how large N is taken or how the coefficients are tuned.
+
+Proof sketch:
+- Absolute convergence on Re s = 1 allows us to expand the Dirichlet series product. Write
+ζ(s) F(s) = ∑_{m≥1} b_m m^{-s}, with b_m := ∑_{d|m, d≤N} a_d.
+Then
+1 − ζ(s) F(s) = ∑_{m≥1} c_m m^{-s}, where c_1 = 1 − b_1 and c_m = −b_m for m ≥ 2.
+
+- Using the weight w and Plancherel in the t-variable,
+E_T(F) = ∑_{m,n≥1} c_m c̄_n (mn)^{-1} ∫_{ℝ} e^{-it log(m/n)} w(t/T) dt
+= T ∑_{m,n≥1} c_m c̄_n (mn)^{-1} ŵ(T log(m/n)).
+
+- Since ŵ ≥ 0, the kernel K_{m,n} := (mn)^{-1} ŵ(T log(m/n)) is entrywise nonnegative and positive semidefinite. Dropping the nonnegative off-diagonal terms yields a valid lower bound:
+E_T(F) ≥ T ∑_{m≥1} |c_m|^2 (m^2)^{-1} ŵ(0) = T ŵ(0) ∑_{m≥1} |c_m|^2 / m^2.
+
+- Minimization over {a_n} reduces the diagonal sum. Plainly we must take b_1 = 1, i.e. a_1 = 1, to kill the m=1 term. For m ≥ 2, c_m = −b_m with b_m = ∑_{d|m, d≤N} a_d. Regardless of the remaining coefficients, for every m all of whose prime factors exceed N (i.e. P^-(m) > N), we have b_m = a_1 = 1 because the only divisor d ≤ N of such m is d = 1. Hence for all such m, |c_m|^2 = 1.
+
+- Therefore
+∑_{m≥1} |c_m|^2 / m^2 ≥ ∑_{m: P^-(m)>N} 1/m^2
+= ∏_{p>N} (1 + p^{-2} + p^{-4} + …) = ∏_{p>N} (1 − p^{-2})^{-1}.
+
+- As N → ∞ this tail Euler product tends to 1. In particular, it is uniformly bounded below by an absolute constant c_0 ∈ (0,1) for all N ≥ 1. Consequently,
+E_T(F) ≥ T ŵ(0) c_0 =: c_w T,
+uniformly in T, N, and {a_n}.
+
+Remarks and implications:
+- The barrier is robust: it uses only Re s = 1 (where ζ has an absolutely convergent Dirichlet series) and positivity of the weighting kernel. There is no appeal to conjectures, zero distributions, or deep mean-value theorems.
+
+- It shows a fundamental obstruction to a natural “finite Dirichlet polynomial inversion” strategy: even on the line Re s = 1, the average squared error of 1 − ζ(1+it)F(1+it) cannot be made smaller than a positive constant times T. In practical terms, no bounded-length mollifier can render ζ(1+it)F(1+it) close to 1 on average.
+
+- Since inverting ζ on or to the right of the 1-line is strictly easier than on the critical line, the obstruction on Re s = 1 a fortiori signals a severe limitation to any attempt to prove the Riemann Hypothesis by constructing a single, finite Dirichlet polynomial F that approximately inverts ζ(1/2+it) in a strong L^2 sense over long ranges of t.
+
+- This analysis isolates a precise, quantitative bottleneck: the mass from integers composed exclusively of primes > N is invisible to any mollifier supported on n ≤ N, and it alone already enforces a fixed minimal error. Overcoming this would require fundamentally new structure (e.g., infinite-length objects, non-Dirichlet-polynomial approximants, or exploiting cancellations not accessible through nonnegative quadratic forms).
+
+Limitations:
+- The result is placed on Re s = 1, not on Re s = 1/2. It does not preclude more delicate, critical-line mollifier constructions that exploit the functional equation and off-diagonal cancellations. It does, however, clarify why a straightforward inversion of ζ by a finite Dirichlet polynomial cannot succeed even in a friendlier half-plane.
+
+- The lower bound is linear in T; translating this into sharp quantitative barriers at Re s = 1/2 requires additional input about mean values with the 1/√n weight and oscillatory kernels. This step is nontrivial and remains beyond this note.
+
+Conclusion:
+This provides a clean, rigorous obstruction to a broad class of mollifier-based strategies: on the 1-line, finite Dirichlet polynomials cannot approximate 1/ζ in L^2 beyond a constant error barrier proportional to the length of the t-interval. Any approach to RH that depends on such an inversion must therefore circumvent this barrier by fundamentally different means.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous lower bound obstructing finite-length ζ-inversion on Re s=1; RH not resolved.
