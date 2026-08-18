@@ -1,0 +1,36 @@
+The Riemann \(\xi\)-function is entire of order 1 and satisfies the functional equation \(\xi(s)=\xi(1-s)\). Its Hadamard product (normalized so that \(\xi(0)=\xi(1)\)) reads
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+the product running over the non-trivial zeros. Taking the logarithmic derivative yields
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\frac{1}{s-\rho}.
+\]
+Restrict attention to the half-plane \(\operatorname{Re}s\ge1\). The Euler product for \(\zeta\) implies that \(\xi'/\xi\) admits the absolutely convergent representation
+\[
+\frac{\xi'}{\xi}(s)=-\frac12\log\pi+\frac12\frac{\Gamma'}{\Gamma}\Bigl(\frac s2\Bigr)-\sum_{n=2}^\infty\frac{\Lambda(n)}{n^s}
+\]
+for \(\operatorname{Re}s>1\), which continues meromorphically to \(\operatorname{Re}s=1\) with a single simple pole at \(s=1\). Consequently every zero satisfies \(\operatorname{Re}\rho\le1\).
+
+To push the bound strictly inside the critical strip, form the non-negative trigonometric polynomial
+\[
+T(\theta)=3+4\cos\theta+\cos2\theta=2(1+\cos\theta)^2\ge0.
+\]
+For a hypothetical zero \(\rho=\beta+i\gamma\) with \(\beta>1-\delta\) and \(|\gamma|\) large, evaluate the linear combination
+\[
+3\frac{\xi'}{\xi}(\sigma)+\operatorname{Re}\Bigl(4\frac{\xi'}{\xi}(\sigma+i\gamma)+\frac{\xi'}{\xi}(\sigma+2i\gamma)\Bigr)
+\]
+at a real point \(\sigma=1+\eta\) with \(\eta>0\) small. The contribution of the zero \(\rho\) (and its conjugate) produces a term
+\[
+\ge\frac{c}{\sigma-\beta}
+\]
+while all other zeros and the Gamma factor contribute \(O(\log(|\gamma|+2))\). The prime-power sum is bounded from below by \(-C\log(1/\eta)\) upon choosing \(\eta\asymp1/\log(|\gamma|+2)\). Balancing terms forces
+\[
+\beta\le1-\frac{c}{\log(|\gamma|+2)}
+\]
+for an absolute \(c>0\). This is the classical de la Vallée-Poussin zero-free region.
+
+The same positivity device cannot be strengthened to a region of the form \(1-c/(\log\log(|\gamma|+3))\) merely by increasing the degree of \(T\), because the resulting Dirichlet polynomials cease to be positive definite and the error terms from distant zeros overwhelm the main term. Thus the method yields a concrete but non-optimal zero-free region and stops short of the critical line.
+
+VERDICT: PARTIAL
+REASON: Classical zero-free region recovered via positivity; method intrinsically limited short of RH.

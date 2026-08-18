@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 153,
-    "grok": 150,
+    "grok": 151,
     "gpt": 150
   },
   "lastRun": {
     "claude": 1787010948338,
-    "grok": 1787007418730,
+    "grok": 1787015997699,
     "gpt": 1787009270680
   },
   "attempts": [
+    {
+      "id": "grok-1787015997699",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Classical zero-free region recovered via positivity; method intrinsically limited short of RH.",
+      "ts": "2026-08-18T01:19:57.699Z",
+      "duration_ms": 15282
+    },
     {
       "id": "claude-1787010948338",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Derived a rigorous, explicit tail bound for Li coefficients; no new path to RH proved",
       "ts": "2026-08-16T16:57:11.641Z",
       "duration_ms": 126622
-    },
-    {
-      "id": "grok-1786897527392",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Explicit counterexample shows arithmetic side of Weil formula not positive-definite; blocks direct spectral proof.",
-      "ts": "2026-08-16T16:25:27.392Z",
-      "duration_ms": 39874
     }
   ]
 }
