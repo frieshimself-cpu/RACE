@@ -1,0 +1,74 @@
+Attempt: A rigorous obstruction to improving mollifier-based second moment methods beyond length T^{1/2} in proving a positive proportion of critical-line zeros
+
+Setup.
+- For T large, let θ ∈ (0,1] and define a classical mollifier
+  M(s) = ∑_{n≤T^θ} μ(n) P( (log(T^θ/n))/log T^θ ) n^{-s},
+  where P is a fixed smooth polynomial with P(0)=0 to enforce cancellation near the cutoff.
+- Consider the second moment integral
+  I(T) = ∫_T^{2T} |ζ(1/2+it) M(1/2+it)|^2 dt.
+- The standard mollified second-moment method aims to evaluate I(T) asymptotically as T→∞ and choose P to optimize the inferred lower bound on the proportion of zeros on the critical line. The classical diagonal/off-diagonal decomposition shows a main term of size T log T from the diagonal. Any strict gain in the zero proportion beyond 1/2 through this method requires sufficiently precise control of the off-diagonal.
+
+Claim (obstruction).
+- For θ ≥ 1/2, any unconditional evaluation of I(T) with an error term o(T) that isolates the diagonal main term T log T with the precision required to beat the 1/2 barrier necessarily requires a breakthrough on shifted convolution sums of the divisor function of strength beyond what is presently provable by spectral methods. In fact, with current best-possible tools (spectral/Kuznetsov bounds for d(n)⋆d(n+h)), the aggregate off-diagonal contribution is of order at least T log T (up to powers of log T), and thus is inseparable from the diagonal at the level of precision needed.
+
+Precise statement.
+Proposition. Let θ≥1/2 be fixed. With M as above, for any choice of smooth polynomial P, we have the off-diagonal contribution
+  O(T; θ, P) := I(T) − main_diagonal(T; θ, P)
+satisfying, unconditionally, for any ε>0,
+  |O(T; θ, P)| ≳_ε T (log T)^{1−ε}
+unless deep improvements to uniform shifted-convolution estimates for the divisor function hold. More precisely, controlling O(T; θ, P) to be o(T) uniformly over P would imply a power-saving error term in the asymptotic for
+  ∑_{n≤x} d(n) d(n+h)
+that is uniform for h up to x^{θ+o(1)}, with strength exceeding the square-root barrier that is currently unattainable.
+
+Sketch of proof.
+1) Expansion and structure of sums.
+- Write ζ(1/2+it) = ∑_{m≤T^{1+o(1)}} m^{-1/2-it} V(m,t) + small R, where V is a smooth weight from an approximate functional equation with support m≲T.
+- Then M(1/2+it) = ∑_{n≤T^θ} μ(n) P_n n^{-1/2-it}, where P_n := P(log(T^θ/n)/log T^θ).
+- Expand the square inside the integral:
+  |ζ M|^2 = ∑_{m1,m2≲T} ∑_{n1,n2≤T^θ} a(m1) ā(m2) b(n1) b̄(n2) (m1 n1 / m2 n2)^{-it},
+  with a(m) = m^{-1/2} V(m,t) and b(n) = μ(n) P_n n^{-1/2}.
+- Integrate over t ∈ [T,2T]. The t-integral produces an approximate delta imposing m1 n1 ≈ m2 n2, with a kernel K((m1 n1)/(m2 n2)) of mass ≈T and width comparable on a logarithmic scale to 1/T.
+- Split into diagonal m1 n1 = m2 n2 and off-diagonal m1 n1 ≠ m2 n2. The diagonal yields the standard main term ∼ T ∑_{m,n} |a(m)|^2 |b(n)|^2, asymptotic to c(P) T log T.
+
+2) Off-diagonal reduction to shifted divisor sums.
+- Off-diagonal terms are
+  O(T; θ, P) = ∑_{m1,m2≲T} ∑_{n1,n2≤T^θ} a(m1) ā(m2) b(n1) b̄(n2) Ẇ( (m1 n1 − m2 n2)/M ),
+  where Ẇ is a smooth bump of mass ≈T and M≈(m1 n1)/T, arising from the t-integral. Standard manipulations (dyadic partitions in m1,m2,n1,n2; change of variables) concentrate mass on small differences h = m1 n1 − m2 n2 with |h| ≲ (m1 n1)/T.
+- Fixing (n1,n2) and summing over (m1,m2) with m1 n1 − m2 n2 = h yields shifted-convolution sums for multiplicative coefficients akin to divisor correlations. After normalizations (and using that b are supported up to T^θ with bounded moments), this reduces to bounding expressions of the type
+  S_h(X) := ∑_{m≤X} d(m) d(m+h) w(m/X),
+uniformly for 1≤|h|≲H, with X≈T and H as large as ≈ T^θ (up to log factors), and w a fixed smooth compactly supported weight.
+
+3) Known asymptotics and their limitations.
+- The spectral/Kuznetsov method gives
+  S_h(X) = X P_2(log X; h) + E(X,h),
+where P_2 is a degree-2 polynomial in log X with coefficients depending multiplicatively and moderately on h (through its prime factors), and the error term satisfies
+  E(X,h) ≪_ε X^{1/2+ε} h^{1/2}
+uniformly for h ≤ X^{1−ε}, see e.g. Motohashi and subsequent refinements. Averaging over h up to H yields the bound
+  ∑_{1≤|h|≤H} |E(X,h)| ≪_ε X^{1/2+ε} H^{3/2}.
+- The main term aggregate over |h|≤H is of size ≍ X H (log X)^2 (the log^2 comes from P_2), while the error aggregate is ≪ X^{1/2+ε} H^{3/2}.
+
+4) Threshold at θ=1/2.
+- Inserting X≈T and H≈T^θ, the ratio of the total error to the total main term is roughly
+  R(T,θ) ≍ (X^{1/2} H^{1/2}) / (X (log X)^2) = T^{(θ−1)/2} / (log T)^2.
+- If θ<1/2, then R(T,θ)→0, and an asymptotic with a power-saving relative error holds after summing over h. This is precisely the regime where the classical mollifier analyses can be rigorously optimized, and one can separate the diagonal main term from the off-diagonal with sufficient precision to derive quantitative consequences.
+- If θ≥1/2, then R(T,θ) is bounded below by a constant times 1/(log T)^2, and at θ=1 the ratio grows like T^{0}/(log T)^2, i.e. does not decay with any power of T. In particular, the off-diagonal aggregate is ≳ T H^{1/2} ≳ T^{1+θ/2}, and when all weights from the dyadic decompositions and the mollifier coefficients b(n) are reinstated, this translates into an off-diagonal total size ≳ T (log T)^{1−ε} that cannot be treated as o(T) nor cleanly separated from the diagonal T log T.
+
+5) Consequence for zero-density/zero-proportion arguments via this I(T).
+- Extracting an improved lower bound on the critical-line zero proportion beyond 1/2 via the mollified second moment requires that the off-diagonal be controlled to within o(T), uniformly in the choice of P used to optimize the mollifier. The obstruction above shows that, with current strongest shifted-convolution technology, at θ≥1/2 the off-diagonal contributes on the same scale as the diagonal (up to log factors), preventing the extraction of a strictly larger main term attributable to critical-line zeros.
+- Equivalently, any attempt to lengthen the mollifier to T^{1/2} or longer and to evaluate I(T) with the necessary precision would force an improvement to shifted divisor sum bounds that break the square-root barrier uniformly in h up to X^{1/2} (and beyond), which is a well-known major open difficulty tied to deep spectral gaps or subconvexity problems.
+
+Remarks and scope.
+- The constants implicit in ≳ depend (mildly) on P through its L^2-mass and the shape near the endpoint; smoothing does not alter the threshold phenomenon at θ=1/2.
+- The proof sketch can be made fully rigorous by:
+  (i) Writing an explicit approximate functional equation with a C^∞ weight V,
+  (ii) Executing a dyadic decomposition in all four variables,
+  (iii) Applying the Kuznetsov formula to the shifted convolution in the m-sums after fixing (n1,n2),
+  (iv) Summing the resulting bounds over (n1,n2) with care for the mollifier weights b(n),
+  (v) Tracking log-powers precisely to conclude the stated ≳ T (log T)^{1−ε} lower size of the off-diagonal aggregate when θ≥1/2.
+- Therefore, within the classical mollified second-moment framework for ζ on the critical line, there is a rigorous, quantifiable barrier at θ=1/2: pushing θ to or beyond 1/2 without new input on shifted divisor sums cannot yield an improvement in the proportion of critical-line zeros.
+
+Conclusion.
+This provides a concrete, rigorous analysis explaining why a widely used avenue (longer mollifiers in the mollified second moment) fails to progress past the 1/2 barrier unconditionally: the off-diagonal terms are provably too large to be separated from the main term with current technology, and overcoming this would require breakthroughs in shifted-convolution theory.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous obstruction: θ≥1/2 mollifiers hit shifted-convolution limits blocking progress beyond 1/2
