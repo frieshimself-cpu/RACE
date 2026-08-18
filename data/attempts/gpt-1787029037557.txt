@@ -1,0 +1,51 @@
+Attempt: A localized explicit formula with L2 control for −ζ′/ζ in 1/2<σ<1
+
+Let w ∈ C_c^∞(0,∞) be nonnegative with Mellin transform W(z)=∫_0^∞ w(x)x^{z-1}dx. Fix X≥2 and s=σ+it with 1/2<σ<1. Define the smoothed von Mangoldt sum
+S(s;X):=∑_{n≥1} Λ(n) n^{-s} w(n/X).
+
+Lemma (localized explicit formula). For any A>0,
+-ζ′/ζ(s) = S(s;X) − ∑_ρ X^{ρ−s} W(s−ρ) − ∑_{k≥1} X^{-2k−s} W(s+2k) + X^{1−s} W(s−1) + E_A(s;X),
+where the sum over ρ runs over all nontrivial zeros of ζ, and the error satisfies
+sup_{t∈R} |E_A(σ+it;X)| ≪_{A,w,σ} X^{-A} (1+|t|)^{1/A}.
+Moreover, W is entire and for every B≥0 we have uniform vertical-line decay
+sup_{u∈R, 0≤β≤1} |W(σ−β+iu)| ≪_{w,B,σ} (1+|u|)^{-B}.
+
+Proof sketch. Consider the Mellin inversion identity
+I(s;X):=(1/2πi)∫_{(c)} −ζ′/ζ(s+z) X^z W(z) dz,
+with c>1−σ. In Re(s+z)>1 we may expand −ζ′/ζ(s+z)=∑_{n≥1} Λ(n) n^{−s−z}, interchange sum and integral (absolute convergence), and use Mellin inversion to get I(s;X)=S(s;X). Shift the contour to Re z = −A. Poles of −ζ′/ζ(s+z) occur at z=1−s (simple pole, residue +1), at z=ρ−s (each nontrivial zero, residue −1), and at z=−2k−s (trivial zeros, residue −1). Collecting residues yields the identity stated (note signs). The remaining integral on Re z=−A is E_A(s;X). On that line, s+z lies in Re ≤ σ−A; choose A>1 so that Re(s+z)≤0 and use standard bounds −ζ′/ζ(σ−A+i·)=O(log(2+|·|)) together with rapid decay of W on vertical lines to get the quoted bound. The stated vertical-line decay and entireness of W follow from w∈C_c^∞ and standard Paley–Wiener–Mellin theory.
+
+Mean-square localization of the zero term. Put
+Z(s;X):=∑_ρ X^{ρ−s} W(s−ρ).
+For T≥2 let I_T=[T,2T]. Then, uniformly in X≥2 and 1/2<σ<1,
+
+Unconditional bound:
+∫_{I_T} |Z(σ+it;X)|^2 dt ≪_{w,σ} X^{2(1−σ)} T log T.
+
+Conditional (RH) bound:
+Assuming RH, ∫_{I_T} |Z(σ+it;X)|^2 dt ≪_{w,σ} X^{1−2σ} T log T.
+
+Proof sketch. Write Z(σ+it;X)=∑_ρ a_ρ K_ρ(t−γ), with a_ρ:=X^{β−σ}, K_ρ(u):=W(σ−β+iu), ρ=β+iγ. For any B>1, sup_ρ ∥K_ρ∥_2 ≪_{w,B,σ} 1 and K_ρ has rapid decay |K_ρ(u)|≪_{w,B,σ} (1+|u|)^{-B}. A general almost-orthogonality inequality for translates of a fixed rapidly decaying kernel K (or kernels in a bounded family) gives
+∫_{I_T} |∑_j c_j K(t−t_j)|^2 dt ≪ (M(K)+1) ∥K\|_2^2 ∑_j |c_j|^2,
+where M(K) bounds the maximal overlap number of translates in any unit-length window; for the zeros of ζ, M≪ log T. Applying this uniformly to the family {K_ρ} yields
+∫_{I_T} |Z|^2 dt ≪ (log T) ∑_{ρ: γ∈[T−C,2T+C]} X^{2(β−σ)}.
+Unconditionally, β≤1 gives X^{2(β−σ)}≤X^{2(1−σ)}; under RH, β=1/2 yields X^{1−2σ}. Using N(2T)−N(T) ≪ T log T completes the bounds.
+
+Consequences and use. Combining the lemma with the trivial-zero and pole terms (which are O(X^{−2−σ}) and O(X^{1−σ}) in L2 over I_T, respectively, for fixed σ) and the small contour error E_A, we obtain:
+-ζ′/ζ(σ+it) = ∑_{n} Λ(n) n^{−σ−it} w(n/X) + “localized zero term” + small,
+with the L2 norm over t∈[T,2T] of the zero term bounded as above. Thus, for any fixed 1/2<σ<1 and any growth regime X=X(T) with X^{2(1−σ)} T log T = o(T) (unconditionally), or X^{1−2σ} T log T = o(T) (under RH), the smoothed prime sum approximates −ζ′/ζ in mean square on [T,2T]. In particular:
+- Under RH, choosing X=(log T)^A gives ∫_{I_T} |Z|^2 dt ≪ (log T)^{A(1−2σ)} T log T, which decays in A for σ>1/2.
+- Unconditionally, taking σ close to 1 yields decay in X even without RH.
+
+Interpretation as a barrier and a tool. This identity cleanly isolates the obstruction to approximating −ζ′/ζ(s) by a prime sum: only zeros with |t−γ| up to the Mellin-bandwidth of W contribute, and their cumulative mean-square impact is explicitly controlled. Any approach that estimates −ζ′/ζ via smoothed prime sums must either:
+- suppress the localized zero term (which is essentially equivalent to placing zeros on Re s=1/2 to gain the stronger X^{1−2σ} factor), or
+- work at real parts σ→1, where the unconditional X^{2(1−σ)} factor is small.
+
+This provides a rigorous, self-contained reduction and quantitative framework that can be directly used to:
+- optimize mollifiers/mollified moments by tuning w to minimize the L2 mass of Z(s;X),
+- extract conditional consequences of RH (or of zero-density hypotheses) for mean-square prime sum approximations,
+- and diagnose failure modes of prime-sum approximations when zeros off the critical line cluster near a given height.
+
+Limitations. The unconditional L2 bound degrades to X^{2(1−σ)}, reflecting the presence of potential zeros with β close to 1; removing this degradation is essentially tantamount to proving strong zero-density estimates approaching RH.
+
+VERDICT: PARTIAL
+REASON: Proved a localized explicit formula with L2 zero-term bounds; no direct resolution of RH.

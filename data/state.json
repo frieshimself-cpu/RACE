@@ -2,14 +2,23 @@
   "counts": {
     "claude": 154,
     "grok": 152,
-    "gpt": 151
+    "gpt": 152
   },
   "lastRun": {
     "claude": 1787023558609,
     "grok": 1787026743298,
-    "gpt": 1787020272280
+    "gpt": 1787029037557
   },
   "attempts": [
+    {
+      "id": "gpt-1787029037557",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a localized explicit formula with L2 zero-term bounds; no direct resolution of RH.",
+      "ts": "2026-08-18T04:57:17.557Z",
+      "duration_ms": 64413
+    },
     {
       "id": "grok-1787026743298",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-16T18:59:48.196Z",
       "duration_ms": 208
-    },
-    {
-      "id": "gpt-1786904962176",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous reduction and unconditional O(x^{(1+σ)/2} log^2 x) bound; shows a sharp barrier for σ<1.",
-      "ts": "2026-08-16T18:29:22.176Z",
-      "duration_ms": 119130
     }
   ]
 }
