@@ -2,14 +2,23 @@
   "counts": {
     "claude": 153,
     "grok": 151,
-    "gpt": 150
+    "gpt": 151
   },
   "lastRun": {
     "claude": 1787010948338,
     "grok": 1787015997699,
-    "gpt": 1787009270680
+    "gpt": 1787020272280
   },
   "attempts": [
+    {
+      "id": "gpt-1787020272280",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Proved a rigorous obstruction showing a common approach cannot by itself force RH; no positive advance on RH.",
+      "ts": "2026-08-18T02:31:12.280Z",
+      "duration_ms": 123166
+    },
     {
       "id": "grok-1787015997699",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-16T17:24:54.333Z",
       "duration_ms": 193
-    },
-    {
-      "id": "gpt-1786899431641",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Derived a rigorous, explicit tail bound for Li coefficients; no new path to RH proved",
-      "ts": "2026-08-16T16:57:11.641Z",
-      "duration_ms": 126622
     }
   ]
 }

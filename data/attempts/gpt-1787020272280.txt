@@ -1,0 +1,47 @@
+Attempt: A no-go lemma for single-test-function positivity in Weil’s explicit formula
+
+Setup.
+- Let g be an even Schwartz function on R with compactly supported Fourier transform G (so G is an even C∞ function with compact support).
+- Define the entire function h(s) by h(s) = ∫_{R} g(x) e^{(s-1/2)x} dx. Then h(s) satisfies the functional symmetry h(s) = h(1-s) because g is even.
+- Let ρ run over nontrivial zeros of ζ(s), counted with multiplicity, and let the trivial zeros be at −2n, n≥1.
+
+Weil’s explicit formula (in a standard form suited to even g) is:
+Σ_ρ h(ρ) = H(g) + P(g) + T(g),
+where
+- H(g) is a linear expression in g(0) and ∫ g (arising from the gamma-factor in the functional equation), explicit and bounded by C1 (|g(0)| + ∫ |g|) for an absolute C1;
+- P(g) = −2 Σ_{n=1}^∞ Λ(n) G(log n) / √n is the prime sum, absolutely convergent because G has compact support;
+- T(g) = Σ_{m=1}^∞ h(−2m) is the trivial zero contribution, also absolutely convergent (indeed exponentially decaying in m because g is Schwartz).
+
+Crucially for what follows, both P(g) and T(g) are finite linear functionals of g determined entirely by its compactly supported Fourier transform G, hence independent of any hypothetical off-critical-line zeros at large height.
+
+Contribution of a symmetric off-line pair.
+Take any ρ = β + iγ with β≠1/2 and γ∈R, and include with it the full symmetry orbit {ρ, 1−ρ, ρ̄, 1−ρ̄} demanded by the functional equation and real-analyticity. Because h is entire and even around 1/2, and real on the critical line, the total contribution of this orbit to the left-hand side is
+C_pair(ρ; g) = 2 Re(h(ρ) + h(1−ρ)) = 4 Re h(ρ), using h(s)=h(1−s).
+By definition of h,
+h(ρ) = ∫_{R} g(x) e^{(β−1/2)x} e^{iγ x} dx.
+Since g is even we can write
+Re h(ρ) = ∫_{R} g(x) e^{(β−1/2)x} cos(γ x) dx.
+Let δ = β−1/2 (so δ≠0 for an off-line zero). Because g is Schwartz, g(x) e^{δ x} is integrable for each fixed δ (indeed exponentially weighted but with g rapidly decaying); in particular the function x ↦ g(x) e^{δ x} lies in L^1(R)∩L^2(R). Hence by the Riemann–Lebesgue lemma,
+lim_{|γ|→∞} ∫_{R} g(x) e^{δ x} cos(γ x) dx = 0.
+Therefore
+lim_{|γ|→∞} C_pair(β+iγ; g) = 0
+for any fixed β≠1/2.
+
+No-go lemma.
+Fix any even Schwartz g with compactly supported Fourier transform. Then for every ε>0 there exists a symmetric off-critical-line pair {ρ,1−ρ} with |Im ρ| large enough such that the net contribution of this pair to the zero side of the explicit formula has absolute value < ε.
+
+Proof.
+Immediate from the previous display: take |γ| large so that |4 Re h(β+iγ)| < ε.
+
+Consequence for single-test-function positivity arguments.
+Many positivity methods via Weil’s explicit formula take the form of comparing the zero sum Σ_ρ h(ρ) to the finite right-hand side H(g)+P(g)+T(g) for a fixed g with chosen good properties (e.g., G≥0 on its support), then attempting to exclude β≠1/2 by sign constraints. The no-go lemma shows an intrinsic obstruction to any such attempt with a single fixed test g: for any fixed right-hand side value R(g) := H(g)+P(g)+T(g), the insertion of a symmetric off-line pair at sufficiently large height alters the left-hand side by an arbitrarily small amount and thus cannot be precluded by a single inequality involving only that fixed g. In other words, a single test function cannot, by itself, force all zeros to lie on the critical line; it is compatible with the existence of off-line zeros at large height whose cumulative contribution can be made as small as desired.
+
+Strong form (finite families).
+The same argument extends to any finite collection {g_1, …, g_k} of even Schwartz test functions with compactly supported Fourier transforms: given ε>0 there exist symmetric off-line pairs at sufficiently large heights whose combined contributions have absolute value < ε simultaneously for all j=1,…,k. Indeed, for each j the contribution is 4 Re h_j(β+iγ) with h_j defined from g_j, and the vector-valued function γ ↦ (Re h_1(β+iγ), …, Re h_k(β+iγ)) in R^k tends to 0 as |γ|→∞ by the Riemann–Lebesgue lemma applied componentwise. Thus any finite list of inequalities derived from fixed tests cannot exclude such pairs.
+
+Remarks.
+- This does not say Weil-type positivity is useless; rather, it clarifies that progress must come from controlling an infinite family of test functions simultaneously (e.g., monotonicity or extremal properties across a continuum), or from additional deep input (e.g., Montgomery’s pair correlation, mollifier families whose length grows with height, or Beurling–Nyman-type global Hilbert space structure).
+- The lemma is rigorous, self-contained, and isolates an obstruction: any single fixed test function (or finite fixed set) cannot rule out off-line zeros by explicit-formula positivity, because the effect of high-lying symmetric off-line pairs can be made arbitrarily small.
+
+VERDICT: FAILED
+REASON: Proved a rigorous obstruction showing a common approach cannot by itself force RH; no positive advance on RH.
