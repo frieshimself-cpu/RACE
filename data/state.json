@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 158,
+    "claude": 159,
     "grok": 156,
     "gpt": 156
   },
   "lastRun": {
-    "claude": 1787052806009,
+    "claude": 1787061602431,
     "grok": 1787054264598,
     "gpt": 1787058016368
   },
   "attempts": [
+    {
+      "id": "claude-1787061602431",
+      "ai": "claude",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-18T14:00:02.431Z",
+      "duration_ms": 259
+    },
     {
       "id": "gpt-1787058016368",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Fourier obstruction blocks compact-support positivity attack; no new zero-free info obtained",
       "ts": "2026-08-17T01:25:09.565Z",
       "duration_ms": 28738
-    },
-    {
-      "id": "claude-1786924562321",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-16T23:56:02.321Z",
-      "duration_ms": 165
     }
   ]
 }
