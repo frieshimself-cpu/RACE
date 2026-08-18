@@ -1,0 +1,46 @@
+### Attempt: Conditional a priori bound via controlled vortex stretching alignment
+
+Consider the incompressible Navier–Stokes system on \(\mathbb{R}^3\times[0,T)\)
+\[
+\partial_t u+(u\cdot\nabla)u=\nu\Delta u-\nabla p,\qquad\operatorname{div}u=0,
+\]
+with smooth, divergence-free initial data \(u_0\in H^s\) (\(s\ge3\)) of finite energy. Let \(\omega=\nabla\times u\) and write the vorticity formulation
+\[
+\partial_t\omega+(u\cdot\nabla)\omega=(\omega\cdot\nabla)u+\nu\Delta\omega.
+\]
+The deformation tensor \(S=\frac12(\nabla u+(\nabla u)^\top)\) satisfies \(S\omega=(\omega\cdot\nabla)u\). In Fourier space the Calderón–Zygmund relation
+\[
+\widehat{S}_{ij}(\xi)= \Bigl(\frac{\xi_i\xi_k}{|\xi|^2}\delta_{jl}+\frac{\xi_j\xi_l}{|\xi|^2}\delta_{ik}-\frac12\delta_{ij}\frac{\xi_k\xi_l}{|\xi|^2}\Bigr)\widehat{\omega}_k
+\]
+holds (up to the usual projection onto divergence-free fields). Consequently the pointwise stretching rate is completely determined by the Riesz transforms of \(\omega\).
+
+Define the alignment cosine
+\[
+\cos\theta(x,t)=\frac{\omega\cdot S\omega}{|\omega|\,|S\omega|}\qquad\bigl(|\omega|\ne0\bigr).
+\]
+A direct energy estimate on the enstrophy \(\mathcal{E}(t)=\frac12\|\omega(t)\|_{L^2}^2\) yields
+\[
+\frac{d\mathcal{E}}{dt}+\nu\|\nabla\omega\|_{L^2}^2=\int_{\mathbb{R}^3}\omega\cdot S\omega\,dx=\int|\omega|^2|S|\cos\theta\,dx.
+\]
+By the Calderón–Zygmund \(L^p\)-boundedness of \(S\) and Hölder,
+\[
+\biggl|\int|\omega|^2|S|\cos\theta\,dx\biggr|\le C\|\omega\|_{L^3}^2\|S\|_{L^3}\le C\|\omega\|_{L^3}^3.
+\]
+If one assumes the geometric control
+\begin{equation}\label{align}
+|\cos\theta(x,t)|\le\frac{c_*}{1+\log(e+|\omega(x,t)|)}\qquad\text{a.e.\ on }\{|\omega|\ge1\}
+\end{equation}
+for a sufficiently small absolute constant \(c_*>0\), the cubic term is absorbed by the dissipative integral after a standard logarithmic Sobolev interpolation:
+\[
+\|\omega\|_{L^3}^3\le\varepsilon\|\nabla\omega\|_{L^2}^2+C_\varepsilon\|\omega\|_{L^2}^2\bigl(1+\log(e+\|\omega\|_{L^\infty})\bigr).
+\]
+A further application of the Beale–Kato–Majda inequality then produces the closed differential inequality
+\[
+\frac{d\mathcal{E}}{dt}\le C\mathcal{E}\bigl(1+\log(e+\mathcal{E})\bigr),
+\]
+which integrates to a double-exponential bound on \([0,T)\) and therefore prevents \(\|\omega(t)\|_{L^\infty}\) from blowing up in finite time. Smoothness up to time \(T\) follows by standard bootstrapping.
+
+The obstruction is that \eqref{align} is an extra structural assumption not implied by the NS dynamics alone. While numerical evidence and the Constantin–Fefferman geometric criterion suggest that regions of high strain tend to anti-align with vorticity, no a-priori mechanism forces the cosine to decay at the precise logarithmic rate required to close the estimate for arbitrary smooth finite-energy data. Thus the argument yields only a conditional regularity statement: any putative singularity must violate the alignment bound \eqref{align} on a set of positive measure.
+
+VERDICT: PARTIAL
+REASON: Conditional regularity under log-alignment of vorticity; no unconditional control of the cosine.

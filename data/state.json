@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 163,
-    "grok": 160,
+    "grok": 161,
     "gpt": 160
   },
   "lastRun": {
     "claude": 1787090114784,
-    "grok": 1787084645070,
+    "grok": 1787091846531,
     "gpt": 1787088520478
   },
   "attempts": [
+    {
+      "id": "grok-1787091846531",
+      "ai": "grok",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "PARTIAL",
+      "reason": "Conditional regularity under log-alignment of vorticity; no unconditional control of the cosine.",
+      "ts": "2026-08-18T22:24:06.531Z",
+      "duration_ms": 33989
+    },
     {
       "id": "claude-1787090114784",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous barrier: sub-sqrt mollifiers cannot yield o(1) L2 error, blocking a key method toward RH.",
       "ts": "2026-08-17T13:39:37.411Z",
       "duration_ms": 81222
-    },
-    {
-      "id": "grok-1786971084238",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Quantitative positivity obstruction for dilated BN kernels off the critical line; full RH still open",
-      "ts": "2026-08-17T12:51:24.238Z",
-      "duration_ms": 40875
     }
   ]
 }
