@@ -1,0 +1,38 @@
+## Attempt: A conditional mass-gap criterion via lattice OS reconstruction
+
+We work throughout with a compact simple gauge group \(G\) (e.g. \(SU(N)\)). Let \(\Lambda_a\subset\mathbb{R}^4\) be a finite hypercubic lattice of spacing \(a>0\) with periodic boundary conditions, and let \(\mu_a\) be the normalized Wilson measure
+\[
+d\mu_a(U)=\frac1{Z_a}\exp\Bigl(-\frac1{g_0^2}\sum_p\operatorname{Re}\operatorname{Tr}(1-U_p)\Bigr)\,dU
+\]
+on the space of \(G\)-valued link variables. Write \(\langle\cdot\rangle_a\) for expectation with respect to \(\mu_a\).
+
+### Lemma (conditional continuum mass gap)
+Assume there exist constants \(C,\Delta_0,a_0>0\) independent of volume such that, for all \(0<a<a_0\) and all lattice sites \(x,y\),
+\begin{equation}
+\bigl|\langle\operatorname{Tr}F_{\mu\nu}(x)\operatorname{Tr}F_{\rho\sigma}(y)\rangle_a^c\bigr|
+\le C\,e^{-\Delta_0|x-y|_a},
+\label{eq:unif-exp}
+\end{equation}
+where \(^c\) denotes the connected correlator and \(|\cdot|_a\) is the lattice Euclidean distance. Suppose moreover that the family of measures \(\{\mu_a\}\) admits a continuum limit \(a\to0\) in the sense of Osterwalder–Schrader (OS) axioms: the Schwinger functions obtained from local gauge-invariant lattice observables converge to tempered distributions \(S_n\) on \((\mathbb{R}^4)^n\) that are Euclidean-invariant, OS-positive, and of moderate growth. Then the reconstructed Minkowski Hilbert space \(\mathcal{H}\) carries a self-adjoint Hamiltonian \(H\ge0\) satisfying
+\[
+\operatorname{spec}(H)\subset\{0\}\cup[\Delta,\infty),\qquad\Delta\ge\Delta_0>0,
+\]
+i.e., the continuum theory has a mass gap.
+
+### Proof sketch
+OS reconstruction applied to the limiting Schwinger functions yields a Hilbert space \(\mathcal{H}\), a continuous unitary representation of the Euclidean group that extends to a unitary representation of the Poincaré group on the Minkowski side, and a positive self-adjoint generator \(H\) of time translations. The vacuum vector \(\Omega\) is the unique (up to phase) translation-invariant vector obtained from the constant function \(1\).
+
+The lattice bound \eqref{eq:unif-exp} passes to the continuum by the assumed convergence of Schwinger functions: for any two compactly supported test functions \(f,g\in C_c^\infty(\mathbb{R}^4)\) of definite spin-color type corresponding to the field strength,
+\[
+\bigl|\langle\Omega,\phi(f)e^{-tH}\phi(g)\Omega\rangle-\langle\Omega,\phi(f)\Omega\rangle\langle\Omega,\phi(g)\Omega\rangle\bigr|
+\le C'\|f\|_{H^{-k}}\|g\|_{H^{-k}}e^{-\Delta_0 t}
+\]
+for all \(t\ge1\) and some Sobolev index \(k\). (The polynomial growth of the continuum Schwinger functions guaranteed by OS moderate-growth controls the constants.) Consequently the spectral measure of \(H\) in the subspace orthogonal to \(\Omega\) has support in \([\Delta_0,\infty)\). Since the field-strength operators generate (by repeated commutators with the constraints and by the reconstruction theorem) a dense set of local observables, the same gap holds on all of \(\mathcal{H}\ominus\mathbb{C}\Omega\).
+
+Volume independence of \(\Delta_0\) is used to pass to the infinite-volume lattice theory before the continuum limit; the OS limit is then taken on \(\mathbb{R}^4\).
+
+### Obstruction and why the lemma is only conditional
+The exponential bound \eqref{eq:unif-exp} is precisely the statement that a uniform mass gap already exists at finite lattice spacing. Establishing it for the Wilson measure when \(a\to0\) with the bare coupling \(g_0(a)\) running according to the asymptotically free \(\beta\)-function remains open: standard cluster-expansion or correlation-inequality methods fail once the correlation length \(\xi(a)\) diverges (as it must for a non-trivial continuum limit). Thus the lemma reduces the mass-gap half of the Millennium problem to a uniform lattice estimate that is itself of comparable difficulty. No new a-priori bound on the lattice spectral gap is supplied.
+
+VERDICT: PARTIAL
+REASON: Conditional OS criterion reducing continuum gap to uniform lattice exponential decay; estimate itself unproved.
