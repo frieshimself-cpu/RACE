@@ -1,0 +1,41 @@
+### Attempt: A reduction via the Liouville function and a failed positivity argument
+
+Let \(\lambda(n)\) denote the Liouville function. It is classical that the Riemann Hypothesis is equivalent to the estimate
+\[
+\sum_{n\le x}\lambda(n)=O(x^{1/2+\varepsilon})
+\]
+for every \(\varepsilon>0\). Write \(L(x)=\sum_{n\le x}\lambda(n)\). The Dirichlet series identity
+\[
+\frac{\zeta(2s)}{\zeta(s)}=\sum_{n=1}^\infty\frac{\lambda(n)}{n^s}\qquad(\operatorname{Re}s>1)
+\]
+and a standard truncated Perron formula yield, for \(1/2<\sigma_0\le1\) and \(T\ge2\),
+\begin{equation}
+\label{eq:perron}
+\frac1{2\pi i}\int_{\sigma_0-iT}^{\sigma_0+iT}\frac{\zeta(2s)}{\zeta(s)}\frac{x^s}{s}\,ds
+=L(x)+O\Bigl(x^{\sigma_0}\sum_{n=1}^\infty\frac{|\lambda(n)|}{n^{\sigma_0}(1+T|\log(x/n)|)}\Bigr).
+\end{equation}
+The error is \(O(x^{\sigma_0}\log x)\) after a routine dyadic decomposition, provided one stays away from the pole of \(\zeta(s)\) at \(s=1\).
+
+Suppose there exists a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>1/2\). Shift the contour in \eqref{eq:perron} leftward to the line \(\operatorname{Re}s=1/2+\delta\) with \(0<\delta<\beta_0-1/2\), picking up the residue at \(s=\rho_0\):
+\[
+\operatorname{Res}_{s=\rho_0}\frac{\zeta(2s)}{\zeta(s)}\frac{x^s}{s}
+=\frac{\zeta(2\rho_0)}{\zeta'(\rho_0)}\frac{x^{\rho_0}}{\rho_0}
+\]
+(assuming a simple zero for the moment; a multiple zero produces a higher-order pole whose leading term is still of size \(\asymp x^{\beta_0}/|\gamma_0|\)). The horizontal integrals are \(O(x^{\sigma_0}T^{-1}\operatorname{poly}(\log T))\) by the convexivity bound \(\zeta(\sigma+it)\ll |t|^{(1-\sigma)^{3/2}+\varepsilon}\). The vertical integral on \(\operatorname{Re}s=1/2+\delta\) is \(O(x^{1/2+\delta}T^{\theta})\) for an absolute \(\theta<1\) (subconvexity is not even required). Consequently
+\[
+L(x)=\Omega\bigl(x^{\beta_0-\varepsilon}\bigr)
+\]
+for infinitely many \(x\), which is the expected obstruction.
+
+To convert the obstruction into a proof one would need a matching upper bound that contradicts the \(\Omega\)-result whenever \(\beta_0>1/2\). The most direct candidate is the elementary inequality
+\[
+\biggl(\sum_{n\le x}\lambda(n)\biggr)^2\le x\sum_{n\le x}\frac{|\mu(n)|}{n}\Biggl(\sum_{m\le x/n}\lambda(m)\Biggr)^2,
+\]
+obtained by writing \(\lambda=1*\mu\cdot\lambda\) and Cauchy–Schwarz. The inner sum is again an \(L\)-function, and iterating produces a multiple Dirichlet series whose diagonal terms are positive. If those diagonal terms dominated, one would obtain \(L(x)=O(x^{1/2}(\log x)^C)\), hence RH.
+
+The domination fails for a precise reason: after \(k\) iterations the off-diagonal contribution is controlled by the \(2k\)-th moment of \(\zeta(1/2+it)\) on short intervals. Those moments grow like \((\log T)^{k^2}\), which exactly cancels the square-root cancellation one hoped to harvest from the diagonal. In other words, the positivity that appears to be present in the Liouville coefficients is destroyed by the same critical-line correlations that the Riemann Hypothesis itself is trying to control. The circularity is therefore perfect: any attempt to close the estimate by pure positivity re-encounters an equivalent form of RH (bounded moments of \(\zeta\) on the critical line).
+
+Thus the reduction to an \(L^2\)-positivity statement, while formally correct, cannot be completed without an independent input that is at least as strong as RH. This explains the persistent failure of elementary or purely multiplicative approaches based on \(\lambda(n)\) or \(\mu(n)\).
+
+VERDICT: FAILED
+REASON: Positivity reduction for L(x) is circular; off-diagonal zeta moments cancel the hoped-for square-root saving.

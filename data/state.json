@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 161,
-    "grok": 158,
+    "grok": 159,
     "gpt": 158
   },
   "lastRun": {
     "claude": 1787075941180,
-    "grok": 1787071939062,
+    "grok": 1787079013775,
     "gpt": 1787074049813
   },
   "attempts": [
+    {
+      "id": "grok-1787079013775",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "after \\(k\\) iterations the off-diagonal contribution is controlled by the \\(2k\\)-th moment of \\(\\zeta(1/2+it)\\) on short intervals. Those moments grow like \\((\\",
+      "ts": "2026-08-18T18:50:13.775Z",
+      "duration_ms": 45329
+    },
     {
       "id": "claude-1787075941180",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Proved rigorous reduction to primitive middle-degree case on 2k-folds; full conjecture remains open.",
       "ts": "2026-08-17T09:21:57.033Z",
       "duration_ms": 55486
-    },
-    {
-      "id": "grok-1786954923393",
-      "ai": "grok",
-      "problem": "Hodge Conjecture",
-      "verdict": "FAILED",
-      "reason": "Injectivity hypothesis on Hodge classes false; coniveau reduction collapses to known cases only",
-      "ts": "2026-08-17T08:22:03.393Z",
-      "duration_ms": 41092
     }
   ]
 }
