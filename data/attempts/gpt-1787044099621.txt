@@ -1,0 +1,66 @@
+Attempt: A sharp coercivity/no-coercivity dichotomy for the covariant Laplacian on T^3 in the small-field regime
+
+Setup
+- Let G = SU(N) with Lie algebra g = su(N), and let M = T^3 be the 3-torus with side length 1 (any fixed flat metric works). Consider the trivial G-bundle with smooth connections A = A_i(x) dx^i, valued in g.
+- For an adjoint scalar field φ: M → g, write D_A φ = ∂_i φ + [A_i, φ], and H_A := D_A^* D_A with quadratic form q_A(φ) = ∥D_A φ∥_{L^2}^2.
+- Let L^2 denote L^2(M; g) and H^1 denote H^1(M; g). Let φ̄ := ∫_M φ dx denote the spatial mean. Write L^2_0 := {φ ∈ L^2: φ̄ = 0}.
+- Poincaré on T^3: there exists λ1 = 4π^2 > 0 such that ∥∇ψ∥_2^2 ≥ λ1 ∥ψ∥_2^2 for all ψ ∈ H^1 ∩ L^2_0.
+- Sobolev/interpolation: on T^3, ∥u∥_{L^6} ≤ C_S ∥∇u∥_{L^2}, and ∥v∥_{L^3} ≤ C_I ∥v∥_{L^2}^{1/2} ∥∇v∥_{L^2}^{1/2}.
+
+Part I (No uniform gap on the full L^2, even in Coulomb gauge and with arbitrarily small curvature)
+
+Proposition 1 (Obstruction to a uniform classical mass gap). For any m > 0 there exists a smooth connection A with arbitrarily small curvature (e.g., ∥F_A∥_{L^2} as small as desired) such that
+inf_{φ ∈ L^2 \ {0}} ∥D_A φ∥_{L^2} / ∥φ∥_{L^2} < m.
+This remains true if A is additionally placed in Coulomb gauge relative to the flat background.
+
+Proof. Fix a nonzero smooth B ∈ Ω^1(M; g) that does not commute pointwise with all constants in g (generic choice). Put A = ε B with ε > 0 to be chosen small. For any nonzero constant c ∈ g (x-independent), D_A c = [A_i, c] dx^i, so
+∥D_A c∥_{L^2} = ε ∥[B, c]∥_{L^2}.
+Pick c so that [B, c] is not identically zero; then ∥[B, c]∥_{L^2} =: K > 0, hence
+∥D_A c∥_2 / ∥c∥_2 = ε K / ∥c∥_2.
+Given m > 0, choose ε < m ∥c∥_2 / K. Then inf_{φ≠0} ∥D_A φ∥_2 / ∥φ∥_2 ≤ ∥D_A c∥_2 / ∥c∥_2 < m. Scaling yields ∥F_A∥_{L^2} = O(ε) as small as desired. One can impose Coulomb gauge by applying a small gauge transform (Uhlenbeck’s lemma on T^3), which keeps ∥F_A∥_{L^2} arbitrarily small and preserves the conclusion since the quotient is gauge-invariant. ∎
+
+Corollary. There is no A-independent lower bound q_A(φ) ≥ m^2 ∥φ∥_2^2 holding for all smooth A with small curvature and all φ ∈ L^2. In particular, classical quadratic-form coercivity cannot by itself yield a universal mass gap.
+
+Remark. The obstruction is the global color-zero sector: spatially constant φ are zero modes of −Δ but become arbitrarily light under small A via commutators [A, φ]. This persists even after Coulomb gauge fixing.
+
+Part II (A robust, A-uniform spectral gap on the mean-zero sector for small fields)
+
+The following positive result shows the best-possible coercivity one can hope for classically: if we project away the spatially constant adjoint modes, then for sufficiently small A (in H^1), H_A has a uniform, A-independent spectral gap on L^2_0.
+
+Theorem 2 (Uniform gap on mean-zero adjoint scalars for small A). There exist ε0 > 0 and c0 > 0 such that if ∥A∥_{H^1} ≤ ε0, then
+q_A(ψ) ≥ c0 ∥ψ∥_{L^2}^2 for all ψ ∈ H^1 ∩ L^2_0.
+In fact, one can take c0 = (1/2) λ1 for ε0 sufficiently small depending only on (C_S, C_I, structure constants of g).
+
+Proof. For ψ ∈ H^1 ∩ L^2_0,
+∥D_A ψ∥_2 ≥ ∥∇ψ∥_2 − ∥[A, ψ]∥_2.
+Using the Lie algebra bound |[X, Y]| ≤ C_g |X| |Y|,
+∥[A, ψ]∥_2 ≤ C_g ∥A∥_{L^6} ∥ψ∥_{L^3} ≤ C_g C_S ∥∇A∥_2 · C_I ∥ψ∥_2^{1/2} ∥∇ψ∥_2^{1/2}.
+Set K := C_g C_S C_I and write a := ∥∇A∥_2. Then
+∥D_A ψ∥_2 ≥ ∥∇ψ∥_2 − K a ∥ψ∥_2^{1/2} ∥∇ψ∥_2^{1/2}.
+Square both sides and use 2uv ≤ u^2 + v^2:
+q_A(ψ) ≥ ∥∇ψ∥_2^2 − 2 K a ∥∇ψ∥_2^{3/2} ∥ψ∥_2^{1/2}.
+By Poincaré, ∥∇ψ∥_2 ≥ √λ1 ∥ψ∥_2. Hence
+2 K a ∥∇ψ∥_2^{3/2} ∥ψ∥_2^{1/2} ≤ 2 K a (∥∇ψ∥_2^2)/√λ1.
+Therefore,
+q_A(ψ) ≥ (1 − 2K a / √λ1) ∥∇ψ∥_2^2 ≥ (1 − 2K a / √λ1) λ1 ∥ψ∥_2^2.
+Choose ε0 > 0 so that a ≤ ε0 implies 1 − 2K a / √λ1 ≥ 1/2; then c0 := (1/2) λ1 works. Since ∥∇A∥_2 ≤ ∥A∥_{H^1}, the stated smallness condition suffices. ∎
+
+Consequences and interpretation
+- Proposition 1 rigorously rules out a naive route to a mass gap via uniform classical coercivity of H_A on the full adjoint-scalar sector: the global color-constant modes make the infimum of the spectrum arbitrarily small as A → 0.
+- Theorem 2 shows that, after removing the spatial mean (a natural step consistent with Gauss constraints in the Hamiltonian formalism), a uniform spectral gap for the covariant Laplacian does hold in a small-field neighborhood, with a quantitative lower bound independent of A. This is the optimal classical statement one can expect without invoking quantum effects or nonperturbative infrared structure.
+- Together, these results isolate the precise obstruction and a workable remedy at the linear level. Any attempt to deduce a genuine Yang–Mills mass gap (in the quantum sense) from classical estimates must:
+  1) impose constraints eliminating the constant adjoint sector, and
+  2) go beyond small-field perturbative neighborhoods, since Proposition 1 shows the gap collapses as A → 0 unless the mean-zero projection is enforced.
+- Technically, Theorem 2 provides a clean, self-contained coercivity estimate that can be inserted into analyses of the Yang–Mills heat flow, Coulomb-gauge linearization, or variational arguments, while Proposition 1 warns against overinterpreting such coercivity as a mass gap.
+
+Limits and open directions
+- Extending Theorem 2 beyond small ∥A∥_{H^1} necessitates either topological input or control of holonomies to preclude near-flat connections that nearly commute with large constant color modes.
+- The analysis here is for adjoint scalars. For transverse gauge potentials themselves (vector 1-forms), analogous estimates face additional complications (gauge redundancy, curvature couplings); nonetheless, the same constant-mode obstruction reappears.
+- On R^3, Poincaré fails; weighted variants or boundary conditions are needed to reproduce Theorem 2’s conclusion.
+
+Summary
+- A precise, rigorous negative result: no A-uniform lower bound for ∥D_A φ∥_2/∥φ∥_2 over all φ on T^3, even with Coulomb gauge and arbitrarily small curvature.
+- A complementary positive result: a uniform spectral gap on the mean-zero sector for small ∥A∥_{H^1}, with an explicit c0 depending only on geometric and algebraic constants.
+
+VERDICT: PARTIAL
+REASON: Proved sharp coercivity/no-gap results clarifying a key obstruction and a remedy in the small-field regime.
