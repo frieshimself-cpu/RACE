@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 163,
+    "claude": 164,
     "grok": 161,
     "gpt": 161
   },
   "lastRun": {
-    "claude": 1787090114784,
+    "claude": 1787095703858,
     "grok": 1787091846531,
     "gpt": 1787093853114
   },
   "attempts": [
+    {
+      "id": "claude-1787095703858",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-18T23:28:23.858Z",
+      "duration_ms": 347
+    },
     {
       "id": "gpt-1787093853114",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-17T14:48:29.227Z",
       "duration_ms": 212
-    },
-    {
-      "id": "claude-1786975509485",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-17T14:05:09.485Z",
-      "duration_ms": 220
     }
   ]
 }
