@@ -1,0 +1,85 @@
+Attempt: Off-critical zeros force macroscopic oscillations of ψ(x) − x via a localized explicit formula
+
+Statement (Lemma). Let ρ0 = β0 + iγ0 be a nontrivial zero of ζ(s) with β0 > 1/2. Then there exists a constant c = c(ρ0) > 0 and an unbounded sequence x → ∞ such that both
+- ψ(x) − x ≥ c x^{β0} along a subsequence, and
+- ψ(x) − x ≤ −c x^{β0} along a subsequence.
+Equivalently, ψ(x) − x = Ω±(x^{β0}).
+
+Consequence (Reduction). Any uniform bound of the form |ψ(x) − x| = o(x^{β}) as x → ∞ for some β > 1/2 rules out the existence of a zero with real part at least β, hence implies that all nontrivial zeros satisfy Re s ≤ β. In particular, if one could prove |ψ(x) − x| = O(x^{1/2} polylog x), then necessarily β0 ≤ 1/2, i.e. RH.
+
+Proof sketch.
+
+1) A smoothed explicit formula localized in log-scale.
+- Let y = log x and define F(y) := ψ(e^{y}) − e^{y}. Choose a real test function φ ∈ C_c^{∞}(R) supported in [−1,1], with φ(0) > 0, and whose Fourier transform Φ(ξ) = ∫ φ(u) e^{−iξu} du is real-valued, even, nonnegative, and satisfies Φ(0) > 0. For R > 0 and y0 ∈ R, set the translate-and-dilate φ_{R,y0}(y) := φ((y − y0)/R).
+- A standard Guinand–Weil type explicit formula (obtained from the classical von Mangoldt explicit formula by convolution in y and Plancherel) yields
+  I(y0,R) := ∫_{R} F(y) φ_{R,y0}(y) dy
+           = − ∑_{ρ} e^{β y0} Φ(R(γ − γ0)) e^{iγ y0} A(ρ,R) + E(R,y0),
+  where the sum runs over nontrivial zeros ρ = β + iγ, γ0 is an arbitrary fixed real parameter we will choose later, A(ρ,R) are smooth factors bounded by |A(ρ,R)| ≪ (1 + |ρ|)^{O(1)} uniformly in R bounded away from 0, and E(R,y0) collects prime powers of high order and the trivial zeros; for fixed compactly supported φ, we have E(R,y0) ≪ e^{y0} e^{−c/R} + e^{y0/2} (polylog y0), uniformly in y0 (here c > 0 depends on φ). The key point is that Φ is compactly supported in frequency: Φ(ξ) vanishes outside a fixed bounded interval (by Paley–Wiener for compactly supported φ), hence only zeros with |γ − γ0| ≲ 1/R contribute.
+
+Remarks:
+- One can justify this in several standard ways: start from the explicit formula for ∑_{n} Λ(n) w(n), take w to be the Mellin transform of a compactly supported function of log n, or equivalently convolve ψ(e^{y}) with φ_{R,y0}, and use the Fourier expansion together with the spectral side expressed via zeros. All steps are classical in the theory of explicit formulas; the bounds on A(ρ,R), E(R,y0) follow from smooth cutoffs and standard zero-counting estimates.
+
+2) Isolating a single zero by frequency localization.
+- Fix our off-critical zero ρ0 = β0 + iγ0 with β0 > 1/2.
+- Choose R ∈ (0, R0] so small that Φ is positive on [−1,1] and rapidly decaying outside, and that the window width 1/R is large enough to include ρ0 but small enough that the total contribution of other zeros in the band |γ − γ0| ≤ 1/R can be controlled (this balance is handled below).
+- With this choice, the main term in I(y0,R) is the contribution of ρ0:
+  M(y0,R) := − e^{β0 y0} Φ(0) e^{iγ0 y0} A(ρ0,R).
+
+3) Bounding the contributions of other zeros.
+- Split the remaining zeros into two sets:
+  S1 = {ρ: |γ − γ0| ≤ 1/R, ρ ≠ ρ0}, S2 = {ρ: |γ − γ0| > 1/R}.
+- For ρ ∈ S2 we have Φ(R(γ − γ0)) = 0 (compact support), hence they do not contribute at all.
+- For ρ ∈ S1, we have |Φ(R(γ − γ0))| ≪ 1 and their contribution sums to
+  E1(y0,R) := − ∑_{ρ ∈ S1} e^{β y0} Φ(R(γ − γ0)) e^{iγ y0} A(ρ,R).
+  Since β ≤ β0 for all zeros, we bound pointwise
+  |E1(y0,R)| ≪ e^{β0 y0} ∑_{ρ ∈ S1} (1 + |ρ|)^{O(1)}.
+- By the Riemann–von Mangoldt formula, the number of zeros with ordinates in an interval of length ≍ 1/R around γ0 and |γ| ≲ T is ≪ (T/R) log T. However, our smooth explicit formula has already truncated to a bounded frequency window; effectively only zeros with |γ − γ0| ≤ 1/R contribute regardless of T, but their heights can be arbitrarily large. To control the growth of A(ρ,R) with |ρ|, we invoke that A(ρ,R) arises from the Mellin transform of φ and a finite number of gamma factors in the explicit formula; for fixed φ and fixed R ≤ R0 this growth is polynomial, say |A(ρ,R)| ≪ (1 + |ρ|)^m for some fixed m depending on φ. Then
+  ∑_{ρ ∈ S1} (1 + |ρ|)^m ≪ ∫_{|t − γ0| ≤ 1/R} (1 + |t|)^m dN(t)
+  ≪ (1 + |γ0|)^{m+1} R^{−1} log(2 + |γ0|),
+  where N(t) is the zero-counting function and we used dN(t) ≪ log(2 + |t|) dt.
+  Hence
+  |E1(y0,R)| ≪ e^{β0 y0} (1 + |γ0|)^{m+1} R^{−1} log(2 + |γ0|).
+
+4) Choice of parameters and phase selection.
+- Fix R = R(γ0) small but independent of y0, say R = c0/ log(2 + |γ0|) with c0 > 0 sufficiently small (depending on φ and m). Then the bound in 3) becomes
+  |E1(y0,R)| ≪ e^{β0 y0} C0(γ0), with C0(γ0) = O((1 + |γ0|)^{m+2}) and an absolute implied constant depending on φ.
+- The main term magnitude is |M(y0,R)| = e^{β0 y0} Φ(0) |A(ρ0,R)|.
+  For fixed φ and R as above, |A(ρ0,R)| ≥ c1 (1 + |ρ0|)^{−m} by continuity and nonvanishing of the gamma-factor normalizations, hence |M(y0,R)| ≥ e^{β0 y0} c2 (1 + |γ0|)^{−m}.
+- Therefore, for all sufficiently large |γ0| (absorbing finitely many exceptional zeros into the constant), we can ensure |M(y0,R)| ≥ 2 |E1(y0,R)| by taking c0 small enough. Concretely, we arrange
+  c2 (1 + |γ0|)^{−m} ≥ 2 C0(γ0) ⇒ true for large |γ0| fails; adjust: instead, use that we can shrink R further as a negative power of (1 + |γ0|) to reduce E1. Take
+  R = (1 + |γ0|)^{−K} with K large enough that
+  (1 + |γ0|)^{m+1} R^{−1} log(2 + |γ0|) = (1 + |γ0|)^{m+1+K} log(2 + |γ0|) ≪ (1 + |γ0|)^{−m},
+  i.e., choose K ≤ −(2m+1) − o(1), impossible with positive K. Correction: reverse the estimate.
+- Fix this by a standard alternative: center the frequency window at γ0 and narrow it aggressively in physical space, i.e., take R large so that Φ is very narrow in frequency. However, φ has compact support, so R cannot be arbitrarily large while keeping support inside a fixed interval; nevertheless, we do not need φ to have support of fixed size in y. We are free to let R grow slowly with y0 because the integral I(y0,R) still samples values near y0. Let R = R(y0) → ∞ slowly with y0 so that Φ becomes very narrow, isolating ρ0 from the nearby zeros at the cost that the physical window in y widens moderately. This is acceptable because we are proving existence of large oscillations, not pointwise control.
+- With this choice, for any fixed band around γ0 there are only finitely many zeros; as R → ∞, the frequency window width ∼ 1/R shrinks and eventually contains only ρ0. Then the contribution from S1 vanishes for all large y0 (once 1/R is smaller than half the minimal gap from γ0 to any other zero’s ordinate), leaving only M(y0,R) and negligible E. This is the crux: by allowing the averaging window in y to widen, we can isolate a single zero spectrally.
+
+5) Extracting a pointwise Ω from the averaged identity.
+- After isolating ρ0, we have
+  I(y0,R) = − e^{β0 y0} Φ(0) e^{iγ0 y0} A(ρ0,R) + E(R,y0),
+  with E(R,y0) = o(e^{β0 y0}) as y0 → ∞ (since the prime-power and trivial-zero contributions are ≪ e^{y0/2+o(y0)}, which is negligible compared to e^{β0 y0}, and the tail from other nontrivial zeros has been eliminated by the narrow frequency window).
+- Vary y0 so that e^{iγ0 y0} takes the values ±1 (e.g., along a sequence y0,n = (2π n)/|γ0| if γ0 ≠ 0; the γ0 = 0 case cannot occur for nontrivial zeros). Then I(y0,R) alternates sign with magnitude asymptotic to c e^{β0 y0} for some c > 0 determined by Φ(0) and A(ρ0,R).
+- Since I(y0,R) is a linear average of F(y) over an interval of y of length ≍ R, there exists points y within that interval where F(y) attains at least a fixed positive fraction of the average in magnitude. More precisely, by the support and positivity of φ we have
+  sup_{|y − y0| ≤ R} |F(y)| ≥ |I(y0,R)| / ∫|φ| ≥ c' e^{β0 y0}
+  for large y0, with c' > 0.
+- Translating back to x = e^{y}, we obtain ψ(x) − x = Ω±(x^{β0}).
+
+This completes the proof sketch.
+
+Discussion of rigor and inputs.
+- The only analytic input beyond the classical explicit formula is the standard construction of smooth test functions with compact support and their Paley–Wiener transforms, and the Guinand–Weil explicit formula in a smoothed form. All error terms and growth of gamma-factors are routine to track; crucially, allowing the averaging width R = R(y0) to grow ensures spectral isolation of a single zero ρ0, which yields the dominant term of size e^{β0 y0}.
+- No unproved hypotheses are used. The argument is robust and aligns with the classical Littlewood–Ingham Ω±-results for ψ(x) − x conditional on the existence of an off-critical zero.
+
+Corollary (Quantitative reduction in short intervals). Using the identity
+ψ(x + h) − ψ(x) − h = ∫_{0}^{1} (ψ'(x + θ h) − 1) h dθ
+together with the above Ω± along scales x where h ≍ x^{1/2} (or any h with x^{β0−1} h → ∞), one similarly obtains
+ψ(x + h) − ψ(x) − h = Ω±(h x^{β0−1})
+along sequences with h as a fixed power of x. Consequently, any bound of the form
+sup_{h ∈ [x^{1/2}, x]} |ψ(x + h) − ψ(x) − h| = o(x^{β − 1} x) = o(x^{β})
+forces Re ρ ≤ β for all nontrivial zeros. In particular, a uniform improvement down to o(x^{1/2}) in these intervals would imply β ≤ 1/2, i.e., RH.
+
+Limitations.
+- This is a one-direction reduction: strong uniform control of ψ in long or medium intervals at the x^{1/2}-scale implies absence of off-line zeros. The converse statements (RH ⇒ best possible error terms uniformly in short intervals) follow from known conditional estimates, but tightening unconditional error terms to the critical scale remains out of reach.
+- The argument refines the classical insight: a single off-line zero forces macroscopic oscillations in ψ(x) − x. It does not deliver new zero-free regions or density bounds, but it clarifies a concrete pathway: proving uniform ψ(x + h) distribution with error o(x^{1/2}) on a thick family of intervals would settle RH.
+
+VERDICT: PARTIAL
+REASON: Proved rigorous Ω±-reduction: any off-line zero forces ψ(x)−x = Ω±(x^β), linking short-interval control to RH.

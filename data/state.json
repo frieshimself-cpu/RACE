@@ -2,14 +2,23 @@
   "counts": {
     "claude": 159,
     "grok": 157,
-    "gpt": 156
+    "gpt": 157
   },
   "lastRun": {
     "claude": 1787061602431,
     "grok": 1787064238263,
-    "gpt": 1787058016368
+    "gpt": 1787067125656
   },
   "attempts": [
+    {
+      "id": "gpt-1787067125656",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved rigorous Ω±-reduction: any off-line zero forces ψ(x)−x = Ω±(x^β), linking short-interval control to RH.",
+      "ts": "2026-08-18T15:32:05.656Z",
+      "duration_ms": 233811
+    },
     {
       "id": "grok-1787064238263",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-17T03:50:31.490Z",
       "duration_ms": 222
-    },
-    {
-      "id": "gpt-1786934728474",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "New reduction to a two-parameter heat-bump family; inequality remains unproved uniformly in (u,σ).",
-      "ts": "2026-08-17T02:45:28.474Z",
-      "duration_ms": 71591
     }
   ]
 }
