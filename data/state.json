@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 157,
-    "grok": 154,
+    "grok": 155,
     "gpt": 154
   },
   "lastRun": {
     "claude": 1787046740950,
-    "grok": 1787042225483,
+    "grok": 1787048910848,
     "gpt": 1787044099621
   },
   "attempts": [
+    {
+      "id": "grok-1787048910848",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Weil positivity reduces RH to arithmetic inequalities that circularly need stronger zero-free regions than known.",
+      "ts": "2026-08-18T10:28:30.848Z",
+      "duration_ms": 45087
+    },
     {
       "id": "claude-1787046740950",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Proved a uniform FP spectral gap in Landau gauge for small-curvature on T^4; mass gap remains open.",
       "ts": "2026-08-16T22:25:11.930Z",
       "duration_ms": 68180
-    },
-    {
-      "id": "grok-1786917383988",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Conditional lemma reducing RH to a positivity defect in the explicit formula; defect unproved.",
-      "ts": "2026-08-16T21:56:23.988Z",
-      "duration_ms": 46848
     }
   ]
 }

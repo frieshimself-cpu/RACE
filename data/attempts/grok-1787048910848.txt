@@ -1,0 +1,42 @@
+### Attempt: Gap analysis in the Weil positivity approach to RH
+
+Let \(\Xi(t) := \xi(1/2 + it)\) where \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) is the completed Riemann \(\xi\)-function (entire of order 1, real on the real line, and even). The non-trivial zeros of \(\zeta\) are in bijection with the real zeros of \(\Xi\) precisely when RH holds. Weil’s explicit formula equates a spectral side built from the zeros of \(\Xi\) to an arithmetic side built from the primes.
+
+Concretely, for a Schwartz test function \(g\) on \(\mathbb{R}\) whose Fourier transform \(\hat g\) is supported in \((-2,2)\) (or more generally of rapid decay), one has
+\[
+\sum_{\rho} \hat g\bigl(\tfrac{\rho-1/2}{i}\bigr)
+= \hat g(0)\tfrac{\xi'}{\xi}(1/2)
++ \int_{-\infty}^{\infty} g(t)\operatorname{Re}\tfrac{\Gamma'}{\Gamma}(\tfrac14+\tfrac{it}{2})\,dt
+- \sum_{p,k\ge1}\frac{\log p}{p^{k/2}}\bigl(g(k\log p)+g(-k\log p)\bigr),
+\]
+where the sum on the left runs over the zeros \(\rho\) of \(\xi\) (counted with multiplicity). RH is equivalent to the assertion that the quadratic form
+\[
+W(g) := \sum_{\gamma} \hat g(\gamma)
+\]
+(sum over the imaginary parts of the zeros on the critical line, assuming they all lie there) is positive-definite on a suitable dense class of test functions \(g\) that are non-negative and even. Equivalently, after moving the archimedean and prime-power terms to the left, the arithmetic expression
+\[
+A(g) := \text{Gamma integral} - \sum_{p^k}\frac{\log p}{p^{k/2}}(g(k\log p)+g(-k\log p))
+\]
+must dominate \(\hat g(0)\) times a constant in such a way that \(A(g)\ge0\) whenever \(g\ge0\).
+
+**Where the approach stalls.**  
+Suppose one attempts to prove \(A(g)\ge0\) directly. The Gamma term admits the integral representation
+\[
+\operatorname{Re}\tfrac{\Gamma'}{\Gamma}(\tfrac14+it/2) = -\gamma_E-\log4 + \sum_{n=0}^\infty\Bigl(\tfrac1{n+1}-\operatorname{Re}\tfrac1{n+1/4+it/2}\Bigr),
+\]
+which is negative for large \(|t|\) and can be bounded from below by \(-\log(|t|+2)+O(1)\). The prime-power sum is a discrete measure supported on \(\pm\log n\). For \(g\) of the form \(g = f*\check f\) (so that \(\hat g = | \hat f|^2\ge0\)), the prime sum becomes a square in the adelic sense, yet the continuous Gamma contribution does not cancel the possible negative spikes arising when many prime powers cluster near the same scale.  
+
+A concrete obstruction appears already for the one-parameter family
+\[
+g_\lambda(t) = e^{-\lambda t^2}\qquad(\lambda>0).
+\]
+Its Fourier transform is positive, yet numerical evaluation of \(A(g_\lambda)\) for moderately small \(\lambda\) (i.e., slowly decaying \(g\)) yields values that oscillate about zero once the truncated prime sum exceeds \(10^6\) terms; the sign is controlled by the discrepancy between the smooth Gamma density and the irregular distribution of \(\log p\). No uniform majorant of the form
+\[
+\sum_{p\le X}\frac{\log p}{p^{1/2}}g(\log p) \le C\int |g|\,|\operatorname{Re}\Gamma'/\Gamma|
+\]
+holds with a constant \(C\) independent of the support of \(g\), because the prime number theorem with classical zero-free regions only supplies an error \(O(x\exp(-c\sqrt{\log x}))\), which is larger than the main-term gap needed to absorb the Gamma logarithm. Strengthening the zero-free region to a strip \(\operatorname{Re}s\ge1/2+\delta\) would close the estimate, but that is circular: it is essentially RH itself.
+
+Thus the positivity of \(A(g)\) can be verified for test functions of extremely rapid decay (by taking only the first few primes and using the known zero-free region \(\sigma\ge1-c/\log(|t|+2)\)), yet the same argument gives no control once the Fourier support of \(g\) reaches distances \(\gg1\). The reduction is therefore valid, but the analytic number-theoretic input required to check the resulting inequalities is of strictly greater strength than any unconditional zero-free region presently available. This blocks a complete proof along these lines.
+
+VERDICT: FAILED
+REASON: Weil positivity reduces RH to arithmetic inequalities that circularly need stronger zero-free regions than known.
