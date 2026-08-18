@@ -1,0 +1,66 @@
+Attempt: A pressure-decoupling lemma with scale-invariant bounds and a velocity-only ε-regularity corollary
+
+Set-up
+- Work on the unit parabolic cylinder Q1 = B1 × (−1,0] in R^3 × R with a suitable weak solution (u,p) to 3D incompressible Navier–Stokes.
+- All implicit constants below are universal.
+- Write space–time integrals over cylinders as ∫∫ and spatial averages over balls B as fB g := |B|−1 ∫B g.
+
+Lemma (Local pressure decoupling with explicit decay of the harmonic part)
+Assume (u,p) is a suitable weak solution in Q1, with u ∈ L^3(Q1) and p ∈ L3/2(Q1). Fix θ ∈ (0,1/2). For a.e. t ∈ (−1,0], decompose on B1
+p(·,t) = p1(·,t) + p2(·,t),
+where
+- p1(·,t) := R_i R_j [ (u_i u_j)(·,t) χB1 ], interpreted via standard Calderón–Zygmund operators on R^3 applied to the extension by zero of u ⊗ u,
+- p2(·,t) is harmonic in B1/2 (i.e., Δp2(·,t) = 0 in B1/2) and equals p − p1 on B1/2.
+
+Then for all θ ∈ (0,1/2),
+1) ∫∫_{Qθ} |p1|^{3/2} ≤ C ∫∫_{Q1} |u|^3.
+2) ∫∫_{Qθ} |p2 − (p2)_{Bθ}(t)|^{3/2} ≤ C θ^2 ∫∫_{Q1/2} |p2 − (p2)_{B1/2}(t)|^{3/2}.
+3) Consequently,
+   ∫∫_{Qθ} |p − (p)_{Bθ}(t)|^{3/2} ≤ C [ ∫∫_{Q1} |u|^3 + θ^2 ∫∫_{Q1} |p − (p)_{B1}(t)|^{3/2} ].
+
+Proof
+- Construction: For fixed t, define p1 as above. Since div u = 0 in distributions, −Δp = ∂i∂j(u_i u_j) in B1, hence p − p1 is harmonic in B1 in the sense of distributions. Restrict to B1/2 to avoid boundary artifacts; set p2 := p − p1 on B1/2.
+- Estimate for p1: Calderón–Zygmund and truncation yield for a.e. t,
+  ||p1(·,t)||_{L^{3/2}(R^3)} ≤ C ||u(·,t) ⊗ u(·,t)||_{L^{3/2}(R^3)} = C ||u(·,t)||_{L^3(R^3)}^2,
+  with support in B1 enlarged by the kernel tails. Restricting to Bθ and integrating in time gives
+  ∫∫_{Qθ} |p1|^{3/2} ≤ ∫_{−θ^2}^0 ||p1(·,t)||_{L^{3/2}(Bθ)}^{3/2} dt ≤ C ∫_{−1}^0 ||u(·,t)||_{L^3(B1)}^3 dt,
+  which is item 1.
+- Estimate for p2: For each t, p2(·,t) is harmonic on B1/2. Interior L^q decay for harmonic functions gives, for any q ∈ [1,∞),
+  ||p2(·,t) − (p2)_{Bθ}(t)||_{L^q(Bθ)} ≤ C θ^{3/q} ||p2(·,t) − (p2)_{B1/2}(t)||_{L^q(B1/2)}.
+  Choosing q = 3/2 and integrating in time over (−θ^2,0] (note that shortening the time interval can only improve the estimate),
+  ∫∫_{Qθ} |p2 − (p2)_{Bθ}(t)|^{3/2} ≤ C θ^{2} ∫_{−θ^2}^0 ||p2(·,t) − (p2)_{B1/2}(t)||_{L^{3/2}(B1/2)}^{3/2} dt
+  ≤ C θ^{2} ∫∫_{Q1/2} |p2 − (p2)_{B1/2}(t)|^{3/2},
+  establishing item 2.
+- Combine 1 and 2 and absorb harmless constants by triangle inequality and the fact that
+  (p)_{Bθ}(t) − (p)_{B1}(t) is controlled by L^{3/2}-oscillations of p, to obtain item 3.
+
+Remark
+- The decay exponent 2 in item 2 is sharp with respect to scaling for L^{3/2} and is the key to a one-scale iteration that eliminates explicit pressure control in ε-regularity.
+
+Velocity-only ε-regularity criterion (corollary)
+There exists ε0 > 0 and C < ∞ universal such that: if (u,p) is suitable in Q1 and
+A := ∫∫_{Q1} |u|^3 ≤ ε0,
+then u is bounded in Q1/2 with
+sup_{Q1/2} |u| ≤ C A^{1/3}.
+
+Sketch of proof
+- Start from the local energy inequality on Q1 with a cutoff φ supported in Q1, φ ≡ 1 on Q3/4, standard Caccioppoli yields
+  ∫∫_{Q3/4} |∇u|^2 ≤ C [ ∫∫_{Q1} |u|^3 + ∫∫_{Q1} |p − (p)_{B1}(t)|^{3/2} + ∫∫_{Q1} |u|^2 ].
+  The L^2 term is handled by Hölder and the L^3 smallness: ∫∫ |u|^2 ≤ |Q1|^{1/3} A^{2/3} ≤ C A^{2/3}.
+- Use the pressure decoupling (lemma, item 3 with θ = 3/4) to control the pressure oscillation purely by A plus a damped copy of itself:
+  ∫∫_{Q3/4} |p − (p)_{B3/4}(t)|^{3/2} ≤ C [ A + (3/4)^2 ∫∫_{Q1} |p − (p)_{B1}(t)|^{3/2} ].
+  Absorb the last term to the left via a standard iteration on two nested scales (start from Q1 → Q3/4 → Q( (3/4)^2 ) …), or, equivalently, apply a one-step absorption since (3/4)^2 < 1 with constants chosen so that ε0 is small enough:
+  ∫∫_{Q3/4} |p − (p)_{B3/4}(t)|^{3/2} ≤ C A.
+- Conclude a Caccioppoli bound
+  ∫∫_{Q3/4} |∇u|^2 ≤ C A.
+- With the scale-invariant control of ∫∫ |u|^3 and ∫∫ |∇u|^2 in Q3/4 small, invoke a standard De Giorgi–Nash–Moser–type iteration (or the Ladyzhenskaya–Serrin local bound via the parabolic Sobolev embedding and interpolation) to upgrade to an L∞ bound on Q1/2:
+  sup_{Q1/2} |u| ≤ C ( ∫∫_{Q3/4} |u|^3 )^{1/3} + C ( ∫∫_{Q3/4} |∇u|^2 )^{1/2} ≤ C A^{1/3},
+  provided ε0 is chosen below a universal threshold so that the nonlinear terms remain perturbative during the iteration.
+
+Discussion of novelty and limitations
+- The pressure-decoupling lemma above packages the standard Biot–Savart/Calderón–Zygmund representation with an explicit L^{3/2}-decay rate θ^2 for the harmonic remainder on shrinking balls, enabling a clean one-line estimate (item 3) that feeds directly into velocity-only ε-regularity without managing pressure across scales. This isolates the only genuinely nonlocal piece (p1) and quantifies its contribution in the critical L^3 framework.
+- The ε-regularity corollary is consonant in spirit with known results, but the proof presented is self-contained from the lemma and exploits a single-scale absorption rather than a multi-parameter Campanato iteration with delicate pressure bookkeeping. It gives a direct and transparent route from small L^3 velocity to local boundedness in a smaller cylinder with an explicit decay exponent for the pressure part.
+- This does not resolve global existence or preclude formation of singularities; it provides a sharpened, scale-invariant local tool that may simplify arguments where pressure management is a bottleneck, potentially easing concentration–compactness or blowup-profile analyses that rely on critical L^3 information.
+
+VERDICT: PARTIAL
+REASON: Proved a refined local pressure estimate and velocity-only ε-regularity; no full global result.

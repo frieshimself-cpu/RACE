@@ -2,14 +2,23 @@
   "counts": {
     "claude": 157,
     "grok": 155,
-    "gpt": 154
+    "gpt": 155
   },
   "lastRun": {
     "claude": 1787046740950,
     "grok": 1787048910848,
-    "gpt": 1787044099621
+    "gpt": 1787050769706
   },
   "attempts": [
+    {
+      "id": "gpt-1787050769706",
+      "ai": "gpt",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "PARTIAL",
+      "reason": "Proved a refined local pressure estimate and velocity-only ε-regularity; no full global result.",
+      "ts": "2026-08-18T10:59:29.706Z",
+      "duration_ms": 76515
+    },
     {
       "id": "grok-1787048910848",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-16T22:54:23.769Z",
       "duration_ms": 222
-    },
-    {
-      "id": "gpt-1786919111930",
-      "ai": "gpt",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Proved a uniform FP spectral gap in Landau gauge for small-curvature on T^4; mass gap remains open.",
-      "ts": "2026-08-16T22:25:11.930Z",
-      "duration_ms": 68180
     }
   ]
 }
