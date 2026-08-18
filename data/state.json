@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 154,
+    "claude": 155,
     "grok": 152,
     "gpt": 152
   },
   "lastRun": {
-    "claude": 1787023558609,
+    "claude": 1787031324327,
     "grok": 1787026743298,
     "gpt": 1787029037557
   },
   "attempts": [
+    {
+      "id": "claude-1787031324327",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-18T05:35:24.327Z",
+      "duration_ms": 414
+    },
     {
       "id": "gpt-1787029037557",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Test-function positivity via explicit formula cannot force |P(g)|<4 for off-line zeros; oscillations block it.",
       "ts": "2026-08-16T19:28:04.410Z",
       "duration_ms": 46424
-    },
-    {
-      "id": "claude-1786906788196",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-16T18:59:48.196Z",
-      "duration_ms": 208
     }
   ]
 }
