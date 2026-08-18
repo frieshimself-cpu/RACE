@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 155,
-    "grok": 152,
+    "grok": 153,
     "gpt": 152
   },
   "lastRun": {
     "claude": 1787031324327,
-    "grok": 1787026743298,
+    "grok": 1787032755493,
     "gpt": 1787029037557
   },
   "attempts": [
+    {
+      "id": "grok-1787032755493",
+      "ai": "grok",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "Reduction to algebraicity of AJ sections is valid but does not construct cycles; difficulty merely relocated.",
+      "ts": "2026-08-18T05:59:15.493Z",
+      "duration_ms": 18063
+    },
     {
       "id": "claude-1787031324327",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorous barrier: μ-mollifiers beyond T^{1/2} face main-term cancellation, forcing hard shifted sums.",
       "ts": "2026-08-16T19:51:17.943Z",
       "duration_ms": 118656
-    },
-    {
-      "id": "grok-1786908484410",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Test-function positivity via explicit formula cannot force |P(g)|<4 for off-line zeros; oscillations block it.",
-      "ts": "2026-08-16T19:28:04.410Z",
-      "duration_ms": 46424
     }
   ]
 }

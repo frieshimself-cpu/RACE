@@ -1,0 +1,34 @@
+### Attempt: A reduction of the Hodge conjecture to the existence of certain rational sections of relative intermediate Jacobians
+
+Let \(X\) be a smooth complex projective variety of dimension \(n\). Write \(\operatorname{Hdg}^k(X)\) for the \(\mathbb{Q}\)-vector space of Hodge classes of codimension \(k\), i.e.
+\[
+\operatorname{Hdg}^k(X)\,:=\,H^{2k}(X,\mathbb{Q})\cap F^kH^{2k}(X,\mathbb{C}),
+\]
+where \(F^\bullet\) is the Hodge filtration. The cycle-class map
+\[
+\operatorname{cl}^k:\operatorname{CH}^k(X)_{\mathbb{Q}}\to\operatorname{Hdg}^k(X)
+\]
+is always well-defined; the Hodge conjecture asserts that it is surjective for every \(k\).
+
+Fix \(k\) with \(1\le k\le n/2\). Let \(\pi:\mathcal{X}\to B\) be a smooth projective morphism of smooth quasi-projective varieties whose geometric generic fibre is isomorphic to \(X\), and such that the monodromy representation
+\[
+\rho:\pi_1(B,b_0)\to\operatorname{Aut}\bigl(H^{2k}(X_b,\mathbb{Q})\bigr)
+\]
+has image of finite index in the full arithmetic monodromy group of the polarized Hodge structure on the primitive cohomology (such families exist by the existence of moduli spaces with level structure). Let \(\mathcal{J}^{2k-1}\to B\) be the relative intermediate Jacobian fibration associated with the variation of Hodge structure \(R^{2k-1}\pi_*\mathbb{Z}(k)\). A Hodge class \(\alpha\in\operatorname{Hdg}^k(X)\) determines, after possible finite base change, a flat section \(\sigma_\alpha\) of the local system \(R^{2k}\pi_*\mathbb{Q}(k)\) that lies in the Hodge filtration at every point; by the theorem of the fixed part this section is of type \((k,k)\) everywhere.
+
+The Abel–Jacobi map on the fibres yields a holomorphic section
+\[
+\nu(\alpha):B\to\mathcal{J}^{2k-1}
+\]
+of the intermediate Jacobian fibration (well-defined up to torsion after clearing denominators). We claim:
+
+**Lemma.** Suppose that for every such family \(\pi\) and every Hodge class \(\alpha\) the section \(\nu(\alpha)\) is algebraic (i.e., arises from a relative algebraic cycle on \(\mathcal{X}/B\) after a finite base change). Then the Hodge conjecture holds for \(X\).
+
+*Proof of the lemma.* Algebraicity of \(\nu(\alpha)\) means that there exists a relative cycle \(\mathcal{Z}\in\operatorname{CH}^k(\mathcal{X})_{\mathbb{Q}}\) whose fibrewise Abel–Jacobi image recovers \(\nu(\alpha)\). The cohomology class of \(\mathcal{Z}\) is then a flat section of \(R^{2k}\pi_*\mathbb{Q}(k)\) of type \((k,k)\). By the global invariant cycle theorem this class is the restriction of a class defined on a smooth compactification of \(\mathcal{X}\). Specializing to the original fibre \(X\) recovers a rational multiple of \(\alpha\) in the image of \(\operatorname{cl}^k\). Since \(\alpha\) was arbitrary, \(\operatorname{cl}^k\) is surjective.
+
+The reduction therefore converts the Hodge conjecture into a question about algebraicity of canonical sections of intermediate Jacobian fibrations. For \(k=1\) the intermediate Jacobian is an abelian scheme (the relative Picard variety) and the sections are known to be algebraic by the theorem of the fixed part plus the fact that the Néron–Severi group is discrete; this recovers the Lefschetz \((1,1)\)-theorem. For \(k\ge 2\) the intermediate Jacobian is in general only a complex torus bundle, not an abelian scheme, and no algebraicity criterion for its sections is available. In particular, the Griffiths intermediate Jacobian of a general quintic threefold has no non-trivial abelian subvarieties, so the corresponding sections cannot arise from abelian schemes; any proof of their algebraicity would require a genuinely new construction of cycles.
+
+Thus the reduction, while formally correct, merely relocates the difficulty: one must still produce algebraic cycles (now in families) from transcendental data. No such construction is supplied here, and standard techniques (normal functions, Deligne cohomology, spread-out arguments) fail to guarantee algebraicity once the intermediate Jacobian ceases to be algebraic.
+
+VERDICT: FAILED
+REASON: Reduction to algebraicity of AJ sections is valid but does not construct cycles; difficulty merely relocated.
