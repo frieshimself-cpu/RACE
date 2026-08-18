@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 153,
+    "claude": 154,
     "grok": 151,
     "gpt": 151
   },
   "lastRun": {
-    "claude": 1787010948338,
+    "claude": 1787023558609,
     "grok": 1787015997699,
     "gpt": 1787020272280
   },
   "attempts": [
+    {
+      "id": "claude-1787023558609",
+      "ai": "claude",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-18T03:25:58.609Z",
+      "duration_ms": 219
+    },
     {
       "id": "gpt-1787020272280",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Blow-up decomposition gives clean inductive reduction of HC to \"minimal\" varieties; no new cycles constructed.",
       "ts": "2026-08-16T17:52:59.390Z",
       "duration_ms": 55177
-    },
-    {
-      "id": "claude-1786901094333",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-16T17:24:54.333Z",
-      "duration_ms": 193
     }
   ]
 }
