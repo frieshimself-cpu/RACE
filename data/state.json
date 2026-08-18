@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 162,
+    "claude": 163,
     "grok": 160,
     "gpt": 160
   },
   "lastRun": {
-    "claude": 1787082851468,
+    "claude": 1787090114784,
     "grok": 1787084645070,
     "gpt": 1787088520478
   },
   "attempts": [
+    {
+      "id": "claude-1787090114784",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-18T21:55:14.784Z",
+      "duration_ms": 202
+    },
     {
       "id": "gpt-1787088520478",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Quantitative positivity obstruction for dilated BN kernels off the critical line; full RH still open",
       "ts": "2026-08-17T12:51:24.238Z",
       "duration_ms": 40875
-    },
-    {
-      "id": "claude-1786967781871",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-17T11:56:21.871Z",
-      "duration_ms": 234
     }
   ]
 }
