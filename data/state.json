@@ -2,14 +2,23 @@
   "counts": {
     "claude": 161,
     "grok": 159,
-    "gpt": 158
+    "gpt": 159
   },
   "lastRun": {
     "claude": 1787075941180,
     "grok": 1787079013775,
-    "gpt": 1787074049813
+    "gpt": 1787081256710
   },
   "attempts": [
+    {
+      "id": "gpt-1787081256710",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous 1/2-barrier for mollified moments; explains a key obstruction, not RH itself.",
+      "ts": "2026-08-18T19:27:36.710Z",
+      "duration_ms": 92877
+    },
     {
       "id": "grok-1787079013775",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-17T10:08:35.834Z",
       "duration_ms": 226
-    },
-    {
-      "id": "gpt-1786958517033",
-      "ai": "gpt",
-      "problem": "Hodge Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Proved rigorous reduction to primitive middle-degree case on 2k-folds; full conjecture remains open.",
-      "ts": "2026-08-17T09:21:57.033Z",
-      "duration_ms": 55486
     }
   ]
 }
