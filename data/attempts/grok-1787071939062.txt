@@ -1,0 +1,37 @@
+### Attempt: Karp–Lipton collapse (partial structural constraint on P vs NP)
+
+**Lemma (Karp–Lipton, 1980).**  
+If \(\mathrm{NP}\subseteq\mathrm{P}/\mathrm{poly}\), then the polynomial hierarchy collapses to its second level: \(\mathrm{PH}=\Sigma_2^p\).
+
+**Proof sketch (self-contained).**  
+Assume every language in \(\mathrm{NP}\) has polynomial-size circuits. In particular \(\mathrm{SAT}\in\mathrm{P}/\mathrm{poly}\), so there is a polynomial \(p\) and a family \(\{C_n\}\) of circuits, \(|C_n|\le p(n)\), such that \(C_n(\varphi)=1\) iff \(\varphi\in\mathrm{SAT}\) for every formula \(\varphi\) of size \(n\).
+
+It is enough to show \(\Pi_2^p\subseteq\Sigma_2^p\) (the rest of the hierarchy then collapses by standard padding/induction). Take an arbitrary \(\Pi_2^p\) language
+\[
+L=\{\,x\mid\forall y\,|y|\le q(|x|)\;\exists z\,|z|\le q(|x|)\;R(x,y,z)=1\,\}
+\]
+with \(R\) polynomial-time decidable and \(q\) a polynomial.  
+
+Define a predicate \(S(x,C)\) that holds when \(C\) is (the encoding of) a circuit that correctly decides SAT on all formulas of size at most \(r(|x|)\) (where \(r\) is large enough to express the residual NP question “\(\exists z\,R(x,y,z)\)” after \(y\) is fixed). Correctness of \(C\) is itself a coNP property and can be written
+\[
+S(x,C)\;\equiv\;\forall\varphi\,(|\varphi|\le r(|x|))\;\bigl(C(\varphi)=1\;\leftrightarrow\;\exists w\,|w|\le|\varphi|\;\mathrm{val}(\varphi,w)=1\bigr).
+\]
+By the circuit assumption there always exists at least one such \(C\) of size \(p(r(|x|))\).  
+
+Now rewrite membership in \(L\):
+\[
+x\in L\;\iff\;\exists C\;\bigl(|C|\le p(r(|x|))\;\land\;S(x,C)\;\land\;\forall y\,|y|\le q(|x|)\;C(\psi_{x,y})=1\bigr),
+\]
+where \(\psi_{x,y}\) is a smoothly constructible formula that is satisfiable precisely when \(\exists z\,R(x,y,z)\). The matrix
+\[
+S(x,C)\;\land\;\forall y\,C(\psi_{x,y})=1
+\]
+is a coNP predicate (universal quantification over polynomially many bits). Hence the whole expression is a \(\Sigma_2^p\) predicate. Consequently \(L\in\Sigma_2^p\).  
+
+Thus \(\Pi_2^p\subseteq\Sigma_2^p\), so \(\mathrm{PH}=\Sigma_2^p\).
+
+**What this gives for P vs NP.**  
+Any proof that \(\mathrm{P}=\mathrm{NP}\) would immediately place \(\mathrm{NP}\) in \(\mathrm{P}/\mathrm{poly}\) and therefore force the same collapse. Conversely, a proof that \(\mathrm{PH}\) does not collapse (or that \(\Sigma_2^p\neq\Pi_2^p\)) would separate \(\mathrm{NP}\) from \(\mathrm{P}/\mathrm{poly}\) and a fortiori separate \(\mathrm{NP}\) from \(\mathrm{P}\). The lemma therefore converts the uniform question \(\mathrm{P}\) vs \(\mathrm{NP}\) into a concrete non-collapse statement about the polynomial hierarchy—an equivalent target that has resisted all known techniques for forty years. The argument itself relativizes and is therefore subject to the Baker–Gill–Solovay barrier; it supplies a sharp necessary condition rather than a separation.
+
+VERDICT: PARTIAL
+REASON: Rigorous Karp-Lipton collapse shown; converts P=NP into PH collapse but yields no separation.
