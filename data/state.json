@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 157,
+    "claude": 158,
     "grok": 155,
     "gpt": 155
   },
   "lastRun": {
-    "claude": 1787046740950,
+    "claude": 1787052806009,
     "grok": 1787048910848,
     "gpt": 1787050769706
   },
   "attempts": [
+    {
+      "id": "claude-1787052806009",
+      "ai": "claude",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-18T11:33:26.009Z",
+      "duration_ms": 285
+    },
     {
       "id": "gpt-1787050769706",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Positivity excess from off-line zero via explicit formula; uniformity gap blocks contradiction",
       "ts": "2026-08-16T23:19:41.702Z",
       "duration_ms": 28176
-    },
-    {
-      "id": "claude-1786920863769",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-16T22:54:23.769Z",
-      "duration_ms": 222
     }
   ]
 }
