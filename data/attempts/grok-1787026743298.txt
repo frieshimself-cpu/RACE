@@ -1,0 +1,28 @@
+The Riemann xi-function admits the Hadamard factorization
+\[
+\xi(s)=\frac12\prod_{\rho}\Bigl(1-\frac s\rho\Bigr),
+\]
+where the product runs over the non-trivial zeros (counted with multiplicity) and converges uniformly on compact subsets of \(\mathbb C\) after the usual Weierstrass convergence factors are inserted. Taking the logarithmic derivative yields the identity
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\frac1{s-\rho}.
+\]
+The functional equation \(\xi(s)=\xi(1-s)\) forces the zeros to be symmetric with respect to the critical line. Consequently any zero \(\rho=\sigma+it\) with \(\sigma>1/2\) is accompanied by a distinct zero \(1-\rho\) with real part strictly less than \(1/2\).
+
+Assume for contradiction that such a pair exists and that \(\lvert t\rvert\) is minimal among all zeros off the critical line. Substitute \(s=1/2+it\) into the logarithmic derivative and separate real and imaginary parts. The contribution of the pair \(\{\rho,1-\rho\}\) to the real part is strictly negative:
+\[
+\operatorname{Re}\Bigl(\frac1{1/2+it-\rho}+\frac1{1/2+it-(1-\rho)}\Bigr)=-\frac{2(\sigma-1/2)}{(\sigma-1/2)^2+t^2}<0.
+\]
+All other zeros lie either on the critical line or farther from the real axis, so their collective contribution can be bounded by a rapidly convergent series whose absolute value is \(O((\log\lvert t\rvert)/\lvert t\rvert)\). The resulting strict inequality
+\[
+\operatorname{Re}\frac{\xi'}{\xi}\Bigl(\tfrac12+it\Bigr)<0
+\]
+contradicts the known asymptotic
+\[
+\operatorname{Re}\frac{\xi'}{\xi}\Bigl(\tfrac12+it\Bigr)=\tfrac12\log\frac{\lvert t\rvert}{2\pi}+O\Bigl(\frac1{\lvert t\rvert}\Bigr)>0
+\]
+for large \(\lvert t\rvert\). Hence no zero with real part greater than \(1/2\) can exist.
+
+(The error term in the asymptotic for \(\xi'/\xi\) is not strong enough to absorb the contribution of a possible multiple zero or a zero extremely close to the line; the argument therefore collapses precisely when the imaginary parts become unbounded.)
+
+VERDICT: FAILED
+REASON: Error term in \(\xi'/\xi\) asymptotic insufficient to rule out zeros arbitrarily far up the strip.
