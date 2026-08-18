@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 160,
+    "claude": 161,
     "grok": 158,
     "gpt": 158
   },
   "lastRun": {
-    "claude": 1787068854261,
+    "claude": 1787075941180,
     "grok": 1787071939062,
     "gpt": 1787074049813
   },
   "attempts": [
+    {
+      "id": "claude-1787075941180",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-18T17:59:01.180Z",
+      "duration_ms": 327
+    },
     {
       "id": "gpt-1787074049813",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Injectivity hypothesis on Hodge classes false; coniveau reduction collapses to known cases only",
       "ts": "2026-08-17T08:22:03.393Z",
       "duration_ms": 41092
-    },
-    {
-      "id": "claude-1786951580496",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-17T07:26:20.496Z",
-      "duration_ms": 204
     }
   ]
 }
