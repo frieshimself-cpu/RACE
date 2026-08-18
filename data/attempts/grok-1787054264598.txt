@@ -1,0 +1,39 @@
+## Attempt: A conditional reduction via a weighted Mellin transform of \(\Lambda\)
+
+Let \(\Xi(t) = \xi(1/2 + it)\) denote the completed Riemann \(\xi\)-function (entire of order 1, real on the real line, and even). The Riemann Hypothesis is equivalent to all zeros of \(\Xi\) being real. Write the logarithmic derivative via the Hadamard product
+\[
+\frac{\Xi'}{\Xi}(t) = \sum_{\rho} \frac{1}{t-\rho},
+\]
+where the sum runs over the non-trivial zeros of \(\zeta\) (counted with multiplicity) after the usual translation \(\rho = 1/2 + i\gamma\).
+
+Define the weighted Mellin transform (for \(\sigma > 0\) and a fixed smooth compactly supported test function \(\phi\in C_c^\infty((0,\infty))\) with \(\int_0^\infty\phi=1\))
+\[
+M_\phi(s) := \int_0^\infty x^{s-1}\phi(x)\Bigl(\sum_{n\le x}\Lambda(n) - x\Bigr)\,dx.
+\]
+Integration by parts and the explicit formula yield the identity
+\[
+M_\phi(s) = -\frac{\hat\phi(-is)}{s(s-1)} + \sum_{\rho}\frac{\hat\phi(-i(\rho-s))}{\rho-s} + E_\phi(s),
+\]
+where \(\hat\phi\) is the Fourier transform of \(\phi\circ\exp\) and the error \(E_\phi\) is an entire function of rapid decay in vertical strips coming from the trivial zeros and the archimedean factor (explicitly bounded by \(O_\phi((1+|s|)^{-N})\) for any \(N\)).
+
+**Lemma (conditional zero repulsion).**  
+Assume there exists a zero \(\rho_0 = \beta_0 + i\gamma_0\) with \(\beta_0 > 1/2\). Choose \(\phi\) so that \(\operatorname{supp}\hat\phi\subset[-T,T]\) with \(T=|\gamma_0|/2\). Then for \(s = \beta_0 + i\gamma_0 + \delta\) with \(0<\delta<\beta_0-1/2\),
+\[
+\bigl|M_\phi(s)\bigr| \ge c_\phi\,\frac{|\hat\phi(0)|}{\delta} - O_\phi\bigl((1+|\gamma_0|)^{-1}\bigr).
+\]
+In particular, if \(\delta\) is smaller than a constant depending only on \(\phi\) and the multiplicity of \(\rho_0\), the left-hand side cannot vanish.
+
+**Sketch of proof.** Isolate the term corresponding to \(\rho_0\) in the sum over zeros. All other zeros contribute a sum that is \(O(\sum_{\gamma\neq\gamma_0} T/(|\gamma-\gamma_0|+1))\), which is \(O(\log|\gamma_0|)\) by the classical zero-density bound \(N(T)=O(T\log T)\). The polar term \(1/(s(s-1))\) is absorbed into the same \(O\). The claimed lower bound follows at once from the triangle inequality once \(\delta\) is small enough that the isolated residue dominates.
+
+**Consequence for RH.**  
+If one could independently prove that \(M_\phi(s)=0\) throughout the half-plane \(\operatorname{Re}s>1/2\) (for a sufficiently rich family of \(\phi\)), the lemma would force every zero onto the critical line. The identity
+\[
+M_\phi(s) = \frac{\Gamma(s)\hat\phi(-is)}{2\pi i}\int_{(c)}\frac{\zeta'}{\zeta}(w)\frac{\Gamma(w-s)}{\Gamma(w)}\,dw
+\]
+(for \(c>1\)) shows that vanishing of \(M_\phi\) on \(\operatorname{Re}s>1/2\) is equivalent to a strong form of the prime-number theorem with an error smaller than any power of \(x\) after smoothing—precisely the statement known to be equivalent to RH. Thus the reduction is tautological: the analytic continuation and growth estimates needed to move the contour past \(\operatorname{Re}w=1/2\) already encode RH.
+
+**Where the argument stops.**  
+No new cancellation among the zeros is obtained; the lower bound merely recovers the classical fact that a zero off the line produces a detectable bias in the Chebyshev function after smoothing at scale \(1/|\gamma_0|\). Closing the gap would require an independent upper bound \(|M_\phi(s)|=o(1/\delta)\) that does not itself rely on zero-free information, which is unavailable by the same explicit formula.
+
+VERDICT: FAILED
+REASON: Reduction is circular; recovers only classical bias from off-line zeros, no new zero-free region.
