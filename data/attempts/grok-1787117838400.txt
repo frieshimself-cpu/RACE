@@ -1,0 +1,42 @@
+### Attempt: A conditional zero-free region via a truncated Euler product and explicit formula mismatch
+
+Let \(\zeta(s)\) denote the Riemann zeta function, \(s=\sigma+it\). Write the completed xi-function
+\[
+\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),
+\]
+which is entire of order 1 and satisfies \(\xi(s)=\xi(1-s)\). The non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\). Assume for contradiction that there exists a zero \(\rho_0=\beta+i\gamma\) with \(\beta>1/2\) and \(|\gamma|\) minimal among all such counterexamples (so the critical strip up to height \(|\gamma|\) obeys RH).
+
+Consider the truncated Euler product
+\[
+P_X(s)=\prod_{p\le X}(1-p^{-s})^{-1},\qquad X=\exp\bigl(c|\gamma|/\log|\gamma|\bigr)
+\]
+for a small absolute constant \(c>0\) to be fixed. Then
+\[
+\log\zeta(s)=\log P_X(s)+R_X(s),
+\]
+where the remainder admits the standard bound
+\[
+|R_X(s)|\ll\frac{X^{1-\sigma}}{(1-\sigma)\log X}+\frac{\log t}{\log X}
+\]
+uniformly for \(\sigma\ge1/2+\delta\) and \(t\le 2|\gamma|\), by partial summation on the von Mangoldt formula and the prime-number theorem with classical zero-free region.
+
+Now form the logarithmic derivative and compare with the explicit formula. Differentiating,
+\[
+\frac{\zeta'}{\zeta}(s)=\sum_{p\le X}\frac{\log p}{p^s-1}+R_X'(s).
+\]
+On the other hand the global explicit formula gives, for a smooth test function \(\phi\) supported in \([1,X]\) with \(\widehat\phi\) rapidly decaying,
+\[
+\sum_\rho\widehat\phi(\rho)=\widehat\phi(0)+\widehat\phi(1)-\sum_p\frac{\log p}{p}\phi(\log p)+O\bigl(e^{-c\sqrt{\log X}}\bigr).
+\]
+Insert a Fejér-type kernel concentrated at height \(\gamma\) whose Fourier transform is non-negative and peaks near \(\beta\). Because \(\beta>1/2\), the contribution of \(\rho_0\) (and its conjugate) produces a positive excess of size \(\asymp X^{\beta-1/2}/|\gamma|\) on the left-hand side, while the prime sum on the right is controlled by the truncated product \(P_X\) and is at most \(O(X^{\varepsilon})\) under the minimality assumption on \(\gamma\).
+
+Balancing the two sides forces
+\[
+X^{\beta-1/2}\ll|\gamma|\,X^{\varepsilon}+|\gamma|\,e^{-c\sqrt{\log X}}.
+\]
+Choosing \(c\) small enough that the exponential error is negligible and letting \(X\to\infty\) slower than any positive power of \(|\gamma|\) yields \(\beta\le1/2\), a contradiction.
+
+The gap in the argument is the unjustified passage from the truncated logarithmic derivative to the smoothed explicit formula: the error term \(R_X'\) is only known in \(L^1\) average, not pointwise at the single height \(t=\gamma\), and the Fejér kernel leaks mass into the region \(\sigma\le1/2\) where zeros are already known to exist. Closing the gap would require a new subconvex bound for \(\zeta'/\zeta\) on short intervals that is presently unavailable.
+
+VERDICT: FAILED
+REASON: Error term in truncated explicit formula uncontrolled pointwise; kernel leakage into critical line.
