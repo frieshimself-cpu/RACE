@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 164,
+    "claude": 165,
     "grok": 162,
     "gpt": 162
   },
   "lastRun": {
-    "claude": 1787095703858,
+    "claude": 1787106794551,
     "grok": 1787097286985,
     "gpt": 1787102167533
   },
   "attempts": [
+    {
+      "id": "claude-1787106794551",
+      "ai": "claude",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-19T02:33:14.551Z",
+      "duration_ms": 297
+    },
     {
       "id": "gpt-1787102167533",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "S_f(T) does not encode any information about the real parts β.",
       "ts": "2026-08-17T16:31:31.910Z",
       "duration_ms": 147717
-    },
-    {
-      "id": "grok-1786982179701",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Second-moment obstruction blocks classical Hilbert–Pólya operators; exotic spectra remain open",
-      "ts": "2026-08-17T15:56:19.701Z",
-      "duration_ms": 32398
     }
   ]
 }
