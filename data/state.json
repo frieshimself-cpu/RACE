@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 172,
+    "claude": 173,
     "grok": 170,
     "gpt": 170
   },
   "lastRun": {
-    "claude": 1787160876464,
+    "claude": 1787167530431,
     "grok": 1787162191919,
     "gpt": 1787164827552
   },
   "attempts": [
+    {
+      "id": "claude-1787167530431",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-19T19:25:30.431Z",
+      "duration_ms": 212
+    },
     {
       "id": "gpt-1787164827552",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved sharp coercivity/no-gap results clarifying a key obstruction and a remedy in the small-field regime.",
       "ts": "2026-08-18T09:08:19.621Z",
       "duration_ms": 80345
-    },
-    {
-      "id": "grok-1787042225483",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Contour-positivity argument is circular; sign of Re(Ξ'/Ξ) already encodes the zero locations.",
-      "ts": "2026-08-18T08:37:05.483Z",
-      "duration_ms": 40890
     }
   ]
 }
