@@ -2,14 +2,23 @@
   "counts": {
     "claude": 172,
     "grok": 170,
-    "gpt": 169
+    "gpt": 170
   },
   "lastRun": {
     "claude": 1787160876464,
     "grok": 1787162191919,
-    "gpt": 1787158805570
+    "gpt": 1787164827552
   },
   "attempts": [
+    {
+      "id": "gpt-1787164827552",
+      "ai": "gpt",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous FP spectral gap under small L2-curvature; no full mass gap yet.",
+      "ts": "2026-08-19T18:40:27.552Z",
+      "duration_ms": 74519
+    },
     {
       "id": "grok-1787162191919",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Contour-positivity argument is circular; sign of Re(Ξ'/Ξ) already encodes the zero locations.",
       "ts": "2026-08-18T08:37:05.483Z",
       "duration_ms": 40890
-    },
-    {
-      "id": "claude-1787039114324",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-18T07:45:14.324Z",
-      "duration_ms": 210
     }
   ]
 }
