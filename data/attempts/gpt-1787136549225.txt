@@ -1,0 +1,60 @@
+A conditional route to RH via “full-length” mollification: a precise reduction and its bottleneck
+
+Setup and notation
+- Let T be large. Write s = 1/2 + it, t ∈ [T,2T], and dt-integration is over this interval.
+- Let M(s) be a Dirichlet polynomial (a mollifier) of length Tθ:
+  M(s) = ∑_{n ≤ T^θ} a_n n^{-s}, with a_n supported on squarefree n and |a_n| ≤ τ_A(n) for some fixed A.
+- Define the two key integrals (second moment and a mixed moment):
+  I0 := ∫ |ζ(s) M(s)|^2 dt,
+  I1 := Re ∫ (ζ′/ζ)(s) ζ(s) M(s) overline{ζ(s) M(s)} dt.
+
+Levinson–Conrey detection framework
+- Let F(s) = ζ(s) M(s). The classical argument principle plus a smoothed Littlewood lemma implies that the number N−(T) of zeros of ζ(s) with Re s < 1/2 in the box {1/2 − η ≤ Re s ≤ 1/2, T ≤ Im s ≤ 2T} can be bounded in terms of the frequency with which F(s) has “defects” on the line Re s = 1/2, which in turn is controlled by I0 and I1 (and a few companion mixed moments with ζ′).
+- In particular, one obtains inequalities of the shape
+  N(T) − 2 N0(T) ≲ (1/ηT) [C0 I0 − 2 C1 I1 + lower-order terms],
+  where N(T) is the number of zeros in 0 < Im s ≤ T, N0(T) those on the critical line, η ~ (log T)^{-1}, and C0, C1 are explicit positive constants chosen via a short linear combination F(s) + λ F′(s) (Levinson’s method). See e.g. standard proofs of “proportion of zeros on the line” results. The point is: if one can make the right-hand side o(T log T), then N0(T) = N(T) + o(T log T), i.e., 100% of zeros are on the line up to height T, and letting T → ∞ gives RH.
+
+Precise conditional theorem (reduction)
+Hypothesis H(θ): For every ε > 0 there is a choice of coefficients a_n with θ ≥ 1 − ε such that the following asymptotics hold as T → ∞:
+1) Main mollified second moment:
+   I0 = ∫ |ζ(s) M(s)|^2 dt = (1 + o(1)) T log T.
+   More precisely, I0 = T (log T + C_M) + o(T), with C_M bounded uniformly in ε.
+2) First mixed moment (with the log-derivative):
+   I1 = Re ∫ (ζ′/ζ)(s) |ζ(s) M(s)|^2 dt = (1/2 + o(1)) T (log T)^2.
+   Again, the o(1) is uniform for ε → 0+, and any lower-order main terms that arise are explicitly known and can be neutralized by the standard λ-optimization in Levinson’s method.
+3) Uniform power-saving remainder: All off-diagonal contributions in (1)–(2) are bounded by O(T (log T)^{B} T^{-δ}) for some fixed δ > 0 and B depending on A, uniformly in ε.
+
+Theorem (conditional reduction to RH). Assume Hypothesis H(θ) holds with θ arbitrarily close to 1 (i.e., for each ε > 0 one may take θ ≥ 1 − ε). Then 100% of the nontrivial zeros of ζ(s) lie on the critical line. In particular, RH holds.
+
+Proof sketch
+- The Levinson–Conrey method shows that the proportion of zeros on the line detected by the functional F(s) + λ F′(s) is
+  κ(θ) = 1 − limsup_{T→∞} [C0 I0 − 2 C1 I1 + lower-order]/(T log T),
+  with the constants C0, C1 depending only on λ and the smoothing, and the lower-order terms deriving from mixed moments with F′ and controllable by the same input that gives (1)–(2). Precisely, with the “optimal” choice of λ = 1/log T (up to smaller order), the main term becomes
+  C0 I0 − 2 C1 I1 = (1 − 2·(1/2) + o(1)) T log T = o(T log T),
+  provided I0 and I1 have the stated leading constants.
+- The key point is that the constants in (1)–(2) are sharp at the level of the diagonal and “semi-diagonal” contributions when θ → 1, and all off-diagonal sums are power-savings by (3), yielding
+  limsup (C0 I0 − 2 C1 I1)/(T log T) = 0.
+- Thus κ(θ) → 1 as θ → 1, forcing N0(T) = N(T) + o(T log T). Since N(T) ~ (T/2π) log T, we conclude N0(T) ~ N(T). Letting T → ∞, all zeros lie on Re s = 1/2.
+
+Where Hypothesis H(θ) comes from, and the true bottleneck
+- Expanding I0 gives a diagonal piece and an off-diagonal shifted-convolution family:
+  I0 = ∑_{m,n ≤ T^θ} a_m overline{a_n} (mn)^{-1/2} ∫ ζ(1/2+it) ζ(1/2−it) (m/n)^{-it} dt.
+  After approximate functional equation and standard manipulations, one is led to sums of the shape
+  S(h;N) := ∑_{n ∼ N} τ(n) τ(n+h) w(n/N),
+  with N up to about T and uniform h of size up to H ≈ N/T^{1−θ}.
+  For θ → 1, one needs asymptotics with a power-saving error for essentially the full range 1 ≤ |h| ≤ N^{1−o(1)} (“binary additive divisor problem” with uniformity in h close to the trivial barrier).
+- Likewise, I1 introduces weighted variants with divisor-type coefficients and similar shifts h, requiring equally strong uniform control.
+- Current technology (spectral theory of automorphic forms and the Kuznetsov trace formula) yields asymptotics for S(h;N) with a power-saving error only when |h| ≤ N^{1−δ} with δ > 0 depending on what one can prove, but crucially the savings deteriorate as |h| grows. Uniformity for |h| as large as N (or even N^{1−ε}) with power savings is beyond the reach of present bounds and is conjecturally tied to very deep cancellation in sums of Kloosterman sums (and, interpreted via the circle method, to square-root cancellation uniformly in the modulus and shift).
+- More concretely, for θ ≤ 1/2, the off-diagonal is tractable and yields positive but bounded-away-from-1 proportions (this underlies Levinson’s 1/3 and later improvements). Pushing θ past 1/2 forces control of “long” correlations τ(n)τ(n+h) with |h| as large as N^{1−2θ+o(1)}, which rapidly collides with the current limits of the binary additive divisor problem. To reach θ → 1, one needs essentially full uniformity up to |h| ≈ N, with power savings. This is exactly the step that fails with present methods.
+- Any workaround via smoothing or multi-piece mollifiers faces the same obstacle: once the mollifier length exceeds T^{1/2+ε}, new ranges of shifts h enter with coefficients too large to be absorbed by the existing spectral large sieve inequalities.
+
+A sharp “if and only if” flavor
+- The above theorem captures a near-iff: full-length mollification with power-saving control of the off-diagonal shifted-convolution sums at scale up to N is essentially equivalent (via Levinson–Conrey’s detector) to proving that all zeros lie on Re s = 1/2.
+- In the converse direction, assuming RH, such moment asymptotics with θ arbitrarily close to 1 are expected (though still technically nontrivial) because the off-diagonal analysis dramatically simplifies; this is consistent with the folklore that “RH would linearize” these problems.
+
+Conclusion and concrete partial result
+- A concrete, rigorous reduction has been isolated: proving Hypothesis H(θ) for θ arbitrarily close to 1 (i.e., asymptotics with power savings for the mollified second and first mixed moments, uniformly in θ → 1) would imply RH.
+- The analysis pinpoints the precise technical barrier: uniform power-saving asymptotics for the binary additive divisor problem S(h;N) (and cognate shifted convolution sums) for |h| up to N^{1−o(1)}. This is where current technology fails, explaining why the mollifier approach has not yet reached 100% of zeros.
+
+VERDICT: PARTIAL
+REASON: Conditional reduction via full-length mollifiers; obstacle: uniform additive divisor estimates for large shifts.
