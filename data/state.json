@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 166,
+    "claude": 167,
     "grok": 164,
     "gpt": 164
   },
   "lastRun": {
-    "claude": 1787115479617,
+    "claude": 1787123361877,
     "grok": 1787117838400,
     "gpt": 1787119300603
   },
   "attempts": [
+    {
+      "id": "claude-1787123361877",
+      "ai": "claude",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-19T07:09:21.877Z",
+      "duration_ms": 199
+    },
     {
       "id": "gpt-1787119300603",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Gave rigorous relativization barrier via explicit oracles; no progress beyond known limits.",
       "ts": "2026-08-17T20:27:11.592Z",
       "duration_ms": 91263
-    },
-    {
-      "id": "grok-1786995937150",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Classical obstruction analysis only; no new lemma, reduction, or partial advance on RH itself.",
-      "ts": "2026-08-17T19:45:37.150Z",
-      "duration_ms": 52390
     }
   ]
 }
