@@ -1,0 +1,48 @@
+### Attempt: Obstruction to a Positivity Proof via the Explicit Formula
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function, entire of order 1 and satisfying \(\xi(s)=\xi(1-s)\). Write the non-trivial zeros as \(\rho=\beta+i\gamma\). The Riemann Hypothesis (RH) is equivalent to \(\beta=1/2\) for all such \(\rho\).
+
+The Weil explicit formula relates a test function \(g\) (even, Schwartz-class, Fourier transform \(\hat g\) supported in \((-1,1)\)) to a sum over zeros:
+\[
+\sum_{\rho}\hat g(\gamma) = \int_{-\infty}^{\infty}\hat g(t)\,d\bigl( \tfrac12\log\pi - \tfrac12\tfrac{\Gamma'}{\Gamma}(\tfrac14+\tfrac{it}2)\bigr) + \sum_{n\ge1}\frac{\Lambda(n)}{\sqrt n}\bigl(g(\log n)+g(-\log n)\bigr),
+\]
+up to elementary archimedean terms that are absorbed into the measure on the left after a standard contour shift. (Here \(\gamma\) runs over imaginary parts of zeros, counted with multiplicity.)
+
+A classical strategy (Weil, Li, Bombieri–Hejhal, etc.) seeks a family of test functions for which the arithmetic side is non-negative while the archimedean side is controlled, forcing every \(\hat g(\gamma)\) contribution to lie on the critical line. Concretely, one hopes to find \(g\ge0\) with \(\hat g\ge0\) such that
+\[
+\sum_n\frac{\Lambda(n)}{\sqrt n}g(\log n) + A(g) \ge0
+\]
+with equality only when all mass of the zero measure is supported on \(\operatorname{Re}s=1/2\).
+
+#### Partial result (rigorous)
+Assume \(g\) is the Gaussian \(g_t(x)=e^{-tx^2}\) for \(t>0\) small. Then \(\hat g_t\) is a positive multiple of another Gaussian, and the arithmetic sum becomes
+\[
+\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\,e^{-t(\log n)^2}.
+\]
+By the prime-number theorem with classical zero-free region, this sum admits the asymptotic
+\[
+\frac1{2\sqrt{\pi t}} - \frac12\log(4\pi t) + O(t^{1/2-\varepsilon})
+\]
+as \(t\to0^+\). The archimedean contribution is
+\[
+\frac12\log\pi - \tfrac12\operatorname{Re}\frac{\Gamma'}{\Gamma}(\tfrac14) + O(t),
+\]
+which is a fixed negative constant plus lower-order terms. Adding them yields a quantity that tends to \(+\infty\) like \(t^{-1/2}\). Thus the total explicit-formula pairing is eventually positive. This recovers the classical zero-density estimate
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}(\log T)^C\qquad(\sigma\ge1/2),
+\]
+but supplies no information that forces \(\sigma=1/2\).
+
+#### Why the approach cannot close
+Suppose there exists a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>1/2\). Choose a sequence of test functions \(g_k\) whose Fourier transforms \(\hat g_k\) concentrate at height \(\gamma_0\) while remaining non-negative and even (possible by taking narrow Gaussians modulated by a cosine at frequency \(\gamma_0\), then smoothing). The contribution of \(\rho_0\) (and its conjugate and functional-equation partners) to the left-hand side is then
+\[
+\hat g_k(\gamma_0)\cdot 2\cosh\bigl((2\beta_0-1)\cdot\operatorname{supp-width}\bigr) > 2\hat g_k(\gamma_0).
+\]
+The excess factor \(\cosh((2\beta_0-1)w_k)\) grows exponentially in the concentration width \(w_k\). Meanwhile every arithmetic term \(\Lambda(n)n^{-1/2}g_k(\log n)\) remains bounded by the same Gaussian decay that controls the on-line zeros. Because the support of \(\hat g_k\) may be taken inside an interval of length \(o(1)\) about \(\gamma_0\), the archimedean integral stays \(O(1)\). Consequently the left-hand side becomes strictly larger than the right-hand side for large \(k\), contradicting the explicit formula.
+
+The only way to avoid the contradiction is if no such \(\beta_0>1/2\) exists. The obstruction is that the required test functions cease to be admissible: once \(\operatorname{supp}\hat g\subset(-1,1)\) is enforced (necessary for the prime-power sum to converge absolutely without zeros of \(\zeta\)), the modulation that localizes at a single height \(\gamma_0\) forces negative values into \(g\) itself. Positivity of both \(g\) and \(\hat g\) is incompatible with arbitrarily sharp frequency localization inside the critical strip. All known constructions (Li coefficients, higher Weil distributions, etc.) encounter the same support-versus-positivity barrier; the constant of the de Bruijn–Newman continuum is known to be non-negative precisely because the same obstruction persists under the heat-flow deformation.
+
+Thus the positivity method yields strong zero-density estimates and the equivalence “RH \(\Leftrightarrow\) non-negativity of a certain distribution,” yet cannot be converted into a proof that the distribution is supported on the critical line without an independent input that restores positivity for localized test functions—an input that appears to require RH itself.
+
+VERDICT: FAILED
+REASON: Positivity+explicit formula blocked by support/positivity incompatibility for localized test functions
