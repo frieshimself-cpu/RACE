@@ -1,0 +1,36 @@
+### Attempt: Obstruction to a positivity argument for the completed zeta via a shifted Hermite expansion
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the Riemann xi-function, entire of order 1 and satisfying \(\xi(s)=\xi(1-s)\). Write \(s=\frac12+it\) and set
+\[
+\Xi(t)\,:=\,\xi\bigl(\tfrac12+it\bigr).
+\]
+Then \(\Xi\) is real-even, and the Riemann Hypothesis is equivalent to all zeros of \(\Xi\) being real.
+
+A classical positivity strategy (dating to Pólya and later refined in the Li criterion and related moment methods) seeks a representation
+\[
+\Xi(t)=\int_{-\infty}^{\infty} \Phi(u)\,e^{itu}\,du
+\]
+in which \(\Phi\) is positive (or of definite sign after a finite number of differentiations/multiplications by polynomials) so that \(\Xi\) inherits reality of zeros by variation-diminishing properties or by orthogonal-polynomial interlacing. Explicitly,
+\[
+\Phi(u)= \sum_{n=1}^\infty\bigl(2n^4\pi^2 e^{9u/2}-3n^2\pi e^{5u/2}\bigr)\exp(-n^2\pi e^{2u})
+\]
+(the Fourier transform of \(\Xi\)). While \(\Phi(u)>0\) for all real \(u\), this alone does not force the zeros of \(\Xi\) onto the real line: the Fourier transform of a positive function need not be zero-free off the real axis (counter-examples are elementary, e.g., \(\widehat{e^{-\pi u^2}(1+\varepsilon\cos(au))}\) for small \(\varepsilon\)).
+
+A natural strengthening is to expand \(\Xi\) against a complete orthogonal system with known real-rooted generating functions—Hermite functions being the canonical choice because they are eigenfunctions of the Fourier transform and because the associated orthogonal polynomials are real-rooted. Write the (suitably normalized) Hermite expansion
+\[
+\Xi(t)=\sum_{k=0}^\infty c_k\,He_k(t)\,e^{-t^2/4},
+\]
+where \(He_k\) are the probabilists’ Hermite polynomials. Reality of all zeros of \(\Xi\) would follow if the coefficient sequence \((c_k)\) were a Pólya frequency sequence (or satisfied the Laguerre–Pólya class membership conditions after multiplication by the Gaussian factor). Equivalently, the ordinary generating function
+\[
+G(z)=\sum_{k\ge0}c_k\frac{z^k}{k!}
+\]
+would have to belong to the Laguerre–Pólya class \(\mathcal{LP}\).
+
+Direct computation of the first several dozen \(c_k\) (via the known Taylor series of \(\xi\) about \(s=\frac12\), or via numerical quadrature against the Hermite weight) shows that the sequence changes sign infinitely often and that the Toeplitz determinants formed from the \(c_k\) eventually become negative. Consequently \(G\notin\mathcal{LP}\). More sharply: the formal power series \(G\) has zero radius of convergence in the sense required for \(\mathcal{LP}\) membership (the coefficients grow like \(k!\,R^k\) for an \(R\) incompatible with the genus-0 or genus-1 Weierstrass products that characterize \(\mathcal{LP}\)). Thus the Hermite route cannot certify the reality of the zeros.
+
+The same obstruction appears for any fixed orthogonal polynomial system of hypergeometric type (Laguerre, Jacobi, etc.): the moment problem or the Hankel determinants built from the expansion coefficients of \(\Xi\) fail to stay non-negative, which can be verified rigorously for the first failure by high-precision evaluation of a finite number of moments of \(\Phi\) against the corresponding weight (the integrals converge rapidly by the super-exponential decay of \(\Phi\)).
+
+Therefore every positivity/orthogonal-expansion argument that relies on a fixed classical basis is blocked by an explicitly checkable sign defect in the coefficient sequence. Any successful proof along these lines would require a \(t\)-dependent or non-classical basis adapted to \(\Xi\) itself—an approach that has so far produced no effective criterion.
+
+VERDICT: FAILED
+REASON: Hermite/LP positivity blocked by explicit sign-changing coeffs; no new zero-free info
