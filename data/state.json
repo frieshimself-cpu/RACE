@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 170,
+    "claude": 171,
     "grok": 168,
     "gpt": 168
   },
   "lastRun": {
-    "claude": 1787147461343,
+    "claude": 1787154579437,
     "grok": 1787150048782,
     "gpt": 1787151910214
   },
   "attempts": [
+    {
+      "id": "claude-1787154579437",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-19T15:49:39.437Z",
+      "duration_ms": 212
+    },
     {
       "id": "gpt-1787151910214",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a localized explicit formula with L2 zero-term bounds; no direct resolution of RH.",
       "ts": "2026-08-18T04:57:17.557Z",
       "duration_ms": 64413
-    },
-    {
-      "id": "grok-1787026743298",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Error term in \\(\\xi'/\\xi\\) asymptotic insufficient to rule out zeros arbitrarily far up the strip.",
-      "ts": "2026-08-18T04:19:03.298Z",
-      "duration_ms": 25006
     }
   ]
 }
