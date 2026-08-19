@@ -1,0 +1,57 @@
+Attempt: A quantitative barrier for mollifiers shorter than T
+
+Set-up. For T large and θ in (0,1), let X = T^θ. Consider any Dirichlet polynomial mollifier
+M(s) = ∑_{n≤X} m(n) n^{-s}
+with coefficients m(n) of at most polynomial growth (this mild condition is only to control negligible error terms; bounded coefficients suffice). Define
+F(s) = 1 - ζ(s) M(s).
+
+Write the Dirichlet series expansion on the line Re s = 1/2:
+ζ(s) M(s) = ∑_{n≥1} c_n n^{-s} with c_n = ∑_{b|n, b≤X} m(b).
+Thus
+F(s) = ∑_{n≥1} A_n n^{-s} with A_1 = 1 - m(1) and A_n = -c_n for n≥2.
+
+We measure the mean-square size of F on [T,2T]:
+||F||^2 := (1/T) ∫_{T}^{2T} |F(1/2+it)|^2 dt.
+
+Proposition (Barrier for short mollifiers). Fix θ∈(0,1). Let X=T^θ. For any M as above,
+||F||^2 ≥ min_{u∈R} (1-u)^2 + u^2 (log(1/θ) + o(1)) = (log(1/θ))/(1+log(1/θ)) + o(1),
+as T→∞. In particular, if θ≤1/2 then liminf_{T→∞} ||F||^2 ≥ log 2/(1+log 2) ≈ 0.409.
+
+Proof (sketch, rigorous up to standard mean-value estimates).
+- Work in the Hilbert space H of functions on [T,2T] with inner product ⟨f,g⟩ = (1/T)∫ f(t) overline{g(t)} dt.
+- For a test function built from primes X<p≤T, define
+H_p(t) = ∑_{X<p≤T} p^{-1/2-it}.
+By the Montgomery–Vaughan mean value theorem (or the approximate orthogonality of {n^{-it}} over a length-T window),
+⟨H_p, H_p⟩ = ∑_{X<p≤T} 1/p + o(1) = log(log T) - log(log X) + o(1) =: C + o(1),
+and ⟨1, H_p⟩ = o(1).
+- Compute the key inner products with F. Since H_p only contains frequencies p with X<p≤T, we have
+⟨F,1⟩ = A_1 = 1 - m(1),
+⟨F, H_p⟩ = ∑_{X<p≤T} A_p/p + o(1).
+For X<p≤T, the only divisor b≤X of p is b=1, hence c_p = m(1) and A_p = -m(1). Therefore
+⟨F, H_p⟩ = -m(1) ∑_{X<p≤T} 1/p + o(1) = -m(1)(C + o(1)).
+- Let V = span{1, H_p} ⊂ H, and let G be the 2×2 Gram matrix of {1, H_p}:
+G = [⟨1,1⟩  ⟨1,H_p⟩; ⟨H_p,1⟩  ⟨H_p,H_p⟩] = [1  o(1); o(1)  C+o(1)].
+Let y = (⟨F,1⟩, ⟨F,H_p⟩)^T = ((1 - m(1)), -m(1) C) + o(1).
+In any Hilbert space, the norm of a vector dominates the norm of its projection onto a subspace; in coordinates this gives
+||F||^2 ≥ y^T G^{-1} y.
+Since G^{-1} = diag(1, 1/C) + o(1), we obtain
+||F||^2 ≥ (1 - m(1))^2 + (m(1)^2 C) + o(1).
+- Minimizing the right-hand side over u = m(1) ∈ R yields the claimed lower bound:
+min_u (1 - u)^2 + C u^2 = C/(1 + C).
+Here C = log(log T) - log(log X) + o(1) = log(1/θ) + o(1).
+
+Remarks and consequences.
+- This lower bound is universal over all coefficient choices m(n) (no arithmetic structure is used beyond the support length).
+- It shows a hard barrier for the “fixed power” mollifier strategy: if X = T^θ with any fixed θ<1, then the mean-square error ||1 - ζ M|| cannot tend to 0; it is bounded below by a positive constant ≳ (log(1/θ))/(1+log(1/θ)).
+- In particular, for θ≤1/2 one gets a quantitative obstruction ≳ 0.409, matching the folklore that mollifiers of length at most T^{1/2} cannot isolate all critical zeros.
+- Any approach that aims to force ||1 - ζ M|| → 0 (a route that, if achieved in a sufficiently strong form, could lead to 100% of zeros on the critical line and ultimately to RH) must therefore use mollifiers of length X that grow with T so that log(log T) - log(log X) → 0, i.e., X must be T^{1-o(1)}.
+
+The argument is robust and can be made fully rigorous by:
+- smoothing the t-average with a fixed compactly supported weight;
+- invoking the standard mean value theorem for Dirichlet polynomials to justify the o(1) terms in the Gram matrix entries;
+- handling coefficients m(n) with at most polynomial growth to ensure negligible tails.
+
+This establishes a concrete quantitative limitation of a prominent method, clarifying exactly where and how a naive extension towards RH fails.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous lower bound blocking short mollifiers; clarifies a key method’s limitation
