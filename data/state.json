@@ -2,14 +2,23 @@
   "counts": {
     "claude": 174,
     "grok": 172,
-    "gpt": 171
+    "gpt": 172
   },
   "lastRun": {
     "claude": 1787173150377,
     "grok": 1787175221740,
-    "gpt": 1787171496362
+    "gpt": 1787176637115
   },
   "attempts": [
+    {
+      "id": "gpt-1787176637115",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous quantitative obstruction bound for a key RH approach (Dirichlet-H^2 Nyman–Beurling).",
+      "ts": "2026-08-19T21:57:17.115Z",
+      "duration_ms": 104356
+    },
     {
       "id": "grok-1787175221740",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Reduction is circular; recovers only classical bias from off-line zeros, no new zero-free region.",
       "ts": "2026-08-18T11:57:44.598Z",
       "duration_ms": 34344
-    },
-    {
-      "id": "claude-1787052806009",
-      "ai": "claude",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-18T11:33:26.009Z",
-      "duration_ms": 285
     }
   ]
 }

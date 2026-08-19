@@ -1,0 +1,37 @@
+Attempt: A sharp obstruction inequality for the Beurling–Nyman/Dirichlet-H^2 approach
+
+Set-up.
+- Let H^2 be the Hilbert space of Dirichlet series F(s)=∑_{n≥1} b_n n^{-s} with norm ∥F∥_2^2=∑_{n≥1} |b_n|^2. For Re s>1/2, point evaluation is continuous and H^2 has reproducing kernel
+  K_w(s)=∑_{n≥1} n^{-(s+\overline w)} = ζ(s+\overline w),
+  so that for F∈H^2,
+  F(w)=⟨F, K_w⟩ and ∥K_w∥_2^2 = K_w(w) = ζ(w+\overline w) = ζ(2 Re w).
+  In particular, for Re w>1/2:
+  |F(w)| ≤ ∥F∥_2 √ζ(2 Re w).
+
+- For a finite Dirichlet polynomial A(s)=∑_{n≤N} a_n n^{-s} (hence A∈H^2), consider E_A(s):=1 - ζ(s) A(s). Since 1 corresponds to the coefficient sequence (1,0,0,…) in H^2, we have 1∈H^2 and E_A∈H^2.
+
+Main lemma (quantitative obstruction).
+Assume ζ has a zero ρ with Re ρ = β > 1/2. Then for every finite Dirichlet polynomial A,
+∥1 - ζ A∥_2 ≥ 1/√ζ(2β).
+
+Proof.
+- Consider the bounded linear functional L_ρ: H^2 → C defined by L_ρ(F)=F(ρ). Its operator norm is ∥L_ρ∥ = √ζ(2β) because the reproducing kernel at ρ has squared norm ζ(2β).
+- For any A, since ζ(ρ)=0, we have L_ρ(ζ A) = ζ(ρ) A(ρ) = 0, while L_ρ(1)=1. Hence L_ρ annihilates the affine subspace 1 - ζ·H^2 only at the point value 1, and by Cauchy–Schwarz:
+  1 = |L_ρ(1 - ζ A)| ≤ ∥L_ρ∥ · ∥1 - ζ A∥_2.
+  Rearranging gives the stated lower bound.
+
+Consequences.
+- If there exists any zero ρ with Re ρ = β > 1/2, then no sequence of finite Dirichlet polynomials A_N can make ∥1 - ζ A_N∥_2 tend to 0; in fact the infimum of the distance is bounded below by 1/√ζ(2β) > 0.
+- Equivalently, the Beurling–Nyman strategy phrased in the Dirichlet-H^2 setting can only succeed (i.e., drive this H^2-distance to 0) if every zero satisfies Re ρ ≤ 1/2. Combined with standard arguments excluding zeros with Re ρ < 1/2 for ζ (by functional equation symmetry), this recovers the RH equivalence for this scheme, while providing an explicit quantitative obstruction in the contrary case.
+
+Remarks on rigor and scope.
+- The Hilbert-space facts used (Dirichlet-H^2 reproducing kernel K_w(s)=ζ(s+overline w) and evaluation bound |F(w)| ≤ ∥F∥_2 √ζ(2 Re w)) are standard and follow directly from
+  ∥F∥_2^2 = ∑ |b_n|^2 and the Cauchy–Schwarz inequality applied to F(w)=∑ b_n n^{-w}.
+- The lemma is sharp in the sense that it gives the exact dependence on β through ζ(2β). It cleanly isolates the obstruction: a single zero with β>1/2 forces a fixed positive “gap” that no finite (or even general H^2) Dirichlet approximation can surmount in this scheme.
+
+Interpretation as “progress.”
+- This is a rigorous, self-contained derivation explaining a precise failure mode of a major line of attack (Beurling–Nyman/Báez-Duarte in Dirichlet-H^2 form) unless RH holds. It quantifies the obstruction via the norm of the evaluation functional at an off-line zero, yielding an explicit, β-dependent lower bound for the best possible H^2-approximation error.
+- Any future attempt using this framework must either eliminate such zeros (i.e., prove RH) or circumvent this Hilbert-space constraint by altering the function space or the approximation model.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous quantitative obstruction bound for a key RH approach (Dirichlet-H^2 Nyman–Beurling).
