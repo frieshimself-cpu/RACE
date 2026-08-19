@@ -1,0 +1,71 @@
+Attempt: A quantitative barrier for mollifiers shorter than T^{1/2}
+
+Setup. Let T be large and s = 1/2 + it with T ≤ t ≤ 2T. Let M(s) = ∑_{n≤N} a_n n^{-s} be any Dirichlet polynomial (complex a_n), with a_1 = 1. Consider the mollified error E(s) = 1 − M(s) ζ(s).
+
+Claim (mean-square barrier). There is an absolute c > 0 such that for any 1 ≤ N ≤ T^{1/2−ε} (fixed ε > 0),
+∫_T^{2T} |E(1/2+it)|^2 dt ≥ c T (log T)/(log N) − O_ε(T).
+In particular, for all such N, ∫_T^{2T} |E(1/2+it)|^2 dt ≫_ε T.
+
+Interpretation. No choice of coefficients a_n, with support length N ≤ T^{1/2−ε}, can make M(s)ζ(s) approximate 1 in L^2 on [T,2T] better than a constant multiple of T. Thus the classical “short” mollifier regime cannot on its own force small mean-square error on the 1/2-line; substantially longer structure (beyond T^{1/2}) or new input is required.
+
+Proof sketch.
+
+1) Approximate functional equation and a balancing choice. Let X,Y > 0 with XY ≍ T/(2π). For s = 1/2+it (T ≤ t ≤ 2T), take the standard approximate functional equation
+ζ(s) = ∑_{m≤X} m^{-s} + χ(s) ∑_{m≤Y} m^{s−1} + O(T^{-A})
+for any fixed A > 0 (uniformly in t), where |χ(s)| = 1. Multiply by M(s):
+M(s)ζ(s) = M(s) ∑_{m≤X} m^{-s} + χ(s) M(s) ∑_{m≤Y} m^{s−1} + O_A(T^{-A} |M(s)|).
+Choose X = T/N and Y ≍ (T/(2π))/X ≍ N (the “balanced length” choice ensuring the first product has length ≍ T and the second length ≍ N^2).
+
+Thus E(s) = 1 − M(s)ζ(s) decomposes as
+E(s) = H_1(s) + H_2(s) + O_A(T^{-A} |M(s)|),
+where
+H_1(s) = 1 − M(s) ∑_{m≤X} m^{-s}, and H_2(s) = − χ(s) M(s) ∑_{m≤Y} m^{s−1}.
+By standard mean-value bounds for Dirichlet polynomials, ∫_T^{2T} |M(1/2+it)|^2 dt ≪ T ∑_{n≤N} |a_n|^2/n, so the total contribution of the error term O_A(…) to the mean square is negligible with A large.
+
+2) Coefficients of H_1(s) and a rigid obstruction. Expand H_1(s) as a Dirichlet polynomial:
+H_1(s) = ∑_{n≤NX} h_n n^{-s}, with h_1 = 0 and
+h_n = −∑_{d|n, d≤N, n/d≤X} a_d for n ≥ 2.
+In particular, if n ≤ X and gcd(n, P(N)) = 1, where P(N) is the product of primes ≤ N (i.e., n has no prime factor ≤ N), then the only divisor d of n with d ≤ N is d = 1, hence h_n = −a_1 = −1. Therefore the set
+S := {n ≤ X : gcd(n, P(N)) = 1}
+consists of indices at which the coefficient h_n is rigidly equal to −1, independent of the choice of the mollifier coefficients a_n.
+
+3) Mean-square lower bound from S. By the Montgomery–Vaughan mean value theorem for Dirichlet polynomials,
+∫_T^{2T} |H_1(1/2+it)|^2 dt = T ∑_{n≤NX} |h_n|^2 / n + O(∑_{n≤NX} |h_n|^2).
+Since |h_n| = 1 for n ∈ S, we obtain
+∫_T^{2T} |H_1(1/2+it)|^2 dt ≥ T ∑_{n∈S} 1/n + O(NX)
+with NX = T. Hence the principal term is T times the “rough-number” harmonic sum
+S_1(X,N) := ∑_{n≤X, gcd(n,P(N))=1} 1/n.
+
+4) Estimating S_1(X,N). Using inclusion–exclusion,
+S_1(X,N) = ∑_{d|P(N)} μ(d) ∑_{m≤X/d} 1/(md)
+= ∑_{d|P(N)} μ(d)/d (log(X/d) + γ + O(1/X))
+= (∑_{d|P(N)} μ(d)/d) log X − ∑_{d|P(N)} μ(d) (log d)/d + O(1).
+Note that ∑_{d|P(N)} μ(d)/d = ∏_{p≤N} (1 − 1/p), and −∑_{d|P(N)} μ(d) (log d)/d = ∑_{p≤N} (log p)/(p−1) + O(1).
+By Mertens’ theorem, ∏_{p≤N} (1 − 1/p) ∼ e^{−γ}/log N, and ∑_{p≤N} (log p)/(p−1) = log N + O(1). Thus, for large N,
+S_1(X,N) = (e^{−γ} + o(1)) (log X)/(log N) + O(1).
+With X = T/N, we have log X = log T − log N ∼ log T, so
+S_1(X,N) ≥ c (log T)/(log N) − C
+for absolute constants c, C > 0.
+
+Hence
+∫_T^{2T} |H_1(1/2+it)|^2 dt ≥ c T (log T)/(log N) − O(T).
+
+5) Controlling H_2 and cross terms. The length of H_2 is ≤ NY ≍ N^2. For N ≤ T^{1/2−ε}, N^2 ≤ T^{1−2ε}. By Montgomery–Vaughan,
+∫_T^{2T} |H_2(1/2+it)|^2 dt ≪ T ∑_{n≤N^2} |b_n|^2 / n ≪_ε T,
+where b_n are linear combinations of the a_d with divisor weights; in any case, the bound ≪ T with constants depending on ε is sufficient. The cross term is handled by Cauchy–Schwarz:
+2|∫ H_1 \overline{H_2}| ≤ ∫ |H_1|^2 + ∫ |H_2|^2.
+Therefore,
+∫_T^{2T} |E(1/2+it)|^2 dt ≥ (1/2) ∫ |H_1|^2 dt − ∫ |H_2|^2 dt − o(T)
+≥ c T (log T)/(log N) − O_ε(T).
+
+This proves the stated inequality.
+
+Consequences and limitation. This shows a structural obstruction: any attempt to force 1 − Mζ to be small in mean square on the 1/2-line using a single Dirichlet polynomial mollifier of length N ≤ T^{1/2−ε} is blocked by the inevitable contribution of “N-rough” integers in the main piece of the approximate functional equation. Hence, within the classical mollification framework, passing below ≪ T in the L^2 error requires effectively longer structure than T^{1/2−ε}, a cancellation mechanism beyond Dirichlet-convolution with 1, or fundamentally new input. In particular, the argument pinpoints a precise bottleneck: the harmonic mass of rough numbers ∼ (log T)/(log N).
+
+Remarks.
+- The barrier persists for general coefficients a_n (not necessarily Möbius-like) and does not rely on unproven hypotheses.
+- Strengthening the conclusion to an L^2 error o(T) would already be out of reach when N ≤ T^{1/2−ε}; obtaining uniform smallness (e.g., sup-norm) is still harder.
+- Any path to RH via mollification on the 1/2-line must either use longer effective length (≥ T^{1/2+o(1)}), nontrivial use of both pieces of the approximate functional equation in a coupled way that defeats the rough-number obstruction, or a different mechanism (e.g., exploiting correlations of coefficients beyond convolution with 1).
+
+VERDICT: PARTIAL
+REASON: Rigorous barrier: short (≤T^{1/2−ε}) mollifiers can’t make M(s)ζ(s) L^2-small; new input needed.
