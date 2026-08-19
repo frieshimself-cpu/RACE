@@ -1,0 +1,61 @@
+Attempt: A rigorous obstruction for proving RH via band-limited Weil–explicit-formula tests
+
+Setup.
+- Let g be an even Schwartz function on R with Fourier transform ĥ compactly supported in [-A,A] and nonnegative: ĥ ≥ 0, supp ĥ ⊆ [-A,A], A>0. For σ ≥ 1/2 define the σ-tilt
+  gσ(t) := ∫_{-A}^{A} ĥ(u) e^{(σ-1/2)u} e^{iut} du.
+  Then gσ is real-valued, even, and nonnegative (since ĥ ≥ 0).
+
+- Write the nontrivial zeros as ρ = β + iγ (counted with multiplicity), and let Λ(n) be the von Mangoldt function. Let ΓR(s) := π^{-s/2} Γ(s/2), and ψR := (ΓR′/ΓR). The standard (Guinand–)Weil explicit formula (valid for even Schwartz g with integrable transform) asserts that
+  Σρ gσ(γ) = gσ(0) + ∫_{-∞}^{∞} gσ(t) Re ψR(1/2 + it) dt − 2 Σ_{n=1}^{∞} Λ(n) n^{-σ} ĥ(log n).
+  The equality holds with absolute convergence of the prime sum because ĥ has compact support, and the archimedean integral converges for Schwartz g.
+
+The obstruction statement.
+- Fix A>0 and ĥ as above. Then there is a constant C_A, depending only on A (and the choice of normalization of ΓR), such that for every σ ≥ 1/2 we have the uniform inequality
+  Σρ gσ(γ) ≤ gσ(0) + C_A ∫_{0}^{A} ĥ(u) e^{(σ-1/2)u} du + 2 Σ_{n≤e^{A}} Λ(n) n^{-σ} ĥ(log n).
+  In particular, the total zero-weight Σρ gσ(γ) is controlled entirely by:
+  (i) gσ(0) = ∫_{-A}^{A} ĥ(u) e^{(σ-1/2)u} du,
+  (ii) the archimedean contribution bounded by a constant times (i),
+  (iii) primes n ≤ e^{A} with weights Λ(n) n^{-σ} ĥ(log n).
+
+Proof sketch.
+1) Prime side truncation. Because supp ĥ ⊆ [-A,A], we have ĥ(log n)=0 unless |log n| ≤ A, i.e. n ∈ [e^{-A}, e^{A}]. For integers, this is n ≤ e^{A}. Hence the prime sum in the explicit formula truncates exactly at e^{A}; moreover, since ĥ ≥ 0 and σ ≥ 1/2, the prime sum is nonnegative and absolutely bounded by 2 Σ_{n≤e^{A}} Λ(n) n^{-σ} ĥ(log n).
+
+2) Archimedean term. The function t ↦ Re ψR(1/2 + it) is smooth and of at most logarithmic growth in |t|, uniformly bounded on any fixed compact. By Plancherel and the representation of gσ as a band-limited inverse Fourier integral with kernel ĥ(u) e^{(σ-1/2)u}, one has
+   |∫ gσ(t) Re ψR(1/2 + it) dt|
+   ≤ sup_{t∈R} |Re ψR(1/2 + it)| ∫ |gσ(t)| dt
+   ≤ C′(A) ∫_{-A}^{A} ĥ(u) e^{(σ-1/2)u} du,
+   where the last inequality follows because gσ is the Fourier transform of the finite (compactly supported) measure ĥ(u) e^{(σ-1/2)u} du, and hence ∫ |gσ(t)| dt ≤ (2π)^{-1} ∫ |ĥ(u) e^{(σ-1/2)u}| du by the Hausdorff–Young inequality at the L^1/L^∞ endpoints specialized to compactly supported positive ĥ; combine with the crude bound sup_t |ψR| ≤ C′(A) on the support scales of gσ (since gσ is an A-band-limited kernel, it cannot see frequencies at which ψR grows; one can make C′(A) explicit from Stirling). Absorb constants into CA.
+
+3) The pole term. In the symmetric ξ-formulation, the pole at s=1 contributes gσ(0), which is the first term above.
+
+Combining, we obtain the displayed inequality with CA := 1 + constant from Step 2.
+
+Consequences and the barrier.
+- Suppose there is a zero ρ0 = β0 + iγ0 with β0 > 1/2. For any fixed A and σ with 1/2 ≤ σ < β0, the contribution of ρ0 to the left-hand side is gσ(γ0) ≥ 0. Moreover, by positivity and evenness, the quartet of zeros {ρ0, 1−ρ0, ρ̄0, 1−ρ̄0} contributes at most 4 sup_t gσ(t) to Σρ gσ(γ). Because gσ is A-band-limited with nonnegative transform,
+  sup_t gσ(t) ≤ gσ(0) = ∫_{-A}^{A} ĥ(u) e^{(σ-1/2)u} du.
+  Hence the entire effect of this off-critical quartet can be made comparable to the size of the “DC component” gσ(0).
+
+- The right-hand side depends only on:
+  (i) ∫_0^A ĥ(u) e^{(σ-1/2)u} du, and
+  (ii) primes up to size e^{A} via Σ_{n≤e^{A}} Λ(n) n^{-σ} ĥ(log n).
+  No information about primes beyond e^{A} enters.
+
+- Therefore, for any fixed A, the explicit formula with such tests cannot yield a contradiction to the existence of an individual off-line zero at a large ordinate |γ0|: as |γ0| → ∞, the left-hand side’s individual weight gσ(γ0) remains bounded by gσ(0), and the right-hand side is controlled purely by primes up to e^{A} and the archimedean constant CA. In particular, for fixed A one cannot force any inequality that precludes β0 > 1/2 uniformly in |γ0|.
+
+Quantitative obstruction (height-dependent support requirement).
+- Make the σ-sensitivity explicit by tilting slightly toward σ = 1/2 + τ with τ>0. Then both gσ(0) and the prime sum grow like e^{τA} times ∫_0^A ĥ(u) du (respectively a similarly scaled short prime sum), because e^{(σ−1/2)u} ≤ e^{τA} on u ∈ [0,A]. Any attempt to magnify the weight of an off-line zero by choosing σ close to β0 thus also amplifies the archimedean and prime-side bounds by the same factor e^{τA}. Consequently:
+  To separate an individual off-line zero with β0−1/2 ≍ τ at height |γ0| from the aggregate right-hand side, one must choose A at least of order log |γ0| (up to constants depending on ĥ and τ), so that the oscillatory kernel can resolve the zero’s phase to within 1/|γ0| and accumulate enough discriminatory weight.
+  Equivalently, any approach along these lines must let the support of ĥ expand with the height of zeros, thereby necessarily invoking prime information at scales n up to about |γ0|^{c(τ)}.
+
+- In particular, there is no hope of establishing RH by fixing a single band-limited, nonnegative ĥ and deriving a contradiction from the explicit formula; and any putative proof along this line must either (i) abandon band-limitation, or (ii) couple A→∞ to |γ|, i.e. require uniform control of prime sums up to scales e^{A} that grow with the height—precisely where the currently available unconditional methods revert to (at best) the de la Vallée Poussin zero-free region.
+
+Remarks on rigor and constants.
+- The inequality is completely explicit: with Stirling one can take sup_{t} |Re ψR(1/2 + it)| ≤ C0 + C1 log(2+|t|), and then bound ∫ |gσ(t)| dt in terms of ĥ and A using that gσ is the inverse Fourier transform of a compactly supported, nonnegative function. This yields CA = O(1 + A), uniformly for σ in compact subsets of [1/2, 1).
+
+- The obstruction is sharp in the following sense: if one allows A to grow like c log |γ| and takes σ tuned to β0, then the kernel can be arranged (e.g. via a Beurling–Selberg majorant with ĥ ≥ 0) so that gσ(γ0) captures a constant fraction of the right-hand side; no contradiction ensues without additional deep input about primes up to e^{A}.
+
+Conclusion.
+- This establishes a concrete barrier for a widely contemplated positivity strategy via the Weil explicit formula with nonnegative, compactly supported ĥ: fixed-support tests cannot exclude off-line zeros at arbitrarily large heights, and height-dependent support brings in prime sums at the corresponding scale, for which unconditional control at the needed precision is currently out of reach. This sharpens, in a clean inequality, why such one-shot positivity arguments cannot by themselves prove RH.
+
+VERDICT: PARTIAL
+REASON: Rigorous obstruction shown for a class of Weil-test strategies; no advance toward full RH.

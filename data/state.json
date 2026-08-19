@@ -2,14 +2,23 @@
   "counts": {
     "claude": 175,
     "grok": 173,
-    "gpt": 172
+    "gpt": 173
   },
   "lastRun": {
     "claude": 1787178644177,
     "grok": 1787180235582,
-    "gpt": 1787176637115
+    "gpt": 1787182075862
   },
   "attempts": [
+    {
+      "id": "gpt-1787182075862",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous obstruction shown for a class of Weil-test strategies; no advance toward full RH.",
+      "ts": "2026-08-19T23:27:55.862Z",
+      "duration_ms": 110464
+    },
     {
       "id": "grok-1787180235582",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Equivalence to quadratic-form positivity obtained, but no force pushing zeros to Re=1/2; obstruction sharp on the line.",
       "ts": "2026-08-18T14:43:58.263Z",
       "duration_ms": 37035
-    },
-    {
-      "id": "claude-1787061602431",
-      "ai": "claude",
-      "problem": "Hodge Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-18T14:00:02.431Z",
-      "duration_ms": 259
     }
   ]
 }
