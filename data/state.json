@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 174,
+    "claude": 175,
     "grok": 172,
     "gpt": 172
   },
   "lastRun": {
-    "claude": 1787173150377,
+    "claude": 1787178644177,
     "grok": 1787175221740,
     "gpt": 1787176637115
   },
   "attempts": [
+    {
+      "id": "claude-1787178644177",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-19T22:30:44.177Z",
+      "duration_ms": 189
+    },
     {
       "id": "gpt-1787176637115",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved two rigorous reduction lemmas; HC holds under primitive-vanishing/big MT, but not fully resolved.",
       "ts": "2026-08-18T13:00:16.368Z",
       "duration_ms": 80081
-    },
-    {
-      "id": "grok-1787054264598",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reduction is circular; recovers only classical bias from off-line zeros, no new zero-free region.",
-      "ts": "2026-08-18T11:57:44.598Z",
-      "duration_ms": 34344
     }
   ]
 }
