@@ -1,0 +1,28 @@
+### Attempt: Obstruction to a positivity-based contradiction for off-line zeros
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function, entire of order 1, satisfying \(\xi(s)=\xi(1-s)\) and the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_{\rho}(1-s/\rho)
+\]
+(product over zeros of \(\xi\), counted with multiplicity). Write \(\rho=\beta+i\gamma\). The logarithmic derivative yields the explicit formula for the Chebyshev function:
+\[
+\psi(x)=x-\sum_{\rho}\frac{x^{\rho}}{\rho}-\log(2\pi)-\frac12\log(1-x^{-2}),
+\]
+valid for \(x>1\) not a prime power (in the sense of symmetric limits).
+
+Assume for contradiction that a zero \(\rho_0=\beta_0+i\gamma_0\) exists with \(\beta_0>1/2\). Pairing with the functional equation forces the symmetric zero \(1-\rho_0\) (and conjugates). The contribution of this pair to the explicit formula is
+\[
+\frac{x^{\rho_0}}{\rho_0}+\frac{x^{1-\rho_0}}{1-\rho_0}+ \text{c.c.}
+\]
+For large \(x\) the dominant term is of size \(\asymp x^{\beta_0}/|\gamma_0|\). If one could show that the remaining sum over all other zeros is \(o(x^{\beta_0})\) uniformly in short intervals, a sign contradiction with the elementary bound \(\psi(x)=x+O(x\exp(-c\sqrt{\log x}))\) (or even the weaker \(\psi(x)=x+o(x)\)) would follow for a suitable sequence of \(x\).
+
+The obstruction is the possible clustering of other zeros. The Riemann–von Mangoldt formula only controls the average density \(N(T)=\frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}+O(\log T)\). Without a zero-density estimate strong enough to guarantee
+\[
+\sum_{|\gamma-\gamma_0|<x^{\beta_0-1/2+\varepsilon}}\frac{1}{|\rho|}=o\bigl(x^{\beta_0-1}/|\gamma_0|\bigr),
+\]
+the secondary terms can cancel the putative main contribution of \(\rho_0\). All classical zero-density theorems (Ingham, Huxley, etc.) are too weak in the region \(\beta>1/2+\delta\) to rule out such cancellation when \(\beta_0\) is only slightly larger than \(1/2\). Improving the density estimates to the necessary strength is essentially equivalent in difficulty to a quasi-Riemann hypothesis, so the positivity argument does not close.
+
+Thus the explicit-formula approach yields no new zero-free strip.
+
+VERDICT: FAILED
+REASON: Explicit-formula positivity blocked by insufficient zero-density control near the critical line
