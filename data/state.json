@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 165,
+    "claude": 166,
     "grok": 163,
     "gpt": 163
   },
   "lastRun": {
-    "claude": 1787106794551,
+    "claude": 1787115479617,
     "grok": 1787110023995,
     "gpt": 1787113206534
   },
   "attempts": [
+    {
+      "id": "claude-1787115479617",
+      "ai": "claude",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-19T04:57:59.617Z",
+      "duration_ms": 189
+    },
     {
       "id": "gpt-1787113206534",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous Littlewood-type inequality linking mean log|ζ| to zeros right of σ; tool, not RH.",
       "ts": "2026-08-17T18:39:20.082Z",
       "duration_ms": 90271
-    },
-    {
-      "id": "grok-1786988890543",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Identified parity obstruction blocking positivity+explicit-formula proofs; conditional contradiction only",
-      "ts": "2026-08-17T17:48:10.543Z",
-      "duration_ms": 36216
     }
   ]
 }
