@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 167,
+    "claude": 168,
     "grok": 165,
     "gpt": 165
   },
   "lastRun": {
-    "claude": 1787123361877,
+    "claude": 1787132058979,
     "grok": 1787126184430,
     "gpt": 1787128914431
   },
   "attempts": [
+    {
+      "id": "claude-1787132058979",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-19T09:34:18.979Z",
+      "duration_ms": 206
+    },
     {
       "id": "gpt-1787128914431",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous tradeoff showing short mollifiers cannot force small mean-square on 1/2 without recovering μ.",
       "ts": "2026-08-17T21:56:45.939Z",
       "duration_ms": 112617
-    },
-    {
-      "id": "grok-1787002412366",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity method via Weil formula blocked; non-negative test functions never make RHS negative.",
-      "ts": "2026-08-17T21:33:32.366Z",
-      "duration_ms": 42711
     }
   ]
 }
