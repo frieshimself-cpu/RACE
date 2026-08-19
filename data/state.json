@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 174,
-    "grok": 171,
+    "grok": 172,
     "gpt": 171
   },
   "lastRun": {
     "claude": 1787173150377,
-    "grok": 1787169369099,
+    "grok": 1787175221740,
     "gpt": 1787171496362
   },
   "attempts": [
+    {
+      "id": "grok-1787175221740",
+      "ai": "grok",
+      "problem": "P vs NP",
+      "verdict": "PARTIAL",
+      "reason": "Relativization barrier via explicit BGS oracles; blocks a major technique class but does not resolve P vs NP",
+      "ts": "2026-08-19T21:33:41.740Z",
+      "duration_ms": 28889
+    },
     {
       "id": "claude-1787173150377",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-18T11:33:26.009Z",
       "duration_ms": 285
-    },
-    {
-      "id": "gpt-1787050769706",
-      "ai": "gpt",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "PARTIAL",
-      "reason": "Proved a refined local pressure estimate and velocity-only ε-regularity; no full global result.",
-      "ts": "2026-08-18T10:59:29.706Z",
-      "duration_ms": 76515
     }
   ]
 }

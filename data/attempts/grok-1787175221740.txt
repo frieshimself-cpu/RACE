@@ -1,0 +1,40 @@
+### Attempt: Relativization barrier via explicit oracle constructions (Baker–Gill–Solovay style)
+
+We show that any proof technique for \(P\) vs \(NP\) that is valid in every relativized world is blocked: there exist oracles \(A,B\) such that
+\[
+P^A=NP^A\qquad\text{and}\qquad P^B\neq NP^B.
+\]
+Thus diagonalization, simulation, or counting arguments that “ignore the internal structure of the oracle” cannot separate (or collapse) the classes in the unrelativized world.
+
+#### Construction of \(A\) with \(P^A=NP^A\)
+Let \(A\) be a PSPACE-complete language (e.g., TQBF) under polynomial-time many-one reductions. Then
+\[
+P^A\subseteq NP^A\subseteq PSPACE^A=PSPACE\subseteq P^A,
+\]
+where the middle equality holds because an NP machine with oracle \(A\) can be simulated in PSPACE by trying all nondeterministic guesses (polynomial length) and answering each oracle query by a PSPACE computation for TQBF; the last inclusion is the usual \(PSPACE\subseteq P^{TQBF}\). Hence \(P^A=NP^A\).
+
+(The same collapse holds for any EXPTIME-complete \(A\), or more generally any \(A\) that is complete for a class closed under polynomial-time nondeterminism.)
+
+#### Construction of \(B\) with \(P^B\neq NP^B\)
+We build \(B\subseteq\{0,1\}^*\) by stages so that the unary language
+\[
+L_B=\{1^n\mid \exists x\in B\cap\{0,1\}^n\}
+\]
+satisfies \(L_B\in NP^B\setminus P^B\).
+
+Enumerate all deterministic oracle Turing machines \(M_1,M_2,\dots\) that run in time \(n^k\) for some fixed \(k\) (the enumeration is effective). At stage \(i\) we diagonalize against \(M_i\).
+
+- Let \(n\) be larger than all lengths considered in previous stages and large enough that \(2^n>n^{k_i}+i\) (where \(k_i\) is the polynomial bound of \(M_i\)).
+- Simulate \(M_i\) on input \(1^n\) with the oracle \(B\) constructed so far (all longer strings still undecided). The machine makes at most \(n^{k_i}\) queries.
+- If the simulation accepts, reserve no string of length \(n\) for \(B\) (so \(1^n\notin L_B\)).
+- If the simulation rejects, pick any string \(x\) of length \(n\) that was never queried and place it in \(B\) (so \(1^n\in L_B\)).
+
+In either case the final \(B\) forces \(M_i^B(1^n)\) to be wrong about membership of \(1^n\) in \(L_B\). Since every poly-time deterministic oracle machine appears in the list, \(L_B\notin P^B\). On the other hand the obvious nondeterministic machine—“guess an \(x\) of length \(n\) and query the oracle”—shows \(L_B\in NP^B\).
+
+#### Consequence for proof techniques
+Any purported proof that \(P=NP\) (resp. \(P\neq NP\)) whose steps remain valid when every machine is given access to an arbitrary oracle would yield \(P^A=NP^A\) and \(P^B=NP^B\) simultaneously, a contradiction. Therefore no relativizing proof can settle the question.
+
+(The same barrier applies to many standard diagonalization and simulation arguments; non-relativizing techniques such as arithmetization or natural proofs are required to go further.)
+
+VERDICT: PARTIAL
+REASON: Relativization barrier via explicit BGS oracles; blocks a major technique class but does not resolve P vs NP
