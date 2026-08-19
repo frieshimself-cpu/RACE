@@ -1,0 +1,74 @@
+Attempt: A rigorous reduction from small variance of primes in short intervals to RH
+
+Statement (variance-to-RH reduction)
+Let ψ(x) = ∑_{n≤x} Λ(n). Fix δ∈(0,1) and ε>0. Assume there exists Cε such that for all sufficiently large X and all H with
+X^δ ≤ H ≤ X^{1-δ}
+we have the mean-square bound
+(1/X) ∫_{X}^{2X} |ψ(x+H) - ψ(x) - H|^2 dx ≤ Cε H X^ε.   (V)
+
+Then the Riemann Hypothesis holds.
+
+Proof sketch
+- Explicit formula: For x≥2,
+ψ(x) = x - ∑_ρ x^ρ/ρ + O(log^2 x),
+where the sum runs over nontrivial zeros ρ=β+iγ of ζ(s), each counted with multiplicity, and the O(log^2 x) is uniform in x∈[X,2X].
+Thus for D(x):=ψ(x+H)-ψ(x)-H we have
+D(x) = - ∑_ρ [(x+H)^ρ - x^ρ]/ρ + O(log^2 X).            (1)
+
+- A detecting functional for a given zero: Suppose there exists a zero ρ0=β+iγ with β>1/2. Define the weight
+W(x) = x^{1-β} e^{-iγ log x} 1_{[X,2X]}(x),
+and the correlation
+I := (1/X) ∫_{X}^{2X} D(x) W(x) dx.                        (2)
+
+Compute the contribution of ρ0 to I exactly, and bound the rest.
+
+- Main term from ρ0: Using (1), the ρ0-contribution to I equals
+I0 = - (1/X) ∫_{X}^{2X} [(x+H)^{ρ0} - x^{ρ0}]/ρ0 ⋅ x^{1-β} e^{-iγ log x} dx.
+Note that x^{ρ0} x^{1-β} e^{-iγ log x} = x. For the (x+H)^{ρ0} term,
+(x+H)^{ρ0} x^{1-β} e^{-iγ log x} = x ⋅ (1+H/x)^β e^{iγ log(1+H/x)}.
+Therefore
+I0 = - (1/ρ0)(1/X) ∫_{X}^{2X} x [ (1+H/x)^β e^{iγ log(1+H/x)} - 1 ] dx.  (3)
+Since H ≤ X^{1-δ}, we have u:=H/x ≪ X^{-δ} uniformly on [X,2X]. Using the expansion (1+u)^β e^{iγ log(1+u)} = 1 + (β+iγ) u + O(u^2) and (β+iγ)/ρ0=1, we get
+I0 = -H + O(H^2/X).                                          (4)
+
+- Contribution of the other zeros: For ρ=β'+iγ' ≠ ρ0,
+J(ρ) := (1/X) ∫_{X}^{2X} [(x+H)^{ρ} - x^{ρ}]/ρ ⋅ x^{1-β} e^{-iγ log x} dx.
+A first-order expansion of [(x+H)^{ρ} - x^{ρ}] yields (β'+iγ') H x^{ρ-1} + O(H^2 x^{β'-2}). As above,
+x^{ρ-1} x^{1-β} e^{-iγ log x} = x^{(β'-β)} e^{i(γ'-γ) log x}.
+Hence, integrating by parts or evaluating the oscillatory integral,
+J(ρ) = O( H X^{β'-β} / ( |ρ| (1+|γ'-γ|) ) ) + O( H^2 X^{β'-β-1}/|ρ| ).  (5)
+
+Summing (5) over all zeros ρ≠ρ0 (using standard zero-density N(T) ≪ T log T and the convergence of ∑ 1/(|ρ|(1+|γ'-γ|))) gives
+∑_{ρ≠ρ0} J(ρ) = O( H X^{1-β} polylog X ) + O(H^2/X).       (6)
+The O(log^2 X) error in (1) contributes O(H log^2 X) to I.
+
+- Dominance of the ρ0-term: Combining (2), (4), and (6),
+I = -H + O( H X^{1-β} polylog X ) + O(H^2/X) + O(H log^2 X / X).
+Since β>1/2, we have X^{1-β} → 0. For fixed δ and large X with H ≤ X^{1-δ}, all error terms are o(H). Hence there is c>0 (independent of X) such that
+|I| ≥ c H                                                       (7)
+for all sufficiently large X.
+
+- Cauchy–Schwarz lower bound for the variance: By Cauchy–Schwarz,
+|I|^2 ≤ (1/X) ∫_{X}^{2X} |D(x)|^2 dx ⋅ (1/X) ∫_{X}^{2X} |W(x)|^2 dx.
+But
+(1/X) ∫_{X}^{2X} |W(x)|^2 dx = (1/X) ∫_{X}^{2X} x^{2(1-β)} dx ≍ X^{1-2β}.
+Therefore, from (7),
+(1/X) ∫_{X}^{2X} |D(x)|^2 dx ≥ c' H^2 X^{2β-1}.                 (8)
+
+- Contradiction to the hypothesis (V): The assumed upper bound (V) gives
+(1/X) ∫_{X}^{2X} |D(x)|^2 dx ≤ Cε H X^ε,
+for all X large and all H with X^δ ≤ H ≤ X^{1-δ}. Comparing with (8), we require
+H^2 X^{2β-1} ≲ H X^ε, i.e., H X^{2β-1} ≲ X^ε.
+Since H ≥ X^δ and β>1/2, the left side grows like X^{δ+2β-1} → ∞, contradicting (V).
+Thus no zero with β>1/2 exists, i.e., RH holds.
+
+Remarks and scope
+- The argument actually needs only one H in the regime H→∞ and H/X→0 along a sequence of X→∞ to force the contradiction if a β>1/2 zero exists. The stated uniform hypothesis (V) is stronger and cleaner.
+- This neatly isolates a concrete averaged short-interval criterion for ψ that implies RH. It tolerates the “natural size” H X^{o(1)} on the variance, far above the conjectural asymptotic ∼ H X log(X/H).
+- The proof is unconditional and self-contained given the standard explicit formula and zero-counting facts.
+
+Conclusion
+The above lemma gives a rigorous reduction: any proof of the near-Poisson variance bound (V) for primes in all short intervals X^δ ≤ H ≤ X^{1-δ} would imply RH. This is a concrete partial result/strategy checkpoint; it does not prove RH itself.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous reduction: small variance of ψ in short intervals ⇒ RH

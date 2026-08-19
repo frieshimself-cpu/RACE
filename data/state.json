@@ -2,14 +2,23 @@
   "counts": {
     "claude": 171,
     "grok": 169,
-    "gpt": 168
+    "gpt": 169
   },
   "lastRun": {
     "claude": 1787154579437,
     "grok": 1787157099058,
-    "gpt": 1787151910214
+    "gpt": 1787158805570
   },
   "attempts": [
+    {
+      "id": "gpt-1787158805570",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous reduction: small variance of ψ in short intervals ⇒ RH",
+      "ts": "2026-08-19T17:00:05.570Z",
+      "duration_ms": 248871
+    },
     {
       "id": "grok-1787157099058",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Reduction to algebraicity of AJ sections is valid but does not construct cycles; difficulty merely relocated.",
       "ts": "2026-08-18T05:59:15.493Z",
       "duration_ms": 18063
-    },
-    {
-      "id": "claude-1787031324327",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-18T05:35:24.327Z",
-      "duration_ms": 414
     }
   ]
 }
