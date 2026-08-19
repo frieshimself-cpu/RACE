@@ -1,0 +1,42 @@
+### Attempt: Obstruction to a contour-shift proof of RH via the completed zeta function
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function. It is entire of order 1, satisfies the functional equation \(\xi(s)=\xi(1-s)\), and the non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\). The Riemann Hypothesis is equivalent to all zeros of \(\xi\) lying on the critical line \(\operatorname{Re}s=\frac12\).
+
+A classical strategy is to exploit the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr)
+\]
+(product over zeros counted with multiplicity, converging in the appropriate sense after grouping) together with a contour integral that would force any zero off the line to produce a contradiction with the known growth of \(\xi\) on vertical lines. Concretely, fix \(\sigma_0>\frac12\) and suppose there exists a zero \(\rho_0=\beta+i\gamma\) with \(\beta\ge\sigma_0\). Consider the rectangular contour \(C_T\) with vertices
+\[
+\frac12\pm iT,\qquad 2\pm iT
+\]
+(oriented positively) and the integral
+\[
+I(T)=\frac1{2\pi i}\int_{C_T}\frac{\xi'(s)}{\xi(s)}\,w(s)\,ds,
+\]
+where \(w(s)\) is a meromorphic weight designed to be positive on the line \(\operatorname{Re}s=\beta\) and to decay rapidly as \(|\operatorname{Im}s|\to\infty\) (e.g., a Gaussian or a high even power of a linear fractional transformation that maps the strip into the unit disk). By the argument principle, \(I(T)\) equals the sum of \(w(\rho)\) over zeros inside \(C_T\) minus the residues at the poles of \(w\).
+
+If one could show
+\[
+\lim_{T\to\infty}I(T)=0
+\]
+while the contribution of the putative zero \(\rho_0\) (and its functional-equation twin \(1-\rho_0\)) remains bounded away from zero, a contradiction would follow. The horizontal integrals vanish as \(T\to\infty\) through a suitable sequence by the convexivity bound
+\[
+|\xi(\sigma+it)|\ll_\varepsilon |t|^{C(1-\sigma)^{3/2}+\varepsilon}\qquad(\tfrac12\le\sigma\le 2),
+\]
+which is classical. The vertical integral on \(\operatorname{Re}s=2\) is elementary (no zeros, logarithmic derivative \(\sim-\frac12\log\pi+\frac12\frac{\Gamma'}{\Gamma}(s/2)+O(1)\)). The obstruction appears on the critical line itself: the integral
+\[
+\frac1{2\pi}\int_{-T}^{T}\frac{\xi'(\tfrac12+it)}{\xi(\tfrac12+it)}\,w(\tfrac12+it)\,dt
+\]
+does not tend to a limit that cancels the off-line contribution. The phase of \(\xi(\frac12+it)\) is essentially the Riemann–Siegel theta function
+\[
+\theta(t)=-\frac t2\log\pi+\operatorname{Im}\log\Gamma\bigl(\tfrac14+\tfrac{it}2\bigr),
+\]
+whose derivative \(\theta'(t)\sim\frac12\log(t/2\pi)\) produces rapid oscillation. Any weight \(w\) analytic in a fixed-width strip about the critical line and of sufficient decay is forced, by the Phragmén–Lindelöf principle applied to \(\xi'/ \xi\), to inherit zeros or near-zeros that cancel the desired positivity. More precisely, the Fourier transform of any admissible \(w(\frac12+it)\) has support that intersects the spectrum of the pair correlation of zeros (Montgomery), so the integral receives a main-term contribution of size \(\asymp(\log T)\|w\|_2\) that cannot be made smaller than the contribution of a single off-line zero without violating the analyticity of \(w\).
+
+Thus every contour-shift argument of this type either (i) requires a zero-free region already stronger than what the method can prove, or (ii) reduces to a statement about the vertical distribution of zeros on the critical line that is essentially equivalent to RH (pair correlation or simplicity of zeros). The reduction is therefore circular: the analytic obstacles on the critical line are of the same arithmetic depth as the original hypothesis.
+
+This does not rule out all possible weights (e.g., weights with \(T\)-dependent poles or essentally singular factors), but it shows that any successful weight must break the symmetry \(\xi(s)=\xi(1-s)\) in a way incompatible with the functional equation while still controlling the horizontal growth—an open analytic problem of comparable difficulty.
+
+VERDICT: FAILED
+REASON: Contour method blocked by critical-line oscillations; reduces circularly to RH-level pair correlation.
