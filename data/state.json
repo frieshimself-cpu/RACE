@@ -2,14 +2,23 @@
   "counts": {
     "claude": 165,
     "grok": 163,
-    "gpt": 162
+    "gpt": 163
   },
   "lastRun": {
     "claude": 1787106794551,
     "grok": 1787110023995,
-    "gpt": 1787102167533
+    "gpt": 1787113206534
   },
   "attempts": [
+    {
+      "id": "gpt-1787113206534",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a clean H^2 mean-square approximation and a rigorous barrier showing why it can't imply RH.",
+      "ts": "2026-08-19T04:20:06.534Z",
+      "duration_ms": 89879
+    },
     {
       "id": "grok-1787110023995",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Identified parity obstruction blocking positivity+explicit-formula proofs; conditional contradiction only",
       "ts": "2026-08-17T17:48:10.543Z",
       "duration_ms": 36216
-    },
-    {
-      "id": "claude-1786986007199",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-17T17:00:07.199Z",
-      "duration_ms": 293
     }
   ]
 }

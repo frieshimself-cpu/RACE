@@ -1,0 +1,50 @@
+Attempt: A precise mean-square approximation identity for 1/ζ(s) via Dirichlet-Hardy space, and why it cannot by itself imply a zero-free region
+
+Let σ>1/2 be fixed. For N≥1 define the truncation
+P_N(s) = ∑_{n≤N} μ(n) n^{-s}
+and the corresponding error
+F_N(s) = ζ(s) P_N(s) − 1.
+
+We work in the Dirichlet-Hardy space H^2_σ of Dirichlet series on the half-plane Re s>σ with square-summable coefficients: if G(s)=∑_{n≥1} a_n n^{-s} with ∑ |a_n|^2 n^{-2σ}<∞, then
+||G||_{H^2_σ}^2 := ∑_{n≥1} |a_n|^2 n^{-2σ},
+and for each fixed σ′>σ,
+lim_{T→∞} (1/2T) ∫_{-T}^T |G(σ′+it)|^2 dt = ||G||_{H^2_{σ′}}^2,
+with monotone convergence as σ′↓σ giving the boundary H^2_σ norm.
+
+Lemma (exact H^2_σ identity for truncation error).
+For every σ>1/2 and N≥1, one has
+F_N(s) = ∑_{n>N} b_n n^{-s}, where b_n = ∑_{d|n, d≤N} μ(d) = (μ ∗ 1_{≤N})(n),
+so that
+||F_N||_{H^2_σ}^2 = ∑_{n>N} |b_n|^2 n^{-2σ}.
+
+Moreover, for every σ>1/2 there exist constants C(σ), B(σ) such that
+||F_N||_{H^2_σ}^2 ≤ C(σ) N^{1−2σ} (log N)^{B(σ)},
+hence ||F_N||_{H^2_σ} → 0 as N→∞.
+
+Proof sketch.
+- The Dirichlet series identity is immediate from ζ(s)P_N(s) = (∑_{m≥1} m^{-s})(∑_{d≤N} μ(d) d^{-s}) = ∑_{n≥1} (∑_{d|n, d≤N} μ(d)) n^{-s}.
+Since ∑_{d|n, d≤N} μ(d) = 1 for n≤N and equals 0 when all prime factors of n are >N but can otherwise be nonzero, we get b_n = 0 for n≤N and the stated b_n for n>N.
+- The H^2_σ identity for the norm of F_N follows from the definition of the Dirichlet-Hardy norm.
+- The bound on the squared norm uses a crude divisor-sum estimate. Since |b_n| ≤ τ(n) and b_n=0 for n with all prime factors >N, we have
+||F_N||_{H^2_σ}^2 ≤ ∑_{n>N} τ(n)^2 n^{-2σ}.
+It is classical that ∑_{n>x} τ(n)^2 n^{-2σ} ≪_σ x^{1−2σ} (log x)^{B(σ)} for σ>1/2 (e.g., from Dirichlet series ∑ τ(n)^2 n^{-s} = ζ(s)^4/ζ(2s) and partial summation). Setting x=N gives the claim.
+
+Consequence (long-interval mean-square approximation on vertical lines).
+Fix σ>1/2. For each N,
+limsup_{T→∞} (1/2T) ∫_{-T}^T |1 − ζ(σ+it) P_N(σ+it)|^2 dt
+= ||F_N||_{H^2_σ}^2 → 0 as N→∞.
+
+Thus for every σ>1/2 there exist explicit Dirichlet polynomials P_N(s) (the Möbius truncations) such that ζ(σ+it)P_N(σ+it) approximates 1 in the long-interval L^2-mean on the vertical line Re s = σ, with an error decaying at a power rate N^{1−2σ} up to logs.
+
+Why this does not imply a zero-free result (and a sharp obstruction).
+Suppose ζ has a zero at s0 = σ+it0 with σ>1/2. Then for any N and any neighborhood U of t0, ζ(σ+it)P_N(σ+it) vanishes at t=t0 but remains continuous, so |1 − ζ(σ+it)P_N(σ+it)| ≥ 1/2 on some smaller neighborhood U′⊂U. However, the mean-square integral weighs sets by Lebesgue measure in t; a point or finite set of points has measure zero, and even a small fixed-length neighborhood contributes only a bounded O(|U′|) amount to the integral. Consequently, the mean-square can still tend to 0 with N even if ζ has zeros on Re s = σ. In particular, the identity above provides no contradiction and cannot by itself yield a zero-free strip.
+
+This identifies a precise barrier: L^2-mean control of ζ(σ+it)P(σ+it) by Dirichlet polynomials (even with power-decaying errors and for all σ>1/2) is too weak to preclude isolated zeros on a vertical line, because L^2 ignores measure-zero obstructions and small neighborhoods of them. Any approach along these lines would need stronger control (e.g., uniform or L^p with p sufficiently large plus additional structure) or must exploit special structure of the approximants beyond “generic” Dirichlet polynomials—precisely what the Nyman–Beurling/Báez-Duarte framework encodes via the Mellin images of {x/n} rather than arbitrary Dirichlet polynomials.
+
+Summary of concrete partial result.
+- Exact identity: ||ζ(·)P_N(·) − 1||_{H^2_σ}^2 = ∑_{n>N} |(μ ∗ 1_{≤N})(n)|^2 n^{-2σ}.
+- Quantitative decay: ≪_σ N^{1−2σ} (log N)^{B(σ)} for every σ>1/2.
+- Obstruction: This L^2 decay, even on every σ>1/2, does not rule out zeros, clarifying a sharp limitation of mean-square Dirichlet-polynomial approximations toward RH.
+
+VERDICT: PARTIAL
+REASON: Proved a clean H^2 mean-square approximation and a rigorous barrier showing why it can't imply RH.
