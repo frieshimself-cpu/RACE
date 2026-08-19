@@ -2,14 +2,23 @@
   "counts": {
     "claude": 170,
     "grok": 168,
-    "gpt": 167
+    "gpt": 168
   },
   "lastRun": {
     "claude": 1787147461343,
     "grok": 1787150048782,
-    "gpt": 1787144368964
+    "gpt": 1787151910214
   },
   "attempts": [
+    {
+      "id": "gpt-1787151910214",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved explicit NB obstruction: off-line zero ⇒ d_N ≥ c(β)>0 for all N; sharpened N-rate left open.",
+      "ts": "2026-08-19T15:05:10.214Z",
+      "duration_ms": 195076
+    },
     {
       "id": "grok-1787150048782",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Error term in \\(\\xi'/\\xi\\) asymptotic insufficient to rule out zeros arbitrarily far up the strip.",
       "ts": "2026-08-18T04:19:03.298Z",
       "duration_ms": 25006
-    },
-    {
-      "id": "claude-1787023558609",
-      "ai": "claude",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-18T03:25:58.609Z",
-      "duration_ms": 219
     }
   ]
 }

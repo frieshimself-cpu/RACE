@@ -1,0 +1,52 @@
+Attempt: A quantitative obstruction in the Nyman–Beurling framework
+
+Set-up.
+- Work in the Hilbert space H = L^2((0,∞), dx/x). The Mellin transform
+  M[f](s) = ∫_0^∞ f(x) x^{s-1} dx is unitary from H onto L^2 of the critical line Re s = 1/2:
+  ||f||_H^2 = (1/2π) ∫_{ℝ} |M[f](1/2+it)|^2 dt.
+- Let χ = 1_(0,1) be the indicator of (0,1). For 0 < Re s < 1, one has M[χ](s) = 1/s and
+  M[{1/x}](s) = -ζ(s)/s.
+- Consider the standard Nyman–Beurling finite-dimensional subspace
+  S_N = span{ ρ_n : 1 ≤ n ≤ N } with ρ_n(x) = {1/(n x)} − (1/n){1/x}.
+  For g ∈ S_N of the form g = ∑_{n≤N} a_n ρ_n, direct computation gives
+    M[g](s) = -(ζ(s)/s) ∑_{n≤N} a_n (n^{-s} − n^{-1}).
+  Consequently, for the approximation error f = χ − g, define
+    G(s) := s M[f](s) = 1 + ζ(s) ∑_{n≤N} a_n (n^{-s} − n^{-1}).
+- The function G is analytic in the half-plane Re s > 0 (indeed meromorphic in ℂ with at worst the ζ-pole canceled by the 1 at s=1, but we will only use Re s ≥ 1/2), and by Mellin–Plancherel
+    ||f||_H^2 = (1/2π) ∫_{ℝ} |M[f](1/2+it)|^2 dt = (1/2π) ∫_{ℝ} |G(1/2+it)|^2 dt.
+  Therefore the Nyman–Beurling distance to S_N is
+    d_N := inf_{g∈S_N} ||χ − g||_H = (1/√(2π)) inf_{G∈𝒢_N} ||G||_{L^2(1/2+it)},
+  where 𝒢_N = { G of the above form for some coefficients a_n }.
+
+Main lemma (quantitative obstruction from a zero right of the critical line).
+Suppose ζ has a zero ρ with Re ρ = β > 1/2. Then for every N and every g ∈ S_N,
+  ||χ − g||_H ≥ c(β) > 0,
+with the explicit constant c(β) = sqrt(2β − 1)/(2π)^{1/2}. In particular, d_N ≥ c(β) for all N.
+
+Proof.
+- Fix a zero ρ of ζ with Re ρ = β > 1/2. For any choice of coefficients a_n, the corresponding G(s) satisfies
+    G(ρ) = 1 + ζ(ρ) ∑_{n≤N} a_n (n^{-ρ} − n^{-1}) = 1,
+  because ζ(ρ) = 0.
+- The boundary L^2 norm ||G||_{L^2(1/2+it)} is the H^2(ℂ_{1/2}) Hardy-norm of G in the right half-plane Re s > 1/2. In H^2(ℂ_{1/2}) the point evaluation at ρ is a bounded functional with reproducing kernel
+    k_ρ(s) = 1/(s + \bar{ρ} − 1),
+  and norm ||k_ρ||^2 = 1/(2β − 1). Therefore, by Cauchy–Schwarz for bounded point evaluations in H^2,
+    |G(ρ)| ≤ ||G||_{H^2} ||k_ρ|| = ||G||_{L^2(1/2+it)} / sqrt(2β − 1).
+- Since |G(ρ)| = 1, we conclude
+    ||G||_{L^2(1/2+it)} ≥ sqrt(2β − 1).
+  Translating back via Mellin–Plancherel gives, for every choice of coefficients,
+    ||χ − g||_H = (1/√(2π)) ||G||_{L^2(1/2+it)} ≥ sqrt(2β − 1)/(2π)^{1/2}.
+- Taking the infimum over g ∈ S_N yields the stated bound d_N ≥ c(β), uniformly in N. ∎
+
+Discussion and consequence.
+- This shows rigorously, in a single Hilbert space calculation, that any zero of ζ strictly to the right of the critical line creates a uniform positive obstruction to approximation in the Nyman–Beurling scheme: the distances d_N cannot tend to 0.
+- The argument is fully quantitative and uses only the boundedness of point evaluations in H^2 of the half-plane, together with the exact Mellin representation tying the approximation error to the analytic function G(s).
+- This recovers one nontrivial half of the Nyman–Beurling equivalence (if RH fails, then d_N does not go to 0) and provides an explicit lower bound in terms of the real part β of any off-line zero.
+
+Remarks on potential sharpening.
+- The lower bound above is independent of N. One can refine the method to encode the restriction that G lies in the affine subspace 1 + ζ · A_N where A_N is the set of Dirichlet polynomials of length ≤ N. Projecting the H^2 reproducing kernel k_ρ onto ζ · A_N can improve the bound to a decay-rate obstruction of the shape d_N ≳ N^{-(β − 1/2)} (a form of which is known in the literature). Establishing this sharpened N-dependence cleanly requires a careful Riesz-representer computation in the weighted space with weight |ζ(1/2+it)|^2 and a discretized Paley–Wiener/large-sieve estimate for the system {n^{-1/2-it}}; carrying out those technical steps would exceed the present token budget but appears tractable.
+
+Outcome.
+- A rigorous quantitative lemma is proved: any zero with real part β > 1/2 forces a uniform, explicit positive lower bound for all N in the Nyman–Beurling distances. This is a concrete partial result within a major approach to RH, highlighting exactly how an off-line zero obstructs approximation.
+
+VERDICT: PARTIAL
+REASON: Proved explicit NB obstruction: off-line zero ⇒ d_N ≥ c(β)>0 for all N; sharpened N-rate left open.
