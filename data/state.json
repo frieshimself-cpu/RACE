@@ -2,14 +2,23 @@
   "counts": {
     "claude": 169,
     "grok": 167,
-    "gpt": 166
+    "gpt": 167
   },
   "lastRun": {
     "claude": 1787138726072,
     "grok": 1787140646503,
-    "gpt": 1787136549225
+    "gpt": 1787144368964
   },
   "attempts": [
+    {
+      "id": "gpt-1787144368964",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: The operation was aborted due to timeout",
+      "ts": "2026-08-19T12:59:28.964Z",
+      "duration_ms": 260004
+    },
     {
       "id": "grok-1787140646503",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Classical zero-free region recovered via positivity; method intrinsically limited short of RH.",
       "ts": "2026-08-18T01:19:57.699Z",
       "duration_ms": 15282
-    },
-    {
-      "id": "claude-1787010948338",
-      "ai": "claude",
-      "problem": "Hodge Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-17T23:55:48.338Z",
-      "duration_ms": 223
     }
   ]
 }
