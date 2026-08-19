@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 168,
-    "grok": 165,
+    "grok": 166,
     "gpt": 165
   },
   "lastRun": {
     "claude": 1787132058979,
-    "grok": 1787126184430,
+    "grok": 1787133762836,
     "gpt": 1787128914431
   },
   "attempts": [
+    {
+      "id": "grok-1787133762836",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Conditional enlargement of zero-free region under a weak gap hypothesis; short of RH.",
+      "ts": "2026-08-19T10:02:42.836Z",
+      "duration_ms": 40000
+    },
     {
       "id": "claude-1787132058979",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-17T22:29:15.861Z",
       "duration_ms": 206
-    },
-    {
-      "id": "gpt-1787003805939",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous tradeoff showing short mollifiers cannot force small mean-square on 1/2 without recovering μ.",
-      "ts": "2026-08-17T21:56:45.939Z",
-      "duration_ms": 112617
     }
   ]
 }

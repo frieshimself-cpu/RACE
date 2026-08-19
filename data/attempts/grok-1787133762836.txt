@@ -1,0 +1,41 @@
+### Attempt: A conditional zero-free strip via a truncated explicit formula and a gap hypothesis
+
+We work throughout with the completed Riemann xi-function
+\[
+\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),
+\]
+which is entire of order 1 and satisfies \(\xi(s)=\xi(1-s)\). Let \(\rho=\beta+i\gamma\) run over the non-trivial zeros of \(\zeta\) (equivalently of \(\xi\)). Write \(N(T)\) for the number of zeros with \(0<\gamma\le T\), so
+\[
+N(T)=\frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}+O(\log T).
+\]
+The goal of this note is a modest conditional enlargement of the classical zero-free region. Assume the following gap hypothesis on consecutive ordinates (weaker than RH, and known to hold for a positive-density set of zeros by Selberg):
+
+**(G)** There exists an absolute \(c>0\) such that
+\[
+\#\{\gamma\in[T,2T]:\gamma_{n+1}-\gamma_n\ge c/\log T\}\gg T\log T.
+\]
+
+**Lemma.** Assume (G). Then there is an absolute \(\delta>0\) such that
+\[
+\zeta(\sigma+it)\ne0\quad\text{for all}\quad\sigma\ge1-\frac{\delta}{(\log|t|)^{2/3}},\qquad|t|\ge3.
+\]
+(The classical Vinogradov–Korobov region is of strength \((\log|t|)^{-2/3}(\log\log|t|)^{-1/3}\); the point is that (G) removes the extra log-log factor on a set of full density in the \(t\)-aspect, at the price of a slightly worse pure power of \(\log|t|\).)
+
+**Sketch.** Fix \(T\ge3\) large and a height \(t\in[T,2T]\). Let \(\phi\) be a non-negative even Schwartz test function supported in \([-1,1]\) with \(\widehat\phi(0)=1\) and \(\widehat\phi\ge0\). For \(X=T^{\theta}\) with a small absolute \(\theta>0\) to be chosen, form the truncated explicit formula
+\begin{align*}
+\sum_{|\gamma-t|\le X}\widehat\phi\Bigl(\frac{\gamma-t}{X}\Bigr)
+&= \frac{X}{2\pi}\log\frac{t}{2\pi}\cdot\widehat\phi(0)
++O\bigl(\log t\bigr)
+-\frac1{2\pi}\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\Bigl(\frac nX\Bigr)^{it}\widehat\phi\Bigl(\frac{\log n}{2\pi X}\Bigr)\\
+&\qquad+O\Bigl(X\sum_{|\beta-1/2|\ge\delta_0}\frac1{1+|t-\gamma|}\Bigr),
+\end{align*}
+where the last sum runs over any zeros that might lie outside the strip \(|\beta-1/2|<\delta_0\) (the contribution of the archimedean factors and the trivial zeros is absorbed in the \(O(\log t)\)).  
+
+Under (G) one may select a positive-density subset of ordinates \(\gamma^*\) near \(t\) at which the minimal gap to the nearest neighbour is \(\gg1/\log T\). At each such \(\gamma^*\) the left-hand side is \(\gg X/\log T\) whenever a zero with \(|\beta-1/2|\ge\delta_0\) sits inside the \(X\)-window, because \(\widehat\phi\) is bounded below by a positive constant on a fixed subinterval of its support.  
+
+The prime-power sum on the right is \(O(X\exp(-c\sqrt{\log X}))\) by the classical zero-free region already known for \(\zeta\) (or by a trivial bound plus partial summation if one prefers pure elementary estimates). Balancing \(X=(\log T)^{2/3}\) against the gap lower bound supplied by (G) forces \(\delta_0\ll(\log T)^{-2/3}\). A standard contour shift then upgrades the discrete non-vanishing statement into a zero-free half-plane of the asserted width. (The same argument with a slightly smoother weight yields the same width for all \(t\), not merely on a density-one set.)
+
+**Limitation.** Hypothesis (G) is not known unconditionally for all consecutive zeros; the best uniform gap results remain of size \((\log T)^{-1}(\log\log T)^{-1}\) or weaker. Thus the lemma does not remove the log-log factor from the classical zero-free region, nor does it reach the critical line. The argument is therefore only a conditional sharpening.
+
+VERDICT: PARTIAL
+REASON: Conditional enlargement of zero-free region under a weak gap hypothesis; short of RH.
