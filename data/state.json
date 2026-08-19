@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 171,
-    "grok": 168,
+    "grok": 169,
     "gpt": 168
   },
   "lastRun": {
     "claude": 1787154579437,
-    "grok": 1787150048782,
+    "grok": 1787157099058,
     "gpt": 1787151910214
   },
   "attempts": [
+    {
+      "id": "grok-1787157099058",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Equivalence of RH to a mean-square bound on weighted Möbius correlations; model case holds, proof blocked by Siegel zeros.",
+      "ts": "2026-08-19T16:31:39.058Z",
+      "duration_ms": 24761
+    },
     {
       "id": "claude-1787154579437",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-18T05:35:24.327Z",
       "duration_ms": 414
-    },
-    {
-      "id": "gpt-1787029037557",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a localized explicit formula with L2 zero-term bounds; no direct resolution of RH.",
-      "ts": "2026-08-18T04:57:17.557Z",
-      "duration_ms": 64413
     }
   ]
 }

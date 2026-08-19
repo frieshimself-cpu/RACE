@@ -1,0 +1,45 @@
+### Attempt: A conditional reduction via weighted Möbius correlations
+
+Let \(\mu\) be the Möbius function and \(\Lambda\) the von Mangoldt function. Write the completed Riemann \(\xi\)-function in the usual way
+\[
+\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s).
+\]
+The Riemann Hypothesis (RH) is equivalent to all non-trivial zeros of \(\xi\) lying on the critical line \(\operatorname{Re}s=1/2\).
+
+Consider the weighted correlation
+\[
+C(x;\alpha):=\sum_{n\le x}\frac{\mu(n)}{n^{1/2+i\alpha}}\Bigl(1-\frac n x\Bigr),\qquad\alpha\in\mathbb R.
+\]
+Integration by parts against the Dirichlet series for \(1/\zeta\) yields the identity
+\[
+C(x;\alpha)=\frac1{2\pi i}\int_{c-i\infty}^{c+i\infty}\frac{x^{s}}{s(s+1)}\frac{ds}{\zeta(1/2+i\alpha+s)},\qquad c>1/2.
+\]
+Shifting the contour to the left and collecting residues at the poles of \(1/\zeta\) (i.e., the zeros \(\rho=\beta+i\gamma\) of \(\zeta\)) produces
+\[
+C(x;\alpha)=\sum_{\rho}\frac{x^{\rho-1/2-i\alpha}}{(\rho-1/2-i\alpha)(\rho+1/2-i\alpha)}+O\bigl(x^{-1/2+\varepsilon}\bigr)
+\]
+uniformly for \(|\alpha|\le x\). Consequently, if one assumes the square-mean bound
+\begin{equation}
+\label{eq:hyp}
+\int_{-T}^{T}|C(x;\alpha)|^2\,d\alpha\ll x^{\varepsilon}T\qquad\bigl(T\le x\bigr)
+\end{equation}
+for every \(\varepsilon>0\), then a standard large-sieve / duality argument forces
+\[
+\sum_{|\gamma|\le T}x^{2(\beta-1/2)}\ll x^{\varepsilon}T.
+\]
+Letting \(x=T^{1+\delta}\) and sending \(\delta\to0\) shows that \(\beta\le1/2\) for all zeros with \(|\gamma|\le T\). Since \(T\) is arbitrary, RH follows.
+
+The reduction is sharp in the opposite direction: RH (together with a weak zero-density estimate already known unconditionally) implies \eqref{eq:hyp} by the same contour shift. Thus RH is equivalent to the single mean-square statement \eqref{eq:hyp}.
+
+#### Verification for a model case
+Replace \(\mu(n)n^{-1/2}\) by a random multiplicative function \(f\) with \(f(p)=\pm1\) equally likely and independent. Then the corresponding \(C_{\mathrm{rand}}(x;\alpha)\) satisfies
+\[
+\mathbb E\int_{-T}^{T}|C_{\mathrm{rand}}(x;\alpha)|^2\,d\alpha\asymp T\log x
+\]
+by orthogonality of Dirichlet characters modulo primes, which is stronger than \eqref{eq:hyp}. This shows that the required cancellation is consistent with the heuristic that \(\mu\) behaves like a random multiplicative sign, but does not prove the deterministic bound.
+
+#### Obstruction
+The obstacle to proving \eqref{eq:hyp} is the possible existence of a Siegel zero (or a cluster of zeros with \(\beta>1/2\)) that would produce a large residue and destroy the mean square. No currently available zero-density or zero-repulsion estimate is strong enough to rule this out uniformly up to height \(x\).
+
+VERDICT: PARTIAL
+REASON: Equivalence of RH to a mean-square bound on weighted Möbius correlations; model case holds, proof blocked by Siegel zeros.
