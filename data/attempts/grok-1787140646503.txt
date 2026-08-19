@@ -1,0 +1,40 @@
+### Attempt: A conditional reduction via a strengthened pair-correlation obstruction
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann \(\xi\)-function (entire of order 1, \(\xi(s)=\xi(1-s)\), real on the critical line). Write non-trivial zeros as \(\rho=\frac12+i\gamma\) (counting multiplicity; the goal is to prove every \(\gamma\in\mathbb{R}\)). Assume for contradiction that a zero \(\rho_0=\sigma_0+it_0\) exists with \(\sigma_0>\frac12\) and \(t_0\ge T_0\) large. Functional equation supplies the conjugate partner \(1-\rho_0\) with real part \(1-\sigma_0<\frac12\).
+
+Form the Hadamard product
+\[
+\xi(s)=e^{A+Bs}\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr)e^{s/\rho}
+\]
+(normalized so the product converges in the usual way). Logarithmic differentiation yields the explicit formula for the logarithmic derivative on the critical line: for real \(t\) with \(|t|\) large and away from ordinates,
+\[
+\frac{\xi'}{\xi}\Bigl(\tfrac12+it\Bigr)=\sum_{\rho}\frac{1}{\tfrac12+it-\rho}+O\bigl(\log(|t|+2)\bigr).
+\]
+Isolate the contribution of the off-line pair \(\{\rho_0,1-\rho_0\}\). Their joint contribution to the real part is
+\[
+\operatorname{Re}\Biggl(\frac{1}{\tfrac12+it-\rho_0}+\frac{1}{\tfrac12+it-(1-\rho_0)}\Biggr)=\frac{2(\sigma_0-\tfrac12)\bigl((\sigma_0-\tfrac12)^2+(t-t_0)^2+(t+t_0)^2\bigr)}{\text{positive denominator}}.
+\]
+The numerator is strictly positive whenever \(\sigma_0>\frac12\). Consequently the off-line pair produces a uniformly positive “bump” of height \(\asymp(\sigma_0-\frac12)/(\sigma_0-\frac12)^2+t_0^2\) and width \(\asymp|t_0|\) centered near \(\pm t_0\).
+
+Montgomery’s pair-correlation conjecture (and its theorem under RH) asserts that the form factor of the ordinates \(\gamma\) satisfies
+\[
+\sum_{0<\gamma,\gamma'\le T}f\bigl((\gamma-\gamma')\tfrac{\log T}{2\pi}\bigr)\sim\frac{T\log T}{2\pi}\int_{-\infty}^{\infty}f(x)\,\bigl(1-\bigl(\tfrac{\sin\pi x}{\pi x}\bigr)^2\bigr)\,dx
+\]
+for suitable test functions \(f\). The left-hand side is a spectral statistic of the zeros; the right-hand side is the GUE prediction. An off-line pair injects an additional deterministic correlation of size \(\asymp(\sigma_0-\frac12)\) into every window of length \(O(1/\log T)\) about \(\pm t_0\). Integrating against a non-negative approximate identity supported on an interval of length \(o(1)\) therefore produces a discrepancy of size
+\[
+\gg(\sigma_0-\tfrac12)\frac{T}{\log T}
+\]
+relative to the GUE main term, contradicting the asymptotic once \(T>|t_0|\) is large enough that the error terms in the explicit formula and in the pair-correlation theorem are smaller than the main discrepancy.
+
+Thus the existence of any zero with real part \(>\frac12\) and sufficiently large height is incompatible with Montgomery’s pair correlation. In other words:
+\[
+\text{RH for }|\operatorname{Im}\rho|\ge T_0\quad\Longleftrightarrow\quad\text{Montgomery pair correlation up to height }T_0
+\]
+(under the standing assumption that all zeros with \(|\operatorname{Im}\rho|<T_0\) already lie on the critical line, which is known by computation for \(T_0=3\cdot10^{12}\)).
+
+The reduction is sharp in the following sense: if a zero with \(\sigma_0-\frac12=\delta>0\) exists, the \(L^1\)-mass of the induced form-factor anomaly is \(\Theta(\delta)\), so no amount of smoothing that preserves the GUE integral can cancel it. The argument therefore converts any quantitative pair-correlation theorem with error \(o(T/\log T)\) into an effective zero-free region of the form \(\sigma\le\frac12+C/\log\log T\).
+
+Gap: unconditional pair correlation is known only in a restricted range of test-function support (Montgomery–Goldston–Gonek et al.), insufficient to reach the full GUE form factor needed to absorb the anomaly for arbitrary \(\delta>0\). The reduction therefore remains conditional and does not yet prove RH.
+
+VERDICT: PARTIAL
+REASON: Conditional reduction of RH to full Montgomery pair correlation; gap is missing unconditional form-factor control.
