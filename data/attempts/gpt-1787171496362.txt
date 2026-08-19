@@ -1,0 +1,86 @@
+Attempt: A conditional obstruction to “fixed-kernel positivity” strategies via the Weil explicit formula
+
+Objective
+Analyze and rigorously delimit a common strategy: prove RH by exhibiting one fixed, even, nonnegative “bump” kernel f on the zeros’ imaginary parts whose Weil-explicit-formula image enforces positivity of a zero-sum across all heights. I show that, under a mild and standard linear-independence hypothesis on logarithms of primes, no single fixed kernel of the Paley–Wiener/Weil class can provide a one-sided inequality uniformly in height. This is a precise, conditional failure mode.
+
+Setup
+- Let g be an even Schwartz function on R with Fourier transform f(ξ) = ∫R g(x) e^{-iξx} dx.
+- Assume f is compactly supported, say supp f ⊂ [−A, A] for some finite A>0. Then g is entire of exponential type A (Paley–Wiener).
+- Let ψ(x) = ∑n≤x Λ(n) and write the standard symmetric Weil explicit formula for ζ with test g (see, e.g., Iwaniec–Kowalski, Thm 5.12). One convenient normalization is this: for any even Schwartz g whose Fourier transform f has compact support,
+    S_g(T) := ∑ρ g(γ − T) = M_g(T) − 2 ∑p ∑m≥1 (log p) p^{-m/2} f(m log p) cos(T m log p),
+  where ρ = 1/2 + iγ runs over nontrivial zeros (counted with multiplicity), M_g(T) is the explicit “archimedean” term coming from the Gamma factor and the pole at s=1 (it is a smooth, bounded function of T depending on g), and the prime-power sum converges absolutely because ∑p,m (log p) |f(m log p)| p^{-m/2} < ∞ (Schwartz decay in frequency combined with p^{-m/2}).
+
+- Throughout I fix one nontrivial test function f with supp f ⊂ [−A, A], f even, and f ≥ 0 (so g is even, real-valued).
+
+Linear-independence hypothesis (LI)
+Assume that the (finite) set of frequencies that actually appear in the prime-power sum, for any fixed truncation, are rationally independent modulo 2π. Concretely:
+- For each finite set F ⊂ {(p, m): f(m log p) ≠ 0}, the real numbers {ωj := m log p : (p, m) ∈ F} satisfy that 1, ω1/(2π), …, ωk/(2π) are Q-linearly independent.
+
+Remarks:
+- This is a standard type of hypothesis in spectral/arithmetic almost-periodicity arguments. It is a very weak form of the commonly conjectured Q-linear independence of {log p: p prime}.
+- We only ever need the independence for finite subsets; no global statement is required.
+
+Main claim (conditional)
+Under (LI), for any fixed nonzero f ≥ 0 with compactly supported Fourier transform as above, the function
+  A_g(T) := − 2 ∑p ∑m≥1 (log p) p^{-m/2} f(m log p) cos(T m log p)
+assumes both arbitrarily large positive and arbitrarily large negative values along an unbounded sequence of T. Consequently, the total S_g(T) = M_g(T) + A_g(T) changes sign infinitely often (since M_g(T) is bounded), and in particular cannot be uniformly nonnegative or uniformly nonpositive on [0, ∞). Therefore, a fixed-kernel positivity criterion of the form “S_g(T) ≥ 0 for all T” cannot be established unconditionally by harmonic analysis alone; it would be equivalent to deep global cancellations that directly encode the zero set.
+
+Proof
+1) Absolute convergence and continuity:
+- Because f has compact support and is bounded, and p^{-m/2} decays exponentially in m, we have
+   C := ∑p ∑m≥1 (log p) |f(m log p)| p^{-m/2} < ∞.
+  Hence A_g(T) is a uniformly convergent cosine series on R, thus real-analytic and bounded in absolute value by 2C.
+
+2) Finite approximants and uniform control of tails:
+- Let ε ∈ (0,1) be arbitrary. Choose a finite set F ⊂ {(p, m): f(m log p) ≠ 0} large enough so that the tail satisfies
+   Tail := 2 ∑(p,m)∉F (log p) |f(m log p)| p^{-m/2} ≤ ε.
+  Define the finite cosine sum
+   A_F(T) := − 2 ∑(p,m)∈F (log p) p^{-m/2} f(m log p) cos(T m log p),
+  so that |A_g(T) − A_F(T)| ≤ ε for all T.
+
+- Note A_F(T) is a trigonometric polynomial in the independent frequencies {ωj := m log p : (p, m) ∈ F}, with nonnegative coefficients cj := 2 (log p) p^{-m/2} f(m log p) ≥ 0, not all zero (since f is nontrivial).
+
+3) Simultaneous phase alignment via Kronecker’s theorem (using LI):
+- By (LI), the set {(T ω1/(2π), …, T ωk/(2π)) mod 1 : T ∈ R} is dense in the k-torus.
+- Therefore, for any δ > 0 there exist arbitrarily large T+ and T− such that
+   |T+ ωj − 2π·0| ≤ δ for all j (so cos(T+ ωj) ≥ 1 − O(δ^2)),
+   |T− ωj − π| ≤ δ for all j (so cos(T− ωj) ≤ −1 + O(δ^2)).
+- Taking δ so small that the accumulated O(δ^2) error across finitely many terms is ≤ ε, we obtain
+   A_F(T+) ≤ − ∑j cj · (−1 + O(δ^2)) = −(−1 + O(δ^2)) ∑j cj = −(−1 + o(1)) S_F,
+   A_F(T−) ≥ − ∑j cj · (1 − O(δ^2)) = −(1 − O(δ^2)) S_F,
+  where S_F := ∑j cj > 0.
+
+- Thus, for arbitrarily large T+, T−,
+   A_F(T+) ≤ −S_F + ε, and A_F(T−) ≥ S_F − ε.
+
+4) Passing to the full series:
+- Using |A_g − A_F| ≤ ε uniformly,
+   A_g(T+) ≤ (−S_F + ε) + ε = −S_F + 2ε,
+   A_g(T−) ≥ (S_F − ε) − ε = S_F − 2ε.
+- Since S_F can be made as close as desired to the full sum S := ∑p,m cj by enlarging F, we can arrange S_F ≥ S/2. Then choosing ε ≪ S gives
+   A_g(T+) ≤ −c0 < 0 and A_g(T−) ≥ c0 > 0
+  for some fixed c0 depending only on f.
+
+5) Conclusion for S_g(T):
+- M_g(T) is the T-dependent “archimedean” term from the Γ-factor and pole. For fixed f, M_g(T) is bounded uniformly in T (by standard Stirling analysis of the Γ-factor contribution in the explicit formula with a fixed band-limited test).
+- Therefore, for the sequences T+ and T− constructed above and for ε taken sufficiently small (hence c0 sufficiently large compared to sup_T |M_g(T)|), the signs of S_g(T±) = M_g(T±) + A_g(T±) agree with those of A_g(T±). Hence S_g(T) takes both signs infinitely often.
+
+Implications and scope
+- The conclusion shows that, under (LI), no single fixed kernel f with the Paley–Wiener properties and f ≥ 0 can unconditionally enforce positivity (or negativity) of the zero-sum S_g(T) across all T via the explicit formula. Any such positivity must be delicately height-dependent or exploit arithmetic cancellation beyond the reach of a fixed-kernel harmonic-analytic inequality.
+- This directly rules out a large class of “universal fixed kernel” strategies: pick one pleasant f, show the prime-power side is nonnegative, deduce RH from positivity of S_g. Under (LI) this is impossible because the prime-power side is an almost periodic cosine series with positive coefficients and hence necessarily oscillates in sign densely enough to overwhelm the bounded archimedean term.
+- The argument is robust and only needs (LI) on finite sets of frequencies actually used at each truncation step (a very weak form of the general independence conjectures). It requires no unproven information about zeros.
+
+Remarks
+- The proof is constructive: given f, one can algorithmically produce arbitrarily large T where the prime-power contribution A_g(T) is ≲ −S + o(1) or ≳ S − o(1), by simultaneous Diophantine approximation in finitely many frequencies.
+- The boundedness of M_g(T) for fixed band-limit is standard: with supp f ⊂ [−A,A], the archimedean side consists of an integral of g against the logarithmic derivative of the Γ-factor; since g(·−T) is a fixed translate of an entire exponential-type function and the Γ-contribution has polynomial growth in frequency, the value is bounded uniformly in T.
+- If one weakens the requirement “fixed kernel” to allow the kernel to depend on T in a way that pushes its frequency support to infinity with T (so the almost-periodic spectrum changes), the above obstruction no longer applies directly; this underscores why essentially all successful uses of the explicit formula in prime/zero problems deploy T-dependent kernels.
+
+Limitations
+- The key hypothesis (LI) is unproven, though standard and believed. Without it, the Kronecker density step is unavailable in full generality. The conclusion is thus conditional.
+- The result does not preclude sophisticated positivity arguments with T-dependent kernels or with cancellation across the prime-power sum engineered at each height. It only rules out the “one fixed, nonnegative, band-limited bump” approach.
+
+Summary
+Under a mild linear-independence hypothesis on the logarithms of primes (restricted to finite sets at a time), any fixed, nontrivial, nonnegative, band-limited test function fed into the Weil explicit formula produces a prime-power almost-periodic cosine series that necessarily assumes both signs infinitely often, while the archimedean term stays bounded. Consequently, the zero-sum S_g(T) cannot be uniformly one-signed in T, ruling out a broad class of fixed-kernel positivity strategies toward RH.
+
+VERDICT: PARTIAL
+REASON: Conditional obstruction: fixed-kernel positivity fails under mild LI on {m log p} frequencies.

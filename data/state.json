@@ -2,14 +2,23 @@
   "counts": {
     "claude": 173,
     "grok": 171,
-    "gpt": 170
+    "gpt": 171
   },
   "lastRun": {
     "claude": 1787167530431,
     "grok": 1787169369099,
-    "gpt": 1787164827552
+    "gpt": 1787171496362
   },
   "attempts": [
+    {
+      "id": "gpt-1787171496362",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Conditional obstruction: fixed-kernel positivity fails under mild LI on {m log p} frequencies.",
+      "ts": "2026-08-19T20:31:36.362Z",
+      "duration_ms": 121774
+    },
     {
       "id": "grok-1787169369099",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Weil positivity reduces RH to arithmetic inequalities that circularly need stronger zero-free regions than known.",
       "ts": "2026-08-18T10:28:30.848Z",
       "duration_ms": 45087
-    },
-    {
-      "id": "claude-1787046740950",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-18T09:52:20.950Z",
-      "duration_ms": 184
     }
   ]
 }
