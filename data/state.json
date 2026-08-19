@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 175,
+    "claude": 176,
     "grok": 173,
     "gpt": 173
   },
   "lastRun": {
-    "claude": 1787178644177,
+    "claude": 1787183739509,
     "grok": 1787180235582,
     "gpt": 1787182075862
   },
   "attempts": [
+    {
+      "id": "claude-1787183739509",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-19T23:55:39.509Z",
+      "duration_ms": 181
+    },
     {
       "id": "gpt-1787182075862",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved rigorous Ω±-reduction: any off-line zero forces ψ(x)−x = Ω±(x^β), linking short-interval control to RH.",
       "ts": "2026-08-18T15:32:05.656Z",
       "duration_ms": 233811
-    },
-    {
-      "id": "grok-1787064238263",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Equivalence to quadratic-form positivity obtained, but no force pushing zeros to Re=1/2; obstruction sharp on the line.",
-      "ts": "2026-08-18T14:43:58.263Z",
-      "duration_ms": 37035
     }
   ]
 }
