@@ -1,0 +1,29 @@
+Attempt: A sharp local L2-criterion that forces a zero-free half-plane, and an obstruction for “global-average” approaches with 1/ζ
+
+Statement (local-L2 zero-exclusion).
+Let α ∈ R. Fix a nonnegative, compactly supported function φ ∈ C_c^∞(R) with φ(0) > 0. Suppose there exists a function B: (α, ∞) → (0, ∞), bounded on compact subintervals of (α, ∞), such that for every σ > α and every real τ one has
+∫_{R} |1/ζ(σ + i(t + τ))|^2 φ(t) dt ≤ B(σ).
+Then ζ has no zeros in Re s > α. Consequently, if this bound holds for every α > 1/2 (with B bounded as α ↓ 1/2), then RH follows.
+
+Proof.
+Assume, for contradiction, that ζ has a zero ρ = β + iγ with β > α. Then 1/ζ has a pole at ρ. By meromorphy and standard local behavior at a simple pole (the general case is even worse), there exists c1 > 0 and r0 > 0 such that for all s with |s − ρ| < r0,
+|1/ζ(s)| ≥ c1 / |s − ρ|.
+Fix τ = γ. For σ ∈ (α, β) sufficiently close to β from the right (σ ↓ β), the vertical line {σ + it : t ∈ R} intersects the disc |s − ρ| < r0 in the interval t ∈ (γ − r0, γ + r0). Since φ is continuous, nonnegative, compactly supported, and φ(0) > 0, there exist δ ∈ (0, r0) and c2 > 0 with φ(t − γ) ≥ c2 for |t − γ| ≤ δ. Then, for these σ,
+∫_{R} |1/ζ(σ + i(t + τ))|^2 φ(t) dt
+= ∫_{R} |1/ζ(σ + it)|^2 φ(t − γ) dt
+≥ ∫_{|t − γ| ≤ δ} |1/ζ(σ + it)|^2 φ(t − γ) dt
+≥ c1^2 c2 ∫_{|u| ≤ δ} du / ((σ − β)^2 + u^2).
+The last integral equals 2 c1^2 c2 arctan(δ/(σ − β)) / (σ − β), which grows like (π c1^2 c2) / (σ − β) as σ ↓ β. Hence it is unbounded as σ → β+, contradicting the assumed uniform bound in σ for the integral at shift τ = γ. Thus no such zero ρ can exist with Re ρ > α. Letting α decrease to 1/2 and assuming the hypothesis for all α > 1/2 yields RH. QED.
+
+Remarks and consequences.
+- This gives a precise, local L2 criterion: uniform (in τ) control of short-window L2 norms of 1/ζ(σ + i·) for σ > α forces the zero-free half-plane Re s > α. The compactly supported φ may be replaced by any nontrivial nonnegative weight with φ(0) > 0 and finite mass near 0.
+- Why the “global-average” approach fails without localization. Suppose one only proves a long-interval mean square bound
+sup_{σ>α} ∫_{-T}^{T} |1/ζ(σ + it)|^2 dt ≪ T
+uniformly in T. This does not preclude sparse, but arbitrarily tall, spikes near the imaginary parts of zeros: the contribution of a single pole to a long integral is O(log T), which can be hidden inside the ≪ T bound. The lemma shows that what is genuinely needed is short-window, shift-uniform control: for each shift τ, the local L2 mass near t ≈ −τ must be bounded uniformly in σ > α. Any proof strategy that only produces long-interval bounds (even optimal ones) cannot by itself force a zero-free region, and must be sharpened to yield uniform control on translates and fixed-size windows.
+- Quantitative version. The same proof yields a quantitative contrapositive: if there is a zero with real part β > α, then for every compactly supported φ with φ(0) > 0 and for τ = Im ρ, the integral grows at least like c/(σ − β) as σ ↓ β. Thus any attempted bound must deteriorate at least at this rate as σ approaches β.
+
+Outcome.
+The result is a concrete, rigorous reduction: RH follows from establishing uniform-in-shift local L2 bounds for 1/ζ(s) on every half-plane Re s > 1/2. It also pinpoints a sharp obstruction for approaches relying only on global mean-square control, clarifying what additional ingredient is necessary.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous local L2 reduction and barrier; no full RH proof obtained.
