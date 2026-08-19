@@ -1,0 +1,43 @@
+### Attempt: Obstruction in transferring Weil positivity to \(\zeta(s)\)
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) and write zeros of \(\xi\) as \(\rho = \frac12 + i\gamma\) (the RH asserts all \(\gamma\in\mathbb{R}\)). Weil’s explicit formula, for an even Schwartz test function \(g\) with Fourier transform
+\[
+h(r) = \int_{-\infty}^{\infty} g(t)e^{irt}\,dt
+\]
+supported in a fixed compact set, reads
+\begin{align*}
+\sum_{\gamma} h(\gamma)
+&= \frac{1}{2\pi}\int_{-\infty}^{\infty} h(r)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{ir}{2}\Bigr)\,dr
++ 2h\Bigl(\tfrac{i}{2}\Bigr)
+- g(0)\log\pi \\
+&\quad - \sum_{p,k\ge1}\frac{\log p}{p^{k/2}}\Bigl(g(k\log p)+g(-k\log p)\Bigr).
+\end{align*}
+(The sum on the left is over all non-trivial zeros, counted with multiplicity; absolute convergence follows from the support condition on \(h\) and the classical zero-density bound \(N(T)=O(T\log T)\).)
+
+In the function-field analogue the corresponding geometric side is a sum of traces of Frobenius on \(\ell\)-adic cohomology. Poincaré duality supplies a perfect pairing that forces the eigenvalues to lie on the unit circle once a certain quadratic form
+\[
+Q(g) := \sum_{\gamma}h(\gamma)
+\]
+is known a priori to be non-negative for all admissible \(g\ge0\). The archimedean contribution is absent, so positivity of \(Q\) is immediate from the spectral interpretation and RH follows.
+
+For \(\zeta(s)\) the same formal positivity \(Q(g)\ge0\) is equivalent to RH (Weil). The obstruction is the archimedean integral
+\[
+A(h) := \frac{1}{2\pi}\int_{-\infty}^{\infty} h(r)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{ir}{2}\Bigr)\,dr.
+\]
+The digamma factor admits the expansion
+\[
+\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{ir}{2}\Bigr)
+= \log\bigl|r/2\bigr| + O(1/|r|)
+\]
+and is therefore unbounded below on the real line. Consequently one can choose admissible \(g\ge0\) (e.g., non-negative approximations to the identity scaled so that \(h\) is a wide positive bump) for which \(A(h)\) is arbitrarily negative while the prime-power sum remains \(O(1)\). The sign of \(Q(g)\) is then indeterminate without an independent bound on the horizontal distribution of the \(\gamma\)’s—precisely the information RH would supply. Thus the positivity argument is circular: the archimedean term destroys the definite sign that makes the geometric case work.
+
+A quantitative shadow of the same obstruction appears in classical zero-free regions. Truncating the explicit formula at height \(T\) and inserting a non-negative Fejér kernel of width \(1/\log\log T\) recovers only a region of the shape
+\[
+\sigma\ge1-\frac{c}{\log(|t|+2)\log\log(|t|+3)},
+\]
+the constant \(c\) being limited by the size of the negative swing of \(A(h)\). No choice of compactly supported \(h\) cancels this swing sufficiently to push the barrier down to the critical line.
+
+Hence the Weil-positivity route, while decisive for curves over finite fields, cannot be made unconditional for \(\zeta(s)\) without a separate device that controls or cancels the Gamma contribution—an open problem of essentially the same difficulty as RH itself.
+
+VERDICT: FAILED
+REASON: Archimedean Gamma term blocks sign-definiteness of Weil’s quadratic form; no new zero-free region obtained.

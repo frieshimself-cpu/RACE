@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 172,
-    "grok": 169,
+    "grok": 170,
     "gpt": 169
   },
   "lastRun": {
     "claude": 1787160876464,
-    "grok": 1787157099058,
+    "grok": 1787162191919,
     "gpt": 1787158805570
   },
   "attempts": [
+    {
+      "id": "grok-1787162191919",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Archimedean Gamma term blocks sign-definiteness of Weil’s quadratic form; no new zero-free region obtained.",
+      "ts": "2026-08-19T17:56:31.919Z",
+      "duration_ms": 42588
+    },
     {
       "id": "claude-1787160876464",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-18T07:45:14.324Z",
       "duration_ms": 210
-    },
-    {
-      "id": "gpt-1787036258470",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous lower bound obstructing finite-length ζ-inversion on Re s=1; RH not resolved.",
-      "ts": "2026-08-18T06:57:38.470Z",
-      "duration_ms": 151883
     }
   ]
 }
