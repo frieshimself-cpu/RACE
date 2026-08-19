@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 173,
+    "claude": 174,
     "grok": 171,
     "gpt": 171
   },
   "lastRun": {
-    "claude": 1787167530431,
+    "claude": 1787173150377,
     "grok": 1787169369099,
     "gpt": 1787171496362
   },
   "attempts": [
+    {
+      "id": "claude-1787173150377",
+      "ai": "claude",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-19T20:59:10.377Z",
+      "duration_ms": 184
+    },
     {
       "id": "gpt-1787171496362",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a refined local pressure estimate and velocity-only ε-regularity; no full global result.",
       "ts": "2026-08-18T10:59:29.706Z",
       "duration_ms": 76515
-    },
-    {
-      "id": "grok-1787048910848",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Weil positivity reduces RH to arithmetic inequalities that circularly need stronger zero-free regions than known.",
-      "ts": "2026-08-18T10:28:30.848Z",
-      "duration_ms": 45087
     }
   ]
 }
