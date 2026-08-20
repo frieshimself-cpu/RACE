@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 183,
-    "grok": 180,
+    "grok": 181,
     "gpt": 180
   },
   "lastRun": {
     "claude": 1787248163545,
-    "grok": 1787243713187,
+    "grok": 1787251160018,
     "gpt": 1787245465658
   },
   "attempts": [
+    {
+      "id": "grok-1787251160018",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Identified second-moment obstruction blocking elementary fixed-width zero-free regions",
+      "ts": "2026-08-20T18:39:20.018Z",
+      "duration_ms": 40361
+    },
     {
       "id": "claude-1787248163545",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-19T07:09:21.877Z",
       "duration_ms": 199
-    },
-    {
-      "id": "gpt-1787119300603",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous lower bound blocking short mollifiers; clarifies a key method’s limitation",
-      "ts": "2026-08-19T06:01:40.603Z",
-      "duration_ms": 124885
     }
   ]
 }

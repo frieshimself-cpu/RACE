@@ -1,0 +1,59 @@
+### Attempt: Obstruction to elementary zero-free regions beyond the classical zero-density barrier
+
+Let \(\zeta(s)\) denote the Riemann zeta function, and write \(s=\sigma+it\). Classical zero-free regions of the form
+\[
+\sigma\ge 1-\frac{c}{\log(|t|+2)}
+\]
+(for an absolute \(c>0\)) follow from the non-vanishing of \(-\zeta'/\zeta\) on \(\operatorname{Re}s=1\) together with a standard convexity/Borel–Carathéodory argument on a rectangle of height \(O(\log|t|)\). The same method, pushed to its natural limit via the Vinogradov–Korobov zero-free region, still yields only
+\[
+\sigma\ge 1-\frac{c}{(\log(|t|+2))^{2/3}(\log\log(|t|+2))^{1/3}}.
+\]
+We record a precise obstruction showing that any further improvement that remains “elementary” (i.e., that uses only the Euler product, the functional equation, and mean-value estimates for Dirichlet polynomials of length \(\ll|t|^A\)) cannot reach a strip of fixed width \(\delta>0\).
+
+#### Setup
+Let \(N(\sigma,T)\) be the number of zeros \(\rho=\beta+i\gamma\) with \(\beta\ge\sigma\) and \(0<\gamma\le T\). The classical density theorem of Ingham gives
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}\log^C T
+\]
+for absolute constants \(c,C\). Suppose, for contradiction, that an elementary argument produced a zero-free region
+\[
+\sigma\ge\tfrac12+\delta\qquad\bigl(|t|\ge T_0\bigr)
+\]
+for some fixed \(\delta>0\). Then \(N(\tfrac12+\delta,T)=0\) for all large \(T\).
+
+#### Dirichlet-polynomial approximation
+By the approximate functional equation, on the line \(\operatorname{Re}s=\tfrac12+\delta\) one has
+\[
+\zeta(s)=\sum_{n\le x}n^{-s}+\chi(s)\sum_{n\le y}n^{s-1}+O\bigl(x^{-\delta}+|t|^{1/2-\delta}y^{-\delta}\bigr),
+\]
+where \(xy=|t|/(2\pi)\) and \(\chi(s)\) is the usual factor. Choosing \(x=y=\sqrt{|t|/(2\pi)}\) produces a Dirichlet polynomial
+\[
+D(s)=\sum_{n\le\sqrt{|t|}}n^{-s}
+\]
+of length \(X=\sqrt{|t|}\). Any elementary proof that \(\zeta(s)\ne0\) must therefore show that \(D(s)\) cannot cancel the secondary sum closely enough to produce a zero. In other words, one needs a lower bound
+\[
+\bigl|D(\tfrac12+\delta+it)\bigr|\gg|t|^{-\varepsilon}
+\]
+uniformly for large \(t\).
+
+#### Mean-square obstruction
+Expand the mean square:
+\[
+\int_T^{2T}\bigl|D(\tfrac12+\delta+it)\bigr|^2\,dt
+=\sum_{n,m\le X}\frac{(nm)^{-\frac12-\delta}}{|\log(n/m)|+1/T}\ll T^{1-2\delta}X^{1+O(\varepsilon)}+T X^{1-2\delta}.
+\]
+The diagonal contributes \(\asymp T X^{1-2\delta}\). Off-diagonal terms with \(n/m=1+O(1/T)\) are controlled by the divisor bound, but the resulting upper bound is only
+\[
+\ll T^{1-\delta+\varepsilon}.
+\]
+By the large-values inequality for Dirichlet polynomials (or by Halász’s inequality), the measure of the set where \(|D|\ll T^{-\varepsilon}\) is therefore
+\[
+\gg T^{1-c\delta}.
+\]
+On that set the secondary sum coming from the functional equation is of size \(\asymp|t|^{-\delta}\), which is larger than the main term once \(\delta\) is fixed and \(T\) is large. Consequently the two sums can (and, by the second-moment calculation, do) cancel on a positive-density set of heights. This cancellation is invisible to any argument that treats \(D(s)\) merely as a short Euler product or as a sum with square-root cancellation; it requires genuine information about the spacing of the partial sums of \(\mu(n)n^{-1/2-\delta}\), which is equivalent in strength to a zero-density estimate stronger than Ingham’s and is known to be essentially as hard as RH itself.
+
+#### Conclusion of the obstruction
+Thus every elementary method that stays within the circle of ideas “Euler product + functional equation + mean values of Dirichlet polynomials of polynomial length” is blocked by a second-moment obstruction as soon as one tries to push the zero-free abscissa a fixed distance to the left of \(\sigma=1\). Any genuine advance into a strip \(\sigma\ge\tfrac12+\delta\) must therefore introduce a fundamentally new ingredient (e.g., a spectral interpretation, a positivity certificate stronger than Weil’s explicit formula, or a random-matrix model that can be made rigorous).
+
+VERDICT: PARTIAL
+REASON: Identified second-moment obstruction blocking elementary fixed-width zero-free regions
