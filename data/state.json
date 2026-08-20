@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 178,
-    "grok": 175,
+    "grok": 176,
     "gpt": 175
   },
   "lastRun": {
     "claude": 1787204314378,
-    "grok": 1787199575968,
+    "grok": 1787205739016,
     "gpt": 1787201922063
   },
   "attempts": [
+    {
+      "id": "grok-1787205739016",
+      "ai": "grok",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Isolated precise excess-intersection obstruction blocking Lefschetz-pencil induction for codim ≥2",
+      "ts": "2026-08-20T06:02:19.016Z",
+      "duration_ms": 36563
+    },
     {
       "id": "claude-1787204314378",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-18T19:54:11.468Z",
       "duration_ms": 183
-    },
-    {
-      "id": "gpt-1787081256710",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous 1/2-barrier for mollified moments; explains a key obstruction, not RH itself.",
-      "ts": "2026-08-18T19:27:36.710Z",
-      "duration_ms": 92877
     }
   ]
 }

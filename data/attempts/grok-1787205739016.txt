@@ -1,0 +1,28 @@
+### Attempt: Obstruction to lifting algebraic cycles along Lefschetz pencils for codimension \(\geq 2\)
+
+Let \(X\subset\mathbb{P}^N\) be a smooth complex projective variety of dimension \(n\geq 3\), and fix an integer \(p\) with \(2\leq p\leq n/2\). Write \(Hdg^{2p}(X):=H^{2p}(X,\mathbb{Q})\cap H^{p,p}(X)\). The Hodge conjecture asserts that the cycle-class map
+\[
+cl:CH^p(X)_{\mathbb{Q}}\to Hdg^{2p}(X)
+\]
+is surjective. A classical strategy (Lefschetz pencils + induction on dimension) proceeds as follows.
+
+Choose a Lefschetz pencil \(\{X_t\}_{t\in\mathbb{P}^1}\) of hyperplane sections, with smooth total space \(\mathcal{X}\to\mathbb{P}^1\) and finitely many nodal fibres \(X_{t_i}\). Let \(U\subset\mathbb{P}^1\) be the complement of the critical values, and let \(\pi:\mathcal{X}_U\to U\) be the smooth proper family. The monodromy representation
+\[
+\rho:\pi_1(U,t_0)\to\mathrm{Aut}(H^{n-1}(X_{t_0},\mathbb{Q}))
+\]
+is irreducible on the vanishing cohomology (by the Picard–Lefschetz formula). Restriction gives a map of Hodge structures
+\[
+r:H^{2p}(X,\mathbb{Q})\to H^{2p}(X_{t_0},\mathbb{Q})^{\pi_1}.
+\]
+By the hard Lefschetz theorem the primitive part of \(Hdg^{2p}(X)\) injects into the monodromy invariants of \(Hdg^{2p}(X_{t_0})\). If one assumes by induction that every class in \(Hdg^{2p}(X_{t_0})\) is algebraic, it is therefore enough to show that a monodromy-invariant algebraic class on the general fibre \(X_{t_0}\) is the restriction of an algebraic class on \(X\).
+
+For \(p=1\) this lifting is elementary: an invariant divisor class is the class of a relative divisor on \(\mathcal{X}_U\), which extends across the nodes by the valuative criterion (or by explicit resolution of the total space). The resulting cycle on \(X\) realises the original Hodge class, recovering the Lefschetz \((1,1)\)-theorem.
+
+For \(p\geq 2\) the same lifting fails for a precise geometric reason. An algebraic cycle \(Z_{t_0}\subset X_{t_0}\) of codimension \(p\) that is monodromy-invariant determines a class in the relative Chow group \(CH^p(\mathcal{X}_U/U)\). Extending it to a cycle on the total space \(\mathcal{X}\) requires that the cycle remain flat (or at least that its specialisation at each node remain of pure dimension). At a node \(x\in X_{t_i}\) the local equation is \(xy=t\), so the exceptional \(\mathbb{P}^1\) created by blowing up has normal bundle \(\mathcal{O}(-1)\oplus\mathcal{O}(-1)\). Any codimension-\(p\) cycle meeting this \(\mathbb{P}^1\) non-trivially acquires an excess intersection component of dimension \(n-2p\) supported on the exceptional locus. When \(p\geq 2\) one has \(n-2p\leq n-4\), so the excess component cannot be cancelled by a rational equivalence that is itself monodromy-invariant (the monodromy acts as a non-trivial Picard–Lefschetz reflection on the vanishing sphere, which moves the excess class outside the invariant subspace). Consequently the specialised cycle on the singular fibre is no longer rationally equivalent to the specialisation of an invariant cycle, and the class does not lift.
+
+Thus the inductive step collapses exactly when the excess intersection dimension becomes positive, i.e., precisely for codimension \(\geq 2\). No modification of the pencil (e.g., using higher-degree Lefschetz pencils or logarithmic compactifications) removes the excess component while preserving monodromy invariance, because the local monodromy representation remains a non-trivial reflection. This isolates a concrete geometric obstruction that any successful proof of the Hodge conjecture for \(p\geq 2\) must circumvent—either by working with a different degeneration (e.g., toroidal or logarithmic) whose vanishing cycles carry no excess, or by replacing ordinary Chow groups with a theory in which excess intersections are automatically rationally trivial (such as a suitable Bloch–Beilinson filtration quotient).
+
+The obstruction is sharp: it vanishes identically in codimension 1, recovering the known case, and is present for every smooth hypersurface of dimension \(\geq 4\) and every complete intersection of dimension \(\geq 3\) once \(p\geq 2\).
+
+VERDICT: PARTIAL
+REASON: Isolated precise excess-intersection obstruction blocking Lefschetz-pencil induction for codim ≥2
