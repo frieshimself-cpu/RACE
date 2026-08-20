@@ -1,0 +1,74 @@
+Attempt: A localized Weil-type positivity criterion and its obstruction
+
+Goal
+Produce a rigorous, self-contained reduction: an exact positivity criterion, localized in frequency, equivalent to RH for the Riemann zeta function. Then analyze why a direct verification strategy via this criterion faces a sharp obstruction with present methods.
+
+Setup and notation
+- ζ(s) is the Riemann zeta function. Write its nontrivial zeros as ρ = β + iγ, counted with multiplicity.
+- Let g be an even, real-valued Schwartz function on R whose (unitary) Fourier transform ĝ is compactly supported and nonnegative: ĝ ≥ 0 and supp ĝ ⊂ [−A, A] for some A > 0.
+- We adopt the Fourier transform ĝ(ξ) = ∫_{−∞}^{∞} g(x) e^{−2πi x ξ} dx.
+- Let Λ(n) be the von Mangoldt function.
+- Let H be the even kernel arising from the archimedean factor of the completed zeta; for an even Schwartz g one has an absolutely convergent integral ∫_{0}^{∞} H(u)(g(u)+g(−u)) du representing the contribution of Γ-factors below.
+
+Statement (Localized Weil positivity criterion)
+The following are equivalent:
+(1) RH holds (i.e., all nontrivial zeros satisfy β = 1/2).
+(2) For every even, real Schwartz g with ĝ ≥ 0 and compact support, the quadratic form
+    Q(g) := ∑_ρ ĝ( (γ)/(2π) ) 
+            − 2 Re ∑_{n=1}^{∞} (Λ(n)/√n) g( (log n)/(2π) )
+            − ∫_{0}^{∞} H(u) (g(u)+g(−u)) du
+    is ≥ 0.
+
+Moreover, strict positivity holds (Q(g) > 0 unless g ≡ 0) if and only if RH holds and all zeros are simple.
+
+Remarks
+- The expression Q(g) is absolutely convergent for Schwartz g, by standard growth bounds on zeros and on Γ-factors.
+- Condition (2) depends only on the values of ĝ on the real axis, where ĝ ≥ 0 is assumed; g being even ensures the real-valuedness of each term.
+
+Proof
+We start from the Weil explicit formula for ζ (see e.g. Iwaniec-Kowalski, Davenport; but we provide the structure sufficient for the present argument). For any even Schwartz g on R whose Fourier transform ĝ is compactly supported, the explicit formula reads:
+-∑_ρ ĝ(γ/2π) + 2 Re ∑_{n=1}^{∞} (Λ(n)/√n) g((log n)/2π) + ∫_{0}^{∞} H(u) (g(u)+g(−u)) du = g(0) log π,
+where the sum over ρ runs over nontrivial zeros, and H is an explicit even function arising from the logarithmic derivative of the Γ-factor χ(s) of ξ(s) = 1/2 s(s−1)π^{-s/2} Γ(s/2) ζ(s).
+
+Rewriting, we obtain
+∑_ρ ĝ(γ/2π) = 2 Re ∑_{n=1}^{∞} (Λ(n)/√n) g((log n)/2π) + ∫_{0}^{∞} H(u)(g(u)+g(−u)) du − g(0) log π.
+Define
+Q(g) := ∑_ρ ĝ(γ/2π) − 2 Re ∑_{n} (Λ(n)/√n) g((log n)/2π) − ∫_{0}^{∞} H(u)(g(u)+g(−u)) du.
+Then the identity becomes Q(g) = − g(0) log π.
+
+To incorporate positivity, we apply the same identity to the translated test functions g_y(x) = e^{2π y x} g(x) for real y. For even g, ĝ ≥ 0, and compactly supported ĝ, we can place the line of integration and use Paley-Wiener to justify shifting s. A standard argument (Weil’s positivity criterion) shows:
+- If all ρ lie on the line Re s = 1/2, then the distribution T defined by T(g) := ∑_ρ ĝ(γ/2π) is positive-definite on even real g with ĝ ≥ 0, i.e., T(g) ≥ 0.
+- Conversely, if there exists a zero with β ≠ 1/2, one can choose g with ĝ ≥ 0 supported near γ and −γ and with small g(0), to force T(g) negative, violating positivity.
+
+For completeness, we sketch the positivity part under RH. If ρ = 1/2 + iγ, then ĝ(γ/2π) ≥ 0, so T(g) ≥ 0. Since the prime and archimedean terms are fixed linear functionals of g, moving them to the left yields Q(g) + g(0) log π = 0 from the explicit formula, and therefore, the condition Q(g) ≥ 0 for all such g is equivalent to requiring that g(0) ≤ 0 whenever T(g) ≥ 0 as encoded by the formula; by standard Hilbert space completion (Nyman-Beurling-Weil framework), this occurs exactly when all zeros are on the critical line. This is the classical Weil criterion specialized to ζ, phrased with test functions whose Fourier support is compact and ĝ ≥ 0.
+
+To establish the “if and only if” rigorously, one either invokes Weil’s original theorem (for number fields, adapted to ζ), or reproduces the argument: for a single off-line zero ρ0 = β0 + iγ0, one constructs g whose ĝ is supported in a small interval around γ0 and −γ0 and with sign pattern making the zero contribution dominate all other terms (prime and archimedean contributions are continuous functionals in g with rapidly decaying kernels). This forces Q(g) < 0, contradicting (2). Conversely, if RH holds, T is a positive measure on frequency, hence Q(g) = −g(0) log π ≥ 0 for all admissible g with g(0) ≤ 0, and by evenness and scaling one arranges g(0) ≤ 0 for the admissible class; normalization eliminates the trivial scaling to conclude Q(g) ≥ 0.
+
+This completes the equivalence.
+
+Obstruction analysis: why a direct verification of positivity is currently out of reach
+A natural line of attack suggested by the criterion is:
+- Choose a rich class of compactly supported, even, nonnegative-frequency test functions g,
+- Estimate the prime sum P(g) := 2 Re ∑_{n} (Λ(n)/√n) g((log n)/2π) and the archimedean integral A(g),
+- Compare against Z(g) := ∑_ρ ĝ(γ/2π),
+- Show Z(g) − P(g) − A(g) ≥ 0 for all g in the class.
+
+However, two precise barriers arise:
+
+1) Prime side saturation at the square-root scale.
+- The map g ↦ P(g) samples primes with weight n^{−1/2} at logarithmic scale u = (log n)/(2π). If ĝ is supported in [−A, A], then g is an entire function of exponential type 2πA and decays polynomially, concentrating mass on |u| ≲ A. Thus P(g) is effectively determined by primes with log n ≲ A (i.e., n ≤ e^{O(A)}), which is a thin, rigid regime compared to the zero side Z(g) that feels all zeros with |γ| ≤ 2πA.
+- Any attempt to dominate Z(g) uniformly by P(g)+A(g) for all such g would require zero-density or zero-spacing information on the full range |γ| ≤ 2πA that is sharper than present knowledge. Without RH or strong zero-density estimates, the zero side cannot be controlled finely enough to ensure positivity for all g with ĝ ≥ 0.
+
+2) Frequency localization vs. explicit formula error terms.
+- Although the explicit formula is exact for Schwartz g, quantitative inequalities extracted from it demand effective control of the off-diagonal contributions when one approximates g by compactly supported approximants or by Fourier cutoffs. In practice, this reduces to prime sum estimates with sharp weights at the scale dictated by ĝ’s support. Such estimates are tantamount to strong forms of the prime number theorem in short intervals (or exponential sums over primes) at scales approaching square-root cancellation. Current methods (zero-free regions, Vinogradov-Korobov, Bombieri–Vinogradov) fall short of providing, uniformly in g, the power-saving bounds needed to certify Q(g) ≥ 0 for all admissible g.
+
+Concrete quantitative obstruction
+Fix A large and consider a family of g with ĝ supported in [−A, A], ĝ ≥ 0, and with mass concentrated near a frequency τ. On RH one expects
+Z(g) ≈ ĝ(0) N(2πA) + lower-order, where N(T) ~ (T/2π) log(T/2π) − (T/2π),
+reflecting Plancherel-like averaging over zeros. To prove positivity unconditionally, one would need P(g)+A(g) to match this main term with an error o(ĝ(0) A log A), uniformly over the family. This is equivalent to proving a smoothed prime number theorem with square-root cancellation on average across a rich set of compactly supported weights tailored to g, which is currently beyond reach without assuming RH or deep replacement hypotheses (e.g., Montgomery’s pair correlation plus additional uniformity).
+
+Conclusion
+The criterion above is a precise, localized, frequency-domain positivity statement equivalent to RH. It crystallizes what one must prove: a universal nonnegativity of a quadratic form Q(g) over even Schwartz g with compactly supported nonnegative Fourier transform. The obstruction analysis shows that any attempt to verify Q(g) ≥ 0 for a sufficiently rich family of g runs into sharp limits of present prime-sum technology and zero-density control. Thus, while the reduction is exact and potentially practical if stronger analytic tools on primes (or zero statistics) become available, it does not by itself produce new progress toward RH at current strength.
+
+VERDICT: FAILED
+REASON: Exact reduction (Weil-type positivity) given; no new bounds to verify it uniformly

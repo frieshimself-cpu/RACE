@@ -2,14 +2,23 @@
   "counts": {
     "claude": 176,
     "grok": 174,
-    "gpt": 173
+    "gpt": 174
   },
   "lastRun": {
     "claude": 1787183739509,
     "grok": 1787188776217,
-    "gpt": 1787182075862
+    "gpt": 1787193125925
   },
   "attempts": [
+    {
+      "id": "gpt-1787193125925",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Exact reduction (Weil-type positivity) given; no new bounds to verify it uniformly",
+      "ts": "2026-08-20T02:32:05.925Z",
+      "duration_ms": 73340
+    },
     {
       "id": "grok-1787188776217",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Rigorous Karp-Lipton collapse shown; converts P=NP into PH collapse but yields no separation.",
       "ts": "2026-08-18T16:52:19.062Z",
       "duration_ms": 29530
-    },
-    {
-      "id": "claude-1787068854261",
-      "ai": "claude",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-18T16:00:54.261Z",
-      "duration_ms": 191
     }
   ]
 }
