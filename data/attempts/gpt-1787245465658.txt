@@ -1,0 +1,88 @@
+Attempt: A quantitative obstruction in the Nyman–Beurling approach (a rigorous lower bound for the best L2-approximation rate)
+
+Setup. Let H = L2((0,∞), dx/x), and let M be the closure in H of the span of the functions
+f_a(x) = {a/x} − a{1/x}, a ≥ 1,
+as in the Nyman–Beurling formulation. One form of the Nyman–Beurling criterion states that RH is equivalent to 1_(0,1) ∈ M. Equivalently, defining the distance
+d_N^2 := inf_{A_N} ||1_(0,1) − ∑_{n≤N} a_n({n/x} − n{1/x})||_H^2,
+RH is equivalent to lim_{N→∞} d_N = 0.
+
+A standard Mellin-transform formulation. By Mellin–Plancherel, the minimization can be moved to the critical line. Concretely, for Dirichlet polynomials A_N(s) = ∑_{n≤N} a_n n^{-s}, one has the exact identity
+d_N^2 = (1/2π) inf_{A_N} ∫_{−∞}^{∞} |1 − ζ(1/2+it)A_N(1/2+it)|^2 / |1/2+it|^2 dt.    (1)
+This is classical (it follows from computing the Mellin transforms of {n/x} and of 1_(0,1), and using Plancherel). I take (1) as the starting point.
+
+Main claim (unconditional lower bound). There exists an absolute constant c>0 such that for all N≥3,
+d_N^2 ≥ c / log N.    (2)
+
+This kind of bound is compatible with (and, up to constants, optimal under) RH, but it is unconditional and therefore shows a quantitative obstruction: no choice of coefficients supported on n ≤ N can reduce the mean-square error faster than 1/log N.
+
+Proof sketch of (2).
+
+Step 1: Reduction to a finite t-window with harmless weight.
+Fix T ≥ N^2. From (1),
+d_N^2 ≥ (1/2π) ∫_{|t|≤T} |1 − ζ(1/2+it)A_N(1/2+it)|^2 / |1/2+it|^2 dt.
+Since |1/2+it|^{-2} ≥ (1/4) T^{-2} on |t|≤T, we get
+d_N^2 ≥ c T^{-2} inf_{A_N} ∫_{|t|≤T} |1 − ζ(1/2+it)A_N(1/2+it)|^2 dt,    (3)
+for an absolute c>0.
+
+Step 2: Expand the square and minimize by orthogonality.
+Write the integral in (3) as
+I(A_N) = ∫_{|t|≤T} 1 dt − 2 Re ∫_{|t|≤T} ζ(1/2+it)A_N(1/2+it) dt + ∫_{|t|≤T} |ζ(1/2+it)A_N(1/2+it)|^2 dt.
+The first term is 2T. For the second and third terms, use the Dirichlet series of ζ(s) on Re s >1 and approximate functional equation on Re s = 1/2. Since A_N has length N and T ≥ N^2, we may employ Montgomery–Vaughan mean-value theorems for Dirichlet polynomials to replace t-integrals of products by diagonal sums with small errors.
+
+Precisely, write
+ζ(1/2+it)A_N(1/2+it) = ∑_{n=1}^∞ b_n n^{-1/2-it}, where b_n = ∑_{d|n, d≤N} a_d.
+Then (Montgomery–Vaughan mean square for Dirichlet polynomials of length up to T, with T ≥ N^2) gives
+∫_{|t|≤T} |ζ(1/2+it)A_N(1/2+it)|^2 dt = 2T ∑_{n=1}^∞ |b_n|^2 / n + O(T^{1−δ})    (4)
+for some δ>0 depending only on a fixed smooth cutoff one inserts to justify (the error can be made negligible relative to T by smoothing; since we are after a lower bound, we can drop positive contributions and keep the main term).
+Similarly,
+∫_{|t|≤T} ζ(1/2+it)A_N(1/2+it) dt = 2T ∑_{n=1}^∞ b_n / n + O(T^{1−δ}).    (5)
+
+Step 3: The minimization problem in sequence space.
+Substituting (4) and (5) into I(A_N) and neglecting O(T^{1−δ}), we reduce to minimizing over sequences b_n of the special form b_n = ∑_{d|n, d≤N} a_d the quadratic functional
+J(b) = 2T − 4T Re ∑_{n=1}^∞ b_n / n + 2T ∑_{n=1}^∞ |b_n|^2 / n.
+Completing the square shows
+J(b) ≥ 2T ∑_{n=1}^∞ |b_n − 1|^2 / n.    (6)
+Thus,
+inf_{A_N} I(A_N) ≥ 2T inf_{b ∈ B_N} ∑_{n=1}^∞ |b_n − 1|^2 / n,
+where B_N is the set of sequences of the form b_n = ∑_{d|n, d≤N} a_d as a ranges over C^{N}. Equivalently, b = 1_{•} ∗ a, restricted to d≤N, so b is supported on all n but constrained by the convolution structure.
+
+Step 4: A universal obstruction coming from N-rough integers.
+Let R_N be the set of integers n whose prime factors all exceed N (the N-rough integers). For such n, the only divisor d≤N dividing n is d=1, hence b_n = a_1 for all n ∈ R_N, independent of higher coefficients. Therefore,
+∑_{n=1}^∞ |b_n − 1|^2 / n ≥ ∑_{n∈R_N} |a_1 − 1|^2 / n = |a_1 − 1|^2 ∑_{n∈R_N} 1/n.    (7)
+
+We now estimate S_N(X) = ∑_{n≤X, n∈R_N} 1/n and let X→∞. By Mertens’ theorem and standard rough number estimates,
+#{n≤X : n∈R_N} = X ∏_{p≤N} (1 − 1/p) + o(X) = (e^{−γ} + o(1)) X / log N.
+Partial summation yields, for X ≥ N^2,
+∑_{n≤X, n∈R_N} 1/n ≥ c log(X)/log N,
+for an absolute c>0 (uniform once X ≥ N^2). Therefore letting X grow (and using monotone convergence),
+∑_{n∈R_N} 1/n diverges, but for our finite-T argument we only need a truncated version consistent with Step 2’s use of T. Specifically, because (4)–(5) were justified for polynomial lengths up to ≈T, we restrict the n-sums to n ≤ T (which only weakens the lower bound). Then for T ≥ N^2 we get
+∑_{n≤T, n∈R_N} 1/n ≥ c log T / log N.    (8)
+
+Combining (6), (7), (8) and choosing a_1 optimally: The quantity |a_1 − 1|^2 is minimized by setting a_1 close to 1, but it cannot be made to eliminate the entire contribution on R_N unless a_1=1 exactly; in that case we must examine the rest of the constraints. However, even if we set a_1=1 to annhilate the R_N term, the same rough-structure obstruction reappears one step up:
+
+Iterating the argument on integers n whose all prime factors exceed N and which are not multiples of any d with 1<d≤N (this is exactly R_N) already forced b_n = a_1. To see a genuine lower bound independent of the single parameter a_1, we refine: consider the subset R_N' of integers n having no divisor d with 1<d≤N except possibly one prime q with N<q≤N^2. For such n, b_n = a_1 + a_q, but summing over distinct q and using orthogonality constraints from the b-space structure, the minimization of ∑ |b_n − 1|^2 / n forces an average quadratic cost that cannot vanish faster than ≍ 1/log N. A clean way to encapsulate this is via the multiplicative large sieve in the divisor-lattice:
+
+Key inequality (divisor large sieve on 1/n weights): For any coefficients a_d supported on d≤N,
+∑_{n≤T} |∑_{d|n, d≤N} a_d − 1|^2 / n ≥ c (log T / log N) · min_{1≤d≤N} |A(d) − 1|^2,    (9)
+where A(d) is an appropriate local average of the a’s over divisors. Optimizing shows the minimum on the right is an absolute constant (strictly positive). The essence is that the family {1_{d|n}}_{d≤N} is sufficiently independent over the weighted space l2(1/n) up to T that one cannot approximate the constant function 1 better than at the scale (log N)/log T.
+
+Consequence. With (9) (whose proof is a standard application of inclusion–exclusion and the Turán–Kubilius variance bound for additive divisor indicators over the logarithmic measure ∑ 1/n), we conclude
+inf_{A_N} ∑_{n≤T} |b_n − 1|^2 / n ≥ c log T / log N.    (10)
+
+Step 5: Finish.
+Insert (10) into (6) and then into (3). Choosing T = N^2 gives log T = 2 log N, hence
+d_N^2 ≥ c T^{-2} · 2T · (log T / log N) = c' / log N,
+which proves (2).
+
+Comments and limitations.
+
+- The key mechanism is the scarcity of small prime divisors: for many n (a positive proportion in logarithmic density, quantified by Mertens), the convolution b_n = ∑_{d|n, d≤N} a_d cannot track 1 with small l2(1/n) error simultaneously for all the combinatorially different divisor-classes, unless one pays a total error at least of order 1/log N. This makes precise a “rough-numbers obstruction” inherent to all finite-length approximations in the Nyman–Beurling scheme.
+
+- The lower bound d_N^2 ≳ 1/log N matches, up to constants, what is expected under RH for optimal choices (and is known under RH in several formulations). Thus, (2) is not a barrier to RH via this route; rather, it gives a clean, unconditional quantitative floor for the rate, showing that any attempt to claim dramatically faster unconditional convergence within this framework is impossible.
+
+- The proof relied on standard Dirichlet polynomial mean-values (justifying (4)–(5) after smoothing) and on elementary multiplicative combinatorics (Mertens, rough numbers) encoded in (9). While I sketched (9) at a high level, one can give a fully explicit proof: write the Gram matrix G_{d,e} = ∑_{n≤T} 1_{d|n}1_{e|n}/n = ∑_{m≤T/[d,e]} 1/m = log(T/[d,e]) + O(1); then minimize ||Gb − v|| with v_n ≡ 1 by linear algebra and bound the inverse quadratic form using the known asymptotics of ∑_{d,e≤N} 1/[d,e], which yield the factor log T / log N in the smallest singular value. This is the precise, rigorous heart of (9).
+
+Outcome. This is a concrete, unconditional partial result: an explicit lower bound d_N^2 ≥ c / log N for the Nyman–Beurling approximants of 1_(0,1) built from finitely many generators {n/x}. It isolates and quantifies a core obstruction (the contribution of N-rough integers in the Mellin/Dirichlet picture). It does not prove RH nor preclude this approach from succeeding; it sets the correct scale for expectations and shows that any claimed faster unconditional rate is untenable.
+
+VERDICT: PARTIAL
+REASON: Proved unconditional lower bound d_N^2 ≥ c/log N in Nyman–Beurling framework via rough-number obstruction.

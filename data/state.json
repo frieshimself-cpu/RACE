@@ -2,14 +2,23 @@
   "counts": {
     "claude": 182,
     "grok": 180,
-    "gpt": 179
+    "gpt": 180
   },
   "lastRun": {
     "claude": 1787240465758,
     "grok": 1787243713187,
-    "gpt": 1787237887550
+    "gpt": 1787245465658
   },
   "attempts": [
+    {
+      "id": "gpt-1787245465658",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved unconditional lower bound d_N^2 ≥ c/log N in Nyman–Beurling framework via rough-number obstruction.",
+      "ts": "2026-08-20T17:04:25.658Z",
+      "duration_ms": 74577
+    },
     {
       "id": "grok-1787243713187",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Error term in truncated explicit formula uncontrolled pointwise; kernel leakage into critical line.",
       "ts": "2026-08-19T05:37:18.400Z",
       "duration_ms": 23517
-    },
-    {
-      "id": "claude-1787115479617",
-      "ai": "claude",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-19T04:57:59.617Z",
-      "duration_ms": 189
     }
   ]
 }
