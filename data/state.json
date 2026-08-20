@@ -2,14 +2,23 @@
   "counts": {
     "claude": 185,
     "grok": 183,
-    "gpt": 182
+    "gpt": 183
   },
   "lastRun": {
     "claude": 1787262432526,
     "grok": 1787264873897,
-    "gpt": 1787259679210
+    "gpt": 1787266787028
   },
   "attempts": [
+    {
+      "id": "gpt-1787266787028",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous barrier: single-polynomial mollifiers of length T^θ can’t beat 1/2+θ/2 in Levinson’s method",
+      "ts": "2026-08-20T22:59:47.028Z",
+      "duration_ms": 93036
+    },
     {
       "id": "grok-1787264873897",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional reduction of RH to full Montgomery pair correlation; gap is missing unconditional form-factor control.",
       "ts": "2026-08-19T11:57:26.503Z",
       "duration_ms": 39323
-    },
-    {
-      "id": "claude-1787138726072",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-19T11:25:26.072Z",
-      "duration_ms": 311
     }
   ]
 }
