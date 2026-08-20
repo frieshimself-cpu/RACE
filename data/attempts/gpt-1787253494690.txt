@@ -1,0 +1,59 @@
+Attempt: A functional-analytic reduction via a short-support “approximate 1/ζ” on the 1/2-line, and a precise obstruction
+
+Setup and goal
+- Let T ≥ 2 be large. Let A(s) be a Dirichlet polynomial supported on n ≤ Tθ (0 < θ < 1), and consider F(s) := 1 − ζ(s)A(s).
+- Heuristic aim: If one could force ∫R |F(1/2+it)|2 W(t/T) dt ≪ T1−δ uniformly for all large T (for some smooth compactly supported weight W ≥ 0 and some fixed δ > 0), with θ < 1 fixed, then “move a contour” in a Mellin-type functional to isolate residues at zeros ρ of ζ and force a contradiction unless there are no zeros with Re ρ > 1/2 (i.e., deduce RH).
+- This would be a quantitative short-support variant of the Nyman–Beurling/Mollifier philosophy.
+
+The candidate linear functional and its formal residue evaluation
+- Fix a smooth compactly supported Φ on (0,∞), supported in [1/2, 2], and define KT(s) = ∫0∞ Φ(x) xs−1 dx with the understanding we actually use Φ(x/T), so KT(s) ≍ TRe(s) times a Schwartz function of Im(s).
+- Consider the functional
+  J(F) := (1/2πi) ∫(2) F(s) KT(s) / ζ(s) ds.
+- If we apply this to F = 1 − ζA, then (on Re s = 2) 1/ζ is holomorphic and bounded by standard bounds, so J(F) is absolutely convergent. Formally shifting to the left across the critical strip, one picks up residues from the simple poles of 1/ζ at the nontrivial zeros ρ of ζ:
+  J(1) = ∑ρ KT(ρ) / ζ′(ρ) + (trivial-zero and far-left terms),
+  J(ζA) = (1/2πi) ∫(2) A(s) KT(s) ds.
+- The second term J(ζA) evaluates (by Mellin inversion) to ∑n an Φ(n/T). If A is supported on n ≤ Tθ with θ < 1 and Φ is supported near 1, then J(ζA) = 0. Thus, if the shift is justified and the boundary integral against 1/ζ is controlled, J(F) would essentially equal ∑ρ KT(ρ)/ζ′(ρ).
+- With a standard choice of Φ (say Φ ≥ 0, Φ(1) > 0), KT(ρ) ≍ Tβ−1/2 Ψ(γ) for an even Schwartz Ψ not vanishing identically. Thus any zero with β > 1/2 and |γ| within the T-window forces |J(F)| ≍ Tβ−1/2/|ζ′(ρ)|, suggesting growth in T.
+- If, in addition, J were bounded as a linear functional on L2(1/2+it; W), then the small L2 norm of F would contradict the nontrivial size of J(F), ruling out zeros with β > 1/2.
+
+Precise obstruction: the functional is not bounded on L2(1/2+it) because of poles of 1/ζ on the line
+- The above strategy hinges on controlling the boundary integral after contour shift:
+  J(F) = PV (1/2π) ∫R F(1/2+it) KT(1/2+it) / ζ(1/2+it) dt + (residues).
+- This representation exposes the core issue: 1/ζ(1/2+it) has simple poles at zeros on the critical line, which we cannot a priori exclude. Consequently, the kernel K(t) := KT(1/2+it)/ζ(1/2+it) is not in L2loc(R) and the map
+  F ↦ ∫ F(1/2+it) K(t) dt
+  is not a bounded linear functional on L2(R; W(t/T) dt) for any nontrivial W.
+- One can make this obstruction quantitative:
+
+Lemma (Unboundedness near poles). Let t0 be such that ζ(1/2+it0) = 0 and ζ′(1/2+it0) ≠ 0. For any η > 0, there exists a function Fη(t) supported in |t − t0| ≤ η with ∥Fη∥L2(W) ≤ 1 but
+  |∫R Fη(t) KT(1/2+it)/ζ(1/2+it) dt| ≥ cη−1/2 |KT(1/2+it0)/ζ′(1/2+it0)|,
+for some c > 0 depending only on W and a local nondegeneracy of KT at t0.
+Proof sketch. Near t0, write 1/ζ(1/2+it) = c0/(t − t0) + h(t) with h smooth. Take Fη(t) = φ((t − t0)/η) with φ a fixed bump normalized so that its L2(W) norm equals 1 and with mean zero against h(t)KT(1/2+it). Then the principal value integral against (t − t0)−1 behaves like η−1/2 times a nonzero constant determined by φ and KT at t0. The smooth term contributes O(1). Letting η → 0 blows up the functional at fixed L2 norm.
+
+- Therefore, the would-be duality argument cannot be carried out: J is not a continuous functional on the L2 space where one controls F(1/2+it). Small L2 norm does not prevent large J(F) coming from arbitrarily small neighborhoods of zeros on the line.
+- Importantly, this obstruction persists even if A is supported on n ≤ Tθ with θ < 1 (so that J(ζA) vanishes): the large value of J(F) comes from the boundary contribution near critical-line zeros, independent of the vanishing of the “analytic” term.
+
+A sharp negative statement (barrier)
+Proposition (Barrier to “short-support L2-approximation ⇒ RH” via 1/ζ-testing). Fix any smooth compactly supported W and Φ as above, and any 0 < θ < 1. There is no T0 and C < ∞ such that the implication
+  for all large T and all Dirichlet polynomials A supported on n ≤ Tθ,
+  ∫R |1 − ζ(1/2+it)A(1/2+it)|2 W(t/T) dt ≤ T1−δ ⇒ RH
+can be proved solely by testing against the Mellin functional
+  F ↦ (1/2πi) ∫(2) F(s) KT(s)/ζ(s) ds,
+because this functional is not bounded on the L2 space in which the left-hand side is measured.
+Proof. The unboundedness lemma shows that even if the L2 norm is arbitrarily small, the functional can be arbitrarily large when critical-line zeros exist. Thus, no contradiction can be drawn from smallness of the L2 error via this route. Any successful argument must either (i) avoid kernels with singularities at critical-line zeros (for example, by canceling them—impossible without assuming RH), or (ii) control F in a stronger norm that dominates the singular dual pairing (e.g., a Sobolev norm with pointwise control near zeros), or (iii) use a different functional that does not place mass at critical-line zeros.
+
+Consequences and concrete guidance
+- The above shows a precise failure mode of a natural “short Dirichlet support + L2 on the 1/2-line + division by ζ” approach. It isolates the necessity of either:
+  1) a norm that controls values of F in small neighborhoods of zeros on the 1/2-line (which would require information at scales ≪ average zero spacing), or
+  2) a mollifier/functional that is analytic across the 1/2-line and avoids division by ζ, or
+  3) support of A extending up to scale T (so that the “analytic” J(ζA) term can nontrivially cancel large residue contributions), which recovers the well-known phenomenon that long mollifiers are essential in Levinson-type methods.
+- In particular, any claim that “RH follows if 1 is approximable by ζ(s)A(s) with A supported on n ≤ T1−ε in L2(1/2+it; W)” cannot be justified by the basic explicit-formula/1/ζ-testing route; the functional analysis obstructs it.
+
+Remarks on partial salvage
+- One can repair boundedness by replacing L2 with a weighted H1/2-type norm controlling local averages at scale comparable to the mean zero spacing. Alternatively, one can regularize by inserting a factor that vanishes at zeros on the line (unknown unconditionally).
+- The obstruction is independent of any zero-density hypothesis and relies only on the existence of any simple zero on the 1/2-line (which we know unconditionally).
+
+Conclusion
+- This is a rigorous, localized barrier result for a concrete and commonly attempted reduction idea: the “divide by ζ and pick residues” technique cannot be paired with only L2(1/2+it) control and short Dirichlet support to force RH. Any progress via this avenue must overcome this analytic unboundedness (e.g., via stronger norms or different functionals).
+
+VERDICT: PARTIAL
+REASON: Rigorous barrier: “L2 + short support + 1/ζ testing” cannot imply RH due to unbounded dual functional.

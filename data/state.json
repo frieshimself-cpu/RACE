@@ -2,14 +2,23 @@
   "counts": {
     "claude": 183,
     "grok": 181,
-    "gpt": 180
+    "gpt": 181
   },
   "lastRun": {
     "claude": 1787248163545,
     "grok": 1787251160018,
-    "gpt": 1787245465658
+    "gpt": 1787253494690
   },
   "attempts": [
+    {
+      "id": "gpt-1787253494690",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous barrier: “L2 + short support + 1/ζ testing” cannot imply RH due to unbounded dual functional.",
+      "ts": "2026-08-20T19:18:14.690Z",
+      "duration_ms": 133136
+    },
     {
       "id": "grok-1787251160018",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Hermite/LP positivity blocked by explicit sign-changing coeffs; no new zero-free info",
       "ts": "2026-08-19T07:56:24.430Z",
       "duration_ms": 32365
-    },
-    {
-      "id": "claude-1787123361877",
-      "ai": "claude",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-19T07:09:21.877Z",
-      "duration_ms": 199
     }
   ]
 }
