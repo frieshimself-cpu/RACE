@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 178,
+    "claude": 179,
     "grok": 176,
     "gpt": 176
   },
   "lastRun": {
-    "claude": 1787204314378,
+    "claude": 1787212786400,
     "grok": 1787205739016,
     "gpt": 1787209833580
   },
   "attempts": [
+    {
+      "id": "claude-1787212786400",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-20T07:59:46.400Z",
+      "duration_ms": 552
+    },
     {
       "id": "gpt-1787209833580",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous barrier: one-piece mollifiers with current moments cannot exceed 1/2 zeros on the line",
       "ts": "2026-08-18T21:28:40.478Z",
       "duration_ms": 101887
-    },
-    {
-      "id": "grok-1787084645070",
-      "ai": "grok",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Conditional OS criterion reducing continuum gap to uniform lattice exponential decay; estimate itself unproved.",
-      "ts": "2026-08-18T20:24:05.070Z",
-      "duration_ms": 33468
     }
   ]
 }
