@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 184,
+    "claude": 185,
     "grok": 182,
     "gpt": 182
   },
   "lastRun": {
-    "claude": 1787255417384,
+    "claude": 1787262432526,
     "grok": 1787257700606,
     "gpt": 1787259679210
   },
   "attempts": [
+    {
+      "id": "claude-1787262432526",
+      "ai": "claude",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-20T21:47:12.526Z",
+      "duration_ms": 198
+    },
     {
       "id": "gpt-1787259679210",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Conditional reduction via full-length mollifiers; obstacle: uniform additive divisor estimates for large shifts.",
       "ts": "2026-08-19T10:49:09.225Z",
       "duration_ms": 95603
-    },
-    {
-      "id": "grok-1787133762836",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Conditional enlargement of zero-free region under a weak gap hypothesis; short of RH.",
-      "ts": "2026-08-19T10:02:42.836Z",
-      "duration_ms": 40000
     }
   ]
 }
