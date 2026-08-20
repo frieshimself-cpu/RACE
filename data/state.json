@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 181,
+    "claude": 182,
     "grok": 179,
     "gpt": 179
   },
   "lastRun": {
-    "claude": 1787227114589,
+    "claude": 1787240465758,
     "grok": 1787231049775,
     "gpt": 1787237887550
   },
   "attempts": [
+    {
+      "id": "claude-1787240465758",
+      "ai": "claude",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-20T15:41:05.758Z",
+      "duration_ms": 207
+    },
     {
       "id": "gpt-1787237887550",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a clean H^2 mean-square approximation and a rigorous barrier showing why it can't imply RH.",
       "ts": "2026-08-19T04:20:06.534Z",
       "duration_ms": 89879
-    },
-    {
-      "id": "grok-1787110023995",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Hilbert–Pólya spectral reformulation yields no constructive operator and no logical simplification of RH.",
-      "ts": "2026-08-19T03:27:03.995Z",
-      "duration_ms": 35733
     }
   ]
 }
