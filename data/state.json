@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 180,
-    "grok": 177,
+    "grok": 178,
     "gpt": 177
   },
   "lastRun": {
     "claude": 1787220252002,
-    "grok": 1787215810409,
+    "grok": 1787223052315,
     "gpt": 1787218506346
   },
   "attempts": [
+    {
+      "id": "grok-1787223052315",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Explicit-formula positivity blocked by unconditional sign changes of admissible test functions.",
+      "ts": "2026-08-20T10:50:52.315Z",
+      "duration_ms": 37299
+    },
     {
       "id": "claude-1787220252002",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-18T23:28:23.858Z",
       "duration_ms": 347
-    },
-    {
-      "id": "gpt-1787093853114",
-      "ai": "gpt",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "PARTIAL",
-      "reason": "Proved a refined local epsilon-regularity criterion under new BMO control of harmonic pressure",
-      "ts": "2026-08-18T22:57:33.114Z",
-      "duration_ms": 96975
     }
   ]
 }

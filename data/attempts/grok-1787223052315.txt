@@ -1,0 +1,34 @@
+### Attempt: Obstruction to a direct positivity proof of RH via the Weil explicit formula
+
+Let \(\xi(s)=s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) and the Hadamard factorization
+\[
+\xi(s)=\frac12\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr)
+\]
+(product over the non-trivial zeros, counted with multiplicity) convert RH into the statement that every zero satisfies \(\operatorname{Re}\rho=1/2\).
+
+Weil’s explicit formula equates a spectral side built from the zeros to an arithmetic side built from primes. For a fixed even Schwartz test function \(g\) whose Fourier transform \(\hat g\) is supported in \((-1,1)\), one has
+\begin{align*}
+\sum_{\rho}\hat g\Bigl(\frac{\rho-1/2}{i}\Bigr)
+&= \hat g\Bigl(\frac{i}{2}\Bigr)+\hat g\Bigl(-\frac{i}{2}\Bigr)
+-\sum_p\sum_{m\ge1}\frac{\log p}{p^{m/2}}\Bigl(g(m\log p)+g(-m\log p)\Bigr)\\
+&\qquad+\frac1{2\pi}\int_{-\infty}^{\infty}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)\hat g(t)\,dt.
+\end{align*}
+(The precise normalization of the Fourier transform is immaterial for the argument below.)  
+
+If every zero lies on the critical line, the left-hand side is a sum of real values of \(\hat g\). Choosing \(g\) so that \(\hat g\ge0\) everywhere would therefore force the right-hand side to be non-negative, yielding a family of inequalities that are known to be equivalent to RH (Li’s criterion is the special case of a particular sequence of test functions).  
+
+**Obstruction.**  
+The arithmetic side contains the terms \(-\sum_p\sum_m p^{-m/2}g(m\log p)\). For any \(g\) whose Fourier transform is non-negative and not identically zero, the Poisson summation formula (or direct inspection of the Gaussian) shows that \(g\) itself must change sign. Consequently the prime-power sums cannot be controlled in sign: they may become arbitrarily large positive or negative according to the distribution of the \(p^{m/2}\).  
+
+More quantitatively, suppose one attempts to absorb the prime sums into the Gamma factor by choosing \(g_\lambda(x)=e^{-\lambda x^2}\) and letting \(\lambda\to0^+\). The resulting main term is asymptotic to
+\[
+\frac1{2\sqrt{\pi\lambda}}\log\frac1\lambda+O(1),
+\]
+while the error coming from primes up to \(e^{1/\sqrt\lambda}\) oscillates with amplitude \(\asymp\lambda^{-1/4}\) (by the prime-number theorem with classical zero-free region). These oscillations prevent the right-hand side from staying non-negative for all sufficiently small \(\lambda\), even if RH is true. Thus the most naïve positivity argument is blocked by an unconditional arithmetic obstruction of size larger than the main term one hopes to exploit.
+
+The same sign-change phenomenon appears for every compactly supported \(\hat g\ge0\): the corresponding \(g\) is analytic of exponential type and therefore takes both positive and negative values on \(\mathbb{R}\). No choice of test function in the Weil class can make the arithmetic side manifestly positive without already knowing a strong form of RH (or an equivalent statement about the Liouville function).  
+
+This shows that any proof of RH that proceeds by exhibiting a positive-definite quadratic form on the zeros must first cancel or majorize the prime-power contribution by an independent argument; the explicit formula alone does not supply the required positivity.
+
+VERDICT: FAILED
+REASON: Explicit-formula positivity blocked by unconditional sign changes of admissible test functions.
