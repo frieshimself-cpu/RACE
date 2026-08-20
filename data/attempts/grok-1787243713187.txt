@@ -1,0 +1,32 @@
+### Attempt: Obstruction to proving RH via Fourier positivity of \(\Xi\)
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) and the fact that \(\xi\) is entire of order one reduce RH to the assertion that all zeros of the entire function
+\[
+\Xi(\tau)\,:=\,\xi\bigl(\tfrac12+i\tau\bigr)
+\]
+are real. The function \(\Xi\) admits the Fourier representation
+\[
+\Xi(\tau)=\int_{-\infty}^{\infty}\Phi(u)\,e^{iu\tau}\,du,
+\]
+where
+\[
+\Phi(u)=2\sum_{n=1}^\infty\bigl(2\pi^2 n^4 e^{9u/2}-3\pi n^2 e^{5u/2}\bigr)\exp(-\pi n^2 e^{2u})
+\]
+is even, positive, and rapidly decreasing (the series converges uniformly on compact sets after the substitution that isolates the Gaussian decay). Thus \(\Xi\) is (up to the elementary factor coming from the \(\Gamma\)-factor already absorbed into \(\xi\)) the Fourier transform of a positive even Schwartz function.
+
+A classical sufficient condition for an even Fourier transform to have only real zeros is that the density itself belong to the Laguerre–Pólya class \(\mathcal{LP}\) (i.e., be a locally uniform limit of real polynomials with only real zeros). Equivalently, \(\log\Phi\) must be concave on \(\mathbb{R}\) after a quadratic change of variables that restores the Gaussian weight. Direct inspection of the first two logarithmic derivatives of \(\Phi\) shows that this concavity fails: the second derivative of \(\log\Phi(u)\) changes sign for large positive \(u\) because the sum is asymptotically dominated by the \(n=1\) term, whose logarithmic second derivative is
+\[
+\frac{d^2}{du^2}\log\bigl(e^{9u/2}\exp(-\pi e^{2u})\bigr)=-\,4\pi e^{2u}+O(1)<0
+\]
+only for \(u\) larger than an absolute constant, while the lower-order terms produce a positive contribution near \(u=0\). Consequently \(\Phi\notin\mathcal{LP}\).
+
+The same obstruction appears in the de Bruijn–Newman deformation
+\[
+\Xi_\lambda(\tau)=\int_{-\infty}^{\infty}e^{\lambda u^2}\Phi(u)\,e^{iu\tau}\,du.
+\]
+For every \(\lambda>0\) the multiplier \(e^{\lambda u^2}\) eventually destroys any residual concavity, and it is known that non-real zeros appear. The critical value \(\lambda=0\) is precisely RH; positivity of \(\Phi\) alone supplies no information that would force the critical value to be non-positive. In short, the Fourier-positivity representation, while elegant, does not place \(\Xi\) inside any class of functions already known to be zero-free off the real axis, and the most natural strengthenings of positivity are known to be false.
+
+Thus the approach yields no zero-free region beyond what is already classical, and supplies no new reduction of RH.
+
+VERDICT: FAILED
+REASON: Positivity of \(\Phi\) insufficient for LP-class membership; known deformation obstruction blocks progress.

@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 182,
-    "grok": 179,
+    "grok": 180,
     "gpt": 179
   },
   "lastRun": {
     "claude": 1787240465758,
-    "grok": 1787231049775,
+    "grok": 1787243713187,
     "gpt": 1787237887550
   },
   "attempts": [
+    {
+      "id": "grok-1787243713187",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity of \\(\\Phi\\) insufficient for LP-class membership; known deformation obstruction blocks progress.",
+      "ts": "2026-08-20T16:35:13.187Z",
+      "duration_ms": 42827
+    },
     {
       "id": "claude-1787240465758",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-19T04:57:59.617Z",
       "duration_ms": 189
-    },
-    {
-      "id": "gpt-1787113206534",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a clean H^2 mean-square approximation and a rigorous barrier showing why it can't imply RH.",
-      "ts": "2026-08-19T04:20:06.534Z",
-      "duration_ms": 89879
     }
   ]
 }
