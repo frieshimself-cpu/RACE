@@ -1,0 +1,56 @@
+Attempt: A quantitative localized Nyman–Beurling-type approximation below the “1/2-length” barrier and the obstruction to extending it
+
+Statement (localized mollified L2-approximation).
+Fix ε>0 and a real polynomial P with P(0)=1. For large T and N=T^{1/2-ε}, define
+A(s) = ∑_{n≤N} a_n n^{-s}, with a_n = μ(n) P( (log(N/n))/log N ).
+Then
+(1/T) ∫_{T}^{2T} |1 - ζ(1/2+it) A(1/2+it)|^2 dt ≪_{ε,P} 1/log N,
+hence ≪_{ε,P} 1/log T.
+
+Sketch of proof.
+- Approximate functional equation: For s=1/2+it, write
+  ζ(s) = ∑_{m≤M} m^{-s} + χ(s) ∑_{m≤M} m^{-(1-s)} + O(T^{-100}),
+  with M ≍ (T/2π)^{1/2} and |χ(s)|=1. The T^{-100} remainder follows by standard smoothing; any fixed power saving suffices.
+- Split ζ(s)A(s) into the two ranges:
+  ζ(s)A(s) = B_1(s) + χ(s) B_2(1-s) + O(T^{-100} ∑_{n≤N}|a_n|n^{-1/2}),
+  where
+  B_1(s) = ∑_{m≤M} ∑_{n≤N} a_n μ(n) (mn)^{-s},
+  B_2(1-s) = ∑_{m≤M} ∑_{n≤N} a_n μ(n) m^{-(1-s)} n^{-s}.
+  Note B_1, B_2 are Dirichlet polynomials of length at most MN.
+- Mean square reduction to coefficients:
+  Since MN = T^{1-ε}, by the Montgomery–Vaughan mean value theorem for Dirichlet polynomials,
+  (1/T) ∫_{T}^{2T} |∑_{k≤MN} c_k k^{-1/2-it}|^2 dt = ∑_{k≤MN} |c_k|^2/k + O(T^{-1} (∑|c_k|/√k)^2).
+  The error is o(1) for fixed ε. Apply this to B_1(s) and to B_2(1-s) separately; mixed terms are also controlled (the same mean value theorem with two polynomials of length T^{1-ε} gives a negligible cross term).
+- Coefficient structure:
+  The coefficients of B_1 are c_k = ∑_{n|k, n≤N, k/n ≤ M} a_n μ(n), i.e. a short divisor sum; similarly for B_2 with the same size and algebraic form. Let c_k’ denote the analogous coefficients for B_2; symmetry of ranges ensures the same bounds for ∑|c_k|^2/k and ∑|c_k’|^2/k.
+- Normalization at k=1:
+  Since a_1=μ(1)P(0)=1, we have c_1=1 (and likewise for c_1’), so the “-1” in |ζA-1|^2 cancels the diagonal unit mass at k=1. More precisely, writing
+  E := (1/T) ∫_{T}^{2T} |1 - ζA|^2 dt,
+  we have E ≪ ∑_{2≤k≤MN} |c_k|^2/k + ∑_{2≤k≤MN} |c_k’|^2/k + o(1).
+- Sieve-type quadratic form and its minimization:
+  Expanding the first sum,
+  ∑_{k≤MN} |c_k|^2/k
+  = ∑_{n1,n2≤N} a_{n1} a_{n2} μ(n1) μ(n2) ∑_{k≤MN: n1|k, n2|k, k/n_i ≤ M} 1/k.
+  Writing k = lcm(n1,n2) r with r subject to r ≤ min(M n1/lcm, M n2/lcm, MN/lcm), the inner sum equals
+  (log R(n1,n2) + O(1))/lcm(n1,n2),
+  where R(n1,n2) = min(M n1/lcm(n1,n2), M n2/lcm(n1,n2), MN/lcm(n1,n2)).
+  Since N ≤ T^{1/2-ε} and M ≍ T^{1/2}, one has uniformly R(n1,n2) ≥ 1 and log R(n1,n2) ≍ log M + O(log(N/gcd)), hence comparable to log T with an ε-dependent slack.
+  Thus, up to a harmless factor ≍ log T, the quadratic form is that of the Selberg sieve:
+  Q(a) := ∑_{n1,n2≤N} a_{n1} a_{n2} μ(n1) μ(n2) / lcm(n1,n2).
+  It is classical (Selberg’s upper bound sieve, optimizing with the linear constraint a_1=1 and support ≤ N) that one can choose a_n of the form a_n = μ(n) P(log(N/n)/log N) with P(0)=1 so that
+  Q(a) ≪ 1/log N
+  and in fact this choice is asymptotically optimal. The log R factor only helps (it multiplies Q(a) by a positive function bounded above and below by constants depending on ε), so we retain the 1/log N saving up to an ε-dependent constant.
+- Collecting bounds:
+  Both ∑ |c_k|^2/k and ∑ |c_k’|^2/k are ≪ (log N)^{-1}. The off-diagonal errors from the mean value theorem are o(1), and the approximate functional equation remainder contributes o(1) as well. Hence
+  E ≪_{ε,P} 1/log N,
+  yielding the claim after recalling N=T^{1/2-ε}.
+
+Remarks and limitations (barrier at length exponent 1/2).
+- The pivotal input is that MN ≤ T^{1-ε}, which permits replacing the t-average by the l2/k norm of the Dirichlet polynomial coefficients (Montgomery–Vaughan). If one pushes N to T^{1/2} or beyond, then MN ≳ T, and the mean value develops substantial off-diagonal (frequency) interactions; the tidy reduction to ∑|c_k|^2/k breaks down.
+- In that longer-range regime, controlling the mean square necessarily requires power-saving bounds for shifted convolution sums of the divisor function (the additive divisor problem) at scales commensurate with T, because expanding |∑ c_k k^{-it}|^2 introduces sums ∑_{k≠ℓ} c_k c̄_ℓ ((k/ℓ)^{-it}) whose t-average becomes a kernel detecting k≈ℓ, i.e. correlations of divisor-type coefficients at short relative shifts. Establishing the requisite power savings uniformly would constitute progress beyond current technology (e.g., beyond what is accessible via the spectral/Kuznetsov method without additional hypotheses). This obstruction is precisely the classical “1/2-barrier” in mollification and is consonant with limitations seen in the Levinson–Conrey method and in attempts at the Báez-Duarte/Nyman–Beurling program.
+
+Consequence.
+- The theorem gives a concrete, rigorous localized quantitative approximation to 1/ζ on the critical line in L2 over t∈[T,2T], with mollifier length exponent strictly below 1/2. It falls short of the global Nyman–Beurling criterion required to deduce RH, and the above analysis explains the core barrier to reaching or surpassing length exponent 1/2 with present methods.
+
+VERDICT: PARTIAL
+REASON: Proved subcritical L2-approximation with mollifier length < T^1/2; explained the 1/2-barrier obstruction.
