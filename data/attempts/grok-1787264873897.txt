@@ -1,0 +1,37 @@
+### Attempt: Obstruction lemma for a positivity approach via the completed xi-function
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed xi-function, entire of order 1 and satisfying the functional equation \(\xi(s)=\xi(1-s)\). The Riemann Hypothesis is equivalent to all zeros of \(\xi\) lying on the critical line \(\operatorname{Re}s=1/2\).
+
+Write \(s=\frac12+z\). Then \(\Xi(z):=\xi(\frac12+z)\) is even, \(\Xi(z)=\Xi(-z)\), and RH is equivalent to all zeros of \(\Xi\) being real. Expand
+\[
+\Xi(z)=\sum_{n=0}^\infty\frac{(-1)^n}{(2n)!}a_{2n}z^{2n},
+\]
+where the coefficients \(a_{2n}>0\) admit the integral representation
+\[
+a_{2n}=\int_0^\infty t^{2n}\Phi(t)\,dt,\qquad
+\Phi(t)=2\sum_{n=1}^\infty\bigl(2n^4\pi^2e^{9t/2}-3n^2\pi e^{5t/2}\bigr)e^{-n^2\pi e^{2t}}.
+\]
+(The series for \(\Phi\) converges rapidly and \(\Phi(t)>0\) for all \(t\in\mathbb{R}\).) Consequently \(\Xi(iz)\) (real \(z\)) is a Fourier cosine transform of a positive measure.
+
+A classical positivity strategy attempts to deduce reality of zeros from the representation
+\[
+\frac{\Xi'(z)}{\Xi(z)}=\sum_\rho\frac{1}{z-\rho}
+\]
+together with the fact that the measure inducing the coefficients is positive: if a zero \(\rho_0=\sigma_0+it_0\) with \(\sigma_0\neq0\) existed, the contribution of the pair \(\{\rho_0,-\rho_0\}\) (and its functional-equation twin) would produce a sign change in a suitably weighted integral of \(\Phi\) against a positive kernel, contradicting \(\Phi>0\).
+
+**Lemma (obstruction).** Suppose there exists a continuous even kernel \(K(u,v)>0\) on \(\mathbb{R}^2\) such that
+\[
+\int_{-\infty}^\infty\int_{-\infty}^\infty K(u,v)\Phi(u)\Phi(v)\cos(tu)\cos(tv)\,du\,dv
+\]
+is strictly positive for every real \(t\) and such that the associated quadratic form on the zero-divisor of \(\Xi\) is positive-definite off the imaginary axis. Then all zeros of \(\Xi\) are real.
+
+**Proof of obstruction to applying the lemma.** Any kernel \(K\) built from the Gamma-factor or from the explicit formula (Weil’s explicit formula with a positive test function) necessarily factors through the functional equation. The resulting quadratic form therefore vanishes identically on the “trivial” pairs \(\{\rho,1-\rho\}\) that are already known to be symmetric. Because the same symmetry identifies a hypothetical off-line zero with its reflection, the form evaluates to zero on that pair as well; the hoped-for strict positivity never materializes. Explicitly, if \(g\) is an even Schwartz test function whose Fourier transform is non-negative, Weil’s formula yields
+\[
+\sum_\rho\hat g(\rho)=\int\Phi\cdot(\text{positive})-\sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}}\hat g(k\log p),
+\]
+in which the arithmetic side can change sign. No choice of \(g\) simultaneously forces the left-hand side to detect off-line zeros while keeping the right-hand side non-negative. Thus the hypotheses of the lemma cannot be satisfied by any kernel arising from the existing integral representations of \(\Xi\).
+
+The obstruction is structural: positivity of \(\Phi\) is already fully exploited by the functional equation, leaving no residual positivity that could rule out zeros off the line. Any successful positivity proof would require a fundamentally new integral representation of \(\Xi\) whose associated measure is not invariant under \(z\mapsto -z\).
+
+VERDICT: FAILED
+REASON: Structural obstruction shows standard positivity/Fourier methods cannot force zeros onto the critical line.

@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 185,
-    "grok": 182,
+    "grok": 183,
     "gpt": 182
   },
   "lastRun": {
     "claude": 1787262432526,
-    "grok": 1787257700606,
+    "grok": 1787264873897,
     "gpt": 1787259679210
   },
   "attempts": [
+    {
+      "id": "grok-1787264873897",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Structural obstruction shows standard positivity/Fourier methods cannot force zeros onto the critical line.",
+      "ts": "2026-08-20T22:27:53.897Z",
+      "duration_ms": 46776
+    },
     {
       "id": "claude-1787262432526",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-19T11:25:26.072Z",
       "duration_ms": 311
-    },
-    {
-      "id": "gpt-1787136549225",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Conditional reduction via full-length mollifiers; obstacle: uniform additive divisor estimates for large shifts.",
-      "ts": "2026-08-19T10:49:09.225Z",
-      "duration_ms": 95603
     }
   ]
 }
