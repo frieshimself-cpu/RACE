@@ -1,0 +1,65 @@
+### Attempt: Obstruction in closing a supercritical enstrophy estimate via vorticity stretching cancellation
+
+We work with the mild form of the 3D incompressible Navier–Stokes system on \(\mathbb{T}^3\) (the periodic setting is chosen only for notational convenience with Fourier multipliers; the same obstruction appears on \(\mathbb{R}^3\)). Let \(u\) be a smooth divergence-free solution on a time interval \([0,T)\), \(\omega=\nabla\times u\), and write the vorticity equation
+\[
+\partial_t\omega+(u\cdot\nabla)\omega=(\omega\cdot\nabla)u+\nu\Delta\omega.
+\]
+The enstrophy \(\mathcal{E}(t)=\frac12\|\omega(t)\|_{L^2}^2\) satisfies the exact energy identity
+\begin{equation}
+\label{enstrophy}
+\frac{d}{dt}\mathcal{E}+\nu\|\nabla\omega\|_{L^2}^2=\int_{\mathbb{T}^3}(\omega\cdot\nabla)u\cdot\omega\,dx.
+\end{equation}
+The goal of many classical approaches is to absorb or cancel the cubic stretching integral on the right-hand side against the dissipative term, or at least to obtain a closed differential inequality that remains finite for all finite \(T\) when the initial datum is smooth.
+
+#### Step 1. Calderón–Zygmund representation and formal cancellation
+By the Biot–Savart law, \(\nabla u=T\omega\) where \(T\) is a matrix of Calderón–Zygmund singular integral operators (Fourier multipliers homogeneous of degree zero). In particular
+\[
+(\omega\cdot\nabla)u\cdot\omega=\omega_i\omega_j\partial_iu_j=R_{ij}(\omega)\omega_i\omega_j,
+\]
+where \(R_{ij}\) are the associated Riesz-type operators. The only algebraic identity available is the pointwise orthogonality
+\[
+\omega\cdot\bigl((\omega\cdot\nabla)u\bigr)=\frac12\omega\cdot\nabla(|\omega|^2)
+\]
+which, after integration by parts and use of \(\operatorname{div}u=0\), yields
+\[
+\int(\omega\cdot\nabla)u\cdot\omega\,dx=\int\omega_i\omega_j\partial_ju_i\,dx.
+\]
+This is identically zero when the flow is two-dimensional (the stretching vector vanishes), but in three dimensions it retains a nontrivial antisymmetric contribution. No further pointwise cancellation exists that would make the integral non-positive.
+
+#### Step 2. Attempted absorption via fractional dissipation
+Introduce the homogeneous Sobolev norms \(\|\omega\|_{\dot H^s}=\|(-\Delta)^{s/2}\omega\|_{L^2}\). Interpolating the stretching term by Hölder and Sobolev embeddings gives the standard bound
+\begin{equation}
+\label{bound}
+\biggl|\int(\omega\cdot\nabla)u\cdot\omega\,dx\biggr|\le C\|\omega\|_{L^3}\|\nabla u\|_{L^3}\|\omega\|_{L^3}\le C\|\omega\|_{\dot H^{1/2}}^3.
+\end{equation}
+(The constant \(C\) is absolute and arises from the \(L^3\to L^3\) boundedness of the Riesz transforms.) Inserting \eqref{bound} into \eqref{enstrophy} and applying the interpolation
+\[
+\|\omega\|_{\dot H^{1/2}}^2\le\|\omega\|_{L^2}\|\nabla\omega\|_{L^2}
+\]
+produces the differential inequality
+\begin{equation}
+\label{diff}
+\frac{d}{dt}\mathcal{E}+\nu\|\nabla\omega\|_{L^2}^2\le C\mathcal{E}^{3/4}\|\nabla\omega\|_{L^2}^{3/2}.
+\end{equation}
+Young’s inequality with conjugate exponents \(4/3\) and \(4\) then yields, for any \(\varepsilon>0\),
+\[
+\frac{d}{dt}\mathcal{E}+\bigl(\nu-C_\varepsilon\mathcal{E}\bigr)\|\nabla\omega\|_{L^2}^2\le C_\varepsilon\mathcal{E}^3.
+\]
+Choosing \(\varepsilon=\nu/2\) formally closes the estimate provided one already knows a priori that \(\mathcal{E}(t)\) remains smaller than a fixed multiple of \(\nu\). This is precisely the small-data regime (or the short-time regime) in which global regularity is classical. For large data the coefficient of the dissipation can change sign, and the inequality becomes supercritical: the cubic term on the right cannot be controlled by the left-hand side uniformly in time.
+
+#### Step 3. Why a logarithmic improvement still fails
+A natural attempt to recover the large-data case is to replace the \(L^3\) bound by a logarithmic Sobolev estimate of the form
+\[
+\|\nabla u\|_{L^\infty}\le C\bigl(1+\|\omega\|_{L^2}\log( e+\|\omega\|_{\dot H^{1+\delta}})\bigr)
+\]
+(Beale–Kato–Majda / Kozono–Taniuchi). Substituting into the stretching integral and integrating in time produces
+\[
+\mathcal{E}(T)\le\mathcal{E}(0)\exp\Bigl(C\int_0^T\|\omega(t)\|_{L^\infty}\,dt\Bigr).
+\]
+The exponential is finite on \([0,T]\) if and only if the time integral of \(\|\omega\|_\infty\) remains finite—the very quantity whose possible blow-up one is trying to rule out. No bootstrap closes: any a-priori bound on a supercritical norm merely reproduces a Beale–Kato–Majda-type criterion, which is necessary but not known to be automatically satisfied.
+
+#### Step 4. Conclusion of the obstruction
+The identity \eqref{enstrophy} together with the Calderón–Zygmund structure of \(\nabla u\) yields a cubic nonlinearity whose scaling is supercritical with respect to the enstrophy dissipation. All attempts to absorb this term—by pure energy methods, by fractional Sobolev interpolation, or by logarithmic refinements—either require a smallness condition on \(\mathcal{E}\) or reduce to a conditional regularity criterion that is not known to hold for arbitrary smooth large data. Consequently the enstrophy method, in any of its presently known variants, cannot decide global existence and smoothness.
+
+VERDICT: FAILED
+REASON: Supercritical enstrophy stretching resists absorption; only recovers small-data/conditional criteria
