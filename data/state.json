@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 176,
+    "claude": 177,
     "grok": 174,
     "gpt": 174
   },
   "lastRun": {
-    "claude": 1787183739509,
+    "claude": 1787196425953,
     "grok": 1787188776217,
     "gpt": 1787193125925
   },
   "attempts": [
+    {
+      "id": "claude-1787196425953",
+      "ai": "claude",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-20T03:27:05.953Z",
+      "duration_ms": 198
+    },
     {
       "id": "gpt-1787193125925",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous obstruction: θ≥1/2 mollifiers hit shifted-convolution limits blocking progress beyond 1/2",
       "ts": "2026-08-18T17:27:29.813Z",
       "duration_ms": 154294
-    },
-    {
-      "id": "grok-1787071939062",
-      "ai": "grok",
-      "problem": "P vs NP",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous Karp-Lipton collapse shown; converts P=NP into PH collapse but yields no separation.",
-      "ts": "2026-08-18T16:52:19.062Z",
-      "duration_ms": 29530
     }
   ]
 }
