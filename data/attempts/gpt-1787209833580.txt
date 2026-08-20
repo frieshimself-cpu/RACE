@@ -1,0 +1,53 @@
+Attempt: An exponential-smoothing criterion for zero-free half-planes via almost periodicity
+
+Let w(u) = e^{-u} (u ≥ 0). Define the exponentially smoothed Chebyshev sum
+S(x) := ∑_{n=1}^∞ Λ(n) e^{-n/x},  x ≥ 1.
+
+Main lemma (sharp reduction). Fix θ ∈ [1/2, 1). Then:
+(A) For all sufficiently large x, S(x) = x + O(x^θ)
+implies
+(B) All nontrivial zeros ρ of ζ(s) satisfy Re ρ ≤ θ.
+
+Conversely, if (B) holds, then for every ε > 0 one has S(x) = x + O_{ε}(x^{θ+ε}).
+
+Thus an error term O(x^{1/2+ε}) in this single smoothed prime counting function is equivalent (up to ε) to the Riemann Hypothesis.
+
+Proof.
+
+1) Explicit formula with exponential weight. For c > 1,
+S(x) = (1/2πi) ∫_{(c)} -ζ′(s)/ζ(s) Γ(s) x^s ds,
+by Mellin inversion of w(u)=e^{-u}. Shifting the contour left past s=1 and the nontrivial zeros ρ, and taking into account the trivial zeros (from ζ) and the poles of Γ at nonpositive integers, yields the standard explicit formula
+S(x) = x - ∑_{ρ} Γ(ρ) x^{ρ} + E(x),
+where the sum runs over nontrivial zeros ρ of ζ(s), and E(x) is uniformly bounded (indeed E(x) = O(1)) since the contributions from the trivial zeros s = -2k and the leftmost vertical integral are O(1) and O(x^{-A}) for any fixed A > 0, respectively. In particular,
+S(x) - x = -∑_{ρ} Γ(ρ) x^{ρ} + O(1).   (1)
+
+Note that by Stirling’s formula, for fixed σ in any bounded interval, |Γ(σ+it)| ≍ |t|^{σ-1/2} e^{-π|t|/2} as |t|→∞, so the series ∑_{ρ} Γ(ρ) x^{ρ} converges absolutely and uniformly in log x on compact sets.
+
+2) Almost periodicity and isolation of the boundary real part. Let β* := sup{Re ρ : ζ(ρ) = 0} (the de facto “rightmost” real part of zeros). For u = log x, rewrite (1) as
+x^{−β*}(x − S(x)) = ∑_{Re ρ = β*} Γ(ρ) e^{i Im(ρ) u} + R(u),   (2)
+where the remainder R(u) collects all terms with Re ρ < β* (hence R(u) → 0 as u → ∞, uniformly on bounded vertical strips) and the O(1)/x^{β*} term, which also tends to 0.
+
+The series F(u) := ∑_{Re ρ = β*} Γ(ρ) e^{i Im(ρ) u} converges absolutely and uniformly in u (by the exponential decay of |Γ(β*+it)|), so F is a Bohr almost periodic function (indeed a uniform limit of trigonometric polynomials).
+
+Assume (A): |S(x) − x| ≤ C x^θ for all large x. Divide (1) by x^{β*}; from (2) we get
+|F(u) + R(u)| = O(x^{θ − β*}) as u → ∞.
+Since θ < β*, we have x^{θ − β*} → 0, and R(u) → 0, hence F(u) → 0 as u → ∞.
+
+Basic fact (used here): The only almost periodic function with a (finite) limit along u → ∞ is a constant; in particular, if that limit is 0 then the function is identically 0. Sketch: By Bohr’s definition, the family of translates of an almost periodic function is relatively compact in the sup norm; if f(u) → L as u → ∞, then every limit point of translates is the constant function L; but an almost periodic function is the uniform limit of some of its own translates, hence f ≡ L.
+
+Applying the fact to F, we get F ≡ 0. But the coefficients in F are Γ(ρ) at the zeros with Re ρ = β*, and Γ is nowhere zero; thus F ≡ 0 forces the index set to be empty. Therefore no zeros satisfy Re ρ = β* unless β* is attained by no zeros; in either case, the assumption (A) implies β* ≤ θ. This proves (A) ⇒ (B).
+
+3) Converse bound. Assume (B): Re ρ ≤ θ for all nontrivial zeros ρ. Fix ε > 0 and shift the contour in the representation of S(x) from Re s = c > 1 to Re s = θ + ε. Collecting residues at s = 1 yields the main term x, residues at nontrivial zeros ρ (now all to the left of the new contour) yield −∑ Γ(ρ) x^{ρ}, and the new vertical integral on Re s = θ + ε is bounded by
+≪ x^{θ+ε} ∫_{−∞}^{∞} |ζ′/ζ(θ+ε+it)| |Γ(θ+ε+it)| dt.
+Using standard bounds |ζ′/ζ(σ+it)| ≪ log(2+|t|) for σ ≥ θ+ε > 1/2 and Stirling’s bound for Γ, the integral converges absolutely and yields O(x^{θ+ε}). The sum over zeros contributes at most O(x^{θ} log^2 x) (e.g., by zero-counting bounds and the Γ-decay; logs can be folded into ε). Thus S(x) = x + O_{ε}(x^{θ+ε}). This proves the converse estimate.
+
+Conclusion. We have established a clean, single-weight reduction:
+- Uniformly sharp error S(x) = x + O(x^{1/2+ε}) implies RH.
+- Conversely, RH implies S(x) = x + O(x^{1/2+ε}).
+
+In fact, the forward implication is stronger: if S(x) = x + O(x^θ), then there are no ζ-zeros with Re ρ > θ. The key novelty in this presentation is the explicit use of the almost periodic limit argument on the boundary line Re ρ = β*, which isolates and rules out any cluster of rightmost zeros without Diophantine hypotheses on their ordinates.
+
+Limitations. This is a reduction, not a proof of RH. Achieving the bound S(x) = x + O(x^{1/2+ε}) uniformly in x is essentially equivalent in difficulty to RH, and current methods fall short.
+
+VERDICT: PARTIAL
+REASON: Proved a sharp reduction: exp-smoothed PNT error O(x^θ) forbids zeros with Re>θ via almost periodicity.

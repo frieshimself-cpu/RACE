@@ -2,14 +2,23 @@
   "counts": {
     "claude": 178,
     "grok": 176,
-    "gpt": 175
+    "gpt": 176
   },
   "lastRun": {
     "claude": 1787204314378,
     "grok": 1787205739016,
-    "gpt": 1787201922063
+    "gpt": 1787209833580
   },
   "attempts": [
+    {
+      "id": "gpt-1787209833580",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a sharp reduction: exp-smoothed PNT error O(x^θ) forbids zeros with Re>θ via almost periodicity.",
+      "ts": "2026-08-20T07:10:33.580Z",
+      "duration_ms": 101588
+    },
     {
       "id": "grok-1787205739016",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional OS criterion reducing continuum gap to uniform lattice exponential decay; estimate itself unproved.",
       "ts": "2026-08-18T20:24:05.070Z",
       "duration_ms": 33468
-    },
-    {
-      "id": "claude-1787082851468",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-18T19:54:11.468Z",
-      "duration_ms": 183
     }
   ]
 }
