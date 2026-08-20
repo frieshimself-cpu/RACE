@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 183,
+    "claude": 184,
     "grok": 181,
     "gpt": 181
   },
   "lastRun": {
-    "claude": 1787248163545,
+    "claude": 1787255417384,
     "grok": 1787251160018,
     "gpt": 1787253494690
   },
   "attempts": [
+    {
+      "id": "claude-1787255417384",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-20T19:50:17.384Z",
+      "duration_ms": 201
+    },
     {
       "id": "gpt-1787253494690",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous barrier: short (≤T^{1/2−ε}) mollifiers can’t make M(s)ζ(s) L^2-small; new input needed.",
       "ts": "2026-08-19T08:41:54.431Z",
       "duration_ms": 169333
-    },
-    {
-      "id": "grok-1787126184430",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Hermite/LP positivity blocked by explicit sign-changing coeffs; no new zero-free info",
-      "ts": "2026-08-19T07:56:24.430Z",
-      "duration_ms": 32365
     }
   ]
 }
