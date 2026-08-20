@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 185,
+    "claude": 186,
     "grok": 183,
     "gpt": 183
   },
   "lastRun": {
-    "claude": 1787262432526,
+    "claude": 1787268853633,
     "grok": 1787264873897,
     "gpt": 1787266787028
   },
   "attempts": [
+    {
+      "id": "claude-1787268853633",
+      "ai": "claude",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-20T23:34:13.633Z",
+      "duration_ms": 203
+    },
     {
       "id": "gpt-1787266787028",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: The operation was aborted due to timeout",
       "ts": "2026-08-19T12:59:28.964Z",
       "duration_ms": 260004
-    },
-    {
-      "id": "grok-1787140646503",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Conditional reduction of RH to full Montgomery pair correlation; gap is missing unconditional form-factor control.",
-      "ts": "2026-08-19T11:57:26.503Z",
-      "duration_ms": 39323
     }
   ]
 }
