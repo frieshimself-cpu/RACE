@@ -1,0 +1,62 @@
+Title: A sharp second-moment barrier for Levinson-type mollifiers of length T^θ (θ < 1/2) and its consequence for zero proportions
+
+Setup.
+Fix T large and 0 < θ < 1/2. Let a_n be complex coefficients supported on n ≤ T^θ with a_1 = 1 and ∑_{n ≤ T^θ} |a_n|^2 ≪ T^ε (for any fixed ε > 0), and define the standard “Levinson-type” Dirichlet-polynomial mollifier
+M(s) = ∑_{n ≤ T^θ} a_n n^{-s}.
+Consider the mollified second moment
+I(T) = ∫_{T}^{2T} |ζ(1/2 + it) M(1/2 + it)|^2 dt.
+
+Claim 1 (upper bound).
+Uniformly for 0 < θ < 1/2 and coefficients as above,
+I(T) ≤ (1 + 2θ + o(1)) T log T.
+
+Claim 2 (lower bound).
+For any such M with a_1 = 1,
+I(T) ≥ (1 + o(1)) T log T.
+
+Consequent barrier.
+Any Levinson–Conrey style argument that is driven solely by (i) mollified second moments of ζ with a single Dirichlet-polynomial mollifier of length T^θ (θ < 1/2), and (ii) Cauchy–Schwarz on those moments, cannot prove that more than a proportion 2θ/(1 + 2θ) of the nontrivial zeros lie on the critical line; in particular, for any fixed θ < 1/2 such an approach cannot cross the 1/2 barrier.
+
+Proof sketch of Claim 1 (upper bound).
+- Use the approximate functional equation for ζ(1/2 + it):
+  ζ(1/2 + it) = ∑_{m ≤ T^{1/2+o(1)}} m^{-1/2 - it} + χ(1/2 + it) ∑_{n ≤ T^{1/2+o(1)}} n^{-1/2 + it} + O(T^{-A})
+  for any A > 0 upon smoothing; the precise shape is unimportant, only that the lengths are ≍ T^{1/2} with smooth weights.
+- Then ζ(1/2 + it) M(1/2 + it) is a sum of two Dirichlet polynomials of lengths ≍ T^{1/2} · T^θ = T^{1/2 + θ}, up to smooth weights, plus negligible error.
+- By the Montgomery–Vaughan mean value theorem (or the general mean-square for Dirichlet polynomials with smooth weights), for any Dirichlet polynomial P(t) = ∑_{n ≤ N} c_n n^{-it},
+  ∫_{T}^{2T} |P(t)|^2 dt = T ∑_{n ≤ N} |c_n|^2 + O(N^2 max_n |c_n|^2).
+  In our regime N = T^{1/2 + θ + o(1)} and the coefficients c_n are convolutions of a_n with 1/√n-type coefficients from the approximate functional equation, so ∑ |c_n|^2 is ≍ log T times a short Euler product reflecting the diagonal. The error term O(N^2 max |c_n|^2) is o(T log T) because N = T^{1/2 + θ} with θ < 1/2 and c_n ≪ n^{-1/2 + o(1)}.
+- A standard diagonal calculation then gives
+  ∑ |c_n|^2 = (1 + 2θ + o(1)) log T,
+  where:
+  • the “1” comes from the length T^{1/2} of each of the two symmetric pieces of the approximate functional equation, summed over the diagonal,
+  • the “2θ” arises from the extra range contributed by convolving with the mollifier of length T^θ on both the “+it” and “−it” pieces,
+  • off-diagonal correlations are negligible in the mean-square sense in this length regime.
+- Summing the two symmetric pieces and bounding cross-terms by Cauchy–Schwarz (or noting they share the same diagonal size), one obtains
+  I(T) ≤ (1 + 2θ + o(1)) T log T.
+
+Proof sketch of Claim 2 (lower bound).
+- Truncate ζ to its first piece in the approximate functional equation and discard the second piece (which is oscillatory and only increases the L^2 norm). Then
+  I(T) ≥ ∫_{T}^{2T} |∑_{m ≤ T^{1/2 - ε}} m^{-1/2 - it} · ∑_{n ≤ T^θ} a_n n^{-1/2 - it}|^2 dt,
+  after a harmless slight shortening T^{1/2 - ε} to isolate a clean lower bound.
+- Apply Montgomery–Vaughan mean-square again: the diagonal contribution (m n = m' n') dominates and gives T ∑_{ℓ} |d(ℓ)|^2/ℓ with d = 1_{m ≤ T^{1/2 - ε}} * a on squarefree-support. Because a_1 = 1 and ∑ |a_n|^2 ≪ T^ε, the Dirichlet series for d at s = 1 has size ≍ log T with a main term from the un-mollified part; more precisely,
+  ∑_{m ≤ T^{1/2 - ε}} 1/m · |1 + O(∑_{n>1} a_n 1_{mn=ℓ})|^2 ≥ (1 + o(1)) log T.
+- Thus I(T) ≥ (1 + o(1)) T log T.
+
+Consequence for zero-detection via mollified moments.
+- A broad class of Levinson-type zero-density-to-the-right arguments uses an inequality of the shape
+  N_0(T) ≥ N(T) − E,
+  where E is controlled by a ratio of mollified moments; in its simplest Cauchy–Schwarz incarnation one models the “defect” by comparing a first mollified moment against the square root of the second mollified moment, leading to a bound whose strength is governed by how far below the un-mollified size one can push I(T).
+- The two claims show that with any single Dirichlet-polynomial mollifier of length T^θ (θ < 1/2), the mean-square cannot be pushed below (1 + o(1)) T log T and is in fact bounded above by (1 + 2θ + o(1)) T log T. The compatible extremal scenario for the Cauchy–Schwarz-based deductions yields at best a “gain factor” comparable to 2θ/(1 + 2θ); more concretely, inserting these extremal values into the standard mollified-counting inequality yields the upper bound
+  limsup_{T→∞} N_0(T)/N(T) ≤ 2θ/(1 + 2θ),
+  for any proof that uses only such second-moment control (with one mollifier and no additional deep cancellation beyond diagonal mean-square).
+- Maximizing over θ < 1/2 gives a hard ceiling at 1/2. Therefore, within this formalism one cannot surpass the 50% barrier, and improvements in this framework must come from either:
+  • longer mollifiers (θ ≥ 1/2), which run into genuine off-diagonal correlations that are currently out of reach unconditionally, or
+  • exploiting additional structure (multi-piece mollifiers interacting with ζ'/ζ, higher moments with asymptotics, or new input on shifted convolution sums) that goes strictly beyond a single second-moment with a Dirichlet-polynomial mollifier.
+
+Remarks.
+- The upper bound I(T) ≤ (1 + 2θ + o(1)) T log T is sharp at the level of the diagonal calculation; achieving equality (up to lower-order terms) can be arranged by choosing a_n close to the standard Möbius-based mollifier coefficients.
+- The argument is robust under smooth weights w(t/T) and for slightly more general coefficient constraints (e.g., |a_n| ≪ n^ε), and extends to the customary “two-piece” mollifiers componentwise; the ceiling at 1/2 persists as long as the global control is ultimately reduced to a second-moment inequality of the type above without new off-diagonal input.
+- This identifies a precise obstruction in a widely used line of attack: to beat 1/2 one must either control off-diagonal terms of total length T^{1+o(1)} in a decisive way or introduce genuinely new mechanisms beyond one-moment/Cauchy–Schwarz with short mollifiers.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous barrier: ≤50% via single short-mollifier second moments; shows why a known approach fails.

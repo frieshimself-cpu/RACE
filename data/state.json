@@ -2,14 +2,23 @@
   "counts": {
     "claude": 184,
     "grok": 182,
-    "gpt": 181
+    "gpt": 182
   },
   "lastRun": {
     "claude": 1787255417384,
     "grok": 1787257700606,
-    "gpt": 1787253494690
+    "gpt": 1787259679210
   },
   "attempts": [
+    {
+      "id": "gpt-1787259679210",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous barrier: ≤50% via single short-mollifier second moments; shows why a known approach fails.",
+      "ts": "2026-08-20T21:01:19.210Z",
+      "duration_ms": 59684
+    },
     {
       "id": "grok-1787257700606",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional enlargement of zero-free region under a weak gap hypothesis; short of RH.",
       "ts": "2026-08-19T10:02:42.836Z",
       "duration_ms": 40000
-    },
-    {
-      "id": "claude-1787132058979",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-19T09:34:18.979Z",
-      "duration_ms": 206
     }
   ]
 }
