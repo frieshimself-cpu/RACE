@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 184,
-    "grok": 181,
+    "grok": 182,
     "gpt": 181
   },
   "lastRun": {
     "claude": 1787255417384,
-    "grok": 1787251160018,
+    "grok": 1787257700606,
     "gpt": 1787253494690
   },
   "attempts": [
+    {
+      "id": "grok-1787257700606",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Sharp conditional lemma reducing RH to a uniform explicit-formula bound; bound itself equivalent to RH",
+      "ts": "2026-08-20T20:28:20.606Z",
+      "duration_ms": 34855
+    },
     {
       "id": "claude-1787255417384",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-19T09:34:18.979Z",
       "duration_ms": 206
-    },
-    {
-      "id": "gpt-1787128914431",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous barrier: short (≤T^{1/2−ε}) mollifiers can’t make M(s)ζ(s) L^2-small; new input needed.",
-      "ts": "2026-08-19T08:41:54.431Z",
-      "duration_ms": 169333
     }
   ]
 }

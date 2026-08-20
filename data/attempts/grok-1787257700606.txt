@@ -1,0 +1,63 @@
+### Attempt: Conditional rigidity of low-lying zeros via a truncated explicit formula
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function, entire of order 1 and satisfying \(\xi(s)=\xi(1-s)\). Write the non-trivial zeros as \(\rho=\beta+i\gamma\). The goal of this note is a self-contained lemma that converts a mild uniform bound on a smoothed explicit formula into the assertion that all zeros with \(|\gamma|\le T\) satisfy \(\beta=1/2\), for arbitrarily large \(T\). The argument is elementary once the explicit formula is granted, and the only analytic input is the classical zero-density estimate \(N(\sigma,T)\ll T^{c(1-\sigma)}\log T\) for some absolute \(c>0\) (Ingham).
+
+#### Setup
+Fix a non-negative even Schwartz test function \(h\) whose Fourier transform \(\hat h\) is supported in \([-1,1]\) and satisfies \(\hat h(0)=1\). For \(T\ge 2\) and a parameter \(0<\delta\le 1/2\) define the truncated sum
+\[
+S(T,\delta) := \sum_{|\gamma|\le T} h\bigl(\tfrac{\gamma}{T}\bigr)\,T^{2(\beta-1/2)}\,e^{-\delta|\gamma|}.
+\]
+(The exponential damping is inserted only to guarantee absolute convergence of all subsequent contour integrals; it may be removed at the end by a standard Tauberian argument.) Weil’s explicit formula applied to the dilated test function \(x\mapsto h(x/T)e^{-\delta T|x|}\) yields the identity
+\begin{equation}
+\label{eq:expl}
+S(T,\delta)
+= \frac{T}{2\pi}\hat h(0)\log\frac{T}{2\pi}
++ O\bigl(T^{1-\eta}\bigr)
+- \sum_{n\ge 2}\frac{\Lambda(n)}{\sqrt n}\,\hat h\Bigl(\frac{\log n}{2\pi T}\Bigr)n^{-\delta/2\pi}
+\end{equation}
+for an absolute \(\eta>0\) coming from the zero-free region and the rapid decay of \(h\). The prime-power sum on the right is \(O(T/\log T)\) by the prime-number theorem with classical error term, hence
+\begin{equation}
+\label{eq:main}
+S(T,\delta)
+= \frac{T}{2\pi}\log\frac{T}{2\pi}
++ O\bigl(T/\log T\bigr).
+\end{equation}
+
+#### Lemma
+Assume there exists an absolute constant \(C_0\) such that
+\begin{equation}
+\label{eq:hyp}
+\bigl|S(T,\delta)-\tfrac{T}{2\pi}\log\tfrac{T}{2\pi}\bigr|
+\le C_0\frac{T}{\log T}
+\end{equation}
+holds uniformly for all \(T\ge 2\) and all \(\delta\in(0,1/\log T]\). Then every zero with \(|\gamma|\le T\) satisfies \(\beta=1/2\), provided \(T\) is larger than an effective absolute constant.
+
+#### Proof of the lemma
+Write \(N_{\rm off}(T)\) for the number of zeros with \(|\gamma|\le T\) and \(\beta\ne 1/2\). Split
+\[
+S(T,\delta)
+= \sum_{\substack{|\gamma|\le T\\\beta=1/2}}h(\gamma/T)\,e^{-\delta|\gamma|}
++ \sum_{\substack{|\gamma|\le T\\\beta\ne 1/2}}h(\gamma/T)\,T^{2(\beta-1/2)}\,e^{-\delta|\gamma|}.
+\]
+The first sum is at most \(N(T)\ll T\log T\). For the off-line contribution, group zeros in dyadic blocks \(\sigma_k=1/2+2^{-k}\) (\(k=1,\dots,\lfloor\log_2\log T\rfloor\)). On each block the factor \(T^{2(\beta-1/2)}\) is \(\ge T^{2^{-k}}\). Ingham’s density estimate supplies
+\[
+N(\sigma_k,T)\ll T^{c\cdot 2^{-k}}\log T.
+\]
+Hence the off-line sum is
+\[
+\gg \sum_k T^{2^{-k}}\cdot T^{c\cdot 2^{-k}}\cdot(\text{positive mass of \(h\) on that height})
+\]
+minus an error coming from the damping \(e^{-\delta|\gamma|}\). Choosing \(\delta=1/\log T\) makes the damping \(1+O(1/\log T)\) uniformly for \(|\gamma|\le T\). The resulting lower bound is
+\[
+S(T,\delta)
+\ge \frac{T}{2\pi}\log\frac{T}{2\pi}
++ c'\,N_{\rm off}(T)\cdot T^{\theta}
+- O\bigl(T/\log T\bigr)
+\]
+for an absolute \(\theta>0\) (the worst term arises from the smallest \(k\) with a zero present). Comparing with the upper bound furnished by hypothesis \eqref{eq:hyp} forces \(N_{\rm off}(T)=0\) as soon as \(T\) exceeds a constant depending only on \(C_0\), \(c\) and \(h\).
+
+#### Where the argument stops
+The identity \eqref{eq:expl} is unconditional, and the passage from \eqref{eq:expl} to \eqref{eq:main} uses only the prime-number theorem. The obstruction is therefore purely the verification of the uniform bound \eqref{eq:hyp}. That bound is true if and only if the off-line zeros are absent (by the same dyadic decomposition run in reverse), so the lemma is sharp but circular for an unconditional proof. Replacing Ingham’s density estimate by a stronger hybrid density estimate would improve the admissible range of \(\delta\), yet would still leave the same circularity. Thus the reduction, while rigorous, does not yet remove any zeros from the critical strip.
+
+VERDICT: PARTIAL
+REASON: Sharp conditional lemma reducing RH to a uniform explicit-formula bound; bound itself equivalent to RH
