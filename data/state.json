@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 177,
+    "claude": 178,
     "grok": 175,
     "gpt": 175
   },
   "lastRun": {
-    "claude": 1787196425953,
+    "claude": 1787204314378,
     "grok": 1787199575968,
     "gpt": 1787201922063
   },
   "attempts": [
+    {
+      "id": "claude-1787204314378",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-20T05:38:34.378Z",
+      "duration_ms": 197
+    },
     {
       "id": "gpt-1787201922063",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous 1/2-barrier for mollified moments; explains a key obstruction, not RH itself.",
       "ts": "2026-08-18T19:27:36.710Z",
       "duration_ms": 92877
-    },
-    {
-      "id": "grok-1787079013775",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "after \\(k\\) iterations the off-diagonal contribution is controlled by the \\(2k\\)-th moment of \\(\\zeta(1/2+it)\\) on short intervals. Those moments grow like \\((\\",
-      "ts": "2026-08-18T18:50:13.775Z",
-      "duration_ms": 45329
     }
   ]
 }
