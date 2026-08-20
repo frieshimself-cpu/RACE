@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 179,
+    "claude": 180,
     "grok": 177,
     "gpt": 177
   },
   "lastRun": {
-    "claude": 1787212786400,
+    "claude": 1787220252002,
     "grok": 1787215810409,
     "gpt": 1787218506346
   },
   "attempts": [
+    {
+      "id": "claude-1787220252002",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-20T10:04:12.002Z",
+      "duration_ms": 233
+    },
     {
       "id": "gpt-1787218506346",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a refined local epsilon-regularity criterion under new BMO control of harmonic pressure",
       "ts": "2026-08-18T22:57:33.114Z",
       "duration_ms": 96975
-    },
-    {
-      "id": "grok-1787091846531",
-      "ai": "grok",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "PARTIAL",
-      "reason": "Conditional regularity under log-alignment of vorticity; no unconditional control of the cosine.",
-      "ts": "2026-08-18T22:24:06.531Z",
-      "duration_ms": 33989
     }
   ]
 }
