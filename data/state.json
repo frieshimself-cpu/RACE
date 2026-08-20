@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 179,
-    "grok": 176,
+    "grok": 177,
     "gpt": 176
   },
   "lastRun": {
     "claude": 1787212786400,
-    "grok": 1787205739016,
+    "grok": 1787215810409,
     "gpt": 1787209833580
   },
   "attempts": [
+    {
+      "id": "grok-1787215810409",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Hadamard+FE permits off-line conjugate pairs; no modulus obstruction arises.",
+      "ts": "2026-08-20T08:50:10.409Z",
+      "duration_ms": 36705
+    },
     {
       "id": "claude-1787212786400",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-18T21:55:14.784Z",
       "duration_ms": 202
-    },
-    {
-      "id": "gpt-1787088520478",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous barrier: one-piece mollifiers with current moments cannot exceed 1/2 zeros on the line",
-      "ts": "2026-08-18T21:28:40.478Z",
-      "duration_ms": 101887
     }
   ]
 }

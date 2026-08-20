@@ -1,0 +1,29 @@
+### Attempt: Hadamard product symmetry does not force the critical line
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). This is an entire function of order one satisfying the functional equation \(\xi(s)=\xi(1-s)\). By the Hadamard factorization theorem (applied after removing the trivial zeros already accounted for by the Gamma factor),
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+where the product runs over the non-trivial zeros of \(\zeta\), counted with multiplicity and understood in the usual entire-function sense (grouped to ensure convergence). The functional equation immediately implies that the multiset of zeros is invariant under \(\rho\mapsto 1-\rho\).
+
+A zero \(\rho=\sigma+it\) satisfies \(|\rho|=|1-\rho|\) if and only if
+\[
+\sigma^2+t^2=(1-\sigma)^2+t^2\qquad\Longleftrightarrow\qquad\sigma=\tfrac12.
+\]
+Thus the Riemann hypothesis is equivalent to the assertion that every factor in the Hadamard product already satisfies \(|\rho|=|1-\rho|\). One might hope that the growth of \(\xi\) (or the fact that \(\xi\) is real on the critical line) forces the moduli to match without pairing. This hope fails for a precise reason.
+
+Suppose there exists a zero \(\rho_0\) with \(\operatorname{Re}\rho_0=\sigma_0\neq\frac12\). Functional equation supplies the distinct companion \(1-\rho_0\). The corresponding local factors may be rewritten
+\[
+\Bigl(1-\frac{s}{\rho_0}\Bigr)\Bigl(1-\frac{s}{1-\rho_0}\Bigr)
+=\frac{(s-\rho_0)(s-(1-\rho_0))}{\rho_0(1-\rho_0)}.
+\]
+The numerator is a quadratic monic polynomial that is invariant under \(s\mapsto 1-s\). Consequently the infinite product, after these quadratic factors are inserted for every off-line pair, remains an entire function of order one that is itself invariant under \(s\mapsto 1-s\). The Weierstrass convergence factors needed for order one are likewise symmetric. Hence the resulting product still defines a function satisfying every known global analytic constraint on \(\xi\) (order, functional equation, reality on the critical line, and the known zero-free region \(\operatorname{Re}s\ge 1\)).
+
+No contradiction with the Hadamard representation therefore arises. The same conclusion can be read off the logarithmic derivative: the identity
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\frac{1}{s-\rho}
+\]
+is compatible with arbitrary symmetric pairs \(\{\rho,1-\rho\}\) and does not force the summands to lie on the line \(\operatorname{Re}s=\frac12\). Additional arithmetic input (explicit formulae, pair correlation, or positivity criteria) is required to rule the pairs out; the product formula alone is insufficient.
+
+VERDICT: FAILED
+REASON: Hadamard+FE permits off-line conjugate pairs; no modulus obstruction arises.
