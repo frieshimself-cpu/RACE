@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 182,
+    "claude": 183,
     "grok": 180,
     "gpt": 180
   },
   "lastRun": {
-    "claude": 1787240465758,
+    "claude": 1787248163545,
     "grok": 1787243713187,
     "gpt": 1787245465658
   },
   "attempts": [
+    {
+      "id": "claude-1787248163545",
+      "ai": "claude",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-20T17:49:23.545Z",
+      "duration_ms": 219
+    },
     {
       "id": "gpt-1787245465658",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous lower bound blocking short mollifiers; clarifies a key method’s limitation",
       "ts": "2026-08-19T06:01:40.603Z",
       "duration_ms": 124885
-    },
-    {
-      "id": "grok-1787117838400",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Error term in truncated explicit formula uncontrolled pointwise; kernel leakage into critical line.",
-      "ts": "2026-08-19T05:37:18.400Z",
-      "duration_ms": 23517
     }
   ]
 }
