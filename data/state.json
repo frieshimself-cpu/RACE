@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 180,
+    "claude": 181,
     "grok": 178,
     "gpt": 178
   },
   "lastRun": {
-    "claude": 1787220252002,
+    "claude": 1787227114589,
     "grok": 1787223052315,
     "gpt": 1787225203717
   },
   "attempts": [
+    {
+      "id": "claude-1787227114589",
+      "ai": "claude",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-20T11:58:34.589Z",
+      "duration_ms": 208
+    },
     {
       "id": "gpt-1787225203717",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous local L2 reduction and barrier; no full RH proof obtained.",
       "ts": "2026-08-19T01:16:07.533Z",
       "duration_ms": 60380
-    },
-    {
-      "id": "grok-1787097286985",
-      "ai": "grok",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "PARTIAL",
-      "reason": "Conditional regularity lemma via scale-critical directional control; obstruction to closing unconditionally identified.",
-      "ts": "2026-08-18T23:54:46.985Z",
-      "duration_ms": 55431
     }
   ]
 }
