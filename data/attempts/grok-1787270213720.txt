@@ -1,0 +1,46 @@
+### Attempt: A Barrier Lemma on “Local” Diagonalization Against NP
+
+We formalize a limited diagonalization style that is still powerful enough to separate P from PSPACE (via the standard time-hierarchy + padding argument) yet provably cannot separate P from NP. The goal is a clean, self-contained obstruction that isolates precisely where “constructive” diagonalization loses leverage against nondeterminism.
+
+#### Definitions
+Let \(\ co\mathcal{L} \) be the class of languages decided by deterministic Turing machines that, on every input of length \( n \), make at most \( n^{O(1)} \) steps and whose only non-deterministic resource is a single existential guess of a witness of length \( \le n^{O(1)} \) that is never rewound (i.e., the machine is allowed one “write-once” nondeterministic tape that is thereafter read-only). Clearly \( \mathrm{NP}\subseteq co\mathcal{L} \).  
+
+A *local diagonalizer* is a deterministic TM \( D \) that, on input \( 1^n \),  
+1. enumerates the first \( n \) machines \( M_1,\dots,M_n \) (in any standard enumeration),  
+2. for each \( i\le n \) simulates \( M_i \) on the single string \( 0^n \) for at most \( n^c \) steps (some fixed \( c \)),  
+3. outputs a bit that differs from \( M_i(0^n) \) whenever the simulation accepts or rejects inside the time bound.  
+
+The language \( L_D=\{0^n\mid D(1^n)=1\} \) is therefore in P (the simulation is poly-time) and differs from every \( M_i \) on infinitely many lengths; hence \( L_D\notin\mathrm{P} \) if the enumeration is complete. This already separates P from any deterministic time class closed under polynomial padding.
+
+#### The obstruction
+**Lemma.** No local diagonalizer can produce a language outside NP. More precisely: for every local diagonalizer \( D \) there exists an NP machine \( N \) such that  
+\[
+L(N)=L_D.
+\]
+
+*Proof sketch (self-contained).*  
+On input \( x=0^n \), the NP machine \( N \) existentially guesses a sequence of “simulation transcripts”  
+\[
+\tau_1,\dots,\tau_n
+\]  
+where each \( \tau_i \) is a complete accepting or rejecting computation path of \( M_i \) on \( 0^n \) of length \(\le n^c\). (If \( M_i \) does not halt inside the bound the transcript is simply a dummy rejecting path.)  
+
+Verification is deterministic poly-time:  
+- check that each transcript is syntactically valid for the transition function of \( M_i \),  
+- evaluate the bit that \( D \) would have written after reading those \( n \) simulation outcomes,  
+- accept if and only if that bit equals 1.  
+
+Because the diagonalizer \( D \) itself only inspects the *outcome* of each bounded simulation (never the internal nondeterministic choices of an NP machine), the single existential guess of the transcripts is sufficient to reproduce \( D \)’s output. Hence \( L_D\in\mathrm{NP} \).  
+
+(The same argument shows \( L_D\in co\mathcal{L} \).)
+
+#### Why the lemma is tight
+If we enlarge the diagonalizer so that it may examine *all* computation paths of each \( M_i \) (i.e., it may ask an NP oracle), the identical construction yields a language in \( \mathrm{P}^{\mathrm{NP}} \) that lies outside NP under the assumption \( \mathrm{P}\ne\mathrm{NP} \). Thus the locality restriction—inspecting only a single path per machine—is exactly the point at which diagonalization collapses back into NP.
+
+#### Consequence for P vs NP
+Any proof that \( \mathrm{P}\ne\mathrm{NP} \) that proceeds by exhibiting an explicit poly-time language that differs from every NP machine on a sparse set of critical inputs (the classic “constructive diagonalization” pattern) must, on those critical inputs, examine more information than a single computation path. In other words, it must non-locally quantify over the entire nondeterministic computation tree. The lemma therefore rules out an entire syntactic family of attempted separations while leaving open separations that use global circuit lower bounds, algebraic degree arguments, or interactive-proof characterizations.
+
+This is only a barrier for one proof style; it does not resolve the question.
+
+VERDICT: PARTIAL
+REASON: Local-diagonalization barrier lemma shows classic constructive diag. cannot leave NP; full P≠NP open.

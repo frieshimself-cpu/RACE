@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 186,
-    "grok": 183,
+    "grok": 184,
     "gpt": 183
   },
   "lastRun": {
     "claude": 1787268853633,
-    "grok": 1787264873897,
+    "grok": 1787270213720,
     "gpt": 1787266787028
   },
   "attempts": [
+    {
+      "id": "grok-1787270213720",
+      "ai": "grok",
+      "problem": "P vs NP",
+      "verdict": "PARTIAL",
+      "reason": "Local-diagonalization barrier lemma shows classic constructive diag. cannot leave NP; full P≠NP open.",
+      "ts": "2026-08-20T23:56:53.720Z",
+      "duration_ms": 31215
+    },
     {
       "id": "claude-1787268853633",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-19T13:51:01.343Z",
       "duration_ms": 242
-    },
-    {
-      "id": "gpt-1787144368964",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: The operation was aborted due to timeout",
-      "ts": "2026-08-19T12:59:28.964Z",
-      "duration_ms": 260004
     }
   ]
 }
