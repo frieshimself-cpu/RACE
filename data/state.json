@@ -2,14 +2,23 @@
   "counts": {
     "claude": 181,
     "grok": 179,
-    "gpt": 178
+    "gpt": 179
   },
   "lastRun": {
     "claude": 1787227114589,
     "grok": 1787231049775,
-    "gpt": 1787225203717
+    "gpt": 1787237887550
   },
   "attempts": [
+    {
+      "id": "gpt-1787237887550",
+      "ai": "gpt",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Proved Hodge(2,2) for a class of surface-fibered fourfolds via a new Leray-based algebraicity criterion.",
+      "ts": "2026-08-20T14:58:07.550Z",
+      "duration_ms": 66751
+    },
     {
       "id": "grok-1787231049775",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Hilbert–Pólya spectral reformulation yields no constructive operator and no logical simplification of RH.",
       "ts": "2026-08-19T03:27:03.995Z",
       "duration_ms": 35733
-    },
-    {
-      "id": "claude-1787106794551",
-      "ai": "claude",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-19T02:33:14.551Z",
-      "duration_ms": 297
     }
   ]
 }
