@@ -1,0 +1,47 @@
+### Attempt: Partial zero-free region via a refined Jensen-type formula on vertical strips
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function (entire of order 1). Write \(s=\sigma+it\). The functional equation \(\xi(s)=\xi(1-s)\) implies that non-trivial zeros are symmetric about the critical line \(\sigma=1/2\). We work throughout with the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+the product running over the non-trivial zeros (counted with multiplicity) and converging in the usual Weierstrass sense after the standard genus-1 exponential factor is absorbed into the definition of \(\xi\).
+
+Fix \(T\ge 2\) large and consider the vertical rectangle
+\[
+R_T=\bigl\{s:\tfrac12+\delta\le\operatorname{Re}s\le 1-\delta,\ | \operatorname{Im}s|\le T\bigr\}
+\]
+with a small fixed \(\delta\in(0,1/4)\). Let \(N(\sigma,T)\) denote the number of zeros of \(\xi\) (hence of \(\zeta\)) inside \(R_T\) with real part at least \(\sigma\). The classical density estimate of Ingham already gives
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}\log T
+\]
+for an absolute \(c>0\), but we seek a sharper conditional bound that would force \(N(\sigma,T)=0\) for all \(\sigma>1/2\) once an auxiliary integral inequality is verified.
+
+Apply the argument principle to \(\log\xi\) on the boundary \(\partial R_T\) (indented at any zeros that happen to lie on the boundary, an event of measure zero for almost every \(T\)). After a standard integration by parts against a smooth non-negative test function \(\phi\in C_c^\infty((1/2,1))\) supported in \([\frac12+\delta,1-\delta]\), one obtains the weighted zero-counting identity
+\begin{align*}
+\int_{1/2}^{1}N(\sigma,T)\phi'(\sigma)\,d\sigma
+&=\frac1{2\pi}\int_{-T}^{T}\operatorname{Re}\Bigl(\frac{\xi'}{\xi}\bigl(\tfrac12+\delta+it\bigr)\Bigr)\phi\bigl(\tfrac12+\delta\bigr)\,dt\\
+&\qquad-\frac1{2\pi}\int_{-T}^{T}\operatorname{Re}\Bigl(\frac{\xi'}{\xi}\bigl(1-\delta+it\bigr)\Bigr)\phi(1-\delta)\,dt
++O_\phi\bigl(\log T\bigr).
+\end{align*}
+(The horizontal sides contribute only \(O(\log T)\) by the convexivity bound \(\xi(\sigma+it)\ll_\varepsilon |t|^{C(1-\sigma)+\varepsilon}\).)
+
+On the right-hand vertical line \(\operatorname{Re}s=1-\delta\) the Dirichlet series for \(-\zeta'/\zeta\) is absolutely convergent for \(\delta>0\) fixed, and the Gamma factor contributes a slowly varying logarithmic derivative; consequently
+\[
+\operatorname{Re}\frac{\xi'}{\xi}(1-\delta+it)=O_\delta(1)+\sum_{n\le T}\frac{\Lambda(n)}{n^{1-\delta}}\cos(t\log n)+O(T^{-1}).
+\]
+The resulting oscillatory integral against \(\phi\) is \(O_\phi(1)\) after one integration by parts, uniformly in \(T\).
+
+The left-hand vertical line \(\operatorname{Re}s=\frac12+\delta\) is the obstruction. If one assumes the Lindelöf hypothesis on that line (i.e., \(\zeta(\frac12+\delta+it)\ll_\varepsilon |t|^\varepsilon\)), the same argument yields
+\[
+\operatorname{Re}\frac{\xi'}{\xi}\bigl(\tfrac12+\delta+it\bigr)=O_\delta(\log\log |t|),
+\]
+and the weighted integral collapses to \(O_\phi(\log\log T)\). Combined with the positivity of \(N(\sigma,T)\) this forces
+\[
+N(\sigma,T)=0\qquad\text{for all }\sigma\ge\tfrac12+2\delta
+\]
+once \(T\) is large enough, which is a zero-free half-plane to the right of \(\frac12+2\delta\). Since \(\delta>0\) is arbitrary, Lindelöf would imply RH.
+
+The gap in the argument is precisely the passage from the known convexivity bound to the Lindelöf bound on the critical line: the former only produces an extra factor \(T^{C\delta}\), which is too large to absorb into the \(O(\log T)\) error and therefore does not force vanishing of \(N\). No new cancellation in the Dirichlet polynomials approximating \(\xi'/\xi\) on \(\operatorname{Re}s=\frac12+\delta\) has been established; the oscillatory integral remains of size \(\asymp T^{c\delta}\). Thus the reduction, while rigorous, is circular with respect to the deepest available subconvexity estimates and yields no unconditional enlargement of the classical zero-free region.
+
+VERDICT: FAILED
+REASON: Reduction to Lindelöf is valid but circular; no new cancellation or unconditional zero-free widening obtained.
