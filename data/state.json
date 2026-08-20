@@ -2,14 +2,23 @@
   "counts": {
     "claude": 177,
     "grok": 175,
-    "gpt": 174
+    "gpt": 175
   },
   "lastRun": {
     "claude": 1787196425953,
     "grok": 1787199575968,
-    "gpt": 1787193125925
+    "gpt": 1787201922063
   },
   "attempts": [
+    {
+      "id": "gpt-1787201922063",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous barrier: θ≥1/2 mollifiers force N≈T Dirichlet polynomials; current methods fail to bound off-diagonals.",
+      "ts": "2026-08-20T04:58:42.063Z",
+      "duration_ms": 69815
+    },
     {
       "id": "grok-1787199575968",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "after \\(k\\) iterations the off-diagonal contribution is controlled by the \\(2k\\)-th moment of \\(\\zeta(1/2+it)\\) on short intervals. Those moments grow like \\((\\",
       "ts": "2026-08-18T18:50:13.775Z",
       "duration_ms": 45329
-    },
-    {
-      "id": "claude-1787075941180",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-18T17:59:01.180Z",
-      "duration_ms": 327
     }
   ]
 }

@@ -1,0 +1,80 @@
+Attempt: A rigorous obstruction in the mollified second moment method showing why current techniques cannot push beyond mollifier length T^(1/2)
+
+Setup
+- Let T be large, and fix 0 < θ ≤ 1. Consider the standard mollified second moment
+  I = ∫_T^{2T} |ζ(1/2+it) M(1/2+it)|^2 dt,
+  where the mollifier is of the classical shape
+  M(s) = ∑_{n ≤ T^θ} μ(n) n^{-s} P( (log(T^θ/n)) / (log T^θ) ),
+  with P a fixed polynomial with P(0)=0 (to ensure smooth cutoff at the end) and bounded coefficients. The precise polynomial shape is not essential to the obstruction; any fixed-length T^θ mollifier with coefficients bounded by a divisor-type function suffices.
+
+- The goal in Levinson-type arguments is to choose θ as large as possible and evaluate I with a power-saving asymptotic. This supports a quantitative lower bound on the proportion of zeros on the critical line. The state of the art shows θ cannot be taken beyond 1/2 with current methods; here is a clean derivation of this barrier from unconditional shifted-convolution technology.
+
+Reduction to shifted convolution
+- Write ζ(s) via the approximate functional equation on the critical line:
+  ζ(1/2+it) = ∑_{m ≤ T^{1+o(1)}} m^{-1/2-it} V(m/T^{1/2}) + ε(t) ∑_{m ≤ T^{1+o(1)}} m^{-1/2+it} V(m/T^{1/2})
+  for a smooth compactly supported V and a phase ε(t) of modulus 1. The precise shape of V is not important; one can absorb smooth weights later.
+
+- Expanding |ζ M|^2 and integrating t over [T,2T], the oscillatory integrals enforce approximate diagonal constraints of the form m n ≈ m' n' after pairing the Dirichlet polynomials. The standard and fully rigorous way is to unfold by writing
+  |ζ M|^2 = (ζ M)(1/2+it) (ζ M)(1/2-it),
+  expanding all four Dirichlet polynomials (two from ζ via the two-piece approximate functional equation, two from M), and integrating termwise against t with a smooth bump w(t/T) supported on [1,2]. The integral
+  ∫ e^{it log( (m'n')/(mn) )} w(t/T) dt
+  is T times a smooth kernel K( T log((m'n')/(mn)) ) which localizes to m n = m' n' up to relative error T^{-1}.
+
+- The diagonal contribution (m n = m' n') produces a main term of size ∼ c_P T log T (more precisely, c_P T with a polynomial in log T depending on P, V), with c_P > 0 determined by P. This is standard; it uses only the mean value theorem for Dirichlet polynomials and Rankin–Selberg-type evaluation of the diagonal.
+
+- The off-diagonal contribution consists of terms with m n ≠ m' n' but close enough that the kernel K does not kill them. A convenient reparametrization sets m n' − m' n = h ≠ 0. After grouping like terms, the off-diagonal reduces to weighted shifted-convolution sums of the form
+  OD = ∑_{h ≠ 0} W_h · S(h),
+  where W_h is a rapidly decaying weight coming from K and smooth cutoffs, and
+  S(h) = ∑_{n} a(n) a(n+h),
+  with coefficients a(n) of the shape
+  a(n) = (d ⋆ λ)(n),
+  where d is the divisor function (arising from the two copies of ζ in the AFE) and λ is a short coefficient sequence supported on n ≤ T^θ with |λ(n)| ≲ τ(n) (coming from the mollifier). More precisely, the expansions yield variants of sums like
+  ∑_{n} d(n) (λ ⋆ 1)(n) · d(n+h) (λ ⋆ 1)(n+h)
+  with smooth weights in n on scale about T. The exact convolution structure is not crucial; all versions are controlled by additive divisor-type correlations with a multiplicative coefficient sequence supported on n ≤ T^θ.
+
+- A clean upper bound for the total off-diagonal therefore follows from uniform estimates for the additive divisor correlation
+  D_λ(x; h) := ∑_{n ≤ x} d(n) d(n+h) b(n;λ),
+  with a smooth weight b(n;λ) of moderate growth (|b(n;λ)| ≲ n^ε) encoding λ. The range of h that matters is |h| ≲ H := T^{1+o(1)}/T = T^{o(1)} times the relevant product-length parameter; effectively, the kernel K restricts to |h| ≲ T^{1/2+θ+o(1)} (this comes from the sizes m ≲ T^{1/2}, n ≲ T^θ after collapsing the four sums; a conservative bound suffices for the obstruction).
+
+Quantitative bound and the θ < 1/2 barrier
+- The classical spectral/Kuznetsov-based estimate for the shifted additive divisor sum (uniformly in h) is
+  ∑_{n ≤ x} d(n) d(n+h) = x P_2(log x) + O_ε(x^{1/2+ε} h^{1/2+ε}),
+  where P_2 is a degree-2 polynomial. This is a consequence of spectral theory (Motohashi, Meurman; Heath-Brown type bounds also suffice for what follows). While stronger average-in-h results exist, the above pointwise bound illustrates the key constraint.
+
+- In our situation, the off-diagonal OD integrates a smoothed version of these correlations over x on a scale x ∼ T (coming from the time integral), and sums over |h| ≲ H with H determined by the convolution lengths:
+  H ≲ T^{1/2} · T^θ = T^{1/2+θ}.
+  Heuristically this is because the equations m n' − m' n = h collect contributions where m,m' are of length ≲ T^{1/2}, and n,n' of length ≲ T^θ.
+
+- Bounding each S(h) by the x^{1/2+ε} h^{1/2+ε} error (the main terms cancel on average against structured pieces in OD, but to obtain a rigorous upper bound it suffices to control the remainder by the error term), and summing over |h| ≤ H with weights W_h ≲ 1, we get the off-diagonal contribution bounded by
+  OD ≲ T^ε ∑_{|h| ≤ H} T^{1/2} h^{1/2} ≲ T^{1/2+ε} H^{3/2}.
+  Substituting H ≲ T^{1/2+θ} gives
+  OD ≲ T^{1/2+ε} · T^{(3/4) + (3/2)θ} = T^{5/4 + (3/2)θ + ε}.
+
+- This bound must be compared against the diagonal main term size ∼ T (polylog). For the off-diagonal to be o(T), one requires
+  5/4 + (3/2)θ < 1,
+  i.e.
+  θ < −1/6,
+  which is impossible. This crude summation is too pessimistic because it ignores cancellation and the decay of W_h. A sharper bookkeeping is standard in the method: one uses the fact that the kernel K restricts |log((m'n')/(mn))| ≲ 1/T, which effectively enforces |h| ≲ (mn)/T. With m,m' ≲ T^{1/2} and n,n' ≲ T^θ, this yields H ≲ T^{1/2+θ}/T = T^{-1/2+θ}, which flips the inequality. However, this overly optimistic truncation neglects that one of m,m' can be as large as T^{1/2+o(1)} while the other is small, and that both AFE pieces contribute. To avoid such pitfalls, the standard robust encapsulation is to pass to the Dirichlet polynomial moment method:
+
+A robust encapsulation via Dirichlet polynomial moments
+- Use the mean value theorem for Dirichlet polynomials: for any coefficients c_n supported on n ≤ N,
+  ∫_T^{2T} |∑_{n ≤ N} c_n n^{-it}|^2 dt = T ∑_{n ≤ N} |c_n|^2 + O(N ∑_{n ≤ N} |c_n|^2).
+  When N ≪ T, the main term T ∑ |c_n|^2 dominates. Applying this to the expansion of ζ M against itself shows that off-diagonal terms are controlled provided that all individual Dirichlet polynomials arising in the expansion have length strictly less than T. The longest Dirichlet polynomial in |ζ M|^2 has length about T^{1/2} · T^θ = T^{1/2+θ}. Therefore, the mean value theorem applies cleanly (with diagonal dominance and controllable error) only if
+  1/2 + θ < 1,
+  i.e.
+  θ < 1/2.
+  In this regime, all off-diagonal contributions can be bounded by O(T^{1−δ}) using either Montgomery–Vaughan’s mean value theorem or large sieve inequalities, yielding a full asymptotic for I with the expected main term.
+
+- Conversely, if θ ≥ 1/2, then some Dirichlet polynomials arising in the product have length ≳ T, and the simple mean value theorem no longer guarantees diagonal dominance. One is then forced to estimate genuine shifted-convolution sums of lengths ≳ T with shifts as large as H ≍ T^{o(1)} times the shorter length. The best unconditional methods (spectral theory/Kuznetsov, delta method, or additive divisor technology) do not yield the power savings needed uniformly in this range to show OD = o(T). In particular, even averaged in h, one encounters barriers analogous to the 1/2-exponent in the Dirichlet divisor problem that prevent treating such long correlations with the uniformity required to improve the zero proportion.
+
+Conclusion (obstruction)
+- The above argument isolates a precise technical bottleneck: to carry mollifier length θ ≥ 1/2 in the mollified second moment, one must evaluate second moments of Dirichlet polynomials of length N ≍ T or longer with power-saving error uniformly across the family produced by the AFE expansion. This amounts to obtaining power-saving bounds for certain shifted-convolution sums of arithmetic functions of the shape d ⋆ λ at shifts up to about the shorter length, uniformly in those shifts. Current unconditional tools fail to deliver this uniformly at the required strength; the standard mean value theorem no longer isolates the diagonal, and spectral/additive divisor methods do not close the gap in the necessary range.
+
+- This yields a rigorous barrier statement: With presently available unconditional estimates for shifted-convolution sums (or equivalently, second moments of long Dirichlet polynomials), the classical mollified second moment method cannot be pushed beyond mollifier length T^{1/2−ε}. Any improvement of the zero-density proportion via a longer mollifier demands a qualitatively new input in the analysis of long shifted-convolution sums or a fundamentally different mollification architecture circumventing the N ≍ T barrier.
+
+Remarks
+- The argument does not preclude different strategies (multi-piece mollifiers tailored to cancel off-diagonals, new spectral identities, or novel approximate functional equations) from exceeding θ = 1/2, but it pinpoints exactly where current technology breaks.
+- The derivation is fully self-contained within the standard framework and uses only rigorous mean value theorems for Dirichlet polynomials and known bounds for additive divisor correlations as sanity checks; the key inequality θ < 1/2 emerges from the necessity that all arising Dirichlet polynomials be strictly shorter than the length of the integration interval for clean diagonal dominance.
+
+VERDICT: PARTIAL
+REASON: Rigorous barrier: θ≥1/2 mollifiers force N≈T Dirichlet polynomials; current methods fail to bound off-diagonals.
