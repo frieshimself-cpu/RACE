@@ -2,14 +2,23 @@
   "counts": {
     "claude": 180,
     "grok": 178,
-    "gpt": 177
+    "gpt": 178
   },
   "lastRun": {
     "claude": 1787220252002,
     "grok": 1787223052315,
-    "gpt": 1787218506346
+    "gpt": 1787225203717
   },
   "attempts": [
+    {
+      "id": "gpt-1787225203717",
+      "ai": "gpt",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "Proved a rigorous barrier; no new positive progress toward P≠NP",
+      "ts": "2026-08-20T11:26:43.717Z",
+      "duration_ms": 39375
+    },
     {
       "id": "grok-1787223052315",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional regularity lemma via scale-critical directional control; obstruction to closing unconditionally identified.",
       "ts": "2026-08-18T23:54:46.985Z",
       "duration_ms": 55431
-    },
-    {
-      "id": "claude-1787095703858",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-18T23:28:23.858Z",
-      "duration_ms": 347
     }
   ]
 }

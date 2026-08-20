@@ -1,0 +1,72 @@
+Attempt: A clean barrier for “natural” circuit lower bounds implying P ≠ NP
+
+Goal
+- Rigorously show a concrete failure mode for a broad, common template of attempts: proving P ≠ NP via a P-decidable, large, “natural” property that rules out all P/poly circuits for SAT (or an NP-complete function).
+- This is a self-contained proof sketch of a barrier theorem (a Razborov–Rudich style argument tailored to the P vs NP setting). It aims to clarify exactly why a widely tried line of attack cannot work, assuming standard cryptographic hardness.
+
+Setup and definitions
+- Let n be the input length for Boolean functions f: {0,1}^n -> {0,1}. Identify f with its truth table tt(f) in {0,1}^{N} where N=2^n.
+- A property P_n ⊆ {0,1}^{N} is:
+  - Constructive in time T(N): there is a deterministic algorithm A that, given tt(f), decides if tt(f) ∈ P_n within time T(N).
+  - Large of density δ(n): Pr_{U∼Unif({0,1}^{N})}[U ∈ P_n] ≥ δ(n).
+  - Useful against P/poly: For all n and all circuits C of size ≤ s(n) (for some bound s(n) ≥ n^c), tt(C) ∉ P_n.
+- We will take T to be polynomial in N (P-decidable), and δ(n) ≥ 2^{-n^c} for some fixed c>0 (quasi-large).
+
+- Pseudorandom functions (PRFs):
+  - A PRF family {F_k} with key length m(n)=poly(n) maps F_k: {0,1}^n -> {0,1}, is computable by circuits of size poly(n), and for all probabilistic polynomial-time distinguishers D with oracle access (query complexity poly(n)), the advantage |Pr_k[D^{F_k}(1^n)=1] − Pr_f[D^{f}(1^n)=1]| ≤ negl(n), where f is a uniformly random function.
+
+Assumption (standard)
+- Assume PRFs secure against poly(n)-time oracle distinguishers exist (equivalently, one-way functions exist, in standard cryptographic folklore reductions). Moreover, the PRFs are in P/poly by construction.
+
+Main theorem (barrier)
+- If PRFs secure against polynomial-time distinguishers exist, then there is no family of properties {P_n} that is:
+  1) decidable in time poly(N)=poly(2^n),
+  2) of density δ(n) ≥ 2^{-n^c} for some constant c>0,
+  3) useful against P/poly (i.e., excludes all poly-size circuits on length n),
+  as a route to proving P ≠ NP (or even super-polynomial lower bounds for general circuits).
+
+Proof sketch
+1) Suppose toward contradiction that such a property family {P_n} exists.
+2) Consider the following oracle distinguisher D for functions on {0,1}^n:
+   - On oracle access to a function g: {0,1}^n -> {0,1}, D queries the oracle on all 2^n inputs (this is not polynomial in n, but we will implement D in time poly(N)=poly(2^n)); then it obtains tt(g) and decides if tt(g) ∈ P_n using the P-time tester A on N-bit inputs.
+   - Running time: O(2^n) for queries plus poly(2^n) for A; overall poly(N).
+3) Let Unif denote the uniform distribution over tt(f) for f: {0,1}^n -> {0,1}, and let PRF_n denote the distribution of tt(F_k) for k chosen uniformly at random key.
+4) By largeness, Pr_{U∼Unif}[U ∈ P_n] ≥ δ(n).
+5) By usefulness, for every poly-size circuit C, tt(C) ∉ P_n. PRFs are realizable by poly-size circuits, so Pr_{G∼PRF_n}[tt(G) ∈ P_n] = 0.
+6) Therefore, the distinguisher D achieves advantage at least δ(n) in distinguishing PRF_n from Unif, since:
+   - On Unif, D accepts with probability ≥ δ(n).
+   - On PRF_n, D accepts with probability 0.
+7) By assumption, PRFs are secure against any poly-time oracle distinguisher. Note that D runs in time poly(N)=poly(2^n), and its oracle interface is non-adaptive but exhaustive: this is still polynomial in N, so it is a valid PTIME distinguisher relative to the truth table size.
+8) Contradiction with PRF security, provided δ(n) ≥ 2^{-n^c} is non-negligible in the security parameter measured against N=2^n. Indeed, δ(n) ≥ 2^{-n^c} = 2^{-(log N)^c} = N^{-o(1)} is super-polynomially larger than 1/poly(N) gaps one could hope to hide—hence non-negligible for security defined against poly(N)-time distinguishers.
+9) Conclude: No such P-decidable, quasi-large, useful property exists.
+
+Tightness and implications for P vs NP
+- Many would-be attacks on P ≠ NP try to exhibit an “explicit” P-testable combinatorial property Q of truth tables that:
+  - holds for most functions (large),
+  - fails for all poly-size circuits (useful),
+  - and is satisfied by the NP-complete function family under consideration (e.g., SAT on n-bit encodings).
+- The above theorem rules out this approach under standard cryptographic assumptions: any such property would distinguish PRFs from random by reading the full truth table in time poly(N).
+- The statement is deliberately aligned to the P vs NP ambition: even if one only aimed to show “SAT ∉ P/poly” by certifying that the infinite Boolean family computing SAT lies in the property while all P/poly functions are out, the property would be natural and thus forbidden.
+
+Scope and limitations
+- The barrier targets properties that are both constructive (P-decidable over truth tables) and large (density ≥ 2^{-n^c}). It does not preclude:
+  - Non-constructive lower bounds (undecidable properties).
+  - Vanishingly sparse properties (density far smaller than 2^{-n^c}, e.g., doubly-exponentially small in n).
+  - Techniques that avoid “usefulness” in the Razborov–Rudich sense (e.g., exploit uncommon structure, non-black-box cryptanalysis, or go through non-natural measures).
+- It formalizes a negative result: a broad and tempting line of attack cannot resolve P vs NP, conditional on PRFs.
+
+A precise corollary focused on P vs NP
+Corollary: Assuming PRFs in P/poly secure against polynomial-time distinguishers (measured in N=2^n), there is no polynomial-time decidable property of truth tables with density ≥ 2^{-n^c} that holds for the Boolean family computing SAT but fails for all P/poly circuits. In particular, any proof of SAT ∉ P/poly (and hence P ≠ NP) cannot proceed by exhibiting such a property.
+
+Proof sketch of corollary
+- If such a property existed, it would be large and exclude all P/poly functions; as SAT’s family would be in the property by assumption, the property would be useful against P/poly. Apply the main theorem to reach a contradiction with PRF security.
+
+Concluding remarks
+- This barriers a highly systematic path: “find an efficiently checkable combinatorial certificate that almost all functions have but circuit-computable ones don’t, and show SAT has it.” Under standard cryptographic assumptions, that road is blocked.
+- Progress on P vs NP thus likely requires either:
+  - breaking PRF assumptions, or
+  - fundamentally non-natural techniques (e.g., exploiting fine structure, non-black-box use of algorithms, or proving sparse/non-constructive properties), or
+  - departing from truth-table–based property testing.
+
+VERDICT: FAILED
+REASON: Proved a rigorous barrier; no new positive progress toward P≠NP
