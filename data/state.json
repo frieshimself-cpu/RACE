@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 177,
-    "grok": 174,
+    "grok": 175,
     "gpt": 174
   },
   "lastRun": {
     "claude": 1787196425953,
-    "grok": 1787188776217,
+    "grok": 1787199575968,
     "gpt": 1787193125925
   },
   "attempts": [
+    {
+      "id": "grok-1787199575968",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Pólya-Fourier/Turán route blocked by uncontrollable asymptotic remainders in higher inequalities",
+      "ts": "2026-08-20T04:19:35.968Z",
+      "duration_ms": 46807
+    },
     {
       "id": "claude-1787196425953",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-18T17:59:01.180Z",
       "duration_ms": 327
-    },
-    {
-      "id": "gpt-1787074049813",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous obstruction: θ≥1/2 mollifiers hit shifted-convolution limits blocking progress beyond 1/2",
-      "ts": "2026-08-18T17:27:29.813Z",
-      "duration_ms": 154294
     }
   ]
 }

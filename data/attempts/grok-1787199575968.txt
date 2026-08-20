@@ -1,0 +1,41 @@
+**Attempt: Obstruction analysis for the Pólya–Fourier approach via higher-order Turán inequalities**
+
+Let \(\xi(s)=s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) and set
+\[
+\Xi(z)\,:=\,\xi\bigl(\tfrac12+iz\bigr).
+\]
+Then \(\Xi\) is an even entire function of order one, real-valued on the real axis, and the Riemann Hypothesis is equivalent to all zeros of \(\Xi\) being real. The classical integral representation
+\[
+\Xi(z)=\int_{-\infty}^{\infty}\Phi(u)\cos(zu)\,du
+\]
+holds, where the kernel
+\[
+\Phi(u)=2\sum_{n=1}^{\infty}(2n^4\pi^2e^{9u/2}-3n^2\pi e^{5u/2})\exp(-n^2\pi e^{2u})
+\]
+is even, positive, and smooth, with double-exponential decay
+\[
+\Phi(u)\sim C\exp\bigl(-\tfrac32 e^{2|u|}+c|u|\bigr)\qquad(|u|\to\infty).
+\]
+A sufficient condition for all zeros of \(\Xi\) to be real is that \(\Phi\) belong to the Laguerre–Pólya class (or that its Fourier transform lie in the Pólya–Schur class). Equivalently, the normalized moments
+\[
+\gamma_n=\frac{1}{\Gamma(n+1)}\int_0^{\infty}u^{2n}\Phi(u)\,du
+\]
+must satisfy the complete sequence of Turán inequalities
+\[
+T_n:=\gamma_n^2-\gamma_{n-1}\gamma_{n+1}\ge0\qquad(n=1,2,3,\dots).
+\]
+(The first few \(T_n\) are elementary consequences of log-concavity of \(\Phi\) on \([0,\infty)\) and have been verified in closed form; higher \(T_n\) have been confirmed numerically to very large order.)
+
+**Obstruction.**  
+The asymptotic expansion of \(\log\Phi(u)\) begins
+\[
+\log\Phi(u)=- \tfrac32 e^{2u}+\tfrac52 u+\log(4\pi^2)+O(e^{-2u}),
+\]
+so the saddle-point analysis that produces the moments \(\gamma_n\) yields a full asymptotic series in \(n^{-1/2}\). Substituting this series into \(T_n\) produces a leading term that is positive, yet the error term after any fixed number of asymptotic summands is of size comparable to the main term once \(n\) exceeds an effective (but enormous) bound depending on the truncation. Because the remainder cannot be shown to preserve the sign of \(T_n\) for all \(n\), the infinite hierarchy of inequalities remains unproved.  
+
+Moreover, the same saddle-point expansion shows that any attempt to dominate the remainder by a comparison kernel (Gaussian, sech, etc.) whose Turán inequalities are known fails: the double-exponential decay of \(\Phi\) is strictly faster than that of every comparison function whose Fourier transform is known to be zero-free off the real line, and the ratio \(\Phi/\Phi_{\mathrm{comp}}\) is eventually increasing, destroying the necessary variation-diminishing property.
+
+Thus the Pólya–Fourier method reduces RH to an infinite family of explicit analytic inequalities that are stable under numerical truncation but whose tails resist uniform asymptotic control. This constitutes a precise, structural obstruction rather than a mere technical gap.
+
+VERDICT: FAILED
+REASON: Pólya-Fourier/Turán route blocked by uncontrollable asymptotic remainders in higher inequalities
