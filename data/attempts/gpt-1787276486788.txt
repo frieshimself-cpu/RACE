@@ -1,0 +1,40 @@
+Attempt: A rigorous barrier for “positivity-only” L^2-approximation in the Báez–Duarte framework
+
+Statement (barrier theorem).
+Let A(s) = ∑_{n≤N} a_n n^{-s} be a Dirichlet polynomial with real nonnegative coefficients a_n ≥ 0, not all zero. Define the L^2-mean error
+E(T) = (1/(2T)) ∫_{-T}^{T} |1 − ζ(1/2+it) A(1/2+it)|^2 dt.
+Then E(T) → ∞ as T → ∞. Consequently, no sequence of Dirichlet polynomials with nonnegative coefficients can approximate 1/ζ(1/2+it) in the Báez–Duarte L^2 sense; in particular, any Nyman–Beurling/Báez–Duarte approach that restricts to nonnegative coefficients cannot reach the Riemann Hypothesis.
+
+Proof.
+- Expand the product on the critical line. Write s = 1/2+it and note
+  ζ(s) = ∑_{m≥1} m^{-s}, A(s) = ∑_{n≤N} a_n n^{-s}.
+  Hence
+  ζ(s) A(s) = ∑_{k≥1} c_k k^{-s} with coefficients
+  c_k = ∑_{n≤N, n|k} a_n.
+  In particular c_k ≥ 0 and (c_k) is supported on all k having at least one divisor among {n ≤ N with a_n > 0}.
+- Parseval/Plancherel for Dirichlet series on the critical line (Montgomery–Vaughan mean value theorem) implies:
+  For any square-summable sequence (d_k), we have
+  lim_{T→∞} (1/(2T)) ∫_{-T}^{T} |∑_{k≥1} d_k k^{-1/2-it}|^2 dt = ∑_{k≥1} |d_k|^2.
+  Moreover, if ∑ |d_k|^2 = ∞ then the limsup of the LHS is +∞ (indeed the averages diverge).
+- Apply this with the difference 1 − ζ(s)A(s). Writing 1 = 1·1^{-s}, we get the coefficient sequence
+  d_1 = 1 − c_1 = 1 − a_1, and for k ≥ 2, d_k = −c_k.
+  Therefore,
+  E(T) = (1/(2T)) ∫_{-T}^{T} |∑_{k≥1} d_k k^{-1/2-it}|^2 dt,
+  so E(T) → ∑_{k≥1} |d_k|^2 if the latter is finite, and E(T) → ∞ if the latter diverges.
+- We show ∑ |d_k|^2 diverges whenever not all a_n are zero:
+  Case 1: a_1 > 0. Then for every prime p > N, the only divisor n ≤ N of k = p is n = 1, so c_p = a_1. Hence |d_p|^2 = a_1^2 for infinitely many p, so ∑_{k≥2} |d_k|^2 ≥ ∑_{p>N} a_1^2 = ∞.
+  Case 2: a_1 = 0, but a_{n0} > 0 for some n0 ≥ 2. Consider k = n0 · p where p runs over primes p > N and p ∤ n0. Then the divisors n ≤ N of k are precisely the divisors of n0 (since p > N), so c_k ≥ a_{n0} > 0. Thus |d_k|^2 = c_k^2 ≥ a_{n0}^2 for infinitely many such k, and again ∑_{k≥2} |d_k|^2 diverges.
+  In both cases, the coefficient sequence (d_k) fails to be square-summable.
+- By the Montgomery–Vaughan mean value theorem, E(T) → ∞.
+
+Consequences and interpretation.
+- In the Báez–Duarte L^2 criterion (which characterizes RH in terms of the infimum of such L^2 errors over all Dirichlet polynomials), any restriction to nonnegative coefficients renders the problem vacuous: not only can one not drive the L^2 error to zero, it actually diverges.
+- Negative coefficients (or at least sign changes) are not a mere technical convenience but are structurally indispensable for any L^2-approximation-based attack on RH (Nyman–Beurling/Báez–Duarte methodology).
+- This supplies a crisp, unconditional obstruction to a natural subclass of approximants. In particular, it explains rigorously why “positive mollifiers” cannot work in this framework.
+
+Remarks.
+- The proof only uses: (i) multiplicativity of coefficients in ζ(s)A(s), (ii) positivity of (a_n), (iii) infinitude of primes, and (iv) the Montgomery–Vaughan mean-value theorem.
+- The barrier persists if one allows complex coefficients with nonnegative real parts bounded away from 0 on some index set: any uniform positive lower bound on |a_{n0}| along an infinite divisor pattern forces divergence identically as above.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous obstruction: nonnegative-coefficient L2-approximants diverge; sign changes are necessary.

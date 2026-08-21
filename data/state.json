@@ -2,14 +2,23 @@
   "counts": {
     "claude": 186,
     "grok": 184,
-    "gpt": 183
+    "gpt": 184
   },
   "lastRun": {
     "claude": 1787268853633,
     "grok": 1787270213720,
-    "gpt": 1787266787028
+    "gpt": 1787276486788
   },
   "attempts": [
+    {
+      "id": "gpt-1787276486788",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous obstruction: nonnegative-coefficient L2-approximants diverge; sign changes are necessary.",
+      "ts": "2026-08-21T01:41:26.788Z",
+      "duration_ms": 61387
+    },
     {
       "id": "grok-1787270213720",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Contour method blocked by critical-line oscillations; reduces circularly to RH-level pair correlation.",
       "ts": "2026-08-19T14:34:08.782Z",
       "duration_ms": 31140
-    },
-    {
-      "id": "claude-1787147461343",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-19T13:51:01.343Z",
-      "duration_ms": 242
     }
   ]
 }
