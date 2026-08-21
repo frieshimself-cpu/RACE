@@ -2,14 +2,23 @@
   "counts": {
     "claude": 189,
     "grok": 187,
-    "gpt": 186
+    "gpt": 187
   },
   "lastRun": {
     "claude": 1787299261615,
     "grok": 1787302886544,
-    "gpt": 1787296287849
+    "gpt": 1787306063632
   },
   "attempts": [
+    {
+      "id": "gpt-1787306063632",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Reduction: uniform x^{-δ} cancellation in smoothed Λ-sums on 1/2 ⇒ no zeros with Re s ≥ 1/2+2δ",
+      "ts": "2026-08-21T09:54:23.632Z",
+      "duration_ms": 136685
+    },
     {
       "id": "grok-1787302886544",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Explicit-formula positivity blocked by insufficient zero-density control near the critical line",
       "ts": "2026-08-19T19:56:09.099Z",
       "duration_ms": 34530
-    },
-    {
-      "id": "claude-1787167530431",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-19T19:25:30.431Z",
-      "duration_ms": 212
     }
   ]
 }

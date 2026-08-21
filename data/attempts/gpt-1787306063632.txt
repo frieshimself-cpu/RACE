@@ -1,0 +1,65 @@
+Attempt: A quantitative reduction from a uniform “square-root cancellation” for a smoothed prime Dirichlet polynomial on the critical line to the nonexistence of zeros off the line
+
+Statement (reduction). Let w ∈ C_c^∞((0,∞)) be a fixed nonnegative smooth compactly supported weight with Mellin transform
+Φ(z) = ∫_0^∞ w(u) u^{z-1} du,
+which is an entire function decaying faster than any power on vertical lines. Suppose there exists δ>0, constants C, X_0 ≥ 2 such that for all x ≥ X_0 and all real t,
+|S(x,t)| := |∑_{n=1}^∞ Λ(n) n^{-1/2-it} w(n/x)| ≤ C x^{-δ}.  (H)
+Then ζ(s) has no zeros ρ with Re ρ ≥ 1/2 + 2δ. In particular, if (H) holds for every δ>0 (with constants allowed to depend on δ), then the Riemann Hypothesis follows.
+
+Proof sketch.
+
+1) Smoothed explicit formula for weighted Λ(n) Dirichlet polynomials. Fix s = σ + it with σ>0. For x≥2, by standard contour shifting (Mellin inversion) one obtains the smoothed explicit formula (see e.g. Guinand–Weil explicit formula in smoothed form):
+∑_{n=1}^∞ Λ(n) n^{-s} w(n/x)
+= -ζ′/ζ(s) + x^{1-s} Φ((1-s) log x) - ∑_ρ x^{ρ - s} Φ((ρ - s) log x) + E(s,x),
+where the sum runs over the nontrivial zeros ρ of ζ(s), counted with multiplicity, and the error E(s,x) is due to the trivial zeros and the pole at s=1; as usual one has for any A>0,
+E(s,x) ≪_A x^{-σ} (1+|t|)^A.
+Moreover, because w is compactly supported and smooth, Φ is entire and for any A>0 we have
+Φ(a+ib) ≪_{A,w} (1+|b|)^{-A} uniformly in a on compact sets.
+
+This formula is entirely standard: write w(n/x) as a Mellin integral, interchange sum and integral for Re s large, express ∑ Λ(n) n^{-z} as -ζ′/ζ(z), and then shift the contour to Re z = σ picking residues at z = 1 (giving x^{1-s}Φ((1-s)log x)), at the nontrivial zeros z = ρ (giving −x^{ρ-s}Φ((ρ-s)log x)), and at the trivial zeros (absorbed into E).
+
+2) Choose parameters to isolate a putative off-line zero. Suppose there exists a zero ρ0 = β0 + iγ0 with β0 > 1/2. Fix δ with 0 < δ < (β0 − 1/2)/2. Set s = σ + it with σ = 1/2 + δ and t = γ0. Then (ρ0 − s) log x = (β0 − σ) log x is real and positive; choose x on an unbounded sequence so that Φ((β0 − σ) log x) is bounded below by some positive constant c0 (this is possible because Φ is continuous and not identically zero on R; pick any y0 with Φ(y0) ≠ 0 and then choose x so that (β0 − σ) log x ≈ y0 modulo small adjustment; by continuity we can secure |Φ| ≥ c0).
+
+For every other zero ρ = β + iγ with γ ≠ γ0, the argument (ρ − s) log x has imaginary part (γ − γ0) log x, which grows in absolute value with x, so the corresponding term is strongly damped by the rapid vertical decay of Φ:
+|x^{ρ - s} Φ((ρ - s) log x)| ≪ x^{β − σ} (1 + |(γ − γ0) log x|)^{-A}.
+
+3) Size of terms and contradiction with (H). Plug s = 1/2 + δ + iγ0 into the explicit formula from step 1:
+S(x,γ0) = -ζ′/ζ(s) + x^{1-s} Φ((1 - s) log x) - [x^{ρ0 - s} Φ((ρ0 - s) log x) + ∑_{ρ≠ρ0} x^{ρ - s} Φ((ρ - s) log x)] + E(s,x).
+
+We now bound each term except the ρ0-term.
+
+- The pole term x^{1-s} Φ((1 - s) log x): here 1 - s = 1/2 - δ - iγ0, so (1 - s) log x has imaginary part −γ0 log x, hence by the vertical decay of Φ,
+x^{1-σ} |Φ((1-s)\log x)| ≪ x^{1/2 - δ} (1 + |γ0| log x)^{-A} → 0 as x→∞, for any fixed γ0 and any A>0.
+
+- The sum over other zeros ρ ≠ ρ0: split into those with β ≤ 1/2 and those with β > 1/2. For β ≤ 1/2, we have β − σ ≤ −δ, hence each term is ≪ x^{-δ} times a rapidly decaying factor in |γ−γ0| log x; summing over zeros using standard zero-density bounds or simply a crude count in vertical strips and taking A large, the total contribution is O(x^{-δ}). For β > 1/2 but γ ≠ γ0, we still pick up the vertical decay (γ − γ0) log x in Φ, which forces the contribution to be o(1) for fixed γ0 as x→∞. In all, the whole tail over ρ ≠ ρ0 is o(1) + O(x^{-δ}).
+
+- The term −ζ′/ζ(s): for fixed t=γ0 and σ ∈ (1/2,1), the classical bound is polynomial in log(2+|t|); in any case this term does not depend on x and thus is O(1) as x→∞ (for fixed s) and can be absorbed for large x by any power of x.
+
+- The error E(s,x) is ≪ x^{-σ} (1+|t|)^A = O(x^{-1/2 - δ}).
+
+Thus for x along the chosen sequence and large enough, we obtain the asymptotic identity
+S(x,γ0) = - x^{β0 - σ} Φ((β0 - σ) \log x) + O(1) + o(1) + O(x^{-δ}),
+with Φ((β0 − σ) log x) ≥ c0 > 0 and β0 − σ ≥ (β0 − (1/2 + δ)) ≥ δ.
+
+Hence, for some c1>0 and all sufficiently large x in the chosen sequence,
+|S(x,γ0)| ≥ c1 x^{β0 - σ} - O(1) ≥ (c1/2) x^{δ},
+contradicting the hypothesis (H), which asserts |S(x,γ0)| ≤ C x^{−δ}. Since δ>0 is fixed, this contradiction holds for all large x.
+
+Therefore, there cannot exist any zero with β0 ≥ 1/2 + 2δ. As δ was arbitrary in (0, (β0 − 1/2)/2), we conclude that under (H) no zero has real part ≥ 1/2 + 2δ.
+
+4) Consequences. If (H) holds for some δ>0, the critical strip is free of zeros with Re s ≥ 1/2 + 2δ. If (H) holds for every δ>0 (with constants allowed to depend on δ), then no zero satisfies Re s > 1/2, i.e., the Riemann Hypothesis is true.
+
+Remarks and scope.
+
+- The hypothesis (H) is a strong uniform square-root cancellation statement for a smoothed Dirichlet polynomial with coefficients Λ(n) at the central point σ=1/2, uniform in t and with a power saving x^{-δ}. The proof shows that even a weaker bound of the form |S(x,t)| ≤ C x^{-(β* − 1/2 − δ)} for some β*>1/2 would force a zero-free half-strip Re s ≥ β*. Thus the reduction is flexible.
+
+- The use of a smooth compactly supported weight is essential to produce the Mellin transform Φ with rapid decay on vertical lines; this allows us to make the pole term and all zeros with mismatched imaginary parts negligible by taking x large (depending on γ0).
+
+- This argument avoids assuming any zero-free region or the prime number theorem; everything is encoded in the explicit formula. The only input beyond standard complex analysis is the existence and properties of Φ for a smooth compactly supported w.
+
+- The reduction isolates a clean target: proving uniform square-root cancellation with any fixed positive saving for smoothed Λ sums at σ=1/2 would already push zeros strictly to the left of 1/2+2δ; iterating δ→0 would imply RH. This gives a concrete analytic task which, while currently out of reach, is arguably more approachable than controlling ζ itself pointwise.
+
+- The same method works with other smooth weights and can be adapted to twisted sums ∑ Λ(n) χ(n) n^{-1/2 - it}, leading to analogous reductions for GRH in Dirichlet L-functions.
+
+VERDICT: PARTIAL
+REASON: Reduction: uniform x^{-δ} cancellation in smoothed Λ-sums on 1/2 ⇒ no zeros with Re s ≥ 1/2+2δ
