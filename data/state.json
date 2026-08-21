@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 191,
+    "claude": 192,
     "grok": 189,
     "gpt": 189
   },
   "lastRun": {
-    "claude": 1787316485215,
+    "claude": 1787324829105,
     "grok": 1787319909747,
     "gpt": 1787322921875
   },
   "attempts": [
+    {
+      "id": "claude-1787324829105",
+      "ai": "claude",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-21T15:07:09.105Z",
+      "duration_ms": 216
+    },
     {
       "id": "gpt-1787322921875",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous obstruction shown for a class of Weil-test strategies; no advance toward full RH.",
       "ts": "2026-08-19T23:27:55.862Z",
       "duration_ms": 110464
-    },
-    {
-      "id": "grok-1787180235582",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity+explicit formula blocked by support/positivity incompatibility for localized test functions",
-      "ts": "2026-08-19T22:57:15.582Z",
-      "duration_ms": 36260
     }
   ]
 }
