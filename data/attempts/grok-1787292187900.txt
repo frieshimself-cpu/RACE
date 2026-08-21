@@ -1,0 +1,26 @@
+### Attempt: Conditional leading-term formula under finiteness of one Selmer corank
+
+Let \(E/\mathbb{Q}\) be an elliptic curve of conductor \(N\), with \(L(E,s)\) its Hasse–Weil \(L\)-function (entire by modularity). Write \(r_{\mathrm{an}}=\mathrm{ord}_{s=1}L(E,s)\) and \(r=\mathrm{rank}\,E(\mathbb{Q})\). Let \(\Sha(E/\mathbb{Q})\) be the Tate–Shafarevich group. For a prime \(p\geq5\) of good ordinary reduction let \(\mathrm{Sel}_{p^\infty}(E/\mathbb{Q})\) be the \(p^\infty\)-Selmer group, of corank \(r_p\) over \(\mathbb{Z}_p\), and let \(\mathcal{L}_p(E,T)\) be the \(p\)-adic \(L\)-function in the Iwasawa algebra \(\mathbb{Z}_p[[T]]\ (T=\gamma-1)\).
+
+**Lemma.** Assume:
+1. the main conjecture of Iwasawa theory holds for \(E\) at \(p\) (i.e., the characteristic ideal of the Pontryagin dual of the fine Selmer group equals \((\mathcal{L}_p(E,T))\));
+2. \(\mathrm{corank}_{\mathbb{Z}_p}\mathrm{Sel}_{p^\infty}(E/\mathbb{Q})=r_{\mathrm{an}}\);
+3. the \(p\)-primary part of \(\Sha(E/\mathbb{Q})\) is finite.
+
+Then the BSD leading-term formula holds up to a unit in \(\mathbb{Z}_{(p)}\):
+\[
+\frac{L^{(r_{\mathrm{an}})}(E,1)}{r_{\mathrm{an}}!\,\Omega_E\cdot\mathrm{Reg}(E/\mathbb{Q})\cdot\prod_{q\mid N}c_q}
+=\frac{|\Sha(E/\mathbb{Q})|}{|E(\mathbb{Q})_{\mathrm{tors}}|^2}\cdot u_p,
+\]
+where \(u_p\in\mathbb{Z}_p^\times\) and the product runs over Tamagawa numbers.
+
+**Sketch.** By Kato’s Euler system the \(p\)-adic \(L\)-function divides the characteristic ideal of the dual Selmer module; assumption 1 upgrades this to equality. The control theorem of Greenberg–Stevens (ordinary case) identifies the specialization at the trivial character with a generator of the characteristic ideal of \(\mathrm{Sel}_{p^\infty}(E/\mathbb{Q})^\vee\). Assumption 2 forces the order of vanishing of \(\mathcal{L}_p\) at \(T=0\) to equal \(r_{\mathrm{an}}\), and the leading coefficient is then related to the \(p\)-adic regulator and the order of the finite group \(\Sha(E/\mathbb{Q})[p^\infty]\) by the usual exact sequence
+\[
+0\to E(\mathbb{Q})\otimes\mathbb{Q}_p/\mathbb{Z}_p\to\mathrm{Sel}_{p^\infty}(E/\mathbb{Q})\to\Sha(E/\mathbb{Q})[p^\infty]\to0.
+\]
+Perrin-Riou’s comparison of \(p\)-adic and complex periods supplies the archimedean factor \(\Omega_E\) up to a \(p\)-adic unit. Clearing denominators yields the displayed formula with \(u_p\in\mathbb{Z}_p^\times\).
+
+**Limitation.** The argument gives only a \(p\)-local statement. To remove the unit \(u_p\) one needs the same conclusion for infinitely many ordinary \(p\), together with an independent proof that \(r=r_{\mathrm{an}}\) (so that the \(p\)-adic regulators are non-zero and comparable). Both steps remain open for \(r_{\mathrm{an}}\geq2\); the main conjecture itself is known only in rank \(0\) and \(1\) under additional hypotheses (Skinner–Urban, Wan, etc.). Thus the lemma reduces full BSD to a uniform main-conjecture-plus-corank statement, but does not resolve it.
+
+VERDICT: PARTIAL
+REASON: Conditional p-local BSD leading term under Iwasawa MC + Selmer corank; full conjecture still open

@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 188,
-    "grok": 185,
+    "grok": 186,
     "gpt": 185
   },
   "lastRun": {
     "claude": 1787290657596,
-    "grok": 1787285101401,
+    "grok": 1787292187900,
     "gpt": 1787288221014
   },
   "attempts": [
+    {
+      "id": "grok-1787292187900",
+      "ai": "grok",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Conditional p-local BSD leading term under Iwasawa MC + Selmer corank; full conjecture still open",
+      "ts": "2026-08-21T06:03:07.900Z",
+      "duration_ms": 37548
+    },
     {
       "id": "claude-1787290657596",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-19T17:34:36.464Z",
       "duration_ms": 197
-    },
-    {
-      "id": "gpt-1787158805570",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous reduction: small variance of ψ in short intervals ⇒ RH",
-      "ts": "2026-08-19T17:00:05.570Z",
-      "duration_ms": 248871
     }
   ]
 }
