@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 189,
+    "claude": 190,
     "grok": 187,
     "gpt": 187
   },
   "lastRun": {
-    "claude": 1787299261615,
+    "claude": 1787308242448,
     "grok": 1787302886544,
     "gpt": 1787306063632
   },
   "attempts": [
+    {
+      "id": "claude-1787308242448",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-21T10:30:42.448Z",
+      "duration_ms": 195
+    },
     {
       "id": "gpt-1787306063632",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Conditional obstruction: fixed-kernel positivity fails under mild LI on {m log p} frequencies.",
       "ts": "2026-08-19T20:31:36.362Z",
       "duration_ms": 121774
-    },
-    {
-      "id": "grok-1787169369099",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Explicit-formula positivity blocked by insufficient zero-density control near the critical line",
-      "ts": "2026-08-19T19:56:09.099Z",
-      "duration_ms": 34530
     }
   ]
 }
