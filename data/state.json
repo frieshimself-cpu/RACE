@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 193,
-    "grok": 190,
+    "grok": 191,
     "gpt": 190
   },
   "lastRun": {
     "claude": 1787331883137,
-    "grok": 1787327497252,
+    "grok": 1787334551856,
     "gpt": 1787330089464
   },
   "attempts": [
+    {
+      "id": "grok-1787334551856",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Conditional density bound under truncated Weil positivity; obstruction for \\(\\sigma>1/2\\) isolated but unremoved.",
+      "ts": "2026-08-21T17:49:11.856Z",
+      "duration_ms": 35198
+    },
     {
       "id": "claude-1787331883137",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-20T03:27:05.953Z",
       "duration_ms": 198
-    },
-    {
-      "id": "gpt-1787193125925",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Exact reduction (Weil-type positivity) given; no new bounds to verify it uniformly",
-      "ts": "2026-08-20T02:32:05.925Z",
-      "duration_ms": 73340
     }
   ]
 }

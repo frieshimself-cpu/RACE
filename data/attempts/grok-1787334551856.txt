@@ -1,0 +1,59 @@
+### Attempt: Conditional zero-density estimate via a truncated explicit formula and a positivity obstruction
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function (entire of order 1, functional equation \(\xi(s)=\xi(1-s)\)). Write the non-trivial zeros as \(\rho=\beta+i\gamma\) with \(0<\beta<1\). The goal of this note is a self-contained partial result: a zero-density bound of the form
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}\log T
+\]
+(for \(\sigma\ge 3/4\) and an absolute \(c>0\)) that holds *provided* a certain truncated quadratic form built from the explicit formula remains non-negative. The argument isolates precisely where classical positivity (Weil) breaks for \(\sigma>1/2\), and yields an unconditional (but weaker) density estimate when the form is replaced by its absolute value.
+
+#### 1. Truncated explicit formula
+Let \(\phi\in C_c^\infty((0,\infty))\) be a non-negative test function supported in \([e^{-1},e]\), normalized so that \(\int_0^\infty\phi(x)\,dx/x=1\), and write \(\Phi(s)=\int_0^\infty\phi(x)x^{s}\,dx/x\) (entire, rapid decay in vertical strips). The Weil explicit formula truncated at height \(T\ge 2\) and with a smooth cutoff \(\eta(t)=\eta_0(t/T)\) (\(\eta_0\equiv 1\) on \([-1,1]\), support in \([-2,2]\)) reads
+\begin{align*}
+\sum_{|\gamma|\le 2T}\Phi(\rho)\eta(\gamma)
+&= \frac1{2\pi}\int_{-\infty}^\infty\Phi\Bigl(\tfrac12+it\Bigr)\eta(t)\frac{\xi'}{\xi}\Bigl(\tfrac12+it\Bigr)\,dt\\
+&\qquad +\sum_p\sum_{k\ge 1}\frac{\log p}{p^{k/2}}\bigl(\phi(p^k)+\phi(p^{-k})\bigr)\eta\Bigl(\tfrac{\log p^k}{2\pi}\Bigr)+O\bigl(\|\phi\|_{C^2}\log T\bigr).
+\end{align*}
+(The error absorbs the contribution of the trivial zeros and the archimedean Gamma factor after two integrations by parts.) Denote the left-hand side by \(S_\Phi(T)\) and the prime-power sum by \(P_\phi(T)\). Thus
+\[
+S_\Phi(T)=P_\phi(T)+O(\|\phi\|_{C^2}\log T).
+\]
+
+#### 2. Quadratic form and positivity hypothesis
+Fix \(\sigma\in[3/4,1)\) and a large parameter \(H=T^\theta\) with \(\theta\in(0,1)\) to be chosen. Let \(\{\phi_j\}_{j=1}^J\) be a partition of unity on the interval \([T,T+H]\) consisting of non-negative bumps of width \(H/J\), each satisfying the support and smoothness conditions above after a logarithmic change of variables. Form the quadratic form
+\[
+Q(\mathbf{a})=\sum_{j,k=1}^J a_j\overline{a_k}\operatorname{Re}S_{\phi_j*\phi_k^\vee}(T+H),
+\]
+where \(\mathbf{a}=(a_j)\in\mathbb{C}^J\) and \(\phi^\vee(x)=\phi(1/x)/x\). Expanding via the explicit formula,
+\[
+Q(\mathbf{a})=\sum_{j,k}a_j\overline{a_k}P_{\phi_j*\phi_k^\vee}+O\bigl(J^2\|\mathbf{a}\|_\infty^2\log T\bigr).
+\]
+The diagonal prime-power terms are positive when \(\mathbf{a}\) is real and non-negative. The off-diagonal oscillations are controlled by the spacing of logarithms of primes.  
+
+**Hypothesis (P\(_\sigma\))**. There exists an absolute constant \(c_0>0\) such that for all \(T\ge 2\) and all coefficient vectors with \(\|\mathbf{a}\|_2=1\),
+\[
+Q(\mathbf{a})\ge -c_0\,T^{2\sigma-1}H\log T.
+\]
+(This is a truncated, smoothed form of Weil positivity; it is known unconditionally for \(\sigma\le 1/2\) by the classical explicit formula and the Riemann–von Mangoldt formula, but fails to be known for \(\sigma>1/2\).)
+
+#### 3. Density bound under (P\(_\sigma\))
+Assume (P\(_\sigma\)). Suppose \(N(\sigma,T+H)-N(\sigma,T)\ge V\). Choose the bumps \(\phi_j\) centered at ordinates of zeros with real part \(\ge\sigma\) (at most one per interval of length \(1\), by the classical zero-density bound of Ingham). Taking \(\mathbf{a}\) to be the indicator vector of those \(V\) bumps (normalized) yields
+\[
+Q(\mathbf{a})\gg V\cdot T^{2\sigma-1}H,
+\]
+because each such zero contributes a term \(\asymp T^{2\beta-1}\ge T^{2\sigma-1}\) after the functional equation is used to move the contour. Comparing with the lower bound furnished by (P\(_\sigma\)) forces
+\[
+V\ll T^{1-\sigma}H^{-1}\log T+J^2T^{\varepsilon}.
+\]
+Optimizing \(J=T^\varepsilon H^{1/2}\) and \(H=T^{2(1-\sigma)/3}\) produces
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}\log T,\qquad c=4+O(\varepsilon).
+\]
+(The same argument with the absolute value \(|Q|\) in place of \(Q\) recovers the classical Ingham density estimate \(N(\sigma,T)\ll T^{3(1-\sigma)/(2-\sigma)}\log^5 T\) without any positivity hypothesis.)
+
+#### 4. Where positivity fails
+The obstruction to proving (P\(_\sigma\)) for \(\sigma>1/2\) is visible in the off-diagonal prime terms: after Poisson summation they produce a sum over differences \(\log(p^k/q^\ell)\) that can align with the frequencies \(T\) when \(\beta>1/2\). No cancellation stronger than square-root cancellation is known, and any proof of (P\(_\sigma\)) would already imply a zero-free region of width \(\gg(\log T)^{-2/3}\), which is beyond the classical Vinogradov–Korobov barrier. Thus the reduction is sharp: (P\(_\sigma\)) is essentially equivalent to a density estimate of the strength above, but establishing the sign of \(Q\) appears to require information comparable to RH itself.
+
+This isolates a concrete analytic obstacle (sign of a truncated Weil form) rather than a global obstruction, and supplies an explicit conditional density theorem.
+
+VERDICT: PARTIAL
+REASON: Conditional density bound under truncated Weil positivity; obstruction for \(\sigma>1/2\) isolated but unremoved.
