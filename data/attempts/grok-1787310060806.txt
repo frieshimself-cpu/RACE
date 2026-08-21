@@ -1,0 +1,44 @@
+### Attempt: Sign-definiteness obstruction for a Turán-type power-sum criterion
+
+Let \(\Xi(t)=\xi(\tfrac12+it)\) denote the completed Riemann \(\xi\)-function restricted to the critical line (entire of order 1, real for real \(t\), and even). The non-trivial zeros of \(\zeta\) are in one-to-one correspondence with the real zeros of \(\Xi\) together with any complex zeros of \(\Xi\) that would lie off the line. Write the Hadamard product (normalized so that the product converges)
+\[
+\Xi(t)=\Xi(0)\prod_{\rho}\Bigl(1-\frac{t}{\gamma}\Bigr),
+\]
+where the product runs over the ordinates \(\gamma\) of the zeros of \(\xi(s)\) (counted with multiplicity and in complex-conjugate pairs). Taking the logarithmic derivative twice yields the identity
+\[
+\frac{\Xi''(t)}{\Xi(t)}=\sum_{\gamma}\frac{1}{(t-\gamma)^2}.
+\]
+In particular, for real \(t\) lying strictly between consecutive real ordinates one has
+\[
+\frac{\Xi''(t)}{\Xi(t)}\in\mathbb{R}.
+\]
+Turán observed that if the power sums
+\[
+S_n(T):=\sum_{|\gamma|\le T}\gamma^{-n},\qquad n=2,4,6,\dots
+\]
+remain non-negative for all sufficiently large even \(n\) (or for a positive-density set of such \(n\)), then \(\Xi\) can have no non-real zeros: a conjugate pair \(\beta\pm i\alpha\) with \(\alpha\neq0\) would contribute a term of the form
+\[
+2\operatorname{Re}\bigl((\beta+i\alpha)^{-n}\bigr)=2r^{-n}\cos(n\theta)
+\]
+with \(r>0\) and \(\theta\notin\pi\mathbb{Z}\), which becomes negative for an arithmetic progression of \(n\). Thus non-negativity of the \(S_n\) forces every zero onto the real axis, i.e., forces RH.
+
+We now show that this sufficient condition is never satisfied. Let \(N(T)\) be the usual zero-counting function and write
+\[
+S_n(T)=\int_{1-}^{T}u^{-n}\,dN(u).
+\]
+Integration by parts and the Riemann–von Mangoldt formula \(N(T)=\frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}+O(\log T)\) give, for even \(n\ge2\),
+\begin{align*}
+S_n(T)
+&=\frac{n}{2\pi}\int_1^T u^{-n-1}\Bigl(u\log\frac{u}{2\pi}-u\Bigr)\,du+O\Bigl(\int_1^T u^{-n}\frac{\log u}{u}\,du\Bigr)\\
+&=\frac{n}{2\pi}\Biggl[\frac{T^{1-n}}{1-n}\log\frac{T}{2\pi}-\frac{T^{1-n}}{(1-n)^2}-\frac{T^{1-n}}{1-n}\Biggr]+O(T^{-n}\log T).
+\end{align*}
+The leading term is negative for every even \(n\ge2\) and every \(T>2\pi\). More precisely,
+\[
+S_n(T)=-\frac{n}{2\pi(n-1)}T^{1-n}\log\frac{T}{2\pi}+O(T^{1-n}).
+\]
+Hence there exists \(T_n\) (explicitly \(T_n=\exp(C n)\) for an absolute \(C\)) such that \(S_n(T)<0\) whenever \(T\ge T_n\). In other words, every even power sum eventually becomes negative. The Turán criterion is therefore vacuous: the arithmetic obstruction that would have ruled out off-line zeros is already present in the main term coming from the density of zeros on or near the critical line.
+
+The same computation shows why any attempt to restore positivity by subtracting a model main term (e.g., replacing \(S_n\) by a “purely oscillatory” remainder) fails to be rigorous: the error term in \(N(T)\) is only \(O(\log T)\) on RH itself, which is circular, and even under the weaker zero-density estimates presently available the error after subtraction remains large enough to change sign infinitely often. Consequently the power-sum approach cannot be made unconditional without already knowing a zero-free region that reaches the critical line.
+
+VERDICT: FAILED
+REASON: Turán power sums are eventually negative by Riemann-von Mangoldt; criterion vacuous, no new zero-free info.

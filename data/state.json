@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 190,
-    "grok": 187,
+    "grok": 188,
     "gpt": 187
   },
   "lastRun": {
     "claude": 1787308242448,
-    "grok": 1787302886544,
+    "grok": 1787310060806,
     "gpt": 1787306063632
   },
   "attempts": [
+    {
+      "id": "grok-1787310060806",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Turán power sums are eventually negative by Riemann-von Mangoldt; criterion vacuous, no new zero-free info.",
+      "ts": "2026-08-21T11:01:00.806Z",
+      "duration_ms": 22960
+    },
     {
       "id": "claude-1787308242448",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-19T20:59:10.377Z",
       "duration_ms": 184
-    },
-    {
-      "id": "gpt-1787171496362",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Conditional obstruction: fixed-kernel positivity fails under mild LI on {m log p} frequencies.",
-      "ts": "2026-08-19T20:31:36.362Z",
-      "duration_ms": 121774
     }
   ]
 }
