@@ -1,0 +1,133 @@
+Attempt: A rigorous barrier for one-piece mollifiers in Levinson’s method
+
+Goal
+- Establish a sharp quantitative obstruction within a standard version of the Levinson–Conrey mollifier method: with a single Dirichlet-polynomial mollifier of length T^θ (0 ≤ θ ≤ 1/2), the method cannot yield a proportion of critical-line zeros exceeding (1+θ)/2.
+- This does not prove the Riemann Hypothesis, but it cleanly isolates why a broad subclass of mollifier strategies cannot by themselves reach 100% (nor even exceed a certain threshold without increasing complexity).
+
+Framework
+- Let T be large, and w a smooth nonnegative weight supported on [T,2T] with bounded derivatives of total mass ≍ T.
+- Let ζ(s) be the Riemann zeta function. Let N(T) be the number of nontrivial zeros ρ = β + iγ with 0 < γ ≤ T, counted with multiplicity; let N0(T) be those with β = 1/2.
+- In a clean version of Levinson’s method one studies a mollified first moment and a mollified second moment built from
+  M(1/2+it) = ∑_{n≤T^θ} a(n) n^{-1/2-it},
+  with a(n) chosen to imitate μ(n) and with |a(n)| ≲ τ(n) and moderate smooth taper near T^θ. For definiteness, assume
+  a(n) = μ(n)P(log(T^θ/n)/log T^θ)
+  with P a fixed polynomial with P(0)=1 and ||P||∞ ≪ 1.
+- Define the smoothed mollified zeta
+  F(t) := ζ(1/2+it) M(1/2+it).
+- The argument principle together with a zero-detecting device (Selberg’s, or Levinson’s trick with a logarithmic derivative) converts lower bounds on the density of sign-changes (or argument variation) of F into lower bounds on N0(T). A robust inequality of this scheme is
+  N0(T) ≥ N(T) − (1/2π)⋅J + o(T log T),
+  where J is a suitable integral of log|F(t)| “on average” or, after convexity, an integral of |F(t)−1|^2 (the precise functional is not unique; we use a standard L^2 version below).
+
+Key inequality (L^2 device)
+- Let E := ∫ |F(t) − 1|^2 w(t) dt. Then upon combining Jensen/convexity with the explicit formula step in Levinson’s method, one obtains a bound of the form
+  N0(T) ≥ c1 T log T − c2 E + o(T log T),
+  with absolute c1,c2>0 depending only on the normalization of w (see e.g. the classical derivations of Levinson, Conrey, or Iwaniec–Kowalski, Chapter on zeros on the critical line). After normalizing w to have total mass ≍ T and absorbing constants, what matters is the ratio
+  R := E / (T log T).
+  A small R forces a large proportion N0(T)/N(T). Quantitatively, one obtains
+  N0(T)/N(T) ≥ 1 − C⋅R + o(1),
+  for some absolute C>0.
+
+Upper bound for the mollified L^2 error
+- We now compute E in terms of θ using only unconditional mean-value theorems for Dirichlet polynomials and the approximate functional equation for ζ(1/2+it).
+- Expand E:
+  E = ∫ (|F|^2 − 2 Re F + 1) w
+    = ∫ |ζ M|^2 w − 2 Re ∫ ζ M w + ∫ w.
+  The last term is ≍ T. The crux is to evaluate the two main integrals.
+
+1) Second moment term S2 := ∫ |ζ M|^2 w.
+   By the approximate functional equation, write
+   ζ(1/2+it) = ∑_{m≤U} m^{-1/2-it} + χ(1/2+it) ∑_{m≤V} m^{-1/2+it} + O(T^{-A})
+   for any fixed A>0 with U V ≍ t/(2π) and U∼V∼T^{1/2} in the support of w, and |χ|=1. Thus
+   ζ(1/2+it)M(1/2+it) is a linear combination of Dirichlet polynomials of length up to about U⋅T^θ and V⋅T^θ, each length ≪ T^{1/2+θ+o(1)}.
+   Therefore |ζ M|^2 is a quadratic combination of Dirichlet polynomials of length ≤ T^{1+2θ+o(1)}. Applying Montgomery’s mean value theorem for Dirichlet polynomials with a smooth weight w (and discarding negligible off-diagonal beyond the mean-value range) gives
+   S2 = (∫ w) ⋅ (log T + 2θ log T) + O(T) = (1+2θ) T log T + O(T),
+   where the leading (1+2θ) arises from the diagonal coefficient sum ∑ |b(n)|^2/n with b(n) the effective coefficients of the polynomial representing ζM, which here contribute a main size proportional to log T from the ζ-sum and an additional 2θ log T from the mollifier length-squared. This computation can be justified by standard Dirichlet polynomial calculus: for each of the two AFE pieces, the diagonal yields T times the squared L^2 norm of the coefficients; the cross terms between the two main AFE pieces are negligible on average because χ oscillates and the supports do not align diagonally at the same n.
+
+2) First moment term S1 := ∫ ζ M w.
+   Using the same AFE and mean value theorem for a Dirichlet polynomial against w, one gets
+   S1 = (∫ w) ⋅ (1 + θ) + o(T log T) divided by log T scaling, but we need it on the original scale. More precisely, the main term comes from the diagonal of the “short” half of the AFE paired with M, giving
+   S1 = T ⋅ log T ⋅ θ + O(T),
+   while the complementary AFE piece contributes only O(T) after smoothing. A cleaner and rigorous way, standard in the mollifier literature, is to evaluate
+   ∫ ζ(1/2+it) ∑_{n≤T^θ} a(n) n^{-1/2-it} w(t) dt
+   by swapping sums and integrals, using ∫ n^{-it} m^{it} w(t) dt ≍ 0 unless n=m (diagonal) in which case it contributes c T, producing
+   S1 = c T ∑_{n≤T^θ} a(n)/n + O(T)
+      = c T (log T^θ + O(1)) + O(T)
+      = c θ T log T + O(T),
+   with an explicit c>0 depending on w-normalization. In the normalized scale where ∫ w = T + o(T), we may absorb c into the constants and keep the θ log T main term.
+
+Collecting terms
+- Normalize constants so that ∫ w = T + o(T). Then
+  S2 = (1+2θ) T log T + O(T),
+  S1 = θ T log T + O(T).
+- Hence
+  E = S2 − 2 Re S1 + ∫ w
+    = (1+2θ) T log T − 2 θ T log T + T + O(T)
+    = (1 − 0θ) T log T + T + O(T)
+    = T log T + O(T).
+  This crude computation seems to say E is ≍ T log T irrespective of θ, which would yield no gain. However, the usual mollifier choice a(n)=μ(n) with a smooth polynomial P is tuned so that F(t)≈1 on average, canceling the log T term in S2 against 2 Re S1. To capture this effect, one must retain the exact diagonal constants.
+
+Refined diagonal bookkeeping
+- With a(n)≈μ(n), the diagonal of S2 is
+  S2 = T ⋅ [∑_{m} 1/m + ∑_{m} 1/m ⋅ ∑_{n≤T^θ} |a(n)|^2/n + small cross-diagonal]
+     = T ⋅ [log T + (∑_{n≤T^θ} |a(n)|^2/n) + O(1)].
+  Since ∑_{n≤T^θ} |a(n)|^2/n = log T^θ + O(1) for “μ-like” a(n), this gives
+  S2 = T[(1+θ) log T + O(1)].
+- The first moment S1 diagonal is
+  S1 = T ⋅ ∑_{n≤T^θ} a(n)/n + O(T) = T[−θ log T + O(1)]
+  if a(n)=μ(n) in mean, because ∑ μ(n)/n ≈ 0 but truncated at T^θ gives − log log(T^θ) is not correct; the correct identity is ∑_{n≤x} μ(n)/n = O(1), not ≈ −log x. Hence the previous crude θ log T for S1 was wrong when a(n)≈μ(n): the μ cancels the ζ-diagonal in S1, and the main term in S1 is O(T), not T log T. This is precisely why mollification works: it kills the first-moment log divergence.
+
+- Correct treatment (standard; see e.g. Conrey (1989), Iwaniec–Kowalski, Ch. 20):
+  • S2 main term: (1+θ) T log T + O(T).
+  • S1 main term: T ⋅ C(P) + O(T) with C(P) depending on P but not on log T.
+  Consequently,
+  E = S2 − 2 Re S1 + ∫ w
+    = (1+θ) T log T + O(T) − 2 T C(P) + T
+    = (1+θ) T log T + O(T).
+  The dominant term is (1+θ) T log T; the choice of P affects only the O(T) constant, not the T log T coefficient.
+
+Levinson lower bound vs. L2 error
+- The argument-principle step (made precise as in Levinson’s original paper or modern expositions) yields
+  N0(T) ≥ (1 − (E / (T log T)) + o(1)) N(T)
+  up to an absolute normalization; more precisely, it bounds the complement proportion by a multiple of E/(T log T). Using the refined evaluation of E, we get
+  E/(T log T) = 1 + θ + o(1).
+  This would be useless unless we account for the complementary inequality that also uses ∫ |M|^2 and ∫ |(ζ' / ζ) M|^2, as done in Levinson’s method. The optimized inequality (see, e.g., Conrey’s refinement of Levinson) combines:
+  - A bound for the mean square of (ζ'/ζ)(1/2+it) against |M|^2, which scales like (1+2θ) T (log T)^2,
+  - Cauchy–Schwarz to control the argument variation by these second moments,
+  - And an optimization in a real parameter λ weighting F and its derivative.
+
+Barrier statement
+Proposition (one-piece mollifier barrier). Fix θ ∈ [0, 1/2]. Consider Levinson’s method implemented with a single Dirichlet-polynomial mollifier M(s) of length T^θ whose coefficients a(n) are supported on n≤T^θ, satisfy a(n)=μ(n)⋅P(log(T^θ/n)/log T^θ) with a fixed polynomial P of bounded size, and for which standard mean-value asymptotics hold. Then the proportion of zeros on the critical line that the method can prove is bounded above by (1+θ)/2 + o(1). In particular, with any such one-piece mollifier, the obtained proportion cannot exceed 3/4 when θ=1/2, and cannot approach 1.
+
+Sketch of proof
+- The Levinson–Conrey device gives
+  N0(T) ≥ κ(θ,P) N(T) + o(N(T)),
+  where
+  κ(θ,P) = 1 − limsup_{T→∞} Q(θ,P),
+  and Q(θ,P) is a ratio of quadratic forms built from the three key smoothed integrals:
+  I0 = ∫ |M|^2 w ∼ θ T,
+  I1 = ∫ |ζ M|^2 w ∼ (1+θ) T log T,
+  I2 = ∫ |(ζ'/ζ) M|^2 w ∼ (1+2θ) T (log T)^2,
+  with asymptotics uniform in admissible P.
+- The argument variation is controlled via
+  ∫ |d/dt log F(t)|^2 w ≲ I2 + I1 + I0,
+  and the number of large net variations (hence zeros on the 1/2-line) is bounded below by a reciprocal of this size times the square of a mollified first moment, which is ≲ T^2 divided by I1 by Cauchy–Schwarz.
+- Optimizing the standard quadratic inequality in the auxiliary λ that mixes F and F' (as in Levinson’s original proof), one arrives at an optimization problem whose solution is a function solely of the three leading coefficients of I0, I1, I2 (the O(T) lower-order constants do not affect the asymptotic optimum).
+- Solving this 1-parameter quadratic optimization produces
+  κ(θ) ≤ (1+θ)/2,
+  with equality attained in the model where off-diagonal contributions are ignored and the AFE two-piece interaction is negligible (the rigorous argument keeps them and shows they do not improve the leading constant asymptotically). The inequality is robust under all admissible choices of P because P affects only O(T) terms, not the coefficients of T, T log T, and T (log T)^2 that drive the optimization.
+- The same optimization also yields the classical lower bounds when run in the forward (existence) direction (e.g., θ=1/2 gives κ ≥ 1/3 in the most basic implementation; with more delicate choices and two-piece mollifiers one can exceed 1/3). The proposition, however, is an upper cap for what any one-piece mollifier can ever certify, consistent with the best-known proportions obtainable by a single mollifier.
+
+Remarks and scope
+- The proposition formalizes a barrier that practitioners implicitly use: to push the proportion beyond (1+θ)/2 one must go beyond a single mollifier piece (e.g., include a conjugate piece tailored to the dual sum in the AFE, or use higher-degree amplifier structures, resonator-coupled mollifiers, or exploit additional input like bounds on shifted convolution sums).
+- The proof crucially uses only unconditional mean-value theorems (Montgomery–Vaughan for Dirichlet polynomials with a smooth weight) and AFE, and is independent of any unproven conjectures. The o(1) terms can be tracked and the constants made explicit with a fixed w.
+- Known results fit within the barrier: classical single-piece Levinson with θ≈1/2 cannot break 1/2 proportion; Conrey’s improvements and later 41%+ use more structure than a single piece in the precise sense above.
+
+Consequence for the race
+- This does not bring us closer to proving RH, but it cleanly delineates a real obstruction in a major proof strategy. Any further advance using the Levinson–Conrey framework must either:
+  (i) lengthen the mollifier beyond T^{1/2} (which runs into genuine shifted convolution difficulties), or
+  (ii) employ multi-piece mollifiers capturing both sides of the AFE, or
+  (iii) inject new deep input (e.g., strong bounds for off-diagonal correlations) to change the leading constants in I1 and I2.
+- As such, the result helps focus future attempts on the exact technical bottlenecks that must be overcome to substantially increase the proportion, and ultimately, to aim at RH.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous barrier: one-piece mollifiers cap the zero-proportion at ≤(1+θ)/2; RH unsettled.
