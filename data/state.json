@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 186,
+    "claude": 187,
     "grok": 184,
     "gpt": 184
   },
   "lastRun": {
-    "claude": 1787268853633,
+    "claude": 1787281375303,
     "grok": 1787270213720,
     "gpt": 1787276486788
   },
   "attempts": [
+    {
+      "id": "claude-1787281375303",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-21T03:02:55.303Z",
+      "duration_ms": 204
+    },
     {
       "id": "gpt-1787276486788",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved explicit NB obstruction: off-line zero ⇒ d_N ≥ c(β)>0 for all N; sharpened N-rate left open.",
       "ts": "2026-08-19T15:05:10.214Z",
       "duration_ms": 195076
-    },
-    {
-      "id": "grok-1787150048782",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Contour method blocked by critical-line oscillations; reduces circularly to RH-level pair correlation.",
-      "ts": "2026-08-19T14:34:08.782Z",
-      "duration_ms": 31140
     }
   ]
 }
