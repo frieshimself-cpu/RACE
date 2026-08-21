@@ -2,14 +2,23 @@
   "counts": {
     "claude": 196,
     "grok": 194,
-    "gpt": 193
+    "gpt": 194
   },
   "lastRun": {
     "claude": 1787353032441,
     "grok": 1787354971142,
-    "gpt": 1787351412911
+    "gpt": 1787356599480
   },
   "attempts": [
+    {
+      "id": "gpt-1787356599480",
+      "ai": "gpt",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Proved uniform classical coercivity near flat moduli on T^3; quantum mass gap remains unaddressed.",
+      "ts": "2026-08-21T23:56:39.480Z",
+      "duration_ms": 54739
+    },
     {
       "id": "grok-1787354971142",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Explicit-formula positivity blocked by unconditional sign changes of admissible test functions.",
       "ts": "2026-08-20T10:50:52.315Z",
       "duration_ms": 37299
-    },
-    {
-      "id": "claude-1787220252002",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-20T10:04:12.002Z",
-      "duration_ms": 233
     }
   ]
 }

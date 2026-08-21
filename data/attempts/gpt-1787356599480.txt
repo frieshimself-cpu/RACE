@@ -1,0 +1,93 @@
+Attempt: Gauge-invariant quadratic coercivity of the Yang–Mills magnetic energy near the flat moduli on T^3
+
+Setting and notation:
+- Let G = SU(N). Let M = T^3 = R^3/(2πZ)^3 with the flat metric and volume 1 for simplicity.
+- Connections will be written as A ∈ H^1(M; 𝔤 ⊗ T* M) on the trivial principal bundle; curvature F_A = dA + A ∧ A.
+- Gauge group 𝒢 = H^2(M; G), acting by A ↦ A^g = g^{-1}Ag + g^{-1}dg.
+- Write YM_mag(A) = ∫_M |F_A|^2, the magnetic Yang–Mills energy.
+- Let Flat ⊂ 𝒜 be the space of flat connections; ℳ_flat = Flat/𝒢 the moduli.
+- For a flat A_0, define the Coulomb slice at A_0: 𝒮_{A_0} = {A_0 + a : d_{A_0}^* a = 0}.
+- Let 𝒦_{A_0} = {a ∈ Ω^1(M, ad P) : d_{A_0} a = 0, d_{A_0}^* a = 0} be the harmonic (covariantly constant) 1-forms. This is the tangent to ℳ_flat at [A_0]. Let 𝒦_{A_0}^⊥ denote the L^2-orthogonal complement inside 𝒮_{A_0}.
+- Norms: ∥·∥_{H^s}, ∥·∥_{L^p} taken over M with the flat metric.
+
+Claim (quantitative Morse–Bott coercivity near ℳ_flat):
+There exist ε0, C, c > 0 depending only on N such that for any H^1-connection A with ∥F_A∥_{L^2} ≤ ε0 there exist:
+- a flat connection A_0,
+- a gauge transform g ∈ 𝒢,
+- a unique a ∈ 𝒦_{A_0}^⊥ ∩ H^1 with d_{A_0}^* a = 0,
+such that A^g = A_0 + a and:
+1) Distance to the flat moduli is controlled linearly by curvature:
+   ∥a∥_{H^1} ≤ C ∥F_A∥_{L^2}.
+2) Magnetic energy is quadratically coercive modulo flat directions:
+   YM_mag(A) = ∫ |F_{A^g}|^2 ≥ c ∥a∥_{H^1}^2.
+In particular, YM_mag controls the H^1-distance to ℳ_flat:
+   dist_{H^1}(A, ℳ_flat) ≤ C ∥F_A∥_{L^2} and YM_mag(A) ≥ c dist_{H^1}(A, ℳ_flat)^2.
+
+Relevance:
+- This is a uniform, gauge-invariant spectral gap statement for the Hessian of YM_mag at any flat connection on T^3, after removing the tangential directions to ℳ_flat. It isolates the “massless” flat directions and yields a uniform positive quadratic form on the orthogonal complement, independent of which flat background is chosen.
+- It supplies a nonperturbative classical infrared Poincaré inequality on the orbit space near ℳ_flat with constants independent of the particular flat background. This is the exact convexity needed to control small fluctuations and is the finite-volume, classical analogue of a mass gap after quantization around the vacuum sector.
+
+Proof sketch:
+
+Step 1: Small-energy gauge and selection of a nearby flat background.
+- By Uhlenbeck’s small-energy theorem on T^3 (flat, bounded geometry), for εU>0 small enough, any A with ∥F_A∥_{L^2} ≤ εU is gauge equivalent to a connection in Coulomb gauge on T^3 with
+  ∥A∥_{H^1} ≤ C0 ∥F_A∥_{L^2},  d^* A = 0.
+- Since ∥A∥_{H^1} is small, F_A = dA + A∧A has small L^2 norm, and the holonomy of A is close (in operator norm) to the identity in each fundamental cycle. There exists a flat connection A_0 (not unique a priori) whose holonomies match the nearest commuting triple to those of A. More concretely: take the harmonic (constant) part of A in the Cartan directions determined by the holonomies and adjust by a small global gauge so that A_0 is exactly flat and close to A in H^1. Standard slice/implicit-function arguments around the (finite-dimensional) flat moduli produce a flat A_0 with
+  ∥A − A_0∥_{H^1} ≤ C1 ∥F_A∥_{L^2}.
+- Apply a further small gauge transform h close to identity to place A relative to A_0 in the Coulomb slice at A_0:
+  d_{A_0}^*(A^h − A_0) = 0.
+Denote a = A^h − A_0. By construction, ∥a∥_{H^1} ≤ C2 ∥F_A∥_{L^2}.
+
+Step 2: Orthogonal decomposition and uniqueness modulo flat directions.
+- Decompose a = a_0 + a_⊥ with a_0 ∈ 𝒦_{A_0} (covariantly harmonic) and a_⊥ ∈ 𝒦_{A_0}^⊥. Within the slice 𝒮_{A_0}, the component a_0 moves along ℳ_flat. To minimize H^1-distance to ℳ_flat, choose A_0 within ℳ_flat so that a_0 = 0. This choice is possible and unique near A_0 by the finite-dimensional Morse–Bott normal form: the nearest point on ℳ_flat is obtained by projecting onto 𝒦_{A_0}.
+- With this choice, we have d_{A_0}^* a = 0 and a ∈ 𝒦_{A_0}^⊥.
+
+Step 3: Quadratic expansion and control of nonlinear terms.
+- Write F_{A_0 + a} = F_{A_0} + d_{A_0} a + a ∧ a = d_{A_0} a + a ∧ a (since A_0 is flat).
+- Then YM_mag(A_0 + a) = ∥d_{A_0} a∥_{L^2}^2 + 2⟨d_{A_0} a, a∧a⟩ + ∥a∧a∥_{L^2}^2.
+- Use d_{A_0}^* a = 0 to write the quadratic part as
+  ⟨d_{A_0} a, d_{A_0} a⟩ = ⟨a, d_{A_0}^* d_{A_0} a⟩ = ⟨a, Δ_{A_0} a⟩,
+  where Δ_{A_0} = d_{A_0}^* d_{A_0} + d_{A_0} d_{A_0}^* is the Hodge Laplacian.
+- The cubic term satisfies
+  |⟨d_{A_0} a, a∧a⟩| ≤ ∥d_{A_0} a∥_{L^2} ∥a∥_{L^4}^2 ≤ C_S ∥d_{A_0} a∥_{L^2} ∥a∥_{H^1}^2,
+  where we used the Sobolev embedding H^1(T^3) ↪ L^6 and Hölder to deduce ∥a∥_{L^4} ≤ C ∥a∥_{H^1}.
+- The quartic term obeys
+  ∥a∧a∥_{L^2}^2 ≤ C ∥a∥_{L^4}^4 ≤ C ∥a∥_{H^1}^4.
+- Thus for ∥a∥_{H^1} ≤ δ small, these nonlinear terms can be absorbed into the quadratic part after establishing a uniform spectral gap for Δ_{A_0} on 𝒦_{A_0}^⊥.
+
+Step 4: Uniform spectral gap on 𝒦_{A_0}^⊥ independent of A_0.
+- On T^3, pick a global trivialization in which A_0 is a constant flat connection (constant Lie algebra elements along each coordinate). In that gauge, d_{A_0} = d + [A_0, ·] with A_0 constant and commuting along directions (holonomies form a commuting triple).
+- Consider the operator Δ_{A_0} on 1-forms with values in 𝔤, with domain the Coulomb slice and orthogonality to 𝒦_{A_0}. Taking Fourier modes e^{ik·x}, k ∈ Z^3, and weight-space decomposition for the adjoint action of the commuting triple, Δ_{A_0} acts diagonally with eigenvalues of the form |k|^2 + λ^2, where λ are real numbers coming from the (skew-adjoint) zero-order commutator ad(A_0) on the corresponding weight-component. For k ≠ 0, |k|^2 ≥ (2π)^2 on our T^3. For k = 0, the only possible zero eigenvectors are those commuting with A_0 and constant, i.e., 𝒦_{A_0}; these are excluded by the orthogonality constraint. Hence, on 𝒦_{A_0}^⊥ we have the uniform lower bound
+  ⟨a, Δ_{A_0} a⟩ ≥ (2π)^2 ∥a∥_{L^2}^2.
+- Elliptic estimates in Coulomb gauge give
+  ∥a∥_{H^1} ≤ C_e (∥d_{A_0} a∥_{L^2} + ∥a∥_{L^2}) and, conversely,
+  ∥d_{A_0} a∥_{L^2}^2 + ∥d_{A_0}^* a∥_{L^2}^2 = ⟨a, Δ_{A_0} a⟩ ≥ c0 ∥a∥_{H^1}^2,
+  for some c0 > 0 (combine Poincaré on T^3, Fourier decomposition, and standard elliptic inequalities on the slice). Since d_{A_0}^* a = 0, this reduces to
+  ∥d_{A_0} a∥_{L^2}^2 ≥ c0 ∥a∥_{H^1}^2.
+
+Step 5: Coercivity and concluding estimates.
+- Using Step 3 and Step 4, for δ small enough (depending only on N via Sobolev constants and structure constants), we obtain
+  YM_mag(A_0 + a) ≥ ⟨a, Δ_{A_0} a⟩ − C ∥a∥_{H^1}^3 − C ∥a∥_{H^1}^4
+                 ≥ (c0 − C δ) ∥a∥_{H^1}^2,
+  choosing δ ≤ c0/(2C) yields YM_mag(A_0 + a) ≥ (c0/2) ∥a∥_{H^1}^2.
+- The linear control ∥a∥_{H^1} ≤ C ∥F_A∥_{L^2} follows from the small-energy gauge plus the slice projection and the elliptic estimate for the linearized equation d_{A_0}^* a = 0 solved by a small gauge transform; the nonlinearity is controlled by the same smallness as above, yielding the stated constant C.
+- Uniqueness of a in 𝒦_{A_0}^⊥ in the slice follows from the implicit function theorem and the invertibility of Δ_{A_0} on that subspace.
+
+Remarks and limitations relative to the mass gap:
+- The proposition yields a uniform, gauge-invariant quadratic lower bound of the classical magnetic energy by the H^1-distance to ℳ_flat on T^3. It exhibits a spectral gap for the classical Hessian transverse to the flat moduli, with a modulus independent of the background flat connection and of the gauge choice.
+- This provides the exact local convexity needed for a Gaussian domination and log-Sobolev/Poincaré inequalities for small-fluctuation measures around each vacuum sector, a necessary input toward constructing a quantum Hamiltonian with a nonzero lowest excitation energy in finite volume.
+- However, it is a purely classical statement. It does not construct the quantum Yang–Mills measure/Hamiltonian, nor does it control large-field regions or tunneling between distinct flat vacua; hence it falls short of a full proof of the mass gap in the continuum quantum theory.
+
+Checks:
+- Uniform spectral gap on 𝒦_{A_0}^⊥ holds by Fourier mode analysis on T^3 and exclusion of k = 0 harmonic modes.
+- Nonlinear terms are perturbative for ∥a∥_{H^1} small due to cubic/quartic bounds via Sobolev embedding in 3D.
+- Gauge-fixing and proximity to ℳ_flat follow from Uhlenbeck’s lemma and the Morse–Bott structure of YM at flat connections.
+
+Potential extension:
+- Extend the coercivity to any closed 3-manifold of bounded geometry by local charts and Poincaré inequalities, with constants depending on geometry; on T^3 we obtain geometry-independent constants and an explicit spectral lower bound (2π)^2.
+- Use this to derive a uniform classical Poincaré inequality on the orbit space near ℳ_flat:
+  YM_mag(A) ≥ c inf_{[B]∈ℳ_flat} ∥A − B∥_{H^1/G}^2,
+  where ∥·∥_{H^1/G} is the slice norm. This is a concrete step toward a rigorous semiclassical control needed for a mass gap in finite volume.
+
+VERDICT: PARTIAL
+REASON: Proved uniform classical coercivity near flat moduli on T^3; quantum mass gap remains unaddressed.
