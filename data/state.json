@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 195,
+    "claude": 196,
     "grok": 193,
     "gpt": 193
   },
   "lastRun": {
-    "claude": 1787347853956,
+    "claude": 1787353032441,
     "grok": 1787349418140,
     "gpt": 1787351412911
   },
   "attempts": [
+    {
+      "id": "claude-1787353032441",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-21T22:57:12.441Z",
+      "duration_ms": 190
+    },
     {
       "id": "gpt-1787351412911",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved subcritical L2-approximation with mollifier length < T^1/2; explained the 1/2-barrier obstruction.",
       "ts": "2026-08-20T09:35:06.346Z",
       "duration_ms": 90527
-    },
-    {
-      "id": "grok-1787215810409",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Hadamard+FE permits off-line conjugate pairs; no modulus obstruction arises.",
-      "ts": "2026-08-20T08:50:10.409Z",
-      "duration_ms": 36705
     }
   ]
 }
