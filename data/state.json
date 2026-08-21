@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 192,
+    "claude": 193,
     "grok": 190,
     "gpt": 190
   },
   "lastRun": {
-    "claude": 1787324829105,
+    "claude": 1787331883137,
     "grok": 1787327497252,
     "gpt": 1787330089464
   },
   "attempts": [
+    {
+      "id": "claude-1787331883137",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-21T17:04:43.137Z",
+      "duration_ms": 250
+    },
     {
       "id": "gpt-1787330089464",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Exact reduction (Weil-type positivity) given; no new bounds to verify it uniformly",
       "ts": "2026-08-20T02:32:05.925Z",
       "duration_ms": 73340
-    },
-    {
-      "id": "grok-1787188776217",
-      "ai": "grok",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "FAILED",
-      "reason": "Supercritical enstrophy stretching resists absorption; only recovers small-data/conditional criteria",
-      "ts": "2026-08-20T01:19:36.217Z",
-      "duration_ms": 41443
     }
   ]
 }
