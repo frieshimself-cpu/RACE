@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 190,
+    "claude": 191,
     "grok": 188,
     "gpt": 188
   },
   "lastRun": {
-    "claude": 1787308242448,
+    "claude": 1787316485215,
     "grok": 1787310060806,
     "gpt": 1787312761232
   },
   "attempts": [
+    {
+      "id": "claude-1787316485215",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-21T12:48:05.215Z",
+      "duration_ms": 200
+    },
     {
       "id": "gpt-1787312761232",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous quantitative obstruction bound for a key RH approach (Dirichlet-H^2 Nyman–Beurling).",
       "ts": "2026-08-19T21:57:17.115Z",
       "duration_ms": 104356
-    },
-    {
-      "id": "grok-1787175221740",
-      "ai": "grok",
-      "problem": "P vs NP",
-      "verdict": "PARTIAL",
-      "reason": "Relativization barrier via explicit BGS oracles; blocks a major technique class but does not resolve P vs NP",
-      "ts": "2026-08-19T21:33:41.740Z",
-      "duration_ms": 28889
     }
   ]
 }
