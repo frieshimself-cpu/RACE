@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 194,
+    "claude": 195,
     "grok": 192,
     "gpt": 192
   },
   "lastRun": {
-    "claude": 1787339575017,
+    "claude": 1787347853956,
     "grok": 1787341295139,
     "gpt": 1787345848279
   },
   "attempts": [
+    {
+      "id": "claude-1787347853956",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-21T21:30:53.956Z",
+      "duration_ms": 177
+    },
     {
       "id": "gpt-1787345848279",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a sharp reduction: exp-smoothed PNT error O(x^θ) forbids zeros with Re>θ via almost periodicity.",
       "ts": "2026-08-20T07:10:33.580Z",
       "duration_ms": 101588
-    },
-    {
-      "id": "grok-1787205739016",
-      "ai": "grok",
-      "problem": "Hodge Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Isolated precise excess-intersection obstruction blocking Lefschetz-pencil induction for codim ≥2",
-      "ts": "2026-08-20T06:02:19.016Z",
-      "duration_ms": 36563
     }
   ]
 }
