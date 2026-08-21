@@ -1,0 +1,56 @@
+### Attempt: Obstruction in the Weil positivity criterion for RH
+
+Let \(\xi(s)=s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function (entire of order 1, functional equation \(\xi(s)=\xi(1-s)\)). The non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\). Write zeros as \(\rho=\tfrac12+i\gamma\) (allowing \(\operatorname{Re}\rho\neq\tfrac12\)).
+
+Weil’s explicit formula associates to a suitable even test function \(g\in C_c^\infty(\mathbb{R})\) the identity
+\[
+\sum_{\gamma}\hat g(\gamma)=g(0)\Bigl(\tfrac12\log\pi-\tfrac12\tfrac{\Gamma'}{\Gamma}(\tfrac14)+\cdots\Bigr)
++\int_0^\infty\frac{g(\tfrac12\log t)}{t-1}\,dt
+-\sum_p\sum_{m\ge1}\frac{\log p}{p^{m/2}}g(m\log p),
+\]
+where the left-hand side runs over all ordinates \(\gamma\) (with multiplicity) and \(\hat g\) is the Fourier transform. The classical positivity criterion of Weil states that RH is equivalent to
+\[
+\sum_{\gamma}\hat g(\gamma)\ge0
+\]
+for every \(g\) whose Fourier transform is non-negative (more precisely, for the Weil distribution \(W(g)\ge0\) on a suitable cone of test functions).
+
+#### Attempted progress
+Suppose one tries to prove the inequality directly by constructing a family of approximants \(g_\varepsilon\) that concentrate near the origin while keeping \(\hat g_\varepsilon\ge0\). A natural candidate is a Gaussian mollifier
+\[
+g_\varepsilon(x)=e^{-\pi\varepsilon x^2}\ast\phi(x),\qquad\varepsilon\downarrow0,
+\]
+where \(\phi\ge0\) is a fixed compactly supported even bump with \(\hat\phi\ge0\). The prime-power sum on the right-hand side of the explicit formula is then absolutely convergent and can be bounded by the prime-number theorem with classical error term:
+\[
+\Bigl|\sum_{p,m}\frac{\log p}{p^{m/2}}g_\varepsilon(m\log p)\Bigr|\le C(\phi)\varepsilon^{-1/2}.
+\]
+The archimedean contribution (Gamma factor + integral) admits an asymptotic expansion
+\[
+\tfrac12\log(1/\varepsilon)+O(1)
+\]
+that is positive for small \(\varepsilon\). Consequently the whole right-hand side is eventually positive, which would force
+\[
+\sum_{\gamma}\hat g_\varepsilon(\gamma)\ge0.
+\]
+If one could pass to the limit \(\varepsilon\to0\) inside the sum over zeros, one would conclude that every \(\gamma\) is real, i.e., RH.
+
+#### Rigorous obstruction
+The passage to the limit is illegitimate. The partial sums
+\[
+S(T;\varepsilon)=\sum_{|\gamma|\le T}\hat g_\varepsilon(\gamma)
+\]
+satisfy only the crude bound
+\[
+|S(T;\varepsilon)|\ll_\varepsilon T\log T
+\]
+coming from the Riemann–von Mangoldt formula \(N(T)=\frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}+O(\log T)\). The error term \(O(\log T)\) is too large to dominate the possible contribution of a hypothetical zero with \(\operatorname{Re}\rho=\sigma_0>\tfrac12\): such a zero produces a factor \(e^{2\pi(\sigma_0-1/2)|t|}\) in the inverse Fourier transform, which grows exponentially and cannot be absorbed by any fixed power of \(\log T\). In other words, the family \(\{g_\varepsilon\}\) does not lie in the Weil cone uniformly in \(\varepsilon\); the constants implicit in the positivity of the archimedean terms deteriorate precisely when one tries to control zeros far from the critical line.
+
+Thus the argument yields only the weaker statement
+\[
+\sum_{|\gamma|\le T}\operatorname{Re}\hat g(\gamma)\ge-C_\phi T\log T,
+\]
+which is already known from the classical zero-density estimates and does not force \(\sigma_0=\tfrac12\).
+
+(The same obstruction appears for any approximate identity whose Fourier transform has Gaussian decay: the necessary uniformity in the zero sum fails exactly on the scale where a zero off the line would become visible.)
+
+VERDICT: FAILED
+REASON: Weil-positivity limit obstructed by insufficient zero-sum uniformity; recovers only classical density bounds

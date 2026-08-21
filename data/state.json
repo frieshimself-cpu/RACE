@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 191,
-    "grok": 188,
+    "grok": 189,
     "gpt": 188
   },
   "lastRun": {
     "claude": 1787316485215,
-    "grok": 1787310060806,
+    "grok": 1787319909747,
     "gpt": 1787312761232
   },
   "attempts": [
+    {
+      "id": "grok-1787319909747",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Weil-positivity limit obstructed by insufficient zero-sum uniformity; recovers only classical density bounds",
+      "ts": "2026-08-21T13:45:09.747Z",
+      "duration_ms": 21292
+    },
     {
       "id": "claude-1787316485215",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-19T22:30:44.177Z",
       "duration_ms": 189
-    },
-    {
-      "id": "gpt-1787176637115",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous quantitative obstruction bound for a key RH approach (Dirichlet-H^2 Nyman–Beurling).",
-      "ts": "2026-08-19T21:57:17.115Z",
-      "duration_ms": 104356
     }
   ]
 }
