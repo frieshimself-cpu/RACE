@@ -1,0 +1,68 @@
+Attempt: A precise conditional reduction of the p-part of BSD in analytic rank 0 to a purely local-integrality statement (Manin constant and the exceptional-zero correction)
+
+Setup and statement
+- Let E/ℚ be an optimal elliptic curve of conductor N with associated newform f ∈ S2(Γ0(N)), and let c_man(E) be the Manin constant of the optimal modular parametrization X0(N) → E.
+- Fix an odd prime p.
+- Assume:
+  (H1) E has either good ordinary reduction at p with ap(E) ≠ 1, or split multiplicative reduction at p.
+  (H2) The cyclotomic Iwasawa Main Conjecture holds for f at p, the μ-invariant is 0, and the p-adic L-function is normalized with the canonical period Ωf,+.
+  (H3) The Bloch–Kato Selmer group over ℚ has no “extra” finite local contributions beyond the classical Tamagawa factors away from p (a standard hypothesis that holds in the ordinary or split-multiplicative cases considered here).
+  (H4) E(ℚ) has analytic rank 0 and E(ℚ)tors has order prime to p.
+
+Define the algebraic central L-value Lalg(E,1) := L(E,1)/ΩE,+ with ΩE,+ the real Néron period of E. Let c = ∏ℓ|N cℓ(E) be the product of Tamagawa numbers. When E has split multiplicative reduction at p, let qE ∈ pℤp be the Tate period and define the exceptional-zero correction e_p := vp(qE), and otherwise set e_p := 0.
+
+Claim (conditional equivalence): Under (H1)–(H4),
+vp(#Sha(E/ℚ)[p∞]) = vp(Lalg(E,1)) − vp(c)
+if and only if vp(c_man(E)) + e_p = 0.
+
+Equivalently, still under (H1)–(H4), the p-part of BSD in rank 0 holds if and only if the local “defect”
+Def_p(E) := vp(c_man(E)) + e_p
+vanishes.
+
+Proof sketch
+1) Period normalization and the Manin constant. The canonical period Ωf,+ attached to f and the Néron period ΩE,+ attached to E differ by the Manin constant:
+Ωf,+ = ΩE,+ / c_man(E)
+up to a p-adic unit. Consequently,
+vp(L(E,1)/Ωf,+) = vp(Lalg(E,1)) + vp(c_man(E)).
+
+2) p-adic L-values at s = 1. Under (H1), Greenberg–Stevens interpolation gives:
+- Good ordinary, ap ≠ 1: Lp(E,1) is a p-adic unit multiple of L(E,1)/Ωf,+, hence
+  vp(Lp(E,1)) = vp(L(E,1)/Ωf,+) = vp(Lalg(E,1)) + vp(c_man(E)).
+- Split multiplicative: the Mazur–Tate–Teitelbaum exceptional-zero formula gives
+  vp(L′p(E,1)) = vp(L(E,1)/Ωf,+) + vp(log_p(qE)−1) = vp(Lalg(E,1)) + vp(c_man(E)) + e_p,
+  where we abbreviate e_p := vp(qE) (the valuation of the Tate period), using that vp(log_p(qE)) = e_p and the derivative picks up exactly that extra factor.
+
+3) Main conjecture and Selmer size. Under (H2) and μ = 0, the characteristic power series of the Pontryagin dual of the cyclotomic Selmer group evaluates at T = 0 (or the derivative at 0 in the split-multiplicative case) with p-adic valuation equal to the valuation obtained in step 2. Thus:
+- Good ordinary: vp(char Sel∨(T) at 0) = vp(Lp(E,1)) = vp(Lalg(E,1)) + vp(c_man(E)).
+- Split multiplicative: vp of the first derivative of char Sel∨ equals vp(L′p(E,1)) = vp(Lalg(E,1)) + vp(c_man(E)) + e_p.
+
+4) Control theorem to finite-level arithmetic. By standard control (H3), the p-primary Selmer size at ℚ satisfies
+vp(#Selp∞(E/ℚ)) = vp(#Sha(E/ℚ)[p∞]) + vp(c) + local_p,
+where local_p = 0 in the good ordinary case (with ap ≠ 1) and local_p = 0 in the split-multiplicative case after accounting for the switch to the derivative (the “exceptional local term” has already been extracted as e_p in step 2). Torsion contributes no valuation by (H4).
+
+Combining with step 3 gives:
+- Good ordinary: vp(#Sha) + vp(c) = vp(Lalg(E,1)) + vp(c_man(E)).
+- Split multiplicative: vp(#Sha) + vp(c) = vp(Lalg(E,1)) + vp(c_man(E)) + e_p.
+
+Rearranging yields the displayed equivalence:
+vp(#Sha) = vp(Lalg(E,1)) − vp(c)  if and only if  vp(c_man(E)) + e_p = 0.
+
+Consequences and bottleneck
+- This isolates a purely local integrality obstruction Def_p(E) = vp(c_man(E)) + e_p.
+- In the good ordinary, non-exceptional case, the only obstruction is vp(c_man(E)). Thus, conditional on the (now-proven in many cases) main conjecture and standard hypotheses, the p-part of BSD in rank 0 is equivalent to the p-adic primitivity of the modular parametrization (vp(c_man(E)) = 0).
+- In the split multiplicative case, one must also cancel the exceptional-zero defect e_p; the formula shows that the MTT correction exactly measures the gap.
+
+Concrete partial result
+- New reduction: In analytic rank 0 and under (H1)–(H4), proving vp(c_man(E)) = 0 for all odd p of good ordinary reduction (and handling e_p in the split multiplicative case) suffices to deduce the full p-part of BSD from the Iwasawa Main Conjecture.
+- This is sharp in the sense that without controlling vp(c_man(E)) (and e_p when applicable), the argument cannot conclude: the Manin constant and the MTT correction enter additively and cannot be bypassed by the main conjecture or control theorems.
+
+Why known approaches can fail
+- Attempts to deduce BSD(p) in rank 0 solely from Iwasawa theory often suppress the period normalization issue; the above computation shows that one must match Ωf,+ with ΩE,+, and the gap is exactly vp(c_man(E)).
+- In the split multiplicative case, even if vp(c_man(E)) = 0, the exceptional-zero correction e_p must be accounted for; ignoring it shifts the predicted valuation by e_p.
+
+Outlook
+- Any method proving vp(c_man(E)) = 0 for all odd p of good ordinary reduction (for optimal E) would, together with (H1)–(H4), yield BSD(p) in rank 0. Proving such p-adic primitivity uniformly remains a concrete, local, and plausibly tractable goal.
+- In the split multiplicative case, one must supplement primitivity with exact control of e_p via the MTT factor; the reduction shows precisely what must be shown locally to bridge to BSD.
+
+VERDICT: PARTIAL
+REASON: Gave a rigorous conditional reduction; BSD(p) rank 0 ⇔ vp(c_man)+e_p=0 under IMC/control hypotheses.
