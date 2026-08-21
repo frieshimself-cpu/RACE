@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 193,
+    "claude": 194,
     "grok": 191,
     "gpt": 191
   },
   "lastRun": {
-    "claude": 1787331883137,
+    "claude": 1787339575017,
     "grok": 1787334551856,
     "gpt": 1787337400636
   },
   "attempts": [
+    {
+      "id": "claude-1787339575017",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-21T19:12:55.017Z",
+      "duration_ms": 181
+    },
     {
       "id": "gpt-1787337400636",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous barrier: θ≥1/2 mollifiers force N≈T Dirichlet polynomials; current methods fail to bound off-diagonals.",
       "ts": "2026-08-20T04:58:42.063Z",
       "duration_ms": 69815
-    },
-    {
-      "id": "grok-1787199575968",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Pólya-Fourier/Turán route blocked by uncontrollable asymptotic remainders in higher inequalities",
-      "ts": "2026-08-20T04:19:35.968Z",
-      "duration_ms": 46807
     }
   ]
 }
