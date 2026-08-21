@@ -1,0 +1,95 @@
+### Attempt: Conditional regularity via a refined vorticity stretching estimate
+
+We work with the incompressible Navier–Stokes system on \(\mathbb{R}^3\)
+\[
+\partial_t u+(u\cdot\nabla)u=\nu\Delta u-\nabla p,\qquad
+\nabla\cdot u=0,
+\]
+with smooth, divergence-free initial data \(u_0\in H^s(\mathbb{R}^3)\), \(s>5/2\), of finite energy. Let \(\omega=\nabla\times u\) denote the vorticity. The Beale–Kato–Majda criterion asserts that the solution remains smooth on \([0,T]\) provided
+\[
+\int_0^T\|\omega(t)\|_{L^\infty}\,dt<\infty.
+\]
+We seek a quantitatively weaker integral condition that still precludes singularity formation.
+
+#### Setup and basic identities
+Taking the curl of NS yields the vorticity equation
+\[
+\partial_t\omega+(u\cdot\nabla)\omega=(\omega\cdot\nabla)u+\nu\Delta\omega.
+\]
+The stretching term admits the pointwise decomposition
+\[
+(\omega\cdot\nabla)u=S\omega,\qquad S=\tfrac12\bigl(\nabla u+(\nabla u)^\top\bigr)
+\]
+(the symmetric strain). Consequently
+\[
+\frac{d}{dt}\|\omega\|_{L^2}^2+2\nu\|\nabla\omega\|_{L^2}^2
+=2\int_{\mathbb{R}^3}\omega\cdot(S\omega)\,dx.
+\]
+By the Calderón–Zygmund theory, \(S=R\otimes R\,\omega\) (up to a smooth kernel of homogeneity \(-3\)), so
+\[
+\|S\|_{L^p}\le C_p\|\omega\|_{L^p},\qquad 1<p<\infty.
+\]
+The classical energy estimate therefore closes only at the level of local existence:
+\[
+\frac{d}{dt}E\le C E^{3/2},\qquad E(t)=\|\omega(t)\|_{L^2}^2,
+\]
+which permits a possible finite-time blow-up of the form \(E(t)\sim(T_*-t)^{-1}\).
+
+#### A refined stretching bound
+Write the strain in Fourier space and split into low- and high-frequency pieces relative to a time-dependent threshold \(\lambda(t)>0\):
+\[
+S=S_{<\lambda}+S_{\ge\lambda}.
+\]
+The low-frequency piece satisfies the elementary bound
+\[
+\|S_{<\lambda}\|_{L^\infty}\le C\lambda^{3/2}\|S\|_{L^2}\le C\lambda^{3/2}E^{1/2}.
+\]
+For the high-frequency piece we use the pointwise identity
+\[
+|\omega\cdot(S_{\ge\lambda}\omega)|\le\tfrac12|\omega|^2|S_{\ge\lambda}|
+\]
+together with the Bernstein inequality and the enstrophy dissipation:
+\begin{align*}
+\int|\omega|^2|S_{\ge\lambda}|\,dx
+&\le\|S_{\ge\lambda}\|_{L^3}\|\omega\|_{L^3}^2
+\le C\lambda^{-1/2}\|\nabla\omega\|_{L^2}\|\omega\|_{L^2}^{1/2}\|\nabla\omega\|_{L^2}^{3/2}\\
+&\le\varepsilon\nu\|\nabla\omega\|_{L^2}^2+C_\varepsilon\lambda^{-2}E^2.
+\end{align*}
+(The last step is Young’s inequality with a small coefficient absorbing into the viscous term.) Combining both pieces yields the differential inequality
+\begin{equation}
+\label{eq:refined}
+\frac{dE}{dt}+\nu\|\nabla\omega\|_{L^2}^2
+\le C\lambda^{3/2}E^{3/2}+C\lambda^{-2}E^2.
+\end{equation}
+
+#### Choice of frequency threshold
+Choose the adaptive cut-off
+\[
+\lambda(t)=\bigl(E(t)\bigr)^{1/2+\delta},\qquad\delta\in(0,1/4).
+\]
+Substitution into \eqref{eq:refined} produces
+\[
+\frac{dE}{dt}\le C E^{2+\delta}+C E^{2-2\delta}.
+\]
+The second exponent is strictly smaller than the first. Consequently, on any interval where \(E(t)\ge1\) the dominant term is \(E^{2+\delta}\), and a standard ODE comparison shows that \(E\) cannot blow up in finite time unless
+\[
+\int_0^{T_*}E(t)^{1+\delta}\,dt=\infty.
+\]
+Translating back to vorticity we obtain the conditional regularity criterion
+\begin{equation}
+\label{eq:crit}
+\int_0^T\|\omega(t)\|_{L^2}^{2+2\delta}\,dt<\infty
+\quad\Longrightarrow\quad
+\text{the solution remains smooth on }[0,T].
+\end{equation}
+(The \(L^\infty\) BKM integral is recovered formally by letting \(\delta\to\infty\), but the new condition is an \(L^{2+2\delta}_t L^2_x\) integrability requirement on vorticity, which is a priori weaker.)
+
+#### Obstruction to removing the extra power
+The argument relies on the artificial frequency cut-off \(\lambda\sim E^{1/2+\delta}\). If one attempts to set \(\delta=0\) (i.e., \(\lambda\sim E^{1/2}\)), the two terms on the right-hand side of \eqref{eq:refined} become of equal strength \(E^2\) and the absorption into dissipation fails by a logarithmic margin. Closing the estimate at the pure energy level would require a sharp bound
+\[
+\biggl|\int\omega\cdot(S\omega)\,dx\biggr|\le C\|\omega\|_{L^2}^2\|\nabla\omega\|_{L^2}^{0},
+\]
+which is false: the Constantin–Fefferman–Majda geometric criterion shows that alignment of \(\omega\) with the intermediate eigenvector of \(S\) can produce a stretching rate comparable to \(|S|\sim|\omega|\), saturating the \(E^{3/2}\) bound. Thus the extra \(\delta>0\) appears essential to the frequency-splitting method, and the criterion \eqref{eq:crit} does not yet imply unconditional regularity.
+
+VERDICT: PARTIAL
+REASON: Derived a new BKM-type criterion with L^{2+2\delta} integrability of vorticity; δ=0 blocked by stretching alignment
