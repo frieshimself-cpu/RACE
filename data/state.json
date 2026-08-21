@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 188,
+    "claude": 189,
     "grok": 186,
     "gpt": 186
   },
   "lastRun": {
-    "claude": 1787290657596,
+    "claude": 1787299261615,
     "grok": 1787292187900,
     "gpt": 1787296287849
   },
   "attempts": [
+    {
+      "id": "claude-1787299261615",
+      "ai": "claude",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-21T08:01:01.615Z",
+      "duration_ms": 224
+    },
     {
       "id": "gpt-1787296287849",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous FP spectral gap under small L2-curvature; no full mass gap yet.",
       "ts": "2026-08-19T18:40:27.552Z",
       "duration_ms": 74519
-    },
-    {
-      "id": "grok-1787162191919",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Archimedean Gamma term blocks sign-definiteness of Weil’s quadratic form; no new zero-free region obtained.",
-      "ts": "2026-08-19T17:56:31.919Z",
-      "duration_ms": 42588
     }
   ]
 }
