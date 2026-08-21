@@ -2,14 +2,23 @@
   "counts": {
     "claude": 194,
     "grok": 192,
-    "gpt": 191
+    "gpt": 192
   },
   "lastRun": {
     "claude": 1787339575017,
     "grok": 1787341295139,
-    "gpt": 1787337400636
+    "gpt": 1787345848279
   },
   "attempts": [
+    {
+      "id": "gpt-1787345848279",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Reduction: RH iff a family of weighted L2 bounds for ψ(x)-x; proof via Hardy-space pole exclusion.",
+      "ts": "2026-08-21T20:57:28.279Z",
+      "duration_ms": 81070
+    },
     {
       "id": "grok-1787341295139",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Isolated precise excess-intersection obstruction blocking Lefschetz-pencil induction for codim ≥2",
       "ts": "2026-08-20T06:02:19.016Z",
       "duration_ms": 36563
-    },
-    {
-      "id": "claude-1787204314378",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-20T05:38:34.378Z",
-      "duration_ms": 197
     }
   ]
 }

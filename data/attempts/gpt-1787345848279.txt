@@ -1,0 +1,47 @@
+Title: A Hardy-space reduction of RH via a one-parameter L2 criterion for ψ(x) − x
+
+Object. Let ψ(x)=∑_{n≤x} Λ(n) and E(x)=ψ(x)−x. For σ∈(1/2,1), consider the weighted L2 quantity
+I(σ) := ∫_{1}^{∞} |E(x)|^2 x^{-2σ-1} dx.
+
+Proposition (one-line reduction). Fix σ∈(1/2,1). If I(σ)<∞, then ζ(s) has no zeros with Re s>σ. Consequently, if I(σ)<∞ holds for every σ>1/2, then RH holds.
+
+Remarks.
+- The content is a “Hardy-space” obstruction: the Mellin transform of E must be the boundary value of a function in the Hardy H2-space of the half-plane Re s>σ, which precludes poles there. All poles of that Mellin transform in Re s>0 come precisely from zeros of ζ(s). Thus a finite L2 bound at any σ forces a zero-free half-plane to the right of σ.
+- This sets RH as equivalent to the family of mean-square bounds I(1/2+ε)<∞ for all ε>0. It isolates a purely one-variable L2 problem on the real half-line.
+
+Proof sketch.
+
+Step 1: Mellin-Plancherel setup.
+- Write x=e^u (u≥0) and define fσ(u):=E(e^u) e^{-σ u}, extended by 0 for u<0. Then I(σ)=∫_{0}^{∞} |fσ(u)|^2 du.
+- Let Fσ(t) be the Fourier transform of fσ, i.e. Fσ(t)=∫_{0}^{∞} E(e^u) e^{-(σ+it)u} du = ∫_{1}^{∞} E(x) x^{-σ-it-1} dx.
+- Mellin-Plancherel (unitarity of the Mellin transform) gives I(σ)=(1/2π)∫_{-∞}^{∞} |Fσ(t)|^2 dt. In particular, I(σ)<∞ if and only if F(s):=∫_{1}^{∞} E(x) x^{-s-1} dx is square-integrable on the vertical line Re s=σ.
+
+Step 2: Identification of F(s) and its analytic continuation.
+- For Re s>1, one has the classical identity
+∫_{1}^{∞} x^{-s} dψ(x) = -ζ′(s)/ζ(s).
+By integrating by parts and subtracting the x-contribution, one obtains (still for Re s>1)
+F(s) = ∫_{1}^{∞} (ψ(x)-x) x^{-s-1} dx = - (1/s) ζ′(s)/ζ(s) - 1/(s-1).
+- The right-hand side admits meromorphic continuation to Re s>0. At s=1 the simple pole from −(1/s)ζ′/ζ cancels the simple pole from −1/(s−1) (since ζ′/ζ has residue −1 at s=1), so F is holomorphic at s=1. The only remaining singularities of F in Re s>0 are simple poles at the nontrivial zeros ρ of ζ(s), inherited from ζ′/ζ, with principal part ≍ −(1/s)/(s−ρ).
+
+Step 3: Hardy-space consequence of I(σ)<∞.
+- If I(σ)<∞, then fσ∈L2(0,∞), hence F is the boundary value on Re s=σ of a function analytic on the open half-plane Re s>σ with finite H2 norm:
+∥F∥^2_{H2(Re>σ)} := sup_{x>σ} (1/2π) ∫_{-∞}^{∞} |F(x+it)|^2 dt < ∞.
+This is the standard Paley–Wiener/Hardy-space theorem for (one-sided) Laplace/Mellin transforms of L2 functions supported on [0,∞).
+- In particular, F must be holomorphic on Re s>σ (H2 functions on a half-plane have no poles in that half-plane).
+
+Step 4: Exclusion of zeros to the right of σ.
+- From Step 2, the only possible poles of F(s) in Re s>0 are at zeros ρ of ζ(s). Step 3 shows there are no poles in Re s>σ if I(σ)<∞. Therefore ζ(s) has no zeros with Re s>σ.
+- If this holds for every σ>1/2, no zeros can lie with Re s>1/2, hence RH follows.
+
+Checks and edge cases.
+- The cancellation of the pole at s=1 is essential and is guaranteed by the normalization E=ψ−x.
+- No termwise Mellin transforms of ψ and x are used at Re s=σ<1; all identities are first proved in Re s>1 and then continued meromorphically, which is legitimate because the H2 boundary function is unique.
+
+Consequences and concrete target.
+- The reduction focuses attention on proving, for every ε>0,
+∫_{1}^{∞} |ψ(x)−x|^2 x^{-2(1/2+ε)-1} dx < ∞.
+Any such family of L2 bounds (uniform in ε on compact subsets) would prove RH.
+- Partial mean-square bounds of this type (even averaged dyadically, or with smooth compactly supported weights in log x) can be attacked by existing explicit formula techniques and zero-density inputs; pushing them to all ε>0 would force the critical-line barrier.
+
+VERDICT: PARTIAL
+REASON: Reduction: RH iff a family of weighted L2 bounds for ψ(x)-x; proof via Hardy-space pole exclusion.
