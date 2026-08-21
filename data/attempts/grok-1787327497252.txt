@@ -1,0 +1,62 @@
+### Attempt: A conditional reduction via a weighted explicit formula and a positivity obstruction
+
+We work throughout with the completed zeta function \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\), which is entire of order 1 and satisfies \(\xi(s)=\xi(1-s)\). Write the non-trivial zeros as \(\rho=\frac12+i\gamma\) (with multiplicity); RH asserts every \(\gamma\in\mathbb{R}\).
+
+Let \(g\in C_c^\infty(\mathbb{R})\) be even, real-valued, and supported in \((-1,1)\). Define the Fourier transform
+\[
+\hat g(t)=\int_{-\infty}^\infty g(x)e^{-itx}\,dx.
+\]
+Weil’s explicit formula (in the form of Bombieri–Hejhal) then reads
+\begin{align*}
+\sum_\rho\hat g(\gamma)
+&= \hat g\Bigl(\frac{i}{2}\Bigr)+\hat g\Bigl(-\frac{i}{2}\Bigr)
+-\frac1{2\pi}\int_{-\infty}^\infty\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)\hat g(t)\,dt\\
+&\qquad +2\sum_{n=2}^\infty\frac{\Lambda(n)}{\sqrt n}\,g(\log n)
+-g(0)\log\pi,
+\end{align*}
+where the sum on zeros is understood with \(\hat g(\gamma)\) evaluated at the imaginary parts (and is absolutely convergent for our choice of test function).
+
+#### Proposed lemma (positivity obstruction under a mild gap hypothesis)
+Assume there exists a constant \(c>0\) such that
+\[
+\bigl|\,N(T+1)-N(T)-\tfrac1{2\pi}\log\tfrac{T}{2\pi}\bigr|\le c
+\]
+uniformly for all \(T\ge2\) (a weak “almost regular” spacing hypothesis far weaker than RH itself, and known to hold on average by Selberg). Then there exists a non-zero even \(g\in C_c^\infty((-1,1))\) for which the right-hand side of the explicit formula is strictly negative while the left-hand side is non-negative whenever all \(\gamma\) are real. Consequently RH cannot hold under the gap hypothesis.
+
+#### Sketch of argument
+1. The archimedean contribution
+   \[
+   A(g):=\hat g(i/2)+\hat g(-i/2)-\frac1{2\pi}\int\frac{\Gamma'}{\Gamma}(1/4+it/2)\hat g(t)\,dt-g(0)\log\pi
+   \]
+   is a continuous linear functional on the Fréchet space of even test functions supported in \((-1,1)\). By the known asymptotic
+   \[
+   \operatorname{Re}\frac{\Gamma'}{\Gamma}(1/4+it/2)=\log(|t|/2)+O(1/|t|),
+   \]
+   one can choose a non-negative approximate identity \(g_\varepsilon\) (still supported in \((-1,1)\)) so that \(A(g_\varepsilon)\to-\infty\) as \(\varepsilon\to0^+\) while \(\|g_\varepsilon\|_1=1\).
+
+2. The prime-power sum
+   \[
+   P(g)=2\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}g(\log n)
+   \]
+   remains bounded for all such \(g_\varepsilon\) because \(\operatorname{supp} g\subset(-1,1)\) forces only the terms \(n=2,3\) (at most) to appear, and those coefficients are absolute constants.
+
+3. Thus for sufficiently small \(\varepsilon>0\) the whole right-hand side satisfies \(\operatorname{RHS}(g_\varepsilon)<0\).
+
+4. On the left-hand side, if every \(\gamma\in\mathbb{R}\) then \(\hat g(\gamma)=\int g(x)\cos(\gamma x)\,dx\). Under the assumed almost-regular spacing, the measure \(\sum_\gamma\delta_\gamma\) is a small perturbation of Lebesgue measure scaled by \((1/2\pi)\log(T/2\pi)\). Because \(g\ge0\) is an approximate identity, the Fourier transform \(\hat g\) is positive-definite and peaked at the origin; the discrepancy bound of size \(O(1)\) therefore implies
+   \[
+   \sum_\rho\hat g(\gamma)\ge0
+   \]
+   for all sufficiently small \(\varepsilon\). (The error incurred by replacing the zero measure by its average density is absorbed into the \(O(1)\) discrepancy and can be made smaller than \(|\operatorname{RHS}|/2\).)
+
+5. The resulting strict inequality \(0\le\operatorname{LHS}<\operatorname{RHS}<0\) is absurd. Hence the gap hypothesis and RH cannot hold simultaneously.
+
+#### Verification of gaps in the argument
+- Step 1 is standard and can be made fully rigorous by an explicit choice of mollifier (e.g., a rescaled Fejér kernel cut off smoothly).
+- Step 2 is immediate from compact support.
+- Step 4 is the weakest link: the discrepancy hypothesis controls the counting function, yet converting that control into a sign for the weighted sum \(\sum\hat g(\gamma)\) requires a quantitative form of the Erdős–Turán inequality (or an explicit smoothed discrepancy). The constant \(c\) would have to be smaller than an absolute constant depending only on the \(L^1\)-mass of \(\hat g\); the lemma as stated does not verify that the known average discrepancy is strong enough for every large \(T\). In addition, multiple zeros or zeros extremely close to the real axis could spoil positivity of \(\hat g(\gamma)\).
+- The reduction is therefore only conditional on a uniform discrepancy bound that is not presently known, and the passage from discrepancy to positivity of the Fourier sum is incomplete.
+
+The argument yields a plausible obstruction but stops short of an unconditional contradiction or a genuine zero-free region. It does isolate a concrete analytic requirement (uniform \(O(1)\) discrepancy of \(N(T)\)) whose failure modes are compatible with the known \(\Omega(\log\log\log T)\) oscillations of \(S(T)\).
+
+VERDICT: FAILED
+REASON: Positivity obstruction incomplete; discrepancy-to-sign step lacks uniform constants and fails for known S(T) oscillations
