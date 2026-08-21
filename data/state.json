@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 194,
-    "grok": 191,
+    "grok": 192,
     "gpt": 191
   },
   "lastRun": {
     "claude": 1787339575017,
-    "grok": 1787334551856,
+    "grok": 1787341295139,
     "gpt": 1787337400636
   },
   "attempts": [
+    {
+      "id": "grok-1787341295139",
+      "ai": "grok",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Conditional rank equality via uniform Sha[p^\\infty] bound in twists; leading term untouched",
+      "ts": "2026-08-21T19:41:35.139Z",
+      "duration_ms": 23862
+    },
     {
       "id": "claude-1787339575017",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-20T05:38:34.378Z",
       "duration_ms": 197
-    },
-    {
-      "id": "gpt-1787201922063",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous barrier: θ≥1/2 mollifiers force N≈T Dirichlet polynomials; current methods fail to bound off-diagonals.",
-      "ts": "2026-08-20T04:58:42.063Z",
-      "duration_ms": 69815
     }
   ]
 }
