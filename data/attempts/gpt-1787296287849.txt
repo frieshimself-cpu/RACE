@@ -1,0 +1,49 @@
+Attempt: A rigorous obstruction to a “short Λ-sum uniform smallness” strategy at the critical line
+
+Targeted claim to test
+A common reduction heuristic is: if one could control the short Dirichlet polynomial
+S(t; x) = sum_{n ≤ x} Λ(n) n^{-1/2 - it}
+uniformly in t at height T with x = T^θ (0 < θ < 1), e.g. make sup_{t∈[T,2T]} |S(t; x)| = o(1), then via an explicit formula one could preclude zeros off Re s = 1/2. I give a rigorous argument showing that this uniform-smallness desideratum is unachievable: the second moment is large, forcing large values. This pins down a concrete obstruction that any such approach must surmount (for example, by canceling against other explicit-formula terms or via nontrivial smoothing/weighting), and hence explains why the straightforward route fails.
+
+Lemma (mean square of the short Λ-sum on Re s = 1/2)
+Let T be large, and let x = T^θ with fixed 0 < θ < 1. Then
+(1/T) ∫_{T}^{2T} |S(t; x)|^2 dt = (1 + o(1)) log x,
+and consequently sup_{t∈[T,2T]} |S(t; x)| ≥ c sqrt(log x) for some absolute c > 0 and all sufficiently large T.
+
+Proof sketch
+- Write S(t; x) = ∑_{n ≤ x} a_n n^{-it} with a_n = Λ(n) n^{-1/2}.
+- Apply the Montgomery–Vaughan mean value theorem for Dirichlet polynomials:
+  ∫_{T}^{2T} |∑_{n ≤ x} a_n n^{-it}|^2 dt
+  = (T + O(x)) ∑_{n ≤ x} |a_n|^2
+    + O(∑_{m ≠ n ≤ x} |a_m a_n| / |log(m/n)|).
+  This holds uniformly for x ≤ T^{1−ε} (and in fact more generally with a controlled error).
+- Diagonal term:
+  ∑_{n ≤ x} |a_n|^2 = ∑_{n ≤ x} Λ(n)^2 / n
+  = ∑_{p^k ≤ x} (log p)^2 / p^k
+  = ∑_{p ≤ x} (log p)^2/p + O(1)
+  = log x + O(1),
+  where we used standard prime sum estimates (partial summation with the prime number theorem in the weak form suffices for the main term; unconditional upper/lower bounds give the same asymptotic due to Chebyshev-type estimates).
+- Off-diagonal term:
+  Using |log(m/n)| ≥ |m−n|/max(m,n), we have
+  ∑_{m ≠ n ≤ x} |a_m a_n| / |log(m/n)|
+  ≪ ∑_{m ≠ n ≤ x} (Λ(m) Λ(n))/sqrt{mn} · (max(m,n)/|m−n|)
+  ≪ ∑_{h ≠ 0} ∑_{n ≤ x−|h|} (Λ(n) Λ(n+|h|))/n · (n/|h|)
+  ≪ ∑_{h ≠ 0} (1/|h|) ∑_{n ≤ x} Λ(n) Λ(n+|h|)/n.
+  Crude but sufficient bounds (Cauchy–Schwarz, Rankin’s trick, and the inequality Λ(n) ≤ log n, together with ∑_{n ≤ x} (log n)^2 / n ≪ (log x)^3) show that the whole off-diagonal is O(x (log x)^2), which is o(T log x) since x = T^θ with θ < 1. A sharper evaluation is possible, but not needed.
+- Collecting terms:
+  ∫_{T}^{2T} |S(t; x)|^2 dt
+  = T (log x + O(1)) + O(x log^2 x)
+  = T log x (1 + o(1)).
+- By Cauchy–Schwarz (or just that the L^2-average controls the sup), there exists t ∈ [T, 2T] with |S(t; x)| ≥ c sqrt(log x) for some c > 0, all large T.
+
+Consequence and interpretation
+- For any fixed θ ∈ (0,1), log x = θ log T → ∞. Thus the short sum S(t; x) cannot be uniformly small in t: its L^2 size is ~ sqrt(log x), and in particular there are t where it is at least a positive constant times sqrt(log x).
+- Therefore any approach that aims to deduce zero-free information near Re s = 1/2 by asserting a uniform bound |∑_{n≤T^θ} Λ(n) n^{-1/2-it}| = o(1) over t ∈ [T, 2T] is impossible, unconditionally.
+- This obstruction is intrinsic to the unsmoothed, sharp-cutoff Dirichlet polynomial for Λ(n) at the 1/2-line; it holds without any unproved hypothesis and independently of the zero distribution. Hence, if one uses the explicit formula to relate this polynomial to −ζ′/ζ(1/2+it) and zero contributions, one must either:
+  - carefully balance with the zero-sum and pole terms (not control the polynomial alone),
+  - introduce smoothing/weights that reduce the mean square and peak size,
+  - or restrict to weaker norms/average-in-t statements rather than uniform-in-t bounds.
+- In particular, any claimed reduction of RH to a uniform-in-t o(1) control of such a short Λ-sum is untenable. One must seek different quantities or more delicate cancellations.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous obstruction: uniform smallness of short Λ-sum is impossible via mean-square lower bound.

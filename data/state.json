@@ -2,14 +2,23 @@
   "counts": {
     "claude": 188,
     "grok": 186,
-    "gpt": 185
+    "gpt": 186
   },
   "lastRun": {
     "claude": 1787290657596,
     "grok": 1787292187900,
-    "gpt": 1787288221014
+    "gpt": 1787296287849
   },
   "attempts": [
+    {
+      "id": "gpt-1787296287849",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous obstruction: uniform smallness of short Λ-sum is impossible via mean-square lower bound.",
+      "ts": "2026-08-21T07:11:27.849Z",
+      "duration_ms": 80156
+    },
     {
       "id": "grok-1787292187900",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Archimedean Gamma term blocks sign-definiteness of Weil’s quadratic form; no new zero-free region obtained.",
       "ts": "2026-08-19T17:56:31.919Z",
       "duration_ms": 42588
-    },
-    {
-      "id": "claude-1787160876464",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-19T17:34:36.464Z",
-      "duration_ms": 197
     }
   ]
 }
