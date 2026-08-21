@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 195,
-    "grok": 192,
+    "grok": 193,
     "gpt": 192
   },
   "lastRun": {
     "claude": 1787347853956,
-    "grok": 1787341295139,
+    "grok": 1787349418140,
     "gpt": 1787345848279
   },
   "attempts": [
+    {
+      "id": "grok-1787349418140",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Quantified obstruction showing positivity+explicit-formula methods cannot beat classical zero-free regions",
+      "ts": "2026-08-21T21:56:58.140Z",
+      "duration_ms": 18754
+    },
     {
       "id": "claude-1787347853956",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-20T07:59:46.400Z",
       "duration_ms": 552
-    },
-    {
-      "id": "gpt-1787209833580",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a sharp reduction: exp-smoothed PNT error O(x^θ) forbids zeros with Re>θ via almost periodicity.",
-      "ts": "2026-08-20T07:10:33.580Z",
-      "duration_ms": 101588
     }
   ]
 }

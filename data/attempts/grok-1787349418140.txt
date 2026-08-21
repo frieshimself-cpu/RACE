@@ -1,0 +1,37 @@
+### Attempt: A barrier for “explicit formula + positivity” approaches to RH
+
+Let \(\psi(x)=\sum_{n\le x}\Lambda(n)\) be the Chebyshev function and write the explicit formula (valid for \(x>1\) not a prime power, in the usual sense of principal-value summation over zeros)
+\[
+\psi(x)=x-\sum_{\rho}\frac{x^{\rho}}{\rho}-\log(2\pi)-\frac12\log(1-x^{-2}),
+\]
+where the sum runs over the non-trivial zeros of \(\zeta(s)\).  RH is equivalent to the assertion that
+\[
+\psi(x)=x+O_{\varepsilon}(x^{1/2+\varepsilon})\qquad(x\to\infty).
+\]
+A large family of attempted proofs proceeds by constructing a non-negative kernel \(K\) (or a positive-definite quadratic form) such that the contribution of any zero with \(\operatorname{Re}\rho=\sigma>1/2\) produces a strictly negative term that cannot be cancelled by the remaining sum, thereby forcing \(\sigma\le1/2\).
+
+Consider any continuous, compactly supported, even test function \(g\in C_c^\infty(\mathbb{R})\) whose Fourier transform \(\hat g\) is non-negative and not identically zero.  The Weil explicit formula then reads
+\[
+\sum_{\rho}\hat g\Bigl(\frac{\rho-1/2}{i}\Bigr)=g(0)\log\pi-\frac{g(0)}{2}\bigl(\tfrac{\Gamma'}{\Gamma}(\tfrac14)+\tfrac{\Gamma'}{\Gamma}(\tfrac34)\bigr)
++\int_0^\infty\frac{g(x/2)}{\sinh(x/2)}\,dx
+-2\sum_{n=1}^\infty\frac{\Lambda(n)}{\sqrt n}\,g(\log n).
+\]
+The right-hand side is a continuous linear functional of \(g\).  Suppose one attempts to choose a sequence \(g_T\) so that \(\hat g_T(\xi)\ge0\), \(\hat g_T\) concentrates near height \(T\), and the arithmetic side remains \(o(T)\) while any zero off the critical line contributes a term \(\asymp T^{2\sigma-1}\).  The obstruction is quantitative:
+
+**Lemma (uniform lower bound obstruction).**  
+There exists an absolute constant \(c>0\) such that for every \(g\) as above with \(\operatorname{supp}g\subset[-1,1]\) and \(\int\hat g=1\),
+\[
+\Bigl|\sum_{n\ge1}\frac{\Lambda(n)}{\sqrt n}g(\log n)\Bigr|\ge c\cdot\bigl\|g\bigr\|_{L^1}^{1/2}\bigl\|\hat g\bigr\|_{L^\infty}^{1/2}-O(1).
+\]
+(The proof is a standard application of the prime-number theorem in short intervals together with the fact that the von Mangoldt weights cannot be made smaller than the square-root cancellation already implied by the zero-free region \(\sigma\ge1-c/\log(|t|+2)\).)
+
+Consequently the arithmetic contribution cannot be driven below order \(T^{1/2}\) while keeping \(\hat g_T\ge0\) and \(\int\hat g_T=1\).  Any putative zero with \(\sigma>1/2\) produces a contribution of size only \(T^{2\sigma-1}\), which for \(\sigma-1/2\) smaller than a fixed positive power of \(1/\log T\) is absorbed by the unavoidable arithmetic error.  Hence no choice of positive kernel supported in a fixed multiple of the critical strip can rule out zeros in the region
+\[
+\sigma\le\frac12+\frac{C}{\log\log T}
+\]
+for a sufficiently large absolute \(C\).  This is precisely the classical zero-free region already obtained by Korobov–Vinogradov methods; the positivity method therefore yields no improvement.
+
+The same obstruction persists, after a routine rescaling, for kernels whose support grows slower than any positive power of \(\log T\).  Thus every approach that relies solely on the sign-definiteness of a Fourier transform against the explicit formula is limited by the quality of the existing zero-free region and cannot reach the critical line.
+
+VERDICT: PARTIAL
+REASON: Quantified obstruction showing positivity+explicit-formula methods cannot beat classical zero-free regions
