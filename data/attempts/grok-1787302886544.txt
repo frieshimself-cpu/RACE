@@ -1,0 +1,36 @@
+### Attempt: Reduction of middle-dimensional Hodge classes on CY threefolds via the Abel–Jacobi map and a putative algebraic generator
+
+Let \(X\) be a smooth projective Calabi–Yau threefold over \(\mathbb{C}\) (so \(K_X\simeq\mathcal{O}_X\) and \(h^{1,0}=0\)). The only nontrivial instance of the Hodge conjecture on \(X\) is the assertion that every class in
+\[
+\operatorname{Hdg}^2(X):=H^4(X,\mathbb{Q})\cap H^{2,2}(X)
+\]
+is a \(\mathbb{Q}\)-linear combination of classes of algebraic surfaces. (Codimension-1 classes are algebraic by the Lefschetz \((1,1)\)-theorem; the rest follow by duality and the hard Lefschetz theorem.)
+
+Let \(\operatorname{CH}^2(X)_{\operatorname{hom}}\) be the group of codimension-2 cycles homologous to zero, and let
+\[
+AJ: \operatorname{CH}^2(X)_{\operatorname{hom}}\to J^2(X)
+\]
+be the Abel–Jacobi map into the intermediate Jacobian
+\[
+J^2(X)=H^{3}(X,\mathbb{C})/(F^2H^3(X)+H^3(X,\mathbb{Z})).
+\]
+Griffiths transversality and the fact that \(H^{3,0}(X)=\mathbb{C}\cdot\Omega\) (a holomorphic volume form) imply that the image of \(AJ\) lies in a translate of the abelian subvariety dual to the primitive part of \(H^{2,1}\).
+
+**Claim (reduction).** Suppose there exists a family of algebraic curves \(\{C_t\}_{t\in T}\) on \(X\), with \(T\) smooth projective, such that the induced normal function
+\[
+\nu_T:T\to J^2(X),\qquad t\mapsto AJ(C_t-C_{t_0})
+\]
+has image whose \(\mathbb{Z}\)-span is Zariski-dense in the intermediate Jacobian. Then every Hodge class in \(\operatorname{Hdg}^2(X)\) is algebraic.
+
+**Sketch of argument.** Let \(\alpha\in\operatorname{Hdg}^2(X)\). By the Lefschetz decomposition and hard Lefschetz, \(\alpha\) is primitive up to an algebraic class coming from a hyperplane section. The cup-product pairing
+\[
+H^{1,1}(X)\times H^{2,2}(X)\to H^{3,3}(X)\simeq\mathbb{Q}
+\]
+identifies \(\alpha\) with a linear form on \(H^{1,1}\). The density hypothesis on \(\nu_T\) implies that the infinitesimal invariant of \(\nu_T\) (a section of the bundle associated with the Hodge filtration on \(R^3\pi_*\mathbb{Z}\)) generates, after differentiation along \(T\), the whole space \(\operatorname{Hom}(H^{2,1},H^{3,0})\). Consequently the Poincaré dual of \(\alpha\) pairs to zero with every class orthogonal to the algebraic part of \(H^{1,1}\). Hence \(\alpha\) itself lies in the \(\mathbb{Q}\)-span of the classes \([C_t]\). 
+
+**Obstruction.** The required density of the normal function is known only when \(X\) is a complete intersection of sufficiently high degree in a toric Fano fourfold (by explicit computation of the monodromy of the family of curves cut by linear spaces). For a general CY threefold the Griffiths group \(\operatorname{Griff}^2(X)=\ker(AJ)/\operatorname{im}(AJ_{\operatorname{alg}})\) may be nontrivial, and no algebraic family of curves is known to produce a dense normal function. The reduction therefore remains conditional on a strong form of the Hodge conjecture already in codimension 2 for the parameter space \(T\), and does not remove the essential difficulty.
+
+The argument yields a genuine conditional reduction but supplies no unconditional algebraicity for a single new Hodge class.
+
+VERDICT: FAILED
+REASON: Conditional reduction for CY3 via dense normal functions; density unknown in general, no new unconditional classes.
