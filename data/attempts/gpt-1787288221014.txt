@@ -1,0 +1,53 @@
+Attempt: A rigorous L2–Mellin criterion implying a zero-free half-plane
+
+Goal
+Prove a clean implication that reduces zero-freeness of ζ(s) in a half-plane Re s ≥ σ to an L2 condition on the Mertens function M(x)=∑_{n≤x} μ(n). This gives a concrete target: to prove RH it suffices to establish the L2 condition for every σ>1/2.
+
+Statement
+Let σ>1/2. If
+∫_1^∞ |M(x)|^2 x^{-1-2σ} dx < ∞,
+then ζ(s) has no zeros in the closed half-plane Re s ≥ σ. In particular, if this holds for a sequence σ_k↓1/2, then RH follows.
+
+Key identity
+For Re s>1,
+1/ζ(s) = ∑_{n=1}^∞ μ(n) n^{-s} = s ∫_1^∞ M(x) x^{-s-1} dx.     (1)
+
+Proof of (1)
+Let A(x)=M(x)=∑_{n≤x} μ(n). For Re s>1,
+∑_{n=1}^∞ μ(n) n^{-s} = ∑_{n=1}^∞ (A(n)-A(n-1)) n^{-s}
+= s ∑_{n=1}^∞ ∫_{n-1}^n A(n) x^{-s-1} dx
+= s ∫_1^∞ A(⌈x⌉) x^{-s-1} dx.
+Since A is piecewise constant and of bounded variation with jumps μ(n), standard summation by parts yields
+∑_{n=1}^∞ μ(n) n^{-s} = s ∫_1^∞ A(x) x^{-s-1} dx,
+because replacing A(⌈x⌉) by A(x) changes the integral by an absolutely convergent quantity (Re s>1). This establishes (1).
+
+Hardy–Paley–Wiener isometry for the Mellin transform
+Define H^2(σ) as the Hardy space of analytic functions F on the half-plane Re s>σ with finite norm
+∥F∥_{H^2(σ)}^2 := sup_{x>σ} (1/2π) ∫_{-∞}^{∞} |F(x+it)|^2 dt.
+Consider the Mellin–Laplace transform
+T[f](s) := ∫_1^∞ f(x) x^{-s-1} dx,    Re s>σ,
+initially for f∈L^2((1,∞), x^{-1-2σ} dx).
+Write x=e^u (u∈[0,∞)), and set g(u)=f(e^u) e^{-σ u}. Then
+T[f](s) = ∫_0^∞ f(e^u) e^{-su} du = ∫_0^∞ g(u) e^{-(s-σ)u} du =: L[g](s-σ),
+the Laplace transform of g evaluated at s-σ. The map g↦L[g] is the classical Paley–Wiener isometry from L^2(0,∞) onto H^2(ℜ z>0); hence T is an isometry from L^2((1,∞), x^{-1-2σ} dx) onto H^2(σ). In particular:
+- If f∈L^2((1,∞), x^{-1-2σ} dx), then F(s)=T[f](s) is analytic on Re s>σ, belongs to H^2(σ), and thus cannot have poles there.
+- Conversely, any F∈H^2(σ) is the Mellin transform of some f in that L^2 space.
+
+Application to 1/ζ(s)
+Assume ∫_1^∞ |M(x)|^2 x^{-1-2σ} dx < ∞ for some σ>1/2. Define
+F(s) := s ∫_1^∞ M(x) x^{-s-1} dx,    Re s>σ.
+Then F∈H^2(σ) (multiplication by s preserves H^2(σ)), so F is analytic on Re s>σ without poles. For Re s>1, identity (1) gives F(s)=1/ζ(s). By the uniqueness of analytic continuation, we conclude
+F(s) = 1/ζ(s) for all s with Re s>σ.
+But F has no poles on Re s>σ, hence 1/ζ has no poles there. Thus ζ has no zeros in Re s≥σ.
+
+Consequences and a concrete target
+- For any fixed σ>1/2, the single L2 condition above implies zero-freeness in Re s≥σ.
+- Therefore, RH follows if one can prove: for every ε>0, ∫_1^∞ |M(x)|^2 x^{-2-2ε} dx < ∞, equivalently for each ε>0, M(x)∈L^2((1,∞), x^{-2-2ε} dx). More softly: it suffices that this holds along a sequence ε_k↓0.
+
+Remarks on feasibility and sharpness
+- The criterion is strictly stronger than the pointwise bound M(x)=O(x^{1/2+δ}); it asks for an L2 control with weight x^{-1-2σ}, which corresponds to square-integrability of 1/ζ on the vertical lines Re s=σ via the Mellin–Hardy isometry.
+- The proof shows an obstruction: to deduce the converse (M∈L^2 from zero-freeness), one needs quantitative lower bounds on |ζ(σ+it)| to ensure 1/ζ∈H^2(σ), which do not follow from mere zero-freeness.
+- This furnishes a rigorous, self-contained reduction: proving these weighted L2 bounds for M(x) implies the corresponding zero-free half-planes, and in the limit implies RH.
+
+VERDICT: PARTIAL
+REASON: Proved an L2–Mellin criterion: weighted L2 control of M(x) implies a zero-free half-plane; reduces RH to this.

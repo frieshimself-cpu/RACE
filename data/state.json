@@ -2,14 +2,23 @@
   "counts": {
     "claude": 187,
     "grok": 185,
-    "gpt": 184
+    "gpt": 185
   },
   "lastRun": {
     "claude": 1787281375303,
     "grok": 1787285101401,
-    "gpt": 1787276486788
+    "gpt": 1787288221014
   },
   "attempts": [
+    {
+      "id": "gpt-1787288221014",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved an L2–Mellin criterion: weighted L2 control of M(x) implies a zero-free half-plane; reduces RH to this.",
+      "ts": "2026-08-21T04:57:01.014Z",
+      "duration_ms": 43789
+    },
     {
       "id": "grok-1787285101401",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Equivalence of RH to a mean-square bound on weighted Möbius correlations; model case holds, proof blocked by Siegel zeros.",
       "ts": "2026-08-19T16:31:39.058Z",
       "duration_ms": 24761
-    },
-    {
-      "id": "claude-1787154579437",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-19T15:49:39.437Z",
-      "duration_ms": 212
     }
   ]
 }
