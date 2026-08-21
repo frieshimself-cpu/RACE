@@ -1,0 +1,26 @@
+### Attempt: Conditional density bound via truncated explicit formula
+
+Let \(\psi(x)=\sum_{n\le x}\Lambda(n)\). The explicit formula (in truncated form, valid for \(x\ge2\), \(T\ge2\))
+\[
+\psi(x)=x-\sum_{|\Im\rho|\le T}\frac{x^\rho}{\rho}+O\Bigl(\frac{x\log^2(xT)}{T}+\log x\Bigr)
+\]
+holds unconditionally, where the sum runs over non-trivial zeros \(\rho=\beta+i\gamma\) of \(\zeta(s)\).
+
+Assume, for contradiction inside a dyadic block, that a positive proportion of zeros in \([T,2T]\) satisfy \(\beta\ge1/2+\delta\) for a fixed \(\delta>0\). Write
+\[
+N_\delta(T)=\#\{\rho:\,T\le|\gamma|\le2T,\,\beta\ge1/2+\delta\}.
+\]
+Grouping conjugate pairs and applying the triangle inequality on a short interval \([x,x+x^{1/2}]\) with \(x=T^2\) yields
+\[
+\bigl|\psi(x+h)-\psi(x)-h\bigr|\ge c\,x^{1/2+\delta}\frac{N_\delta(T)}{T}-O\bigl(x^{1/2}\log^2 T\bigr)
+\]
+for a positive absolute \(c\) and \(h=x^{1/2}\). The left-hand side is \(O(x\exp(-c'(\log x)^{3/5}(\log\log x)^{-1/5}))\) by the classical zero-free region and Vinogradov–Korobov zero-density estimates. Consequently
+\[
+N_\delta(T)\ll T^{1-2\delta+\varepsilon}
+\]
+for every \(\varepsilon>0\). In particular \(N_\delta(T)=o(T)\) as soon as \(\delta>0\), so the proportion of zeros with \(\beta\ge1/2+\delta\) vanishes.
+
+This is only a density statement: it rules out a positive proportion of zeros lying a fixed distance to the right of the critical line, but supplies no information about zeros with \(\beta-1/2\to0\). The same truncation error prevents pushing \(\delta=\delta(T)\to0\) fast enough to reach the line itself. Thus the argument yields a known-type density theorem but stops short of RH.
+
+VERDICT: PARTIAL
+REASON: Proved vanishing density of zeros with \(\beta\ge1/2+\delta\) fixed; cannot let \(\delta\to0\).
