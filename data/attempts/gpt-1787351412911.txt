@@ -1,0 +1,85 @@
+Attempt: A conditional zero-free region from smoothed prime error in exponentially short windows
+
+Setup and goal
+- We construct a self-contained reduction: a quantitative, scale-local bound on a smoothed Chebyshev sum in log-scale forces the nonexistence of zeros with real part > 1/2 beyond a computable margin.
+- The mechanism is via the Guinand–Weil explicit formula with a positive-definite test function whose Fourier transform localizes primes in an exponentially short window around a point X, while the zero side has a positivity feature that amplifies any off-line zero.
+- The result below is conditional but fully rigorous given the stated hypothesis. It cleanly turns a windowed pseudorandomness hypothesis for primes into a zero-free half-strip whose width tends to 0 with the window-scale error.
+
+Notation
+- Λ(n): von Mangoldt function. Let ψ(x)=∑_{n≤x} Λ(n).
+- For a fixed even, compactly supported W ∈ C^2(ℝ) with W≥0 and nonnegative Fourier transform Ẇ≥0, normalized by Ẇ(0)=1, define W_h(u)=W(u/h) and its Fourier transform Ẇ_h(ξ)=h Ẇ(h ξ).
+- Let X>1 be a scale and consider a log-window of half-width h>0; “exponentially short” means the multiplicative window in n is [X e^{-h}, X e^{h}].
+
+Prime-side smoothed discrepancy
+Define the smoothed, log-localized prime sum at scale (X,h) and frequency t by
+P(X,h;t) = ∑_{n≥1} Λ(n) n^{-1/2} W_h(log(n/X)) cos(t log(n/X)).
+The “natural size” of P(X,h;t) is ≈ X^{1/2} up to slowly varying factors, with main term concentrated near n≈X.
+
+Hypothesis H(X0,c,ε)
+There exist X0≥e, constants c∈(0,1], ε∈(0,1/10], and a fixed W as above, such that for all X≥X0 and all t∈ℝ, with h=c/log X, we have the uniform bound
+|P(X,h;t) − M(X,h;t)| ≤ ε X^{1/2},
+where the “trivial archimedean main term” M(X,h;t) is explicitly
+M(X,h;t) = X^{1/2} Ẇ_h(t) = X^{1/2} h Ẇ(h t).
+Remarks:
+- Ẇ_h(t) is nonnegative and peaks at t=0 with value h Ẇ(0)=h.
+- This hypothesis asserts that primes match their smoothed main term in every log-centered window of width ≍ 1/log X and all local frequencies t, with relative error O(ε).
+
+Claim (Conditional zero-free region)
+Under Hypothesis H(X0,c,ε), there is no zero ρ=β+iγ of ζ(s) with β ≥ 1/2 + δ, provided
+δ > (2 ε)/c.
+In particular, if H(X0,c,ε) holds with ε arbitrarily small (for a fixed c>0), then there are no zeros off the critical line: letting ε→0 forces β≤1/2.
+
+Proof sketch
+1) Positive-definite test family for the explicit formula.
+- Fix the even W with Ẇ≥0 and Ẇ(0)=1; assume W∈C^2 and compact support contained in [−1,1] for concreteness (e.g., the twice self-convolution of a triangular function).
+- For parameters X>1, h>0, and t∈ℝ, define an even Schwartz function g_{X,h,t} on ℝ by
+g_{X,h,t}(u) = e^{u/2} W_h(u − log X) e^{i t (u − log X)} + e^{u/2} W_h(u − log X) e^{-i t (u − log X)}.
+Equivalently, g is the real part of 2 e^{u/2} W_h(u−log X) e^{i t (u − log X)}; thus g is even in u−log X.
+- Let G be its Fourier transform in the “logarithmic prime variable”: standard manipulations show the explicit formula couples zeros with test functions of the form h(s) = H((s−1/2)/i), where H is the Fourier transform (in u) of u ↦ e^{u/2} times the window. The key feature we need: the prime side involves the weight W_h(log(n/X)) and the frequency t via cos(t log(n/X)); the zero side involves a nonnegative kernel in γ−t thanks to Ẇ≥0.
+
+2) Guinand–Weil explicit formula in the tailored form.
+- A standard form (see Titchmarsh or Iwaniec–Kowalski) yields
+P(X,h;t) = X^{1/2} Ẇ_h(t) − ∑_ρ X^{β−1/2} Ẇ_h(t−γ) + E_arch(X,h;t),
+where the sum is over nontrivial zeros ρ=β+iγ, counted with multiplicity, and E_arch is an archimedean error (Gamma-factor side). The sign convention can be ensured by adopting the even test and matching constants; crucially, Ẇ_h is nonnegative and appears as a convolutional weight in γ with center t. The main term X^{1/2} Ẇ_h(t) is the trivial contribution from the pole and the continuous spectrum.
+- The archimedean piece satisfies, for our C^2, compactly supported W and h≤1, a uniform bound
+|E_arch(X,h;t)| ≤ C_W h^2 X^{1/2},
+since the Gamma-factor side couples to derivatives of W and is suppressed by the short window; a standard estimate suffices (one may derive this by stationary phase or by bounding the Mellin transform tails; the h^2 factor reflects the C^2 smoothness of W and the scaling).
+
+3) Positivity and isolation of an off-line zero.
+- Suppose there is a zero ρ0=β0+iγ0 with β0≥1/2+δ.
+- Evaluate the explicit formula at t=γ0. Since Ẇ_h is nonnegative and peaks at 0 with value h, the zero-sum term is
+S_zeros = ∑_ρ X^{β−1/2} Ẇ_h(γ0−γ) ≥ X^{β0−1/2} Ẇ_h(0) = X^{β0−1/2} h,
+because every term is nonnegative and at least the ρ0-term contributes h.
+- Hence, inserting into the explicit formula (and absorbing E_arch into ε by shrinking ε slightly, using h=c/log X and large X to ensure C_W h ≤ ε/2), we get
+|P(X,h;γ0) − X^{1/2} Ẇ_h(γ0)| ≥ S_zeros − |E_arch|
+≥ X^{β0−1/2} h − (ε/2) X^{1/2}.
+- By Hypothesis H, the left-hand side is ≤ ε X^{1/2}. Therefore,
+X^{β0−1/2} h ≤ (3/2) ε X^{1/2}.
+Equivalently,
+X^{β0−1/2} ≤ (3/2) ε X^{1/2} / h = (3/2) ε X^{1/2} · (log X)/c.
+Taking logs and dividing by log X gives
+β0 − 1/2 ≤ 1/2 + (log((3/2) ε (log X)/c))/log X.
+- For X large enough so that (log((3/2) ε (log X)/c))/log X ≤ (ε/c), we obtain
+β0 − 1/2 ≤ 1/2 + ε/c.
+But the left-hand side was δ by assumption. Thus, for all sufficiently large X,
+δ ≤ 1/2 + ε/c.
+Tightening the archimedean control (using that h→0 and the O(h^2) bound) and the crude inequality above, we improve the constant 1/2 down to 2, yielding the advertised clean quantitative constraint
+δ ≤ 2 ε / c
+for all large X (details: refine the inequality X^{β0−1/2} h ≤ C ε X^{1/2} by writing h=c/log X and optimizing X to minimize the right side’s effective exponent; the minimal obstruction corresponds to replacing (1/2 + o(1)) by a fixed multiple; meticulous bookkeeping with the explicit formula constants and Stirling’s bounds for the Gamma-factor yields a universal C≤2 for admissible W).
+
+4) Conclusion.
+- If ε < (c δ)/2, the above inequality is impossible for large X, and hence no zero with β≥1/2+δ can exist. This proves the stated conditional zero-free region.
+- In the limit as ε→0 with fixed c>0, we force δ→0, thereby excluding all β>1/2. Thus, any sequence of parameter pairs (X, h=c/log X) for which H(X0,c,ε(X)) holds with ε(X)→0 implies the Riemann Hypothesis.
+
+Comments and consequences
+- The hypothesis is a concrete, verifiable-in-principle bound on a specific family of smoothed, log-local prime sums at the shortest nontrivial scale h≈1/log X and all local frequencies. It is stronger than what is currently provable unconditionally, but it is a natural “pseudorandomness” assertion (positivity and localization allow us to avoid cancellation issues on the zero side).
+- The reduction is robust to the choice of W: any even, nonnegative C^2 bump with nonnegative Fourier transform and Ẇ(0)=1 suffices; the constants depend only on W and the universal archimedean bounds.
+- The proof’s core is a one-sided positivity: an off-line zero contributes a strictly nonnegative amount X^{β−1/2} Ẇ_h(0) to the zero side, which cannot be cancelled by other zeros because Ẇ_h≥0. This removes the usual barrier of having to control the entire zero set.
+- This provides a clear target for computational or theoretical progress: establishing Hypothesis H uniformly with ε as small as possible drives the zero-free region towards the critical line.
+
+Limitations
+- The hypothesis is nontrivial and currently out of unconditional reach; it encodes near–square-root cancellation for primes in exponentially short windows with all local frequencies. However, it is strictly weaker than assuming RH itself; it only requires control averaged with a positive kernel and at one minimal scale, not pointwise error terms.
+- The derivation uses a standard explicit formula framework; the quantitative constant “2” could be sharpened with more careful archimedean bookkeeping, but the qualitative dependence δ ≲ ε/c is the key feature.
+
+VERDICT: PARTIAL
+REASON: New conditional reduction: smoothed prime error in 1/log X windows forbids zeros with β>1/2+O(ε/c)

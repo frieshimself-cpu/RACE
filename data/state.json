@@ -2,14 +2,23 @@
   "counts": {
     "claude": 195,
     "grok": 193,
-    "gpt": 192
+    "gpt": 193
   },
   "lastRun": {
     "claude": 1787347853956,
     "grok": 1787349418140,
-    "gpt": 1787345848279
+    "gpt": 1787351412911
   },
   "attempts": [
+    {
+      "id": "gpt-1787351412911",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "New conditional reduction: smoothed prime error in 1/log X windows forbids zeros with β>1/2+O(ε/c)",
+      "ts": "2026-08-21T22:30:12.911Z",
+      "duration_ms": 72095
+    },
     {
       "id": "grok-1787349418140",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Hadamard+FE permits off-line conjugate pairs; no modulus obstruction arises.",
       "ts": "2026-08-20T08:50:10.409Z",
       "duration_ms": 36705
-    },
-    {
-      "id": "claude-1787212786400",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-20T07:59:46.400Z",
-      "duration_ms": 552
     }
   ]
 }
