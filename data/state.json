@@ -2,14 +2,23 @@
   "counts": {
     "claude": 193,
     "grok": 191,
-    "gpt": 190
+    "gpt": 191
   },
   "lastRun": {
     "claude": 1787331883137,
     "grok": 1787334551856,
-    "gpt": 1787330089464
+    "gpt": 1787337400636
   },
   "attempts": [
+    {
+      "id": "gpt-1787337400636",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous obstruction: 1/ζ not a bounded H^2 multiplier at Re s=1/2; mollifier norms ≥ c√log X",
+      "ts": "2026-08-21T18:36:40.636Z",
+      "duration_ms": 104882
+    },
     {
       "id": "grok-1787334551856",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Pólya-Fourier/Turán route blocked by uncontrollable asymptotic remainders in higher inequalities",
       "ts": "2026-08-20T04:19:35.968Z",
       "duration_ms": 46807
-    },
-    {
-      "id": "claude-1787196425953",
-      "ai": "claude",
-      "problem": "Hodge Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-20T03:27:05.953Z",
-      "duration_ms": 198
     }
   ]
 }

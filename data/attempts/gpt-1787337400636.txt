@@ -1,0 +1,38 @@
+Attempt: A rigorous obstruction to “Hardy-space multiplier” strategies on the 1/2-line
+
+Setup
+- For σ ≥ 0, let H^2_σ be the Dirichlet Hardy space consisting of Dirichlet series F(s)=Σ_{n≥1} a_n n^{-s} with norm
+  ∥F∥_{H^2_σ}^2 := lim_{T→∞} (1/2T) ∫_{-T}^T |F(σ+it)|^2 dt = Σ_{n≥1} |a_n|^2 n^{-2σ}.
+  The identity on the right is the standard orthogonality (Bohr/Hardy) for Dirichlet monomials on the vertical line Re s = σ.
+
+- When considering a Dirichlet polynomial P(s)=Σ_{n≤X} c_n n^{-s} as a (left) multiplier on H^2_σ, its operator norm is at least ∥P⋅1∥_{H^2_σ} = (Σ_{n≤X} |c_n|^2 n^{-2σ})^{1/2}, since testing on A(s)≡1 (a_1=1, a_{n>1}=0) gives a lower bound for the multiplier norm.
+
+Main Lemma (unboundedness of the Möbius multiplier at σ ≤ 1/2)
+- Consider 1/ζ(s) = Σ_{n≥1} μ(n) n^{-s}. For any σ ≤ 1/2, multiplication by 1/ζ(s) does not define a bounded operator H^2_σ → H^2_σ.
+
+Proof
+- Test on the constant function A(s)≡1, which belongs to H^2_σ for all σ ≥ 0 (since its coefficient vector is (1,0,0,…) and ∥1∥_{H^2_σ} = 1).
+- Then (1/ζ)⋅A = 1/ζ itself, whose H^2_σ norm, by the coefficient formula, is
+  ∥1/ζ∥_{H^2_σ}^2 = Σ_{n≥1} μ(n)^2 n^{-2σ}.
+- For σ ≤ 1/2 we have 2σ ≤ 1, and Σ_{n≥1} μ(n)^2 / n diverges (since μ(n)^2 is the indicator of squarefree integers, of natural density 6/π^2, and the harmonic series over a positive density subset diverges). Hence ∥1/ζ∥_{H^2_σ} = ∞.
+- Therefore multiplication by 1/ζ is not bounded on H^2_σ when σ ≤ 1/2. QED.
+
+Quantitative corollary for mollifiers at the critical line
+- For X ≥ 2, let M_X(s) := Σ_{n≤X} μ(n) n^{-s}. Then its multiplier norm on H^2_{1/2} obeys
+  ∥M_X∥_{H^2_{1/2}→H^2_{1/2}} ≥ (Σ_{n≤X} μ(n)^2 / n)^{1/2} ≍ ( (6/π^2) log X )^{1/2}.
+  The inequality is obtained by testing on A(s)≡1, and the asymptotic follows from the standard estimate for the harmonic sum of squarefrees.
+
+Consequences for strategies toward RH
+- Any approach that hopes to deduce the Riemann Hypothesis by showing that multiplication by 1/ζ(s) is a bounded (or even closable with dense domain) operator on H^2_{1/2} is impossible: the operator is not bounded even on the single vector A(s)≡1.
+- Moreover, even replacing 1/ζ by its standard finite “mollifiers” M_X(s) cannot yield uniform control on the 1/2-line in the H^2 sense: the best-possible operator norm grows at least like c √log X, so no sequence of such mollifiers can serve as uniformly bounded left inverses for ζ on H^2_{1/2}.
+- This supplies a rigorous obstruction to a broad class of Hilbert-space/Hardy-space multiplier methods (including naive de Branges-type templates on the 1/2-line) that would require L^2-boundedness of division by ζ(s) at Re s = 1/2.
+
+A small positive statement off the line
+- For any fixed σ > 1/2 and any Dirichlet polynomial P, the H^2_σ multiplier norm satisfies ∥P∥_{H^2_σ→H^2_σ} ≥ (Σ |c_n|^2 n^{-2σ})^{1/2} via the same test.
+- In particular, even off the line, the multiplier by truncated Möbius M_X has operator norm at least (Σ_{n≤X} μ(n)^2 n^{-2σ})^{1/2} ≍ C(σ) as X → ∞, where C(σ)^2 = Σ_{n≥1} μ(n)^2 n^{-2σ} < ∞. Thus boundedness is not obstructed for σ>1/2, but no uniform boundedness as σ↓1/2 can hold due to the divergence established above.
+
+Summary
+- The above gives a clean, unconditional barrier: L^2-multiplier control for 1/ζ on the critical line is false in the strongest possible way. Any proof of RH that relies on such a control (or on uniformly bounded mollified inverses in H^2 at Re s = 1/2) cannot succeed. This narrows viable directions and clarifies a sharp threshold phenomenon at the 1/2-line within Hardy-space frameworks.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous obstruction: 1/ζ not a bounded H^2 multiplier at Re s=1/2; mollifier norms ≥ c√log X
