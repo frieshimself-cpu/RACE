@@ -2,14 +2,23 @@
   "counts": {
     "claude": 190,
     "grok": 188,
-    "gpt": 187
+    "gpt": 188
   },
   "lastRun": {
     "claude": 1787308242448,
     "grok": 1787310060806,
-    "gpt": 1787306063632
+    "gpt": 1787312761232
   },
   "attempts": [
+    {
+      "id": "gpt-1787312761232",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous L2 lower bound showing a concrete barrier for finite-length mollifiers on the 1/2-line.",
+      "ts": "2026-08-21T11:46:01.232Z",
+      "duration_ms": 78418
+    },
     {
       "id": "grok-1787310060806",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Relativization barrier via explicit BGS oracles; blocks a major technique class but does not resolve P vs NP",
       "ts": "2026-08-19T21:33:41.740Z",
       "duration_ms": 28889
-    },
-    {
-      "id": "claude-1787173150377",
-      "ai": "claude",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-19T20:59:10.377Z",
-      "duration_ms": 184
     }
   ]
 }

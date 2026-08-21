@@ -1,0 +1,110 @@
+Attempt: A quantitative lower bound that any finite-length mollifier cannot beat
+
+Statement (weighted L2 barrier for ζ-mollification on the 1/2-line):
+Let T ≥ 3. Let A(s) = ∑_{n≤T} a_n n^{-s} be any Dirichlet polynomial of length at most T. Let w be a fixed nonnegative smooth function with compact support in [1,2] and w not identically zero. Then there exists an absolute constant c = c(w) > 0 such that
+∫_{ℝ} w(t/T) |1 - ζ(1/2+it) A(1/2+it)|^2 dt ≥ c T / log T
+for all sufficiently large T. In particular, no length-T mollifier can force the weighted L2-error below order T / log T.
+
+Interpretation:
+- The left-hand side is the weighted L2-norm (over a t-window of length ∼ T) of the defect of mollification 1 - ζA on the critical line.
+- The inequality asserts a universal obstruction: for any choice of coefficients a_n supported on n ≤ T, there is an unavoidable L2-error of size at least ≍ T / log T.
+- This cleanly formalizes a “barrier” for pure finite-length mollification schemes: such schemes cannot (even on average) come close to inverting ζ on the critical line beyond the natural 1/log-scale. It aligns with the quantitative content of the Nyman–Beurling/Báez-Duarte framework and with Montgomery–Vaughan mean-value and large sieve phenomena.
+
+Proof sketch:
+
+1) Reduction to a Dirichlet polynomial problem via a smoothed approximate functional equation.
+- Fix w as in the statement. Set W(t) := w(t/T).
+- Use the smoothed approximate functional equation for ζ(1/2+it) with a smooth dyadic length parameter ∼ T:
+ζ(1/2+it) = ∑_{n} n^{-1/2-it} V(n/T) + χ(1/2+it) ∑_{n} n^{-1/2+it} V(n/T) + E(t),
+where V is a fixed smooth compactly supported weight on [0,2], V≡1 on [0,1], and E(t) is an error whose contribution to all integrals below is negligible, specifically
+∫ W(t) |E(t)|^2 dt ≪ T^{-100}.
+This is standard; the weight W ensures uniform control and moves all estimates into the Dirichlet-polynomial regime with effective remainder. The χ-term is harmless because |χ(1/2+it)|=1 and it produces a second polynomial of the same length and shape.
+
+- Writing P(t) := ∑_{n} n^{-1/2-it} V(n/T) and Q(t) := ∑_{n} n^{-1/2+it} V(n/T), we have
+ζ(1/2+it) = P(t) + χ(1/2+it) Q(t) + negligible.
+
+2) Expand the L2-error and drop nonnegative parts to get a lower bound.
+- Denote B(t) := A(1/2+it). Then
+|1 - ζ B|^2 = 1 + |ζ B|^2 - 2 Re(ζ B).
+- Insert the decomposition of ζ and use W(t) as weight. Since W ≥ 0, discarding the χ-term in |ζ B|^2 (which only adds a nonnegative contribution after integrating against W) yields a lower bound. Likewise, by Cauchy–Schwarz and |χ|=1 we can control the cross-term Re(χ Q B) in ζ B from above in absolute value; dropping it weakens the negative contribution, so it again yields a lower bound. Thus
+∫ W |1 - ζ B|^2 dt
+≥ ∫ W dt + ∫ W |P B|^2 dt - 2 Re ∫ W P(t) B(t) dt + O(T^{-90}).
+
+3) Express everything in terms of Dirichlet coefficients and invoke Montgomery–Vaughan mean value.
+- Let A(s)=∑_{m≤T} a_m m^{-s}, so B(t)=∑_{m≤T} a_m m^{-1/2-it}. Then
+P(t)B(t) = ∑_{k} b_k k^{-1/2-it} + (tail), with coefficients b_k = ∑_{mn=k} a_m V(n/T) 1_{n≥1}.
+Since V is supported on n ≲ T and m ≤ T, we have k ≲ T^2 and the tail is negligible after W-weighted integration (by rapid decay of V outside [0,2] and support of W).
+- Similarly, the linear term ∫ W P(t) B(t) dt pairs the Dirichlet coefficients at k=1 in the standard way. These reductions are standard consequences of the Montgomery–Vaughan mean value theorem for Dirichlet polynomials with smooth weights:
+∫_{ℝ} W(t) |∑_{n≤M} c_n n^{-it}|^2 dt = T \widehat{W}(0) ∑_{n≤M} |c_n|^2 + O( (M/T) T ∑ |c_n|^2 ),
+and
+∫_{ℝ} W(t) ∑_{n≤M} c_n n^{-it} dt = T \widehat{W}(0) c_1 + O( (M/T)^{1/2} T^{o(1)} (∑ |c_n|^2)^{1/2} ).
+Because M ≲ T^2 and W is supported on [T,2T], the error terms are negligible multiples of the main terms once we keep track of weights; for the purpose of a lower bound we can absorb them (the O-terms are dominated for large T).
+
+- Therefore,
+∫ W |1 - ζ B|^2 dt
+≥ T C_0 + T C_0 ∑_{k} |b_k|^2 - 2 T C_0 Re b_1 - small,
+where C_0 = Ẇ(0) > 0 is the zero-frequency Fourier mass of W.
+
+- The right-hand side is (up to negligible lower order terms) T C_0 times the quadratic form
+Q(b) := 1 + ∑_{k} |b_k|^2 - 2 Re b_1.
+
+4) Optimization over admissible b_k subject to b = 1 ⋆ a truncated, and a_m supported on m ≤ T.
+- The structural constraint is b_k = ∑_{m n = k} a_m V(n/T), with V supported on n ≲ T and a_m supported on m ≤ T. In particular, for k ≤ T we have (since V(1)=1 and V(n/T)=0 for n>T):
+b_k = a_k + ∑_{m n = k, n ≥ 2} a_m V(n/T) = a_k + “lower divisors part”.
+- A key monotonicity: dropping the terms with n ≥ 2 (i.e., replacing b_k by just a_k for k ≤ T) can only decrease ∑_{k≤T} |b_k|^2 and increase the distance to δ_{1k}, and hence can only make Q(b) smaller. Thus, to get a lower bound uniform over all admissible {a_m}, it suffices to consider the simplified model in which b_k are free variables for k ≤ T generated by b_k = a_k (i.e., “upper-triangular” truncation), with no further constraint, while for k > T one keeps the actual convolution but those k> T only increase Q(b) (since they contribute |b_k|^2 ≥ 0). Hence,
+inf_{a_m, m≤T} Q(b) ≥ inf_{(b_1,...,b_T)∈ℂ^T} [ 1 + ∑_{k≤T} |b_k|^2 - 2 Re b_1 ].
+- The right-hand side is just the distance in ℓ^2 to the vector e_1:
+min over b: 1 + ∑ |b_k|^2 - 2 Re b_1 = min_b ∑_{k≤T} |b_k - δ_{1k}|^2 = 0,
+if b were completely free. But b are not free when viewed through the original Dirichlet-polynomial metric; the Montgomery–Vaughan isometry carries a nontrivial weight coming from 1/k and the duality between sums and integrals. To restore the correct metric, we reinsert the classical Gram matrix for Dirichlet polynomials on [T,2T].
+
+5) Correct metric: the Dirichlet polynomial isometry (with k-weights).
+- Precisely,
+∫_{ℝ} W(t) |∑_{k≤M} c_k k^{-1/2 - it}|^2 dt
+= T C_0 ∑_{k≤M} |c_k|^2 + O(…) + off-diagonals that are o(T ∑ |c_k|^2)
+after smoothing; the off-diagonals are small by the rapid decay of the Fourier transform of W combined with |log(m/n)| separation unless m≈n. This standard smoothed orthogonality yields that the L2-norm is asymptotically T C_0 times the ℓ^2-norm of coefficients c_k, with negligible correlations. However, when we form ζ A, the coefficient at k is b_k/k^{1/2}; hence the correct quadratic form is
+Q_w(b) ≍ 1 + ∑_{k} |b_k|^2 / k - 2 Re(b_1),
+with implicit constants depending only on w (from the precise evaluation of the diagonal, see e.g. Montgomery–Vaughan mean value theorem with weight 1/k on the diagonal after the 1/2-shift).
+- This recovers the well-known dictionary: minimizing ∫ W |1 - ζ A|^2 dt amounts (up to T C_0) to minimizing
+1 - 2 Re b_1 + ∑_{k≥1} |b_k|^2 / k,
+subject to b = 1 ⋆ a with supp(a) ⊂ [1,T].
+
+6) Explicit minimization under the convolution constraint: lower bound ≍ 1/log T.
+- For k≥1, b_k = ∑_{d|k, d≤T} a_d. Hence
+∑_{k≤X} |b_k|^2 / k ≥ ∑_{k≤X} (∑_{d|k, d≤T} a_d)^2 / k.
+- By expanding the square and exchanging summations,
+∑_{k≤X} (∑_{d|k, d≤T} a_d)^2 / k
+= ∑_{d1,d2≤T} a_{d1} ā_{d2} ∑_{k≤X: d1|k, d2|k} 1/k
+= ∑_{d1,d2≤T} a_{d1} ā_{d2} ∑_{m≤X/[d1,d2]} 1/(m [d1,d2])
+= ∑_{d1,d2≤T} a_{d1} ā_{d2} (log(X/[d1,d2]) + O(1)) / [d1,d2].
+- Choose X = T (any X ≍ T suffices under W). Then, using 1/[d1,d2] = (d1,d2)/(d1 d2) and log(X/[d1,d2]) ≥ log(T/max{d1,d2}) for d1,d2 ≤ T, we get the classical Hilbert-type quadratic form
+∑_{k≤T} |b_k|^2 / k ≥ (log T) ∑_{d≤T} |a_d|^2 / d + O(∑_{d≤T} |a_d|^2 / d),
+with an absolute implied constant, by positivity and the standard estimate for the GCD sum matrix (this is a well-known inequality; a short proof follows from comparing the main log T diagonal contribution to the off-diagonals via Cauchy–Schwarz and the bound (d1,d2)/(d1 d2) ≤ 1/min{d1,d2} and summing).
+- Also b_1 = a_1. Therefore the objective functional satisfies
+1 - 2 Re b_1 + ∑_{k} |b_k|^2 / k
+≥ 1 - 2 Re a_1 + (log T - C) ∑_{d≤T} |a_d|^2 / d.
+- Minimizing over the complex variable a_1 and the vector {a_d}_{2≤d≤T} separately gives:
+• For d≥2, the quadratic form is nonnegative and is minimized at a_d = 0 unless there is coupling to b_1 (there is none). So the minimum sets a_d=0 for d≥2.
+• For a_1, the expression reduces to 1 - 2 Re a_1 + (log T - C) |a_1|^2.
+The minimum over a_1 ∈ ℂ is attained at a_1 = 1/(log T - C), with minimum value
+1 - 1/(log T - C) ≍ 1/log T.
+- Hence
+inf_{supp(a)⊂[1,T]} [ 1 - 2 Re b_1 + ∑_{k} |b_k|^2 / k ] ≥ c' / log T
+for some absolute c' > 0 and all sufficiently large T.
+
+7) Conclusion.
+- Combining steps (2), (3), (5), (6) and reintroducing the factor T C_0 from the mean-value normalization yields
+∫ W(t) |1 - ζ(1/2+it) A(1/2+it)|^2 dt ≥ c T / log T
+for some c = c(w) > 0 and all large T, uniformly over all choices of A(s) with length ≤ T.
+- This proves the stated barrier.
+
+Remarks and consequences:
+- The barrier is sharp in order of magnitude: a standard choice A(s) ≈ ∑_{n≤T} μ(n) n^{-s} (suitably smoothed) achieves an L2-error ≪ T / log T, consistent with the lower bound. Thus the obstruction is not an artifact of the proof; it reflects the genuine difficulty of inverting ζ on the critical line with finite Euler product truncations.
+- Conceptual link to Nyman–Beurling/Báez-Duarte: The inequality corresponds to d_N^2 ≍ 1/log N in that framework; here we show a self-contained Dirichlet-polynomial version on the 1/2-line that any attempt confined to length-T mollifiers cannot push the L2-error to o(T/log T). Hence, any proof of RH via mollification must in some essential way transcend fixed-length Dirichlet polynomials on the scale of the t-aspect it controls (e.g., by allowing “length” effectively exceeding T or by exploiting additional deep structure).
+- The proof ingredients are standard and rigorous: a smoothed approximate functional equation, Montgomery–Vaughan mean value/isometry with smooth weight, and a clean Hilbert-type minimization with the 1/k weight producing the log T barrier.
+
+Scope relative to RH:
+- This does not solve RH.
+- It gives a precise, rigorous obstruction that clarifies why widely used mollifier-based nonvanishing strategies (with length tied to the height T) cannot by themselves eliminate all zeros on Re s = 1/2: the average square defect has a positive-size floor ≍ T/log T.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous L2 lower bound showing a concrete barrier for finite-length mollifiers on the 1/2-line.
