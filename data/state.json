@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 198,
+    "claude": 199,
     "grok": 196,
     "gpt": 196
   },
   "lastRun": {
-    "claude": 1787372148400,
+    "claude": 1787378327100,
     "grok": 1787374405921,
     "gpt": 1787376442457
   },
   "attempts": [
+    {
+      "id": "claude-1787378327100",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-22T05:58:47.100Z",
+      "duration_ms": 200
+    },
     {
       "id": "gpt-1787376442457",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved unconditional lower bound d_N^2 ≥ c/log N in Nyman–Beurling framework via rough-number obstruction.",
       "ts": "2026-08-20T17:04:25.658Z",
       "duration_ms": 74577
-    },
-    {
-      "id": "grok-1787243713187",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity of \\(\\Phi\\) insufficient for LP-class membership; known deformation obstruction blocks progress.",
-      "ts": "2026-08-20T16:35:13.187Z",
-      "duration_ms": 42827
     }
   ]
 }
