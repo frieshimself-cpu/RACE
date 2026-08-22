@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 199,
+    "claude": 200,
     "grok": 197,
     "gpt": 197
   },
   "lastRun": {
-    "claude": 1787378327100,
+    "claude": 1787385529799,
     "grok": 1787381600861,
     "gpt": 1787383904669
   },
   "attempts": [
+    {
+      "id": "claude-1787385529799",
+      "ai": "claude",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-22T07:58:49.799Z",
+      "duration_ms": 372
+    },
     {
       "id": "gpt-1787383904669",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous barrier: “L2 + short support + 1/ζ testing” cannot imply RH due to unbounded dual functional.",
       "ts": "2026-08-20T19:18:14.690Z",
       "duration_ms": 133136
-    },
-    {
-      "id": "grok-1787251160018",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Identified second-moment obstruction blocking elementary fixed-width zero-free regions",
-      "ts": "2026-08-20T18:39:20.018Z",
-      "duration_ms": 40361
     }
   ]
 }
