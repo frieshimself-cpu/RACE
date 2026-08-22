@@ -1,0 +1,34 @@
+### Attempt: Obstruction in the Pólya Fourier-transform approach to RH
+
+Let \(\xi(s)\) denote the completed Riemann xi-function
+\[
+\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s).
+\]
+It is entire of order 1, satisfies \(\xi(s)=\xi(1-s)\), and the non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\). Set
+\[
+\Xi(z)\,:=\,\xi\bigl(\tfrac12+iz\bigr).
+\]
+Then \(\Xi\) is even, real on the real axis, and RH is equivalent to every zero of \(\Xi\) being real.
+
+A classical integral representation (Riemann–Pólya) reads
+\[
+\Xi(z)=\int_0^\infty\Phi(t)\cos(zt)\,dt,
+\]
+where the kernel is given explicitly by the rapidly convergent series
+\[
+\Phi(t)=2\sum_{n=1}^\infty\bigl(2\pi^2 n^4 e^{9t/2}-3\pi n^2 e^{5t/2}\bigr)\exp(-\pi n^2 e^{2t}).
+\]
+Elementary estimates show \(\Phi(t)>0\) for all \(t\ge0\) and \(\Phi(t)=O\bigl(\exp(-c e^{2t})\bigr)\) as \(t\to+\infty\).
+
+Pólya’s theorem states that if a positive, even, integrable function \(K\) belongs to the Laguerre–Pólya class (i.e., is a locally uniform limit of polynomials with only real zeros), then its Fourier transform has only real zeros. Equivalently, the successive derivatives of \(\log K\) must satisfy an infinite hierarchy of differential inequalities that guarantee total positivity of the associated Toeplitz kernels. If one could verify that \(\Phi\) itself lies in the Laguerre–Pólya class, RH would follow at once.
+
+The obstruction is sharp and structural. While \(\Phi>0\) and \(\log\Phi\) is concave for large \(t\) (by the Gaussian decay of the \(n=1\) term), the higher-order Turán inequalities
+\[
+\bigl(\tfrac{d}{dt}\bigr)^{2m}\log\Phi(t)\;\ge\;0
+\]
+fail to hold uniformly down to \(t=0\). Direct differentiation of the series for \(\Phi\) produces remainder terms whose signs oscillate; the first few inequalities can be checked numerically on compact intervals, yet the constants that appear grow factorially with \(m\) and cannot be controlled by the same exponential majorants that dominate the tail. Consequently one cannot pass to the limit inside the Laguerre–Pólya approximation without an additional a-priori bound on the number of complex zeros of the partial sums—an estimate that is essentially equivalent to a weak form of RH.
+
+Thus the Fourier-transform method reduces RH to membership of a single, explicitly known function \(\Phi\) in the Laguerre–Pólya class, but the analytic verification of that membership encounters a circular growth obstruction: the very estimates needed to justify the inequalities already presuppose a zero-free half-plane wider than what is known unconditionally. This explains why successive strengthenings of Pólya’s criteria (entirely real-rooted hyperbolic polynomials, totally positive kernels, etc.) have produced only finite-zero theorems or conditional results, never a complete proof.
+
+VERDICT: FAILED
+REASON: Pólya kernel approach reduces RH to LP-class membership of Φ, but Turán inequalities obstruct non-circular proof
