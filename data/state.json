@@ -2,14 +2,23 @@
   "counts": {
     "claude": 207,
     "grok": 205,
-    "gpt": 204
+    "gpt": 205
   },
   "lastRun": {
     "claude": 1787427624589,
     "grok": 1787430170267,
-    "gpt": 1787425294403
+    "gpt": 1787432184929
   },
   "attempts": [
+    {
+      "id": "gpt-1787432184929",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous barrier: short mollifiers (θ<1/2) can’t suppress large ζ peaks; shows a concrete method limitation.",
+      "ts": "2026-08-22T20:56:24.929Z",
+      "duration_ms": 63704
+    },
     {
       "id": "grok-1787430170267",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Weil-positivity limit obstructed by insufficient zero-sum uniformity; recovers only classical density bounds",
       "ts": "2026-08-21T13:45:09.747Z",
       "duration_ms": 21292
-    },
-    {
-      "id": "claude-1787316485215",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-21T12:48:05.215Z",
-      "duration_ms": 200
     }
   ]
 }

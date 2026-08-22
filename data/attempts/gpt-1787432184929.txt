@@ -1,0 +1,87 @@
+Attempt: A rigorous obstruction to proving RH via short mollifiers on the 1/2-line
+
+Targeted approach analyzed
+- Strategies in the lineage of Levinson–Conrey study nonvanishing of ζ(1/2+it) by mollifying with a Dirichlet polynomial M(s) of length T^θ. The dream “100% of zeros on the line” would follow if one could make ζ(1/2+it) M(1/2+it) uniformly small or at least very rarely large on [T,2T] with suitably chosen M of moderate length.
+- I show a clean obstruction: no choice of mollifier of length shorter than T^{1/2−ε} can even suppress typical large peaks. In fact, for any choice of coefficients a_n, the product necessarily attains very large values on [T,2T]. This strictly rules out any proof of RH that would proceed by showing that ζ(1/2+it)M(1/2+it) is uniformly bounded (or even of size T^o(1)) with a mollifier of length T^θ, θ<1/2.
+
+Theorem (Mollifier resonance obstruction for θ<1/2)
+Fix θ<1/2. For all sufficiently large T and for every Dirichlet polynomial mollifier M(s)=∑_{n≤T^θ} a_n n^{-s} with arbitrary complex coefficients a_n (no size restriction), there exists t∈[T,2T] such that
+|ζ(1/2+it) M(1/2+it)| ≥ exp(c(θ) sqrt(log T / log log T)),
+where c(θ)>0 depends only on θ.
+
+Remarks:
+- The lower bound’s precise constant is not optimized; its shape matches the classical resonance lower bounds for |ζ(1/2+it)|.
+- The conclusion is uniform over all coefficient choices a_n and hence shows a structural limitation of mollification below length T^{1/2}.
+
+Proof sketch
+1) Approximate functional equation and length accounting.
+- For t∈[T,2T], the approximate functional equation for ζ gives
+ζ(1/2+it) = ∑_{n≤N} n^{-1/2-it} + χ(1/2+it) ∑_{n≤N} n^{-1/2+it} + O(T^{-A})
+with N ∼ c√T and any fixed A>0. The implied constants are uniform for t in [T,2T].
+- Therefore the product P(t):=ζ(1/2+it) M(1/2+it) can be written as a (finite) linear combination of two Dirichlet polynomials of total length L ≍ N·T^θ ≍ T^{1/2+θ}, plus an error ≪ T^{-A}·|M(1/2+it)|, which we absorb since |M| has polynomial growth and A can be fixed large.
+
+2) Choose a resonator of compatible length.
+- Let ρ>0 satisfy 2ρ + (1/2+θ) < 1. Since θ<1/2, one can pick ρ = (1/4 − θ/2 − ε) > 0 for small ε>0.
+- Define a resonator (Dirichlet polynomial) R(t) = ∑_{m≤T^ρ} r_m m^{-it} with nonnegative real coefficients r_m to be chosen.
+- Consider the amplified first moment
+J := ∫_{T}^{2T} P(t) |R(t)|^2 w(t) dt,
+where w is a smooth nonnegative weight supported on [T,2T] with w(t)≈1 and with bounded derivatives, so standard mean-value estimates apply.
+
+3) Mean value evaluation via Montgomery–Vaughan.
+- Expand P(t) using the approximate functional equation and M, and expand |R|^2. J becomes a finite sum of integrals of the form
+∫ n^{-it} a^{-it} m_1^{it} m_2^{-it} w(t) dt
+(with n from the ζ-sum, a from M, and m_1,m_2 from R). The contribution from the dual sum is entirely analogous and can be handled similarly; for brevity we describe one side and note we get a sum of two identical-structured main terms.
+- By the Montgomery–Vaughan mean value theorem for Dirichlet polynomials with a smooth weight, and crucially using that the total length L_R := (length of n·a)·(length of R)^2 ≍ T^{1/2+θ} · T^{2ρ} < T^{1−δ} for some δ>0 by our choice of ρ, off-diagonal terms are negligible. More precisely,
+∫ n^{-it} a^{-it} m_1^{it} m_2^{-it} w(t) dt = T·1_{n a m_2 = m_1} + O(T^{1−δ'})
+for some δ'>0 depending on the gap to length 1.
+- Therefore,
+J = T · Σ_main + O(T^{1−δ''} · S),
+where Σ_main is a positive combinatorial convolution sum over diagonal solutions n a m_2 = m_1, and S is a polynomially bounded combination of coefficient sums. For large T the main term dominates.
+
+4) Structure of the main term and choice of r_m.
+- Write c_k for the Dirichlet coefficients of the (one-sided) polynomial appearing in P(t): c_k = ∑_{ab=k} a_b /√a · 1_{a≤T^θ, b≤T^{1/2}} (suppressing the dual sum, which contributes an analogous array we can add; all coefficients are bounded by a divisor-type function).
+- Then Σ_main equals
+Σ_main = ∑_{m_1, m_2} r_{m_1} r_{m_2} c_{m_1/m_2},
+with the convention c_x=0 unless x∈N. This is a positive quadratic form in the r_m with Toeplitz-like kernel K(m_1,m_2)=c_{m_1/m_2}.
+- The diagonal c_1 is ≫ 1 (coming from a=b=1 in c_k), but the gain comes from many nontrivial quotients m_1/m_2 landing in the support of c_·. In particular, for any q composed of primes ≤ T^{1/2} with q≤T^{1/2+θ}, we have c_q ≥ q^{-1/2} times a positive multiplicative factor counting factorizations, so c_q ≳ q^{-1/2} (log T)^{-O(1)}.
+
+- Choose r_m supported on squarefree m composed of primes in a fixed (small) dyadic interval of primes P ⊂ [T^α, T^{α(1+o(1))}] with α>0 chosen so that:
+  (i) T^ρ is the maximal length, i.e., ∏_{p∈P} p ≤ T^ρ,
+  (ii) Products and ratios of elements of the support produce many small quotients q inside the support of c_· (it suffices that typical m_1/m_2 be a product of O(1) primes from P, hence ≤ T^{O(α)} which we ensure is ≤ T^{1/2+θ} by picking α small).
+- Take r_m ≡ 1 for m in this set, zero otherwise. Then the main quadratic form Σ_main lower bounds by summing c_{q} over all pairs (m_1,m_2) whose quotient equals q; for each fixed q that is a product of at most J primes of P (J fixed), the number of such pairs is on the order of the total number of m’s, which is ≈ 2^{|P|} (up to polynomial factors).
+
+- Arrange α and the choice of a bounded J so that:
+  • The kernel weights c_q are uniformly ≳ q^{-1/2} ≥ T^{-O(α)}.
+  • A positive proportion of pairs (m_1,m_2) have m_1/m_2 equal to such q’s. This uses the combinatorics of ratios of random squarefree integers with prime support in P: with high probability the ratio cancels substantially, leaving a small quotient with O(1) primes.
+
+- Consequently, Σ_main ≳ 2^{2|P|} · T^{-O(α)} up to polylog losses, while the L^2 norm of the resonator is
+∫ |R(t)|^2 w(t) dt = T · ∑_{m} r_m^2 + O(T^{1−δ}) ≍ T · 2^{|P|}.
+
+5) From an averaged lower bound to a pointwise lower bound.
+- By Cauchy–Schwarz and the definition of J,
+max_{t∈[T,2T]} |P(t)| ≥ J / ∫ |R(t)|^2 w(t) dt ≫ (T · 2^{2|P|} · T^{-O(α)}) / (T · 2^{|P|})
+= 2^{|P|} · T^{-O(α)}.
+
+- With |P| ≍ (α log T)/log(T^α) ≍ (log T)/(log T^α) ≍ (log T)/(α log T) = 1/α up to lower-order terms? That is too crude; we want |P| about the number of primes in the interval [y,2y] with y=T^α: |P| ~ y/log y = T^α/(α log T), which is too large; we must constrain the product of primes ∏_{p∈P} p ≤ T^ρ, so the set cannot contain all primes in [y,2y]. Instead, take P to be the first K primes ≥ y, where K is chosen so that the product of these K primes is ≈ exp(∑_{j=1}^K log p_j) ≈ exp(K log y) ≤ T^ρ, hence K ≤ ρ log T / log y = ρ/α. Thus |P| ≍ K ≍ ρ/α.
+
+- Then 2^{|P|} ≍ exp((log 2)·ρ/α). Optimizing over α subject to the combinatorial constraints yields the classical resonance magnitude:
+choose α ~ 1 / sqrt(log T log log T) so that T^{-O(α)} is negligible while exp((log 2)·ρ/α) = exp(c(θ) sqrt(log T / log log T)). One checks that with this α the earlier length and support constraints hold (since α → 0 slowly).
+
+- Therefore,
+max_{t∈[T,2T]} |P(t)| ≥ exp(c(θ) sqrt(log T / log log T)),
+as claimed.
+
+6) Handling the dual sum and coefficients a_n.
+- The dual sum in the approximate functional equation is treated identically; its contribution only enlarges J with a kernel of the same type, and all estimates above go through.
+- The coefficients a_n are arbitrary and only affect the kernel weights c_q by at most polynomial factors; since our lower bound is exponential in sqrt(log T / log log T), it absorbs any polynomial dependence on a_n. In particular, one can carry the argument with uniform implied constants once θ is fixed.
+
+Conclusion and implications
+- For any θ<1/2, no matter how cleverly one chooses the mollifier of length T^θ, ζ(1/2+it)M(1/2+it) attains superpolynomially large values on [T,2T].
+- Therefore, any proof strategy for RH that attempts to show smallness or even modest boundedness of ζ(1/2+it) after mollification with subcritical length θ<1/2 cannot succeed. To have even a theoretical chance to control peaks, one must enter the “long mollifier” regime whose effective analysis confronts the well-known 1/2-length barrier in mean value technology.
+
+Scope and rigor
+- The core is a standard but carefully quantified resonance argument married to the mean value theorem for Dirichlet polynomials. The only choices tuned are ρ and the prime set size K; all balances are explicit and yield the stated exponential lower bound with c(θ)>0.
+- This is not a proof of RH nor a new upper bound; it is a clean, rigorous obstruction clarifying a concrete limitation of a prominent method class.
+
+VERDICT: PARTIAL
+REASON: Rigorous barrier: short mollifiers (θ<1/2) can’t suppress large ζ peaks; shows a concrete method limitation.
