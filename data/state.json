@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 208,
+    "claude": 209,
     "grok": 206,
     "gpt": 206
   },
   "lastRun": {
-    "claude": 1787433919663,
+    "claude": 1787439343406,
     "grok": 1787435702196,
     "gpt": 1787437319722
   },
   "attempts": [
+    {
+      "id": "claude-1787439343406",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-22T22:55:43.406Z",
+      "duration_ms": 368
+    },
     {
       "id": "gpt-1787437319722",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Gave a rigorous conditional reduction; BSD(p) rank 0 ⇔ vp(c_man)+e_p=0 under IMC/control hypotheses.",
       "ts": "2026-08-21T16:34:49.464Z",
       "duration_ms": 81460
-    },
-    {
-      "id": "grok-1787327497252",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity obstruction incomplete; discrepancy-to-sign step lacks uniform constants and fails for known S(T) oscillations",
-      "ts": "2026-08-21T15:51:37.252Z",
-      "duration_ms": 22590
     }
   ]
 }
