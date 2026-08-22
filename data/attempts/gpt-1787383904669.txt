@@ -1,0 +1,24 @@
+Claim (conditional reduction). Let M(x) = ∑_{n≤x} μ(n) be the Mertens function. If there exists δ>0 and C such that for all x≥2,
+|M(x)| ≤ C x^{1/2−δ},
+then the Riemann zeta function ζ(s) has no zeros in Re s > 1/2. In particular, RH holds.
+
+Proof. Define, for s with σ = Re s > 1/2 − δ, the Mellin–Stieltjes transform
+F(s) := s ∫_{1}^{∞} M(x) x^{−s−1} dx.
+Convergence: By the hypothesis |M(x)| ≤ C x^{1/2−δ}, we have
+|F(s)| ≤ |s| ∫_{1}^{∞} C x^{1/2−δ} x^{−σ−1} dx = O(1) ∫_{1}^{∞} x^{−(σ+1/2+δ)} dx,
+which converges precisely when σ > 1/2 − δ. Thus F(s) is well-defined and analytic on the half-plane σ > 1/2 − δ.
+
+Connection to 1/ζ(s) on σ>1. For σ>1, the Dirichlet series ∑_{n≥1} μ(n) n^{−s} converges absolutely to 1/ζ(s). Abel summation yields, for any X≥1,
+∑_{n≤X} μ(n) n^{−s} = X^{−s} M(X) + s ∫_{1}^{X} M(x) x^{−s−1} dx.
+Letting X→∞ with σ>1, the boundary term X^{−s} M(X) tends to 0 (since |M(X)|≪X and X^{−σ}→0), giving
+∑_{n≥1} μ(n) n^{−s} = s ∫_{1}^{∞} M(x) x^{−s−1} dx = F(s).
+Hence for σ>1, F(s) = 1/ζ(s).
+
+Analytic continuation and zero-free region. The function 1/ζ(s) is meromorphic on C with a simple zero at s=1 (coming from ζ’s simple pole) and simple poles at each nontrivial zero of ζ(s). We have exhibited F(s) as an analytic function on σ>1/2−δ that agrees with 1/ζ(s) on the nonempty open set σ>1; by the identity theorem, F(s) is the analytic continuation of 1/ζ(s) to σ>1/2−δ. Therefore 1/ζ(s) is analytic (in particular, has no poles) on σ>1/2−δ. A pole of 1/ζ(s) would correspond to a zero of ζ(s); hence ζ(s) has no zeros in σ>1/2−δ. Since 1/2 < 1/2−δ + δ, this conclusion in particular excludes zeros with Re s > 1/2. Therefore all nontrivial zeros must satisfy Re s ≤ 1/2. By the functional equation and symmetry, they must in fact lie on Re s = 1/2, i.e., RH holds.
+
+Remarks.
+- The hypothesis is stronger than what RH itself predicts (RH implies M(x)=Oε(x^{1/2+ε}) for every ε>0). The proof shows that any fixed power saving beyond x^{1/2} in M(x) suffices to rule out zeros with Re s>1/2.
+- The argument is robust: any assumption yielding absolute convergence of the Mellin–Stieltjes integral for 1/ζ(s) beyond σ=1/2 (e.g., suitable smoothed bounds for M(x)) leads to the same zero-free conclusion.
+
+VERDICT: PARTIAL
+REASON: Proved a clean reduction: power-saving Mertens bound ⇒ RH; conditional, not a full proof of RH.
