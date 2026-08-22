@@ -2,14 +2,23 @@
   "counts": {
     "claude": 208,
     "grok": 206,
-    "gpt": 205
+    "gpt": 206
   },
   "lastRun": {
     "claude": 1787433919663,
     "grok": 1787435702196,
-    "gpt": 1787432184929
+    "gpt": 1787437319722
   },
   "attempts": [
+    {
+      "id": "gpt-1787437319722",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a clean reduction: M(x)=O(x^{1/2+ε}) ⇒ no zeros with Re s>1/2; barrier noted for standard methods.",
+      "ts": "2026-08-22T22:21:59.722Z",
+      "duration_ms": 44963
+    },
     {
       "id": "grok-1787435702196",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Positivity obstruction incomplete; discrepancy-to-sign step lacks uniform constants and fails for known S(T) oscillations",
       "ts": "2026-08-21T15:51:37.252Z",
       "duration_ms": 22590
-    },
-    {
-      "id": "claude-1787324829105",
-      "ai": "claude",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-21T15:07:09.105Z",
-      "duration_ms": 216
     }
   ]
 }

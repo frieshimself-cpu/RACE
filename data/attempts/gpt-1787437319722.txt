@@ -1,0 +1,41 @@
+Attempt: A rigorous reduction: Mertens-type bound implies zero-free half-plane
+
+Goal
+Prove the implication: If M(x) = ∑_{n≤x} μ(n) = O(x^{1/2+ε}) for every ε>0, then ζ(s) has no zeros with Re s > 1/2. This is a clean, unconditional reduction: a concrete partial result because it identifies a sharp, checkable criterion on M(x) that is sufficient for RH.
+
+Lemma
+Assume that for every ε>0 there exists C_ε such that |M(x)| ≤ C_ε x^{1/2+ε} for all x ≥ 1. Then 1/ζ(s) has a holomorphic continuation to the half-plane Re s > 1/2. Consequently, ζ(s) has no zeros in Re s > 1/2.
+
+Proof
+- Start from the identity for Re s > 1:
+  1/ζ(s) = ∑_{n=1}^∞ μ(n) n^{-s}.
+
+- Use summation by parts (Stieltjes integration). Let σ = Re s and write
+  ∑_{n=1}^∞ μ(n) n^{-s} = s ∫_{1}^{∞} M(x) x^{-s-1} dx,
+  which is valid whenever the integral converges absolutely and defines an analytic function (this can be derived by partial summation on the Dirichlet series or by interpreting the Dirichlet series as a Stieltjes integral against dM(x)).
+
+- Estimate the integral using the hypothesis. Fix any σ0 > 1/2. Choose ε with 0 < ε < σ0 − 1/2. For s with Re s = σ ≥ σ0 we have
+  |s ∫_{1}^{∞} M(x) x^{-s-1} dx|
+  ≤ |s| ∫_{1}^{∞} |M(x)| x^{-σ-1} dx
+  ≤ |s| C_ε ∫_{1}^{∞} x^{1/2+ε} x^{-σ-1} dx
+  = |s| C_ε ∫_{1}^{∞} x^{-(σ - 1/2 - ε) - 1} dx.
+
+  The integral converges uniformly on vertical strips σ ≥ σ0 because σ − 1/2 − ε > 0 by our choice of ε. Hence the integral defines a holomorphic function of s on σ > 1/2 (by Morera plus uniform convergence on compacta, or by dominated convergence applied to the integrand which is holomorphic in s).
+
+- Therefore F(s) := s ∫_{1}^{∞} M(x) x^{-s-1} dx is analytic for Re s > 1/2 and coincides with ∑ μ(n) n^{-s} on Re s > 1, so F(s) is a holomorphic continuation of 1/ζ(s) to Re s > 1/2.
+
+- If ζ(s0) = 0 with Re s0 > 1/2, then 1/ζ(s) would have a pole at s0. But F is holomorphic there. Contradiction. Therefore ζ has no zeros with Re s > 1/2.
+
+This proves the lemma and the stated implication.
+
+Remarks and consequences
+- This gives a precise reduction: to prove RH it suffices to prove the bound M(x) = O(x^{1/2+ε}) for every ε>0. This is known to be equivalent to RH in the opposite direction as well (under RH one can show M(x) = O(x^{1/2+ε})), but that direction is not re-proved here.
+
+- The proof isolates the mechanism: a sufficiently strong oscillation bound on M(x) forces the analyticity of the Dirichlet series for 1/ζ(s) past Re s = 1/2, precluding zeros of ζ there.
+
+- Barrier analysis (why a standard approach fails): Using only the classical zero-free region Re s ≥ 1 − c/log(|t|+3) and standard contour methods on Perron integrals yields, at best, bounds of the shape
+  M(x) ≪ x exp(−C sqrt(log x)),
+  far weaker than x^{1/2+ε}. Thus conventional zero-free regions are intrinsically insufficient to reach the lemma’s hypothesis; any attack along these lines must introduce qualitatively stronger inputs (e.g., density theorems at the 1/2-line scale or cancellation mechanisms of different nature).
+
+VERDICT: PARTIAL
+REASON: Proved a clean reduction: M(x)=O(x^{1/2+ε}) ⇒ no zeros with Re s>1/2; barrier noted for standard methods.
