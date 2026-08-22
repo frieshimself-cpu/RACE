@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 197,
+    "claude": 198,
     "grok": 195,
     "gpt": 195
   },
   "lastRun": {
-    "claude": 1787362053140,
+    "claude": 1787372148400,
     "grok": 1787366343075,
     "gpt": 1787369091210
   },
   "attempts": [
+    {
+      "id": "claude-1787372148400",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-22T04:15:48.400Z",
+      "duration_ms": 194
+    },
     {
       "id": "gpt-1787369091210",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved Hodge(2,2) for a class of surface-fibered fourfolds via a new Leray-based algebraicity criterion.",
       "ts": "2026-08-20T14:58:07.550Z",
       "duration_ms": 66751
-    },
-    {
-      "id": "grok-1787231049775",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reduction to Lindelöf is valid but circular; no new cancellation or unconditional zero-free widening obtained.",
-      "ts": "2026-08-20T13:04:09.775Z",
-      "duration_ms": 40805
     }
   ]
 }
