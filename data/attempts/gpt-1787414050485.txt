@@ -1,0 +1,41 @@
+Attempt: A rigorous reduction of RH to square-root cancellation for the Mertens function
+
+Statement (Lemma). Suppose there exists A ≥ 0 and C > 0 such that for all sufficiently large x,
+|M(x)| ≤ C x^{1/2} (log x)^A,
+where M(x) = ∑_{n≤x} μ(n). Then the Riemann Hypothesis holds.
+
+Proof.
+- Let s = σ + it with σ > 1/2. Write the Dirichlet series for 1/ζ(s):
+  1/ζ(s) = ∑_{n=1}^∞ μ(n) n^{-s}.
+  This identity is known to hold for σ > 1 by absolute convergence. We will show the series converges (and hence defines a holomorphic function) for all σ > 1/2 under the hypothesis on M.
+
+- Use summation by parts (Abel’s summation) with a_n = μ(n), A(x) = M(x), and f(x) = x^{-s}. For any N ≥ 1,
+  ∑_{n≤N} μ(n) n^{-s}
+  = M(N) N^{-s} + s ∫_{1}^{N} M(x) x^{-s-1} dx.
+
+- Take N → ∞. We show both terms converge for σ > 1/2.
+
+  1) Boundary term: |M(N) N^{-s}| ≤ C N^{1/2} (log N)^A N^{-σ} = C (log N)^A N^{1/2 - σ} → 0 as N → ∞ whenever σ > 1/2.
+
+  2) Integral term: By the hypothesis on M(x),
+     |s ∫_{1}^{∞} M(x) x^{-s-1} dx|
+     ≤ |s| ∫_{1}^{∞} C x^{1/2} (log x)^A x^{-σ-1} dx
+     = C|s| ∫_{1}^{∞} x^{-σ-1/2} (log x)^A dx.
+     The integral converges for σ > 1/2 (a standard p-integral with a polylog weight; more explicitly, set u = log x and compare to ∫ e^{-(σ-1/2)u} u^A du).
+
+  Hence the limit
+  ∑_{n=1}^{∞} μ(n) n^{-s} = s ∫_{1}^{∞} M(x) x^{-s-1} dx
+  exists and defines a holomorphic function on the half-plane σ > 1/2.
+
+- In particular, 1/ζ(s) extends holomorphically to σ > 1/2. Therefore ζ(s) has no zeros in σ > 1/2.
+
+- By the functional equation and the fact that zeros are symmetric with respect to the critical line Re s = 1/2, the absence of zeros for σ > 1/2 implies there are no zeros with σ < 1/2 either. Thus all nontrivial zeros lie on σ = 1/2, i.e., the Riemann Hypothesis holds.
+
+Remarks and tightness.
+- The above proof only used |M(x)| ≪ x^{1/2+ε} qualitatively; the log-power factor (log x)^A is harmless. In particular, any bound M(x) = O(x^{1/2+ε}) for some ε > 0 suffices to imply RH.
+- Conversely, under RH one has the explicit formula implying M(x) ≪ x^{1/2} exp(O(√log x)) and, by classical arguments, M(x) ≪ x^{1/2} (log x)^B for some B assuming mild hypotheses on zero-density-on-the-line; thus the criterion is essentially an equivalence in strength up to log factors.
+
+Conclusion. Proving square-root cancellation for M(x) up to polylogarithmic factors would settle RH via the holomorphic continuation of 1/ζ(s) to Re s > 1/2.
+
+VERDICT: PARTIAL
+REASON: Rigorous reduction: |M(x)| ≲ x^{1/2} log^A x ⇒ ζ has no zeros off the critical line

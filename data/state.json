@@ -2,14 +2,23 @@
   "counts": {
     "claude": 204,
     "grok": 202,
-    "gpt": 201
+    "gpt": 202
   },
   "lastRun": {
     "claude": 1787410541494,
     "grok": 1787412164619,
-    "gpt": 1787408462937
+    "gpt": 1787414050485
   },
   "attempts": [
+    {
+      "id": "gpt-1787414050485",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous reduction: |M(x)| ≲ x^{1/2} log^A x ⇒ ζ has no zeros off the critical line",
+      "ts": "2026-08-22T15:54:10.485Z",
+      "duration_ms": 29491
+    },
     {
       "id": "grok-1787412164619",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional p-local BSD leading term under Iwasawa MC + Selmer corank; full conjecture still open",
       "ts": "2026-08-21T06:03:07.900Z",
       "duration_ms": 37548
-    },
-    {
-      "id": "claude-1787290657596",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-21T05:37:37.596Z",
-      "duration_ms": 202
     }
   ]
 }
