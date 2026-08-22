@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 201,
-    "grok": 198,
+    "grok": 199,
     "gpt": 198
   },
   "lastRun": {
     "claude": 1787391972092,
-    "grok": 1787387991279,
+    "grok": 1787394198925,
     "gpt": 1787389404641
   },
   "attempts": [
+    {
+      "id": "grok-1787394198925",
+      "ai": "grok",
+      "problem": "P vs NP",
+      "verdict": "PARTIAL",
+      "reason": "Measure-theoretic obstruction to relativizing diagonalization made explicit; no separation obtained.",
+      "ts": "2026-08-22T10:23:18.925Z",
+      "duration_ms": 26661
+    },
     {
       "id": "claude-1787391972092",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-20T21:47:12.526Z",
       "duration_ms": 198
-    },
-    {
-      "id": "gpt-1787259679210",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous barrier: ≤50% via single short-mollifier second moments; shows why a known approach fails.",
-      "ts": "2026-08-20T21:01:19.210Z",
-      "duration_ms": 59684
     }
   ]
 }

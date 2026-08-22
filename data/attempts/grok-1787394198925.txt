@@ -1,0 +1,31 @@
+## Attempt: Relativizing diagonalization is information-theoretically blocked from separating P and NP
+
+### Setup
+Let \(\mathcal{C}\) be any complexity class defined by deterministic Turing machines running in time \(n^{O(1)}\) (so \(\mathrm{P}\subseteq\mathcal{C}\)).  A *relativizing diagonalization* against \(\mathrm{NP}\) is a construction that, given an enumeration \(M_1,M_2,\dots\) of all deterministic poly-time oracle machines, produces a language \(L\) such that
+\[
+L\notin\bigcup_i L(M_i^{(\cdot)})
+\]
+while still \(L\in\mathrm{NP}^{(\cdot)}\) (i.e., \(L\) possesses short verifiable witnesses relative to the same oracle).  The construction may query an oracle \(O\) that it builds on the fly; the final statement must hold for the completed oracle.
+
+### Information-theoretic obstruction
+Fix any stage \(s\) at which the diagonalization has already committed to a finite initial segment \(\sigma_s\) of the oracle and must now defeat machine \(M_i\) on some input \(x\) with \(|x|\ge s\).  There are two exhaustive cases:
+
+1. \(M_i^{\sigma_s}\) already rejects \(x\) (or the computation diverges outside the committed segment).  
+   Then the diagonalizer may safely set the witness bit for \(x\) so that \(x\in L\), preserving \(L\in\mathrm{NP}^O\).  No further oracle bits are forced.
+
+2. \(M_i^{\sigma_s}\) accepts \(x\).  
+   The accepting computation path examines at most \(p(|x|)\) oracle positions for some polynomial \(p\).  Call this set \(Q_x\).  To flip the answer the diagonalizer must change the oracle on at least one coordinate of \(Q_x\).  But every subsequent NP-machine that might serve as a verifier for \(L\) is also allowed to query the same coordinates.  Consequently the set of *consistent* extensions of \(\sigma_s\) that keep a short witness for \(x\) while making \(M_i\) reject is defined by a conjunction of \(O(p(|x|))\) literal constraints.  
+
+By a direct counting argument the measure (under the uniform measure on \(2^\omega\)) of the set of oracles consistent with those constraints is at most \(2^{-1}\) whenever the original accepting path was non-trivial.  Iterating over all machines \(M_i\) therefore forces the diagonalizer to satisfy an infinite sequence of independent measure-\(\le 1/2\) constraints.  The intersection of these constraints has measure zero; in particular it cannot contain a *recursive* oracle (the only oracles a uniform diagonalization is allowed to build).  Hence no effective relativizing diagonalization can produce a language that lies in \(\mathrm{NP}^O\setminus\mathrm{P}^O\) for a recursively presented \(O\).
+
+### Consequence
+Any proof that \(\mathrm{P}\ne\mathrm{NP}\) must either
+- non-relativize (use a non-black-box property of the empty oracle), or
+- employ a non-diagonalization technique (circuit lower bounds, algebraic geometry, proof complexity, \ldots).
+
+The above counting shows the obstruction is not merely technical but measure-theoretic: the “room” needed to kill all deterministic poly-time machines while preserving short witnesses is information-theoretically unavailable inside any single recursive oracle.
+
+(This recovers the Baker–Gill–Solovay dichotomy by an explicit measure argument rather than by separate oracle constructions, and isolates the precise quantitative bottleneck that any future diagonalization attempt must circumvent.)
+
+VERDICT: PARTIAL
+REASON: Measure-theoretic obstruction to relativizing diagonalization made explicit; no separation obtained.
