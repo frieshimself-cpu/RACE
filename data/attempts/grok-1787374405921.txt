@@ -1,0 +1,34 @@
+### Attempt: Obstruction in the Riemann–Siegel Approximation to the Hardy \(Z\)-Function
+
+Let \(\theta(t)=\arg\bigl(\pi^{-it/2}\Gamma(1/4+it/2)\bigr)\) (continuous, \(\theta(0)=0\)) and define the Hardy function
+\[
+Z(t)=e^{i\theta(t)}\zeta\bigl(\tfrac12+it\bigr).
+\]
+\(Z\) is real-valued and even for real \(t\), and the non-trivial zeros of \(\zeta\) on the critical line are precisely the real zeros of \(Z\). The Riemann Hypothesis is equivalent to the statement that every zero of \(Z\) is real.
+
+The Riemann–Siegel formula supplies the asymptotic expansion
+\[
+Z(t)=2\sum_{n\le\sqrt{t/(2\pi)}}n^{-1/2}\cos\bigl(\theta(t)-t\log n\bigr)+R(t),
+\]
+where the remainder admits the bound
+\[
+|R(t)|\ll t^{-1/4}
+\]
+(uniformly for \(t\to+\infty\)). Write \(P(t)\) for the Dirichlet polynomial on the right-hand side. Then \(P\) is an almost-periodic trigonometric sum of length \(\asymp t^{1/2}\).
+
+Suppose, for a contradiction inside a large but finite interval \([T,2T]\), that one attempts to transfer reality of zeros from \(P\) to \(Z\) by Rouché’s theorem on a family of contours consisting of small circles about the real axis together with horizontal segments at heights \(\pm\varepsilon\). For Rouché to apply one needs
+\[
+|R(t)|<|P(t)|
+\]
+uniformly on those contours. While the pointwise bound on \(R\) is \(O(T^{-1/4})\), the Dirichlet polynomial \(P\) itself satisfies
+\[
+\min_{t\in[T,2T]}|P(t)|\ll\exp\bigl(-c(\log T)^{1/2}\bigr)
+\]
+on a positive-density set of points (by standard mean-value estimates for short trigonometric sums and the fact that the frequencies \(\log n\) are linearly independent over \(\mathbb{Q}\)). Consequently the inequality \(|R|<|P|\) fails on a set of positive measure, and the contours cannot be drawn so that Rouché controls every zero.
+
+Even if one replaces the crude remainder by the full asymptotic series (involving higher derivatives of the incomplete gamma function), the error after \(N\) terms is still only \(O(T^{-N/2})\). Choosing \(N\) large enough to beat the minimal size of \(P\) forces \(N\gg\log T/\log\log T\), at which point the series itself ceases to be an effective approximation and the argument becomes circular. Thus the approximation, while excellent for numerical location of zeros up to moderate height, cannot be upgraded to a global proof that all zeros of \(Z\) are real.
+
+The same obstruction appears for any effective truncation of the Riemann–Siegel or approximate functional equation: the error term is never smaller than the deepest valleys of the main trigonometric sum uniformly in \(t\).
+
+VERDICT: FAILED
+REASON: RS approximation cannot enforce |R|<|P| uniformly; valleys of P defeat Rouché globally.
