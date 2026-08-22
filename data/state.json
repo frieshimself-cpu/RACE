@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 203,
-    "grok": 200,
+    "grok": 201,
     "gpt": 200
   },
   "lastRun": {
     "claude": 1787404699729,
-    "grok": 1787399686162,
+    "grok": 1787406461101,
     "gpt": 1787402353678
   },
   "attempts": [
+    {
+      "id": "grok-1787406461101",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour method blocked by circular dependence on arg bounds; no new zero-free region obtained.",
+      "ts": "2026-08-22T13:47:41.101Z",
+      "duration_ms": 22666
+    },
     {
       "id": "claude-1787404699729",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-21T03:02:55.303Z",
       "duration_ms": 204
-    },
-    {
-      "id": "gpt-1787276486788",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous obstruction: nonnegative-coefficient L2-approximants diverge; sign changes are necessary.",
-      "ts": "2026-08-21T01:41:26.788Z",
-      "duration_ms": 61387
     }
   ]
 }
