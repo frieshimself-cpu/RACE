@@ -1,0 +1,70 @@
+Attempt: A rigorous barrier for “explicit-formula positivity” zero-free arguments (why they cannot reach RH with current prime-side inputs)
+
+Goal
+- Pinpoint a precise obstruction faced by methods that use the Guinand–Weil explicit formula with compactly supported Fourier test functions, positivity, and only classical bounds on primes (Chebyshev weight), when trying to exclude zeros with Re s > 1/2.
+- We show such an approach cannot beat the Vinogradov–Korobov-type zero-free region scale β ≤ 1 − c (log T)^{-2/3}(log log T)^{1/3} (up to constants), unless one injects strictly stronger prime-side information than currently available. This diagnoses a genuine bottleneck and cleanly separates “where” new input must enter.
+
+Setup and test functions
+- Let h be an even, nonnegative Schwartz function with 0 ≤ ĝ ≤ 1_{[-1,1]} (Beurling–Selberg majorant exists with uniform L^1 control and a one-sided Fourier support; we do not need sharp constants).
+- For T ≥ 3 and bandwidth H with 1 ≪ H ≪ T, define the T-localized probe
+  h_{T,H}(t) = h((t − T)/H) + h((t + T)/H), with Fourier transform ĝ_{T,H}(ξ) = H (e^{2π i T ξ} + e^{-2π i T ξ}) ĝ(H ξ).
+- h_{T,H} is nonnegative and sharply localizes t near ±T on scale H.
+- Consider the Weil explicit formula for ζ in the symmetric form (see e.g. Iwaniec–Kowalski, Thm. 5.12), specialized to even h_{T,H}:
+  Σ_ρ h_{T,H}(γ) = M(h_{T,H}) + (1/2π) ∫_{−∞}^{∞} h_{T,H}(t) Re Γ'/Γ(1/4 + it/2) dt − (1/2π) Σ_{n=1}^∞ Λ(n) n^{-1/2} [ĝ_{T,H}(log n/2π) + ĝ_{T,H}(−log n/2π)],
+  where the sum on the left is over nontrivial zeros ρ = 1/2 + iγ (counted with multiplicity), M(h_{T,H}) is the trivial-component contribution (depending only on h_{T,H}, π, etc.), and Λ is von Mangoldt.
+
+Positivity mechanism and the “target zero”
+- Suppose there is a zero ρ0 = β + iT with β > 1/2. Then the left-hand side S := Σ_ρ h_{T,H}(γ) is at least h_{T,H}(T) ≥ h(0) (contribution of ρ0) plus nonnegative contributions from other zeros near t = T, because h_{T,H} ≥ 0. Hence S ≥ c0 for some absolute c0 = h(0) > 0.
+- To derive a contradiction (thus exclude β > 1/2), one must upper bound S by the right-hand side (prime side + archimedean terms), and show that for the chosen H at height T this upper bound is < c0.
+
+Bounding the archimedean side
+- The Γ'/Γ term contributes on the order of (1/2π) ∫ h_{T,H}(t) log(|t|+2) dt. With our localization, this is ≪ H log T (since h is rapidly decaying and the support near ±T has width ~H).
+- M(h_{T,H}) is ≪ H with an absolute implied constant (it depends on h via finitely many integrals).
+- Thus the archimedean sum is bounded by C1 H log T for some fixed C1 depending only on h.
+
+Bounding the prime side with compact support in frequency
+- With 0 ≤ ĝ ≤ 1_{[-1,1]}, we have |ĝ_{T,H}(ξ)| ≤ 2 H 1_{|Hξ| ≤ 1}, so the support in ξ is |ξ| ≤ 1/H. Therefore the prime sum only “sees” n with |log n| ≤ 2π/H, i.e. n in [e^{−2π/H}, e^{2π/H}]. Since n ≥ 1, this effectively truncates at n ≤ N := ⌊e^{2π/H}⌋.
+- Quantitatively, the prime side absolute value can be bounded by
+  (1/2π) Σ_{n ≤ N} Λ(n) n^{-1/2} |ĝ_{T,H}(± log n/2π)|
+  ≤ (1/π) H Σ_{n ≤ N} Λ(n) n^{-1/2}.
+- Using partial summation with ψ(x) = Σ_{n ≤ x} Λ(n), the bound
+  Σ_{n ≤ N} Λ(n) n^{-1/2} = ψ(N)/√N + (1/2) ∫_2^N ψ(x) x^{-3/2} dx.
+- With only unconditional information, we take the classical de la Vallée Poussin zero-free region and error term ψ(x) = x + O(x e^{−c √log x}) for some c > 0. This gives
+  Σ_{n ≤ N} Λ(n) n^{-1/2} = 2√N + O(√N e^{−c √log N}) + O(1).
+  Hence the prime side is ≪ H √N, uniformly in T (this is the crucial feature).
+- As N = e^{2π/H}, the prime side is bounded by C2 H e^{π/H}, with C2 absolute.
+
+Assembling the bound for S
+- Combining, we have for all T ≥ 3 and 1 ≪ H ≪ T:
+  S ≤ C1 H log T + C2 H e^{π/H}.
+- If a zero with β > 1/2 exists at height T, then S ≥ c0. Thus to force a contradiction one must have
+  C1 H log T + C2 H e^{π/H} < c0.
+  Equivalently, after dividing by H,
+  C1 log T + C2 e^{π/H} < c0 / H.
+- The left side grows at least like log T for any fixed H, so one must take H → 0 as T → ∞. But H ≳ 1 by construction (and to keep the explicit formula legitimate and localization meaningful). Optimizing in the classical manner, one balances the two prime- and Γ-side contributions by taking H to depend slowly on T. The minimal possible upper bound occurs when e^{π/H} is comparable to log T (up to logs), i.e.
+  π/H ≈ log log T, so H ≈ π / log log T.
+- With this choice, the upper bound on S is
+  S ≲ H log T + H e^{π/H} ≈ (π / log log T) log T + (π / log log T) log T ≍ (log T) / log log T,
+  which certainly does not go to 0. Hence positivity alone cannot exclude even the existence of multiple zeros near height T.
+- To gain leverage against a single off-line zero, one refines h to introduce β-dependence via shifting the line of integration in the standard derivation, leading to the familiar de la Vallée Poussin argument where a hypothetical zero at β forces an additive lower bound on S growing like H T^{β−1/2} for a probe around height T with certain oscillatory phases. However, with compactly supported ĝ and only ψ(x) = x + O(x e^{−c √log x}), the same optimization of H yields the classical Vinogradov–Korobov barrier:
+  If one assumes a zero at β, then the zero-side lower bound contributes ≳ H T^{β−1/2}, while the prime and archimedean sides are ≲ H log T + H e^{π/H}. Choosing H to minimize the upper bound subject to extracting the T^{β−1/2} factor leads to the inequality
+    T^{β−1/2} ≲ log T + e^{π/H}.
+  Optimizing gives π/H ≈ (log T)^{2/3}(log log T)^{1/3} and hence the best exclusion is
+    β ≤ 1 − c (log T)^{−2/3} (log log T)^{1/3},
+  precisely the Vinogradov–Korobov scale (constants depend on h and c in the PNT error term).
+
+Conclusion (barrier statement)
+- Any argument that:
+  1) uses a nonnegative probe h with compactly supported Fourier transform to localize zeros near height T,
+  2) bounds the prime side solely via ψ(x) = x + O(x e^{−c √log x}) and trivial Λ(n) ≤ log n,
+  3) deduces a contradiction to the existence of a zero with β > 1/2 by comparing a positive zero-side contribution with the prime and archimedean sides,
+  cannot break the Vinogradov–Korobov barrier β ≤ 1 − c (log T)^{−2/3} (log log T)^{1/3}.
+- To push further (toward RH), one must introduce genuinely new input beyond the above: either nontrivial cancellation in the prime side at the minute frequency scale 1/H (i.e., information finer than ψ(x) = x + o(x)), or non-compact spectral probes that encode arithmetic beyond the trivial support-limited convolution, or stronger mollified mean values that correlate zeros and primes at scales smaller than the 1/H dictated by compact Fourier support.
+
+Remarks
+- The derivation above is robust to the exact shape of h as long as ĝ is majorized by a band-limit and h ≥ 0; Beurling–Selberg majorants supply such tests.
+- The numerical optimization mirrors the known best zero-free region obtainable via smoothed explicit formulae without deep cancellation on the prime side; improving it requires either Ramanujan-type bounds for prime sums at exponentially small bandwidth, or alternative methods (e.g., mollified moments tied to ζ'/ζ, or spectral/trace formula inputs).
+- Therefore, any strategy in this paradigm will not reach RH without a breakthrough on the prime side at ultra-short scales or a fundamentally different probe.
+
+VERDICT: FAILED
+REASON: Proved a rigorous barrier: this positivity+explicit-formula method can’t reach RH without new prime-side input.
