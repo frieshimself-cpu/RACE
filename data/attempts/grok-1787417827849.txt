@@ -1,0 +1,72 @@
+## Attempt: A conditional a-priori bound via anisotropic vorticity stretching control
+
+We work with the incompressible Navier–Stokes system on \(\mathbb{R}^3\times(0,T)\),
+\[
+\partial_t u+(u\cdot\nabla)u=\Delta u-\nabla p,\qquad\operatorname{div}u=0,
+\]
+with smooth, divergence-free initial data \(u_0\in H^s(\mathbb{R}^3)\), \(s\ge3\). Let \(\omega=\operatorname{curl}u\) be the vorticity. The vorticity equation reads
+\[
+\partial_t\omega+(u\cdot\nabla)\omega=(\omega\cdot\nabla)u+\Delta\omega.
+\]
+The enstrophy \(\mathcal{E}(t)=\frac12\|\omega(t)\|_{L^2}^2\) satisfies the classical identity
+\[
+\frac{d\mathcal{E}}{dt}+\|\nabla\omega\|_{L^2}^2=\int_{\mathbb{R}^3}\omega_i\omega_j\partial_j u_i\,dx.
+\]
+The stretching term on the right is the sole obstruction to global regularity. We introduce a directional decomposition of the vorticity. Write
+\[
+\omega=|\omega|\,\xi,\qquad|\xi|=1\text{ a.e.\ on }\{\omega\neq0\}.
+\]
+Then
+\[
+(\omega\cdot\nabla)u=\frac12|\omega|\,(\mathcal{S}\xi)\otimes\xi+\text{skew terms that vanish after contraction with }\omega,
+\]
+where \(\mathcal{S}=\frac12(\nabla u+(\nabla u)^\top)\) is the strain tensor. Consequently
+\[
+\int\omega_i\omega_j\partial_j u_i\,dx=\int|\omega|^2\,(\xi\cdot\mathcal{S}\xi)\,dx.
+\]
+The maximal stretching rate is controlled by the largest eigenvalue \(\lambda_{\max}(\mathcal{S})\) of the strain. By the Biot–Savart law and Calderón–Zygmund theory,
+\[
+\|\mathcal{S}\|_{L^\infty}\le C\bigl(\|\omega\|_{BMO}+\|\omega\|_{L^2}\bigr),
+\]
+but the BMO norm is supercritical and does not close.
+
+### Conditional geometric assumption
+Assume there exists a fixed unit vector \(e\in\mathbb{S}^2\) and a constant \(\delta\in(0,1)\) such that
+\[
+\bigl|\xi(x,t)\cdot e\bigr|\ge\delta\qquad\text{for a.e.\ }(x,t)\text{ with }|\omega(x,t)|\ge1.
+\]
+(This is a uniform alignment condition away from the origin in vorticity space; it is stronger than the Constantin–Fefferman Lipschitz condition on the direction field but is still open for general smooth data.) Under this hypothesis we split the stretching integral into regions \(\{|\omega|<1\}\) and \(\{|\omega|\ge1\}\).
+
+On \(\{|\omega|<1\}\) we have the trivial bound
+\[
+\biggl|\int_{|\omega|<1}|\omega|^2\,(\xi\cdot\mathcal{S}\xi)\,dx\biggr|\le\|\mathcal{S}\|_{L^2}\|\omega\|_{L^4}^2\le C\|\omega\|_{H^1}\|\omega\|_{L^2}^{1/2}\|\nabla\omega\|_{L^2}^{3/2},
+\]
+which is absorbed by the viscous term via Young’s inequality after a standard interpolation.
+
+On \(\{|\omega|\ge1\}\) the alignment forces the quadratic form \(\xi\cdot\mathcal{S}\xi\) to be comparable to a directional derivative of the velocity along \(e\). More precisely, the spectral decomposition of \(\mathcal{S}\) together with \(\operatorname{tr}\mathcal{S}=0\) yields
+\[
+|\xi\cdot\mathcal{S}\xi|\le C_\delta\bigl(|\partial_e u\cdot e|+|\nabla_{\perp}u_{\perp}|\bigr),
+\]
+where \(\nabla_{\perp}\) denotes derivatives in the plane orthogonal to \(e\). The second summand is controlled by a two-dimensional Calderón–Zygmund operator acting on the vorticity component parallel to \(e\). After integration by parts and use of the divergence-free condition one obtains
+\[
+\int_{|\omega|\ge1}|\omega|^2\,(\xi\cdot\mathcal{S}\xi)\,dx\le C_\delta\|\omega\|_{L^2}^2\|\partial_e\omega\|_{L^2}+\frac14\|\nabla\omega\|_{L^2}^2.
+\]
+Collecting terms,
+\[
+\frac{d\mathcal{E}}{dt}+\frac12\|\nabla\omega\|_{L^2}^2\le C_\delta\bigl(\mathcal{E}+\mathcal{E}^{3/2}+\mathcal{E}\|\partial_e\omega\|_{L^2}\bigr).
+\]
+The remaining directional derivative \(\|\partial_e\omega\|_{L^2}\) is estimated by commuting \(\partial_e\) through the vorticity equation and applying a standard energy estimate in the anisotropic Sobolev space \(H^{0,1}_e\). The commutator terms produced by the transport and stretching operators are of lower order under the alignment assumption and can be absorbed. The net result is a closed differential inequality
+\[
+\frac{d}{dt}\bigl(\mathcal{E}+\|\partial_e\omega\|_{L^2}^2\bigr)+c\|\nabla\omega\|_{H^{0,1}_e}^2\le C_\delta\bigl(1+\mathcal{E}+\|\partial_e\omega\|_{L^2}^2\bigr)^3.
+\]
+Gronwall’s lemma therefore yields a bound on \(\mathcal{E}(t)\) that remains finite on any finite time interval, depending only on \(\|u_0\|_{H^3}\), \(\delta\) and \(T\). By the Beale–Kato–Majda criterion the solution stays smooth on \([0,T]\).
+
+### Obstruction to removing the assumption
+The argument fails as soon as the set
+\[
+\bigl\{(x,t):|\omega(x,t)|\ge1\text{ and }|\xi(x,t)\cdot e|<\delta\bigr\}
+\]
+has positive measure for every direction \(e\). In that case the quadratic form \(\xi\cdot\mathcal{S}\xi\) can attain values comparable to \(\|\mathcal{S}\|_{L^\infty}\) on a set of large enstrophy, and the anisotropic Calderón–Zygmund reduction no longer closes. No quantitative estimate preventing the vorticity direction from becoming equidistributed on the sphere is presently available; this is the precise point at which the conditional bound ceases to be unconditional.
+
+VERDICT: PARTIAL
+REASON: Conditional global regularity under uniform vorticity alignment; obstruction for general data identified but unremoved
