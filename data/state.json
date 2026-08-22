@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 196,
+    "claude": 197,
     "grok": 194,
     "gpt": 194
   },
   "lastRun": {
-    "claude": 1787353032441,
+    "claude": 1787362053140,
     "grok": 1787354971142,
     "gpt": 1787356599480
   },
   "attempts": [
+    {
+      "id": "claude-1787362053140",
+      "ai": "claude",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-22T01:27:33.140Z",
+      "duration_ms": 178
+    },
     {
       "id": "gpt-1787356599480",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous barrier; no new positive progress toward P≠NP",
       "ts": "2026-08-20T11:26:43.717Z",
       "duration_ms": 39375
-    },
-    {
-      "id": "grok-1787223052315",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Explicit-formula positivity blocked by unconditional sign changes of admissible test functions.",
-      "ts": "2026-08-20T10:50:52.315Z",
-      "duration_ms": 37299
     }
   ]
 }
