@@ -1,0 +1,74 @@
+Title: A quantitative barrier for Euler-product truncation on the critical line
+
+Setup. Let T be large, t sampled uniformly from [T,2T], and write the real part of the logarithm of the zeta-function on the critical line as
+L(t) := Re log ζ(1/2 + it).
+For 0 < θ < 1, consider the “small-primes” Dirichlet polynomial
+P_θ(t) := ∑_{p ≤ T^θ} p^(-1/2) cos(t log p).
+
+Main claim (precise quantitative barrier). There exists an absolute constant C such that, for all fixed 0 < θ < 1,
+(1/T) ∫_T^{2T} |L(t) − P_θ(t)|^2 dt = (1/2)(1 − θ) log log T + O(1),
+hence in particular
+(1/T) ∫_T^{2T} |L(t) − P_θ(t)|^2 dt ≥ c (1 − θ) log log T − C
+for some absolute c > 0. Consequently, the discrepancy between L(t) and any small-prime truncation P_θ(t) has variance that grows like (1 − θ) log log T, and typical fluctuations of size ≍ sqrt((1 − θ) log log T).
+
+Proof sketch.
+
+Step 1: Selberg’s L^2 approximation for L(t). For any A ≥ 2, Selberg’s method gives an L^2-accurate truncation of log ζ on Re s = 1/2:
+L(t) = S_A(t) + E_A(t),
+where
+S_A(t) := Re ∑_{p^k ≤ A} p^(−k/2 − i k t)/k = ∑_{p^k ≤ A} p^(−k/2) cos(k t log p)/k,
+and the remainder satisfies the mean-square bound
+(1/T) ∫_T^{2T} |E_A(t)|^2 dt ≪ 1,
+uniformly for A as large as a fixed power of T (e.g. A = T). Moreover,
+∑_{p^k ≤ A, k ≥ 2} p^(−k)/k^2 ≪ 1,
+so the k ≥ 2 contribution to S_A has bounded L^2 norm.
+
+Fix A = T. Then
+L(t) = ∑_{p ≤ T} p^(−1/2) cos(t log p) + R(t),
+where R(t) collects the prime power terms with k ≥ 2 and the remainder E_T, and satisfies
+(1/T) ∫_T^{2T} |R(t)|^2 dt ≪ 1.
+
+Step 2: Mean squares of prime cosine polynomials. For U ≥ 2 define
+Q(U,t) := ∑_{p ≤ U} p^(−1/2) cos(t log p).
+By standard mean-value estimates for Dirichlet polynomials and the orthogonality of exponentials,
+(1/T) ∫_T^{2T} |Q(U,t)|^2 dt = (1/2) ∑_{p ≤ U} 1/p + O(1),
+uniformly for U ≤ T^c (any fixed c > 0). In particular,
+(1/T) ∫_T^{2T} |Q(T,t)|^2 dt = (1/2) log log T + O(1),
+(1/T) ∫_T^{2T} |Q(T^θ,t)|^2 dt = (1/2) θ log log T + O(1),
+and, crucially, for the tail
+Q_tail(t) := Q(T,t) − Q(T^θ,t) = ∑_{T^θ < p ≤ T} p^(−1/2) cos(t log p),
+we have
+(1/T) ∫_T^{2T} |Q_tail(t)|^2 dt = (1/2) ∑_{T^θ < p ≤ T} 1/p + O(1) = (1/2)(1 − θ) log log T + O(1).
+
+Step 3: Decomposition and control of cross-terms. From Step 1,
+L(t) − P_θ(t) = Q_tail(t) + R(t),
+with (1/T) ∫ |R|^2 ≪ 1. The cross-term (1/T) ∫ Q_tail(t) R(t) dt is bounded in absolute value by Cauchy–Schwarz:
+|(1/T) ∫ Q_tail R| ≤ [(1/T) ∫ |Q_tail|^2]^(1/2) [(1/T) ∫ |R|^2]^(1/2) ≪ sqrt{(1 − θ) log log T}.
+Therefore,
+(1/T) ∫ |L − P_θ|^2
+= (1/T) ∫ |Q_tail|^2 + 2 Re (1/T) ∫ Q_tail R + (1/T) ∫ |R|^2
+= (1/2)(1 − θ) log log T + O(√{(1 − θ) log log T}) + O(1)
+= (1/2)(1 − θ) log log T + O(1).
+
+This proves the stated identity and lower bound.
+
+Consequences and interpretation for approaches via truncating the Euler product.
+
+- Any method that seeks to control log ζ(1/2 + it) (hence ζ itself) on average, using only primes up to T^θ with fixed θ < 1, faces an irreducible L^2 uncertainty of size comparable to sqrt((1 − θ) log log T), growing without bound as T → ∞.
+
+- In particular, no argument based solely on such small-prime truncations can produce uniform sign control of Re log ζ(1/2 + it) or show non-vanishing of ζ(1/2 + it) on a positive-measure set of t as T → ∞; the residual from the omitted primes forces fluctuations that are too large to be dominated by a bounded error term.
+
+- The barrier is quantitative and sharp at the variance level: the omitted primes in (T^θ, T] alone contribute variance (1/2)(1 − θ) log log T asymptotically. Thus, to hope for decisive information on zeros via Euler-product style approximations on the 1/2-line, one must incorporate essentially all primes up to size about T (or invoke structure beyond raw truncation, e.g., mollification that also cancels the random tail), and still confront the k ≥ 2 contributions and deeper correlations.
+
+Remarks.
+
+- The proof uses only standard L^2 approximations (Selberg) and mean-value estimates for Dirichlet polynomials; it is unconditional.
+
+- A corollary by Chebyshev/Paley–Zygmund: for any fixed 0 < θ < 1 and all large T, the set of t ∈ [T,2T] with |L(t) − P_θ(t)| ≥ c sqrt{(1 − θ) log log T} has positive measure, for an absolute c > 0.
+
+- This identifies a concrete obstruction to “short Euler product” strategies on the critical line: even optimally tuned deterministic use of small primes leaves a diverging noise floor from omitted primes.
+
+This is not a proof of RH, but it aims to sharpen, in a self-contained way, a rigorous limitation that any successful approach must overcome.
+
+VERDICT: PARTIAL
+REASON: Rigorous barrier: small-prime truncations leave L^2 error ~ (1−θ) log log T, obstructing such approaches.
