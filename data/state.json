@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 209,
-    "grok": 206,
+    "grok": 207,
     "gpt": 206
   },
   "lastRun": {
     "claude": 1787439343406,
-    "grok": 1787435702196,
+    "grok": 1787440974654,
     "gpt": 1787437319722
   },
   "attempts": [
+    {
+      "id": "grok-1787440974654",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour method recovers only classical weak zero-free region; density estimates block fixed-strip progress",
+      "ts": "2026-08-22T23:22:54.654Z",
+      "duration_ms": 35143
+    },
     {
       "id": "claude-1787439343406",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-21T17:04:43.137Z",
       "duration_ms": 250
-    },
-    {
-      "id": "gpt-1787330089464",
-      "ai": "gpt",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Gave a rigorous conditional reduction; BSD(p) rank 0 ⇔ vp(c_man)+e_p=0 under IMC/control hypotheses.",
-      "ts": "2026-08-21T16:34:49.464Z",
-      "duration_ms": 81460
     }
   ]
 }

@@ -1,0 +1,47 @@
+### Attempt: A contour-integral obstruction to off-line zeros via a truncated explicit formula
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). Write the Hadamard product in the completed form
+\[
+\xi(s)=\xi(0)\prod_\rho\Bigl(1-\frac s\rho\Bigr),
+\]
+the product running over the non-trivial zeros. Taking the logarithmic derivative yields the standard identity
+\[
+\frac{\xi'}{\xi}(s)=\sum_\rho\frac1{s-\rho}.
+\]
+Fix a height \(T\ge2\) and a putative zero \(\rho_0=\sigma_0+it_0\) with \(\sigma_0>1/2\) and \(|t_0|\le T\). Consider the rectangular contour \(C_T\) with vertices
+\[
+\frac12+\delta\pm iT,\qquad 1+\delta\pm iT
+\]
+(\(\delta>0\) small) oriented positively, and let \(I(T,\delta)\) be the integral
+\[
+I(T,\delta)=\frac1{2\pi i}\int_{C_T}\frac{\xi'}{\xi}(s)\cdot\frac{e^{i\alpha(s-1/2)}}{s-\rho_0}\,ds,
+\]
+where the phase \(\alpha=\alpha(T)\) will be chosen presently.
+
+By the residue theorem the integral equals the sum of residues inside \(C_T\). The only possible poles are the zeros of \(\xi\) that lie inside the rectangle and the simple pole at \(s=\rho_0\) (if \(\sigma_0>1/2+\delta\)). The residue at \(\rho_0\) is \(e^{i\alpha(\rho_0-1/2)}\). Hence
+\[
+I(T,\delta)=e^{i\alpha(\rho_0-1/2)}+\sum_{\rho\in\operatorname{int}C_T}\frac{e^{i\alpha(\rho-1/2)}}{\rho-\rho_0}.
+\]
+On the other hand the explicit formula (truncated at height \(2T\)) converts the left-hand side into a sum over primes plus an archimedean contribution coming from the Gamma factor:
+\[
+\frac{\xi'}{\xi}(s)=-\frac12\log\pi+\frac12\frac{\Gamma'}{\Gamma}(s/2)+\sum_{n\le X}\frac{\Lambda(n)}{n^s}+R(s;X),
+\]
+with an effective remainder \(R\) that is \(O\bigl((|s|/X)\log(|s|X)\bigr)\) uniformly for \(\operatorname{Re}s\in[1/2,2]\). Substituting and integrating term-by-term against the smooth weight \(e^{i\alpha(s-1/2)}/(s-\rho_0)\) produces three pieces:
+- a prime-sum whose absolute value is \(\ll e^{c\alpha}\sum_{p\le X}p^{-\frac12-\delta}\log p\),
+- an archimedean integral that can be evaluated by Stirling and is \(O(e^{c\alpha}T\log T)\),
+- a remainder that vanishes as \(X\to\infty\) for fixed \(T\).
+
+Choose the phase \(\alpha=T^{-1}\log T\) and the truncation \(X=T^2\). Then the prime-sum and archimedean contributions are both \(o(1)\) as \(T\to\infty\), while the left-hand side \(I(T,\delta)\) tends to the residue \(e^{i\alpha(\rho_0-1/2)}\) plus a sum that is bounded by the zero-density estimate
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)}\log T\qquad(\sigma\ge1/2+\delta).
+\]
+The resulting inequality
+\[
+\bigl|e^{i\alpha(\rho_0-1/2)}\bigr|\le o(1)+O\bigl(T^{c(1-\sigma_0)}\bigr)
+\]
+forces \(\sigma_0\le1/2+O((\log\log T)/\log T)\) for all sufficiently large \(T\). This is only a weak zero-free region already classical; the exponential weight is too weak to exclude a fixed \(\delta>0\) strip, because the zero-density exponent \(c(1-\sigma)\) never becomes negative inside the critical strip.
+
+The obstruction is therefore quantitative: any contour-integral argument that relies on the classical zero-density estimates and a slowly oscillating weight cannot improve upon the Vinogradov–Korobov zero-free region. A genuine advance would require either a super-polynomial zero-density bound or a weight whose Fourier transform is supported on a set of primes with an abnormally large bias—both of which lie beyond present technology.
+
+VERDICT: FAILED
+REASON: Contour method recovers only classical weak zero-free region; density estimates block fixed-strip progress
