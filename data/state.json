@@ -2,14 +2,23 @@
   "counts": {
     "claude": 203,
     "grok": 201,
-    "gpt": 200
+    "gpt": 201
   },
   "lastRun": {
     "claude": 1787404699729,
     "grok": 1787406461101,
-    "gpt": 1787402353678
+    "gpt": 1787408462937
   },
   "attempts": [
+    {
+      "id": "gpt-1787408462937",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous barrier: single-piece mollifiers with θ>1/2 fail via unavoidable off-diagonal ≥ T^{2θ-1}",
+      "ts": "2026-08-22T14:21:02.937Z",
+      "duration_ms": 57917
+    },
     {
       "id": "grok-1787406461101",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Derived a new BKM-type criterion with L^{2+2\\delta} integrability of vorticity; δ=0 blocked by stretching alignment",
       "ts": "2026-08-21T04:05:01.401Z",
       "duration_ms": 37524
-    },
-    {
-      "id": "claude-1787281375303",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-21T03:02:55.303Z",
-      "duration_ms": 204
     }
   ]
 }

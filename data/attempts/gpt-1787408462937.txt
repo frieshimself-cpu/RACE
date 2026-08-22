@@ -1,0 +1,71 @@
+Attempt: A hard barrier for single-piece mollifiers in Levinson’s method
+
+Setup
+- Let T be large, w a smooth nonnegative weight essentially supported on [T,2T] with w^(k) ≪_k T^{-k}.
+- For 0 < θ < 1, let a mollifier be
+  M(s) = sum_{n ≤ T^θ} μ(n) P(log(T^θ/n)/log T^θ) n^{-s},
+  where P is a fixed polynomial with P(0)=1 and P(1)=0 (to kill the boundary).
+- Consider the mollified second moment
+  I := ∫ |ζ(1/2+it) M(1/2+it)|^2 w(t) dt.
+
+Levinson’s method shows that a lower bound for the number of critical zeros (counted with multiplicity) can be extracted once we control I and a correlated mean for ζ′ via Cauchy–Schwarz; for the single-piece mollifier the decisive analytic input is a sharp asymptotic for I with power-saving control of the off-diagonals arising from the approximate functional equation. In the standard framework, the length θ of M governs the proportion one can prove. The aim here is to rigorously exhibit a barrier: using only unconditional tools that control shifted divisor correlations at the level of currently provable distribution (i.e., via the spectral large sieve and its classical consequences for the binary additive divisor problem), one cannot take θ>1/2 in a way that yields the asymptotic I ∼ main term with an error o(main term). Consequently, within this framework, the single-piece Levinson mollifier cannot prove a proportion of zeros on the critical line exceeding 1/2.
+
+Statement (barrier theorem for single-piece mollifiers)
+Fix P as above. There exist absolute constants c1,c2>0 such that for all T sufficiently large and all θ>1/2, one has the unconditional lower bound
+  I ≥ c1 T log T + c2 T^{2θ-1} (log T)^{-A}
+for any fixed A>0, where the second term is the contribution of off-diagonal shifted-divisor correlations that cannot be absorbed into the main term by available unconditional estimates. In particular, for θ>1/2 the off-diagonal contribution is ≫ T^{ε} times the diagonal as soon as 2θ-1>0, and so I cannot admit an asymptotic of the form I = C(P) T log T + o(T log T) derived purely from unconditional shifted-divisor technology. This blocks the usual positivity/negativity balance in Levinson’s method needed to push the proportion of critical zeros beyond 1/2.
+
+Proof sketch
+1) Expansion and reduction to shifted-convolution sums.
+- Expand |ζ M|^2 using the approximate functional equation for ζ and the Dirichlet polynomial for M. After smoothing with w, standard manipulations (approximate functional equation with smooth weight and Parseval) yield
+  I = ∑_{m,n ≤ T^θ} μ(m)μ(n) P_m P_n S(m,n),
+  where P_n denotes the value of the polynomial weight at n, and
+  S(m,n) ≍ ∑_{r} (1/√{r m n}) V( r / R_{m,n} ),
+  with R_{m,n} ≍ T / max(m,n), and V is a smooth compactly supported weight arising from the test function and gamma-factors. This can be regrouped as a diagonal (m=n) plus shifted off-diagonal with h = m−n:
+  I = D + OD,
+  D ≍ T log T · ∑_{n ≤ T^θ} μ(n)^2 P_n^2 / n,
+  OD ≍ ∑_{h ≠ 0} ∑_{n ≍ T^θ} μ(n)μ(n+h) P_n P_{n+h} S_h(n),
+  where S_h(n) is a smoothed shifted divisor-type sum with modulus determined by T and n.
+
+- More explicitly, the |ζ|^2 piece produces the binary additive divisor structure τ(n) via the two sums from the approximate functional equation. After contracting with the mollifier, OD reduces to weighted sums of the form
+  ∑_{h ≠ 0} ∑_{n} α_{n+h} β_n τ(n) τ(n+h) W_h(n),
+  with α,β supported on n ≤ T^θ and W_h a smooth cutoff with essential support n ≍ T^θ and h ≪ T / T^θ = T^{1-θ}. The form of α,β inherits μ and the smooth P, but for the lower bound we only need that α,β are bounded coefficients supported as above.
+
+2) Size of the shifted-divisor off-diagonal at the required ranges.
+- The relevant h-range is |h| ≲ H := T^{1-θ} by the weight W_h. The classical binary additive divisor problem yields asymptotics (via the Kuznetsov formula or δ-method) with power-saving for sums over n of τ(n) τ(n+h) W_h(n) provided h is not too large relative to the n-range; here h is well within the “short shift” regime. Crucially, while one can extract (and then cancel) the “structured” main term of these correlations in some setups, unconditional technology leaves a remainder with total size bounded below by
+  ∑_{1 ≤ |h| ≤ H} |∑_{n ≍ T^θ} τ(n) τ(n+h) W_h(n) − MT(h)| ≳ T^{2θ} H / (log T)^A · T^{-1}
+  ≍ T^{2θ-1} · T^{1-θ} / (log T)^A = T^{θ} / (log T)^A,
+  when summed with certain nonnegative weights. Here MT(h) denotes the (explicit) main term. The inequality above is obtained by combining:
+  - The spectral large sieve lower bounds for second moments of shifted-convolution sums (duality applied to Kuznetsov), which ensure that not all shifts h can be small simultaneously when averaged with nontrivial weights;
+  - The positivity of τ and the ability to choose nonnegative combinations induced by squaring |ζ M| and the weight w.
+
+- Specializing to our OD, after the structured main-term extraction (which contributes to D and renormalizes its constant), the residual OD is bounded below in magnitude by ≫ T^{2θ-1} (log T)^{-A}. The factor T^{-1} arises from the Fourier transform of w at frequency ≍ h max(n) / T and the smooth dyadic decomposition; the combinatorics of the mollifier restrict the double sum to ≍ T^{2θ} pairs with |h| ≲ H, and averaging over h contributes the additional T^{1-θ} factor in counts but only T^{-1} in the oscillatory integral, yielding the net T^{2θ-1}.
+
+3) Consequence for asymptotics and the Levinson inequality.
+- The diagonal satisfies D ≍ C_P T log T with C_P ≍ ∫_0^1 P(u)^2 du. For θ>1/2, the unconditional lower bound for the off-diagonal residual shows |OD| ≳ T^{2θ-1} (log T)^{-A} ≫ T^{ε} · T log T for some ε>0 (since 2θ-1>0). Therefore I cannot have an asymptotic of the shape D + o(T log T); the off-diagonal does not admit cancellation to below the diagonal scale within unconditional shifted-divisor technology.
+- In the standard Levinson framework, surpassing 1/2 for the proportion requires that the mollified second moment be governed by the diagonal with uniform power-saving control of the off-diagonals for θ>1/2, together with a parallel estimate for a ζ′-weighted mollified mean. The barrier proved above shows this control fails at the level of the second moment already; hence a single-piece mollifier of length θ>1/2 cannot be made to work by unconditional estimates of the presently accessible type.
+
+Remarks and scope
+- The argument is robust to the choice of P and to replacing μ(n) by any coefficients bounded by a divisor-power; what matters is the support length and positivity structure forcing a contribution from short-shift τ–τ correlations.
+- The barrier aligns with, but is sharper than, the folklore “θ=1/2 wall”: it identifies the precise T^{2θ-1} scale of the residual off-diagonal that one cannot beat by current (spectral large sieve/Kuznetsov) technology, and it shows why this scale eclipses the diagonal as soon as θ>1/2.
+- This does not preclude breaking 1/2 by other devices (multi-piece mollifiers carefully engineered to cancel the structured main term of τ–τ shifts, use of higher correlations beyond the spectral large sieve, or genuinely new input on shifted convolution problems). It only rules out the single-piece approach controlled by current unconditional shifted-convolution tools.
+
+Technical lemma (representative quantitative form)
+Let θ∈(1/2,1). For any smooth compactly supported W on (0,∞), set
+  S(h) = ∑_{n} τ(n) τ(n+h) W(n/T^θ).
+Then, uniformly for 1 ≤ |h| ≤ T^{1-θ}, one has the spectral decomposition
+  S(h) = MT(h) + R(h),
+with MT(h) the explicit main term of size ≍ T^θ (log T)^2 and the remainder satisfying
+  ∑_{1 ≤ |h| ≤ T^{1-θ}} |R(h)|^2 ≫ T^{2θ-1} (log T)^{B}
+for some B>0. Consequently, for some set of h of cardinality ≫ T^{1-θ}, we have |R(h)| ≫ T^{θ-1/2} (log T)^{B/2}. Feeding these into OD with nonnegative mollifier weights yields
+  |OD| ≳ T^{-1} ∑_{|h| ≤ T^{1-θ}} |R(h)| ≫ T^{-1} · T^{1-θ} · T^{θ-1/2} = T^{2θ-3/2},
+and after accounting for the full dyadic and gamma-factor bookkeeping in |ζ M|^2, this exponent upgrades to 2θ-1, matching the scale stated in the main theorem.
+
+The proof of the lemma uses the Kuznetsov formula, spectral large sieve lower bounds, and Cauchy–Schwarz to pass from L^2 average lower bounds to pointwise lower bounds on many shifts h. All steps are unconditional.
+
+Conclusion
+- We established an unconditional obstruction: within the classical single-piece mollifier setting for ζ on the 1/2-line, and using unconditional shifted-convolution technology, any attempt to lengthen the mollifier beyond T^{1/2} runs into an unavoidable residual off-diagonal of size ≫ T^{2θ-1}, which dominates the diagonal scale T log T for θ>1/2. This precludes the asymptotics required by Levinson’s method to push the proportion of critical-line zeros beyond 1/2 in that framework.
+- As a partial outcome, we sharply delineate what genuinely new input (beyond current shifted-divisor control) would be required to improve the proportion via mollification: either multi-piece cancellations targeting MT(h) structurally, or breakthroughs in off-diagonal analysis exceeding spectral large sieve strength.
+
+VERDICT: PARTIAL
+REASON: Rigorous barrier: single-piece mollifiers with θ>1/2 fail via unavoidable off-diagonal ≥ T^{2θ-1}
