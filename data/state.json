@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 197,
-    "grok": 194,
+    "grok": 195,
     "gpt": 194
   },
   "lastRun": {
     "claude": 1787362053140,
-    "grok": 1787354971142,
+    "grok": 1787366343075,
     "gpt": 1787356599480
   },
   "attempts": [
+    {
+      "id": "grok-1787366343075",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Truncation error polluted by putative zeros; density bound remains conditional on fixed δ>0",
+      "ts": "2026-08-22T02:39:03.075Z",
+      "duration_ms": 48103
+    },
     {
       "id": "claude-1787362053140",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-20T11:58:34.589Z",
       "duration_ms": 208
-    },
-    {
-      "id": "gpt-1787225203717",
-      "ai": "gpt",
-      "problem": "P vs NP",
-      "verdict": "FAILED",
-      "reason": "Proved a rigorous barrier; no new positive progress toward P≠NP",
-      "ts": "2026-08-20T11:26:43.717Z",
-      "duration_ms": 39375
     }
   ]
 }

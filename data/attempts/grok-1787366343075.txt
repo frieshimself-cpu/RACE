@@ -1,0 +1,72 @@
+### Attempt: A conditional zero-free half-plane via a truncated Euler product and Jensen control
+
+Let \(\xi(s)=s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function (entire of order 1, real on the critical line, and satisfying \(\xi(s)=\xi(1-s)\)). Write the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+the product running over the non-trivial zeros (counted with multiplicity). The goal of this note is a self-contained attempt to produce a zero-free region \(\operatorname{Re}s\ge1/2+\delta\) for an absolute \(\delta>0\), by combining a truncated Euler product with an \(L^2\) Jensen identity on vertical segments. (If successful this would be stronger than classical zero-free regions near \(\operatorname{Re}s=1\), but still far short of RH.)
+
+#### 1. Truncated Euler product and approximate logarithm
+For \(\sigma=\operatorname{Re}s>1\) one has the absolutely convergent representation
+\[
+-\frac{\zeta'}{\zeta}(s)=\sum_{n=1}^\infty\Lambda(n)n^{-s}.
+\]
+Fix a smooth cutoff \(\phi\in C_c^\infty((0,1])\) with \(\phi\equiv1\) on \((0,1/2]\) and set, for \(X\ge2\),
+\[
+P_X(s)=\sum_{n\le X}\Lambda(n)\phi(n/X)n^{-s}.
+\]
+Standard Mellin inversion and the prime-number theorem with classical error term give, uniformly for \(\sigma\ge1/2+\delta_0\) and \(|t|\le X\),
+\[
+\Bigl|-\frac{\zeta'}{\zeta}(s)-P_X(s)\Bigr|\ll_\varepsilon X^{-\delta_0/2+\varepsilon}+X^{\frac12-\sigma+\varepsilon}|t|^\varepsilon
+\]
+(the implied constant absolute once \(\delta_0>0\) is fixed). Consequently the holomorphic function
+\[
+F_X(s)=\exp\Bigl(\int_{2}^{s}P_X(w)\,dw\Bigr)
+\]
+(principal branch on the simply-connected half-plane \(\operatorname{Re}s>1/2\)) satisfies
+\[
+\frac{F_X'}{F_X}(s)=P_X(s),\qquad
+\biggl|\frac{\zeta'}{\zeta}(s)+\frac{F_X'}{F_X}(s)\biggr|\ll X^{-\delta_0/3}
+\]
+on the rectangle \(R_X=\{s:1/2+\delta_0\le\operatorname{Re}s\le2,\,|\operatorname{Im}s|\le X/2\}\), provided \(X\) is large.
+
+#### 2. Jensen identity on vertical lines
+Let \(N(\sigma,T)\) be the number of zeros of \(\xi\) (equivalently of \(\zeta\)) inside the rectangle \(1/2<\operatorname{Re}\rho\le\sigma\), \(|\operatorname{Im}\rho|\le T\). The classical Jensen formula applied to \(\xi(s+it_0)\) on the disk of radius \(r=\sigma-1/2\) centered at \(1/2+it_0\) yields, after averaging over \(t_0\in[T,2T]\) and using the functional equation to control the left half-plane,
+\[
+\int_{1/2}^{\sigma}N(\alpha,T)\,d\alpha\ll\log T+\frac1T\int_T^{2T}\log\bigl|\xi(\sigma+it)\bigr|\,dt.
+\]
+On the same range the approximate functional equation and the truncated product of §1 give
+\[
+\log|\xi(\sigma+it)|=\operatorname{Re}\log F_X(\sigma+it)+O\bigl(X^{-\delta_0/4}+\log(|t|+2)\bigr)
+\]
+uniformly for \(\sigma\in[1/2+\delta_0,2]\) and \(T\le X/2\). The integral of \(\operatorname{Re}\log F_X\) is evaluated by writing the Dirichlet series for \(P_X\) and integrating termwise: the main contribution is
+\[
+\frac1T\int_T^{2T}\operatorname{Re}\log F_X(\sigma+it)\,dt=\sum_{n\le X}\frac{\Lambda(n)\phi(n/X)}{n^\sigma\log n}\cdot O\Bigl(\frac1{T\log(n/T)}\Bigr)+O(1),
+\]
+which is \(O(1)\) once \(\sigma\ge1/2+\delta_0\). Hence
+\[
+\int_{1/2}^{\sigma}N(\alpha,T)\,d\alpha\ll_{\delta_0}1+\log T.
+\]
+Differentiating in \(\sigma\) (or applying a standard Tauberian lemma) produces the density bound
+\[
+N(\sigma,T)\ll_{\delta_0}\frac{\log T}{\sigma-1/2}.
+\]
+
+#### 3. Closing the gap: an attempt at \(\delta_0\)-independence
+The bound of §2 still depends on the auxiliary parameter \(\delta_0>0\) used to justify the truncated product. To remove the dependence one would need a uniform estimate for \(P_X(s)\) down to \(\sigma=1/2+\varepsilon(T)\) with \(\varepsilon(T)\to0\). Inserting the explicit formula for the Chebyshev function into the definition of \(P_X\) and integrating by parts produces an extra main term
+\[
+\frac{x^{s-1}}{s-1}\Big|_{x=X/2}^{X}
+\]
+plus an oscillatory sum over zeros. If one assumes (for contradiction) that a zero \(\rho_0=\sigma_0+it_0\) with \(\sigma_0>1/2\) exists, the contribution of that single zero is
+\[
+\asymp\frac{X^{\sigma_0-1}}{|\rho_0|},
+\]
+which is larger than the error permitted in §1 precisely when \(\sigma_0>1/2\). This circularity prevents any choice of \(X=X(T)\) from pushing \(\delta_0\) all the way to zero: the same zero one hopes to exclude already pollutes the approximating product at height \(T\approx|t_0|\).
+
+A more refined contour shift that subtracts the possible low-lying zeros before forming \(P_X\) leads to a system of inequalities for the vector \((N(\sigma_j,T))_j\) that is consistent with a positive density of zeros off the line (the matrix of the system is diagonally dominant but not positive definite). Thus no contradiction is reached.
+
+#### 4. Conclusion of the attempt
+The argument yields a clean density estimate \(N(\sigma,T)\ll\log T/(\sigma-1/2)\) once one is already a fixed distance \(\delta_0>0\) into the critical strip, but the truncation error cannot be made uniform down to the critical line without already knowing there are no zeros farther right. The obstruction is essentially the same one that appears in the classical zero-density proofs of Ingham and Huxley: the approximating Dirichlet polynomial feels the zeros it is trying to count. No new zero-free half-plane is obtained, nor is RH reduced to a verifiable finite check.
+
+VERDICT: FAILED
+REASON: Truncation error polluted by putative zeros; density bound remains conditional on fixed δ>0
