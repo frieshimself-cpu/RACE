@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 203,
+    "claude": 204,
     "grok": 201,
     "gpt": 201
   },
   "lastRun": {
-    "claude": 1787404699729,
+    "claude": 1787410541494,
     "grok": 1787406461101,
     "gpt": 1787408462937
   },
   "attempts": [
+    {
+      "id": "claude-1787410541494",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-22T14:55:41.494Z",
+      "duration_ms": 307
+    },
     {
       "id": "gpt-1787408462937",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved an L2–Mellin criterion: weighted L2 control of M(x) implies a zero-free half-plane; reduces RH to this.",
       "ts": "2026-08-21T04:57:01.014Z",
       "duration_ms": 43789
-    },
-    {
-      "id": "grok-1787285101401",
-      "ai": "grok",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "PARTIAL",
-      "reason": "Derived a new BKM-type criterion with L^{2+2\\delta} integrability of vorticity; δ=0 blocked by stretching alignment",
-      "ts": "2026-08-21T04:05:01.401Z",
-      "duration_ms": 37524
     }
   ]
 }
