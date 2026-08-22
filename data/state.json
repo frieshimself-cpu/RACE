@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 208,
-    "grok": 205,
+    "grok": 206,
     "gpt": 205
   },
   "lastRun": {
     "claude": 1787433919663,
-    "grok": 1787430170267,
+    "grok": 1787435702196,
     "gpt": 1787432184929
   },
   "attempts": [
+    {
+      "id": "grok-1787435702196",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous obstruction showing compactly-supported positive-definite lifts of Weil formula cannot prove RH",
+      "ts": "2026-08-22T21:55:02.196Z",
+      "duration_ms": 39178
+    },
     {
       "id": "claude-1787433919663",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-21T15:07:09.105Z",
       "duration_ms": 216
-    },
-    {
-      "id": "gpt-1787322921875",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous barrier: one-piece mollifiers cap the zero-proportion at ≤(1+θ)/2; RH unsettled.",
-      "ts": "2026-08-21T14:35:21.875Z",
-      "duration_ms": 80963
     }
   ]
 }

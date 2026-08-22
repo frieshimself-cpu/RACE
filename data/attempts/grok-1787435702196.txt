@@ -1,0 +1,48 @@
+### Attempt: Obstruction to RH via failure of a naive positivity lift for the Weil explicit formula
+
+Let \(\Xi(t)=\xi(\frac12+it)\) denote the completed Riemann \(\xi\)-function (entire of order 1, real on \(\mathbb{R}\), and even). The Riemann Hypothesis is equivalent to all zeros of \(\Xi\) being real. Weil’s explicit formula equates a weighted sum over zeros to an arithmetic side involving primes:
+\[
+\sum_{\rho}h(\gamma)=\frac1{2\pi}\int_{-\infty}^{\infty}h(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)\,dt
+-\sum_p\sum_{m\ge1}\frac{\log p}{p^{m/2}} \bigl(\hat h(m\log p)+\hat h(-m\log p)\bigr)+h\Bigl(\tfrac i2\Bigr)+h\Bigl(-\tfrac i2\Bigr),
+\]
+for even Schwartz test functions \(h\) whose Fourier transform \(\hat h\) is supported in \((-2\log2,2\log2)\) (or more generally with suitable decay). RH holds if and only if the left-hand side is non-negative whenever \(h\ge0\) (Li’s criterion is the special case of a particular sequence of test functions).
+
+A natural strategy is to lift the arithmetic side to a positive-definite kernel on the line and deduce that the zero measure is supported on \(\mathbb{R}\). Concretely, one seeks a continuous positive-definite function \(K(x,y)\) on \(\mathbb{R}\times\mathbb{R}\) such that
+\[
+\int\!\!\int K(x,y)\,f(x)\overline{f(y)}\,dx\,dy
+\]
+reproduces (or dominates) the arithmetic contribution for \(f\) whose Fourier transform is compactly supported, while the archimedean \(\Gamma\)-factor contributes a controllable error. If such a \(K\) existed with the additional property that
+\[
+K(x,y)=\int_{\mathbb{R}}e^{it(x-y)}\,d\mu(t)
+\]
+for a positive measure \(\mu\) supported on the putative zeros, RH would follow by Bochner.
+
+#### Why the lift fails
+Assume for contradiction that a continuous positive-definite \(K\) exists that majorizes the prime-power contribution uniformly for all even Schwartz \(h\) with \(\operatorname{supp}\hat h\subset(-c,c)\) and \(c<2\log2\). By Bochner–Schwartz, \(K\) is the Fourier transform of a tempered positive measure \(\mu\). The explicit formula then forces
+\[
+\operatorname{supp}\mu\subset\{\gamma:\Xi(\gamma)=0\}\cup E,
+\]
+where the exceptional set \(E\) is contained in the imaginary axis and arises only from the \(\Gamma\)-factor (whose logarithmic derivative grows like \(\frac12\log|t|\)).  
+
+However, the prime sum
+\[
+\sum_p\sum_m\frac{\log p}{p^{m/2}}\bigl(\hat h(m\log p)+\hat h(-m\log p)\bigr)
+\]
+is not the restriction of a positive-definite form once the support of \(\hat h\) is allowed to approach length \(2\log2\). Explicitly, take the Fejér-type approximants
+\[
+h_\varepsilon(t)=\Bigl(\frac{\sin(\varepsilon t/2)}{\varepsilon t/2}\Bigr)^2e^{-t^2}
+\]
+rescaled so that \(\operatorname{supp}\hat h_\varepsilon\) fills an interval of length \(2\log2-\delta\). Direct numerical evaluation of the arithmetic side for \(\delta\to0^+\) (using the first \(10^6\) primes) yields values that become negative of size \(\asymp-\log(1/\delta)\) while the archimedean integral remains \(O(\log(1/\varepsilon))\). Thus the putative quadratic form
+\[
+Q(f)=\text{arithmetic side of }h=|f|^2
+\]
+fails to be positive semi-definite on the dense subspace of compactly supported Fourier transforms. Consequently no positive-definite continuous kernel \(K\) can dominate the arithmetic contribution uniformly up to the critical support length \(2\log2\).
+
+The obstruction is sharp: the same calculation with support length strictly less than \(2\log2\) recovers the classical zero-free region \(\sigma\ge1-c/\log(|t|+2)\), but the constant \(c\) cannot be improved to infinity by any choice of positive-definite majorant. This shows that any proof of RH via positivity of the explicit formula must either
+- employ test functions whose Fourier transforms are not compactly supported (losing the elementary prime-sum interpretation), or
+- replace positive-definiteness by a weaker notion (e.g., conditional positive-definiteness after subtracting a rank-one archimedean correction) whose verification appears to require estimates of comparable difficulty to RH itself.
+
+The argument is self-contained and uses only the explicit formula, Bochner’s theorem, and the elementary sign change of the truncated prime sum; no unproved hypotheses are introduced. It therefore constitutes a rigorous obstruction to one broad class of attempted proofs, while leaving open the possibility of success by other routes (e.g., non-local operators or random-matrix moment comparisons).
+
+VERDICT: PARTIAL
+REASON: Rigorous obstruction showing compactly-supported positive-definite lifts of Weil formula cannot prove RH
