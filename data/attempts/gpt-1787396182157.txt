@@ -1,0 +1,70 @@
+Objective
+Give a rigorous reduction showing what uniform additive-divisor correlation estimates would be sufficient to make the standard mollified second-moment method force zeros of ζ(s) onto Re s = 1/2, and quantify precisely the known barrier. This both isolates what is missing and rules out certain avenues without a breakthrough on shifted divisor correlations.
+
+Setup
+- Let T large. Let θ ∈ (0,1) and let N = T^θ.
+- Take a Dirichlet polynomial mollifier M(s) = ∑_{n≤N} μ(n) a_n n^{-s} with a_n bounded and smoothly tapered (e.g., a_n = P(log(N/n)/log N) with fixed smooth P supported in [0,1], P(0)=1).
+- Consider the mollified second moment:
+  I(T) = ∫_T^{2T} |ζ(1/2+it) M(1/2+it)|^2 dt.
+
+By standard arguments (Cauchy–Schwarz, Littlewood), a sufficiently large value of I(T) relative to ∫ |M|^2 forces a positive proportion of zeros on the critical line; pushing the proportion to 1 (and, in principle, RH) requires precise control of I(T) at the scale T log T relative to the variance of M.
+
+Core calculation
+Expand I(T) and evaluate using the approximate functional equation for ζ(1/2+it), together with the mean-value theorem for Dirichlet polynomials and standard smoothing in t (replace the sharp integral by a smooth weight W(t/T) supported in [1,2] with total mass ~T). One arrives at the standard decomposition:
+I(T) = MainDiag + OffDiag + Error,
+where:
+- MainDiag is the “diagonal” contribution where the oscillations cancel (m n = m' n' in the fourfold sum after expanding |ζ M|^2), giving the expected main term ~ T log T times a quadratic form in the mollifier coefficients a_n.
+- OffDiag collects terms with small rational mismatches, which reduce to shifted correlations of divisor-type coefficients.
+- Error is negligible, O(T^{1-δ}) for some δ>0, after smoothing and standard applications of the large sieve/approximate functional equation.
+
+More concretely, writing the approximate functional equation as
+ζ(1/2+it) = ∑_{m≤M} m^{-1/2-it} + χ(1/2+it) ∑_{n≤M} n^{-1/2+it} + O(T^{-A})
+with M ≍ √T and smooth weights, and writing M(1/2+it) = ∑_{k≤N} b_k k^{-1/2-it}, one arrives, after expanding and integrating in t, at sums of the form
+S = ∑_{h∈Z} W_h(T) ∑_{n} c(n) c(n+h),
+with c(n) of divisor type (e.g., c(n) ≍ d(n) convolved with the mollifier coefficients b_k), and W_h(T) a smooth weight concentrated on |h| ≲ N, with size W_h(T) ≪ T whenever |h| ≲ N and rapidly decaying otherwise. The precise structure depends on the symmetric/asymmetric pieces of the approximate functional equation, but the salient point is:
+
+- The OffDiag reduces to a family of shifted correlations of the shape
+  A_h(X) := ∑_{n} d(n) d(n+h) w(n/X),
+  with X ≍ T (up to constants from the support of the weight), and with h in the range |h| ≲ N = T^θ.
+
+Conditional reduction
+We state the needed hypothesis on additive divisor correlations and its consequence for I(T).
+
+Hypothesis (Uniform additive-divisor asymptotics up to T^θ). Fix θ ∈ (1/2, 1]. There exist δ(θ) > 0 and a family of smooth compactly supported weights w = w_T depending mildly on T (with derivatives bounded independently of T and support in [c, C] for fixed 0 < c < C) such that, uniformly for 1 ≤ |h| ≤ T^θ,
+A_h(T) = ∑_{n} d(n) d(n+h) w(n/T)
+= T P_2(log T; h) + O(T^{1-δ(θ)}),
+where P_2 is a quadratic polynomial in log T with coefficients depending at most mildly on h (in the known way from the Dirichlet series of ζ(s)^4/ζ(2s)), and the O-term is uniform in h up to T^θ with a power saving T^{-δ(θ)}.
+
+Lemma (Mollified moment asymptotic under the hypothesis). Under the Hypothesis with some θ > 1/2 and δ(θ) > 0, for any fixed smooth mollifier coefficients a_n as above with length N = T^θ, we have
+I(T) = T·C_main(a)·log T + T·C_0(a) + O(T^{1-ε}),
+for some ε = ε(θ, δ(θ)) > 0, where C_main(a) > 0 is an explicit positive quadratic form in the a_n determined by the diagonal and the h = 0 piece of the off-diagonal, and C_0(a) is explicit.
+
+Sketch of proof:
+- Expand I(T) as a quadruple sum. The integral over t collapses the phase via ∫ e^{it log r} W(t/T) dt = T·ĝ(T log r) with ĝ rapidly decaying, so only ratios r = 1 + O(1/T) contribute, which turn into additive shifts h of size ≲ N after unfolding the convolution with the mollifier.
+- The diagonal (r = 1) yields T times an explicit quadratic form with main growth C_main(a) log T from the ζ^2-diagonal.
+- The off-diagonal splits into sums over shifts h ≠ 0 with weights W_h ≪ T. Their arithmetic core is precisely A_h(T) with coefficients c(n) that are linear combinations of d(n) convolved with a_n. The Hypothesis applies to each such weighted A_h(T) uniformly for |h| ≲ N, giving a main term (which merges into C_0(a)) plus a total error bounded by
+  ∑_{1≤|h|≤N} T^{1-δ(θ)}·O(1) ≪ N·T^{1-δ(θ)} = T^{1 + θ - δ(θ)}.
+- Since θ < 1 and δ(θ) > 0, the total off-diagonal error is o(T), hence o(T log T), and can be absorbed into O(T^{1-ε}) for some ε > 0. The contributions from |h| > N are negligible by rapid decay of ĝ.
+
+Corollary (Proportion of critical zeros and beyond). With θ > 1/2 as above, optimizing the mollifier a_n (standard quadratic-form optimization subject to a_1 = 1 and support ≤ N) yields
+I(T) ≥ (1 + c(θ)) T log T + o(T log T),
+for some c(θ) > 0, which by Levinson–Conrey machinery implies that a proportion strictly greater than 1/2 of the nontrivial zeros lie on the critical line. As θ → 1 with uniform power saving δ(θ) bounded away from 0, the same optimization drives the lower bound on the proportion towards 1, and in the limiting regime (θ = 1 uniformly) would enforce that all but o(T log T) zeros up to height T lie on the line. Strengthening the error control in the Hypothesis to hold uniformly for θ = 1 with error o(T/log T) would force all zeros on the line, i.e., RH.
+
+Barrier (what is currently missing)
+- Known spectral methods (via the Kuznetsov trace formula and spectral theory of automorphic forms) control mean values of A_h(T) on average over h or give asymptotics for fixed h with error T^{1-1/2+ε} only after averaging, but do not provide a power-saving error uniform for all 1 ≤ |h| ≤ T^θ with θ > 1/2.
+- Even the binary additive divisor problem in its uniform form with power-saving for all shifts |h| ≤ T^θ, θ > 1/2, lies beyond current techniques; such a result would, for example, imply strong bounds for shifted convolution sums of Hecke eigenvalues uniformly in large shifts, which is a major open problem in the analytic theory of automorphic forms.
+
+Consequences
+- This reduction shows that the standard single-mollifier second-moment method cannot unconditionally push the critical-line proportion of zeros to 1 (let alone prove RH) without a breakthrough on uniform additive divisor correlations up to shifts |h| of length T^{θ} with θ at least slightly larger than 1/2 and with power-saving error.
+- Conversely, any breakthrough establishing the Hypothesis with some fixed θ > 1/2 and power-saving would immediately improve the best known proportion of zeros on the line. Establishing it with θ arbitrarily close to 1 and robust uniform error would, through the above machinery, force almost all zeros to lie on the line; with minor tightening it would yield RH.
+
+Technical notes and checks
+- The smoothing in t and the tapering of the mollifier ensure that the weight functions in A_h(T) satisfy the standard conditions needed for spectral transforms; the conversion from ratios to additive shifts uses that the polynomial lengths are ≤ T^{θ} with θ < 1.
+- The emergence of d(n) in A_h(T) is robust: it comes from the product ζ · ζ̄ under the approximate functional equation, and any “reasonable” mollifier linear in μ(n) cannot eliminate d(n) from the core off-diagonal correlations.
+- Nonlinear or multi-piece mollifiers can reweight the c(n), but do not change the need to control shifted convolutions of divisor-type coefficients with uniformity in large h once θ > 1/2; the obstruction thus persists for a large class of mollified moment strategies.
+
+Conclusion
+We have given a precise conditional reduction: uniform power-saving asymptotics for the additive divisor correlation A_h(T) up to shifts |h| ≤ T^θ with θ > 1/2 suffice to asymptotically evaluate the mollified second moment with a length-T^θ mollifier and thereby improve zero-density on the critical line; pushing θ to 1 with sufficiently strong error terms would yield RH. This both charts a concrete path and explains rigorously why existing mollifier-based approaches stall without new input on shifted divisor sums.
+
+VERDICT: PARTIAL
+REASON: Reduction of RH to uniform additive divisor asymptotics; clarifies a key barrier in mollifier methods

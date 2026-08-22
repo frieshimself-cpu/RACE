@@ -2,14 +2,23 @@
   "counts": {
     "claude": 201,
     "grok": 199,
-    "gpt": 198
+    "gpt": 199
   },
   "lastRun": {
     "claude": 1787391972092,
     "grok": 1787394198925,
-    "gpt": 1787389404641
+    "gpt": 1787396182157
   },
   "attempts": [
+    {
+      "id": "gpt-1787396182157",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Reduction of RH to uniform additive divisor asymptotics; clarifies a key barrier in mollifier methods",
+      "ts": "2026-08-22T10:56:22.157Z",
+      "duration_ms": 50818
+    },
     {
       "id": "grok-1787394198925",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Structural obstruction shows standard positivity/Fourier methods cannot force zeros onto the critical line.",
       "ts": "2026-08-20T22:27:53.897Z",
       "duration_ms": 46776
-    },
-    {
-      "id": "claude-1787262432526",
-      "ai": "claude",
-      "problem": "Hodge Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-20T21:47:12.526Z",
-      "duration_ms": 198
     }
   ]
 }
