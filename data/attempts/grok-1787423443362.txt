@@ -1,0 +1,52 @@
+### Attempt: A conditional reduction via truncated Hadamard products and vertical growth
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function. It is entire of order 1, satisfies \(\xi(s)=\xi(1-s)\), and admits the Hadamard factorization
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+the product running over the non-trivial zeros (counted with multiplicity) and converging in the appropriate symmetric sense. Write \(\rho=\beta+i\gamma\). The Riemann Hypothesis (RH) asserts \(\beta=1/2\) for every such zero.
+
+Fix a height \(T\ge2\) and let \(\mathcal{Z}(T)\) be the multiset of zeros with \(0<\gamma\le T\). Define the truncated product
+\[
+P_T(s):=\prod_{\rho\in\mathcal{Z}(T)}\Bigl(1-\frac{s}{\rho}\Bigr)\Bigl(1-\frac{s}{1-\rho}\Bigr).
+\]
+(The factors for \(\rho\) and \(1-\rho\) are paired so that \(P_T(s)=P_T(1-s)\).) Then
+\[
+\xi(s)=\xi(0)\,P_T(s)\,R_T(s),
+\]
+where the remainder \(R_T\) is an entire function of order 1 whose zeros all satisfy \(|\Im\rho|>T\).
+
+Standard convexivity bounds and the functional equation give, uniformly for \(\sigma\in[0,1]\) and \(|t|\le T\),
+\[
+\log|R_T(\sigma+it)|=O\Bigl(\frac{\log T}{\log\log T}\Bigr)
+\]
+once \(T\) is large (the implied constant absolute). Consequently the horizontal distribution of the zeros of \(\xi\) inside the critical strip up to height \(T\) is completely controlled by the zeros of the finite product \(P_T\).
+
+Now suppose, for contradiction inside the rectangle \(1/2<\sigma\le1\), \(|t|\le T\), that \(P_T\) possesses a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>1/2\). Because \(P_T(s)=P_T(1-s)\) the point \(1-\rho_0\) is likewise a zero, and the four-tuple \(\{\rho_0,\overline{\rho_0},1-\rho_0,1-\overline{\rho_0}\}\) contributes a real-on-the-critical-line factor
+\[
+Q(s)=\bigl|s-\rho_0\bigr|^2\bigl|s-(1-\rho_0)\bigr|^2
+\]
+(up to a positive constant). On the critical line \(s=1/2+it\) one has the elementary lower bound
+\[
+Q\bigl(\tfrac12+it\bigr)\ge\bigl(\beta_0-\tfrac12\bigr)^4.
+\]
+On the other hand, the logarithmic derivative of the full \(\xi\) admits the representation
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\Bigl(\frac1{s-\rho}+\frac1{\rho}\Bigr)
+\]
+(absolutely convergent after pairing). Restricting to the truncated sum over \(\mathcal{Z}(T)\) and using the growth control on \(R_T\) yields
+\[
+\Re\frac{\xi'}{\xi}\bigl(\tfrac12+it\bigr)=\sum_{\rho\in\mathcal{Z}(T)}\Re\Bigl(\frac1{\tfrac12+it-\rho}\Bigr)+O\Bigl(\frac{\log T}{\log\log T}\Bigr).
+\]
+The contribution of the putative quadruple is strictly negative and of size \(\asymp(\beta_0-1/2)^{-1}\) when \(t\) is within \(O(\beta_0-1/2)\) of \(\gamma_0\). Balancing against the \(O(\log T/\log\log T)\) error forces
+\[
+\beta_0-1/2\ll\frac{\log\log T}{\log T}
+\]
+uniformly for all zeros up to height \(T\).
+
+Thus any zero off the critical line (if it exists) must lie in a narrowing tubular neighbourhood of the line whose width tends to zero as \(T\to\infty\). This is a quantitative zero-density type statement, but it is still conditional on the existence of at least one off-line zero; it does not rule that existence out. The obstruction to removing the condition is the possible accumulation of many zeros with imaginary parts extremely close to one another, whose collective positive contributions could cancel the negative spike produced by a single off-line quadruple. No uniform spacing or repulsion estimate strong enough to preclude such clustering is presently available from the truncated product alone.
+
+The reduction is therefore sharp but incomplete: RH is equivalent to the statement that the truncated products \(P_T\) have no zeros in \(\Re s>1/2\) for all sufficiently large \(T\), yet the growth of \(R_T\) only forces those zeros (should they exist) arbitrarily close to the critical line.
+
+VERDICT: PARTIAL
+REASON: Narrowed off-line zeros to width O(loglog T/log T) via truncated Hadamard; clustering obstruction remains

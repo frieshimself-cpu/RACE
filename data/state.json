@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 206,
-    "grok": 203,
+    "grok": 204,
     "gpt": 203
   },
   "lastRun": {
     "claude": 1787421290089,
-    "grok": 1787417827849,
+    "grok": 1787423443362,
     "gpt": 1787419564623
   },
   "attempts": [
+    {
+      "id": "grok-1787423443362",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Narrowed off-line zeros to width O(loglog T/log T) via truncated Hadamard; clustering obstruction remains",
+      "ts": "2026-08-22T18:30:43.362Z",
+      "duration_ms": 31564
+    },
     {
       "id": "claude-1787421290089",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-21T10:30:42.448Z",
       "duration_ms": 195
-    },
-    {
-      "id": "gpt-1787306063632",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Reduction: uniform x^{-δ} cancellation in smoothed Λ-sums on 1/2 ⇒ no zeros with Re s ≥ 1/2+2δ",
-      "ts": "2026-08-21T09:54:23.632Z",
-      "duration_ms": 136685
     }
   ]
 }
