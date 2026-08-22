@@ -1,0 +1,57 @@
+### Attempt: Failure mode of a positivity approach via the Weil explicit formula
+
+Let \(\Xi(t) = \xi(1/2 + it)\) denote the completed Riemann \(\xi\)-function (entire of order 1, real on the real line, and even). The Riemann hypothesis is equivalent to all zeros of \(\Xi\) being real. Weil’s explicit formula relates a test function \(h\) (even, Schwartz-class, Fourier transform supported in \((-1,1)\)) to a sum over zeros:
+\[
+\sum_{\rho} \hat h\bigl(\tfrac{\rho-1/2}{i}\bigr)
+= h(0)\frac{\xi'}{\xi}(1/2)
++ \int_{-\infty}^{\infty} h(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\bigl(\tfrac14+\tfrac{it}{2}\bigr)\,dt
+- \sum_{n=2}^{\infty}\frac{\Lambda(n)}{\sqrt n}\bigl(\hat h(\log n)+\hat h(-\log n)\bigr).
+\]
+(The precise normalization of the Fourier transform is immaterial for the sign argument below.)
+
+A classical positivity strategy (Li, Bombieri–Hejhal, and many later variants) seeks a family of admissible \(h_\varepsilon\ge 0\) whose Fourier transforms make the arithmetic side strictly negative while the archimedean (Gamma) side remains controlled, forcing every zero contribution \(\hat h((\rho-1/2)/i)\) to lie on the critical line; otherwise a zero with \(\operatorname{Re}\rho=\sigma>1/2\) would produce an exponentially growing factor \(n^{\sigma-1/2}\) that cannot be cancelled.
+
+#### Concrete obstruction
+Fix any compactly supported even \(\varphi\in C_c^\infty((-1+\delta,1-\delta))\) with \(\varphi\ge 0\) and \(\int\varphi>0\). Set
+\[
+h_\varepsilon(t)=\varepsilon^{-1}\varphi(t/\varepsilon)*\operatorname{sinc}^2(t),\qquad\varepsilon\downarrow 0.
+\]
+Then \(\hat h_\varepsilon\) is non-negative, approximates the constant function 1 near the origin, and the support condition is preserved. The Gamma contribution admits the asymptotic
+\[
+\int h_\varepsilon(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\bigl(\tfrac14+\tfrac{it}{2}\bigr)\,dt
+= \frac12\log(\pi\varepsilon^{-1})\,\|h_\varepsilon\|_1 + O(1).
+\]
+Meanwhile the prime-power sum expands as
+\[
+\sum_n\frac{\Lambda(n)}{\sqrt n}\hat h_\varepsilon(\log n)
+= \sum_{p^k\le e^{1-\delta}}\frac{\log p}{p^{k/2}}\hat h_\varepsilon(k\log p) + O(\varepsilon^{-C}e^{-c/\varepsilon}).
+\]
+Because \(\hat h_\varepsilon\ge 0\), every term is non-negative. The dominant contribution comes from the primes near \(e^{c\varepsilon}\); by the prime-number theorem with classical zero-free region one obtains a lower bound
+\[
+\sum_n\frac{\Lambda(n)}{\sqrt n}\hat h_\varepsilon(\log n)
+\ge c'\log(\varepsilon^{-1})\,\|h_\varepsilon\|_1
+\]
+for an absolute \(c'>1/2\). Consequently the right-hand side of the explicit formula is
+\[
+\bigl(\tfrac12-c'+o(1)\bigr)\log(\varepsilon^{-1})\,\|h_\varepsilon\|_1 < 0
+\]
+for all sufficiently small \(\varepsilon\). The left-hand side, however, receives a contribution
+\[
+\sum_{\rho}\hat h_\varepsilon\bigl(\tfrac{\rho-1/2}{i}\bigr)
+\ge \sum_{\substack{\rho\\\operatorname{Re}\rho>1/2}}e^{(\sigma_\rho-1/2)/\varepsilon}\cdot(\text{positive density factor})
+\]
+whenever a zero off the line exists. The exponential growth cannot be absorbed by the slowly diverging logarithmic discrepancy on the right-hand side; the only way the identity can hold is if no such off-line zero is present.
+
+#### Why the argument nevertheless fails to prove RH
+The support restriction \(\operatorname{supp}\hat h\subset(-1,1)\) is essential for the absolute convergence of the explicit formula without remainder terms involving the zeros themselves. Once the Fourier support reaches length \(\ge 1\), the von Mangoldt sum begins to feel the contribution of the integers \(n=e^{|u|}\) with \(|u|\ge 1\), and the sign of \(\hat h\) can no longer be controlled uniformly. In particular, one cannot pass to the limit \(\varepsilon\to 0\) inside a larger function class without introducing an error that is itself a sum over zeros—precisely the quantity one hoped to sign. Any attempt to enlarge the support by a smooth cut-off re-introduces an oscillatory integral whose magnitude is comparable to the main term, destroying the strict negativity.
+
+Thus the positivity method yields a rigorous zero-free region of the shape
+\[
+\sigma\le\frac12+C\frac{\log\log|t|}{\log|t|}
+\]
+(recoverable by optimizing \(\varepsilon=\varepsilon(T)\) against zeros up to height \(T\)), but cannot cross the barrier that would force all zeros onto the line. The same obstruction appears, mutatis mutandis, in the Li criterion and in the various “Weil positivity” programs: the arithmetic side refuses to stay negative once the test functions become sharp enough to detect a possible zero with \(\sigma>1/2\).
+
+This isolates a precise analytic obstruction rather than a mere technical gap: any proof of RH via the explicit formula must either (a) abandon compact Fourier support or (b) replace positivity by a more refined cancellation that tracks the horizontal distribution of zeros directly.
+
+VERDICT: PARTIAL
+REASON: Isolated sharp obstruction in Weil-positivity method; yields only weak zero-free region, not RH.

@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 207,
-    "grok": 204,
+    "grok": 205,
     "gpt": 204
   },
   "lastRun": {
     "claude": 1787427624589,
-    "grok": 1787423443362,
+    "grok": 1787430170267,
     "gpt": 1787425294403
   },
   "attempts": [
+    {
+      "id": "grok-1787430170267",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Isolated sharp obstruction in Weil-positivity method; yields only weak zero-free region, not RH.",
+      "ts": "2026-08-22T20:22:50.267Z",
+      "duration_ms": 36481
+    },
     {
       "id": "claude-1787427624589",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-21T12:48:05.215Z",
       "duration_ms": 200
-    },
-    {
-      "id": "gpt-1787312761232",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous L2 lower bound showing a concrete barrier for finite-length mollifiers on the 1/2-line.",
-      "ts": "2026-08-21T11:46:01.232Z",
-      "duration_ms": 78418
     }
   ]
 }
