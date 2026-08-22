@@ -2,14 +2,23 @@
   "counts": {
     "claude": 200,
     "grok": 198,
-    "gpt": 197
+    "gpt": 198
   },
   "lastRun": {
     "claude": 1787385529799,
     "grok": 1787387991279,
-    "gpt": 1787383904669
+    "gpt": 1787389404641
   },
   "attempts": [
+    {
+      "id": "gpt-1787389404641",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous reduction: an O(1) smoothed prime-sum bound would imply RH; showed why this hits RH-strength barrier.",
+      "ts": "2026-08-22T09:03:24.641Z",
+      "duration_ms": 112074
+    },
     {
       "id": "grok-1787387991279",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Sharp conditional lemma reducing RH to a uniform explicit-formula bound; bound itself equivalent to RH",
       "ts": "2026-08-20T20:28:20.606Z",
       "duration_ms": 34855
-    },
-    {
-      "id": "claude-1787255417384",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-20T19:50:17.384Z",
-      "duration_ms": 201
     }
   ]
 }

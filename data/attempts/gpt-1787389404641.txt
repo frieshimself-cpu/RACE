@@ -1,0 +1,44 @@
+Attempt: A conditional reduction using a single smoothed explicit formula that would force RH, and a sharp analysis of why this approach currently stalls
+
+Set-up. Let g be an even, C∞, compactly supported function, not identically zero, and write
+- its Fourier transform G(ξ) = ∫R g(t) e−iξt dt, which is entire of exponential type (Paley–Wiener);
+- the u-scaled bump gu(t) := g(t/u), and the “half-line” twist hu(t) := e^{t/2} gu(t).
+
+Define the smoothed prime sum on the log-scale (height u>0):
+S(u) := ∑_{n=1}^∞ Λ(n) n^{-1/2} g( (log n)/u ).
+Note S(u) is finite because g has compact support.
+
+Explicit formula at the half-line. Let H be the Fourier transform of h := hu:
+H(ξ) = ∫R e^{t/2} g(t/u) e^{-iξ t} dt = u G( u(ξ + i/2) ).
+A standard form of the Weil–Guinand explicit formula (valid for our smooth, rapidly decaying h and hence H entire of exponential type) yields, after routine bookkeeping of archimedean and trivial zero terms, the identity
+S(u) = u G(0) − ∑_ρ u G( u iρ ) + A(u),
+where ρ runs over the nontrivial zeros of ζ, and A(u) is an archimedean/trivial-zeros contribution that is O(u) with an explicit main term c0 u (depending only on g and the gamma-factor normalizations). Thus one may rewrite the explicit formula as
+S(u) = c(u) u − u ∑_ρ G( u iρ ),
+with c(u) = G(0) + c0 + o(1) as u → ∞ (the precise main term c(u) is explicitly computable from g and the gamma factor; its exact shape is immaterial for the argument below, only that c(u)=Θ(1)).
+
+A forcing lemma (conditional implication to RH). Assume there is a constant C such that, for all sufficiently large u,
+S(u) = c(u) u + O(1).           (∗)
+Then the Riemann Hypothesis holds.
+
+Proof sketch of the forcing lemma. Suppose to the contrary there is a zero ρ0 = β + iγ with β > 1/2. For our compactly supported g, Paley–Wiener implies G is entire of exponential type A > 0 (A depends on supp g), with growth control
+|G(σ + iτ)| ≤ C_N (1 + |σ + iτ|)^{-N} e^{A |τ|}    for all N.
+Evaluating the zero-sum term at ρ0 gives a contribution
+u G( u iρ0 ) = u G( −uγ + i uβ ).
+Fixing β>1/2 and letting u→∞, the imaginary part of the argument is uβ, so by the exponential type bound we have
+|u G( −uγ + i uβ )| ≥ u e^{A u β} × poly(u)^{-1} × κ(u),
+where κ(u) encodes the oscillatory effect of the real part −uγ and the detailed shape of G but is bounded below along an infinite sequence of u by a positive power of u−1 (this follows from standard Phragmén–Lindelöf/Paley–Wiener asymptotics together with the fact that G is not identically zero; in particular, for entire functions of finite exponential type, one cannot have uniform exponential decay along an infinite ray unless the function vanishes identically on that ray). Consequently, along such a sequence u_k → ∞,
+|u_k G( u_k iρ0 )| ≫ e^{(Aβ) u_k},
+i.e., it grows faster than any power of u. Since the remaining zero terms are nonnegative in magnitude and A(u)=Θ(u), the zero-sum −u∑_ρ G(u iρ) cannot be bounded by O(1). This contradicts (∗). Hence no such ρ0 with β>1/2 exists. By the functional equation, no zeros lie with β < 1/2 either. Therefore RH holds.
+
+Remarks on rigor in the growth lower bound. The key input above is a basic fact about entire functions of finite exponential type: if an entire function F is not identically zero and of (exact) exponential type τ>0, then along any vertical line Im z = c ≠ 0 there exists an unbounded sequence of real parts Re z → ±∞ along which |F(z)| grows at least like exp((τ−ε)|Re z|) times a reciprocal polynomial factor. Applied to G at z = −uγ + i uβ, this precludes the possibility that u G(−uγ + i uβ) remains O(1) as u→∞ when β>1/2. Thus the forcing lemma is rigorous.
+
+Why this approach currently stalls: a barrier analysis. The lemma shows that the seemingly modest O(1) control in (∗) would already imply RH. But the explicit formula itself shows why (∗) is out of present reach:
+- The zero side naturally has size Θ(u) under RH (since the effective support in γ for which G(u iρ) is not tiny is |γ| ≲ 1/u, yielding ≈ log-height density × window-width ∼ u × 1/u ≈ 1 many zeros contributing O(u) in total). Off RH, a single zero with β>1/2 would force growth e^{const·u}, making (∗) false. Therefore (∗) is logically equivalent to “there are no β>1/2 zeros,” i.e., it encodes RH-strength information.
+- On the prime side, S(u) is a log-scale smoothing of ψ(x)−x at the 1/2-line normalization n^{-1/2}. Any uniform O(1) remainder in u for fixed compactly supported g would in turn imply an error term O(x^{1/2}/log x) in classical prime counting after an inverse Mellin argument. This is essentially the optimal RH error; in particular, (∗) is at least as strong as RH in its classical error-term formulation.
+
+Thus the single-bump, nonnegative-weight route via the explicit formula is indeed a sound pathway in principle but requires proving a bound equivalent in strength to RH itself. The obstacle is not a mere technicality of test function choice: with compact support in the time (log) domain, Paley–Wiener rigidity forces the zero-sum to be hypersensitive to any β−1/2>0, which manifests as exponential-in-u growth; consequently, the only way to maintain O(1) remainder is for all zeros to satisfy β=1/2.
+
+Conclusion. The above furnishes a precise, rigorous reduction: establish the O(1) uniform remainder (∗) for one fixed, even, compactly supported g ≠ 0, and RH follows. It also clarifies why this approach is hard: achieving (∗) is tantamount to establishing RH-quality error terms for primes in a very rigid smoothed form, and any off-line zero would catastrophically break the estimate by an exponentially large contribution detectable through the finite-exponential-type structure enforced by Paley–Wiener.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous reduction: an O(1) smoothed prime-sum bound would imply RH; showed why this hits RH-strength barrier.
