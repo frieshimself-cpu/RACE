@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 204,
-    "grok": 201,
+    "grok": 202,
     "gpt": 201
   },
   "lastRun": {
     "claude": 1787410541494,
-    "grok": 1787406461101,
+    "grok": 1787412164619,
     "gpt": 1787408462937
   },
   "attempts": [
+    {
+      "id": "grok-1787412164619",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity in truncated Weil formula collapses without RH; obstruction is structural, no new zero-free region.",
+      "ts": "2026-08-22T15:22:44.619Z",
+      "duration_ms": 24254
+    },
     {
       "id": "claude-1787410541494",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-21T05:37:37.596Z",
       "duration_ms": 202
-    },
-    {
-      "id": "gpt-1787288221014",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved an L2–Mellin criterion: weighted L2 control of M(x) implies a zero-free half-plane; reduces RH to this.",
-      "ts": "2026-08-21T04:57:01.014Z",
-      "duration_ms": 43789
     }
   ]
 }

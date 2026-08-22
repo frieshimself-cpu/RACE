@@ -1,0 +1,37 @@
+### Attempt: Positivity obstruction in a truncated Weil explicit formula
+
+We work throughout with the completed Riemann xi-function
+\[
+\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),
+\]
+which is entire of order 1, satisfies \(\xi(s)=\xi(1-s)\), and whose non-trivial zeros coincide with those of \(\zeta\). Write the zeros as \(\rho=\tfrac12+i\gamma\) (without assuming RH). The Weil explicit formula, for a sufficiently nice even test function \(h\) (Schwartz, Fourier transform \(\hat h\) supported in \((-1,1)\), say), reads
+\[
+\sum_{\rho}h(\gamma)=\frac1{2\pi}\int_{-\infty}^{\infty}h(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)\,dt
++h\Bigl(\frac i2\Bigr)+h\Bigl(-\frac i2\Bigr)
+-\sum_{n=1}^{\infty}\frac{\Lambda(n)}{\sqrt n}\hat h(\log n)
+\]
+(up to the usual archimedean and trivial-zero contributions that we absorb into the continuous spectral term). The left-hand side is a sum over ordinates; the prime-power sum on the right is negative-definite when \(\hat h\ge0\).
+
+**Lemma (truncated positivity).** Fix \(T\ge3\) and let \(h_T\) be an even non-negative Schwartz majorant of the indicator of \([-T,T]\) whose Fourier transform satisfies \(\operatorname{supp}\hat h_T\subset[-1+\delta,1-\delta]\) for a fixed small \(\delta>0\) and
+\[
+\int h_T=2T+O(1),\qquad\|h_T\|_\infty\le1+O(T^{-1}).
+\]
+(Such majorants exist by standard Beurling–Selberg constructions.) Then
+\[
+\sum_{|\gamma|\le T}1\ \le\ \frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}+O\bigl(\log T\bigr)
++\frac1{2\pi}\int h_T(t)\,K(t)\,dt,
+\]
+where \(K(t)=\operatorname{Re}(\Gamma'/\Gamma)(1/4+it/2)\) is the archimedean density, provided every zero with \(|\gamma|\le T\) satisfies \(\operatorname{Re}\rho=\tfrac12\). (If a zero lies off the critical line the corresponding term \(h_T(\gamma)\) is evaluated at a complex point and the identity must be rewritten via the functional equation; the resulting extra factor is \(\ll\exp(c|\operatorname{Im}\rho-\tfrac12|)\) and destroys the sign.)
+
+**Proof sketch of the lemma.** Under RH the left-hand side of Weil’s formula is exactly \(\sum h_T(\gamma)\). Because \(h_T\ge0\) and \(\hat h_T\ge0\) on its support, the prime-power sum is \(\le0\). The continuous spectral integral is asymptotic to \((T/2\pi)\log(T/2\pi)-T/2\pi\) by the Stirling expansion of \(\Gamma'/\Gamma\). The two polar terms \(h_T(\pm i/2)\) contribute \(O(1)\). Rearrangement yields the claimed upper bound on the zero-counting function \(N(T)\). (The same argument with a minorant produces a matching lower bound, recovering the classical Riemann–von Mangoldt formula under RH.)
+
+**Obstruction.** The same formal truncation without assuming RH produces an extra error
+\[
+\sum_{\rho:\,|\operatorname{Im}\rho|\le T}\bigl(h_T(\gamma)-h_T(\operatorname{Im}\rho)\bigr)
+\]
+that cannot be signed: zeros with \(\operatorname{Re}\rho>\tfrac12\) contribute positively to the discrepancy while those with \(\operatorname{Re}\rho<\tfrac12\) contribute negatively, and the functional equation pairs them. No choice of the support width \(\delta\) or of the Beurling–Selberg polynomial degree cancels this pairing uniformly. Consequently the positivity that would force all zeros onto the line is lost as soon as a single off-line zero (or a conjugate pair) is admitted inside the truncation window. This is why the method yields only the classical zero-density estimates or zero-free regions of width \(O(1/\log T)\), never a full proof of RH.
+
+The obstruction is structural: any attempt to restore positivity by enlarging the Fourier support beyond length 1 re-introduces the von Mangoldt weights at integers \(n\ge3\), whose signs oscillate and again destroy definiteness. Thus the Weil-explicit-formula approach, while sharp for conditional asymptotics, cannot by itself cross the critical line.
+
+VERDICT: FAILED
+REASON: Positivity in truncated Weil formula collapses without RH; obstruction is structural, no new zero-free region.
