@@ -1,0 +1,39 @@
+### Attempt: A conditional reduction via a truncated explicit formula and a sign obstruction
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) is entire of order 1, and the non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\). Write zeros as \(\rho=\beta+i\gamma\) (repeated according to multiplicity). The completed logarithmic derivative admits the absolutely convergent representation (for \(s\notin\{\rho\}\))
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\Bigl(\frac1{s-\rho}+\frac1{\rho}\Bigr)+B,
+\]
+where \(B=-\frac12\gamma_E-1+\frac12\log4\pi\) is the usual constant. Restricting to the critical line and taking imaginary parts yields the classical explicit formula relating prime powers to zeros.
+
+**Lemma (sign obstruction under a vertical density hypothesis).**  
+Assume there exists a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>1/2\) and \(|\gamma_0|\ge T_0\) large. Suppose in addition that the number \(N(\sigma,T)\) of zeros with \(\beta\ge\sigma\) and \(0<\gamma\le T\) satisfies
+\[
+N(\beta_0,T)\ll T^{\theta}\qquad\text{for some }\theta<1
+\]
+uniformly for \(T\ge|\gamma_0|\). Then the truncated Weil explicit formula
+\[
+\sum_{n\le X}\frac{\Lambda(n)}{n^{1/2}}f(\log n)=\sum_{|\gamma|\le T}\hat f(\gamma-\gamma_0)+O\bigl((1+\|f'\|_1)X^{1/2}T^{-1+\varepsilon}\bigr)
+\]
+(for a non-negative even Schwartz test function \(f\) supported in \([-1,1]\) with \(\hat f\ge0\) and \(\hat f(0)=1\)) produces a strict sign contradiction for a suitable choice of \(X=T^{c}\) with \(c\in(0,1-\theta)\).
+
+**Sketch of proof.**  
+Translate the test function so that the dual is centred at \(\gamma_0\): set \(f_T(u)=f(u)e^{i\gamma_0 u}\). The left-hand side is then
+\[
+\sum_{n\le X}\frac{\Lambda(n)}{n^{1/2}}f(\log n)\,n^{-i\gamma_0}+O(X^{-A})
+\]
+for any \(A\), and is \(\ge c_f\,X^{1/2}/\log X\) whenever a prime power falls near \(e^{u_0}\) with \(u_0\) in the support (by the prime-number theorem in short intervals on average, which holds unconditionally for intervals of length \(X^{\theta+\varepsilon}\)).  
+
+On the right-hand side the contribution of \(\rho_0\) itself is \(\hat f(0)+O(T^{-1})=\ 1+O(T^{-1})\). All other zeros with \(|\gamma-\gamma_0|\le T\) contribute a total of size
+\[
+\ll N(\beta_0,T)\cdot\sup|\hat f|\ll T^{\theta},
+\]
+while the horizontal and distant vertical contributions are absorbed into the error by the rapid decay of \(\hat f\) and the convexity bound on \(\xi'/\xi\). Choosing \(X=T^{(1+\theta)/2}\) makes the main term on the left larger than the aggregate zero contribution plus error once \(T\ge T_0(\,f\,)\), contradicting non-negativity of the spectral side.  
+
+Thus no such zero \(\rho_0\) can exist under the stated density hypothesis.
+
+**Self-check.**  
+The argument is conditional on a zero-density estimate stronger than the classical Ingham–Huxley bounds (which give \(\theta= \frac32(1-\beta_0)+\varepsilon\) and are insufficient to reach \(\theta<1\) all the way down to \(\beta_0=1/2+\delta\)). The test-function truncation and the error analysis are standard (cf. the derivation of the classical zero-free region), but the sign contradiction closes only when \(\theta<1\). Removing the density hypothesis would require a new large-sieve inequality for the zeros themselves, which is not supplied here. Consequently the reduction does not yield an unconditional advance on the full Riemann hypothesis.
+
+VERDICT: FAILED
+REASON: Conditional density hypothesis too strong; no unconditional zero-free enlargement obtained.

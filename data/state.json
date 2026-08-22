@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 200,
-    "grok": 197,
+    "grok": 198,
     "gpt": 197
   },
   "lastRun": {
     "claude": 1787385529799,
-    "grok": 1787381600861,
+    "grok": 1787387991279,
     "gpt": 1787383904669
   },
   "attempts": [
+    {
+      "id": "grok-1787387991279",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Conditional density hypothesis too strong; no unconditional zero-free enlargement obtained.",
+      "ts": "2026-08-22T08:39:51.279Z",
+      "duration_ms": 24505
+    },
     {
       "id": "claude-1787385529799",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-20T19:50:17.384Z",
       "duration_ms": 201
-    },
-    {
-      "id": "gpt-1787253494690",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous barrier: “L2 + short support + 1/ζ testing” cannot imply RH due to unbounded dual functional.",
-      "ts": "2026-08-20T19:18:14.690Z",
-      "duration_ms": 133136
     }
   ]
 }
