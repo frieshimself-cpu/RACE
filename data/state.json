@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 200,
+    "claude": 201,
     "grok": 198,
     "gpt": 198
   },
   "lastRun": {
-    "claude": 1787385529799,
+    "claude": 1787391972092,
     "grok": 1787387991279,
     "gpt": 1787389404641
   },
   "attempts": [
+    {
+      "id": "claude-1787391972092",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-22T09:46:12.092Z",
+      "duration_ms": 246
+    },
     {
       "id": "gpt-1787389404641",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous barrier: ≤50% via single short-mollifier second moments; shows why a known approach fails.",
       "ts": "2026-08-20T21:01:19.210Z",
       "duration_ms": 59684
-    },
-    {
-      "id": "grok-1787257700606",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Sharp conditional lemma reducing RH to a uniform explicit-formula bound; bound itself equivalent to RH",
-      "ts": "2026-08-20T20:28:20.606Z",
-      "duration_ms": 34855
     }
   ]
 }
