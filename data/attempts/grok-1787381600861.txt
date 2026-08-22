@@ -1,0 +1,46 @@
+### Attempt: Partial reduction via a constrained positivity criterion on the Guinand–Weil explicit formula
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) and the Hadamard factorization
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr)
+\]
+(product over non-trivial zeros, taken in conjugate pairs and with the usual Weierstrass convergence factor absorbed into the constant) imply that the logarithmic derivative admits the representation
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\frac1{s-\rho}.
+\]
+The Guinand–Weil explicit formula, obtained by integrating \(\frac{\xi'}{\xi}(s)\hat f(s)\) against a suitable test function and shifting contours, reads (for even Schwartz \(f\) with \(\operatorname{supp}\hat f\subset(-2,2)\), say)
+\[
+\sum_{\rho}\hat f(\rho)=\int_{-\infty}^{\infty}f(t)\frac{\Omega'(t)}{\Omega(t)}\,dt+\sum_{p,k}\frac{\log p}{p^{k/2}}f(k\log p)+O\bigl(\|f\|_{1,2}\bigr),
+\]
+where \(\Omega(t)=\pi^{-it/2}\Gamma(\tfrac14+it/2)\) and the sum on the left runs over ordinates of zeros (counted with multiplicity).  
+
+Define the quadratic form
+\[
+Q(f):=\sum_{\rho}\hat f(\rho)-\int_{-\infty}^{\infty}f(t)\,d\bigl(\tfrac12\log|t|\bigr).
+\]
+A classical observation of Weil is that RH is equivalent to \(Q(f)\ge0\) for every admissible \(f\ge0\). We sharpen the test-function class: let \(\mathcal F_+\) be the cone of even non-negative Schwartz functions whose Fourier transforms are supported in \([-1+\delta,1-\delta]\) for some fixed \(\delta>0\) and that satisfy the moment constraints
+\[
+\int f=0,\qquad\int t^2f=0.
+\]
+(The two vanishing moments cancel the polar contributions at \(s=0,1\) and the leading Stirling terms, leaving a remainder controlled by the next term in the asymptotic of \(\Gamma'/\Gamma\).)
+
+**Lemma (conditional positivity).** Suppose there exists \(c>0\) such that
+\[
+\bigl|\psi(x)-x\bigr|\le c\,x^{1/2}\log x\qquad\text{for all }x\ge2.
+\]
+Then \(Q(f)\ge0\) for every \(f\in\mathcal F_+\).  
+
+*Sketch.* Under the assumed error term the prime-power sum in the explicit formula is
+\[
+\sum_{p^k\le X}\frac{\log p}{p^{k/2}}f(k\log p)=O\bigl(\|f\|_\infty X^{1/2}\log X\bigr).
+\]
+Choosing the support of \(\hat f\) small enough that the dual variable stays inside a region where the von Mangoldt discrepancy is absorbed by the Gaussian decay of \(f\), the prime contribution becomes non-negative up to an arbitrarily small error (by the usual Fejér-kernel approximation of the constant function 1 on a slightly larger interval). The archimedean integral is non-negative by the convexity of \(\log|\Gamma(\tfrac14+it/2)|\) on the critical line after the two moments have been removed. Hence \(Q(f)\ge0\).
+
+**Gap.** The hypothesis \(\psi(x)=x+O(x^{1/2}\log x)\) is known to be equivalent to RH itself (von Koch). Thus the lemma is a tautological reduction: it shows that a slightly stronger form of the classical equivalence “RH \(\Leftrightarrow\) \(Q\ge0\)” continues to hold when the test functions are restricted to a codimension-2 subcone, but it supplies no new unconditional information. Any attempt to remove the \(O(x^{1/2}\log x)\) hypothesis re-introduces an error term whose sign cannot be controlled without already knowing that all zeros satisfy \(\operatorname{Re}\rho\le1/2+\varepsilon\), which is circular.
+
+The same circularity appears if one tries to replace the pointwise bound on \(\psi\) by an \(L^2\) average (as in Gallagher’s lemma): the resulting \(Q(f)\) acquires an indefinite remainder of size roughly \(\|f\|_2\cdot T^{1/2}(\log T)^{1/2}\) when zeros up to height \(T\) are summed, and this remainder dominates the diagonal contribution once the support of \(\hat f\) shrinks.
+
+Consequently the constrained positivity criterion, while formally correct, does not enlarge the set of zeros known to lie on the critical line, nor does it improve any zero-free region.
+
+VERDICT: FAILED
+REASON: Reduction to positivity of Q on a moment-constrained cone is circular (needs RH-strength ψ-error)

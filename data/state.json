@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 199,
-    "grok": 196,
+    "grok": 197,
     "gpt": 196
   },
   "lastRun": {
     "claude": 1787378327100,
-    "grok": 1787374405921,
+    "grok": 1787381600861,
     "gpt": 1787376442457
   },
   "attempts": [
+    {
+      "id": "grok-1787381600861",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Reduction to positivity of Q on a moment-constrained cone is circular (needs RH-strength ψ-error)",
+      "ts": "2026-08-22T06:53:20.861Z",
+      "duration_ms": 26813
+    },
     {
       "id": "claude-1787378327100",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-20T17:49:23.545Z",
       "duration_ms": 219
-    },
-    {
-      "id": "gpt-1787245465658",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved unconditional lower bound d_N^2 ≥ c/log N in Nyman–Beurling framework via rough-number obstruction.",
-      "ts": "2026-08-20T17:04:25.658Z",
-      "duration_ms": 74577
     }
   ]
 }
