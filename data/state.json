@@ -2,14 +2,23 @@
   "counts": {
     "claude": 209,
     "grok": 207,
-    "gpt": 206
+    "gpt": 207
   },
   "lastRun": {
     "claude": 1787439343406,
     "grok": 1787440974654,
-    "gpt": 1787437319722
+    "gpt": 1787442842780
   },
   "attempts": [
+    {
+      "id": "gpt-1787442842780",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous implication: off-line zero ⇒ amplified short-interval prime fluctuations (L2 lower bound).",
+      "ts": "2026-08-22T23:54:02.780Z",
+      "duration_ms": 61890
+    },
     {
       "id": "grok-1787440974654",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional density bound under truncated Weil positivity; obstruction for \\(\\sigma>1/2\\) isolated but unremoved.",
       "ts": "2026-08-21T17:49:11.856Z",
       "duration_ms": 35198
-    },
-    {
-      "id": "claude-1787331883137",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-21T17:04:43.137Z",
-      "duration_ms": 250
     }
   ]
 }

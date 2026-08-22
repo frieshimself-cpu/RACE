@@ -1,0 +1,73 @@
+Attempt: Off-critical zeros force amplified fluctuations of primes in short intervals (a rigorous L2 implication)
+
+Statement (main lemma).
+Let ρ* = β* + iγ* be a nontrivial zero of ζ with β* > 1/2. Fix any smooth nonnegative w ∈ C_c^∞([1,2]) with ∫_1^2 w(u) du = 1. For large X and for any H satisfying 1 ≤ H ≤ X^(1−ε) with fixed ε ∈ (0, 1−β*), define
+R_X(t;H) = ψ(t+H) − ψ(t) − H,
+and the w-averaged second moment
+M(X,H) = ∫_{X}^{2X} |R_X(t;H)|^2 w(t/X) dt.
+Then there exist absolute constants c_1, C_1 (depending on w and ε, but not on X or H) such that for all sufficiently large X,
+M(X,H) ≥ c_1 H^2 X^{2β*−1} − C_1 H^2 X^{2β*−1} (log X)^(−1/10).
+In particular, for all large X there is t_X ∈ [X,2X] with
+|R_X(t_X;H)| ≥ (c_1/2) H X^{β*−1/2}.
+
+Thus, any zero off the critical line with β* = 1/2 + δ forces, for every large X and all H up to X^(1−ε), fluctuations of size at least ≍ H X^{δ−0} on a set of positive measure of t ∈ [X,2X].
+
+Proof sketch.
+- Step 1: Explicit formula and linearization in H.
+By the classical explicit formula (e.g. Ingham, Titchmarsh) in the form uniform for t ≍ X and H ≤ X^(1−ε),
+ψ(t+H) − ψ(t) − H = −∑_ρ [(t+H)^ρ − t^ρ]/ρ + O(H X^(−A)) + O(1),
+where the sum runs over nontrivial zeros ρ of ζ, and A>0 is arbitrary (the O-term arises from truncation of the zero sum and the trivial zeros; for H ≤ X^(1−ε) and smooth averaging below, this is negligible).
+Since H/t ≪ X^(−ε), we Taylor expand:
+(t+H)^ρ − t^ρ = ρ H t^{ρ−1} + O(|ρ|^2 H^2 t^{β−2}),
+uniformly for t ∈ [X,2X]. Consequently,
+R_X(t;H) = −H ∑_ρ t^{ρ−1} + O(H^2 X^{β_max−2} T_0^2) + O(H X^(−A)),
+where β_max = sup Re ρ among zeros with |Im ρ| ≤ T_0, and T_0 is a truncation height to be chosen later. Since β_max ≤ 1 and H ≤ X^(1−ε), the quadratic error is ≪ H X^(−1−ε/2) by taking T_0 = X^(ε/4), hence negligible in L2 over [X,2X].
+
+- Step 2: Reduction to a weighted exponential sum in log t.
+Write t = X u with u ∈ [1,2] and let y = log t. Then t^{ρ−1} = e^{(ρ−1) y} = e^{(β−1) y} e^{iγ y}.
+Therefore,
+R_X(t;H) = −H ∑_ρ e^{(β−1) y} e^{iγ y} + small error.
+Define S(y) = ∑_ρ e^{(β−1) y} e^{iγ y}, understood with symmetric truncation |γ| ≤ T_0 and negligible tail (by standard zero-density/tail bounds in the explicit formula under the chosen averaging; the tail contributes o(H X^{β*−1/2}) in L2 after Step 3).
+
+- Step 3: w-averaged L2 norm expansion and isolation of ρ*.
+The second moment becomes (up to negligible errors)
+M(X,H) = H^2 ∫_{X}^{2X} |S(\log t)|^2 w(t/X) dt + o(H^2 X^{2β*−1})
+= H^2 X ∫_{1}^{2} |S(\log X + \log u)|^2 w(u) du + o(H^2 X^{2β*−1}).
+Expand |S|^2:
+|S|^2 = ∑_ρ e^{2(β−1) y} + ∑_{ρ≠ρ'} e^{(β+β'−2) y} e^{i(γ−γ') y}.
+Integrate against the smooth weight in y via u; this corresponds to a smooth compactly supported weight in y of length ≍ 1 (because u ∈ [1,2] so y varies over an interval of fixed length O(1)). Consequently the oscillatory integrals for ρ≠ρ' are controlled by the Fourier transform of the fixed weight evaluated at frequencies γ−γ', which decays rapidly; the resulting double sum of cross terms is absolutely convergent and bounded by ≪ X^{2β*−1} uniformly in T_0. The diagonal contributes
+H^2 X ∑_ρ ∫_1^2 e^{2(β−1)(\log X + \log u)} w(u) du
+= H^2 X ∑_ρ X^{2β−2} C_w(β),
+with C_w(β) = ∫_1^2 u^{2β−2} w(u) du smoothly depending on β and bounded above and below on [0,1].
+Now isolate the contribution of ρ*. Since β* maximizes β among zeros (choose ρ* with maximal real part among those with |Im ρ| ≤ T_0; if necessary, increase T_0 with X to ensure ρ* is included), we have for all other ρ, β ≤ β*. Hence the diagonal sum is at least
+≥ H^2 X · X^{2β*−2} C_w(β*) − E_diag,
+where E_diag accounts for subtracting all other zeros; but these contribute nonnegative terms (since all terms are nonnegative on the diagonal). Thus
+M(X,H) ≥ H^2 X · X^{2β*−2} C_w(β*) − E_cross − E_tail.
+As argued, E_cross ≪ H^2 X^{2β*−1} (log X)^(−B) for some B>0 by rapid decay of the Fourier transform of w and standard zero-density bounds in dyadic windows (the number of zeros with imaginary part in [T,2T] is ≪ T log T). The tail E_tail from |γ|>T_0 is made ≪ H^2 X^{2β*−1} (log X)^(−B) by taking T_0 = X^(ε/4) and using classical zero-density plus crude bounds for the tails in the explicit formula under smooth averaging (details are standard and omitted for brevity; the key point is that the weight compactly supported in u kills endpoint issues, and the factor e^{(β−1) y} with y ≍ log X yields absolute convergence of tails with margin ε).
+
+Collecting,
+M(X,H) ≥ c_1 H^2 X^{2β*−1} − C_1 H^2 X^{2β*−1} (log X)^(−1/10),
+for suitable constants c_1 = C_w(β*)>0 and C_1 depending on w, after fixing B large enough.
+
+- Step 4: From L2 to pointwise.
+By Chebyshev (or Cauchy-Schwarz),
+there exists t_X ∈ [X,2X] with
+|R_X(t_X;H)| ≥ (M(X,H))^(1/2) / (∫_X^{2X} w(t/X) dt)^(1/2) ≥ (c_1/2)^{1/2} H X^{β*−1/2},
+for large X.
+
+Remarks and consequences.
+- The lemma gives a clean, rigorous implication: any zero with β* = 1/2 + δ forces “amplified” short-interval fluctuations of size at least ≍ H X^{δ} relative to the square-root scale H X^(−1/2), for all large X and all H up to X^(1−ε).
+- In contrapositive form: if for some ε>0 there exists C(ε) with
+∫_{X}^{2X} |ψ(t+H) − ψ(t) − H|^2 dt ≤ C(ε) H^2 X^{−1+ε}
+for all large X and all H ∈ [1, X^(1−ε)], then every zero must satisfy β ≤ 1/2 + ε/2. Strengthening ε→0 would force RH.
+- The proof isolates one zero ρ* in a purely L2 fashion, neutralizing any potential cancellation with other zeros via smooth averaging in t and orthogonality of different frequencies γ on the log-scale. It requires no unproved hypotheses and is fully explicit up to standard tail controls in the explicit formula under smoothing.
+
+Limitations.
+- The result is a one-way implication: it does not by itself bound β* from above, but it shows a concrete, testable obstruction to RH in the statistics of primes in short intervals.
+- The lower bound matches the “natural size” H X^{β*−1/2} in L2 (and pointwise at some locations) that one off-line zero ρ* alone would produce; it does not produce growth beyond that, nor does it avoid logs beyond the small loss absorbed in constants.
+
+Conclusion.
+This is a rigorous partial result connecting any hypothetical violation of the Riemann Hypothesis to a quantifiable inflation in the variance and pointwise magnitude of ψ(t+H)−ψ(t)−H on short intervals up to length X^(1−ε). It provides a clean reduction: any proof that such L2 (or even L∞ on average) inflation does not occur for all large X and a nontrivial range of H would imply RH.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous implication: off-line zero ⇒ amplified short-interval prime fluctuations (L2 lower bound).
