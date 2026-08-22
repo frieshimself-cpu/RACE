@@ -2,14 +2,23 @@
   "counts": {
     "claude": 205,
     "grok": 203,
-    "gpt": 202
+    "gpt": 203
   },
   "lastRun": {
     "claude": 1787415866202,
     "grok": 1787417827849,
-    "gpt": 1787414050485
+    "gpt": 1787419564623
   },
   "attempts": [
+    {
+      "id": "gpt-1787419564623",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous obstruction: nonnegative coefficients can’t approximate 1 in H^2 Nyman–Beurling setting",
+      "ts": "2026-08-22T17:26:04.623Z",
+      "duration_ms": 66379
+    },
     {
       "id": "grok-1787417827849",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional reduction for CY3 via dense normal functions; density unknown in general, no new unconditional classes.",
       "ts": "2026-08-21T09:01:26.544Z",
       "duration_ms": 30144
-    },
-    {
-      "id": "claude-1787299261615",
-      "ai": "claude",
-      "problem": "P vs NP",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-21T08:01:01.615Z",
-      "duration_ms": 224
     }
   ]
 }

@@ -1,0 +1,36 @@
+Title: A sharp obstruction to nonnegative-coefficient approaches in the Báez–Duarte/Nyman–Beurling framework
+
+Statement (precise, self-contained)
+- Let H^2 be the Hilbert space of Dirichlet series F(s)=∑_{n≥1} a_n n^{-s} on Re s>1/2 with norm ||F||_{H^2}^2 = ∑_{n≥1} |a_n|^2.
+- For a Dirichlet polynomial P(s)=∑_{n≤N} p_n n^{-s}, define F_P(s)=ζ(s) P(s).
+- Consider the least-squares approximation problem in H^2: minimize ||1 - F_P||_{H^2} over all choices of coefficients p_n.
+- This problem (with unrestricted complex p_n) is the Hilbert-space reformulation behind the Báez–Duarte/Nyman–Beurling criterion: RH is equivalent to 1 lying in the H^2-closure of {ζ(s)P(s)}.
+
+Lemma (obstruction under positivity)
+If the coefficients are restricted to be nonnegative, p_n ≥ 0, then
+inf_{P with p_n≥0} ||1 - ζ P||_{H^2} = 1.
+In fact, either ||1 - ζ P||_{H^2} = ∞ if p_1>0, or ||1 - ζ P||_{H^2} ≥ 1 with equality only for P≡0 if p_1=0.
+
+Proof
+- Coefficient model in H^2. The monomials {n^{-s}} form an orthonormal basis of H^2 with ||∑ a_n n^{-s}||_{H^2}^2 = ∑ |a_n|^2. The constant function 1 corresponds to the sequence δ_{1n} (i.e., a_1=1, a_n=0 for n≥2) and has norm 1.
+- Coefficients of ζ P. Write P(s)=∑_{d≤N} p_d d^{-s}, with p_d ≥ 0. Since ζ(s)=∑_{m≥1} m^{-s}, we have
+  ζ(s) P(s) = ∑_{k≥1} A_k k^{-s}, with A_k = ∑_{d|k, d≤N} p_d.
+  In particular, for any prime p>N, its only divisor ≤N is 1, so A_p = p_1.
+- Case p_1>0. Then A_p = p_1 for infinitely many primes p>N. Hence ∑_{k≥1} |A_k|^2 ≥ ∑_{p>N} |A_p|^2 = ∑_{p>N} p_1^2 = ∞. Thus ζP ∉ H^2 and ||1 - ζP||_{H^2} = ∞.
+- Case p_1=0. Then A_1=0. The H^2-distance satisfies
+  ||1 - ζP||_{H^2}^2 = |1 - A_1|^2 + ∑_{k≥2} |A_k|^2 = 1 + ∑_{k≥2} |A_k|^2 ≥ 1,
+  with equality iff A_k=0 for all k≥2, which forces P≡0.
+- Taking the infimum over all nonnegative-coefficient polynomials P yields the stated claim.
+
+Consequence and relevance
+- In the Hilbert-space setting naturally tied to the Nyman–Beurling/Báez–Duarte criterion, any attempt that insists on nonnegative Dirichlet coefficients in the approximants ζ(s)P(s) is doomed at the most basic least-squares level: it cannot reduce the H^2-error below 1 (the trivial error from P≡0). In particular, positivity prevents the necessary global cancellation across primes forced by the divisor-sum structure A_k=∑_{d|k} p_d.
+- Thus, while RH requires the existence of highly oscillatory (sign-changing) coefficients achieving arbitrarily small H^2-distance to 1, any “positivity-preserving” approach (including certain mollifications or approximations constrained to p_n≥0) cannot even begin to approximate 1 in this metric.
+- This pins down a concrete obstruction and delineates a forbidden class of strategies: nonnegativity of the Dirichlet polynomial coefficients cannot be maintained in successful implementations of the Nyman–Beurling/Báez–Duarte method.
+
+Remarks
+- The argument is robust: it uses only the coefficient identity A_k=∑_{d|k} p_d and the infinitude of primes > N. No unproved hypotheses are invoked.
+- Variants: The same obstruction persists if one only requires p_1>0 but permits arbitrary real signs among p_n for n≥2, since the infinite tail from primes > N alone forces ||ζP||_{H^2}=∞.
+- This negative result does not preclude success with signed/complex coefficients; it isolates positivity as a fatal constraint within this line.
+
+VERDICT: PARTIAL
+REASON: Rigorous obstruction: nonnegative coefficients can’t approximate 1 in H^2 Nyman–Beurling setting
