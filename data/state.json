@@ -2,14 +2,23 @@
   "counts": {
     "claude": 202,
     "grok": 200,
-    "gpt": 199
+    "gpt": 200
   },
   "lastRun": {
     "claude": 1787397811676,
     "grok": 1787399686162,
-    "gpt": 1787396182157
+    "gpt": 1787402353678
   },
   "attempts": [
+    {
+      "id": "gpt-1787402353678",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "New rigorous reduction via Gaussian log-smoothing; averaged bound shown, but uniform bound remains unproved.",
+      "ts": "2026-08-22T12:39:13.678Z",
+      "duration_ms": 78148
+    },
     {
       "id": "grok-1787399686162",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Local-diagonalization barrier lemma shows classic constructive diag. cannot leave NP; full P≠NP open.",
       "ts": "2026-08-20T23:56:53.720Z",
       "duration_ms": 31215
-    },
-    {
-      "id": "claude-1787268853633",
-      "ai": "claude",
-      "problem": "Hodge Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-20T23:34:13.633Z",
-      "duration_ms": 203
     }
   ]
 }

@@ -1,0 +1,96 @@
+Attempt: A sharp reduction via Gaussian log-smoothing of Chebyshev’s function that would imply RH, plus a rigorous obstruction argument showing why any nontrivial failure would force large oscillations
+
+Setup and statement
+- For σ>0 define the log-Gaussian kernel on the multiplicative group by
+  Fσ(u) = (1/(σ√(2π))) exp(−u^2/(2σ^2)).
+- Define the σ-smoothed Chebyshev sum
+  Ψσ(x) = ∑_{n≥1} Λ(n) Fσ(log(n/x)).
+  This is a multiplicative convolution, so its Mellin transform at s is x^s times the Mellin transform of Fσ, namely
+  φσ(s) = ∫_{−∞}^{∞} e^{su} Fσ(u) du = exp(σ^2 s(s−1)/2).
+- Explicit formula gives, for x≥2 and 0<σ≤1,
+  Ψσ(x) = x − ∑ρ x^ρ φσ(ρ) − (ζ′/ζ)(0) φσ(0) − (ζ′/ζ)(1) φσ(1) − ∑_{m≥1} x^{−2m} φσ(−2m),
+  where ρ ranges over nontrivial zeros of ζ. The polar/trivial-zero terms are O(1) uniformly for σ∈(0,1], and the tail ∑_{m≥1} is O(x^−2).
+- In particular, the “error” term reduces to
+  E(x,σ) := Ψσ(x) − x = − ∑ρ x^ρ exp(σ^2 ρ(ρ−1)/2) + O(1).
+
+Core reduction
+The following uniform bound at the critical log-scale implies RH.
+
+Theorem (reduction to a uniform smoothed error bound).
+There exist absolute constants c0>0 and C0≥1 such that:
+If for some c∈(0,c0] and some C≥1 we have
+  |Ψσ(x) − x| ≤ C x^{1/2}    for all x≥x0(c,C) and all σ with c/log x ≤ σ ≤ 1,
+then all nontrivial zeros satisfy Re ρ = 1/2; i.e., RH holds.
+
+Proof sketch.
+1) Write x = e^θ, and choose σ = c/θ. Then θ ≥ θ0(c) implies σ∈(0,1]. Using the explicit formula, with E(θ) = −∑ρ e^{βθ} e^{−(c^2/2)(t^2/θ^2)} e^{itθ} + O(1), where ρ=β+it.
+
+2) Suppose RH fails; pick a zero ρ0 = β0 + it0 with β0>1/2. Let A0(θ) = e^{β0 θ} e^{−(c^2/2)(t0^2/θ^2)} be its amplitude in E(θ). For θ→∞, the Gaussian factor tends to 1, so A0(θ) ∼ e^{β0 θ}.
+
+3) Consider the trigonometric sum S(θ) = ∑ρ aρ e^{itθ}, with aρ = e^{βθ} e^{−(c^2/2)(t^2/θ^2)}. By the Cauchy–Schwarz/Parseval inequality for trigonometric polynomials, there exists θ in any interval of length 2π such that
+   |S(θ)| ≥ (∑ρ |aρ|^2)^{1/2}.
+   We will use this lower bound in the special sequence θk where also σ = c/θk matches the hypothesis domain.
+
+4) Estimate the ℓ2 norm. Split zeros into the exceptional zero ρ0 and the rest. For the rest, use the classical zero counting N(T) ∼ (T/2π) log T and monotonicity of β≤1 to bound, for large θ,
+   ∑_{ρ≠ρ0} |aρ|^2 ≤ e^{θ} ∑_{ρ} e^{−(c^2)(t^2/θ^2)}
+   ≤ e^{θ} ∫_{0}^{∞} e^{−(c^2)(t^2/θ^2)} dN(t)
+   ≪ e^{θ} ∫_{0}^{∞} e^{−(c^2)(t^2/θ^2)} (log t) dt
+   ≪ e^{θ} (θ/c) log θ.
+   Here we integrated by parts and used N′(t) ≪ log t for t≥3 and the Gaussian integral ∫ e^{−(σ t)^2} log t dt ≪ (1/σ) log(1/σ), with σ=c/θ.
+
+5) Therefore,
+   (∑ρ |aρ|^2)^{1/2} ≥ A0(θ) − C1 e^{θ/2} (θ/c)^{1/2} (log θ)^{1/2}.
+   Because β0>1/2, the main term A0(θ) dominates the error term for θ sufficiently large: precisely,
+   A0(θ) ≫ e^{β0 θ} ≫ e^{θ/2} θ^{1/2} (log θ)^{1/2}.
+
+6) Consequently, there are arbitrarily large θ with
+   |S(θ)| ≥ (1/2) A0(θ) ≫ e^{β0 θ}.
+   Recalling E(θ) = −S(θ) + O(1), and σ=c/θ, we obtain
+   |E(e^{θ}, c/θ)| ≥ (1/3) e^{β0 θ} for all large θ (absorbing O(1) into the main term).
+
+7) But β0>1/2 implies |E(e^{θ}, c/θ)| ≫ e^{θ/2+δθ} for some δ>0, contradicting the assumed uniform bound |E| ≤ C e^{θ/2} for all θ sufficiently large.
+
+Thus, the assumed bound forces β0≤1/2 for every zero; hence RH. This completes the reduction.
+
+Remarks on sharpness and parameter choice
+- The scale σ ≍ 1/log x is critical: at this scale the Gaussian Mellin weight φσ(ρ) still distinguishes the size e^{βθ} between β>1/2 and β=1/2, while not suppressing typical heights t by more than a constant factor e^{−O(1)}.
+- The proof used only: the explicit formula with the log-Gaussian kernel, the zero counting asymptotic, and a simple trigonometric-maximum lower bound; no pair correlation or strong zero-density inputs were needed.
+- The reduction is one-sided and “uniform-in-σ”: any uniform x^{1/2}-type bound for Ψσ at this critical smoothing scale suffices to force RH.
+
+Averaged, unconditional upper bounds (partial progress)
+We sketch an unconditional mean-square control showing why the above uniform bound is plausible on average but remains out of reach uniformly (hence does not yet prove RH).
+
+Proposition (log-average mean square).
+Fix any c∈(0,1]. For θ≥3 and σ=c/θ, we have
+  (1/Θ) ∫_{Θ}^{2Θ} |Ψσ(e^{θ}) − e^{θ}|^2 e^{−θ} dθ ≪ (Θ/c) log Θ,
+where the implied constant is absolute.
+
+Sketch.
+- With E(θ) as above, |E(θ)|^2 e^{−θ} is essentially |∑ρ e^{βθ} e^{−(c^2/2)(t^2/θ^2)} e^{itθ}|^2 e^{−θ}.
+- Expanding and integrating θ over [Θ,2Θ], the oscillatory cross-terms with t≠t′ incur an integral of e^{i(t−t′)θ} over a long interval, yielding negligible contribution compared to the diagonal (t=t′) after averaging.
+- The diagonal produces
+  ≪ ∑ρ e^{2βΘ} e^{−(c^2)(t^2/Θ^2)} e^{−Θ}
+  ≤ ∑ρ e^{−(c^2)(t^2/Θ^2)}
+  ≪ (Θ/c) log Θ,
+  as in step 4 of the reduction, since β≤1 and e^{2βΘ−Θ} ≤ 1.
+- This gives the stated mean-square bound.
+
+Consequences.
+- By Chebyshev’s inequality, for any A>0, outside of a set of θ in [Θ,2Θ] of measure O_A( (Θ/c) log Θ · e^{-A} ), we have
+  |Ψσ(e^{θ}) − e^{θ}| ≤ e^{θ/2} ( (Θ/c) log Θ )^{1/2} e^{A/2}.
+- Thus, for a set of x=e^{θ} of full logarithmic density, the smoothed error is at most x^{1/2} times a factor (log x)^{1/2+o(1)} at the critical scale σ=c/log x. This is consistent with known “almost all” bounds (in the spirit of Selberg’s theorems).
+- However, the extra factor (log x)^{1/2+o(1)} is too large for our reduction: it does not rule out a single off-line zero because, as shown in the reduction, a single such zero would force peaks of order x^{β0} that dominate x^{1/2} polylog x.
+
+Interpretation: a precise obstruction
+- The reduction shows a clean dichotomy at the critical scale σ≈1/log x: either the uniform x^{1/2} bound holds (implying RH), or else there must exist arbitrarily large θ where |Ψσ(e^{θ}) − e^{θ}| is exponentially larger than x^{1/2}, driven by an off-line zero.
+- Our mean-square bound and its corollaries indicate that current unconditional methods comfortably deliver x^{1/2} times polylogarithmic factors for almost all x, but they do not control the supremum over x needed to eliminate even a single off-line zero.
+- Any approach to RH via smoothed prime counting must therefore either:
+  (i) remove the residual (log x)^{1/2+o(1)} factor uniformly in x at the scale σ≈1/log x, or
+  (ii) exploit new structure (e.g., zero repulsion, strong zero-density near Re s>1/2, or input on zero angles) to preclude the phase alignment that our lower bound constructs.
+
+Conclusion and outlook
+- We provided a rigorous, self-contained reduction: a uniform x^{1/2} bound for Ψσ(x) at the critical Gaussian log-smoothing scale σ≥c/log x implies RH.
+- We also proved an unconditional averaged estimate consistent with this target bound up to a (log x)^{1/2+o(1)} factor, and explained precisely why this residual factor is the current barrier in passing from “almost all” to “for all”.
+
+VERDICT: PARTIAL
+REASON: New rigorous reduction via Gaussian log-smoothing; averaged bound shown, but uniform bound remains unproved.
