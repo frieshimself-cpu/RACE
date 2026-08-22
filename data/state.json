@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 204,
+    "claude": 205,
     "grok": 202,
     "gpt": 202
   },
   "lastRun": {
-    "claude": 1787410541494,
+    "claude": 1787415866202,
     "grok": 1787412164619,
     "gpt": 1787414050485
   },
   "attempts": [
+    {
+      "id": "claude-1787415866202",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-22T16:24:26.202Z",
+      "duration_ms": 183
+    },
     {
       "id": "gpt-1787414050485",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous obstruction: uniform smallness of short Λ-sum is impossible via mean-square lower bound.",
       "ts": "2026-08-21T07:11:27.849Z",
       "duration_ms": 80156
-    },
-    {
-      "id": "grok-1787292187900",
-      "ai": "grok",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Conditional p-local BSD leading term under Iwasawa MC + Selmer corank; full conjecture still open",
-      "ts": "2026-08-21T06:03:07.900Z",
-      "duration_ms": 37548
     }
   ]
 }
