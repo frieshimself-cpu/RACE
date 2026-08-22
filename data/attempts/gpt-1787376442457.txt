@@ -1,0 +1,43 @@
+Attempt: A black-box lower bound showing a natural “assignment-sampling” strategy for SAT cannot work
+
+Setup
+- Consider the following black-box model for SAT. An instance is represented by an unknown Boolean function f:{0,1}^n -> {0,1}, accessible only via queries. A query x∈{0,1}^n returns f(x).
+- The goal is to decide the promise problem:
+  YES: there exists exactly one x with f(x)=1
+  NO: for all x, f(x)=0
+- This models a large class of “search-by-sampling-assignments” approaches to SAT that only use evaluations of the CNF on complete assignments and do not exploit internal structure of the formula.
+
+Theorem
+Any randomized algorithm that, given oracle access to f, solves the above promise problem with success probability at least 2/3 in the worst case must make q = Ω(2^n) oracle queries. More precisely, for success probability at least 2/3 one needs q ≥ 2^{n-1}/3.
+
+Proof
+- By Yao’s minimax principle, it suffices to show that any deterministic q-query algorithm has average success probability at most 1/2 + q/2^{n+1} against a fixed hard input distribution.
+- Define distribution D over functions f as:
+  with probability 1/2: f ≡ 0 (NO instance),
+  with probability 1/2: f = 1_u, where u is uniform in {0,1}^n and 1_u(x)=1 iff x=u (YES instance).
+- Fix any deterministic adaptive algorithm A that makes at most q queries. Let the (random) queried points be X_1, X_2, ..., X_q, where X_t can depend on prior answers.
+- Condition on f drawn from D.
+  • If f≡0, all answers are 0; A’s transcript is all zeros, and A outputs some fixed decision b_0 determined by that transcript. Its success probability on f≡0 is 1 if b_0 = NO and 0 otherwise.
+  • If f=1_u, then the transcript is all zeros unless A queries u; the probability (over uniform u) that A hits u in q queries is exactly q/2^n (regardless of adaptivity, since before seeing a “1” all queries are fixed strings and u is uniform over 2^n possibilities).
+    – With probability 1 - q/2^n the transcript is again all zeros, leading A to output the same b_0.
+    – With probability q/2^n it observes a “1” and can output YES and be correct.
+  Therefore, A’s success probability on the YES case (averaged over uniform u) is at most q/2^n + (1 - q/2^n)·1{b_0=NO}.
+- Averaging the two cases (each with probability 1/2 under D), the overall average success probability of A against D is:
+  (1/2)·1{b_0=NO} + (1/2)·[q/2^n + (1 - q/2^n)·1{b_0=NO}]
+  = (1/2)·q/2^n + 1{b_0=NO}·(1 - (1/2)·q/2^n - 1/2).
+- This is maximized by setting b_0=NO, yielding
+  success ≤ 1/2 + q/2^{n+1}.
+- By Yao, any randomized algorithm with q queries has worst-case success probability at most 1/2 + q/2^{n+1}. To achieve ≥ 2/3 success, one needs
+  1/2 + q/2^{n+1} ≥ 2/3 ⇒ q ≥ 2^{n-1}/3.
+
+Implication for P vs NP efforts
+- This shows that any approach to SAT that only treats the instance as a black-box mapping from assignments to truth values (i.e., relies on querying complete assignments, even adaptively and randomly) cannot yield a polynomial-time algorithm; it requires exponentially many queries in the worst case.
+- Consequently, proof strategies that attempt to separate P from NP by demonstrating limitations or efficiencies of such black-box, assignment-sampling methods alone cannot resolve P vs NP: they must crucially exploit internal structure of the formula (syntax, small-width structure, algebraic or spectral properties, etc.), beyond mere assignment evaluations.
+
+Limitations and scope
+- The lower bound is tight up to constants and is unconditional.
+- It applies to a promise version (unique-solution vs none), which is strictly easier than general SAT, strengthening the barrier.
+- The result does not preclude non-black-box structural methods; it only rules out a natural, broad class of black-box search strategies. Thus it is a concrete analysis of why a plausible approach fails.
+
+VERDICT: PARTIAL
+REASON: Proved a tight black-box query lower bound; shows a natural approach cannot resolve SAT in P

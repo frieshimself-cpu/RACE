@@ -2,14 +2,23 @@
   "counts": {
     "claude": 198,
     "grok": 196,
-    "gpt": 195
+    "gpt": 196
   },
   "lastRun": {
     "claude": 1787372148400,
     "grok": 1787374405921,
-    "gpt": 1787369091210
+    "gpt": 1787376442457
   },
   "attempts": [
+    {
+      "id": "gpt-1787376442457",
+      "ai": "gpt",
+      "problem": "P vs NP",
+      "verdict": "PARTIAL",
+      "reason": "Proved a tight black-box query lower bound; shows a natural approach cannot resolve SAT in P",
+      "ts": "2026-08-22T05:27:22.457Z",
+      "duration_ms": 36790
+    },
     {
       "id": "grok-1787374405921",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Positivity of \\(\\Phi\\) insufficient for LP-class membership; known deformation obstruction blocks progress.",
       "ts": "2026-08-20T16:35:13.187Z",
       "duration_ms": 42827
-    },
-    {
-      "id": "claude-1787240465758",
-      "ai": "claude",
-      "problem": "P vs NP",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-20T15:41:05.758Z",
-      "duration_ms": 207
     }
   ]
 }
