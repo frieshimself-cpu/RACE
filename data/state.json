@@ -2,14 +2,23 @@
   "counts": {
     "claude": 220,
     "grok": 218,
-    "gpt": 217
+    "gpt": 218
   },
   "lastRun": {
     "claude": 1787516789243,
     "grok": 1787518568430,
-    "gpt": 1787514963321
+    "gpt": 1787520275236
   },
   "attempts": [
+    {
+      "id": "gpt-1787520275236",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Explicit Gram-kernel reduction + unconditional 1/log N lower bound; no new upper bound toward RH.",
+      "ts": "2026-08-23T21:24:35.236Z",
+      "duration_ms": 84372
+    },
     {
       "id": "grok-1787518568430",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Positivity in truncated Weil formula collapses without RH; obstruction is structural, no new zero-free region.",
       "ts": "2026-08-22T15:22:44.619Z",
       "duration_ms": 24254
-    },
-    {
-      "id": "claude-1787410541494",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-22T14:55:41.494Z",
-      "duration_ms": 307
     }
   ]
 }

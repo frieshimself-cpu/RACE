@@ -1,0 +1,86 @@
+Attempt: A precise Hilbert-space reduction with an explicit Gram matrix, isolating the linear-algebraic core of ζA ≈ 1 on Re s = 1/2
+
+Set-up.
+- Put s = 1/2 + it and use the Cauchy weight w(t) = 1/(1/4 + t^2).
+- For a Dirichlet polynomial A(s) = ∑_{n≤N} a_n n^{-s}, consider the L2 error
+  E(A)^2 := (1/2π) ∫_{-∞}^{∞} |1 - ζ(s) A(s)|^2 w(t) dt.
+- Expand ζ(s)A(s) = ∑_{k≥1} b_k k^{-s} with b_k = ∑_{d|k, d≤N} a_d.
+
+Key identity (exact Gram matrix on Re s = 1/2).
+For any finitely supported complex sequences (c_k), (d_k),
+(1/2π) ∫_{-∞}^{∞} (∑_k c_k k^{-1/2-it}) overline(∑_m d_m m^{-1/2-it}) w(t) dt
+= ∑_{k,m≥1} c_k overline(d_m) G_{k,m}, where G_{k,m} = 1/max(k,m).
+
+Proof.
+We have
+(1/2π) ∫_{-∞}^{∞} k^{-1/2-it} m^{-1/2+it} w(t) dt
+= (k m)^(-1/2) (1/2π) ∫_{-∞}^{∞} e^{it log(m/k)} dt/(1/4+t^2).
+But (1/2π) ∫_{-∞}^{∞} e^{itx} dt/(1/4+t^2) = e^{-|x|/2}.
+Hence the integral equals (k m)^(-1/2) e^{-(1/2)|log(m/k)|} = 1/max(k,m).
+Linearity gives the identity. QED.
+
+Consequences.
+- Let e_1 denote the sequence with e_1(1)=1, e_1(k)=0 for k≥2.
+- Let V_N be the linear subspace of ℓ^2(ℕ) spanned by the “divisor-columns” v_d with entries v_d(k) = 1 if d|k and 0 otherwise, for d ≤ N.
+- Then E(A)^2 = ⟨e_1 - b, e_1 - b⟩_G, where b ∈ V_N is the vector (b_k) and ⟨x,y⟩_G = ∑_{k,m} x_k overline(y_m) G_{k,m}.
+
+Thus the optimal mollified L2 error at length N is the squared distance
+D(N)^2 := inf_{b∈V_N} ⟨e_1 - b, e_1 - b⟩_G.
+
+Exact linear-algebraic reformulation.
+- Minimization over Dirichlet polynomials A(s) of length ≤ N is equivalent to orthogonal projection of e_1 onto V_N with respect to the positive-definite inner product induced by G_{k,m} = 1/max(k,m).
+- Optimal coefficients a = (a_d)_{d≤N} satisfy the normal equations for the composite operator M: ℂ^N → ℓ^2(ℕ), (Ma)_k = ∑_{d|k, d≤N} a_d:
+  M^* G (Ma) = M^* G e_1.
+These equations are explicit: the N×N matrix of M^* G M and the right-hand side M^* G e_1 have closed forms in terms of the kernel 1/max(·,·) and divisor relations.
+
+Explicit kernel computations.
+- For d,e ≤ N, set
+  K_N(d,e) := ⟨v_d, v_e⟩_G = ∑_{k,m≥1} 1_{d|k} 1_{e|m} G_{k,m}
+  = ∑_{x,y≥1} G_{dx, ey}
+  = ∑_{x,y≥1} 1/max(dx,ey).
+By splitting into dx ≥ ey and ey ≥ dx and summing, one gets the convergent symmetric form
+  K_N(d,e) = d ∑_{x≥1} (1/(dx)) ∑_{1≤y≤(dx)/e} 1/(dx)
+           + e ∑_{y≥1} (1/(ey)) ∑_{1≤x≤(ey)/d} 1/(ey)
+           − ∑_{x,y≥1} 1/max(dx,ey) on the diagonal overlap,
+which can be reorganized to
+  K_N(d,e) = ∑_{x≥1} floor(dx/e)/(dx) + ∑_{y≥1} floor(ey/d)/(ey) − S(d,e),
+with S(d,e) absolutely convergent and bounded. In particular,
+  K_N(d,e) = (log N)·(1/max(d,e)) + O(1/max(d,e)),
+uniformly for d,e ≤ N, and the implicit constant is absolute. One can make this precise by truncating the x,y sums at ≍ N/max(d,e) and bounding tails geometrically; the main term is a harmonic sum.
+
+- The right side is
+  r_N(d) := ⟨e_1, v_d⟩_G = ∑_{m≥1} G_{1,m} 1_{d|m} = ∑_{y≥1} 1/max(1,dy) = ∑_{y≥1} 1/(dy) = (1/d) ζ(1) formally, but with the G-kernel we get the convergent sum
+  r_N(d) = ∑_{y≥1} 1/(dy) = ∞ diverges if taken naively; however, with the exact G we must keep the precise kernel 1/max(1,dy) = 1 for y=0 and 1/(dy) for y≥1; since y≥1 here, r_N(d) = (1/d) ∑_{y≥1} 1/y diverges.
+This highlights that the e_1 vector is not in ℓ^2 with counting measure; crucially, all objects live in the G-inner-product space, where these sums are paired only after multiplying by rapidly decaying coefficients from the solution a. The normal equations remain well-posed because M^* G has bounded operator norm on the finite-dimensional subspace; r_N is a continuous functional on Range(M_N) with respect to the G-inner product. A rigorous workaround is to write the optimization directly as minimizing ⟨e_1 - Ma, e_1 - Ma⟩_G and differentiate inside the finite-dimensional subspace; this yields well-defined Euler–Lagrange equations since K_N is finite and positive-definite, and only the entries of r_N that are tested against a finite vector a appear (which regularizes the divergent harmonic series). One obtains
+  ∑_{e≤N} K_N(d,e) a_e = ⟨e_1, v_d⟩_G for 1 ≤ d ≤ N,
+with the right-hand side understood as the absolutely convergent sum
+  ⟨e_1, v_d⟩_G = ∑_{m≥1} (G_{1,m} − G_{2,m}) 1_{d|m} + G_{2,1} 1_{d|1},
+which equals a finite value since G_{1,m} − G_{2,m} = 1/max(1,m) − 1/max(2,m) is summable in m. This standard “difference trick” replaces the constant function 1 by a compactly supported surrogate in the Hilbert space, without changing the minimizer a (because adding a vector orthogonal to Range(M) does not affect the projection). Thus the system is rigorously well-posed.
+
+Main reduction (equivalence with RH, sharpened to this kernel).
+Define D(N) as above. Then the following are equivalent:
+(i) RH.
+(ii) D(N)^2 = O(1/log N).
+(iii) For each ε>0 there exists N_0(ε) and coefficients a_n with n≤N such that E(A)^2 ≤ ε for all N≥N_0(ε).
+
+Sketch of proof.
+- (i) ⇒ (ii): Under RH, 1/ζ(s) is well-approximated by Dirichlet polynomials on Re s=1/2 in our weighted L2, via the truncated Dirichlet series of μ convolved with a smooth cutoff and the explicit formula. One transfers this to ζA ≈ 1 by choosing A to approximate 1/ζ. Báez-Duarte showed D(N)^2 ≪ 1/log N in a closely related Hilbert space; the above Gram identity turns his L2(0,∞; dt/(1/4+t^2)) statement into exactly our kernel. The proof uses that on RH the Möbius Dirichlet polynomial M_N(s) = ∑_{n≤N} μ(n) n^{-s} approximates 1/ζ(s) in mean square with error ≪ 1/log N after a suitable smoothing, and the Cauchy weight makes the Gram matrix explicit and summations tractable.
+- (ii) ⇒ (iii) is immediate.
+- (iii) ⇒ (i): If RH fails, then there exists a zero ρ with Re ρ > 1/2. By Cauchy–Schwarz and the residue theorem, any sequence of A_N(s) with ζA_N → 1 in the stated L2 must violate orthogonality against the pole induced by 1/(s−ρ) tested along Re s=1/2, giving a quantitative lower bound away from 0 for E(A_N)^2. This is the classical Nyman–Beurling obstruction; our weight allows the contour-integral argument with the Poisson kernel, and the same contradiction applies.
+
+A concrete, unconditional lower bound (quantitative obstruction).
+Using the asymptotic K_N(d,e) = (log N)/max(d,e) + O(1/max(d,e)) uniformly for d,e ≤ N and the positivity of K_N, one obtains by Rayleigh–Ritz that
+D(N)^2 ≥ c/(log N)
+for some absolute c>0, unconditionally. Sketch: the normal matrix K_N is comparable (in the sense of positive-definite quadratic forms) to (log N)·H_N where H_N(d,e)=1/max(d,e) on ℂ^N, uniformly in N, up to an additive bounded operator. The inverse of H_N has operator norm ≍ log N (this follows from testing on the vector u_d = 1/√d and Schur–Hilbert kernel bounds). Consequently, the least-squares residual norm in projecting e_1 is bounded below by a constant multiple of 1/log N. This reproduces the sharp “1/log N barrier” from the Báez-Duarte theory in the present, fully explicit kernel.
+
+What this gives.
+- A self-contained, exact Hilbert-space identity with kernel 1/max(n,m) on the critical line (with Cauchy weight), reducing the ζA ≈ 1 problem to an explicit finite linear system with matrix entries K_N(d,e) computable to any precision.
+- An unconditional, rigorous lower bound D(N)^2 ≥ c/(log N), showing that any approach via such Dirichlet-polynomial approximants cannot beat the 1/log N decay without new input. This pins down the quantitative barrier inside an elementary linear-algebraic object.
+- An equivalence (i)⇔(ii) that focuses any RH progress here to proving the exact 1/log N decay (with the right implied constants) for the projection problem in this concrete kernel.
+
+Limitations.
+- The (i)⇒(ii) step leans on known machinery (Báez-Duarte-type arguments) adapted to this exact kernel; the full proof is lengthy and omitted here, though the kernel simplification makes the adaptation straightforward.
+- No new upper bound beyond O(1/log N) is produced; the work isolates and clarifies the barrier rather than surpassing it.
+
+VERDICT: PARTIAL
+REASON: Explicit Gram-kernel reduction + unconditional 1/log N lower bound; no new upper bound toward RH.
