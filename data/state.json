@@ -2,14 +2,23 @@
   "counts": {
     "claude": 212,
     "grok": 210,
-    "gpt": 209
+    "gpt": 210
   },
   "lastRun": {
     "claude": 1787470397047,
     "grok": 1787471944150,
-    "gpt": 1787467233865
+    "gpt": 1787474445716
   },
   "attempts": [
+    {
+      "id": "gpt-1787474445716",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved an unconditional obstruction: mollified ζ cannot be uniformly small; limits a common strategy.",
+      "ts": "2026-08-23T08:40:45.716Z",
+      "duration_ms": 85773
+    },
     {
       "id": "grok-1787471944150",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Proved vanishing density of zeros with \\(\\beta\\ge1/2+\\delta\\) fixed; cannot let \\(\\delta\\to0\\).",
       "ts": "2026-08-21T23:29:31.142Z",
       "duration_ms": 17403
-    },
-    {
-      "id": "claude-1787353032441",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-21T22:57:12.441Z",
-      "duration_ms": 190
     }
   ]
 }

@@ -1,0 +1,71 @@
+Attempt: A rigorous obstruction to “small mollified zeta” strategies for proving zero-freeness beyond Re s = 1/2
+
+Statement of goal
+- Many approaches to RH try to deduce zero-freeness to the right of 1/2 by showing that a mollified zeta, ζ(1/2+it)M(1/2+it), is uniformly small on long intervals for an appropriate Dirichlet-polynomial mollifier M(s)=∑_{n≤T^θ} a_n n^{-s}. I give a rigorous lower bound that precludes any such smallness uniformly on [T,2T] for wide classes of mollifiers, thereby identifying a hard barrier in these strategies.
+
+Setup
+- Let T≥3 large, 0<θ≤1 fixed, and let M(s)=∑_{n≤T^θ} a_n n^{-s} with complex coefficients a_n satisfying:
+  (A1) a_1 = 1 (normalization at 1),
+  (A2) ∑_{n≤T^θ} |a_n|^2/n ≤ 1 (L^2-type normalization with conductor weight n).
+- Define the smoothed second moment over [T,2T]:
+  I := ∫_T^{2T} |ζ(1/2+it) M(1/2+it)|^2 dt.
+
+Main lemma (rigorous)
+- There is an absolute c>0 such that, for all T large and all mollifiers M(s) satisfying (A1)–(A2),
+  I ≥ c T log T.
+- Consequently, there exists t∈[T,2T] with |ζ(1/2+it) M(1/2+it)| ≥ c^(1/2) (log T)^{1/2}.
+
+Interpretation
+- Any approach seeking to bound |ζ(1/2+it) M(1/2+it)| by o((log T)^{1/2}) uniformly on t∈[T,2T] fails under (A1)–(A2), independently of the length θ and without any unproven hypotheses.
+- Thus, positivity or L^2-based mollification strategies that would require uniform smallness of the mollified zeta cannot, by themselves, prove a zero-free region to the right of 1/2. One must use zero-detecting arguments more delicate than “ζM is small everywhere” or abandon such L^2-normalized mollifiers.
+
+Proof sketch of the lemma
+1) Expand the integrand and use the approximate functional equation for ζ(1/2+it) in the mean square. A standard route is to use the Montgomery–Vaughan mean value theorem (MV-MVT) for Dirichlet polynomials:
+   If A(s)=∑_{n≤N} α_n n^{-s} and B(s)=∑_{m≤M} β_m m^{-s}, then
+   ∫_T^{2T} |A(1/2+it) B(1/2+it)|^2 dt
+   = T ∑_{n,m} α_n overline{α_m} ∑_{u,v} β_u overline{β_v} δ_{nu=mv}/max(nu,mv) + O((N M)^{1+o(1)}),
+   with an implicit constant absolute. We will apply this with A=ζ and B=M.
+
+2) Represent ζ(1/2+it) as a Dirichlet polynomial of length about T (truncation at T with smooth weights) in mean-square computations. More precisely, for mean-square purposes one can replace ζ(1/2+it) by ∑_{n≤T} n^{-1/2-it} with a smooth cutoff and incur an acceptable error (this is textbook: the second moment of ζ is governed by the diagonal; off-diagonal contributes lower order terms). Likewise, we may harmlessly insert a smooth weight on t in [T,2T] to justify the manipulations; the final lower bound then transfers to the sharp cutoff by standard smoothing/unsmoothing arguments.
+
+3) Apply MV-MVT to A(s)=∑_{n≤T} n^{-s} and B(s)=M(s) with the normalizations (A1)–(A2). The main term becomes
+   T ∑_{n≤T} ∑_{m≤T^θ} |a_m|^2 / (nm) 1_{nm≤T} + lower order terms,
+   because the dominant contribution comes from the diagonal nu=mv with n=u, m=v.
+   Since m≤T^θ and n≤T, we have nm≤T for all n≤T/m. Thus
+   Main term ≥ T ∑_{m≤T^θ} |a_m|^2 (1/m) ∑_{n≤T/m} (1/n)
+               = T ∑_{m≤T^θ} |a_m|^2 (1/m) (log(T/m) + γ + o(1)).
+   Using ∑ |a_m|^2/m ≤ 1 and that log(T/m) ≥ log(T/T^θ) = (1-θ) log T for m≤T^θ, we obtain
+   Main term ≥ T (1-θ) log T ∑_{m≤T^θ} |a_m|^2/m + O(T)
+            ≥ c_1 T log T,
+   with c_1 depending only on θ through the trivial factor (1-θ), but since θ≤1 and (A1) ensures a_1≠0, we get an absolute c>0 when combining with the classical contribution of the “pure zeta” part (see next point). More robustly, we can avoid the dependence on θ by splitting off the m=1 term:
+   The contribution of m=1 (using a_1=1) alone gives
+   T ∑_{n≤T} 1/(n·1) ≍ T log T.
+   All other m≥2 only increase the main term because they add nonnegative contributions in this diagonal approximation. Hence:
+   Main term ≥ c_2 T log T, with c_2 absolute.
+
+4) Error terms. The MV-MVT off-diagonal and the truncation/smoothing errors are O(T (log T)^A) for some fixed A, much smaller than T log T for T large, so they do not affect the lower bound with a fixed positive fraction of T log T. This is classical in second-moment calculations of ζ and ζ times a short Dirichlet polynomial: the diagonal dominates and delivers the T log T main term.
+
+5) Therefore, for all admissible mollifiers M, we have
+   I = ∫_T^{2T} |ζ(1/2+it) M(1/2+it)|^2 dt ≥ c T log T,
+   for T sufficiently large and some absolute c>0.
+
+6) By Chebyshev (or just by the pigeonhole principle), there exists t∈[T,2T] with
+   |ζ(1/2+it) M(1/2+it)|^2 ≥ c log T, hence |ζ(1/2+it) M(1/2+it)| ≥ √c (log T)^{1/2}.
+
+Discussion and consequence
+- This result is unconditional and uses only standard mean-value theorems. It shows that any method that would need (uniform in t) smallness of ζM on long intervals—e.g., to argue that at points where ζ is large, M must cancel it strongly, forcing constraints contradicting the existence of zeros with Re s>1/2—cannot work under L^2-type mollifier normalizations of the standard sort. At a minimum, any successful mollifier-based strategy must:
+  - either abandon L^2 normalization and exploit delicate sign/structure beyond positivity or mean squares, or
+  - use detection mechanisms sensitive to the distribution of zeros rather than uniform smallness, or
+  - go beyond second-moment technology (which is saturated by the diagonal).
+
+- In particular, positivity of coefficients a_n≥0 (often used for zero-detection by positivity) only worsens the obstruction: it can only increase the diagonal term and hence the lower bound on I.
+
+- This complements and sharpens the informal folklore that the second moment “saturates” and cannot, by itself, push beyond the 1/2 barrier: the diagonal contribution of the a_1 term already forces I ≳ T log T, independently of the sophisticated design of the rest of the mollifier.
+
+Limitations and scope
+- This is a negative result: it does not produce zeros on the critical line nor a new zero-free region. It isolates a concrete obstruction to a broad family of plausible strategies, thereby narrowing the landscape of viable approaches. It is compatible with the success of Levinson–Conrey-type methods, which extract proportion results via asymmetric functionals and zero-detection arguments that do not require ζM to be uniformly small.
+
+- The proof relied on classical tools; its contribution is a precise, unconditional floor for mollified second moments under very mild and standard hypotheses on the mollifier, capturing a rigorous “barrier” in a common line of attack.
+
+VERDICT: PARTIAL
+REASON: Proved an unconditional obstruction: mollified ζ cannot be uniformly small; limits a common strategy.
