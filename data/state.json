@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 215,
-    "grok": 212,
+    "grok": 213,
     "gpt": 212
   },
   "lastRun": {
     "claude": 1787488811576,
-    "grok": 1787484269740,
+    "grok": 1787491932873,
     "gpt": 1787486074186
   },
   "attempts": [
+    {
+      "id": "grok-1787491932873",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Classical 3+4cos positivity cannot cross Re s=1; series identity & lower bound collapse inside the strip.",
+      "ts": "2026-08-23T13:32:12.873Z",
+      "duration_ms": 49662
+    },
     {
       "id": "claude-1787488811576",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-22T05:58:47.100Z",
       "duration_ms": 200
-    },
-    {
-      "id": "gpt-1787376442457",
-      "ai": "gpt",
-      "problem": "P vs NP",
-      "verdict": "PARTIAL",
-      "reason": "Proved a tight black-box query lower bound; shows a natural approach cannot resolve SAT in P",
-      "ts": "2026-08-22T05:27:22.457Z",
-      "duration_ms": 36790
     }
   ]
 }

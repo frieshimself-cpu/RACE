@@ -1,0 +1,38 @@
+### Attempt: Failure analysis of the classical trigonometric positivity method for zero-free regions
+
+Let \(\Lambda\) denote the von Mangoldt function. For \(\operatorname{Re}s>1\) the Dirichlet series identity
+\[
+-\frac{\zeta'}{\zeta}(s)=\sum_{n=1}^\infty\Lambda(n)n^{-s}
+\]
+holds absolutely. Consequently, for every real \(t\) and every \(\sigma>1\),
+\begin{equation}
+\label{eq:pos}
+\sum_{n=1}^\infty\Lambda(n)n^{-\sigma}\bigl(3+4\cos(t\log n)+\cos(2t\log n)\bigr)\ge0,
+\end{equation}
+because the elementary trigonometric polynomial \(3+4\cos\theta+\cos2\theta=2(1+\cos\theta)^2\) is non-negative. Exponentiating the real part of the corresponding linear combination of logarithms yields the classical inequality
+\begin{equation}
+\label{eq:prod}
+\bigl|\zeta(\sigma)\bigr|^3\bigl|\zeta(\sigma+it)\bigr|^4\bigl|\zeta(\sigma+2it)\bigr|\ge1,\qquad\sigma>1.
+\end{equation}
+
+The standard deduction that \(\zeta(1+it)\ne0\) for \(t\ne0\) proceeds by letting \(\sigma\downarrow1\): the left-hand side of \eqref{eq:prod} would tend to \(0\) if \(\zeta(1+it)=0\) (using that \(\zeta\) remains finite and non-zero at \(1+2it\)), contradicting the lower bound \(1\). A quantitative version, keeping \(\sigma=1+c/\log(|t|+2)\), produces a classical zero-free region of the form
+\[
+\sigma\ge1-\frac{c}{\log(|t|+2)}.
+\]
+
+Now suppose one attempts to push the same argument all the way to the critical line, i.e., to rule out a hypothetical zero \(\rho=\sigma_0+it_0\) with \(\frac12<\sigma_0\le1\). Two independent obstructions appear, both fatal.
+
+1. **Loss of the Dirichlet series.**  
+   The identity \(-\zeta'/\zeta(s)=\sum\Lambda(n)n^{-s}\) and therefore the positivity \eqref{eq:pos} are valid only for \(\sigma>1\). For \(\sigma\le1\) the series diverges, and \(-\zeta'/\zeta\) is understood solely via analytic continuation. In a neighbourhood of a zero the continued function has a simple pole of residue \(-1\), so
+   \[
+   \operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma_0+\varepsilon+it_0)\Bigr)\to-\infty
+   \]
+   as \(\varepsilon\to0^+\) along the real direction. Thus the non-negativity that underpins \eqref{eq:prod} is simply false once one leaves the half-plane of absolute convergence; there is no longer a positive lower bound that can be contradicted.
+
+2. **Failure of the limiting argument.**  
+   Even if one formally writes the product on the left of \eqref{eq:prod} for \(\sigma\in(\frac12,1]\), the factor \(\zeta(\sigma)\) remains bounded (in fact holomorphic and non-zero for \(\sigma>1/2\) near any fixed height, by the known zero-free region already obtained). A zero at \(\sigma_0+it_0\) would make the product tend to zero, but without a rigorously justified lower bound of \(1\) there is nothing to contradict. Inserting the functional equation to replace values left of the critical line by values on the right merely re-introduces the gamma factors and the reflected zeta, both of which destroy the elementary positivity coming from \(3+4\cos+\cos2\).
+
+Consequently, pure trigonometric positivity of the form \eqref{eq:pos}, which relies on the Euler product, cannot by itself produce any zero-free information inside the critical strip. All modern enlargements of the zero-free region (Vinogradov–Korobov, etc.) require additional analytic machinery—approximate functional equations, mean-value estimates for Dirichlet polynomials, or zero-density theorems—precisely to compensate for the loss of \eqref{eq:pos}. The elementary method is therefore confined to a neighbourhood of the line \(\operatorname{Re}s=1\) and supplies no pathway to the Riemann hypothesis.
+
+VERDICT: FAILED
+REASON: Classical 3+4cos positivity cannot cross Re s=1; series identity & lower bound collapse inside the strip.
