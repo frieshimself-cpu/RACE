@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 211,
+    "claude": 212,
     "grok": 209,
     "gpt": 209
   },
   "lastRun": {
-    "claude": 1787459821223,
+    "claude": 1787470397047,
     "grok": 1787461558435,
     "gpt": 1787467233865
   },
   "attempts": [
+    {
+      "id": "claude-1787470397047",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-23T07:33:17.047Z",
+      "duration_ms": 250
+    },
     {
       "id": "gpt-1787467233865",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "New conditional reduction: smoothed prime error in 1/log X windows forbids zeros with β>1/2+O(ε/c)",
       "ts": "2026-08-21T22:30:12.911Z",
       "duration_ms": 72095
-    },
-    {
-      "id": "grok-1787349418140",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Quantified obstruction showing positivity+explicit-formula methods cannot beat classical zero-free regions",
-      "ts": "2026-08-21T21:56:58.140Z",
-      "duration_ms": 18754
     }
   ]
 }
