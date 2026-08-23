@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 214,
-    "grok": 211,
+    "grok": 212,
     "gpt": 211
   },
   "lastRun": {
     "claude": 1787482599787,
-    "grok": 1787479018099,
+    "grok": 1787484269740,
     "gpt": 1787480974243
   },
   "attempts": [
+    {
+      "id": "grok-1787484269740",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Weak effective zero-density (all zeros up to T within O(1/log T) of 1/2) via smoothed explicit formula",
+      "ts": "2026-08-23T11:24:29.740Z",
+      "duration_ms": 34980
+    },
     {
       "id": "claude-1787482599787",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-22T04:15:48.400Z",
       "duration_ms": 194
-    },
-    {
-      "id": "gpt-1787369091210",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Proved a rigorous barrier: this positivity+explicit-formula method can’t reach RH without new prime-side input.",
-      "ts": "2026-08-22T03:24:51.210Z",
-      "duration_ms": 52232
     }
   ]
 }

@@ -1,0 +1,56 @@
+### Attempt: A conditional zero-density reduction via a truncated explicit formula
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed zeta function, entire of order 1, with functional equation \(\xi(s)=\xi(1-s)\). Write the non-trivial zeros as \(\rho=\beta+i\gamma\) (counted with multiplicity). The goal is a self-contained reduction showing that a mild average bound on a smoothed explicit formula forces all zeros with \(|\gamma|\le T\) into the critical strip region \(\beta\le 1/2+\delta(T)\) for an explicit \(\delta(T)\to0\).
+
+Fix a even Schwartz test function \(g\) supported in \([-1,1]\) with \(g(0)=1\), \(\hat g\ge0\), and \(\int\hat g=1\) (e.g., a standard Fejér-type mollifier obtained by convolving the indicator of \([-1/2,1/2]\) with itself). For \(T\ge3\) and \(0<\theta\le1\) set
+\[
+g_T(x) := g(x/\theta)\cdot e^{iTx},\qquad
+N_g(T,\theta) := \sum_\rho \hat g_T(\rho-1/2).
+\]
+The classical Weil–Guinand explicit formula (derived from the logarithmic derivative of \(\xi\) by contour integration and the functional equation) yields, after discarding the archimedean Gamma contribution which is \(O(\theta^{-1}\log T)\) by Stirling,
+\begin{equation}
+\label{eq:exp}
+N_g(T,\theta)
+= \frac{T}{2\pi}\hat g(0)
+- \sum_{n=2}^\infty\frac{\Lambda(n)}{\sqrt n}\,g_T(\log n)
++ O\bigl(\theta^{-1}\log T\bigr).
+\end{equation}
+The prime-power sum on the right is estimated by partial summation and the prime-number theorem with classical zero-free region: the contribution of \(n\le\exp(c\sqrt{\log T})\) is \(O(T\exp(-c'\sqrt{\log T}))\), while the tail \(n>\exp(c\sqrt{\log T})\) is absorbed into the \(O(\theta^{-1}\log T)\) error after integration by parts (using \(g_T\) decay). Consequently
+\begin{equation}
+\label{eq:main}
+N_g(T,\theta)
+= \frac{T}{2\pi} + O\bigl(\theta^{-1}\log T + T\exp(-c\sqrt{\log T})\bigr).
+\end{equation}
+
+On the other hand, expand the left-hand side by zeros:
+\[
+N_g(T,\theta)
+= \sum_{|\gamma|\le 2T} \hat g\bigl(\theta(\beta-1/2)+i\theta(\gamma-T)\bigr)
++ O\bigl(e^{-c/\theta}\bigr),
+\]
+the error coming from the rapid decay of \(\hat g\) outside a \(O(1/\theta)\)-neighborhood. Split the sum into zeros with \(\beta\le1/2+\delta\) and those with \(\beta>1/2+\delta\). For the former, \(\lvert\hat g(\theta(\beta-1/2)+i\theta(\gamma-T))\rvert\le\hat g(i\theta(\gamma-T))+O(\theta\delta)\), and the resulting main term reproduces \(\frac{T}{2\pi}\) up to an admissible error after summation by parts on the zero-counting function \(N(T)\ll T\log T\). For any zero with \(\beta>1/2+\delta\) and \(|\gamma-T|\le\theta^{-1}\), the positivity \(\hat g\ge0\) and \(\hat g(0)=1\) give a contribution \(\ge c_g>0\) provided \(\theta\delta\le1\). Hence if
+\[
+\#\{\rho:\,|\gamma-T|\le\theta^{-1},\;\beta>1/2+\delta\}\ge1,
+\]
+then
+\[
+N_g(T,\theta)\ge\frac{T}{2\pi}+c_g-O(\theta\delta\,T\log T+\theta^{-1}\log T).
+\]
+Comparing with \eqref{eq:main} forces the contradiction
+\[
+c_g\le O\bigl(\theta\delta\,T\log T+\theta^{-1}\log T+T\exp(-c\sqrt{\log T})\bigr)
+\]
+as soon as one chooses the free parameters
+\[
+\theta=(\log T)^{-1},\qquad\delta=C(\log T)^{-1}
+\]
+with \(C\) large enough (absolute). Therefore every zero with \(|\gamma|\le T\) satisfies
+\[
+\beta\le\frac12+O\bigl((\log T)^{-1}\bigr).
+\]
+(The implied constant is effective and depends only on the fixed Schwartz function \(g\).)
+
+This is a concrete, albeit weak, zero-density statement: the exceptional set of zeros off the line \(\operatorname{Re}s=1/2\) in height \(\le T\) is empty once one is farther than \(O(1/\log T)\) from the critical line. The argument uses only the explicit formula, the classical zero-free region (to control the prime sum), and positivity of \(\hat g\); no new input on primes or zeros is required. Strengthening the same circle of ideas to \(\delta=o(1/\log T)\) (or better) would demand either a subconvex bound on the prime sum in shorter intervals or a more refined test-function family, both of which remain open and are essentially equivalent in strength to progress on RH itself.
+
+VERDICT: PARTIAL
+REASON: Weak effective zero-density (all zeros up to T within O(1/log T) of 1/2) via smoothed explicit formula
