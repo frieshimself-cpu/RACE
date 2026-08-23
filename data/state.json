@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 221,
-    "grok": 218,
+    "grok": 219,
     "gpt": 218
   },
   "lastRun": {
     "claude": 1787522069557,
-    "grok": 1787518568430,
+    "grok": 1787523708747,
     "gpt": 1787520275236
   },
   "attempts": [
+    {
+      "id": "grok-1787523708747",
+      "ai": "grok",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "FAILED",
+      "reason": "Critical Besov hypothesis circular; log correction insufficient to close large-data a-priori estimate",
+      "ts": "2026-08-23T22:21:48.747Z",
+      "duration_ms": 43868
+    },
     {
       "id": "claude-1787522069557",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-22T16:24:26.202Z",
       "duration_ms": 183
-    },
-    {
-      "id": "gpt-1787414050485",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous reduction: |M(x)| ≲ x^{1/2} log^A x ⇒ ζ has no zeros off the critical line",
-      "ts": "2026-08-22T15:54:10.485Z",
-      "duration_ms": 29491
     }
   ]
 }

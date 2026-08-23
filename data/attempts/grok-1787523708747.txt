@@ -1,0 +1,60 @@
+### Attempt: Conditional a-priori bound via controlled vorticity stretching in the critical Besov scale
+
+We work throughout with the incompressible Navier–Stokes system on \(\mathbb{R}^3\times(0,T)\)
+\[
+\partial_t u+(u\cdot\nabla)u=\nu\Delta u-\nabla p,\qquad\operatorname{div}u=0,
+\]
+with smooth, divergence-free initial data \(u_0\in\mathcal{S}\). Let \(\omega=\operatorname{curl}u\) be the vorticity. The vorticity formulation reads
+\[
+\partial_t\omega+(u\cdot\nabla)\omega=(\omega\cdot\nabla)u+\nu\Delta\omega.
+\]
+The only term that can produce finite-time growth of enstrophy is the vortex-stretching contribution \(S:=\int_{\mathbb{R}^3}\omega_i\omega_j\partial_j u_i\,dx\).
+
+#### Lemma (stretching controlled by a logarithmic Besov correction)
+Assume that the solution remains smooth on \([0,T)\) and that the velocity satisfies the auxiliary integrability
+\[
+\int_0^T\|u(t)\|_{\dot{B}^{-1}_{\infty,\infty}}\,dt<\infty.
+\]
+Then
+\[
+\frac{d}{dt}\|\omega(t)\|_{L^2}^2+\nu\|\nabla\omega(t)\|_{L^2}^2\le C\nu^{-1}\bigl(1+\|u(t)\|_{\dot{B}^{-1}_{\infty,\infty}}\bigr)\|\omega(t)\|_{L^2}^2\log\bigl(e+\|\omega(t)\|_{H^{1/2}}\bigr).
+\]
+
+#### Sketch of proof
+Decompose the deformation tensor via the Biot–Savart law:
+\[
+\partial_j u_i=R_i R_j\omega_k\varepsilon_{k\ell m}\quad\text{(up to lower-order terms)},
+\]
+where \(R\) are Riesz transforms. Split the multiplier at frequency \(\lambda>1\):
+\[
+\nabla u=P_{\le\lambda}\nabla u+P_{>\lambda}\nabla u.
+\]
+The low-frequency piece is estimated in \(L^\infty\) by the embedding \(\dot{B}^{-1}_{\infty,\infty}\hookrightarrow\operatorname{BMO}^{-1}\) and Bernstein:
+\[
+\|P_{\le\lambda}\nabla u\|_\infty\le C\lambda\|u\|_{\dot{B}^{-1}_{\infty,\infty}}.
+\]
+The high-frequency piece is controlled in \(L^2\) by Calderón–Zygmund and a standard paraproduct remainder:
+\[
+\|P_{>\lambda}\nabla u\|_{L^2}\le C\|\omega\|_{L^2}.
+\]
+Inserting the split into \(S\) and applying Hölder yields
+\[
+|S|\le C\lambda\|u\|_{\dot{B}^{-1}_{\infty,\infty}}\|\omega\|_2^2+C\|\omega\|_2\|P_{>\lambda}\omega\|_{H^{1/2}}\|\omega\|_2.
+\]
+Optimize \(\lambda=\exp(c\|\omega\|_{H^{1/2}}/\|\omega\|_2)\) (the only scale that balances the two contributions) and absorb the dissipative term by Young’s inequality. The claimed differential inequality follows after a routine logarithmic Sobolev interpolation
+\[
+\|\omega\|_{H^{1/2}}\le C\|\omega\|_2^{1/2}\|\nabla\omega\|_2^{1/2}.
+\]
+
+#### Consequence
+Grönwall’s inequality on the differential inequality immediately gives a uniform bound
+\[
+\sup_{t\in[0,T)}\|\omega(t)\|_{L^2}<\infty
+\]
+whenever the space-time norm \(\|u\|_{L^1_t\dot{B}^{-1}_{\infty,\infty}}\) remains finite. By the Beale–Kato–Majda criterion this would imply that the solution extends smoothly past time \(T\).
+
+#### Where the argument collapses
+The auxiliary hypothesis \(\int\|u\|_{\dot{B}^{-1}_{\infty,\infty}}\,dt<\infty\) is itself a critical (scale-invariant) condition that is not known a priori for large-data Leray–Hopf weak solutions; it is essentially equivalent to the original regularity question (cf. the Koch–Tataru space). Closing the estimate would therefore require an independent bound on that Besov norm, which is not supplied by the energy inequality nor by any known local smoothing. The logarithmic correction, while sharp for the Calderón–Zygmund piece, cannot absorb the supercritical growth that may occur when the \(\dot{B}^{-1}_{\infty,\infty}\) norm concentrates. Thus the reduction, although formally correct, does not advance the unconditional existence theory.
+
+VERDICT: FAILED
+REASON: Critical Besov hypothesis circular; log correction insufficient to close large-data a-priori estimate
