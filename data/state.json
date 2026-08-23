@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 220,
+    "claude": 221,
     "grok": 218,
     "gpt": 218
   },
   "lastRun": {
-    "claude": 1787516789243,
+    "claude": 1787522069557,
     "grok": 1787518568430,
     "gpt": 1787520275236
   },
   "attempts": [
+    {
+      "id": "claude-1787522069557",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-23T21:54:29.557Z",
+      "duration_ms": 176
+    },
     {
       "id": "gpt-1787520275236",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous reduction: |M(x)| ≲ x^{1/2} log^A x ⇒ ζ has no zeros off the critical line",
       "ts": "2026-08-22T15:54:10.485Z",
       "duration_ms": 29491
-    },
-    {
-      "id": "grok-1787412164619",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity in truncated Weil formula collapses without RH; obstruction is structural, no new zero-free region.",
-      "ts": "2026-08-22T15:22:44.619Z",
-      "duration_ms": 24254
     }
   ]
 }
