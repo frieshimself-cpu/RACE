@@ -1,0 +1,43 @@
+Attempt: A blow-up propagation lemma for the Hodge conjecture in fixed codimension
+
+Statement (Blow-up propagation). Let X be a smooth projective complex variety, Z ⊂ X a smooth closed subvariety of codimension r ≥ 2, and f: Y = Bl_Z X → X the blow-up with exceptional divisor i: E = P(N_{Z/X}) ↪ Y and projection π: E → Z. Fix p ≥ 0. Assume:
+- HC(X, p): every rational Hodge class in H^{2p}(X, Q) is algebraic.
+- For each j = 1, …, min(r−1, p), HC(Z, p−j): every rational Hodge class in H^{2(p−j)}(Z, Q) is algebraic.
+
+Then HC(Y, p) holds: every rational Hodge class in H^{2p}(Y, Q) is algebraic.
+
+Proof. The standard blow-up cohomology decomposition furnishes an isomorphism of rational Hodge structures (and of Hodge algebras)
+Ψ: H^*(X, Q) ⊕ ⊕_{j=1}^{r−1} H^{*−2j}(Z, Q)(−j) → H^*(Y, Q)
+given explicitly by
+Ψ(a; b_1, …, b_{r−1}) = f^*a + ∑_{j=1}^{r−1} i_*(ξ^{j−1} ∪ π^* b_j),
+where ξ = c_1(O_E(1)) ∈ H^2(E, Q) is the relative hyperplane class. This isomorphism is functorial, respects the Hodge decomposition, and is induced by algebraic correspondences; see standard references (e.g., Manin; or de Cataldo–Migliorini). In particular, it identifies (p,p)-classes as follows:
+H^{p,p}(Y) ≅ H^{p,p}(X) ⊕ ⊕_{j=1}^{min(r−1,p)} H^{p−j, p−j}(Z).
+
+Take any α ∈ H^{2p}(Y, Q) ∩ H^{p,p}(Y). Write its Ψ-preimage as
+(a; b_1, …, b_{r−1}) with a ∈ H^{2p}(X, Q) ∩ H^{p,p}(X) and, for 1 ≤ j ≤ min(r−1,p), b_j ∈ H^{2(p−j)}(Z, Q) ∩ H^{p−j, p−j}(Z). By HC(X, p), choose an algebraic cycle A ∈ CH^p(X)_Q with cl_X(A) = a. By HC(Z, p−j), choose algebraic cycles B_j ∈ CH^{p−j}(Z)_Q with cl_Z(B_j) = b_j for all relevant j.
+
+Consider the algebraic cycle on Y of codimension p:
+C := f^*A + ∑_{j=1}^{min(r−1,p)} i_*( ξ^{j−1} ⋅ π^* B_j ) ∈ CH^p(Y)_Q.
+Here:
+- f^* on Chow groups is the flat pullback (well-defined for blow-ups).
+- ξ = c_1(O_E(1)) is an algebraic class on E, so ξ^{j−1} defines intersection with an algebraic cycle.
+- i_* is the Gysin pushforward along a closed immersion.
+- π^* is the flat pullback along π.
+
+By compatibility of the cycle class map with pullback, pushforward, and cup/intersection with c_1, we have
+cl_Y(C) = f^* cl_X(A) + ∑_{j=1}^{min(r−1,p)} i_* ( ξ^{j−1} ∪ π^* cl_Z(B_j) )
+= f^* a + ∑_{j=1}^{min(r−1,p)} i_* ( ξ^{j−1} ∪ π^* b_j )
+= Ψ(a; b_1, …, b_{r−1})
+= α.
+Thus α is algebraic. As α was arbitrary, HC(Y, p) holds.
+
+Remarks and consequences.
+- Only the range j ≤ min(r−1, p) appears: when p−j < 0 the corresponding summand is zero, so no hypothesis on Z in those codimensions is needed.
+- The argument is entirely Hodge-theoretic and algebraic: the decomposition Ψ is an isomorphism of Hodge structures realized by algebraic correspondences, and all operations used preserve the cycle class.
+- Iterated blow-ups: by induction, HC in fixed codimension p propagates along a sequence of blow-ups provided the centers satisfy HC in the necessary lower codimensions.
+- Example (3-folds, codim 2). Let p = 2, dim X = 3. Blowing up along a smooth curve (r = 2) requires HC(Z,1), i.e., Lefschetz (1,1) on the curve (true), hence HC(Y,2) propagates. Blowing up at points (r = 3) requires HC(Z,1) and HC(Z,0), both true. Thus HC in codimension 2 is stable under blowing up 3-folds along smooth curves/points, reducing verification to a birational model where it is known.
+
+This gives a concrete, verifiable mechanism to transfer the Hodge conjecture across a central birational operation under precise, checkable hypotheses on the centers.
+
+VERDICT: PARTIAL
+REASON: Proved a blow-up propagation lemma: HC(Y,p) from HC(X,p) and HC(Z,p−j) via the blow-up cohomology decomposition.

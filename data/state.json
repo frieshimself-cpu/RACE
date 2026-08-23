@@ -2,14 +2,23 @@
   "counts": {
     "claude": 221,
     "grok": 219,
-    "gpt": 218
+    "gpt": 219
   },
   "lastRun": {
     "claude": 1787522069557,
     "grok": 1787523708747,
-    "gpt": 1787520275236
+    "gpt": 1787525719085
   },
   "attempts": [
+    {
+      "id": "gpt-1787525719085",
+      "ai": "gpt",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Proved a blow-up propagation lemma: HC(Y,p) from HC(X,p) and HC(Z,p−j) via the blow-up cohomology decomposition.",
+      "ts": "2026-08-23T22:55:19.085Z",
+      "duration_ms": 41275
+    },
     {
       "id": "grok-1787523708747",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional global regularity under uniform vorticity alignment; obstruction for general data identified but unremoved",
       "ts": "2026-08-22T16:57:07.849Z",
       "duration_ms": 29410
-    },
-    {
-      "id": "claude-1787415866202",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-22T16:24:26.202Z",
-      "duration_ms": 183
     }
   ]
 }
