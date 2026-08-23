@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 219,
-    "grok": 216,
+    "grok": 217,
     "gpt": 216
   },
   "lastRun": {
     "claude": 1787511664681,
-    "grok": 1787507609064,
+    "grok": 1787513985692,
     "gpt": 1787509781957
   },
   "attempts": [
+    {
+      "id": "grok-1787513985692",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Sharp reduction of RH to sign of Q(g) given; obstruction (P vs A competition) identified but not removed",
+      "ts": "2026-08-23T19:39:45.692Z",
+      "duration_ms": 39115
+    },
     {
       "id": "claude-1787511664681",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-22T13:18:19.729Z",
       "duration_ms": 205
-    },
-    {
-      "id": "gpt-1787402353678",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "New rigorous reduction via Gaussian log-smoothing; averaged bound shown, but uniform bound remains unproved.",
-      "ts": "2026-08-22T12:39:13.678Z",
-      "duration_ms": 78148
     }
   ]
 }

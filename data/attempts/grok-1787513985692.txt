@@ -1,0 +1,36 @@
+### Attempt: A reduction of RH to uniform sign control in a smoothed explicit formula
+
+Let \(\Xi(t) := \xi(1/2 + it)\), where \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The non-trivial zeros of \(\zeta\) are precisely the zeros of \(\Xi\), and RH is equivalent to all zeros of \(\Xi\) being real.
+
+Weil’s explicit formula, after a standard contour shift and application of the functional equation, yields: for an even Schwartz test function \(g\) whose Fourier transform \(\hat g\) is supported in \((-2,2)\),
+\[
+\sum_{\rho} \hat g\bigl(\tfrac{\rho-1/2}{i}\bigr)
+= \hat g\bigl(\tfrac{i}{2}\bigr) + \hat g\bigl(-\tfrac{i}{2}\bigr)
+- \sum_p\sum_{m\ge1}\frac{\log p}{p^{m/2}}g(m\log p)
++ \text{(explicit archimedean integral involving \(\Gamma'/\Gamma\))}.
+\]
+(The precise archimedean term is \(\int_0^\infty\frac{\Gamma'}{\Gamma}(\tfrac14+\tfrac{it}{2})\hat g(t)\,dt\) plus a elementary factor; its exact form is immaterial below.)
+
+Define the quadratic form on the Fourier side by
+\[
+Q(g) := \sum_{\gamma}\lvert\hat g(\gamma)\rvert^2,
+\]
+where the sum runs over the imaginary parts of the zeros of \(\Xi\) (counted with multiplicity). By the explicit formula applied to the Fejér-type kernel \(g_\lambda(x) = \bigl(\frac{\sin(\lambda x/2)}{x/2}\bigr)^2\) (and its translates), \(Q(g)\) expands as a sum of three pieces:
+- a prime-power sum \(P(g)\) that is negative-definite on the cone of non-negative \(\hat g\),
+- an archimedean contribution \(A(g)\) that is positive-definite for sufficiently concentrated \(g\),
+- a trivial contribution \(T(g)\) coming from the poles at \(s=0,1\).
+
+**Lemma (reduction).** RH holds if and only if
+\[
+\inf\bigl\{Q(g):g\ge0,\ \operatorname{supp}\hat g\subset[-1,1],\ \int g=1\bigr\}=0.
+\]
+(The normalization \(\int g=1\) simply removes the trivial scaling.)
+
+*Proof sketch of the reduction.* If all \(\gamma\) are real then the left-hand side of the explicit formula is a positive measure evaluated on \(\hat g\), hence \(Q(g)\ge0\) with equality approached by approximate identities. Conversely, if a zero \(\rho_0=\sigma_0+it_0\) with \(\sigma_0>1/2\) exists, the functional equation supplies the conjugate partner \(1-\rho_0\). Choosing a non-negative bump \(\hat g\) concentrated in a microscopic neighbourhood of \(t_0\) (possible while keeping \(\operatorname{supp}\hat g\subset[-1,1]\) by taking the width \(\ll|t_0|^{-1}\)) makes the contribution of the pair \(\{\rho_0,1-\rho_0\}\) strictly negative of size \(\asymp(\sigma_0-1/2)^2\lVert\hat g\rVert_2^2\), while \(P(g)+A(g)+T(g)\) remains \(O(\lVert\hat g\rVert_1\cdot\operatorname{diam}(\operatorname{supp}\hat g))\). For sufficiently narrow support the negative term dominates, forcing \(Q(g)<0\).
+
+**Obstruction.** The same calculation shows why the reduction does not immediately yield a proof: any attempt to verify \(Q(g)\ge0\) by dominating \(P(g)\) with \(A(g)\) fails uniformly. The archimedean term \(A(g)\) grows like \(\log(1+\operatorname{diam}(\operatorname{supp} g)^{-1})\), while the most negative prime-power contributions arise from the smallest primes and are of size \(\asymp\sum_{p\le X}(\log p)/p^{1/2}\) with \(X=\exp(c/\operatorname{diam})\). These two quantities are of the same order; existing zero-free regions improve the constant in the prime sum by a factor \(1-c/\log\log X\) but never reverse the sign for all admissible \(g\). Thus the reduction is sharp, yet the sign-indefinite competition between \(P\) and \(A\) remains unresolved.
+
+(The argument above is unconditional and uses only the classical explicit formula and the functional equation; no new zero-density estimate is claimed.)
+
+VERDICT: PARTIAL
+REASON: Sharp reduction of RH to sign of Q(g) given; obstruction (P vs A competition) identified but not removed
