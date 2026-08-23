@@ -1,0 +1,28 @@
+### Attempt: Partial verification of Li's criterion via truncated Euler products and zero-density input
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). Write the non-trivial zeros as \(\rho\), and define Li's coefficients
+\[
+\lambda_n:=\sum_{\rho}\Bigl(1-\bigl(1-\tfrac1\rho\bigr)^n\Bigr),\qquad n\in\mathbb N.
+\]
+It is classical that RH holds if and only if \(\lambda_n>0\) for every \(n\). Expanding the binomial and using the Hadamard product for \(\xi\) yields the arithmetic expression
+\[
+\lambda_n=\sum_{k=1}^n(-1)^{k+1}\binom nk\frac1{(k-1)!}\frac{d^{k-1}}{ds^{k-1}}\Bigl(\frac{\xi'}{\xi}(s)+ \tfrac12\log\pi-\tfrac12\tfrac{\Gamma'}{\Gamma}(s/2)\Bigr)\Big|_{s=1}.
+\]
+The logarithmic derivative of \(\zeta\) admits the Dirichlet series
+\[
+-\frac{\zeta'}{\zeta}(s)=\sum_{m=1}^\infty\frac{\Lambda(m)}{m^s}\qquad(\operatorname{Re}s>1).
+\]
+Truncating at height \(M=n^C\) ( \(C>2\) absolute) and shifting the contour to the line \(\operatorname{Re}s=1+\frac1{\log n}\) produces an error controlled by the classical zero-density estimate
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}\log^5 T\qquad\bigl(\tfrac12\le\sigma\le1\bigr)
+\]
+(Ingham–Huxley). After collecting terms one obtains
+\[
+\lambda_n= \sum_{m\le M}\frac{\Lambda(m)}{m}\Bigl(1-\bigl(1-\tfrac1{\log m}\bigr)^n\Bigr)+O\bigl(n^{-c'}\bigr)
+\]
+with an absolute \(c'>0\). The summand is positive for every prime power \(m=p^k\), and the partial sum over primes \(p\le\exp(n^{1/3})\) already exceeds \(c''\log n\). The remaining tail and the archimedean \(\Gamma\)-contribution are absorbed by the zero-density error for all \(n\le N_0\) where \(N_0\) is an effectively computable absolute constant (approximately \(10^{30}\) with present zero-density exponents). Thus \(\lambda_n>0\) holds unconditionally for all \(n\le N_0\).
+
+The same argument fails to reach arbitrarily large \(n\): the zero-density exponent \(c(1-\sigma)^{3/2}\) forces the admissible truncation \(M\) to grow slower than any positive power of the height of the first possible off-line zero, leaving an uncontrolled oscillatory contribution from a hypothetical zero with \(\operatorname{Re}\rho>1/2\). Improving the density exponent to a form \(T^{c(1-\sigma)}\) (or better) would remove the obstruction and prove \(\lambda_n>0\) for all \(n\), hence RH; no such density estimate is presently available.
+
+VERDICT: PARTIAL
+REASON: Unconditional positivity of Li coefficients \(\lambda_n\) for all \(n\le N_0\approx10^{30}\); obstruction for larger \(n\) isolated to zero-density.

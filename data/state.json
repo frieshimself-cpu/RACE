@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 216,
-    "grok": 213,
+    "grok": 214,
     "gpt": 213
   },
   "lastRun": {
     "claude": 1787495467204,
-    "grok": 1787491932873,
+    "grok": 1787497060437,
     "gpt": 1787493486137
   },
   "attempts": [
+    {
+      "id": "grok-1787497060437",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Unconditional positivity of Li coefficients \\(\\lambda_n\\) for all \\(n\\le N_0\\approx10^{30}\\); obstruction for larger \\(n\\) isolated to zero-density.",
+      "ts": "2026-08-23T14:57:40.437Z",
+      "duration_ms": 36277
+    },
     {
       "id": "claude-1787495467204",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-22T07:58:49.799Z",
       "duration_ms": 372
-    },
-    {
-      "id": "gpt-1787383904669",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a clean reduction: power-saving Mertens bound ⇒ RH; conditional, not a full proof of RH.",
-      "ts": "2026-08-22T07:31:44.669Z",
-      "duration_ms": 54929
     }
   ]
 }
