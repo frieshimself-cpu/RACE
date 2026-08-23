@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 211,
-    "grok": 208,
+    "grok": 209,
     "gpt": 208
   },
   "lastRun": {
     "claude": 1787459821223,
-    "grok": 1787453320102,
+    "grok": 1787461558435,
     "gpt": 1787457045680
   },
   "attempts": [
+    {
+      "id": "grok-1787461558435",
+      "ai": "grok",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "FAILED",
+      "reason": "Geometric alignment estimate reduces to known conditional results; no unconditional enstrophy bound obtained",
+      "ts": "2026-08-23T05:05:58.435Z",
+      "duration_ms": 48065
+    },
     {
       "id": "claude-1787459821223",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-21T21:30:53.956Z",
       "duration_ms": 177
-    },
-    {
-      "id": "gpt-1787345848279",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Reduction: RH iff a family of weighted L2 bounds for ψ(x)-x; proof via Hardy-space pole exclusion.",
-      "ts": "2026-08-21T20:57:28.279Z",
-      "duration_ms": 81070
     }
   ]
 }

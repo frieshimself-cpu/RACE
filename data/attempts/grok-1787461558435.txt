@@ -1,0 +1,44 @@
+### Attempt: Obstruction to a Direct Enstrophy Bootstrap via Strain Alignment
+
+Consider a smooth divergence-free solution \(u\) of the 3D incompressible Navier–Stokes equations on \(\mathbb{R}^3\times[0,T)\), with vorticity \(\omega=\nabla\times u\). The enstrophy \(\mathcal{E}(t)=\frac12\|\omega(t)\|_{L^2}^2\) satisfies the exact identity
+\[
+\frac{d\mathcal{E}}{dt}+\nu\|\nabla\omega\|_{L^2}^2=\int_{\mathbb{R}^3}\omega\cdot S\omega\,dx,
+\]
+where \(S=\frac12(\nabla u+(\nabla u)^\top)\) is the strain tensor. Calderón–Zygmund theory yields the pointwise bound
+\[
+|S(x)|\le C\,\mathrm{P.V.}\int_{\mathbb{R}^3}\frac{|\omega(y)|}{|x-y|^3}\,dy
+\]
+(up to a smooth remainder controlled by local \(L^2\) norms). Consequently the stretching integral admits the crude majorization
+\[
+\biggl|\int\omega\cdot S\omega\,dx\biggr|\le C\|\omega\|_{L^\infty}\mathcal{E}.
+\]
+A standard Sobolev interpolation then produces the differential inequality
+\[
+\frac{d\mathcal{E}}{dt}\le C\|\omega\|_{L^\infty}\mathcal{E}-\nu c_0\mathcal{E}^{5/3}/\|u\|_{L^2}^{4/3},
+\]
+which is useless for global control because \(\|\omega\|_{L^\infty}\) may itself grow like a high power of \(\mathcal{E}\).
+
+Now refine the stretching term by the spectral decomposition of \(S\). At each point let \(\lambda_1\le\lambda_2\le\lambda_3\) be the eigenvalues of \(S\) (so \(\lambda_1+\lambda_2+\lambda_3=0\)) and let \(\xi=\omega/|\omega|\) (where \(\omega\neq0\)). Then
+\[
+\omega\cdot S\omega=|\omega|^2\sum_{i=1}^3\lambda_i(\xi\cdot e_i)^2.
+\]
+The most dangerous contribution arises when \(\xi\) aligns with the eigenvector belonging to \(\lambda_3>0\). Define the alignment defect
+\[
+\delta(x,t):=1-(\xi\cdot e_3)^2\in[0,1].
+\]
+A direct computation gives
+\[
+\int\omega\cdot S\omega\,dx\le\int_{\{\delta\le1/2\}}|\omega|^2\lambda_3\,dx+C\int_{\{\delta>1/2\}}|\omega|^2|S|\,dx.
+\]
+On the “good” set \(\{\delta\le1/2\}\) one has \(\lambda_3\le C|S|\) still, but the measure of that set can be estimated via the Lipschitz norm of the vorticity direction field \(\xi\) (Constantin–Fefferman). If one assumes a priori that
+\[
+\int_0^T\|\nabla\xi(t)\|_{L^\infty}\,dt<\infty,
+\]
+then the good-set contribution is absorbed into the viscous term after an integration by parts that recovers a full \(\|\nabla\omega\|_{L^2}^2\) piece, and the BKM criterion closes to give regularity up to \(T\). 
+
+The obstruction appears precisely when no such integrability of \(\nabla\xi\) is known: the bad-set integral remains of size \(\|\omega\|_{L^\infty}\mathcal{E}\) and cannot be absorbed. Any attempt to bound \(\|\nabla\xi\|_{L^\infty}\) by enstrophy alone re-introduces a supercritical norm (essentially \(\|\omega\|_{BMO}\)), returning one to the original open problem. Thus the geometric refinement yields a conditional regularity statement already in the literature, but supplies no new unconditional a-priori bound on \(\mathcal{E}(t)\).
+
+The same circularity persists if one replaces the \(L^\infty\) norm of \(\nabla\xi\) by any \(L^p\) norm with \(p\le3\); the resulting Hölder conjugates again fail to close below the critical scaling.
+
+VERDICT: FAILED
+REASON: Geometric alignment estimate reduces to known conditional results; no unconditional enstrophy bound obtained
