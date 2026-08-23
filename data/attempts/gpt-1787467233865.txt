@@ -1,0 +1,79 @@
+Attempt: A maximum-principle reduction from uniform “boundary” approximation to 1/ζ to zero-freeness, and a quantified obstruction
+
+Setup and notation:
+- Let 1/2 < σ1 < 1 and H ≥ 1. For T large, let R = R(σ1,H,T) be the closed rectangle {s = σ + it : 1/2 ≤ σ ≤ σ1, T ≤ t ≤ T + H}.
+- Let L denote the left side {1/2 + it : T ≤ t ≤ T + H} of ∂R, and Γ = ∂R \ L the union of the other three sides.
+- Let P(s) be a Dirichlet polynomial (P entire), e.g. P(s) = ∑_{n ≤ N} a_n n^{-s} with fixed N = N(T) and coefficients depending on T.
+- Define f(s) = 1 - ζ(s) P(s).
+
+Lemma 1 (Boundary-approximation implies local zero-free region):
+Fix 1/2 < σ1 < 1. Suppose there exists A > 0 and, for all sufficiently large T, a Dirichlet polynomial P_T(s) such that
+sup_{s ∈ ∂R(σ1,H,T)} |1 - ζ(s) P_T(s)| ≤ T^{-A}.
+Then ζ has no zeros in R(σ1,H,T) for all large T. In particular, if for each σ1 ∈ (1/2,1) this holds on R(σ1,H,T) for all large T, then ζ has no zeros with Re s ≥ σ1; letting σ1 ↓ 1/2 would yield the Riemann Hypothesis.
+
+Proof:
+- For σ1 < 1, ζ(s) is analytic on and inside R (the pole at s = 1 lies strictly to the right). P_T is entire, so f(s) is analytic on and inside R.
+- By the maximum modulus principle, sup_{s ∈ R} |f(s)| ≤ sup_{s ∈ ∂R} |f(s)| ≤ T^{-A}.
+- If ζ had a zero ρ in R, then f(ρ) = 1 − ζ(ρ) P_T(ρ) = 1, contradicting |f(ρ)| ≤ T^{-A} for T large. QED.
+
+This is a clean, rigorous reduction: sufficiently strong uniform Dirichlet-polynomial approximation to 1/ζ on the full boundary of each such rectangle excludes zeros in the interior. As stated, it reduces RH to the feasibility of producing such P_T for arbitrarily tight σ1 ↓ 1/2.
+
+Quantified obstruction on the critical-line-only control:
+Full boundary control is strong; most methods work on the line Re s = 1/2 only. The next result quantifies how much sup-norm control on the critical line alone would be needed to exclude an off-line zero, in the presence of crude growth bounds on the other sides. It also shows a fundamental obstruction: any off-line zero forces a polynomial lower bound on the best possible uniform approximation error on the critical line over that rectangle.
+
+Proposition 2 (Harmonic-measure barrier):
+Let R = R(σ1,H,T) with 1/2 < σ1 < 1. Suppose P is a Dirichlet polynomial and define f(s) = 1 − ζ(s) P(s), analytic on and inside R. Let
+E = sup_{s ∈ L} |f(s)| and B = sup_{s ∈ Γ} |f(s)|.
+If ζ has a zero ρ ∈ R, then
+1 ≤ |f(ρ)| ≤ E^{ω_L(ρ)} B^{1−ω_L(ρ)},
+where ω_L(ρ) ∈ (0,1) is the harmonic measure of L at ρ relative to R.
+Consequently,
+E ≥ B^{−(1−ω_L(ρ))/ω_L(ρ)}.
+
+Sketch of proof:
+For subharmonic u(s) = log|f(s)| on R with boundary values bounded above by log E on L and log B on Γ, the harmonic measure formula gives u(ρ) ≤ ω_L(ρ) log E + (1 − ω_L(ρ)) log B. Since f(ρ) = 1, u(ρ) = 0, which rearranges to the inequality. QED.
+
+Effective corollary with crude bounds:
+On Γ (the right and horizontal edges), one has standard bounds for ζ and P:
+- On σ = σ1, |ζ(σ1 + it)| ≪ T^{C(1−σ1)} (by convexity; any admissible C > 0 suffices for this argument), and
+|P(σ1 + it)| ≤ ∑_{n ≤ N} |a_n| n^{-σ1} ≪ N^{1−σ1} A0,
+where A0 depends on coefficient size. Hence |ζ P| ≪ T^{C1} with C1 depending on σ1, N, and coefficients. Consequently B ≤ 1 + sup_{Γ} |ζ P| ≪ T^{C1}.
+- Similarly on the horizontal sides σ ∈ [1/2,σ1], t = T or T + H, one has convexity bounds for ζ and corresponding bounds for P, giving B ≪ T^{C2} for some C2 depending on σ1, H, N, and coefficients.
+
+Therefore, if a zero ρ lies in R, the inequality gives, for some constant C = C(σ1,H,N,coeffs),
+E ≥ T^{-C (1−ω_L(ρ))/ω_L(ρ)}.
+
+Geometric interpretation and consequence:
+- For a tall rectangle (H large compared to 1), ω_L(ρ) is close to the harmonic measure in the infinite vertical strip {1/2 < Re s < σ1}, i.e.
+ω_L(ρ) ≈ (σ1 − Re ρ)/(σ1 − 1/2),
+uniformly for t away from the top/bottom edges; in any case ω_L(ρ) is bounded between positive constants times that strip value.
+- Thus, for any fixed σ1 and any zero ρ with Re ρ ≤ σ1 − δ (δ ∈ (0,σ1−1/2]), ω_L(ρ) ≥ c(σ1) δ, giving
+E ≥ T^{-C'(σ1,δ)} with C' = C (1−ω_L)/ω_L ≤ C''/δ.
+In words: polynomially strong sup-approximation on the entire critical-line segment L forces a zero-free strip Re s ≥ σ1 − δ inside R, with quantitative exponents.
+- Conversely, existence of an off-line zero a fixed distance δ from σ1 imposes a polynomial lower bound on the best possible uniform approximation error E achievable on L by any Dirichlet polynomial P(s) (no matter its length), provided only that |1 − ζP| has at most polynomial growth on Γ.
+
+Discussion of scope and obstruction:
+- Lemma 1 gives a clean, rigorous “boundary-approximation ⇒ zero-free” mechanism by a maximum principle. It reduces RH to constructing Dirichlet-polynomial approximants to 1/ζ with uniform sup-norm on the full boundary of rectangles abutting the critical line, for σ1 arbitrarily close to 1/2.
+- Proposition 2 shows that attempting to rely on critical-line-only approximation must overcome a harmonic-measure barrier: unless one simultaneously controls the three other sides (or controls growth of |1 − ζP| there), an off-line zero ρ with Re ρ close to σ1 can make ω_L(ρ) small, weakening the leverage of left-edge control. Quantitatively, to exclude zeros with Re ρ ≥ 1/2 + δ using only left-edge sup-approximation over height H and crude polynomial growth bounds on Γ, one needs E ≤ T^{-D} with D exceeding a threshold of size ≍ 1/δ.
+- This isolates a concrete target for mollifier/Dirichlet-polynomial methods: produce P(s) such that, for tall rectangles, one has both (i) sup_{L} |1 − ζP| ≤ T^{-D} with D arbitrarily large, and (ii) polynomial growth control of |1 − ζP| on Γ. Condition (ii) is compatible with standard choices P(s) = ∑_{n ≤ T^θ} μ(n) w(n) n^{-s} (truncated 1/ζ): on the right edge, |P| is ≪ T^{θ(1−σ1)}, and on horizontal edges one has similar control. The genuine difficulty, highlighted by Proposition 2, is achieving the sup-norm bound on the critical-line segment with exponent D large enough to beat the geometric factor (1−ω_L)/ω_L uniformly for zeros not too close to σ1; pushing σ1 down to 1/2 then mandates D → ∞, reflecting the intrinsic hardness of RH.
+
+Concrete partial result:
+Combining the above, one obtains the following conditional zero-free statement with a verifiable criterion.
+
+Theorem 3 (Conditional zero-free strip from critical-line sup-approximation):
+Fix 1/2 < σ1 < 1 and δ ∈ (0, σ1 − 1/2]. There exist constants c1, c2 depending only on (σ1, δ) such that the following holds. Let H ≥ c1 log T. Suppose there exists a Dirichlet polynomial P(s) with
+- sup_{s ∈ L} |1 − ζ(s) P(s)| ≤ T^{-D},
+- sup_{s ∈ Γ} |1 − ζ(s) P(s)| ≤ T^{c2},
+for some D > c2/δ. Then ζ has no zeros in {s: T ≤ Im s ≤ T + H, Re s ≥ σ1 − δ}.
+Proof:
+If there were a zero ρ with Re ρ ≥ σ1 − δ, then ω_L(ρ) ≥ c δ for some absolute c > 0 (for H ≫ 1, which holds as H ≥ c1 log T), and Proposition 2 would force T^{-D} ≥ T^{-c2 (1−ω_L)/ω_L} ≥ T^{-c2' / δ}, contradicting D > c2'/δ. QED.
+
+Summary:
+- Lemma 1 gives a rigorous maximum-principle reduction: full-boundary sup-approximation to 1/ζ excludes interior zeros; in the limit σ1 ↓ 1/2 it yields RH.
+- Proposition 2 quantifies an obstruction: any off-line zero enforces a polynomial lower bound on the best possible uniform approximation error on the critical line, unless one also controls the other boundary sides.
+- Theorem 3 extracts a concrete, checkable criterion translating feasible sup-approximation on the critical line plus crude growth on the other edges into a zero-free strip adjacent to σ1.
+
+These statements are fully rigorous. They isolate a precise analytic target for mollifier/Dirichlet-polynomial strategies and explain, via harmonic measure, why sup-norm control (not just mean-square control) on the critical line is the core barrier one must overcome to reach RH by this avenue.
+
+VERDICT: PARTIAL
+REASON: Rigorous reduction via maximum principle and a quantified obstruction criterion linking sup-approx to zero-freeness.

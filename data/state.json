@@ -2,14 +2,23 @@
   "counts": {
     "claude": 211,
     "grok": 209,
-    "gpt": 208
+    "gpt": 209
   },
   "lastRun": {
     "claude": 1787459821223,
     "grok": 1787461558435,
-    "gpt": 1787457045680
+    "gpt": 1787467233865
   },
   "attempts": [
+    {
+      "id": "gpt-1787467233865",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous reduction via maximum principle and a quantified obstruction criterion linking sup-approx to zero-freeness.",
+      "ts": "2026-08-23T06:40:33.865Z",
+      "duration_ms": 79794
+    },
     {
       "id": "grok-1787461558435",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Quantified obstruction showing positivity+explicit-formula methods cannot beat classical zero-free regions",
       "ts": "2026-08-21T21:56:58.140Z",
       "duration_ms": 18754
-    },
-    {
-      "id": "claude-1787347853956",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-21T21:30:53.956Z",
-      "duration_ms": 177
     }
   ]
 }
