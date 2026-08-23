@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 213,
-    "grok": 210,
+    "grok": 211,
     "gpt": 210
   },
   "lastRun": {
     "claude": 1787477273102,
-    "grok": 1787471944150,
+    "grok": 1787479018099,
     "gpt": 1787474445716
   },
   "attempts": [
+    {
+      "id": "grok-1787479018099",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity obstruction via explicit formula yields no contradicting test function; structural arithmetic-Gamma imbalance blocks the approach.",
+      "ts": "2026-08-23T09:56:58.099Z",
+      "duration_ms": 33977
+    },
     {
       "id": "claude-1787477273102",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-22T01:27:33.140Z",
       "duration_ms": 178
-    },
-    {
-      "id": "gpt-1787356599480",
-      "ai": "gpt",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Proved uniform classical coercivity near flat moduli on T^3; quantum mass gap remains unaddressed.",
-      "ts": "2026-08-21T23:56:39.480Z",
-      "duration_ms": 54739
     }
   ]
 }

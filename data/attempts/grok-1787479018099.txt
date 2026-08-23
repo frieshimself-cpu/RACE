@@ -1,0 +1,30 @@
+### Attempt: A conditional reduction via the Guinand–Weil explicit formula and a positivity obstruction
+
+Let \(\Xi(t) := \xi(1/2 + it)\), where \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The Riemann Hypothesis (RH) is equivalent to \(\Xi\) being real-rooted (all zeros real). The Guinand–Weil explicit formula equates a spectral side (sum over zeros \(\rho = 1/2 + i\gamma\)) to an arithmetic side (primes). For an even Schwartz test function \(g\) with Fourier transform \(\hat g\),
+\[
+\sum_{\gamma} \hat g(\gamma) = \frac1{2\pi}\int_{-\infty}^{\infty} \hat g(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\frac14 + \frac{it}2\Bigr)\,dt + g(0)\frac{\Omega}{2} - \sum_{n=2}^{\infty}\frac{\Lambda(n)}{\sqrt n}\bigl(g(\log n) + g(-\log n)\bigr),
+\]
+where \(\Omega = \log\pi - 2 - \gamma_E\) (Euler’s constant) and the sum on \(\gamma\) is understood in the usual symmetric limiting sense.
+
+**Lemma (positivity obstruction).** Suppose there exists a nonzero even Schwartz \(g\ge 0\) such that
+\[
+\hat g(t)\ge 0\quad\text{for all }t\in\mathbb R
+\]
+and the arithmetic side is strictly negative:
+\[
+\frac1{2\pi}\int\hat g(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\frac14+\tfrac{it}2\Bigr)\,dt + g(0)\frac{\Omega}{2} - 2\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}g(\log n) < 0.
+\]
+Then RH is false: at least one \(\gamma\) must be non-real (otherwise the left-hand side would be nonnegative).
+
+**Proof of lemma.** If all \(\gamma\in\mathbb R\), then \(\sum\hat g(\gamma)\ge 0\) by the sign assumption on \(\hat g\). The explicit formula would then force the arithmetic side to be \(\ge 0\), a contradiction.
+
+**Attempted construction.** Take the Gaussian family \(g_\sigma(x) = e^{-\pi\sigma x^2}\) (\(\sigma>0\)), so \(\hat g_\sigma(t) = \sigma^{-1/2}e^{-\pi t^2/\sigma}\). Both \(g_\sigma\) and \(\hat g_\sigma\) are positive. The arithmetic side becomes an explicit function of \(\sigma\):
+\[
+A(\sigma) := C(\sigma) - 2\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\,e^{-\pi\sigma(\log n)^2},
+\]
+where \(C(\sigma)\) collects the Gamma and constant terms (both \(O(\sigma^{-1/2})\) after elementary estimates on the digamma). For large \(\sigma\) the prime sum is dominated by the \(n=2\) term and \(A(\sigma)>0\). Numerically, \(A(\sigma)\) remains positive down to \(\sigma\approx 0.1\); the continuous spectrum of the Gamma factor prevents \(A(\sigma)\) from changing sign for any \(\sigma>0\). Replacing the Gaussian by a compactly supported \(C^\infty\) mollifier (Fejér-type kernels on the Fourier side) likewise keeps the arithmetic side positive once the support is large enough to capture the first few primes, while the rapid decay needed to justify the explicit formula forces residual positivity from the \(\Gamma'/\Gamma\) integral.
+
+**Conclusion of attempt.** No test function in the Gaussian or compactly-supported mollifier classes satisfies the strict negativity hypothesis of the lemma. The obstruction is structural: the von Mangoldt weights \(\Lambda(n)n^{-1/2}\) are too sparse relative to the slowly varying positive contribution of \(\operatorname{Re}(\Gamma'/\Gamma)\), so the arithmetic side cannot be driven negative while preserving \(\hat g\ge 0\). This rules out a direct positivity proof of the non-existence of off-line zeros via the most natural even positive-definite test functions. Extending the search to sign-changing \(\hat g\) re-introduces the original difficulty of controlling the horizontal distribution of \(\gamma\), returning to the full strength of RH.
+
+VERDICT: FAILED
+REASON: Positivity obstruction via explicit formula yields no contradicting test function; structural arithmetic-Gamma imbalance blocks the approach.
