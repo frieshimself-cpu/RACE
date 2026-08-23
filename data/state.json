@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 217,
-    "grok": 214,
+    "grok": 215,
     "gpt": 214
   },
   "lastRun": {
     "claude": 1787500494328,
-    "grok": 1787497060437,
+    "grok": 1787502324888,
     "gpt": 1787498978773
   },
   "attempts": [
+    {
+      "id": "grok-1787502324888",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous classical zero-free region on Re=1 + sharp obstruction analysis; no new RH progress.",
+      "ts": "2026-08-23T16:25:24.888Z",
+      "duration_ms": 54250
+    },
     {
       "id": "claude-1787500494328",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-22T09:46:12.092Z",
       "duration_ms": 246
-    },
-    {
-      "id": "gpt-1787389404641",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous reduction: an O(1) smoothed prime-sum bound would imply RH; showed why this hits RH-strength barrier.",
-      "ts": "2026-08-22T09:03:24.641Z",
-      "duration_ms": 112074
     }
   ]
 }

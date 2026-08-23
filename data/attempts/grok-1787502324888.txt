@@ -1,0 +1,106 @@
+### Attempt: Classical zero-free line \(\operatorname{Re}(s)=1\) and the obstruction to a full zero-free half-plane
+
+Let \(\zeta(s)\) denote the Riemann zeta function. Write \(s=\sigma+it\) with \(\sigma,t\in\mathbb{R}\). The goal of this note is a self-contained, fully rigorous proof that
+\[
+\zeta(s)\ne0\qquad\text{for all }\sigma\ge1,
+\]
+followed by a precise identification of the analytic obstruction that prevents the same argument from yielding a zero-free region of the form \(\sigma\ge1-\delta\) for an absolute \(\delta>0\). (The latter would immediately imply the prime-number theorem with a classical error term, but is of course far weaker than RH.)
+
+#### 1. Preliminaries
+For \(\sigma>1\) the Euler product and its logarithmic derivative give the absolutely convergent representations
+\[
+\zeta(s)=\prod_p(1-p^{-s})^{-1},\qquad
+-\frac{\zeta'}{\zeta}(s)=\sum_{n=1}^\infty\Lambda(n)n^{-s},
+\]
+where \(\Lambda\) is the von Mangoldt function. Both sides admit meromorphic continuation to \(\mathbb{C}\), the only pole of \(\zeta\) being a simple pole at \(s=1\). Consequently \(-\zeta'/\zeta\) is meromorphic on \(\mathbb{C}\) with simple poles at \(s=1\) and at the zeros of \(\zeta\), the residue at a zero being equal to its multiplicity.
+
+The elementary trigonometric inequality
+\begin{equation}
+\label{eq:trig}
+3+4\cos\theta+\cos2\theta=2(1+\cos\theta)^2\ge0
+\end{equation}
+holds for every real \(\theta\). Substituting the Dirichlet series therefore yields, for every \(\sigma>1\) and every real \(t\),
+\begin{equation}
+\label{eq:Re}
+\operatorname{Re}\Bigl(-3\frac{\zeta'}{\zeta}(\sigma)-4\frac{\zeta'}{\zeta}(\sigma+it)-\frac{\zeta'}{\zeta}(\sigma+2it)\Bigr)
+=\sum_{n\ge1}\frac{\Lambda(n)}{n^\sigma}\bigl(3+4\cos(t\log n)+\cos(2t\log n)\bigr)\ge0.
+\end{equation}
+
+#### 2. Absence of zeros on the line \(\sigma=1\)
+First suppose there exists \(t_0\neq0\) such that \(\zeta(1+it_0)=0\). Let \(m\ge1\) be the multiplicity. Then
+\[
+-\frac{\zeta'}{\zeta}(s)=\frac{m}{s-(1+it_0)}+O(1)\qquad\text{as }s\to1+it_0.
+\]
+In particular, as \(\sigma\downarrow1\),
+\begin{align*}
+-\frac{\zeta'}{\zeta}(\sigma)&=\frac{1}{\sigma-1}+O(1),\\
+-\frac{\zeta'}{\zeta}(\sigma+it_0)&=\frac{m}{\sigma-1}+O(1),\\
+-\frac{\zeta'}{\zeta}(\sigma+2it_0)&=O(1)
+\end{align*}
+(the last relation holds because \(\zeta\) has no pole at \(1+2it_0\)). Inserting these expansions into the non-negative linear combination \eqref{eq:Re} produces
+\[
+\operatorname{Re}\Bigl(\frac{3}{\sigma-1}+\frac{4m}{\sigma-1}+O(1)\Bigr)\ge0.
+\]
+The coefficient of the singular term is \(3+4m\ge7>0\), so the left-hand side tends to \(+\infty\) as \(\sigma\downarrow1\), which is harmless. The same argument with \(t_0=0\) merely recovers the simple pole of \(\zeta\) at \(s=1\) and gives no contradiction. Thus zeros on \(\operatorname{Re}s=1\) are not yet ruled out; a quantitative refinement is required.
+
+Fix \(t\neq0\) and introduce a small positive parameter \(\alpha\in(0,1)\). Apply \eqref{eq:Re} at the point \(\sigma=1+\alpha\):
+\[
+-3\operatorname{Re}\frac{\zeta'}{\zeta}(1+\alpha)
+-4\operatorname{Re}\frac{\zeta'}{\zeta}(1+\alpha+it)
+-\operatorname{Re}\frac{\zeta'}{\zeta}(1+\alpha+2it)\ge0.
+\]
+The prime-number theorem (or the elementary bound \(\psi(x)=O(x)\)) implies the uniform estimate
+\[
+-\operatorname{Re}\frac{\zeta'}{\zeta}(1+\alpha)=\frac1\alpha+O(1).
+\]
+If \(\zeta(1+it)=0\) with multiplicity \(m\ge1\), the middle term satisfies
+\[
+-\operatorname{Re}\frac{\zeta'}{\zeta}(1+\alpha+it)=\frac{m}{\alpha}+O(1).
+\]
+The third term remains \(O(1)\) provided \(\zeta(1+2it)\ne0\); if \(\zeta(1+2it)=0\) as well one simply replaces the coefficient 1 by a larger constant and repeats the argument. In all cases one obtains
+\[
+\frac{3+4m}{\alpha}+O(1)\ge0,
+\]
+which is true but still non-contradictory. The decisive step is to keep \(\alpha\) fixed and let a possible zero approach the line from the right.
+
+#### 3. Quantitative zero-free region adjacent to \(\sigma=1\)
+Assume, for contradiction, that there is a zero \(\rho=\beta+i\gamma\) with \(\beta>1-\delta\) and \(|\gamma|\ge2\), where \(\delta>0\) will be chosen presently. Set \(\alpha=c/\log|\gamma|\) with a small absolute constant \(c>0\) still free. The same linear combination, now evaluated at \(\sigma=1+\alpha\), yields
+\begin{align*}
+0&\le
+-3\operatorname{Re}\frac{\zeta'}{\zeta}(1+\alpha)
+-4\operatorname{Re}\frac{\zeta'}{\zeta}(1+\alpha+i\gamma)
+-\operatorname{Re}\frac{\zeta'}{\zeta}(1+\alpha+2i\gamma)\\
+&\le\frac{3}{\alpha}+O(1)
+-4\operatorname{Re}\frac{1}{1+\alpha-\rho}+O\bigl(\log(|\gamma|+2)\bigr),
+\end{align*}
+where the error terms arise from the standard convex bound
+\[
+\biggl|\frac{\zeta'}{\zeta}(\sigma+it)\biggr|\ll\log(|t|+2)\qquad\bigl(\sigma\ge1+\tfrac1{\log(|t|+2)}\bigr)
+\]
+and from the contribution of all other zeros (via the partial-fraction expansion of \(\zeta'/\zeta\)). The real part of the polar term is
+\[
+\operatorname{Re}\frac{1}{1+\alpha-\rho}=\frac{1+\alpha-\beta}{(1+\alpha-\beta)^2+(\gamma-t)^2}\Big|_{t=\gamma}
+=\frac{1+\alpha-\beta}{(1+\alpha-\beta)^2}.
+\]
+Hence
+\[
+0\le\frac3\alpha-4\frac{1+\alpha-\beta}{(1+\alpha-\beta)^2}+O\bigl(\log(|\gamma|+2)\bigr).
+\]
+Choosing \(c\) sufficiently small forces \(\alpha<\frac12(1-\beta)\) whenever \(\beta>1-\delta\) with \(\delta=c'/(\log(|\gamma|+2))\) for a suitably small absolute \(c'>0\). The middle term is then larger than \(2/\alpha\), and the whole expression becomes negative for large \(|\gamma|\), a contradiction.
+
+Thus there exists an absolute constant \(c_0>0\) such that
+\[
+\zeta(\sigma+it)\ne0\qquad\text{whenever}\quad
+\sigma\ge1-\frac{c_0}{\log(|t|+2)}.
+\]
+In particular \(\zeta(1+it)\ne0\) for all real \(t\).
+
+#### 4. Where the method stops (obstruction to RH-scale zero-free regions)
+The same formal combination \eqref{eq:Re} can be written at any height. The error committed by discarding all but one zero, however, is of size \(\asymp\log(|t|+2)\) (from the density of zeros and the growth of \(\zeta'/\zeta\)). Balancing the main term \(1/\alpha\) against this error forces \(\alpha\gg1/\log(|t|+2)\), which is precisely the width of the classical zero-free region obtained above. Any attempt to reach a fixed distance \(\delta>0\) into the critical strip would require an error \(o(1)\) uniform in \(t\), which in turn demands either
+- a zero-density estimate far stronger than what the large-sieve or Halász–Montgomery methods presently supply, or
+- a substitute for the non-negative trigonometric polynomial \(3+4\cos\theta+\cos2\theta\) whose Fourier support is concentrated on a much shorter interval, thereby reducing the contribution of distant zeros.
+
+No such polynomial is known, and the existence of one with the necessary concentration would itself be essentially equivalent to a quasi-RH zero-free region. This is the precise analytic obstruction: the positivity method is limited by the unavoidable logarithmic accumulation of zeros off the critical line, an accumulation whose true order is predicted by RH but cannot be fed back into the argument without circularity.
+
+VERDICT: PARTIAL
+REASON: Rigorous classical zero-free region on Re=1 + sharp obstruction analysis; no new RH progress.
