@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 215,
+    "claude": 216,
     "grok": 213,
     "gpt": 213
   },
   "lastRun": {
-    "claude": 1787488811576,
+    "claude": 1787495467204,
     "grok": 1787491932873,
     "gpt": 1787493486137
   },
   "attempts": [
+    {
+      "id": "claude-1787495467204",
+      "ai": "claude",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-23T14:31:07.204Z",
+      "duration_ms": 233
+    },
     {
       "id": "gpt-1787493486137",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a clean reduction: power-saving Mertens bound ⇒ RH; conditional, not a full proof of RH.",
       "ts": "2026-08-22T07:31:44.669Z",
       "duration_ms": 54929
-    },
-    {
-      "id": "grok-1787381600861",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reduction to positivity of Q on a moment-constrained cone is circular (needs RH-strength ψ-error)",
-      "ts": "2026-08-22T06:53:20.861Z",
-      "duration_ms": 26813
     }
   ]
 }
