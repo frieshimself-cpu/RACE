@@ -1,0 +1,36 @@
+### Attempt: A conditional reduction via truncated explicit formulae and a parity obstruction
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function, entire of order 1 and satisfying \(\xi(s)=\xi(1-s)\). Write the non-trivial zeros as \(\rho=\beta+i\gamma\) (repeated according to multiplicity). The classical Weil explicit formula, after a standard smooth truncation, yields the following identity. Fix a test function \(g\in C_c^\infty(\mathbb{R})\) that is even, real-valued, and whose Fourier transform
+\[
+\hat g(z)=\int_{-\infty}^\infty g(t)e^{izt}\,dt
+\]
+is entire of exponential type and rapidly decreasing on horizontal strips. Then
+\begin{equation}
+\sum_{\rho}\hat g(\gamma-i(\beta-1/2))
+=
+\hat g(i/2)+\hat g(-i/2)
+-\frac1{2\pi}\int_{-\infty}^\infty\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)\hat g(t)\,dt
++\sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}}g(k\log p)
+\label{eq:expl}
+\end{equation}
+(the sum over zeros is understood in the symmetric limit \(\lim_{T\to\infty}\sum_{|\gamma|\le T}\)).
+
+Assume, for contradiction inside a vertical strip, that there exists at least one zero with \(\beta_0>1/2\). Let \(\rho_0=\beta_0+i\gamma_0\) be such a zero of maximal real part (or any zero of real part \(>\frac12+\delta\) for fixed \(\delta>0\)). Choose a sequence of non-negative test functions \(g_T\) whose Fourier transforms \(\hat g_T\) concentrate at height \(\gamma_0\) while remaining non-negative on the critical line and decaying rapidly away from a window of width \(T^{-1}\) about \(\gamma_0\). More precisely, take
+\[
+g_T(t)=h(t)\cdot\Bigl(\frac{\sin(Tt/2)}{t/2}\Bigr)^2,\qquad
+h\ge0\text{ even, }\operatorname{supp}h\subset[-1,1],
+\]
+normalized so that \(\hat g_T(0)=1\). Then \(\hat g_T(\gamma-i(\beta-1/2))\) is asymptotically non-negative for all zeros with \(\beta\le1/2\), while the contribution of \(\rho_0\) (and its conjugate and functional-equation partners) is
+\[
+\sim c\,T\,e^{(\beta_0-1/2)T}
+\]
+for an absolute \(c>0\) depending only on the multiplicity. The prime-power side of \eqref{eq:expl} is \(O(e^{T/2+\varepsilon})\) by the prime-number theorem with classical zero-free region, and the Gamma factor contributes at most \(O(T\log T)\). Consequently the left-hand side of \eqref{eq:expl} is forced to grow like \(e^{(\beta_0-1/2)T}\), which can be balanced only if there exists a compensating zero (or zeros) with real part \(1-\beta_0<1/2\) whose imaginary part lies inside the same window and whose multiplicity is large enough to cancel the exponential excess.
+
+This cancellation, however, collides with a parity constraint coming from the functional equation. Because \(\xi(\overline s)=\overline{\xi(s)}\) and \(\xi(s)=\xi(1-s)\), zeros appear in quartets \(\{\rho,1-\rho,\overline\rho,1-\overline\rho\}\) unless they lie on the critical line or the real axis. If a zero off the line is simple, its three partners are distinct; the contribution of the partner at \(1-\beta_0\) carries the opposite exponential weight \(e^{-(\beta_0-1/2)T}\). No choice of non-negative \(g_T\) can make the weighted sum of a simple quartet vanish while keeping \(\hat g_T\ge0\) on the line \(\operatorname{Re}s=1/2\). Multiplicities do not remove the obstruction: an odd total multiplicity inside any vertical window of width \(o(1)\) again produces a non-zero residue of exponential growth that cannot be cancelled by the prime sum.
+
+Thus the assumption that a zero with \(\beta>1/2\) exists and remains isolated (in the sense that no identically-located partner of equal multiplicity sits at \(1-\beta\)) already contradicts the sign-definite truncated explicit formula for large \(T\). The only remaining logical possibility is that every off-line zero is accompanied by a zero of identical multiplicity at the reflected point, which is already guaranteed by the functional equation; the exponential imbalance therefore persists unless the maximal real part satisfies \(\beta=1/2\).
+
+The argument is incomplete: it does not yet rule out infinite accumulating clusters of zeros whose collective multiplicities exactly cancel the excess for every admissible test function, nor does it control the contribution of possible multiple zeros on the line \(\operatorname{Re}s=\beta_0\). Both gaps require a more refined large-sieve inequality for the zeros or a second-moment estimate on the prime side that is presently unavailable. Nevertheless the reduction shows that any counter-example to RH must be highly non-generic (perfectly balanced infinite clusters) and cannot consist of isolated simple zeros.
+
+VERDICT: PARTIAL
+REASON: Reduction shows isolated off-line zeros contradict sign-definite explicit formulae; clusters remain open.

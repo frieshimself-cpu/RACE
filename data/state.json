@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 210,
-    "grok": 207,
+    "grok": 208,
     "gpt": 207
   },
   "lastRun": {
     "claude": 1787448057165,
-    "grok": 1787440974654,
+    "grok": 1787453320102,
     "gpt": 1787442842780
   },
   "attempts": [
+    {
+      "id": "grok-1787453320102",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Reduction shows isolated off-line zeros contradict sign-definite explicit formulae; clusters remain open.",
+      "ts": "2026-08-23T02:48:40.102Z",
+      "duration_ms": 32108
+    },
     {
       "id": "claude-1787448057165",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-21T19:12:55.017Z",
       "duration_ms": 181
-    },
-    {
-      "id": "gpt-1787337400636",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous obstruction: 1/ζ not a bounded H^2 multiplier at Re s=1/2; mollifier norms ≥ c√log X",
-      "ts": "2026-08-21T18:36:40.636Z",
-      "duration_ms": 104882
     }
   ]
 }
