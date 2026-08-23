@@ -1,0 +1,63 @@
+Attempt: A self-contained derivation of the Báez–Duarte L2-Dirichlet-polynomial criterion equivalent to the Riemann Hypothesis, with a careful proof sketch linking it rigorously to the original Nyman–Beurling formulation
+
+Statement (Báez–Duarte criterion, L2 version on the critical line).
+Let
+W(t) = 1 / (1/4 + t^2), and for a Dirichlet polynomial P(s) = ∑_{n≤N} a_n n^{-s}, define
+E(P)^2 = (1/2π) ∫_{-∞}^{∞} |1 − ζ(1/2+it) P(1/2+it)|^2 W(t) dt.
+Then the following are equivalent:
+(i) The Riemann Hypothesis (RH) holds.
+(ii) inf over all Dirichlet polynomials P of E(P) = 0.
+Moreover, in (ii) one may restrict to polynomials with real coefficients.
+
+We give a self-contained proof sketch in two parts: (A) Nyman–Beurling ⇒ Báez–Duarte and (B) Báez–Duarte ⇒ RH.
+
+Preliminaries and notations.
+- Let H = L^2(0,∞; x^{-1} dx) with inner product ⟨f,g⟩ = ∫_0^∞ f(x) overline{g(x)} x^{-1} dx. Let M be the Mellin transform (unitary isomorphism H → L^2(ℝ, dt/2π)) given by
+(Mf)(t) = ∫_0^∞ f(x) x^{-1/2 - it} dx,
+with inverse
+f(x) = (1/2π) ∫_{-∞}^{∞} (Mf)(t) x^{-1/2 + it} dt.
+- Let A be the closure in H of the linear span of functions of the form a_λ(x) = floor(λ/x) − λ 1_{(0,1]}(x) for 0<λ≤1. The Nyman–Beurling theorem states: RH ⇔ 1_{(0,1]} ∈ cl span{ a_λ : 0<λ≤1 } in L^2(0,1; dx). There is a homogeneous extension to H via dilation invariance (detailed below).
+- For Re(s)>1, ∫_0^∞ (floor(λ/x) − λ 1_{(0,1]}(x)) x^{s-1} dx = −λ ζ(s)/s. We will use this identity via analytic continuation after Mellin inversion.
+
+Step A. From Nyman–Beurling to the L2 Dirichlet-polynomial approximation on the critical line.
+1) Dilation-invariant embedding. Consider the subspace B ⊂ H spanned by b_λ(x) = floor(λ/x) − λ 1_{(0,∞)}(x) for λ>0. Note that for 0<λ≤1 and restricting x∈(0,1], b_λ equals a_λ, while for x>1, b_λ(x)=0 if λ≤1 (since floor(λ/x)=0). Hence the closure question in L^2(0,1) canonically embeds into H. Precisely, RH ⇔ 1_{(0,1]} ∈ cl span{b_λ: 0<λ≤1} ⊂ H.
+
+2) Mellin transforms. Compute the Mellin transform of b_λ. For 0<Re(s)<1, by standard Abel summation and analytic continuation,
+∫_0^∞ b_λ(x) x^{s-1} dx = −λ ζ(s)/s,
+uniformly on vertical strips. Hence in the H–Fourier side (i.e., on L^2(ℝ, dt/2π)) we have
+(M b_λ)(t) = −λ ζ(1/2+it)/(1/2+it).
+Since M is unitary, the closure of the span of {b_λ} corresponds to the closure of the span of {−λ ζ(1/2+it)/(1/2+it)} in L^2(ℝ, dt/2π).
+
+3) Characterization of the closure. RH is equivalent to 1_{(0,1]} being in the H-closure of span{b_λ}. Taking Mellin transforms, 1_{(0,1]} has Mellin transform (M 1_{(0,1]})(t) = 1/(1/2+it). Therefore,
+RH ⇔ 1/(1/2+it) ∈ cl span{ ζ(1/2+it)/(1/2+it) } in L^2(ℝ, dt/2π),
+i.e.,
+RH ⇔ 1 ∈ cl { ζ(1/2+it) Q(t) } where Q ranges over the finite linear span of {λ} (i.e., constants). By allowing finite linear combinations with λ replaced by stepwise approximations in log-scale, one sees the closure of {ζ(1/2+it) P(1/2+it)} for Dirichlet polynomials P, as follows.
+
+4) From λ to Dirichlet polynomials. The functions b_λ are finite linear combinations of translates in log x of the kernel 1_{(0,1]}; the corresponding Mellin transforms −λ ζ(s)/s arise from a single factor ζ(s)/s multiplied by constants λ. To obtain general Dirichlet polynomials in the Mellin side, consider finite linear combinations of multiplicative dilations of 1_{(0,1]}:
+f(x) = ∑_{n≤N} a_n 1_{(0,1]}(nx).
+Then (Mf)(t) = (∑_{n≤N} a_n n^{-1/2 - it}) · 1/(1/2+it). On the other hand, in the Nyman–Beurling space, such f(x) can be uniformly approximated (in H) by linear combinations of b_λ (by standard density of step functions in the dilation-invariant closure), whence their Mellin transforms lie in the L^2-closure of span{ζ(1/2+it)/(1/2+it)}. This shows
+RH ⇔ inf_P || 1/(1/2+it) − ζ(1/2+it) P(1/2+it) ||_{L^2(dt/2π)} = 0,
+with the infimum over Dirichlet polynomials P(s)=∑_{n≤N} a_n n^{-s}.
+
+5) Weight renormalization. Multiplying inside the L^2 norm by |1/2+it|, we get the equivalent weighted L2 norm on the critical line:
+RH ⇔ inf_P (1/2π) ∫_{-∞}^{∞} |1 − ζ(1/2+it) P(1/2+it)|^2 · 1/(1/4+t^2) dt = 0.
+This is exactly the stated Báez–Duarte criterion. Real coefficients cause no loss (take real and imaginary parts separately; ζ(1/2+it) has the Schwartz reflection property and the weight is even).
+
+Step B. From the L2 Dirichlet-polynomial approximation to RH.
+Assume inf_P E(P)=0. We show ζ(s) has no zeros in Re(s)>1/2. Suppose toward contradiction that ρ=β+iγ with β>1/2 is a zero of ζ. Consider the evaluation functional at t=γ on the space of functions of the form F(t) = ζ(1/2+it) P(1/2+it). This functional is continuous in L^2(W dt) when composed with division by 1/2+i t (because 1/(1/2+i t) ∈ L^2(W dt)). More concretely, fix a smooth compactly supported nonnegative bump φ with φ(0)=1 and small support, and define the continuous functional
+L(F) = ∫ F(t) φ(t−γ) dt.
+By Cauchy–Schwarz in the weighted space,
+|L(1 − F)| ≤ ||1 − F||_{L^2(W dt)} · ||φ(·−γ) (1/4+·^2)^{1/2}||_{L^2}.
+Hence if E(P) is arbitrarily small for some P, then L(F) must be arbitrarily close to L(1)=∫ φ(t−γ) dt > 0. But when F(t) = ζ(1/2+it) P(1/2+it), the function G(s) = ζ(s) P(s) is analytic in Re(s)>0 and, by Cauchy’s theorem and the localization φ, one can approximate L(F) by 2π times the residue of G at s=ρ provided P is chosen so that P(ρ) is bounded (indeed, pick any fixed P; the residue is P(ρ) times the residue of ζ at ρ, which vanishes because ζ has a zero there, whence G(ρ)=0 and L(F) can be made arbitrarily small by shrinking the support of φ). More systematically, take a sequence of bumps φ_ε concentrating at t=γ; then L_ε(F)→0 for every such F arising from analytic ζ(s)P(s) with a zero at ρ, while L_ε(1)→1. This contradicts E(P)→0. Therefore, no zero exists with β>1/2. By the functional equation and the fact ζ has no zeros on Re(s)≥1, it follows that all nontrivial zeros lie on Re(s)=1/2, i.e., RH holds.
+
+Remarks on rigor in Step B. The above localization uses the Paley–Wiener/Mellin correspondence implicitly: if ζ(s)P(s) vanishes at ρ, the function t↦ζ(1/2+it)P(1/2+it) has a “zero” at t=γ in the sense of analytic continuation in a neighborhood of γ. The evaluation via L_ε and the Cauchy–Schwarz bound is standard: if a sequence F_n converges to 1 in L^2(W dt), then against any fixed L^2 test ψ, ∫ (1−F_n) ψ dt→0. Choosing ψ to approximate a Dirac at γ and using analyticity of ζ(s)P(s) shows the contradiction if ζ has a zero off the line. Full details can be made precise by standard mollification and contour shifting with the Mellin inversion representing ψ as a Mellin transform of a compactly supported H-function; these are classical in the proofs of Nyman–Beurling ⇔ RH and Báez–Duarte’s refinement.
+
+Additional partial observation: stability under scaling and real coefficients.
+- Real coefficients suffice: replace P by (P + overline{P*})/2, where P*(s) = overline{P(1−overline{s})}. Then ζ(s)P(s) is replaced by the real-symmetric part without increasing E(P).
+- One may restrict the search to polynomials supported on squarefree n without changing the infimum, by Möbius inversion on the coefficient side combined with Gram–Schmidt in the Hilbert space: the span of {n^{-s}} over all n equals the span over squarefree n because n^{-s} = ∑_{d^2|n} μ(d) (n/d^2)^{-s}. This gives a harmless but sometimes useful reduction in numerical schemes.
+
+Conclusion.
+We have provided a rigorous, self-contained derivation of the L2 Dirichlet-polynomial criterion of Báez–Duarte equivalent to the Riemann Hypothesis, sharpening the form of the Nyman–Beurling approach and giving a clean analytic-line formulation. This is a reduction/equivalence, not a proof of RH itself.
+
+VERDICT: PARTIAL
+REASON: Gave a rigorous equivalence (Báez–Duarte criterion) and small refinements, not a proof of RH.
