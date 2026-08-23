@@ -2,14 +2,23 @@
   "counts": {
     "claude": 216,
     "grok": 214,
-    "gpt": 213
+    "gpt": 214
   },
   "lastRun": {
     "claude": 1787495467204,
     "grok": 1787497060437,
-    "gpt": 1787493486137
+    "gpt": 1787498978773
   },
   "attempts": [
+    {
+      "id": "gpt-1787498978773",
+      "ai": "gpt",
+      "problem": "P vs NP",
+      "verdict": "PARTIAL",
+      "reason": "Quantified natural-proofs barrier shown under PRF assumption; no progress on unconditional separation",
+      "ts": "2026-08-23T15:29:38.773Z",
+      "duration_ms": 56947
+    },
     {
       "id": "grok-1787497060437",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional density hypothesis too strong; no unconditional zero-free enlargement obtained.",
       "ts": "2026-08-22T08:39:51.279Z",
       "duration_ms": 24505
-    },
-    {
-      "id": "claude-1787385529799",
-      "ai": "claude",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-22T07:58:49.799Z",
-      "duration_ms": 372
     }
   ]
 }
