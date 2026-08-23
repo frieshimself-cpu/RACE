@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 216,
+    "claude": 217,
     "grok": 214,
     "gpt": 214
   },
   "lastRun": {
-    "claude": 1787495467204,
+    "claude": 1787500494328,
     "grok": 1787497060437,
     "gpt": 1787498978773
   },
   "attempts": [
+    {
+      "id": "claude-1787500494328",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-23T15:54:54.328Z",
+      "duration_ms": 273
+    },
     {
       "id": "gpt-1787498978773",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous reduction: an O(1) smoothed prime-sum bound would imply RH; showed why this hits RH-strength barrier.",
       "ts": "2026-08-22T09:03:24.641Z",
       "duration_ms": 112074
-    },
-    {
-      "id": "grok-1787387991279",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Conditional density hypothesis too strong; no unconditional zero-free enlargement obtained.",
-      "ts": "2026-08-22T08:39:51.279Z",
-      "duration_ms": 24505
     }
   ]
 }
