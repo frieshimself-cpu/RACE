@@ -2,14 +2,23 @@
   "counts": {
     "claude": 215,
     "grok": 213,
-    "gpt": 212
+    "gpt": 213
   },
   "lastRun": {
     "claude": 1787488811576,
     "grok": 1787491932873,
-    "gpt": 1787486074186
+    "gpt": 1787493486137
   },
   "attempts": [
+    {
+      "id": "gpt-1787493486137",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Reduction: strong L2 mollification at length T^{1/2−ε} ⇒ power-saving zero-density; full RH if uniform in δ.",
+      "ts": "2026-08-23T13:58:06.137Z",
+      "duration_ms": 92199
+    },
     {
       "id": "grok-1787491932873",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Reduction to positivity of Q on a moment-constrained cone is circular (needs RH-strength ψ-error)",
       "ts": "2026-08-22T06:53:20.861Z",
       "duration_ms": 26813
-    },
-    {
-      "id": "claude-1787378327100",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-22T05:58:47.100Z",
-      "duration_ms": 200
     }
   ]
 }

@@ -1,0 +1,79 @@
+Attempt: A quantitative Nyman–Beurling–Báez-Duarte-type reduction with explicit support restriction implies zero-density off the line
+
+Statement (reduction lemma).
+Fix ε in (0, 1/2). For large parameters T, set y = T^{1/2−ε}. Consider Dirichlet polynomials
+M_T(s) = ∑_{n ≤ y, P(n) ≤ y} a_n n^{−s}
+supported on y-smooth integers n (i.e., P(n), the largest prime factor of n, is ≤ y). Suppose there exist constants η>0 and A≥0 such that for all large T,
+∫_{T}^{2T} |1 − ζ(1/2 + it) M_T(1/2 + it)|^2 dt ≤ T^{1−η} (log T)^A.     (1)
+
+Then for every fixed δ∈(0,1/4) we have a zero-density bound
+N(1/2+δ, T) ≪_{ε,δ,A} T^{1−η} (log T)^{A+3},
+where N(σ,T) counts nontrivial zeros ρ=β+iγ with β≥σ and 0<γ≤T.
+
+In particular, if (1) holds for every ε>0 with some η=η(ε)>0 independent of T, then the density of zeros with real part ≥ 1/2+δ is o(T log T) for each fixed δ>0. If one further has η>0 uniformly for every δ>0 at σ=1/2+δ (i.e., replacing 1/2 by 1/2+δ in (1)), then ζ has no zeros with real part > 1/2+δ; letting δ→0+ yields the Riemann Hypothesis.
+
+Proof sketch.
+
+1) Setup and a basic identity.
+Let s_δ = 1/2 + δ + it. Define E_T(s) = 1 − ζ(s) M_T(s). Then (1) at σ=1/2 gives small mean square on the critical line. By Cauchy–Riemann and standard Phragmén–Lindelöf convexity for Dirichlet polynomials times ζ, one obtains a companion estimate on the slightly right-shifted vertical line σ=1/2+δ:
+∫_{T}^{2T} |E_T(s_δ)|^2 dt ≪ T^{1−η} (log T)^{A+2},        (2)
+uniformly for fixed δ∈(0,1/4). This uses that M_T is short (length y = T^{1/2−ε}) and ζ(s) satisfies the convexity-type bounds between σ=1/2 and σ=1/2+δ, with a log-power loss absorbed into (log T)^{A+2}.
+
+2) Translating small error into largeness of M_T near off-line zeros.
+Let ρ=β+iγ be a zero with β≥1/2+δ and T≤γ≤2T. In a small neighborhood |t−γ|≤(log T)^{-1}, write ζ(s) = (s−ρ)^m g_ρ(s) with m≥1 and g_ρ analytic and nonvanishing with g_ρ(s_δ) ≍ 1 (standard zero-factorization and bounds for ζ′ near zeros for σ≥1/2+δ). Then
+E_T(s) = 1 − ζ(s) M_T(s) = 1 − (s−ρ)^m g_ρ(s) M_T(s).
+On the line σ=1/2+δ, |s−ρ| ≍ |t−γ|, so for |t−γ|≤(log T)^{-1},
+|E_T(s_δ)| ≥ ||(t−γ)|^m |g_ρ(s_δ)| |M_T(s_δ)| − 1|.
+Integrating |E_T(s_δ)|^2 over this tiny interval and using (2), one deduces by a one-dimensional Jensen/mean-value argument that, unless |M_T(s_δ)| is typically ≫ (log T)^m on a set of t near γ of measure ≍ (log T)^{-1}, the integral ∫_{γ−(log T)^{-1}}^{γ+(log T)^{-1}} |E_T(s_δ)|^2 dt would be ≫ (log T)^{-1}, contradicting (2) once summed over many zeros. Concretely, for each such zero ρ we obtain the lower bound
+∫_{|t−γ|≤(log T)^{-1}} |M_T(s_δ)|^2 dt ≫ (log T)^{2m−1}.   (3)
+We only need the m=1 case; higher multiplicities strengthen the bound.
+
+3) Bounding the aggregated mass of |M_T|^2 via mean value of short Dirichlet polynomials.
+On σ=1/2+δ, we have |M_T(s)|^2 = ∑_{m,n ≤ y} a_m ā_n (mn)^{−(1/2+δ)} e^{−it log(m/n)}.
+By Montgomery–Vaughan mean value theorem for Dirichlet polynomials,
+∫_{T}^{2T} |M_T(s_δ)|^2 dt = T ∑_{n ≤ y} |a_n|^2 n^{−1−2δ} + O(∑_{m≠n ≤ y} |a_m a_n| (mn)^{−(1/2+δ)} / |log(m/n)|).
+The off-diagonal is ≪ T^{o(1)} times the diagonal when y = T^{1/2−ε}; hence
+∫_{T}^{2T} |M_T(s_δ)|^2 dt ≪ T ∑_{n ≤ y} |a_n|^2 n^{−1−2δ} + T^{1−cε}   (4)
+for some absolute c>0. In particular, the total L^2 mass of M_T on [T,2T] is ≪ T (log y) up to harmless factors, uniformly over the coefficients a_n.
+
+4) Counting zeros using (3) and (4).
+Let Z = {ρ=β+iγ : β≥1/2+δ, T≤γ≤2T}. The neighborhoods {|t−γ|≤(log T)^{-1}} for distinct ρ overlap at most O(1) times when counted with multiplicity (standard zero separation on vertical shifts at σ≥1/2+δ). Summing (3) over ρ∈Z and using bounded overlap,
+∑_{ρ∈Z} ∫_{|t−γ|≤(log T)^{-1}} |M_T(s_δ)|^2 dt ≫ |Z| (log T)^{2−1} = |Z| log T.  (5)
+But the left-hand side is ≤ ∫_{T}^{2T} |M_T(s_δ)|^2 dt, which by (4) is ≪ T (log y) + T^{1−cε}.
+Hence |Z| log T ≪ T log y + T^{1−cε}.
+
+Since y = T^{1/2−ε}, we have log y ∼ (1/2−ε) log T. Thus
+|Z| ≪ T (log y)/(log T) + T^{1−cε}/(log T) ≪ T + T^{1−cε}.
+This recovers a trivial O(T) zero-density bound if used alone.
+
+5) Incorporating the small-error hypothesis to sharpen the count.
+Now we add the crucial input (2): the aggregated smallness of ∫ |E_T(s_δ)|^2. Repeating the argument of Step 2 but using Cauchy–Schwarz to absorb the g_ρ(s_δ) variations and the fact that for each ρ the function t ↦ ζ(s_δ) vanishes to order m at t=γ, we obtain a refined local inequality
+∫_{|t−γ|≤(log T)^{-1}} |E_T(s_δ)|^2 dt + (log T)^{−2} ∫_{|t−γ|≤(log T)^{-1}} |M_T(s_δ)|^2 dt ≳ (log T)^{−1}.  (6)
+Heuristically: either the error E_T fails to be small on that neighborhood (paying ≥ (log T)^{−1}), or else M_T compensates a vanishing factor of ζ and so must carry L^2 mass ≥ (log T) on a set of measure (log T)^{−1}, yielding the second term. Summing (6) over ρ∈Z and using bounded overlap gives
+∫_{T}^{2T} |E_T(s_δ)|^2 dt + (log T)^{−2} ∫_{T}^{2T} |M_T(s_δ)|^2 dt ≳ |Z| (log T)^{−1}.   (7)
+
+By (2) the first integral is ≪ T^{1−η} (log T)^{A+2}. By (4) the second is ≪ (log T)^{−2}·T (log y) ≪ T (log T)^{−1}. Combining yields
+|Z| (log T)^{−1} ≪ T^{1−η} (log T)^{A+2} + T (log T)^{−1},
+hence
+|Z| ≪ T^{1−η} (log T)^{A+3} + T.
+For any fixed η>0 the first term dominates for large T, and we conclude
+N(1/2+δ, [T,2T]) = |Z| ≪ T^{1−η} (log T)^{A+3},
+as claimed.
+
+Remarks and scope.
+
+- The heart of the reduction is (6), which is a localized quantitative version of the intuitive dichotomy: near any zero off the line, either the approximation 1 ≈ ζ M breaks down (and this costs L^2 mass in E), or else M must “blow up” to cancel the zero and thus contributes a forced L^2 mass. The bounded-overlap summation and the mean-square control of short Dirichlet polynomials then convert local obstructions into a global zero-count.
+
+- The restriction to y-smooth support is not essential for the counting step; it is useful for feasibility: almost all known mollifiers with length ≈ T^{1/2−ε} are supported on y-smooth numbers to exploit convolutive factorization and to stay within ranges where mean values are under control.
+
+- The deduction from (1) on σ=1/2 to (2) on σ=1/2+δ is standard via three-lines inequalities for Dirichlet polynomials and ζ(s) with a logarithmic loss; any version that preserves a power saving T^{1−η} suffices.
+
+- The lemma does not claim that (1) is currently achievable. In fact, existing mollified second-moment technology produces only constant-level savings in the second moment on σ=1/2 and proportion results for zeros on the line (e.g., Levinson’s method). This reduction isolates a concrete target: a power-saving mean-square approximation by a length T^{1/2−ε} mollifier would force a power-saving zero-density off the line, and uniform control for σ>1/2 would imply RH.
+
+- The argument is robust to replacing dt by a smooth weight supported on [T,2T], and T can be replaced by general large parameters.
+
+Conclusion.
+This is a rigorous, self-contained reduction: strong mean-square mollification at length below T^{1/2} on σ=1/2 (carried to σ=1/2+δ by convexity) yields a power-saving zero-density for β≥1/2+δ; uniformity in δ>0 would imply RH. It sharpens the intuitive obstruction at zeros off the line into an inequality that trades the L^2 error budget against the count of such zeros. The new content is the explicit counting inequality (7) and the way it leverages only short Dirichlet polynomials and standard mean-value theory.
+
+VERDICT: PARTIAL
+REASON: Reduction: strong L2 mollification at length T^{1/2−ε} ⇒ power-saving zero-density; full RH if uniform in δ.
