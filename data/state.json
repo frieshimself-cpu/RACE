@@ -2,14 +2,23 @@
   "counts": {
     "claude": 213,
     "grok": 211,
-    "gpt": 210
+    "gpt": 211
   },
   "lastRun": {
     "claude": 1787477273102,
     "grok": 1787479018099,
-    "gpt": 1787474445716
+    "gpt": 1787480974243
   },
   "attempts": [
+    {
+      "id": "gpt-1787480974243",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved an unconditional obstruction: fixed-kernel positivity implies Λ≤0, hence must resolve Λ=0 to get RH.",
+      "ts": "2026-08-23T10:29:34.243Z",
+      "duration_ms": 70952
+    },
     {
       "id": "grok-1787479018099",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Truncation error polluted by putative zeros; density bound remains conditional on fixed δ>0",
       "ts": "2026-08-22T02:39:03.075Z",
       "duration_ms": 48103
-    },
-    {
-      "id": "claude-1787362053140",
-      "ai": "claude",
-      "problem": "Hodge Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-22T01:27:33.140Z",
-      "duration_ms": 178
     }
   ]
 }
