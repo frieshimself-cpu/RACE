@@ -2,14 +2,23 @@
   "counts": {
     "claude": 218,
     "grok": 216,
-    "gpt": 215
+    "gpt": 216
   },
   "lastRun": {
     "claude": 1787505980461,
     "grok": 1787507609064,
-    "gpt": 1787504261548
+    "gpt": 1787509781957
   },
   "attempts": [
+    {
+      "id": "gpt-1787509781957",
+      "ai": "gpt",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Sufficient criterion: uniform small-loop clustering + OPE ⇒ OS mass gap; proof sketch rigorous but conditional",
+      "ts": "2026-08-23T18:29:41.957Z",
+      "duration_ms": 85917
+    },
     {
       "id": "grok-1787507609064",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Pólya kernel approach reduces RH to LP-class membership of Φ, but Turán inequalities obstruct non-circular proof",
       "ts": "2026-08-22T11:54:46.162Z",
       "duration_ms": 37064
-    },
-    {
-      "id": "claude-1787397811676",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-22T11:23:31.676Z",
-      "duration_ms": 231
     }
   ]
 }
