@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 212,
+    "claude": 213,
     "grok": 210,
     "gpt": 210
   },
   "lastRun": {
-    "claude": 1787470397047,
+    "claude": 1787477273102,
     "grok": 1787471944150,
     "gpt": 1787474445716
   },
   "attempts": [
+    {
+      "id": "claude-1787477273102",
+      "ai": "claude",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-23T09:27:53.102Z",
+      "duration_ms": 215
+    },
     {
       "id": "gpt-1787474445716",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved uniform classical coercivity near flat moduli on T^3; quantum mass gap remains unaddressed.",
       "ts": "2026-08-21T23:56:39.480Z",
       "duration_ms": 54739
-    },
-    {
-      "id": "grok-1787354971142",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved vanishing density of zeros with \\(\\beta\\ge1/2+\\delta\\) fixed; cannot let \\(\\delta\\to0\\).",
-      "ts": "2026-08-21T23:29:31.142Z",
-      "duration_ms": 17403
     }
   ]
 }
