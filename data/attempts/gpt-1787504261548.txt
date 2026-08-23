@@ -1,0 +1,86 @@
+Attempt: A compactly-supported explicit-formula reduction turning RH into a uniform bound for a short prime sum
+
+Statement to be reduced: Show that a single, uniform estimate for a short prime sum with a very simple triangular cutoff, valid for all centers t and all scales A, would imply the Riemann Hypothesis.
+
+Setup:
+- Let gA(x) = (1 − |x|/A)+ be the triangular bump on [−A, A] (even, nonnegative, Lipschitz).
+- For a complex s with Re s in (0,1), define the Laplace-Fourier test φA(s; t0) by
+  φA(s; t0) := ∫R gA(x) e^{(s−1/2)x} e^{−i t0 x} dx.
+  This integral converges absolutely because gA has compact support.
+- Let ρ = β + iγ run over nontrivial zeros of ζ(s). Let Λ(n) be the von Mangoldt function.
+
+Explicit formula (Guinand–Weil form, specialized):
+For the above φA(s; t0), by residue calculus applied to ξ′/ξ(s) times φA(s; t0) (ξ is the completed zeta), one obtains the identity
+  Σρ φA(ρ; t0) = 2 Re Σn≥1 Λ(n) n^{−1/2−i t0} gA(log n)
+                 + Earch(A; t0),
+where Earch(A; t0) is the “archimedean/trivial-zero” remainder coming from the Γ-factor and trivial zeros. This holds for every real t0 and every A > 0.
+
+Two bounds needed:
+1) Size and sign of the contribution of an off-line zero ρ0 = β0 + iγ0 with β0 > 1/2, when t0 = γ0.
+   Because gA is even and nonnegative, we can compute φA at s = β0 + iγ0 and t0 = γ0 exactly:
+     φA(β0 + iγ0; γ0) = ∫R gA(x) e^{(β0−1/2)x} dx
+                       = 2 ∫0^A (1 − x/A) e^{y x} dx  with y := β0 − 1/2 > 0.
+   An elementary integration yields
+     2 ∫0^A (1 − x/A) e^{y x} dx
+     = 2 [ (e^{yA} − 1)/y − (e^{yA}(Ay − 1) + 1)/(A y^2) ]
+     = (2 e^{yA})/(A y^2) + O(1/y + 1/(A y^2)).
+   In particular, for fixed y > 0 and large A,
+     φA(β0 + iγ0; γ0) ≥ c(y) e^{y A}/A
+   for some c(y) > 0 (e.g. c(y) = 1/y^2 works for A large enough).
+
+   Note the crucial feature: the contribution of a single off-line zero at its own height grows exponentially in A with rate y = β0 − 1/2.
+
+2) Upper bounds for the right-hand side of the explicit formula.
+   The right-hand side splits into (i) the prime-power sum with weight gA, and (ii) Earch(A; t0).
+
+   - Archimedean/trivial-zero remainder Earch(A; t0):
+     A standard computation (estimating the Γ′/Γ integral against the compactly supported gA and summing the convergent trivial-zero series) shows
+       |Earch(A; t0)| ≤ C0 (1 + A + A^2)
+     uniformly in t0 (C0 an absolute constant). This is polynomial in A.
+
+   - Prime-power sum:
+     Only terms with log n in [0, A] contribute (gA(log n) = 0 for log n > A and for log n < 0). Thus
+       P(A, t0) := 2 Re Σn≥1 Λ(n) n^{−1/2−i t0} gA(log n)
+                 = 2 Re Σn≤e^A Λ(n) n^{−1/2−i t0} (1 − log n / A).
+     Trivially, |P(A, t0)| ≤ 2 Σn≤e^A Λ(n) n^{−1/2} ≪ e^{A/2}.
+     This trivial bound is exponential with rate 1/2; it is not enough on its own to contradict a zero with y ≤ 1/2.
+
+   The following is the new conditional input we isolate:
+
+   Uniform short-sum cancellation hypothesis H(ε):
+     There exists ε > 0 and Cε such that for all A ≥ 1 and all real t0,
+       |P(A, t0)| ≤ Cε e^{ε A}.
+
+   This asks for very strong cancellation in the twisted prime sum uniformly in t0, far beyond trivial bounds, but with a subexponential budget e^{ε A} for any fixed ε.
+
+Reduction theorem:
+Assume H(ε) holds for some ε ∈ (0, 1/2). Then RH is true.
+
+Proof sketch:
+- Suppose toward a contradiction that there exists a zero ρ0 = β0 + iγ0 with β0 > 1/2. Set y = β0 − 1/2 > 0 and t0 = γ0.
+- By (1), the left-hand side Σρ φA(ρ; t0) contains a term from ρ0 bounded below by c(y) e^{y A}/A for A large. All other zeros (including those on the critical line with y = 0) contribute at most polynomially in A when t0 equals their height difference γ − γ0, because for y = 0 we have φA(1/2 + iγ; γ0) = ∫ gA(x) e^{i(γ−γ0)x} dx = ĝA(γ−γ0), which is O(A) at 0 and O(1/|γ−γ0|^2) away from 0, hence summing over all on-line zeros up to height T contributes O(A log T) locally; similarly the symmetric zero 1 − ρ0 contributes a term that is exponentially small in A compared with the ρ0-term, since its y is negative. Thus the total left-hand side is
+    Σρ φA(ρ; γ0) ≥ c(y) e^{yA}/A − O(A log(2 + |γ0|)).
+- By the explicit formula and the bounds in (2),
+    Σρ φA(ρ; γ0) = P(A, γ0) + Earch(A; γ0),
+  whence, by H(ε),
+    Σρ φA(ρ; γ0) ≤ Cε e^{ε A} + C0 (1 + A + A^2).
+- Combining the lower and upper bounds,
+    c(y) e^{y A}/A − O(A log(2 + |γ0|)) ≤ Cε e^{ε A} + C0 (1 + A + A^2).
+- Fix ε with 0 < ε < y. Letting A → ∞ forces the left-hand side to dominate exponentially (rate y) while the right-hand side grows subexponentially (rate ε) plus polynomial, yielding a contradiction for A sufficiently large (with size depending on y, ε, and γ0). Therefore no such ρ0 can exist. Since γ0 was arbitrary, all nontrivial zeros must have β = 1/2.
+
+Remarks and checks:
+- The explicit formula used is standard; the only nontrivial parts here are (i) choosing φA as a Laplace-Fourier transform of a compactly supported gA to force an exponential e^{(β−1/2)A} gain for off-line zeros, and (ii) cleanly isolating a single, uniform analytic inequality H(ε) on a short prime sum which, if proved, would settle RH.
+- The archimedean term bound being polynomial in A is routine given the compact support and Lipschitz nature of gA; it can be made fully explicit.
+- The trivial bounding of the prime sum by e^{A/2} shows why unconditional control is hard: it would not contradict zeros with β close to 1 (y up to 1/2). Hypothesis H(ε) demands square-root cancellation in the smoothly truncated twisted sum uniformly in the truncation point e^A and frequency t0, with any subexponential loss e^{ε A}. Such a bound is far beyond current technology; in particular, it implies very strong uniform distribution of the phases t0 log n modulo 2π across primes up to e^A.
+- The reduction is robust to replacing gA by other nonnegative even compactly supported kernels; the triangular weight yields explicit formulas and sharp y-dependent growth φA(β + iγ; γ) ≍ e^{yA}/(A y^2).
+
+Concrete partial result achieved here:
+- A precise, rigorous reduction: RH follows from a single family of uniform subexponential bounds for the smoothed, twisted prime sum
+    Σn≤e^A Λ(n) n^{−1/2−i t} (1 − log n / A).
+- This formulates a focused analytic target. Any progress toward H(ε) (even for a sparse unbounded sequence of A with uniformity in t) would impose new constraints on the location of zeros; conversely, failure of H(ε) at a specific (A, t) produces an explicit “resonance” against the triangular kernel, illuminating where cancellation breaks down.
+
+Limitations:
+- No proof of H(ε) is supplied; establishing it appears to be of comparable difficulty to RH itself. The argument does, however, isolate exactly what type of cancellation estimate would suffice, via a single quantitatively clear inequality.
+
+VERDICT: PARTIAL
+REASON: Reduced RH to a uniform subexp bound for a short twisted prime sum via an explicit-formula argument

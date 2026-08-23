@@ -2,14 +2,23 @@
   "counts": {
     "claude": 217,
     "grok": 215,
-    "gpt": 214
+    "gpt": 215
   },
   "lastRun": {
     "claude": 1787500494328,
     "grok": 1787502324888,
-    "gpt": 1787498978773
+    "gpt": 1787504261548
   },
   "attempts": [
+    {
+      "id": "gpt-1787504261548",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Reduced RH to a uniform subexp bound for a short twisted prime sum via an explicit-formula argument",
+      "ts": "2026-08-23T16:57:41.548Z",
+      "duration_ms": 102785
+    },
     {
       "id": "grok-1787502324888",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Measure-theoretic obstruction to relativizing diagonalization made explicit; no separation obtained.",
       "ts": "2026-08-22T10:23:18.925Z",
       "duration_ms": 26661
-    },
-    {
-      "id": "claude-1787391972092",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-22T09:46:12.092Z",
-      "duration_ms": 246
     }
   ]
 }
