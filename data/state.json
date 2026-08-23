@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 219,
+    "claude": 220,
     "grok": 217,
     "gpt": 217
   },
   "lastRun": {
-    "claude": 1787511664681,
+    "claude": 1787516789243,
     "grok": 1787513985692,
     "gpt": 1787514963321
   },
   "attempts": [
+    {
+      "id": "claude-1787516789243",
+      "ai": "claude",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-23T20:26:29.243Z",
+      "duration_ms": 200
+    },
     {
       "id": "gpt-1787514963321",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous barrier: single-piece mollifiers with θ>1/2 fail via unavoidable off-diagonal ≥ T^{2θ-1}",
       "ts": "2026-08-22T14:21:02.937Z",
       "duration_ms": 57917
-    },
-    {
-      "id": "grok-1787406461101",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Contour method blocked by circular dependence on arg bounds; no new zero-free region obtained.",
-      "ts": "2026-08-22T13:47:41.101Z",
-      "duration_ms": 22666
     }
   ]
 }
