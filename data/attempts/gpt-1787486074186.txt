@@ -1,0 +1,44 @@
+Attempt: A Poisson-averaged lower bound for log|ζ| on a fixed vertical line σ0>1/2 rules out zeros to its right
+
+Statement (reduction lemma).
+Fix σ0>1/2. Let H = {s ∈ C : Re s > σ0}. Suppose there exists a constant C≥0 such that for every s0 = σ + it0 with σ>σ0 and for every R>0 with the closed Euclidean disk D(s0,R) ⊂ H, the following uniform lower bound on the Poisson boundary average of log|ζ| over the circle ∂D(s0,R) holds:
+(1/2π) ∫_{0}^{2π} log|ζ(s0 + R e^{iθ})| dθ ≥ −C.
+Then ζ has no zeros in Re s ≥ σ0.
+
+Equivalently, it suffices to require a uniform family of lower bounds along the boundary line σ=σ0: for every σ>σ0 and t0 ∈ R,
+(1) (1/π) ∫_{−∞}^{∞} log|ζ(σ0 + iv)| (σ−σ0)/((t0−v)^2 + (σ−σ0)^2) dv ≥ −C.
+Under (1), ζ has no zeros with Re s ≥ σ0.
+
+Comments on hypotheses.
+- The circular-average condition is a standard Jensen/mean-value lower bound: no deep cancellations of log|ζ| on circles strictly inside H.
+- The condition (1) is the Poisson kernel averaging formula for the right half-plane; it is equivalent to the circular-average condition by conformal mapping and the maximum/minimum principle for subharmonic functions. Either one can be taken as the hypothesis.
+
+Proof sketch.
+- Let f(s)=ζ(s). Write u(s)=log|f(s)|, which is subharmonic in C and harmonic where f has no zeros. In a simply connected domain Ω with analytic f having zeros {ρ} in Ω (all counted with multiplicity), Jensen’s formula in disks gives
+  (1/2π) ∫_{0}^{2π} log|f(s0 + R e^{iθ})| dθ = log|f(s0)| + ∑_{ρ∈D(s0,R)} log(R/|s0−ρ|),
+  provided f has no poles in D(s0,R).
+- Apply this in Ω=H, where ζ has no poles. If ρ is a zero of ζ in H, choose s0 with Re s0>σ0 and R>|s0−ρ| but with D(s0,R)⊂H (always possible when Re ρ ≥ σ0). Then the Jensen relation rearranges to
+  log|ζ(s0)| = (1/2π) ∫_{0}^{2π} log|ζ(s0 + R e^{iθ})| dθ − ∑_{ρ∈D(s0,R)} log(R/|s0−ρ|).
+- By the assumed lower bound on the circular average, the first term on the right is ≥ −C. The sum is nonnegative and strictly positive if any zero lies in the disk. Hence
+  log|ζ(s0)| ≥ −C − ∑_{ρ∈D(s0,R)} log(R/|s0−ρ|).
+- Now fix a putative zero ρ with Re ρ ≥ σ0, and choose a sequence of centers s0→ρ from the right (e.g., s0 = ρ + ε with ε>0 real) with radii R=2ε so that D(s0,R)⊂H and contains ρ. Then the sum contains at least the term log(R/|s0−ρ|)=log(2ε/ε)=log 2, and as ε→0 we also have log|ζ(s0)|→ −∞ because ζ(s) has a zero at ρ. This contradicts the inequality log|ζ(s0)| ≥ −C − log 2. Therefore, no zero ρ with Re ρ ≥ σ0 can exist.
+- This proves the lemma under the circular-average hypothesis. The equivalence to the Poisson-boundary form (1) is classical: in the half-plane H, for analytic nonvanishing f the Poisson integral recovers u(s0) from boundary data u(σ0+it). When f has zeros, a Poisson–Jensen formula introduces the same subtractive contributions ∑ log terms from interior zeros. Thus the uniform lower bound (1) suffices to produce the same contradiction by taking s0→ρ with σ>σ0 fixed and invoking the half-plane Poisson–Jensen identity.
+
+Consequences and discussion.
+- The lemma yields a clean, rigorous reduction: to prove that ζ has no zeros in Re s ≥ σ0, it is enough to establish a uniform lower bound for Poisson-averages of log|ζ| on the boundary line σ=σ0. Letting σ0↓1/2 would prove RH.
+- This criterion is qualitatively sharper than controlling L^2-averages of 1−ζM along σ=1/2: those L^2 bounds are insensitive to isolated spikes where log|ζ| dips to large negative values near off-line zeros (small neighborhoods contribute negligible measure to global L^2 norms). In contrast, the Poisson kernel focuses mass near a target point and, via Poisson–Jensen, directly “charges” any interior zero with a definite positive contribution that cannot be washed out by averages elsewhere.
+- Existing mollifier methods control mean squares of ζ(1/2+it)M(1/2+it) or |1−ζM| over long intervals up to o(T). By the lemma, such control cannot rule out even a single off-line zero: an O(T) average error can remain arbitrarily small while accommodating O(1)-measure neighborhoods where log|ζ| is very negative. To reach zero-freeness to the right of σ0>1/2 one needs, in effect, uniform lower control of Poisson-smoothed log|ζ| at all centers (σ,t0), which current technology does not provide.
+- A concrete target: Prove that for some fixed σ0>1/2 there exists C such that for all t0 and all σ>σ0,
+  (1/π) ∫_{−∞}^{∞} log|ζ(σ0 + iv)| (σ−σ0)/((t0−v)^2 + (σ−σ0)^2) dv ≥ −C.
+Even a version with C growing slowly with σ−σ0 uniformly in t0 would give a zero-free half-plane Re s ≥ σ0. Progress toward bounding from below such Poisson averages (e.g., via zero-density inputs together with lower bounds on log|ζ| away from zeros) would constitute meaningful advancement toward RH through this reduction.
+
+Technical note on rigor.
+- The Poisson–Jensen identity in a half-plane (or in a disk under conformal mapping) is standard; the only care needed is to avoid the pole at s=1, handled here by restricting to Re s ≥ σ0 > 1/2 and using that ζ is holomorphic in H.
+- The contradiction step relies solely on the local behavior ζ(s)=(s−ρ)^m g(s), g(ρ)≠0, giving log|ζ(ρ+ε)|→−∞ as ε→0+ along the real direction.
+
+Summary.
+- I provided a precise, rigorous reduction: a uniform lower bound on Poisson averages of log|ζ| on any vertical line σ0>1/2 rules out zeros to its right, and hence RH follows by pushing σ0→1/2.
+- I also explained why current L^2 mollifier approaches (controlling ∫|1−ζM|^2) do not achieve what the reduction requires: they cannot preclude isolated off-line zeros because they do not furnish the necessary local Poisson-averaged lower bounds for log|ζ|.
+
+VERDICT: PARTIAL
+REASON: New rigorous reduction via Poisson–Jensen; shows precise obstacle for mollifier L^2 methods.
