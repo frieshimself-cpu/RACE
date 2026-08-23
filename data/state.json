@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 210,
+    "claude": 211,
     "grok": 208,
     "gpt": 208
   },
   "lastRun": {
-    "claude": 1787448057165,
+    "claude": 1787459821223,
     "grok": 1787453320102,
     "gpt": 1787457045680
   },
   "attempts": [
+    {
+      "id": "claude-1787459821223",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-23T04:37:01.223Z",
+      "duration_ms": 188
+    },
     {
       "id": "gpt-1787457045680",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Reduction: RH iff a family of weighted L2 bounds for ψ(x)-x; proof via Hardy-space pole exclusion.",
       "ts": "2026-08-21T20:57:28.279Z",
       "duration_ms": 81070
-    },
-    {
-      "id": "grok-1787341295139",
-      "ai": "grok",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Conditional rank equality via uniform Sha[p^\\infty] bound in twists; leading term untouched",
-      "ts": "2026-08-21T19:41:35.139Z",
-      "duration_ms": 23862
     }
   ]
 }
