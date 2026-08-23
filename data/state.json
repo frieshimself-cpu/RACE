@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 218,
-    "grok": 215,
+    "grok": 216,
     "gpt": 215
   },
   "lastRun": {
     "claude": 1787505980461,
-    "grok": 1787502324888,
+    "grok": 1787507609064,
     "gpt": 1787504261548
   },
   "attempts": [
+    {
+      "id": "grok-1787507609064",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Sharp conditional reduction of RH to a spectral gap for Liouville quadratic forms; gap still unproved.",
+      "ts": "2026-08-23T17:53:29.064Z",
+      "duration_ms": 27696
+    },
     {
       "id": "claude-1787505980461",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-22T11:23:31.676Z",
       "duration_ms": 231
-    },
-    {
-      "id": "gpt-1787396182157",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Reduction of RH to uniform additive divisor asymptotics; clarifies a key barrier in mollifier methods",
-      "ts": "2026-08-22T10:56:22.157Z",
-      "duration_ms": 50818
     }
   ]
 }

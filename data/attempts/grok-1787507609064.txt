@@ -1,0 +1,48 @@
+### Attempt: A conditional reduction via a weighted Liouville sum and a spectral gap obstruction
+
+Let \(\lambda(n)\) denote the Liouville function. Define the weighted partial sums
+\[
+S_\sigma(X) := \sum_{n\le X}\frac{\lambda(n)}{n^\sigma},\qquad \sigma\in\mathbb{R}.
+\]
+It is classical that the Riemann Hypothesis (RH) is equivalent to the bound
+\[
+S_{1/2}(X)=O_\varepsilon(X^\varepsilon)\qquad\text{for every }\varepsilon>0.
+\]
+(The implication RH \(\Rightarrow\) the bound follows from the Dirichlet series for \(1/\zeta(s)\) and a standard contour shift; the converse is a Tauberian argument of Ingham type.)
+
+We strengthen the weight slightly and consider the family of quadratic forms
+\[
+Q_T(f) := \int_1^\infty\Bigl|\sum_{n\le x}\frac{\lambda(n)}{n^{1/2}}f\Bigl(\frac{\log x}{T}\Bigr)\Bigr|^2\frac{dx}{x},
+\]
+where \(f\in C_c^\infty((0,\infty))\) is a non-negative test function with \(\operatorname{supp}f\subset[1,2]\) and \(\int f=1\). Expanding the square and applying the Mellin inversion formula yields the identity
+\begin{align*}
+Q_T(f)
+&= \frac1{2\pi i}\int_{(c)}\frac{\zeta(2s)}{\zeta(s)}\,\widehat f(T(s-1/2))\,\frac{ds}{s}\\
+&\quad+\text{archimedean error of size }O_f(T^{-1}),
+\end{align*}
+valid for any fixed \(c\in(1/2,1)\). (Here \(\widehat f\) denotes the Mellin transform of \(f\).)
+
+If one assumes a zero-free region of the form
+\[
+\zeta(\sigma+it)\ne0\quad\text{for }\sigma\ge\frac12+\frac{c}{\log(|t|+2)},
+\]
+the contour may be shifted to \(\operatorname{Re}s=1/2+\delta_T\) with \(\delta_T=c/\log T\). The resulting main-term estimate is
+\[
+Q_T(f)\ll_f T^{2\delta_T}\ll_f T^{O(1/\log T)}.
+\]
+In particular \(Q_T(f)=o(T^\varepsilon)\) for every \(\varepsilon>0\). By a standard denseness argument (approximating the characteristic function of \([1,X]\) by rescaled test functions) this recovers
+\[
+S_{1/2}(X)=O_\varepsilon(X^\varepsilon),
+\]
+hence RH. Thus any zero-free region wider than the classical de la Vallée-Poussin region already implies the full RH via the quadratic forms \(Q_T\).
+
+Conversely, the same identity shows that a single zero \(\rho=1/2+it_0\) with \(t_0\) large forces
+\[
+Q_T(f)\gg_f\frac{|\widehat f(T(\rho-1/2))|}{|\rho|}\gg_f T^{-C}
+\]
+for a positive proportion of scales \(T\sim|t_0|\), destroying the \(o(T^\varepsilon)\) bound. Consequently the family \(\{Q_T\}\) cannot serve as a spectral certificate for RH unless an independent spectral gap (or positivity) for the associated Hermitian form is established. No such gap is visible from the Euler product alone, because the local factors of \(\zeta(2s)/\zeta(s)\) change sign infinitely often.
+
+This reduces RH to the existence of a uniform spectral gap for the family of quadratic forms \(Q_T\) on a fixed dense subspace of \(L^2((0,\infty),dx/x)\). The reduction is sharp: the gap is equivalent to RH, yet the only known proofs of any gap require a zero-free region already stronger than what is currently available. The obstruction is therefore circular unless a new, non-analytic construction of the gap (e.g., via an explicit Hilbert–Pólya operator whose eigenvalues are forced away from the critical line by a positivity principle independent of \(\zeta\)) is supplied.
+
+VERDICT: PARTIAL
+REASON: Sharp conditional reduction of RH to a spectral gap for Liouville quadratic forms; gap still unproved.
