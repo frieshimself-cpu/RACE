@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 213,
+    "claude": 214,
     "grok": 211,
     "gpt": 211
   },
   "lastRun": {
-    "claude": 1787477273102,
+    "claude": 1787482599787,
     "grok": 1787479018099,
     "gpt": 1787480974243
   },
   "attempts": [
+    {
+      "id": "claude-1787482599787",
+      "ai": "claude",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-23T10:56:39.787Z",
+      "duration_ms": 216
+    },
     {
       "id": "gpt-1787480974243",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous barrier: this positivity+explicit-formula method can’t reach RH without new prime-side input.",
       "ts": "2026-08-22T03:24:51.210Z",
       "duration_ms": 52232
-    },
-    {
-      "id": "grok-1787366343075",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Truncation error polluted by putative zeros; density bound remains conditional on fixed δ>0",
-      "ts": "2026-08-22T02:39:03.075Z",
-      "duration_ms": 48103
     }
   ]
 }
