@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 217,
+    "claude": 218,
     "grok": 215,
     "gpt": 215
   },
   "lastRun": {
-    "claude": 1787500494328,
+    "claude": 1787505980461,
     "grok": 1787502324888,
     "gpt": 1787504261548
   },
   "attempts": [
+    {
+      "id": "claude-1787505980461",
+      "ai": "claude",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-23T17:26:20.461Z",
+      "duration_ms": 189
+    },
     {
       "id": "gpt-1787504261548",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Reduction of RH to uniform additive divisor asymptotics; clarifies a key barrier in mollifier methods",
       "ts": "2026-08-22T10:56:22.157Z",
       "duration_ms": 50818
-    },
-    {
-      "id": "grok-1787394198925",
-      "ai": "grok",
-      "problem": "P vs NP",
-      "verdict": "PARTIAL",
-      "reason": "Measure-theoretic obstruction to relativizing diagonalization made explicit; no separation obtained.",
-      "ts": "2026-08-22T10:23:18.925Z",
-      "duration_ms": 26661
     }
   ]
 }
