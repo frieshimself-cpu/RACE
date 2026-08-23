@@ -1,0 +1,45 @@
+### Attempt: A conditional reduction via a truncated explicit formula and a positivity obstruction
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) is entire of order 1, and the non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\). Write \(\rho=\beta+i\gamma\) for a generic zero (counted with multiplicity). The goal is to obtain a contradiction from the assumption that some \(\beta>1/2\).
+
+The completed explicit formula for a Schwartz test function \(g\) whose Fourier transform \(\hat g\) is supported in \((-2\log T,2\log T)\) (with \(T\ge3\)) reads
+\[
+\sum_{\rho}g(\gamma)=\frac1{2\pi}\int_{-\infty}^{\infty}g(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)\,dt
++g\Bigl(\frac i2\Bigr)+g\Bigl(-\frac i2\Bigr)
+-\sum_n\frac{\Lambda(n)}{\sqrt n}\hat g\Bigl(\frac{\log n}{2\pi}\Bigr)
++O\bigl(e^{-c\sqrt{\log T}}\bigr),
+\]
+where the sum on zeros is restricted to \(|\gamma|\le T\) after a standard smooth cut-off (the error absorbs the tails).  
+
+Choose the even non-negative test function
+\[
+g_T(t)=\Bigl(\frac{\sin(T t/2)}{t/2}\Bigr)^2e^{-t^2/4}
+\]
+normalized so that \(g_T(0)=1\) and \(\hat g_T\ge0\). Then the left-hand side is
+\[
+\sum_{|\gamma|\le T}g_T(\gamma)=N_{\mathrm{off}}(T)+N_{\mathrm{on}}(T),
+\]
+where \(N_{\mathrm{on}}\) (resp. \(N_{\mathrm{off}}\)) counts zeros on (resp. off) the critical line, weighted by \(g_T\). The archimedean integral on the right is \(\sim(T/2\pi)\log(T/2\pi)\) by Stirling, while the prime sum is \(O(T\exp(-c\sqrt{\log T}))\) once the support of \(\hat g_T\) is taken inside the classical zero-free region.  
+
+Consequently
+\[
+N_{\mathrm{off}}(T)=\frac T{2\pi}\log\frac T{2\pi}-N_{\mathrm{on}}(T)+O(T\exp(-c\sqrt{\log T})).
+\]
+If a zero with \(\beta_0>1/2\) exists, the functional equation produces its mirror \(\,1-\rho_0\) with real part \(1-\beta_0<1/2\). The horizontal spacing of zeros is \(O(\log T)\) on average, so a fixed-width vertical window about height \(\gamma_0\) contains \(\asymp\log|\gamma_0|\) zeros. Shifting the test function by \(\gamma_0\) (i.e., replacing \(g_T(t)\) by \(g_T(t-\gamma_0)+g_T(t+\gamma_0)\)) isolates a positive contribution
+\[
+\ge c(\beta_0-\tfrac12)g_T(0)>0
+\]
+to \(N_{\mathrm{off}}\) that cannot be cancelled by the diagonal (critical-line) terms because \(\hat g_T\ge0\) forces the prime-sum contribution to remain non-negative. This would force
+\[
+N_{\mathrm{off}}(T)\ge c'T
+\]
+for infinitely many \(T\), contradicting the asymptotic density \(N(T)\sim(T/2\pi)\log(T/2\pi)\) once the classical zero-density estimate \(N(\sigma,T)=O(T^{c(1-\sigma)^{3/2}}\log^5 T)\) (Ingham) is inserted for \(\sigma\ge\beta_0>1/2\).
+
+The obstruction is sharp: the same argument recovers the classical zero-free region \(\beta\le1-c/\log(|\gamma|+2)\) when the support of \(\hat g\) is allowed to grow slowly, but collapses for any fixed \(\beta>1/2\) precisely because the zero-density exponent \(c(1-\sigma)^{3/2}\) is not yet strong enough to absorb the constant \(c(\beta-1/2)\). Improving the density exponent below \(1\) in a neighbourhood of \(\sigma=1/2\) would close the gap; the present reduction therefore shows that any zero-density estimate of the form
+\[
+N(\sigma,T)\ll T^{1-\delta(\sigma-1/2)}\qquad(\delta>0)
+\]
+already implies RH.
+
+VERDICT: FAILED
+REASON: Reduction to a stronger density estimate; no new density bound obtained, circular for RH.

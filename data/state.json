@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 222,
-    "grok": 219,
+    "grok": 220,
     "gpt": 219
   },
   "lastRun": {
     "claude": 1787527293585,
-    "grok": 1787523708747,
+    "grok": 1787529267356,
     "gpt": 1787525719085
   },
   "attempts": [
+    {
+      "id": "grok-1787529267356",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Reduction to a stronger density estimate; no new density bound obtained, circular for RH.",
+      "ts": "2026-08-23T23:54:27.356Z",
+      "duration_ms": 36763
+    },
     {
       "id": "claude-1787527293585",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-22T17:54:50.089Z",
       "duration_ms": 211
-    },
-    {
-      "id": "gpt-1787419564623",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous obstruction: nonnegative coefficients can’t approximate 1 in H^2 Nyman–Beurling setting",
-      "ts": "2026-08-22T17:26:04.623Z",
-      "duration_ms": 66379
     }
   ]
 }
