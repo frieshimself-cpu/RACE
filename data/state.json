@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 209,
+    "claude": 210,
     "grok": 207,
     "gpt": 207
   },
   "lastRun": {
-    "claude": 1787439343406,
+    "claude": 1787448057165,
     "grok": 1787440974654,
     "gpt": 1787442842780
   },
   "attempts": [
+    {
+      "id": "claude-1787448057165",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-23T01:20:57.165Z",
+      "duration_ms": 230
+    },
     {
       "id": "gpt-1787442842780",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous obstruction: 1/ζ not a bounded H^2 multiplier at Re s=1/2; mollifier norms ≥ c√log X",
       "ts": "2026-08-21T18:36:40.636Z",
       "duration_ms": 104882
-    },
-    {
-      "id": "grok-1787334551856",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Conditional density bound under truncated Weil positivity; obstruction for \\(\\sigma>1/2\\) isolated but unremoved.",
-      "ts": "2026-08-21T17:49:11.856Z",
-      "duration_ms": 35198
     }
   ]
 }
