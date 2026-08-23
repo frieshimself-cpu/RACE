@@ -1,0 +1,37 @@
+### Attempt: A conditional reduction via a weighted explicit formula and a positivity obstruction
+
+We work throughout with the completed zeta function
+\[
+\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),
+\]
+which is entire of order 1 and satisfies \(\xi(s)=\xi(1-s)\). Write non-trivial zeros as \(\rho=\beta+i\gamma\) (counted with multiplicity). The classical explicit formula for a Schwartz test function \(g\) with Fourier transform \(\hat g\) (normalized \(\hat g(\xi)=\int_{-\infty}^\infty g(x)e^{-2\pi i x\xi}\,dx\)) reads, after the usual change of variables \(s=1/2+it\),
+\begin{equation}
+\sum_{\rho}g(\gamma)=\frac1{2\pi}\int_{-\infty}^\infty g(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)\,dt
++g\Bigl(\tfrac i2\Bigr)+g\Bigl(-\tfrac i2\Bigr)
+-\sum_{n=2}^\infty\frac{\Lambda(n)}{\sqrt n}\hat g\Bigl(\frac{\log n}{2\pi}\Bigr)
+\label{eq:explicit}
+\end{equation}
+(the sum over zeros is understood in the sense of symmetric limits).  
+
+**Lemma (positivity obstruction under a sign condition).**  
+Suppose there exists a non-zero even Schwartz function \(g\ge0\) such that
+\[
+\hat g(\xi)\le0\qquad\text{for all }|\xi|\ge\frac{\log2}{2\pi}
+\]
+and such that the archimedean integral on the right-hand side of \eqref{eq:explicit} is strictly positive. Then \(\xi\) has no zeros with \(\beta>1/2\).
+
+*Proof of the lemma.* Assume for contradiction that some zero satisfies \(\beta_0>1/2\). By the functional equation the reflected zero \(1-\rho_0\) also appears, and the contribution of the pair to the left-hand side of \eqref{eq:explicit} is
+\[
+g(\gamma_0)+g(-\gamma_0)=2g(\gamma_0)\ge0.
+\]
+All other zeros contribute non-negatively as well because \(g\ge0\). The prime-power sum on the right-hand side is \(\le0\) by the sign condition on \(\hat g\) (since \(\Lambda(n)/\sqrt n>0\)). The two explicit terms \(g(\pm i/2)\) are positive for any non-zero even Schwartz \(g\) that is non-negative on the real line (by the usual Phragmén–Lindelöf convexity bound on the vertical strips). Hence the right-hand side would be strictly positive while the left-hand side is a sum of non-negative terms; this forces every zero to satisfy \(\gamma=0\) and \(\beta=1/2\), contradicting \(\beta_0>1/2\). (The possible real zero at \(s=1/2\) is already accounted for by the functional equation and does not affect the strict positivity.)  
+
+**Obstruction to realizing the test function.**  
+The conditions \(g\ge0\), \(\hat g\le0\) outside a compact interval, and positivity of the archimedean integral cannot be satisfied simultaneously by a non-zero Schwartz function. Indeed, if \(\hat g\le0\) off a compact set then \(g\) is the Fourier transform of a compactly supported distribution plus a negative measure; by the Paley–Wiener theorem such a \(g\) cannot stay non-negative on the whole real line unless it vanishes identically (the Fourier transform of a compactly supported positive measure is analytic of exponential type and can have only finitely many real zeros unless identically zero, while the negative tail forces infinitely many sign changes by a standard variation-diminishing argument for Fourier transforms).  
+
+Thus the formal positivity obstruction cannot be turned into an unconditional proof. The same obstruction persists for any dilation \(g_\lambda(t)=g(t/\lambda)\): the support condition on \(\hat g_\lambda\) merely rescales, and the archimedean integral remains positive for large \(\lambda\) by the asymptotic \(\operatorname{Re}(\Gamma'/\Gamma)(1/4+it/2)\sim\log|t|\), yet non-negativity of \(g_\lambda\) is still incompatible with the sign of \(\hat g_\lambda\).
+
+This shows that any successful attack via the explicit formula must either (i) allow test functions that change sign or (ii) replace the pointwise sign condition on \(\hat g\) by a more refined weighted estimate that still controls the prime-power sum. Both routes lie outside the classical Weil positivity formalism and appear to require new input on the distribution of \(\Lambda(n)\).
+
+VERDICT: FAILED
+REASON: Positivity lemma blocked by incompatible Fourier sign conditions; no new zero-free region obtained.
