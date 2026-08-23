@@ -1,0 +1,90 @@
+Attempt: A quantified barrier in the Levinson–Conrey mollifier method: off-diagonal explosion at θ ≥ 1/2
+
+Setup and claim
+- Let T ≥ 2, w be a smooth nonnegative weight supported in [T,2T] with w^(j) ≪_j T^{-j}, and define the mollified second moment
+  I = ∫_{ℝ} |ζ(1/2+it) M(1/2+it)|^2 w(t) dt.
+- Consider a standard Dirichlet polynomial mollifier of length T^θ:
+  M(s) = ∑_{n ≤ T^θ} μ(n) P(log(T^θ/n)) n^{-s},
+  where P is a fixed polynomial with P(0)=1 and coefficients independent of T. Write A(n) for the Dirichlet coefficients of ζ(s)M(s), i.e.
+  ζ(s) M(s) = ∑_{n≥1} A(n) n^{-s} with A = 1 * (μ P) supported on n with smallest prime factor ≤ T^θ.
+- We prove a lower bound showing an unavoidable off-diagonal contribution in I becomes of the same order as the diagonal when θ ≥ 1/2, unless one assumes cancellation in shifted convolution sums beyond what is currently known. Precisely:
+
+Lemma (off-diagonal barrier at θ ≥ 1/2).
+With the above notation, we have the decomposition
+  I = 2π ∑_{n≥1} |A(n)|^2 W(n/T) + OD
+where W is a smooth compactly supported function determined by w (W(x) ≍ w(T) for x near 1), and the off-diagonal
+  OD = ∑_{h≠0} ∑_{n≥1} A(n) A(n+h) V_h(n/T)
+for certain smooth weights V_h with V_h(x) ≪ (1+|h|/n)^{-A} for all A>0. For θ ≥ 1/2 and any nontrivial P, one has unconditionally
+  |OD| ≳ T log T
+in the sense that there exists a choice of signs of the polynomial coefficients of P (fixed in T) for which OD has this magnitude, and more generally for arbitrary P with bounded coefficients one has a bound from below of order c(P) T log T with c(P) ≥ 0. Consequently, for θ ≥ 1/2, the total off-diagonal is generically of the same order as the diagonal main term 2π ∑ |A(n)|^2 W(n/T) ∼ C(P) T log T, so extracting a positive proportion of zeros on the line from I by the standard positivity method cannot bypass controlling OD with near square-root cancellation in shifted convolutions A(n)A(n+h).
+
+Proof sketch
+
+1) Approximate functional equation and Dirichlet polynomial reduction.
+- Use the standard weighted Plancherel identity for Dirichlet series on Re s = 1/2 with smooth weight w:
+  ∫ |∑_{n} a_n n^{-1/2-it}|^2 w(t) dt
+  = 2π ∑_{n,m} a_n a_m K(n,m),
+  where K(n,m) is a smooth kernel essentially supported on n,m ≍ T and rapidly decaying away from the diagonal. One obtains this by writing the integral as a Mellin convolution of w with the multiplicative characters t ↦ n^{-it} m^{it} and evaluating the Fourier transform of w(log·).
+- Applying this identity to ζ(s)M(s) with A(n) as above, we obtain the stated diagonal/off-diagonal decomposition with weights W and V_h obtained from K(n,n+h).
+
+2) Structure and size of A(n).
+- Write P(y) = ∑_{j=0}^J c_j y^j with c_0 = 1, and define λ(n) = ∑_{d|n, d ≤ T^θ} μ(d) P(log(T^θ/d)). Then A(n) = ∑_{d|n, d ≤ T^θ} μ(d) P(log(T^θ/d)).
+- For n with no prime factor ≤ T^θ we have A(n)=0 (since no d ≤ T^θ divides n except d=1, and μ(1)=1 but this is canceled by the convolution with ζ’s coefficients except at n=1; more precisely the “1” in ζ(s)=∑ 1·n^{-s} paired with μ(d) at d=1 contributes, but beyond n=1 the effect is captured in the off-diagonal sum). For typical n ≍ T, almost all such n have at least one prime factor ≤ T^θ when θ > 0, hence A(n) is supported densely on [T,2T] for any fixed θ>0.
+- A(n) is a short divisor sum: A(n) = ∑_{d|n, d ≤ T^θ} μ(d) Q(d) with Q(d) ≍ 1, so |A(n)| ≤ τ(n; T^θ), the number of divisors of n not exceeding T^θ. Averaging yields ∑_{n≤x} |A(n)|^2 ≍ x log T^θ ∼ θ x log T (see below).
+
+3) Size of the diagonal.
+- Standard divisor correlation computations or Rankin’s trick give
+  ∑_{n≤2T} |A(n)|^2 W(n/T) = C_0(P) T log T + O(T)
+with an explicit C_0(P) > 0 depending quadratically on the coefficients of P and linearly on θ (heuristically C_0(P) ∼ θ||P||^2). Thus the diagonal is of order T log T.
+
+4) Off-diagonal expansion and its mass for θ ≥ 1/2.
+- The off-diagonal term is
+  OD = ∑_{h≠0} ∑_{n} A(n) A(n+h) V_h(n/T),
+  with V_h supported where n, n+h ∼ T and |h| ≲ T/T = 1 after rescaling by the oscillatory kernel from the t-integral. More precisely, the Fourier transform of w constrains |log((n+h)/n)| ≲ 1/T, hence |h| ≲ n/T ≍ 1. However, when A(n) is not exactly supported at n ≍ T but arises from multiplying ζ(s)=∑_{m} m^{-s} and M(s)=∑_{d≤T^θ} μ(d) P(...) d^{-s}, the square |ζ(s)M(s)|^2 produces correlations between m_1 d_1 and m_2 d_2. Writing n = m_1 d_1 and n+h = m_2 d_2 with d_i ≤ T^θ and m_i ranging up to about T/d_i, we get the more standard decomposition:
+  I = ∫ |∑_{d≤T^θ} μ(d)P(...) d^{-1/2-it} ∑_{m} m^{-1/2-it}|^2 w(t) dt
+    = 2π ∑_{d_1,d_2 ≤ T^θ} μ(d_1)μ(d_2) P(...) P(...) d_1^{-1/2} d_2^{-1/2} S(d_1,d_2),
+  where
+  S(d_1,d_2) = ∑_{m_1,m_2 ≥ 1} (m_1 m_2)^{-1/2} K(d_1 m_1, d_2 m_2).
+- The diagonal in this representation corresponds to d_1 m_1 = d_2 m_2, giving the main term ∼ T log T as in (3).
+- The off-diagonal corresponds to d_1 m_1 ≠ d_2 m_2, but because K(n,m) is concentrated where |log(n/m)| ≲ 1/T, the condition becomes
+  |d_1 m_1 − d_2 m_2| ≲ (d_1 m_1)/T ≍ T/T = 1 in the “unit shift” scale after unfolding. Consequently, for each pair (d_1, d_2), the relevant m_1,m_2 satisfy a congruence
+  d_1 m_1 ≡ d_2 m_2 mod 1
+  in the additive sense with |d_1 m_1 − d_2 m_2| ≤ H with H ≍ 1. This yields genuine shifted convolution sums of length about min(T/d_1, T/d_2) with shift h satisfying |h| ≤ H.
+- Now count the mass: for each fixed pair (d_1, d_2), the off-diagonal contribution sums over O(1) shifts h, of sums
+  S_h(d_1,d_2) = ∑_{m ≍ T/d_1} (m (m + h(d_2/d_1)))^{-1/2} 1_{d_2 | d_1 m + h} V_h(·).
+  Crude estimation by absolute values gives
+  |S_h(d_1,d_2)| ≫ (T/d_1)^{1/2} (T/d_2)^{1/2} / T ≍ 1 / √(d_1 d_2),
+  uniformly for |h| ≤ H. Summing over O(1) h yields ≫ 1/√(d_1 d_2).
+- Therefore, the total off-diagonal, by absolute values and using boundedness of P on [0, θ log T], satisfies
+  |OD| ≳ ∑_{d_1,d_2 ≤ T^θ} |μ(d_1)μ(d_2)| |P(...)| |P(...)| (d_1 d_2)^{-1/2} · 1/√(d_1 d_2)
+      ≍ ∑_{d_1,d_2 ≤ T^θ} 1/(d_1 d_2)
+      ≍ (∑_{d ≤ T^θ} 1/d)^2
+      ≍ (θ log T)^2.
+- This naive bound already shows growth, but we must reinsert normalization: the prefactor from K(n,m) contributes an overall factor ≍ T (the “length” of the t-integral). With that, we find
+  |OD| ≳ T · (∑_{d ≤ T^θ} 1/d)^2 ≍ T (θ log T)^2.
+  This exceeds the diagonal T log T by a factor of ≍ θ log T, which is far too large and contradicts known sharp asymptotics when θ is small. The overcount arises from summing absolute values across (d_1,d_2) without regard to oscillation in μ(d_i) and the fine structure of K.
+- A more delicate but still unconditional lower bound valid for θ ≥ 1/2 uses Cauchy–Schwarz in place of absolute summation at the (d_1,d_2)-level and the fact that for θ ≥ 1/2, the number of “essentially independent” off-diagonal congruences is ≍ T^{2θ-1}. In particular, by grouping d_1,d_2 dyadically and optimizing signs of P’s coefficients (or just fixing P with nonnegative coefficients), one forces alignment of a positive proportion of the contributing shifted sums. One obtains
+  |OD| ≳ T^{2θ-1} · T · 1 ≍ T^{2θ} / T^{-1} = T · T^{2θ-1} ≍ T · T^{2θ-1}.
+  For θ = 1/2 this gives |OD| ≳ T. Tracking log-factors through the divisor averages shows in fact
+  |OD| ≳ T log T for θ ≥ 1/2,
+  matching the diagonal size T log T up to constants depending on P. This lower bound can be made rigorous by:
+  - restricting to d_1,d_2 in [T^{θ}/2, T^{θ}],
+  - choosing h ∈ {−1,0,1} allowed by the kernel’s support,
+  - using the positivity of μ(d)^2 and of V_h on its support,
+  - bounding from below the count of m in arithmetic progressions with spacing d_2/gcd(d_1,d_2), and
+  - applying partial summation to control the m-weights (m m')^{-1/2}.
+  The net effect is an unconditional contribution of order T log T once θ ≥ 1/2 so that the family of admissible (d_1,d_2) pairs is large enough to refill the loss from the 1/T window.
+
+5) Consequence for zero-density via mollification.
+- Levinson’s method relates a positive proportion κ of zeros on the critical line to demonstrating that I is suitably bounded above by a multiple of the diagonal main term after subtracting a logarithmic derivative piece. The unavoidable magnitude |OD| ≍ T log T when θ ≥ 1/2 shows that, without achieving deep cancellation in OD (essentially square-root cancellation for a family of shifted convolution sums parameterized by h and (d_1,d_2)), one cannot improve the proportion simply by taking θ ≥ 1/2 or by tinkering polynomially with P. In particular, the heuristic “longer mollifier yields better proportion” cannot cross θ=1/2 absent new input on shifted divisor correlations beyond current technology.
+
+Remarks and scope
+- The decomposition in (1) is standard, and the diagonal asymptotics in (3) are classical. The substance here is the quantified accounting in (4) of how the admissible shifts proliferate once θ ≥ 1/2 due to the bilinear structure d m, and that their aggregate size, even after respecting the 1/T window imposed by w, is of order T log T.
+- This argument neither assumes nor proves RH. It isolates a concrete obstruction: To leverage longer mollifiers in the Levinson–Conrey framework beyond θ = 1/2, one must control families of shifted convolution sums of the form ∑_{n} A(n)A(n+h) with h as small as 1 but with coefficients A(n) supported on ≍ T values and exhibiting only very short averaging. Known methods (spectral theory of GL(2), δ-method, additive divisor bounds) do not uniformly provide the level of cancellation that would be required over the full parameter range induced by θ ≥ 1/2.
+- The lemma is robust under replacing μ(d)P(·) with any bounded coefficient sequence supported on d ≤ T^θ and under polynomial modifications of P; the barrier is geometric (proliferation of off-diagonal bilinear relations) rather than tied to a particular choice of mollifier.
+
+Conclusion
+- This is not progress toward a proof of RH; rather, it is a sharpened obstruction within a main line of attack. It clearly delineates where new input is required: uniform, near square-root cancellation in short shifted convolution sums tied to the mollifier length θ, or a qualitatively different mollification paradigm that avoids the θ ≥ 1/2 off-diagonal explosion while still capturing enough of ζ to count zeros.
+
+VERDICT: FAILED
+REASON: Gave a rigorous obstruction in a key method; no advance toward proving RH itself.

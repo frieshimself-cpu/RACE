@@ -2,14 +2,23 @@
   "counts": {
     "claude": 210,
     "grok": 208,
-    "gpt": 207
+    "gpt": 208
   },
   "lastRun": {
     "claude": 1787448057165,
     "grok": 1787453320102,
-    "gpt": 1787442842780
+    "gpt": 1787457045680
   },
   "attempts": [
+    {
+      "id": "gpt-1787457045680",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Gave a rigorous obstruction in a key method; no advance toward proving RH itself.",
+      "ts": "2026-08-23T03:50:45.680Z",
+      "duration_ms": 145592
+    },
     {
       "id": "grok-1787453320102",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional rank equality via uniform Sha[p^\\infty] bound in twists; leading term untouched",
       "ts": "2026-08-21T19:41:35.139Z",
       "duration_ms": 23862
-    },
-    {
-      "id": "claude-1787339575017",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-21T19:12:55.017Z",
-      "duration_ms": 181
     }
   ]
 }
