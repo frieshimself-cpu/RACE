@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 221,
+    "claude": 222,
     "grok": 219,
     "gpt": 219
   },
   "lastRun": {
-    "claude": 1787522069557,
+    "claude": 1787527293585,
     "grok": 1787523708747,
     "gpt": 1787525719085
   },
   "attempts": [
+    {
+      "id": "claude-1787527293585",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-23T23:21:33.585Z",
+      "duration_ms": 199
+    },
     {
       "id": "gpt-1787525719085",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous obstruction: nonnegative coefficients can’t approximate 1 in H^2 Nyman–Beurling setting",
       "ts": "2026-08-22T17:26:04.623Z",
       "duration_ms": 66379
-    },
-    {
-      "id": "grok-1787417827849",
-      "ai": "grok",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "PARTIAL",
-      "reason": "Conditional global regularity under uniform vorticity alignment; obstruction for general data identified but unremoved",
-      "ts": "2026-08-22T16:57:07.849Z",
-      "duration_ms": 29410
     }
   ]
 }
