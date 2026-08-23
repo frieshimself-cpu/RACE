@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 220,
-    "grok": 217,
+    "grok": 218,
     "gpt": 217
   },
   "lastRun": {
     "claude": 1787516789243,
-    "grok": 1787513985692,
+    "grok": 1787518568430,
     "gpt": 1787514963321
   },
   "attempts": [
+    {
+      "id": "grok-1787518568430",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity of weighted Liouville sums blocked by possible zero clusters; no new zero-free strip obtained.",
+      "ts": "2026-08-23T20:56:08.430Z",
+      "duration_ms": 36625
+    },
     {
       "id": "claude-1787516789243",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-22T14:55:41.494Z",
       "duration_ms": 307
-    },
-    {
-      "id": "gpt-1787408462937",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous barrier: single-piece mollifiers with θ>1/2 fail via unavoidable off-diagonal ≥ T^{2θ-1}",
-      "ts": "2026-08-22T14:21:02.937Z",
-      "duration_ms": 57917
     }
   ]
 }

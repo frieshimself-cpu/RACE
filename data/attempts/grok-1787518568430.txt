@@ -1,0 +1,51 @@
+### Attempt: A conditional zero-free strip via a weighted Liouville sum and a failed positivity closure
+
+Let \(\lambda(n)\) be the Liouville function and write
+\[
+S_\sigma(T) := \sum_{n\le T} \frac{\lambda(n)}{n^\sigma},\qquad \sigma\in\mathbb{R}.
+\]
+It is classical that the Dirichlet series \(\sum\lambda(n)n^{-s}=\zeta(2s)/\zeta(s)\) for \(\operatorname{Re}s>1\), and that RH is equivalent to
+\[
+S_{1/2}(T)=O_\varepsilon(T^\varepsilon)\qquad(T\to\infty)
+\]
+for every \(\varepsilon>0\). We attempt a weaker but still nontrivial statement: the existence of an absolute constant \(c>0\) such that
+\[
+\zeta(\sigma+it)\ne0\qquad\text{for all }\sigma\ge\tfrac12+c,\ |t|\ge2.
+\]
+(The classical zero-free region of Vinogradov–Korobov is of the shape \(1-c(\log|t|)^{-2/3}(\log\log|t|)^{-1/3}\), so any fixed-width strip to the right of \(1/2\) would be new.)
+
+#### 1. Integral representation
+For \(\sigma>1/2\) fixed and \(T\ge3\) write the truncated Perron formula
+\[
+S_\sigma(T)=\frac1{2\pi i}\int_{c-iT}^{c+iT}\frac{\zeta(2s)}{\zeta(s)}\frac{T^s}{s}\,ds+O\bigl(T^{c-\sigma}\bigr),
+\]
+where the vertical line is taken at \(c=1+\frac1{\log T}\). Shift the contour leftward to the line \(\operatorname{Re}s=\sigma_0:=\frac12+\delta\) with a small fixed \(\delta>0\) to be chosen, picking up residues at the zeros of \(\zeta\) in the strip \(\sigma_0<\operatorname{Re}\rho\le c\) and at the possible pole \(s=1\) (which cancels against the zero of \(\zeta(2s)\)). The horizontal integrals are \(O(T^{\sigma_0}\log T)\) by the convexivity bound \(\zeta(\sigma+it)\ll_\varepsilon |t|^{(1-\sigma)/3+\varepsilon}\). Consequently
+\begin{equation}
+\label{eq:main}
+S_\sigma(T)=\sum_{\substack{\rho=\beta+i\gamma\\ \sigma_0<\beta\le1}} \frac{\zeta(2\rho)}{\zeta'(\rho)}\frac{T^\rho}{\rho}
++O\bigl(T^{\sigma_0}\log^2 T\bigr),
+\end{equation}
+provided no zero lies exactly on \(\operatorname{Re}s=\sigma_0\) (a condition that can be removed by a standard \(1/\log T\)-shift and averaging).
+
+#### 2. Positivity attempt
+Suppose, for contradiction, that a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0\ge\frac12+c\) exists and that \(|\gamma_0|\) is minimal among all such zeros. Choose \(\sigma=\beta_0\) and \(T=\exp(\pi/|\gamma_0|)\). The summand corresponding to \(\rho_0\) (and its conjugate) then dominates the right-hand side of \eqref{eq:main} provided the remaining zeros satisfy a mild spacing hypothesis
+\[
+\sum_{\rho\neq\rho_0,\,\overline{\rho_0}}\Bigl|\frac{\zeta(2\rho)}{\zeta'(\rho)\rho}\Bigr|T^{\beta-\beta_0}\ll T^{-c/2},
+\]
+which follows from the classical density estimate \(N(\sigma,T)\ll T^{O(1-\sigma)}\log T\) once \(c>0\) is fixed and \(T\) is large. The left-hand side \(S_{\beta_0}(T)\) is real. Moreover, because \(\lambda\) is completely multiplicative of modulus 1,
+\[
+\bigl|S_{\beta_0}(T)\bigr|\le\sum_{n\le T}n^{-\beta_0}\le\zeta(\beta_0)\ll1.
+\]
+The dominant term on the right of \eqref{eq:main} has absolute value
+\[
+\asymp\frac{|\zeta(2\rho_0)|}{|\zeta'(\rho_0)|\,|\rho_0|}\,T^{\beta_0}\gg T^{1/2+c}/\operatorname{poly}(\log T)
+\]
+by the functional equation (which supplies a lower bound on \(|\zeta(2\rho_0)|\) once \(\beta_0\) is bounded away from 1) and the fact that simple zeros are expected (or, more carefully, after replacing \(\zeta'\) by a logarithmic derivative averaged over a short interval). For large \(|\gamma_0|\) this contradicts the \(O(1)\) bound on \(S_{\beta_0}(T)\).
+
+#### 3. Where the argument collapses
+The obstruction is the possible existence of a multiple zero or a tight cluster of zeros near \(\rho_0\). In that case the residue factor \(\zeta(2\rho)/\zeta'(\rho)\) may become arbitrarily small, cancelling the exponential growth \(T^{\beta_0}\). Standard zero-density theorems do not preclude a cluster of width \(O(1/\log|\gamma_0|)\) containing \(\gg\log|\gamma_0|\) zeros, precisely the scale that can absorb the factor \(T^{c}\). Any attempt to rule out such clusters by appealing to the pair-correlation formalism (Montgomery) or to the GUE hypothesis re-introduces statements equivalent in strength to RH itself. Thus the positivity closure fails to produce a uniform \(c>0\).
+
+(The same contour shift with a smoothed weight \(\lambda(n)e^{-n/T}\) yields an identical obstruction after integration by parts.)
+
+VERDICT: FAILED
+REASON: Positivity of weighted Liouville sums blocked by possible zero clusters; no new zero-free strip obtained.
