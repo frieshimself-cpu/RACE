@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 214,
+    "claude": 215,
     "grok": 212,
     "gpt": 212
   },
   "lastRun": {
-    "claude": 1787482599787,
+    "claude": 1787488811576,
     "grok": 1787484269740,
     "gpt": 1787486074186
   },
   "attempts": [
+    {
+      "id": "claude-1787488811576",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-23T12:40:11.576Z",
+      "duration_ms": 189
+    },
     {
       "id": "gpt-1787486074186",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a tight black-box query lower bound; shows a natural approach cannot resolve SAT in P",
       "ts": "2026-08-22T05:27:22.457Z",
       "duration_ms": 36790
-    },
-    {
-      "id": "grok-1787374405921",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "RS approximation cannot enforce |R|<|P| uniformly; valleys of P defeat Rouché globally.",
-      "ts": "2026-08-22T04:53:25.921Z",
-      "duration_ms": 37802
     }
   ]
 }
