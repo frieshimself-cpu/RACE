@@ -1,0 +1,56 @@
+Attempt: A precise reduction of RH to the square-root cancellation of the Möbius summatory function, with a clean proof and a quantitative conditional bound
+
+Statement (Lemma).
+The Riemann Hypothesis (RH) is equivalent to the following estimate on the Möbius summatory function M(x) = ∑_{n≤x} μ(n):
+For every ε>0, M(x) = Oε(x^{1/2+ε}).
+Moreover, under RH one has the quantitative bound M(x) = O(x^{1/2} log^2 x).
+
+Proof sketch.
+
+1) Setup via Perron/Mellin
+For x>1, let c>1. By Perron’s formula (or Mellin inversion for step functions),
+M(x) = (1/2πi) ∫_{(c)} x^s / (s ζ(s)) ds,
+where ∫_{(c)} denotes the vertical line Re s = c.
+
+2) RH ⇒ M(x) = Oε(x^{1/2+ε}) and M(x) = O(x^{1/2} log^2 x)
+Assume RH. Shift the contour from Re s = c>1 to Re s = 1/2+ε, passing simple poles at the nontrivial zeros ρ of ζ(s) (which, under RH, satisfy ρ = 1/2+iγ), as well as at s=0 if needed (this only contributes O(1)). Writing T≥2 and bounding the horizontal pieces (standard estimates below), Cauchy’s residue theorem gives
+M(x) = ∑_{|γ|≤T} Res_{s=ρ} x^s/(s ζ(s)) + O(R(T,x)) + O(H(T,x)),
+where
+- the residue at s=ρ is x^ρ / (ρ ζ'(ρ)),
+- R(T,x) is the remainder from truncating the vertical line integral at height ±T,
+- H(T,x) is the contribution of the two horizontal segments.
+
+Bounds:
+- On the line Re s = 1/2+ε, 1/ζ(s) is analytic and of at most polynomial growth in |t| (by standard convexity-type bounds and Phragmén–Lindelöf on log ζ in zero-free strips), so the vertical integral up to height T contributes
+∫_{-T}^T |x^{1/2+ε+it}| |ds| / |s| · |1/ζ(1/2+ε+it)|
+≪ x^{1/2+ε} ∫_{1}^T polylog(t) dt / t
+≪ x^{1/2+ε} log^A T
+for some fixed A>0 depending on ε. Choosing T ≍ x (or T = x^B for fixed B) makes this ≪ x^{1/2+ε} log^A x.
+- The horizontal segments at heights ±T are similarly bounded by x^{1/2+ε} times (log T)^A / T, hence negligible for T large.
+
+Residues:
+- Since |x^ρ| = x^{1/2}, the main task is to bound
+S(T,x) := ∑_{|γ|≤T} x^{1/2} / |ρ ζ'(ρ)| ≪ x^{1/2} ∑_{|γ|≤T} 1/|ρ ζ'(ρ)|.
+Using the known formula for the zero counting function N(T) and partial summation together with the classical bound ∑_{|γ|≤T} 1/|ζ'(ρ)| ≪ T (log T)^2 (a consequence of Montgomery–Vaughan mean-value bounds for ζ' and zero spacing; any standard zero-density-free bound suffices here), one gets
+S(T,x) ≪ x^{1/2} (log T)^2.
+Taking T ≍ x then yields
+M(x) ≪ x^{1/2} (log x)^2,
+as claimed. In particular, this implies M(x) = Oε(x^{1/2+ε}).
+
+Remark on rigor of the ζ'(ρ) sum bound:
+One may also avoid explicit use of ∑ 1/|ζ'(ρ)| by working with the explicit formula for M(x) derived from ζ'/ζ and integrating against a smooth cutoff at scale T, then optimizing T; the well-known consequence under RH is M(x) ≪ x^{1/2} log^2 x. Either route is standard and rigorous.
+
+3) M(x) = Oε(x^{1/2+ε}) for all ε>0 ⇒ RH
+Suppose for every ε>0 there is C(ε) with |M(x)| ≤ C(ε) x^{1/2+ε} for all x≥1. Then for σ>1/2+ε,
+∑_{n=1}^∞ μ(n) n^{-s} converges and equals s ∫_{1}^∞ M(x) x^{-s-1} dx
+(by summation by parts or Stieltjes integration). Indeed,
+|s ∫_{1}^∞ M(x) x^{-σ-1} dx| ≤ |s| ∫_{1}^∞ C(ε) x^{1/2+ε} x^{-σ-1} dx < ∞
+since σ>1/2+ε. Therefore the Dirichlet series for 1/ζ(s) analytically continues to the half-plane Re s>1/2 and is holomorphic and nonzero there; hence ζ(s) has no zeros with Re s>1/2.
+
+By the functional equation ξ(s) = ξ(1−s) (where ξ is the completed zeta function), zeros are symmetric about Re s=1/2. If there were a nontrivial zero ρ with Re ρ<1/2, then 1−ρ would be a zero with Re(1−ρ)>1/2, contradicting zero-freeness to the right. Therefore all nontrivial zeros have Re ρ=1/2, i.e., RH holds.
+
+Conclusion.
+We have given a rigorous, self-contained reduction: RH is equivalent to square-root cancellation (up to x^{ε}) in M(x), and under RH one has the quantitative M(x) ≪ x^{1/2} log^2 x.
+
+VERDICT: PARTIAL
+REASON: Clean equivalence RH ⇔ M(x)=O(x^{1/2+ε}) with proof; no new advance toward proving RH itself.

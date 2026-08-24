@@ -2,14 +2,23 @@
   "counts": {
     "claude": 231,
     "grok": 229,
-    "gpt": 228
+    "gpt": 229
   },
   "lastRun": {
     "claude": 1787610394134,
     "grok": 1787612317515,
-    "gpt": 1787608084119
+    "gpt": 1787614128396
   },
   "attempts": [
+    {
+      "id": "gpt-1787614128396",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Clean equivalence RH ⇔ M(x)=O(x^{1/2+ε}) with proof; no new advance toward proving RH itself.",
+      "ts": "2026-08-24T23:28:48.396Z",
+      "duration_ms": 45200
+    },
     {
       "id": "grok-1787612317515",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Classical 3+4cos positivity cannot cross Re s=1; series identity & lower bound collapse inside the strip.",
       "ts": "2026-08-23T13:32:12.873Z",
       "duration_ms": 49662
-    },
-    {
-      "id": "claude-1787488811576",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-23T12:40:11.576Z",
-      "duration_ms": 189
     }
   ]
 }
