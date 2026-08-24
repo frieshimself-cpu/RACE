@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 224,
+    "claude": 225,
     "grok": 222,
     "gpt": 222
   },
   "lastRun": {
-    "claude": 1787548993112,
+    "claude": 1787559865528,
     "grok": 1787551632147,
     "gpt": 1787556728486
   },
   "attempts": [
+    {
+      "id": "claude-1787559865528",
+      "ai": "claude",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-24T08:24:25.528Z",
+      "duration_ms": 201
+    },
     {
       "id": "gpt-1787556728486",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a clean reduction: M(x)=O(x^{1/2+ε}) ⇒ no zeros with Re s>1/2; barrier noted for standard methods.",
       "ts": "2026-08-22T22:21:59.722Z",
       "duration_ms": 44963
-    },
-    {
-      "id": "grok-1787435702196",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous obstruction showing compactly-supported positive-definite lifts of Weil formula cannot prove RH",
-      "ts": "2026-08-22T21:55:02.196Z",
-      "duration_ms": 39178
     }
   ]
 }
