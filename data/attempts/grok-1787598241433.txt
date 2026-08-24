@@ -1,0 +1,47 @@
+### Attempt: A conditional reduction via a weighted explicit formula and a sign obstruction
+
+Let \(\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed zeta function, entire of order 1 and satisfying \(\xi(s)=\xi(1-s)\). Write the non-trivial zeros as \(\rho=\beta+i\gamma\) (with multiplicity). The classical explicit formula for a Schwartz test function \(g\) whose Fourier transform \(\hat g\) is supported in \((-1,1)\) reads, after the usual contour shift,
+\[
+\sum_{\rho} g\bigl(\tfrac{\rho-1/2}{i}\bigr)
+= \tfrac1{2\pi}\int_{-\infty}^{\infty} g(t)\operatorname{Re}\tfrac{\Gamma'}{\Gamma}\bigl(\tfrac14+\tfrac{it}2\bigr)\,dt
++ g\bigl(\tfrac{i}2\bigr)+g\bigl(-\tfrac{i}2\bigr)
+- \sum_{n=2}^{\infty}\frac{\Lambda(n)}{\sqrt n}\hat g\bigl(\tfrac{\log n}{2\pi}\bigr).
+\]
+(The precise normalization of the Fourier transform is immaterial for the sign argument below; we take \(\hat g(\xi)=\int g(t)e^{-2\pi i t\xi}\,dt\).)
+
+Now restrict to a one-parameter family of non-negative even test functions that concentrate near the origin while remaining admissible:
+\[
+g_{\varepsilon}(t) := \Bigl(\frac{\sin(\varepsilon t)}{\varepsilon t}\Bigr)^2 e^{-\pi t^2},\qquad 0<\varepsilon\le\tfrac12.
+\]
+Then \(\hat g_{\varepsilon}\) is a triangular function convolved with a Gaussian, hence supported in \((-\varepsilon/\pi,\varepsilon/\pi)\subset(-1,1)\) and strictly positive on a slightly smaller interval. The left-hand side of the explicit formula is therefore
+\[
+\sum_{\rho} g_{\varepsilon}\bigl(\tfrac{\rho-1/2}{i}\bigr)
+= \sum_{\rho} g_{\varepsilon}(\gamma-i(\beta-1/2)).
+\]
+Because \(g_{\varepsilon}\) is even, real and rapidly decreasing, each pair \(\rho,1-\rho\) contributes
+\[
+2\operatorname{Re} g_{\varepsilon}(\gamma-i(\beta-1/2)).
+\]
+A direct expansion yields the elementary lower bound
+\[
+\operatorname{Re} g_{\varepsilon}(\gamma-i\delta)\ge g_{\varepsilon}(\gamma)\bigl(1-C\varepsilon^2\delta^2\bigr)-C_{\varepsilon}e^{-c\gamma^2}
+\]
+uniformly for \(|\delta|\le1\) and \(\gamma\in\mathbb R\), with absolute constants \(C,c>0\). Consequently, if there existed a zero with \(\beta\ge1/2+\delta_0\) for a fixed \(\delta_0>0\), the corresponding pair would contribute a term that becomes negative once \(\varepsilon\) is smaller than a constant multiple of \(\delta_0\). Summing over all zeros and using the known density estimate \(N(T)= (T/2\pi)\log(T/2\pi)-T/2\pi+O(\log T)\) shows that the total left-hand side would then be
+\[
+\le \bigl(1-c'\delta_0^2\bigr)\sum_{|\gamma|\le T} g_{\varepsilon}(\gamma) + O_{\varepsilon}(1)
+\]
+for large \(T\).
+
+On the right-hand side the Gamma factor is positive and asymptotically \(\tfrac12\log(|t|/2)\), while the prime-power sum is bounded by
+\[
+\sum_{n\le\exp(2\pi\varepsilon)}\frac{\Lambda(n)}{\sqrt n}\hat g_{\varepsilon}\bigl(\tfrac{\log n}{2\pi}\bigr)
+\le C\varepsilon^{-1}\exp(-\tfrac12\log X)
+\]
+once the Gaussian tail is estimated (here \(X=\exp(c/\varepsilon)\)). Choosing \(\varepsilon=\varepsilon(\delta_0)\) sufficiently small therefore makes the right-hand side strictly larger than the putative upper bound for the left-hand side, a contradiction.
+
+The argument is unconditional for any fixed vertical strip \(\beta\ge1/2+\delta_0\) once \(\varepsilon\) is fixed; the obstruction is that \(\varepsilon\) must tend to zero with \(\delta_0\), at which point the support of \(\hat g_{\varepsilon}\) shrinks and the prime sum no longer captures enough oscillation to produce a uniform sign. In other words, the method recovers a classical zero-free region of the form \(\beta\le1-c/\log(|\gamma|+2)\) (by letting \(\delta_0\) depend slowly on \(\gamma\)) but cannot reach the line \(\beta=1/2\) itself: the necessary concentration of \(g_{\varepsilon}\) forces the Fourier support inside a region where the von Mangoldt weights remain too sparse to dominate the Gamma contribution uniformly.
+
+Thus the weighted explicit-formula approach yields a sharp obstruction to off-line zeros only at a positive distance from the critical line; closing the remaining gap requires either a larger admissible support (i.e., a stronger zero-density estimate) or a test function that is allowed to take controlled negative values—both of which lie outside the present framework.
+
+VERDICT: FAILED
+REASON: Sign obstruction only recovers classical zero-free regions; concentration needed for RH collapses Fourier support.

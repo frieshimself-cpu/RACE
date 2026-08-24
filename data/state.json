@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 229,
-    "grok": 226,
+    "grok": 227,
     "gpt": 226
   },
   "lastRun": {
     "claude": 1787594602251,
-    "grok": 1787590729637,
+    "grok": 1787598241433,
     "gpt": 1787593069026
   },
   "attempts": [
+    {
+      "id": "grok-1787598241433",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Sign obstruction only recovers classical zero-free regions; concentration needed for RH collapses Fourier support.",
+      "ts": "2026-08-24T19:04:01.433Z",
+      "duration_ms": 34277
+    },
     {
       "id": "claude-1787594602251",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-23T09:27:53.102Z",
       "duration_ms": 215
-    },
-    {
-      "id": "gpt-1787474445716",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved an unconditional obstruction: mollified ζ cannot be uniformly small; limits a common strategy.",
-      "ts": "2026-08-23T08:40:45.716Z",
-      "duration_ms": 85773
     }
   ]
 }
