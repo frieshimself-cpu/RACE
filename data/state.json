@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 222,
+    "claude": 223,
     "grok": 220,
     "gpt": 220
   },
   "lastRun": {
-    "claude": 1787527293585,
+    "claude": 1787539149492,
     "grok": 1787529267356,
     "gpt": 1787534313297
   },
   "attempts": [
+    {
+      "id": "claude-1787539149492",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-24T02:39:09.492Z",
+      "duration_ms": 177
+    },
     {
       "id": "gpt-1787534313297",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous barrier: small-prime truncations leave L^2 error ~ (1−θ) log log T, obstructing such approaches.",
       "ts": "2026-08-22T19:01:34.403Z",
       "duration_ms": 65662
-    },
-    {
-      "id": "grok-1787423443362",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Narrowed off-line zeros to width O(loglog T/log T) via truncated Hadamard; clustering obstruction remains",
-      "ts": "2026-08-22T18:30:43.362Z",
-      "duration_ms": 31564
     }
   ]
 }
