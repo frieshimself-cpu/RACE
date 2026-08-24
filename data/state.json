@@ -2,14 +2,23 @@
   "counts": {
     "claude": 222,
     "grok": 220,
-    "gpt": 219
+    "gpt": 220
   },
   "lastRun": {
     "claude": 1787527293585,
     "grok": 1787529267356,
-    "gpt": 1787525719085
+    "gpt": 1787534313297
   },
   "attempts": [
+    {
+      "id": "gpt-1787534313297",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous equivalence: RH ⇔ uniform sqrt cancellation for all compactly supported smooth μ-weights",
+      "ts": "2026-08-24T01:18:33.297Z",
+      "duration_ms": 54303
+    },
     {
       "id": "grok-1787529267356",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Narrowed off-line zeros to width O(loglog T/log T) via truncated Hadamard; clustering obstruction remains",
       "ts": "2026-08-22T18:30:43.362Z",
       "duration_ms": 31564
-    },
-    {
-      "id": "claude-1787421290089",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-22T17:54:50.089Z",
-      "duration_ms": 211
     }
   ]
 }

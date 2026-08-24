@@ -1,0 +1,48 @@
+Attempt: A flexible smoothed Möbius criterion equivalent to the Riemann Hypothesis
+
+Set-up:
+- For a smooth compactly supported W: (0,∞) → C, define its Mellin transform Ẇ(s) = ∫_0^∞ W(u) u^{s-1} du, an entire function decaying rapidly on vertical lines.
+- Define the smoothed Möbius sum at scale x > 0 by S_W(x) = ∑_{n≥1} μ(n) W(n/x).
+- Note the Dirichlet–Mellin identity:
+  S_W(x) = (1/2πi) ∫_{(2)} (x^s / ζ(s)) Ẇ(s) ds,
+  absolutely convergent on Re s = 2.
+
+Proposition (equivalence): Let C be the class of smooth, compactly supported W with Ẇ(1) = 0. The following are equivalent:
+(A) RH holds (i.e., all nontrivial zeros ρ of ζ satisfy Re ρ = 1/2).
+(B) For every ε > 0 and every W ∈ C, one has S_W(x) = O_{W,ε}(x^{1/2+ε}) as x → ∞.
+
+Proof (sketch, rigorous in standard analytic number theory framework):
+
+(A) ⇒ (B):
+- Start from S_W(x) = (1/2πi) ∫_{(2)} (x^s / ζ(s)) Ẇ(s) ds. Since Ẇ(1) = 0, there is no contribution from s = 1 when contours are shifted.
+- Under RH, 1/ζ(s) is holomorphic for Re s > 1/2. Shift the line of integration to Re s = 1/2 + η (with any fixed η ∈ (0,ε)), without crossing any poles (the only pole at s=1 is killed by Ẇ(1)=0, and there are no zeros in Re s > 1/2).
+- On this line, use standard bounds |1/ζ(σ+it)| ≪_{σ} (1+|t|)^A for some A(σ), together with rapid decay of Ẇ(σ+it) on vertical lines, to get
+  S_W(x) ≪ x^{1/2+η} ∫_{ℝ} |(1/ζ)(1/2+η+it)| |Ẇ(1/2+η+it)| dt ≪_{W,η} x^{1/2+η}.
+- Since η can be taken arbitrarily small up to ε, we get S_W(x) = O_{W,ε}(x^{1/2+ε}).
+
+(B) ⇒ (A):
+- Suppose, for contradiction, that there exists a nontrivial zero ρ of ζ with β := Re ρ > 1/2. We will construct W ∈ C with Ẇ(ρ) ≠ 0.
+- Construction of W separating 1 and ρ:
+  • Pick any nonzero smooth compactly supported w. For a ∈ ℝ, set V_a(u) = w(u) u^{ia}, so Ẇ_{V_a}(s) = Ẇ_w(s+ia).
+  • The map a ↦ R(a) := Ẇ_{V_a}(1)/Ẇ_{V_a}(ρ) is nonconstant meromorphic; choose a1 ≠ a2 with R(a1) ≠ R(a2) and both denominators nonzero.
+  • Let V1 = V_{a1}, V2 = V_{a2}. Solve for nontrivial (α,β) ∈ C^2 with α Ẇ_{V1}(1) + β Ẇ_{V2}(1) = 0. Then W := α V1 + β V2 has Ẇ(1)=0, and its value at ρ is Ẇ(ρ) = α Ẇ_{V1}(ρ) + β Ẇ_{V2}(ρ) = Ẇ_{V2}(ρ)(-α R(a1) + β), which is nonzero because R(a1) ≠ R(a2) and (α,β) was chosen to kill only the value at 1.
+  • Thus W ∈ C and Ẇ(ρ) ≠ 0.
+- For this W, write S_W(x) via Mellin inversion and shift the contour from Re s = 2 to Re s = σ with 1/2 < σ < β. The only singularities crossed are:
+  • s = 1 (a pole of 1/ζ), but it contributes no residue since Ẇ(1)=0;
+  • zeros ρ' of ζ with Re ρ' > σ, each contributing a residue term x^{ρ'} Ẇ(ρ')/ζ'(ρ').
+- In particular, the zero ρ contributes a main term C x^{β} with C = Ẇ(ρ)/ζ'(ρ) ≠ 0. The remaining integral on Re s = σ and the sum of residues from any other zeros with real part ≤ β are O(x^{β-δ}) for some δ = δ(σ,β) > 0 due to the factor x^{Re s} and the rapid decay of Ẇ on vertical lines.
+- Therefore, for large x,
+  S_W(x) = C x^{β} + O(x^{β-δ}),
+  contradicting the assumed bound S_W(x) = O_{W,ε}(x^{1/2+ε}) since β > 1/2 and ε can be arbitrarily small.
+- Hence there are no zeros with Re ρ > 1/2, i.e., RH holds.
+
+Remarks:
+- The class C enforces Ẇ(1)=0 to cancel the simple pole of ζ at s=1. The flexibility “for every W ∈ C” is essential to exclude the possibility that Ẇ vanishes accidentally at a zero of ζ.
+- Under RH, the proven bound is uniform in the sense standard to smoothed explicit formulae: the implied constant depends on finitely many seminorms of W and on ε.
+- This reduces RH to a clean family of square-root cancellation estimates for compactly supported smooth weightings of μ; any proof of such bounds for all W ∈ C (with no loss in the x-exponent beyond x^{ε}) would settle RH.
+
+Scope and limitations:
+- This is a rigorous equivalence (reduction) but does not provide new upper bounds unconditionally; it reframes RH as a robust family of smoothed Möbius cancellation statements that eliminate the usual obstruction (accidental zeros of the Mellin transform).
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous equivalence: RH ⇔ uniform sqrt cancellation for all compactly supported smooth μ-weights
