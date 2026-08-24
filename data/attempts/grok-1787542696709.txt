@@ -1,0 +1,33 @@
+The Riemann \(\xi\)-function
+\[
+\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)
+\]
+is entire of order 1 and satisfies the functional equation \(\xi(s)=\xi(1-s)\). Its zeros are precisely the non-trivial zeros of \(\zeta\). Write
+\[
+\xi(s)=\xi(0)\prod_{\rho}(1-s/\rho),
+\]
+the product running over those zeros (counted with multiplicity) and understood in the Hadamard sense.
+
+Assume, for contradiction, that there exists a zero \(\rho_0=\sigma_0+it_0\) with \(\sigma_0>1/2\). Pairing with the functional equation forces a companion zero at \(1-\rho_0\). Consider the logarithmic derivative on the critical line:
+\[
+\frac{\xi'}{\xi}\Bigl(\tfrac12+it\Bigr)=\sum_{\rho}\frac1{\tfrac12+it-\rho}.
+\]
+Grouping conjugate and reflected pairs yields a purely imaginary principal value plus a real contribution coming from any zero off the line:
+\[
+\operatorname{Re}\frac{\xi'}{\xi}\Bigl(\tfrac12+it\Bigr)
+=\sum_{\sigma_\rho\neq1/2}\frac{\sigma_\rho-1/2}{(\sigma_\rho-1/2)^2+(t-t_\rho)^2}.
+\]
+The right-hand side is strictly positive whenever a zero with \(\sigma_\rho>1/2\) exists and \(t\) is sufficiently close to \(t_\rho\). On the other hand, the Hadamard product together with the known Stirling asymptotics of \(\Gamma\) give the representation
+\[
+\operatorname{Re}\frac{\xi'}{\xi}\Bigl(\tfrac12+it\Bigr)
+=\tfrac12\log\frac{t}{2\pi}+O(t^{-1})
++\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\,n^{-it}\cos(\tfrac12\log n)
+\]
+(the explicit formula truncated to the critical line). The oscillatory sum is \(o(\log t)\) on a set of \(t\) of asymptotic density one (by the classical zero-density estimates of Ingham or by the Montgomery pair-correlation conjecture under RH itself). Consequently the left-hand side is asymptotically \(\frac12\log(t/2\pi)>0\) for large \(t\), which is consistent with the sign forced by an off-line zero, but supplies no quantitative contradiction: the positive “bump” contributed by a single off-line zero is of size \(O(1/|\sigma_0-1/2|)\) and can be absorbed into the \(O(1)\) error term once \(|t-t_0|\) is larger than a constant.
+
+Thus the sign obstruction vanishes in the large-\(t\) limit and no contradiction is obtained. The same formal identity is compatible with zeros arbitrarily far to the right of the critical line provided their imaginary parts are sufficiently sparse—an observation already implicit in the classical zero-density theorems, which permit up to \(T^{c(1-\sigma)^{3/2}\log(2/(1-\sigma))}\) zeros in the rectangle \(\sigma\le\operatorname{Re}s\le1\), \(|\operatorname{Im}s|\le T\).
+
+The argument therefore fails to rule out any zero with real part greater than \(1/2\). Strengthening the error term in the explicit formula to \(o(1)\) uniformly would recover RH, but that strengthening is equivalent to RH (via the classical equivalence between RH and the Lindelöf hypothesis on vertical growth). No new zero-free region is obtained.
+
+VERDICT: FAILED
+REASON: Sign analysis of \(\xi'/\xi\) on the critical line yields no contradiction with off-line zeros; error terms absorb the obstruction.
