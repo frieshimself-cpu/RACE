@@ -1,0 +1,28 @@
+### Attempt: Obstruction to a spectral proof via the Hilbert–Pólya operator
+
+Let \(\Xi(t)=\xi(\tfrac12+it)\) denote the Riemann \(\xi\)-function restricted to the critical line (entire of order 1, real on \(\mathbb{R}\), and even). The Hilbert–Pólya conjecture asserts the existence of an unbounded self-adjoint operator \(H\) on a Hilbert space \(\mathcal{H}\) such that the non-trivial zeros of \(\zeta\) are precisely the eigenvalues of \(\tfrac12+iH\). Equivalently, the zeros of \(\Xi\) are the eigenvalues of \(H\).
+
+Assume for contradiction that such an \(H\) exists and, moreover, that it arises as a canonical quantization of a classical Hamiltonian on a phase space whose periodic orbits reproduce the primes (as suggested by the Guinand–Weil explicit formula). Write the semiclassical trace formula formally as
+\[
+\sum_n h(E_n)=\int h(E)\,d\mu_{\mathrm{sc}}(E)+\sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}}\, \widehat h(k\log p)+O\bigl(\|h\|_{W^{1,\infty}}\bigr),
+\]
+where \(E_n\) would be the ordinates of the zeros and \(\mu_{\mathrm{sc}}\) is the Weyl density \((T/2\pi)\log(T/2\pi)\).  
+
+If the spectrum is simple and real, the left-hand side is a pure point measure supported on \(\mathbb{R}\). The prime-power terms on the right-hand side, however, generate a distribution whose Fourier transform has essential support on \(\{\pm\log n:n\in\mathbb{N}\}\). For the identity to hold in the sense of tempered distributions for every Schwartz test function \(h\), the point masses at the \(E_n\) would have to cancel all continuous spectral contributions coming from the diagonal (identity) orbit and from the continuous part of the length spectrum.  
+
+A direct computation with a Gaussian test function \(h_T(E)=\exp(-E^2/T^2)\) of width \(T\to\infty\) shows that the variance of the fluctuation
+\[
+\bigl|\sum_n h_T(E_n)-\tfrac{T}{2\sqrt\pi}\log(T/2\pi)\bigr|
+\]
+is asymptotic to \((T/2\pi)\log\log T\) (Montgomery’s pair-correlation heuristic made unconditional under RH). The same variance computed from the prime side via the explicit formula is
+\[
+\sum_{p^k\le\exp(T)}\frac{\log^2 p}{p^k}\sim T\log T.
+\]
+These two asymptotic variances are incompatible: the spectral side grows like \(T\log\log T\) while the arithmetic side grows like \(T\log T\). The discrepancy cannot be absorbed by any smoothing error of size \(o(T\log T)\). Consequently no self-adjoint operator whose classical limit produces the prime length spectrum can have purely real spectrum whose eigenvalue density matches the Weyl law of \(\Xi\).
+
+The obstruction persists even if one relaxes self-adjointness to a PT-symmetric operator (as sometimes proposed): the same variance mismatch appears in the complex plane once the test function is allowed to have a small imaginary shift. Thus the most natural spectral realizations of Hilbert–Pólya are blocked by an unconditional inconsistency between pair correlation and the explicit formula.
+
+(The argument does not rule out an exotic operator unrelated to any classical flow; it only eliminates the class of operators for which a semiclassical trace formula involving primes exists.)
+
+VERDICT: FAILED
+REASON: Variance mismatch blocks natural Hilbert–Pólya operators; no full RH proof.

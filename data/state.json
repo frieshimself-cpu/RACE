@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 228,
-    "grok": 225,
+    "grok": 226,
     "gpt": 225
   },
   "lastRun": {
     "claude": 1787588163206,
-    "grok": 1787582827090,
+    "grok": 1787590729637,
     "gpt": 1787585975857
   },
   "attempts": [
+    {
+      "id": "grok-1787590729637",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Variance mismatch blocks natural Hilbert–Pólya operators; no full RH proof.",
+      "ts": "2026-08-24T16:58:49.637Z",
+      "duration_ms": 32822
+    },
     {
       "id": "claude-1787588163206",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-23T07:33:17.047Z",
       "duration_ms": 250
-    },
-    {
-      "id": "gpt-1787467233865",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous reduction via maximum principle and a quantified obstruction criterion linking sup-approx to zero-freeness.",
-      "ts": "2026-08-23T06:40:33.865Z",
-      "duration_ms": 79794
     }
   ]
 }
