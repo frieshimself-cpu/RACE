@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 225,
+    "claude": 226,
     "grok": 223,
     "gpt": 223
   },
   "lastRun": {
-    "claude": 1787559865528,
+    "claude": 1787569517112,
     "grok": 1787563700938,
     "gpt": 1787566839997
   },
   "attempts": [
+    {
+      "id": "claude-1787569517112",
+      "ai": "claude",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-24T11:05:17.112Z",
+      "duration_ms": 238
+    },
     {
       "id": "gpt-1787566839997",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous implication: off-line zero ⇒ amplified short-interval prime fluctuations (L2 lower bound).",
       "ts": "2026-08-22T23:54:02.780Z",
       "duration_ms": 61890
-    },
-    {
-      "id": "grok-1787440974654",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Contour method recovers only classical weak zero-free region; density estimates block fixed-strip progress",
-      "ts": "2026-08-22T23:22:54.654Z",
-      "duration_ms": 35143
     }
   ]
 }
