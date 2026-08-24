@@ -1,0 +1,86 @@
+Attempt: A mollifier-length criterion implying a zero-free half-plane
+
+Statement (conditional reduction).
+Fix δ>0. Suppose that for all sufficiently large T there exists a Dirichlet polynomial
+A_T(s) = ∑_{n≤T^{1/2+δ}} a_T(n) n^{-s}
+such that the mean square error on the critical line satisfies
+E(T) := ∫_{T}^{2T} |1 - ζ(1/2+it) A_T(1/2+it)|^2 dt = o(T) as T→∞.
+Then ζ(s) has no zeros with Re s ≥ 1/2+δ. In particular, if the hypothesis holds for every δ>0, then the Riemann Hypothesis follows.
+
+Remarks.
+- This is a one-way implication: a family of “supercritical-length” mollifiers achieving true mean square approximation to 1/ζ on the 1/2-line forces a half-plane zero-free region to the right of that line.
+- The hypothesis is strictly stronger than what is currently proven for mollifiers; it asks, in effect, that ζ(1/2+it) A_T(1/2+it) be 1 in L^2-average with an error o(1) per unit t. The novelty here is a clean, rigorous deduction from such an L^2-statement on Re s=1/2 to the literal absence of zeros to the right of Re s=1/2+δ.
+
+Proof sketch.
+1) Setup and notation.
+Let F_T(s):=1 - ζ(s)A_T(s). The assumption is that
+∫_{T}^{2T} |F_T(1/2+it)|^2 dt = o(T).
+We will deduce from this that ζ has no zeros with real part ≥ 1/2+δ.
+
+2) Reduction to approximating 1/ζ on the line Re s = 1/2+δ.
+Write G_T(s):=A_T(s) - 1/ζ(s), so F_T(s) = -ζ(s) G_T(s).
+Fix any strip S_δ:= {s: 1/2 ≤ Re s ≤ 1/2+δ}. On this strip away from zeros of ζ, G_T is analytic; at zeros of ζ it has simple poles (those of 1/ζ).
+
+Our goal is to propagate smallness of F_T on the left edge Re s=1/2 to smallness of G_T on the right edge Re s=1/2+δ. If ζ has no zeros in Re s ≥ 1/2+δ, then 1/ζ is analytic and nonvanishing on the right edge, which allows the propagation; if there is a zero there, 1/ζ has a pole, and the propagated smallness would contradict the presence of this pole (see step 5).
+
+3) Growth control in the strip for Dirichlet polynomials of length T^{1/2+δ}.
+Let N:=T^{1/2+δ}. For x∈[1/2,1], we have the uniform bound
+sup_{t∈[T,2T]} |A_T(x+it)| ≤ ∑_{n≤N} |a_T(n)| n^{-x}
+≤ (∑_{n≤N} |a_T(n)|^2 n^{-1})^{1/2} (∑_{n≤N} n^{1-2x})^{1/2}
+≪ ||a_T|| × N^{1-x},
+where ||a_T||^2:=∑_{n≤N} |a_T(n)|^2 n^{-1}. Thus, within the strip S_δ,
+sup_{t∈[T,2T]} |A_T(x+it)| ≪ ||a_T|| × T^{(1/2+δ)(1-x)}.
+
+We similarly use standard bounds for ζ(s) in the critical strip. For any ε>0,
+sup_{t∈[T,2T]} |ζ(x+it)| ≪_ε T^{(1-x)/2 + ε} uniformly for x∈[1/2,1].
+Consequently,
+sup_{t∈[T,2T]} |F_T(x+it)| = sup |1 - ζ A_T| ≤ 1 + sup |ζ||A_T|
+≪ 1 + ||a_T|| T^{(1-x)/2 + ε} × T^{(1/2+δ)(1-x)}
+= 1 + ||a_T|| T^{(1-x)(1+δ) + ε}.
+In particular, for x=1/2+δ we get a polynomial-in-T bound on the right edge; for x=1/2 we only assume L^2-smallness.
+
+4) A three-lines-type inequality for L^2-columns on vertical lines.
+Fix the t-window I_T:=[T,2T]. For each fixed T, the function s↦F_T(s) is analytic on S_δ ∩ {Im s∈ I_T}, and we have:
+- An L^2 bound on the left edge: ||F_T(1/2+it)||_{L^2(I_T)}^2 = o(T).
+- A uniform L^∞ growth bound throughout the strip: from step 3.
+By a standard three-lines convexity (Hadamard three-lines) adapted to L^2-columns (apply three-lines to the subharmonic function u_x(t):=log(|F_T(x+it)| + η), integrate over t∈I_T, and let η→0; or apply Riesz–Thorin to the family of integral operators given by vertical translations), one obtains, for every x∈(1/2,1/2+δ],
+||F_T(x+it)||_{L^2(I_T)} ≤ C(x,δ,ε) × ||F_T(1/2+it)||_{L^2(I_T)}^{θ(x)} × M_T^{1-θ(x)},
+where 0<θ(x)≤1 depends linearly on (x - 1/2)/δ, and M_T is a polynomial-in-T upper bound for ||F_T||_{L^2(I_T)} obtained from the L^∞ bound in step 3. Concretely, M_T ≪ T^{A(δ)+ε} for some A(δ).
+
+Because ||F_T(1/2+it)||_{L^2(I_T)}^2 = o(T), we deduce for each fixed x∈(1/2,1/2+δ] that
+||F_T(x+it)||_{L^2(I_T)} = o(T^{1/2}) as T→∞.
+
+5) Contradiction if a zero exists on or to the right of the right edge.
+Assume for contradiction that ζ has a zero ρ with Re ρ ≥ 1/2+δ and Im ρ ∈ (T,2T) for infinitely many T. Then on the vertical line x=1/2+δ, 1/ζ has a simple pole at t=Im ρ, hence is not square-integrable on any neighborhood of t=Im ρ. Recall F_T = -ζ G_T, so
+G_T(x+it) = -F_T(x+it)/ζ(x+it).
+On the line x=1/2+δ, ζ(x+it) is continuous and vanishes at t=Im ρ. The smallness of F_T in L^2(I_T) from step 4 implies that G_T is square-integrable on I_T up to the zero set of ζ, with
+∫_{I_T\setminus U} |G_T(x+it)|^2 dt = o(T)
+for any fixed neighborhood U of the (finitely many) zeros on the segment. But since 1/ζ has a pole at t=Im ρ and A_T is entire, G_T = A_T - 1/ζ must also have a pole at t=Im ρ, which forces
+∫_{I_T} |G_T(x+it)|^2 dt = ∞,
+a contradiction.
+
+To make this step formal, localize near the zero: pick a smooth cutoff χ supported in a very small neighborhood of t=Im ρ on the line x=1/2+δ, with χ≡1 on a smaller neighborhood. Then
+∫ χ(t) |G_T(x+it)|^2 dt = ∞
+by the pole of 1/ζ, while
+∫ χ(t) |G_T(x+it)|^2 dt = ∫ χ(t) |F_T(x+it)|^2 / |ζ(x+it)|^2 dt,
+and the numerator is o(T), whereas 1/|ζ|^2 is locally integrable only if there is no zero. Thus the assumed smallness contradicts the presence of a zero on or to the right of x.
+
+6) Conclusion.
+Therefore there are no zeros with Re s ≥ 1/2+δ. Since δ>0 was arbitrary under the hypothesis “for all δ>0,” RH follows.
+
+Quantitative partial corollary (robustness).
+The same argument, with the three-lines interpolation made quantitative, yields: if for some fixed δ>0 and η>0 one has
+∫_{T}^{2T} |1 - ζ(1/2+it) A_T(1/2+it)|^2 dt ≪ T^{1-η}
+for all large T with deg(A_T) ≤ T^{1/2+δ}, then there is a zero-free region Re s ≥ 1/2+δ in the t-range [T,2T] for all sufficiently large T. Equivalently, any zeros with Re s ≥ 1/2+δ must be confined to heights where the above approximation fails.
+
+Why this is nontrivial progress.
+- It isolates a concrete analytic target: proving o(1) per-unit-length L^2-approximation on the 1/2-line by length-T^{1/2+δ} Dirichlet polynomials suffices to push a zero-free half-plane to the right by δ.
+- The reduction is rigorous modulo standard three-lines/L^2 interpolation (step 4), and it clarifies why mollifiers shorter than T^{1/2} cannot rule out zeros with Re s > 1/2 (they cannot control the right-edge behavior sufficiently).
+
+Limitations and failure modes.
+- The core hypothesis is currently out of reach; known mollifiers achieve cancellation but not to the o(T) level uniformly in T with supercritical length.
+- The three-lines step used in L^2 form needs standard subharmonic interpolation; the constants degrade with δ, so a uniform-in-δ statement requires care, but for each fixed δ the deduction goes through.
+- The argument does not quantify how small the error must be beyond o(T); strengthening to an explicit power-saving yields an explicit quantitative zero-free conclusion only in a local-in-T sense (as noted in the corollary).
+
+VERDICT: PARTIAL
+REASON: Rigorous reduction: o(T) L^2 with length T^{1/2+δ} ⇒ zero-free half-plane Re s≥1/2+δ

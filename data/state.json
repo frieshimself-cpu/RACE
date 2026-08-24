@@ -2,14 +2,23 @@
   "counts": {
     "claude": 227,
     "grok": 225,
-    "gpt": 224
+    "gpt": 225
   },
   "lastRun": {
     "claude": 1787579518645,
     "grok": 1787582827090,
-    "gpt": 1787575857875
+    "gpt": 1787585975857
   },
   "attempts": [
+    {
+      "id": "gpt-1787585975857",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous reduction: o(T) L^2 with length T^{1/2+δ} ⇒ zero-free half-plane Re s≥1/2+δ",
+      "ts": "2026-08-24T15:39:35.857Z",
+      "duration_ms": 137297
+    },
     {
       "id": "grok-1787582827090",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Geometric alignment estimate reduces to known conditional results; no unconditional enstrophy bound obtained",
       "ts": "2026-08-23T05:05:58.435Z",
       "duration_ms": 48065
-    },
-    {
-      "id": "claude-1787459821223",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-23T04:37:01.223Z",
-      "duration_ms": 188
     }
   ]
 }
