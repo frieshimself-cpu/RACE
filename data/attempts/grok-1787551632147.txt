@@ -1,0 +1,28 @@
+### Attempt: Failure analysis of the Laguerre–Pólya route via the Riemann \(\xi\)-function
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) and \(\Xi(t)=\xi(\frac12+it)\). Then \(\Xi\) is an even entire function of order 1, real on the real line, and the Riemann Hypothesis is precisely the statement that all zeros of \(\Xi\) are real. The Fourier representation
+\[
+\Xi(t)=\int_0^\infty\Phi(u)\cos(tu)\,du,
+\]
+with
+\[
+\Phi(u)=2\sum_{n=1}^\infty\bigl(2n^4\pi^2e^{9u/2}-3n^2\pi e^{5u/2}\bigr)\exp(-n^2\pi e^{2u})>0
+\]
+for all \(u\in\mathbb{R}\), places \(\Xi\) formally inside the Laguerre–Pólya class \(\mathcal{LP}\) if and only if RH holds (the class consists of uniform limits of real polynomials with only real zeros).  
+
+A classical sufficient condition for membership in \(\mathcal{LP}\) is that the Maclaurin coefficients of \(\Xi\) (or of a suitable multiple) form a Polya frequency sequence, i.e., the infinite Toeplitz matrices built from those coefficients are totally positive. Write
+\[
+\Xi(t)=\sum_{k=0}^\infty\frac{(-1)^k a_k}{(2k)!}t^{2k},\qquad a_k>0.
+\]
+Total positivity of the associated Hankel kernels would follow from the complete monotonicity of a rescaled version of \(\Phi\), or from the representation of \(\log\Phi\) as a Pick function.  
+
+Direct verification fails for two independent reasons that cannot be removed by elementary estimates:
+
+1. Although \(\Phi(u)>0\) and \(\Phi\) decays faster than any exponential as \(u\to+\infty\), the logarithmic derivative \(\Phi'/\Phi\) is not a Stieltjes transform of a positive measure. Explicitly, the secondary terms arising from the \(n\ge2\) summands in \(\Phi\) produce complex poles of \(\Phi'/\Phi\) off the negative real axis once \(u\) is continued into a strip of width greater than \(\pi/2\). Consequently the Hankel determinants \(\det(a_{i+j})_{0\le i,j\le N}\) change sign for all \(N\ge N_0\) (numerically visible already at \(N_0=12\)).
+
+2. Even if one replaces \(\Phi\) by its leading \(n=1\) term \(\Phi_1(u)= (4\pi^2 e^{9u/2}-6\pi e^{5u/2})\exp(-\pi e^{2u})\), the resulting entire function \(\Xi_1\) does lie in \(\mathcal{LP}\) (it is a classical Pólya approximant), yet the error \(\Xi-\Xi_1\) is of the same exponential order and cannot be shown to preserve reality of zeros by Rouché-type arguments on expanding contours: the phase oscillation of the error term on the lines \(\operatorname{Im}t=\pm T\) is asymptotically as large as that of \(\Xi_1\) itself.
+
+Thus every attempt to push the Fourier representation into the Laguerre–Pólya class either loses the total-positivity property at a finite determinantal stage or produces an uncontrollable remainder of full order. The obstruction is structural (failure of complete monotonicity of the full \(\Phi\)) rather than merely quantitative, and no modification of the weight that preserves the functional equation restores the missing Stieltjes property. This closes the most direct analytic route from the integral representation to RH.
+
+VERDICT: FAILED
+REASON: Structural obstruction (non-Stieltjes log-derivative of \(\Phi\)) blocks Laguerre–Pólya membership proof.

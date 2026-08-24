@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 224,
-    "grok": 221,
+    "grok": 222,
     "gpt": 221
   },
   "lastRun": {
     "claude": 1787548993112,
-    "grok": 1787542696709,
+    "grok": 1787551632147,
     "gpt": 1787545693340
   },
   "attempts": [
+    {
+      "id": "grok-1787551632147",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Structural obstruction (non-Stieltjes log-derivative of \\(\\Phi\\)) blocks Laguerre–Pólya membership proof.",
+      "ts": "2026-08-24T06:07:12.147Z",
+      "duration_ms": 45675
+    },
     {
       "id": "claude-1787548993112",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-22T21:25:19.663Z",
       "duration_ms": 183
-    },
-    {
-      "id": "gpt-1787432184929",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous barrier: short mollifiers (θ<1/2) can’t suppress large ζ peaks; shows a concrete method limitation.",
-      "ts": "2026-08-22T20:56:24.929Z",
-      "duration_ms": 63704
     }
   ]
 }
