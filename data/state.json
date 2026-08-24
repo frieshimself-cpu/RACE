@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 230,
-    "grok": 227,
+    "grok": 228,
     "gpt": 227
   },
   "lastRun": {
     "claude": 1787603435950,
-    "grok": 1787598241433,
+    "grok": 1787605393232,
     "gpt": 1787600878995
   },
   "attempts": [
+    {
+      "id": "grok-1787605393232",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Reduction to PNT error term is circular; no new zero-free region or unconditional density gain.",
+      "ts": "2026-08-24T21:03:13.232Z",
+      "duration_ms": 38351
+    },
     {
       "id": "claude-1787603435950",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-23T10:56:39.787Z",
       "duration_ms": 216
-    },
-    {
-      "id": "gpt-1787480974243",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved an unconditional obstruction: fixed-kernel positivity implies Λ≤0, hence must resolve Λ=0 to get RH.",
-      "ts": "2026-08-23T10:29:34.243Z",
-      "duration_ms": 70952
     }
   ]
 }

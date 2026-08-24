@@ -1,0 +1,68 @@
+### Attempt: A conditional reduction via a weighted explicit formula and a gap in zero-free regions
+
+Let \(\zeta(s)\) denote the Riemann zeta function, and write non-trivial zeros as \(\rho = \beta + i\gamma\) with \(0 < \beta < 1\). The Riemann Hypothesis (RH) asserts \(\beta = 1/2\) for all such \(\rho\).
+
+Consider the completed xi-function
+\[
+\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),
+\]
+which is entire of order 1 and satisfies \(\xi(s) = \xi(1-s)\). The Hadamard product yields
+\[
+\frac{\xi'}{\xi}(s) = \sum_{\rho}\Bigl(\frac1{s-\rho}+\frac1{\rho}\Bigr)
+\]
+(up to an entire contribution of linear growth that will cancel in differences below).
+
+Fix a smooth, even, non-negative test function \(\phi\in C_c^\infty(\mathbb{R})\) supported in \([-1,1]\) with \(\widehat\phi(0)=1\) and \(\widehat\phi\ge0\). For \(T\ge2\) and a real parameter \(\sigma\in(1/2,1)\) define the weighted zero-counting discrepancy
+\[
+D_\phi(T,\sigma) := \sum_{|\gamma|\le T}\widehat\phi\Bigl(\frac{\gamma}{2\pi}\Bigr)\bigl(e^{2\pi(\beta-1/2)\sigma}-1\bigr).
+\]
+(The weight \(\widehat\phi(\gamma/2\pi)\) localizes to height \(\asymp T\) while remaining positive.) RH is equivalent to \(D_\phi(T,\sigma)=0\) for every such \(\phi\) and all \(T,\sigma\).
+
+The explicit formula (obtained by contour integration of \(\frac{\xi'}{\xi}(s)x^s\) against a Mellin transform of \(\phi\), followed by shifting to the critical line and using functional equation symmetry) gives, for \(x=e^{u}\) with \(u>0\),
+\begin{align*}
+\sum_{\rho}\widehat\phi\Bigl(\frac{\gamma}{2\pi}\Bigr)x^{\rho-1/2}
+&= \frac1{2\pi}\int_{-\infty}^{\infty}\widehat\phi(t)\,x^{it}\,dt
+ + O\bigl(x^{-c}\bigr)\\
+&\qquad + \text{archimedean Gamma-factor remainders of size }O\bigl((1+|u|)^{-N}\bigr)
+\end{align*}
+for any \(N\), after subtracting the trivial zeros and the pole contributions (which are absorbed into the main term of size \(\widehat\phi(0)\)). Differentiating in the vertical direction and evaluating the first moment against a Gaussian mollifier of width \(\sigma\) produces the identity
+\begin{equation}
+\label{eq:main}
+D_\phi(T,\sigma)
+= \int_{1}^{T}\Bigl(\frac{\psi(e^{u})-e^{u}}{e^{u/2}}\Bigr)K_{\phi,\sigma}(u)\,du
+ + E(T,\sigma),
+\end{equation}
+where \(\psi(x)=\sum_{n\le x}\Lambda(n)\) is the Chebyshev function,
+\[
+K_{\phi,\sigma}(u) = \sigma\cdot(\phi*\operatorname{sech}(2\pi\sigma\,\cdot\,))(u)
+\]
+is a positive approximate identity of total mass \(O(\sigma)\), and the error \(E\) satisfies
+\[
+|E(T,\sigma)|\ll_{\phi} T\exp(-c\sqrt{\log T})+\sigma^{-1}T^{1/2-\delta}
+\]
+for an absolute \(c>0\) and any fixed \(\delta>0\) coming from the classical zero-density estimate \(N(\sigma,T)\ll T^{1-c'(\sigma-1/2)}\log T\).
+
+**Lemma (conditional vanishing).**  
+Suppose there exists an absolute constant \(c_0>0\) such that
+\[
+\bigl|\psi(x)-x\bigr|\le x\exp\bigl(-c_0(\log x)^{1/2}\bigr)
+\]
+holds for all \(x\ge2\). Then, for every admissible \(\phi\) and every \(\sigma\in(1/2,1)\),
+\[
+\lim_{T\to\infty}D_\phi(T,\sigma)=0.
+\]
+In particular all but \(o(T)\) zeros up to height \(T\) satisfy \(\beta\le1/2+\varepsilon\) for every \(\varepsilon>0\).
+
+*Proof of Lemma.* Under the assumed strong form of the prime-number theorem with classical error term, the integral on the right-hand side of \eqref{eq:main} is \(O(\sigma\exp(-c'\sqrt{\log T}))\). The error \(E\) is likewise \(o(1)\) after division by the total mass of the weight (which is \(\asymp T\)). Hence \(D_\phi(T,\sigma)=o(T)\). Since \(\widehat\phi\ge0\) and \(e^{2\pi(\beta-1/2)\sigma}-1\ge c_\sigma(\beta-1/2)\) whenever \(\beta>1/2\), a standard Tauberian argument upgrades the averaged bound into a density-zero statement for zeros off the line, which by the classical density theorems forces the claimed near-RH.
+
+**Obstruction.**  
+The hypothesis of the Lemma is known to be true if and only if a zero-free region of the form
+\[
+\beta\le1-\frac{c}{(\log(|\gamma|+2))^{2/3}(\log\log(|\gamma|+2))^{1/3}}
+\]
+holds (Vinogradov–Korobov). The best available zero-free regions stop short of any region wide enough to make the integral in \eqref{eq:main} smaller than the main-term contribution coming from a hypothetical zero with \(\beta\ge1/2+\delta\). In other words, the reduction is sharp: any improvement of \(D_\phi\) to \(o(T)\) already implies a zero-density estimate strong enough to recover the full strength of the prime-number theorem with error \(O(x\exp(-c(\log x)^a))\) for some \(a>0\), which is known to be equivalent to a zero-free region that itself would force RH by standard convexity arguments on \(\xi\). Thus the identity \eqref{eq:main} does not furnish an unconditional advance; it merely recycles the classical equivalence between zero-free regions and error terms in \(\psi(x)-x\).
+
+The same circularity appears if one replaces the Chebyshev weight by a Beurling–Selberg majorant or by a mollified second-moment of \(\zeta(1/2+it)\): the resulting quadratic forms are positive semi-definite precisely when all zeros lie on the critical line, but their off-diagonal terms cannot be shown to be negligible without already knowing a density hypothesis stronger than what is available.
+
+VERDICT: FAILED
+REASON: Reduction to PNT error term is circular; no new zero-free region or unconditional density gain.
