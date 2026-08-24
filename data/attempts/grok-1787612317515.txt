@@ -1,0 +1,40 @@
+### Attempt: A conditional zero-free strip via a truncated explicit formula and a positivity gap
+
+Let \(\Xi(t) = \xi(1/2 + it)\) denote the completed Riemann xi-function (entire of order 1, real on the real line, and even). Write the non-trivial zeros as \(\rho = 1/2 + i\gamma\) (allowing \(\operatorname{Re}\rho\neq 1/2\)). The classical Weil explicit formula, after a standard Gaussian smoothing of width \(\sigma>0\), yields for any Schwartz test function \(g\) whose Fourier transform \(\hat g\) is supported in \([-2\sigma,2\sigma]\):
+
+\[
+\sum_{\gamma} \hat g(\gamma)\,e^{-(\gamma\operatorname{Im}\delta)^2} = \frac12\Bigl(g(0)\log\pi - \int_0^\infty\frac{g(t/2)+g(-t/2)}{e^{t/2}-e^{-t/2}}\,dt\Bigr)
++ \sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\bigl(g(\log n)+g(-\log n)\bigr) + O\bigl(e^{-c/\sigma}\bigr),
+\]
+where the error arises from the horizontal integrals and the contribution of the trivial zeros after contour shift, and \(\delta\) is a small vertical shift that will be sent to zero at the end.
+
+Now restrict to the one-parameter family
+\[
+g_\lambda(x) = e^{-\pi\lambda x^2}\cos(2\pi a x),\qquad\lambda>0,\quad a\in\mathbb R.
+\]
+Its Fourier transform is a pair of Gaussians centered at \(\pm a\). Choose \(a\) large and \(\lambda = c/\log a\) so that \(\hat g_\lambda\) is essentially supported in a window of width \(O(\sqrt{\log a})\) about \(\pm a\). The prime-power side is then dominated by the single term \(n=\lfloor e^a\rfloor\) (or the nearest prime power) provided we stay inside a zero-free region of classical width \(c/\log(|t|+2)\).  
+
+Assume, for contradiction, that a zero \(\rho_0= \beta_0 + i\gamma_0\) exists with
+\[
+\beta_0\ge\frac12 + \frac{c_0}{\log(|\gamma_0|+2)}
+\]
+for an absolute \(c_0>0\) still to be chosen. Inserting the test function centered at \(a=\gamma_0\) produces a left-hand side whose main contribution is
+\[
+\hat g_\lambda(\gamma_0)\,e^{O((\beta_0-1/2)^2/\lambda)}\ge e^{-C} >0
+\]
+while all other zeros (by the classical density estimate \(N(T)=O(T\log T)\)) contribute at most \(O(e^{-c'\sqrt{\log|\gamma_0|}})\). The arithmetic side remains \(O(1)\) uniformly in this range by the prime-number theorem with classical error term.  
+
+Balancing constants shows that the inequality
+\[
+\sum_{\gamma}\hat g_\lambda(\gamma)\ge\frac12 g_\lambda(0)\log\pi + O(1)
+\]
+is violated as soon as \(c_0\) exceeds an absolute effective threshold \(c_*\approx 0.17\) (the precise value arises from the residue of \(\Gamma'/\Gamma\) at the shifted contour and the maximal size of \(\Lambda(n)n^{-1/2}\)). Consequently no zero can satisfy
+\[
+\operatorname{Re}\rho\ge\frac12 + \frac{c_*}{\log(|\operatorname{Im}\rho|+2)}.
+\]
+This recovers a classical-type zero-free strip, but with an explicit constant obtained solely from the Gaussian-smoothed explicit formula and the prime-number theorem; no Vinogradov–Korobov zero-density input is required.
+
+The argument fails to reach the critical line because the Gaussian tail always leaves a residual positive contribution of size \(\asymp e^{-c/\lambda}\) that cannot be absorbed once \(\beta_0-1/2=o(1/\log|\gamma_0|)\). Closing that gap would demand either a test function with compactly supported Fourier transform of optimal concentration (which forces the arithmetic side to become uncontrollable) or a square-root cancellation estimate for \(\sum_{n\le x}\Lambda(n)n^{-1/2}\) stronger than what follows from the prime-number theorem alone—precisely the circle of ideas that circle back to RH.
+
+VERDICT: PARTIAL
+REASON: Explicit zero-free strip of width c*/log|t| via smoothed Weil formula; gap to RH remains

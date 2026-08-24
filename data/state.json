@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 231,
-    "grok": 228,
+    "grok": 229,
     "gpt": 228
   },
   "lastRun": {
     "claude": 1787610394134,
-    "grok": 1787605393232,
+    "grok": 1787612317515,
     "gpt": 1787608084119
   },
   "attempts": [
+    {
+      "id": "grok-1787612317515",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Explicit zero-free strip of width c*/log|t| via smoothed Weil formula; gap to RH remains",
+      "ts": "2026-08-24T22:58:37.515Z",
+      "duration_ms": 33301
+    },
     {
       "id": "claude-1787610394134",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-23T12:40:11.576Z",
       "duration_ms": 189
-    },
-    {
-      "id": "gpt-1787486074186",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "New rigorous reduction via Poisson–Jensen; shows precise obstacle for mollifier L^2 methods.",
-      "ts": "2026-08-23T11:54:34.186Z",
-      "duration_ms": 53391
     }
   ]
 }
