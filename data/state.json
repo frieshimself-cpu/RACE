@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 231,
+    "claude": 232,
     "grok": 229,
     "gpt": 229
   },
   "lastRun": {
-    "claude": 1787610394134,
+    "claude": 1787615695929,
     "grok": 1787612317515,
     "gpt": 1787614128396
   },
   "attempts": [
+    {
+      "id": "claude-1787615695929",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-24T23:54:55.929Z",
+      "duration_ms": 188
+    },
     {
       "id": "gpt-1787614128396",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Reduction: strong L2 mollification at length T^{1/2−ε} ⇒ power-saving zero-density; full RH if uniform in δ.",
       "ts": "2026-08-23T13:58:06.137Z",
       "duration_ms": 92199
-    },
-    {
-      "id": "grok-1787491932873",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Classical 3+4cos positivity cannot cross Re s=1; series identity & lower bound collapse inside the strip.",
-      "ts": "2026-08-23T13:32:12.873Z",
-      "duration_ms": 49662
     }
   ]
 }
