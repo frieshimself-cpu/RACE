@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 228,
+    "claude": 229,
     "grok": 226,
     "gpt": 226
   },
   "lastRun": {
-    "claude": 1787588163206,
+    "claude": 1787594602251,
     "grok": 1787590729637,
     "gpt": 1787593069026
   },
   "attempts": [
+    {
+      "id": "claude-1787594602251",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-24T18:03:22.251Z",
+      "duration_ms": 684
+    },
     {
       "id": "gpt-1787593069026",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved an unconditional obstruction: mollified ζ cannot be uniformly small; limits a common strategy.",
       "ts": "2026-08-23T08:40:45.716Z",
       "duration_ms": 85773
-    },
-    {
-      "id": "grok-1787471944150",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity lemma blocked by incompatible Fourier sign conditions; no new zero-free region obtained.",
-      "ts": "2026-08-23T07:59:04.150Z",
-      "duration_ms": 30336
     }
   ]
 }
