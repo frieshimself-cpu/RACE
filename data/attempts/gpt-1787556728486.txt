@@ -1,0 +1,69 @@
+Attempt: Uniform LSI and exponential clustering for 4D lattice Yang–Mills at strong coupling (small β)
+
+Setup
+- Lattice: finite box Λ ⊂ Z^4 with nearest-neighbor edges E(Λ); compact gauge group G = SU(N).
+- Wilson action: Sβ(U) = −β ∑_{plaquettes p⊂Λ} Re Tr(U_p), where U_p is the ordered product of edge variables U_e ∈ G around p.
+- Gibbs measure: μβ(dU) = Z^{-1} exp(−Sβ(U)) ⨂_{e∈E} dH(U_e), with dH the Haar measure on G.
+
+Goal
+Prove that for sufficiently small β>0 (strong coupling), μβ satisfies:
+1) A logarithmic Sobolev inequality (LSI) with constant α ≥ c1 > 0 independent of box size and boundary conditions.
+2) Exponential decay of covariances for local gauge-invariant observables with a uniform rate c2 > 0 (in lattice units).
+This yields a nonzero lattice mass gap m_latt(β) ≥ c2 for small β, uniform in volume.
+
+Key ingredients
+- LSI for compact Lie groups with Haar measure.
+- Holley–Stroock perturbation of LSI under bounded second derivative of the potential.
+- Zegarlinski-type tensorization/weak coupling criterion for spin systems on graphs.
+- Dobrushin–Shlosman uniqueness/contraction and its consequence: exponential clustering.
+
+Step 1: Gauge fixing and locality
+- Fix a maximal spanning tree T in the lattice graph and impose unitary gauge U_e = I for e ∈ T. The Jacobian is 1 and gauge-invariant observables are unaffected.
+- Remaining variables live on E\T; each plaquette term couples at most 4 edges, so the interaction graph has uniformly bounded degree (O(1) in 4D).
+
+Step 2: Single-site LSI under local field
+- Consider a single edge variable U ∈ G with neighbors frozen. Its conditional density is
+  dμ_cond(U) ∝ exp(β Re Tr(A U) + β Re Tr(U^{-1} B)) dH(U),
+  for some A,B ∈ M_N(C) depending on neighbors (|Tr| ≤ N).
+- Let {X_a} be an orthonormal basis of left-invariant vector fields on G (from Lie algebra su(N)), and Γ(f) = ∑_a (X_a f)^2, Δ = ∑_a X_a^2 the Laplace–Beltrami operator.
+- Haar measure dH satisfies an LSI: Ent_H(f^2) ≤ (1/ρ0) ∫ Γ(f) dH, for some ρ0 = ρ0(G) > 0 (classical on compact Lie groups).
+- The potential V(U) = −β Re Tr(A U) − β Re Tr(U^{-1} B) has bounded Hessian:
+  For all a,b, |X_a X_b V(U)| ≤ C_G β uniformly in U,A,B (follows from that the map U ↦ Re Tr(C U) and U ↦ Re Tr(U^{-1} C) have uniformly bounded first and second derivatives on compact G; C_G depends only on G via norms of structure constants and fundamental rep).
+- By the Holley–Stroock perturbation criterion (or Bakry–Émery Γ2 under bounded Hessian), the conditional measure has an LSI with constant
+  ρ ≥ ρ0 e^{−C_HS β} ≥ ρ0/2 for all β ≤ β1(G),
+  uniformly in boundary data.
+
+Step 3: Weak-coupling LSI for the full system
+- Let sites be edges e ∈ E\T (denote S = |E\T|). For each site e, write X_e for the gradient (left-invariant) on variable U_e, and Γ_e(f) = ∑_a (X_{e,a} f)^2.
+- Define the inter-site influence coefficients J_{e,e'} via mixed second derivatives of the Hamiltonian H(U) = − log density:
+  For e ≠ e', let
+  J_{e,e'} = sup_{U} sup_{|v|=|w|=1} |D_e^v D_{e'}^w H(U)|.
+  Since H is a sum over plaquettes and each plaquette involves at most 4 edges, mixed derivatives are nonzero only if e, e' lie on a common plaquette; in that case, |D_e D_{e'} H| ≤ C_int β with C_int depending only on G. Hence
+  sup_e ∑_{e'≠e} J_{e,e'} ≤ C_deg C_int β =: J⋆ β,
+  where C_deg is the maximum number of plaquettes touching an edge (O(1) in 4D).
+- Zegarlinski-type LSI criterion (see, e.g., Zegarlinski’s approach for weakly coupled systems on compact manifolds): if
+  κ := sup_e (1/ρ) ∑_{e'≠e} J_{e,e'} < 1,
+  then the global Gibbs measure satisfies an LSI with constant
+  α ≥ ρ (1 − κ).
+- Using ρ ≥ ρ0/2 and the bound on ∑ J_{e,e'}, we get for β ≤ β0 := min{β1, ρ0/(4 J⋆)}:
+  κ ≤ (2/ρ0) J⋆ β ≤ 1/2, hence α ≥ (ρ0/4) =: c1(G) > 0,
+  uniformly in volume, boundary conditions, and gauge-fixing choice.
+
+Step 4: Dobrushin–Shlosman contraction and exponential clustering
+- With the same influence matrix (scaled by 1/ρ), the Dobrushin matrix has norm ≤ κ < 1. This yields uniqueness of the infinite-volume Gibbs state and exponential decay of boundary influence.
+- Standard consequences (e.g., via disagreement percolation or contractivity of single-site heat-bath dynamics in Wasserstein distance combined with the LSI for mixing) imply, for local Lipschitz observables F,G (with respect to left-invariant Riemannian metrics on edge variables), supported on edge sets A,B at graph distance r:
+  |Cov_μβ(F,G)| ≤ C0 Lip(F) Lip(G) e^{−c2 r},
+  with c2 = −log κ ≥ c̄(G) > 0, and C0 depending on G and dimension but not on volume or boundary conditions.
+- Because both the construction and the bound are gauge-covariant (we started from a gauge fixing but the influence/J bounds and Lipschitz norms are intrinsic and uniform), the clustering bound holds for gauge-invariant local observables in the unfixed theory. In particular, for plaquette variables P_x = Re Tr(U_{p(x)}), we have:
+  |⟨P_x P_y⟩_c| ≤ C e^{−c2 dist(x,y)}.
+
+Consequence: lattice mass gap at strong coupling
+- In the infinite-volume limit and at β ≤ β0(G), the connected two-point function of any local gauge-invariant observable decays exponentially in lattice units with a uniform rate c2 > 0. This defines a nonzero lattice mass gap m_latt(β) ≥ c2.
+- In physical units (lattice spacing a), m_phys(β,a) = m_latt(β)/a, which diverges as a → 0 at fixed β. Thus this result establishes a strong-coupling mass gap on the lattice but does not address the continuum limit β → ∞ required for the Yang–Mills existence and mass gap problem.
+
+Why this matters and what fails
+- This provides a clean, uniform-in-volume functional-inequality proof of exponential clustering for 4D nonabelian lattice Yang–Mills at small β, avoiding intricate cluster expansions and making the constants explicit in terms of group- and dimension-dependent bounds.
+- The approach fundamentally relies on small β to ensure κ < 1. As β increases toward the scaling window for the continuum limit, mixed second derivative bounds force κ → ∞ linearly in β, and the argument breaks down. New ideas are required to control correlations along the renormalization trajectory toward β → ∞.
+
+VERDICT: PARTIAL
+REASON: Proved strong-coupling LSI and clustering ⇒ lattice mass gap; continuum limit remains open

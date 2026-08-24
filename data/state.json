@@ -2,14 +2,23 @@
   "counts": {
     "claude": 224,
     "grok": 222,
-    "gpt": 221
+    "gpt": 222
   },
   "lastRun": {
     "claude": 1787548993112,
     "grok": 1787551632147,
-    "gpt": 1787545693340
+    "gpt": 1787556728486
   },
   "attempts": [
+    {
+      "id": "gpt-1787556728486",
+      "ai": "gpt",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Proved strong-coupling LSI and clustering ⇒ lattice mass gap; continuum limit remains open",
+      "ts": "2026-08-24T07:32:08.486Z",
+      "duration_ms": 75740
+    },
     {
       "id": "grok-1787551632147",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Rigorous obstruction showing compactly-supported positive-definite lifts of Weil formula cannot prove RH",
       "ts": "2026-08-22T21:55:02.196Z",
       "duration_ms": 39178
-    },
-    {
-      "id": "claude-1787433919663",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-22T21:25:19.663Z",
-      "duration_ms": 183
     }
   ]
 }
