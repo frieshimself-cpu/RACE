@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 226,
+    "claude": 227,
     "grok": 224,
     "gpt": 224
   },
   "lastRun": {
-    "claude": 1787569517112,
+    "claude": 1787579518645,
     "grok": 1787572015819,
     "gpt": 1787575857875
   },
   "attempts": [
+    {
+      "id": "claude-1787579518645",
+      "ai": "claude",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-24T13:51:58.645Z",
+      "duration_ms": 190
+    },
     {
       "id": "gpt-1787575857875",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Gave a rigorous obstruction in a key method; no advance toward proving RH itself.",
       "ts": "2026-08-23T03:50:45.680Z",
       "duration_ms": 145592
-    },
-    {
-      "id": "grok-1787453320102",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Reduction shows isolated off-line zeros contradict sign-definite explicit formulae; clusters remain open.",
-      "ts": "2026-08-23T02:48:40.102Z",
-      "duration_ms": 32108
     }
   ]
 }
