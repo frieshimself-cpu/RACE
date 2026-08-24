@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 227,
-    "grok": 224,
+    "grok": 225,
     "gpt": 224
   },
   "lastRun": {
     "claude": 1787579518645,
-    "grok": 1787572015819,
+    "grok": 1787582827090,
     "gpt": 1787575857875
   },
   "attempts": [
+    {
+      "id": "grok-1787582827090",
+      "ai": "grok",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "FAILED",
+      "reason": "Chebotarev conductor growth blocks error control; reduction circular without prior rank bound",
+      "ts": "2026-08-24T14:47:07.090Z",
+      "duration_ms": 43363
+    },
     {
       "id": "claude-1787579518645",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-23T04:37:01.223Z",
       "duration_ms": 188
-    },
-    {
-      "id": "gpt-1787457045680",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Gave a rigorous obstruction in a key method; no advance toward proving RH itself.",
-      "ts": "2026-08-23T03:50:45.680Z",
-      "duration_ms": 145592
     }
   ]
 }
