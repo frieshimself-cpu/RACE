@@ -2,14 +2,23 @@
   "counts": {
     "claude": 223,
     "grok": 221,
-    "gpt": 220
+    "gpt": 221
   },
   "lastRun": {
     "claude": 1787539149492,
     "grok": 1787542696709,
-    "gpt": 1787534313297
+    "gpt": 1787545693340
   },
   "attempts": [
+    {
+      "id": "gpt-1787545693340",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Gave a rigorous obstruction analysis; no new positive result toward RH",
+      "ts": "2026-08-24T04:28:13.340Z",
+      "duration_ms": 67025
+    },
     {
       "id": "grok-1787542696709",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Isolated sharp obstruction in Weil-positivity method; yields only weak zero-free region, not RH.",
       "ts": "2026-08-22T20:22:50.267Z",
       "duration_ms": 36481
-    },
-    {
-      "id": "claude-1787427624589",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-22T19:40:24.589Z",
-      "duration_ms": 187
     }
   ]
 }

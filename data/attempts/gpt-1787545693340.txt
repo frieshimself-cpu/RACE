@@ -1,0 +1,33 @@
+Attempt: A precise obstruction showing that “pair-correlation-of-ordinates” inputs cannot, by themselves, yield the Riemann Hypothesis
+
+Claim (methodological barrier). Any argument that uses only statistics of the ordinates {γ} of the nontrivial zeros (such as Montgomery’s pair correlation, or even all finite k-point correlation functions of the ordinates) cannot, by itself, force that all nontrivial zeros lie on the critical line. In particular, even the full GUE k-point process for ordinates would be logically compatible with a positive density of zeros off the critical line, unless one inputs additional information that ties the real parts to these ordinate statistics.
+
+Precise formulation. Let Z = {β_j + iγ_j} be any multiset in the critical strip 0 < β_j < 1, symmetric under s ↦ 1 − s̄ (the usual functional symmetry), with ordinates Γ = {γ_j}. Define, for each k ≥ 1, the k-point correlation measures of ordinates by
+R_k[f] = lim_{T→∞} (1/N(T)) ∑_{j_1,…,j_k: |γ_{j_m}|≤T} f( (γ_{j_1}−γ_{j_2}) (log T)/(2π), …, (γ_{j_{k−1}}−γ_{j_k}) (log T)/(2π) )
+for test functions f, where N(T) counts ordinates up to height T. These R_k depend only on the multiset Γ, not on the real parts β_j.
+
+Then, for any δ ∈ (0, 1/2), there exist two symmetric multisets of points in the critical strip, Z_crit = {1/2 + iγ_j} and Z_mix = {1/2 + iγ_j} ∪ {1/2 + δ + iγ_j} ∪ {1/2 − δ + iγ_j} with appropriate thinning to keep the same ordinate counting function up to o(T log T), such that:
+- Z_crit has all points on the critical line; Z_mix has a positive proportion of points off the critical line at distance δ.
+- The full family of k-point correlation measures of the ordinates is identical for Z_crit and Z_mix.
+
+Sketch of construction and verification.
+- Start from any Γ having well-defined k-point correlation measures (e.g., a sequence modeled on GUE spacings). Let Z_crit = {1/2 + iγ : γ ∈ Γ}.
+- For Z_mix, begin with two translated copies: shift one copy to 1/2 + δ and one to 1/2 − δ, retaining the same ordinates Γ. This preserves the functional symmetry because of the pair {1/2 ± δ + iγ}. Now thin the three superposed copies (e.g., keep all critical-line points, and subsample a small proportion p(T) of right- and left-shifted copies with p(T) → p ∈ (0, 1) while simultaneously thinning the critical-line copy by 2p(T) fraction) so that the combined counting function in height remains N(T) + o(N(T)). This thinning can be done deterministically on disjoint height windows to keep o(T log T) perturbation in counting.
+- The ordinates multiset Γ is unchanged by these horizontal shifts and thinning that depends only on height windows, so for each height window the empirical configuration of differences in ordinates remains the same up to a vanishing error contribution. Consequently, for any fixed k and any test function f as above, the correlation functionals R_k computed from Γ (and their scaling limits) are unchanged. In particular, if Γ obeyed the GUE k-point statistics in the scaling limit, then both Z_crit and Z_mix induce the same R_k in the limit.
+- Yet Z_mix has a positive proportion (as T → ∞) of points with real part 1/2 ± δ by construction (so RH fails), while Z_crit satisfies RH.
+
+Conclusion. Any statement whose hypotheses and deductions involve only the ordinates Γ through their finite correlation statistics (or any statistic invariant under horizontal shifts β_j ↦ β_j ± δ with the same γ_j) is blind to the real parts. Therefore:
+- Montgomery’s pair correlation conjecture for ordinates, even if proved in its strongest GUE form for all k-point correlations of ordinates, cannot alone imply RH.
+- To deduce RH from spacing information, one must add genuine vertical-horizontal coupling: identities or inequalities that explicitly involve β (e.g., via the explicit formula with test functions sensitive to the real part, or mollified moments that detect vanishing at specific s rather than at its projection to the ordinate).
+
+Corollary (to the obstruction). Any proposed proof of RH that proceeds solely from:
+- asymptotics of ∑_{γ,γ'} w( (γ−γ') (log T)/(2π) ) for fixed test weights w, or
+- limiting GUE-like k-point statistics of ordinates,
+must necessarily inject additional input linking β to these statistics (for instance, fine control of the logarithmic derivative ζ'/ζ on the 1/2-line in terms of ordinates, or positivity criteria à la Weil that are not invariant under horizontal shifts). Without such input, the logic cannot exclude the possibility exhibited by Z_mix.
+
+Remarks on scope.
+- This does not say that pair-correlation information is useless—only that, abstractly, “ordinates-only” information is insufficient to fix the real parts. Any successful use of pair correlation towards RH must be coupled with mechanisms that are not invariant under horizontal shifts (e.g., sign-definite quadratic forms from the Weil criterion; mollifiers whose efficacy depends on actual vanishing of ζ at s, not just at Im(s); or zero-density estimates that quantify β-dependence).
+- The construction exploits only the invariance of ordinate statistics under horizontal shifts and thinning that preserves ordinate counts. It highlights a clean, rigorous barrier to a broad class of strategies.
+
+VERDICT: FAILED
+REASON: Gave a rigorous obstruction analysis; no new positive result toward RH
