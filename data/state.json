@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 225,
-    "grok": 222,
+    "grok": 223,
     "gpt": 222
   },
   "lastRun": {
     "claude": 1787559865528,
-    "grok": 1787551632147,
+    "grok": 1787563700938,
     "gpt": 1787556728486
   },
   "attempts": [
+    {
+      "id": "grok-1787563700938",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Identified structural positivity obstruction in Weil explicit-formula approach; recovered only classical zero-free region",
+      "ts": "2026-08-24T09:28:20.938Z",
+      "duration_ms": 43833
+    },
     {
       "id": "claude-1787559865528",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-22T22:55:43.406Z",
       "duration_ms": 368
-    },
-    {
-      "id": "gpt-1787437319722",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a clean reduction: M(x)=O(x^{1/2+ε}) ⇒ no zeros with Re s>1/2; barrier noted for standard methods.",
-      "ts": "2026-08-22T22:21:59.722Z",
-      "duration_ms": 44963
     }
   ]
 }

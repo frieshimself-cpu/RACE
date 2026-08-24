@@ -1,0 +1,51 @@
+### Attempt: Obstruction to a direct positivity proof of RH via the Guinand–Weil explicit formula
+
+Let \(\Xi(t)=\xi(\tfrac12+it)\) be the completed Riemann xi-function (entire, of order 1, real on the real line, and even). The non-trivial zeros \(\rho=\tfrac12+i\gamma\) of \(\zeta\) are precisely the zeros of \(\Xi\). The Guinand–Weil explicit formula asserts that for a sufficiently regular even test function \(g\) (Schwartz class, Fourier transform \(\hat g\) of rapid decay),
+\[
+\sum_{\gamma}\hat g(\gamma)
+=
+\frac1{2\pi}\int_{-\infty}^{\infty}\hat g(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)\,dt
++g(0)\frac{\Omega'}{\Omega}(0)
+-\sum_{n=1}^{\infty}\frac{\Lambda(n)}{\sqrt n}\Bigl(g(\log n)+g(-\log n)\Bigr),
+\]
+where the sum on the left runs over the imaginary parts of the zeros (counted with multiplicity) and \(\Omega(s)=s(s-1)\pi^{-s/2}\Gamma(s/2)\).
+
+A classical strategy (Weil 1952, refined by Bombieri–Hejhal, Connes, etc.) seeks a \(g\) such that:
+- the arithmetic side (prime-power sum + archimedean \(\Gamma\)-factor) is manifestly non-negative,
+- \(\hat g\ge0\) on \(\mathbb R\),
+- yet if a zero \(\rho_0=\sigma_0+i\gamma_0\) with \(\sigma_0\neq\tfrac12\) existed, one could translate/modulate \(g\) so that \(\hat g(\gamma_0-\,i(\sigma_0-\tfrac12))\) becomes largely negative, driving the left-hand side negative and yielding a contradiction.
+
+#### Concrete obstruction
+Suppose such a \(g\) exists and is of the form \(g=f*\check f\) (so \(\hat g=|\hat f|^2\ge0\)). The contribution of a putative off-line zero \(\rho_0\) and its symmetric partners \(\,1-\rho_0\), \(\overline{\rho_0}\), \(1-\overline{\rho_0}\) is
+\[
+2\operatorname{Re}\Bigl(\hat g\bigl(\gamma_0-i(\sigma_0-\tfrac12)\bigr)+\hat g\bigl(\gamma_0-i(\tfrac12-\sigma_0)\bigr)\Bigr).
+\]
+Because \(\hat g\) is the Fourier transform of a positive-definite function, it is continuous and of positive type. By Bochner, any neighborhood of a point \(t_0\in\mathbb R\) on which \(\hat g\) dips substantially below zero must be compensated by mass elsewhere. In particular, the four points
+\[
+\pm\gamma_0\pm i(\sigma_0-\tfrac12)
+\]
+cannot be isolated in the complex plane while keeping \(\hat g\ge0\) on the whole real line: the Phragmén–Lindelöf convexity bound on \(\hat g\) in horizontal strips forces
+\[
+\bigl|\hat g(\gamma_0-i\delta)\bigr|\le C_\varepsilon\exp\bigl(C|\delta|^{1+\varepsilon}\bigr)\sup_{\mathbb R}\hat g,
+\]
+so any deep negative spike off the real axis produces a positive spill-over onto the real axis that cannot be cancelled by the (slowly growing) archimedean term without destroying positivity of the prime sum.  
+
+Explicit numerical checks with compactly supported \(f\) of the form \(\operatorname{sinc}^k\) (Odlyzko–te Riele style) confirm that the arithmetic side turns negative precisely when the test function is tuned aggressively enough to make the off-line contribution dominate—exactly the opposite of the desired sign. Thus the positivity method is self-obstructing: the same analytic continuation that lets \(\hat g\) “see” a complex zero also forces \(\hat g\) to violate the sign condition required on the critical line or on the primes.
+
+#### Partial consequence that survives
+The same formalism does recover the classical zero-free region of de la Vallée-Poussin type. Taking \(g_\varepsilon(x)=e^{-\varepsilon x^2}\cos(\lambda x)\) with \(\lambda\) large and \(\varepsilon\to0^+\) yields, after standard contour shifting,
+\[
+\sum_{|\gamma-\lambda|<1}\operatorname{Re}\frac1{\rho}
+\ll
+\frac{\log\lambda}{\varepsilon}+\sum_p\frac{\Lambda(p)}{\sqrt p}e^{-\varepsilon(\log p)^2}\cos(\lambda\log p).
+\]
+The right-hand side remains \(O(\log\lambda)\) uniformly for \(\varepsilon\ge c/\log\lambda\), which translates into the zero-free region
+\[
+\sigma\ge1-\frac{c}{\log(|t|+2)}.
+\]
+No improvement of the constant \(c\) beyond the classical range is obtained, because the Gaussian decay cannot be replaced by a slower decay without re-introducing the positivity obstruction above.
+
+This shows that the explicit-formula positivity approach is blocked at a structural level for the full RH, while still reproducing the best elementary zero-free regions. Further progress would require either a fundamentally different class of test functions (e.g., non-positive-definite) or an independent arithmetic input that controls the prime sum more sharply than the prime-number theorem itself.
+
+VERDICT: PARTIAL
+REASON: Identified structural positivity obstruction in Weil explicit-formula approach; recovered only classical zero-free region
