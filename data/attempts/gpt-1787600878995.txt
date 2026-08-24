@@ -1,0 +1,26 @@
+Proposition (codimension-2 Hodge = algebraic under CH0-universal triviality). Let X be a smooth projective complex 4-fold with universally trivial CH0, i.e., for every field extension L/ℂ, the degree map CH0(XL) → ℤ is an isomorphism. Then every rational Hodge class in H^4(X, ℚ) is algebraic. Equivalently, the Hodge conjecture holds for codimension 2 on X.
+
+Proof sketch:
+- Step 1 (Decomposition of the diagonal ⇒ coniveau ≥ 1). By Bloch–Srinivas, universal triviality of CH0(X) implies a decomposition of the diagonal
+  [Δ_X] = [X × x] + Z in CH^4(X × X)⊗ℚ
+  with Z supported on D × X for some divisor D ⊂ X (after taking suitable sums over components and replacing D by a normal crossings divisor if needed). Passing to cohomology, the correspondence Z endows H^*(X, ℚ) with a factorization through the cohomology of D. Concretely, the identity on H^4(X, ℚ) factors through a finite sum of Gysin maps from resolutions of components of D:
+  H^4(X, ℚ) = N^1H^4(X, ℚ) = ∑_j i_{j*}(H^2(Ď_j, ℚ)),
+  where i_j: Ď_j → X are projective resolutions of irreducible components of D and i_{j*} are the Gysin maps. In particular, every class in H^4(X, ℚ) is supported on a divisor.
+
+- Step 2 (Hodge-compatibility of Gysin maps). For each j, the Gysin map i_{j*}: H^2(Ď_j, ℚ) → H^4(X, ℚ)(1) is a morphism of rational Hodge structures (of weight shift (1,1)). Therefore, if γ ∈ H^4(X, ℚ) is of Hodge type (2,2), and we write
+  γ = ∑_j i_{j*}(β_j) with β_j ∈ H^2(Ď_j, ℚ),
+  then decomposing β_j into Hodge types β_j = β_j^{2,0} + β_j^{1,1} + β_j^{0,2}, the only component that can contribute to a (2,2)-class under i_{j*} is β_j^{1,1} (since i_{j*} shifts types by (1,1)). Hence, after replacing β_j by β_j^{1,1}, we still have
+  γ = ∑_j i_{j*}(β_j^{1,1}) with β_j^{1,1} ∈ H^{1,1}(Ď_j) ∩ H^2(Ď_j, ℚ).
+
+- Step 3 (Lefschetz (1,1) on threefolds). Each Ď_j is a smooth projective threefold. By the Lefschetz (1,1) theorem, H^{1,1}(Ď_j) ∩ H^2(Ď_j, ℚ) is generated (over ℚ) by first Chern classes of algebraic line bundles on Ď_j, i.e., by divisor classes. Thus every β_j^{1,1} is algebraic on Ď_j.
+
+- Step 4 (Pushforward preserves algebraicity). For each j, i_{j*}(β_j^{1,1}) is the cohomology class of the pushforward of a ℚ-linear combination of divisors on Ď_j, i.e., a codimension-2 algebraic cycle on X. Therefore γ is a ℚ-linear combination of cohomology classes of codimension-2 algebraic cycles on X.
+
+Conclusion. Every rational Hodge class in H^4(X, ℚ) is algebraic. This proves the Hodge conjecture in codimension 2 for smooth projective 4-folds with universally trivial CH0.
+
+Remarks and consequences:
+- The argument only uses: (i) Bloch–Srinivas “decomposition of the diagonal” ⇒ H^4 = N^1H^4; (ii) functoriality of Hodge structures for Gysin maps; (iii) Lefschetz (1,1) on threefolds.
+- Universal triviality of CH0 holds, in particular, for stably rational 4-folds. Hence the Hodge conjecture in codimension 2 holds for all smooth projective 4-folds that are stably rational.
+
+VERDICT: PARTIAL
+REASON: Proved HC for (2,2)-classes on 4-folds with universally trivial CH0 via coniveau and Lefschetz (1,1).
