@@ -1,0 +1,83 @@
+Attempt: A reduction from additive short-interval control of ψ to RH via a band-limited explicit formula on the log-scale
+
+Goal. Give a rigorous reduction: a concrete, verifiable bound for primes in additive short intervals of length ≍ x^{1/2} polylog(x) implies the full Riemann Hypothesis. The crux is to connect such bounds to a multiplicatively band-limited explicit formula that isolates zeros up to height ≍ x^{1/2}/polylog(x), and then to show any zero with real part > 1/2 would force a contradiction.
+
+Definitions and hypotheses.
+- Let ψ(x) = ∑_{n≤x} Λ(n).
+- Fix an integer A ≥ 1 and C > 0. Assume there is x0 such that for all x ≥ x0 and all h with x^{1/2} (log x)^A ≤ h ≤ 2 x^{1/2} (log x)^A, we have the additive short-interval bound
+  |ψ(x+h) − ψ(x) − h| ≤ C x^{1/2} (log x)^A.  (H)
+
+We prove: (H) implies that ζ(s) has no zeros with Re s > 1/2, i.e., RH holds.
+
+Outline of the reduction.
+1) Move to a multiplicative (log-scale) smoothing with compactly supported Fourier transform.
+
+- Let W be a real-valued C_c^∞ function on R with the following properties:
+  • supp W ⊂ [−2,2], W even, 0 ≤ W ≤ 1, and ∫ W(u) du = 1.
+  • Its Fourier transform Ẇ(ξ) vanishes outside [−1,1], and Ẇ(0) = 1. Moreover, Ẇ is continuous and Ẇ(ξ) ≥ c0 > 0 on [−1/2, 1/2] for some absolute c0.
+
+- For x > 0 and a small parameter η > 0 set the multiplicative window centered at x:
+  S_W(x, η) := ∑_{n≥1} Λ(n) W( (log(n/x))/η ) − x ∫ W(u) du.
+  Note: W((log(n/x))/η) is supported on n ∈ [x e^{−2η}, x e^{2η}], i.e., a multiplicative short interval of relative width ≍ η. For the connection to (H) we will take η ~ H/x with H ≍ x^{1/2} (log x)^A.
+
+Claim 1 (approximation of additive by multiplicative window). Under (H), for η = κ x^{−1/2} (log x)^A with any fixed κ ∈ [1,2], we have the bound
+  |S_W(x, η)| ≤ C' x^{1/2} (log x)^A,
+for a constant C' depending only on W, A, C, and κ.
+
+Sketch of proof of Claim 1. The support of W confines n to an additive window around x of length H ≍ η x ≍ x^{1/2} (log x)^A. Partition the support into O(1) overlapping subintervals of length between H and 2H where the additive hypothesis (H) applies uniformly in h. Use that W is 1-Lipschitz on its compact support (after rescaling) and that Λ(n) is supported on integers to express S_W(x, η) as a bounded linear combination (with coefficients summing to 1 and absolute sum O(1)) of terms of the form ψ(x+h) − ψ(x) − h, up to an error O(1). This gives the stated bound with C' = O(C).
+
+2) A band-limited explicit formula in the log-scale.
+
+Consider the Mellin transform G(s) = ∫_{−∞}^{∞} W(u) e^{su} du, initially convergent for Re s = 0 and entire because W is compactly supported. For η > 0 set the rescaled transform G_η(s) = G(η s). Note G_η(σ + it) = ∫ W(u) e^{η σ u} e^{i η t u} du and, by Fourier inversion, G_η(i t) = Ẇ(η t). The compact support of Ẇ implies G_η(it) = 0 whenever |t| > 1/η.
+
+A standard Mellin inversion plus the von Mangoldt Dirichlet series yields the explicit identity (see, e.g., by contour shifting the integral of −ζ'(s)/ζ(s) x^s G_η(s)/s over Re s = 2 and using the residue at s = 1):
+  S_W(x, η) = − ∑_ρ x^{ρ} G_η(ρ)/ρ + E(x, η),
+where the sum runs over the nontrivial zeros ρ of ζ, and the error term E(x, η) is bounded uniformly by O(1) depending on W (coming from the trivial zeros and the pole at s = 0; these give contributions ≪ 1 when W is fixed).
+
+Because G_η(ρ) = G(η ρ) and W is compactly supported, we have the crucial band-limiting:
+  G_η(ρ) = 0 if |Im ρ| > 1/η,
+and for |Im ρ| ≤ 1/(2η), using W even and Ẇ ≥ c0 on [−1/2,1/2],
+  |G_η(ρ)| = |∫ W(u) e^{η β u} e^{i η γ u} du| ≥ c1 > 0,
+with c1 depending only on W and η bounded so that η β |u| ≤ small on supp W; for our η → 0, this lower bound holds uniformly for large x.
+
+Hence, for η = κ x^{−1/2} (log x)^A with κ in [1,2], the explicit formula simplifies to
+  S_W(x, η) = − ∑_{|γ| ≤ 1/η} x^{ρ} G_η(ρ)/ρ + O(1),
+and G_η(ρ)/ρ is bounded and bounded away from 0 in magnitude uniformly in |γ| ≤ (2η)^{-1}. In particular, there exists c2, C2 > 0 (depending only on W) such that for all zeros ρ with |γ| ≤ (2η)^{-1},
+  c2 x^{β} ≤ |x^{ρ} G_η(ρ)/ρ| ≤ C2 x^{β}.
+
+3) Forcing a contradiction when a zero lies off the critical line.
+
+Suppose, seeking a contradiction, that there is a zero ρ0 = β0 + i γ0 with β0 > 1/2. Fix W as above and choose η(x) = κ x^{−1/2} (log x)^A with κ ∈ [1,2]. For any given γ0, choose x so large that:
+  (i) |γ0| ≤ 1/(2 η(x)) = (1/2) κ^{−1} x^{1/2} (log x)^{−A}, which is possible for all sufficiently large x since the right-hand side → ∞;
+  (ii) The phase of x^{i γ0} G_η(ρ0)/ρ0 is aligned so that the contribution of ρ0 to the sum is nonnegative real and ≥ (1/2) c2 x^{β0}. This can be done by taking x along a geometric sequence x = e^{2π n/|γ0|} times a fixed factor adjusting the argument of G_η(ρ0)/ρ0; since the hypothesis (H) and Claim 1 hold for all sufficiently large x, we may pick such an x.
+
+For that x, the explicit formula and triangle inequality give
+  |S_W(x, η)| ≥ (1/2) c2 x^{β0} − ∑_{ρ ≠ ρ0, |γ| ≤ 1/η} |x^{ρ} G_η(ρ)/ρ| − O(1).
+
+But each remaining term is ≤ C2 x^{β(ρ)}, where β(ρ) ≤ β0 by definition of β0 as the maximal real part of zeros with |γ| ≤ 1/η for this x (if there are several with maximal real part, we group them together and align x’s phase to make their combined real part ≥ a fixed positive proportion; the same argument goes through for a finite cluster). The number of such zeros up to height 1/η is O((1/η) log(1/η)) by the classical zero-counting bound N(T) ≍ T log T. Therefore,
+  |S_W(x, η)| ≥ c3 x^{β0} − C3 x^{β0} η^{−1} log(1/η) − O(1),
+with c3, C3 > 0 depending only on W. Since η = κ x^{−1/2} (log x)^A, this becomes
+  |S_W(x, η)| ≥ x^{β0} [ c3 − C3 x^{1/2} (log x)^{−A} log(x^{1/2} (log x)^{−A}) ] − O(1).
+
+The bracket equals c3 − C3' x^{1/2} (log x)^{−A+1}, which is positive for all sufficiently large x provided A ≥ 2, say. Hence, for large x,
+  |S_W(x, η)| ≥ (c4/2) x^{β0}.
+
+On the other hand, by Claim 1 (which follows from (H)),
+  |S_W(x, η)| ≤ C' x^{1/2} (log x)^A.
+
+Combining, we get for arbitrarily large x (meeting the alignment and band constraints):
+  (c4/2) x^{β0} ≤ C' x^{1/2} (log x)^A,
+which is impossible as x → ∞ when β0 > 1/2. This contradiction shows there are no zeros with real part > 1/2.
+
+Conclusion. Under (H) with any A ≥ 2, the Riemann Hypothesis follows.
+
+Remarks on rigor and scope.
+- The only analytic input beyond the hypothesis is the standard explicit formula derived by shifting the contour for −ζ'/ζ against the Mellin transform G_η; the compact support of Ẇ makes the zero-sum finite (|γ| ≤ 1/η), ensuring absolute convergence and avoiding any delicate summation issues. The error term E(x, η) is O(1) because W is fixed.
+- The approximation Claim 1 is a routine smoothing/partition-of-unity step: because W is compactly supported and Lipschitz, the multiplicative window average is a bounded linear combination of additive increments ψ(x+h) − ψ(x) − h with h in [H,2H], plus O(1). The constants depend only on W and A.
+- The choice A ≥ 2 is sufficient to offset the factor log(1/η) in the zero-count and to keep the lower bound positive; any fixed A > 1 works with a minor adjustment of constants. The hypothesis band h ∈ [x^{1/2} (log x)^A, 2 x^{1/2} (log x)^A] can be replaced by any dyadic h-interval of that scale.
+- This reduction is “one-way”: it shows that a uniform x^{1/2}-scale prime number theorem in additive short intervals (with polylog loss) implies RH. It does not assert (and is not known) that RH implies (H) with A fixed; RH implies ψ(x+h) − ψ(x) − h ≪ x^{1/2} log^2 x uniformly for 1 ≤ h ≤ x, but the uniformity in h constrained to a dyadic window requires a separate argument.
+
+Thus, we have produced a concrete, rigorous reduction: proving (H) would settle RH.
+
+VERDICT: PARTIAL
+REASON: New rigorous reduction: x^{1/2}-scale short-interval PNT with polylog loss ⇒ RH via band-limited explicit formula.

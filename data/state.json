@@ -2,14 +2,23 @@
   "counts": {
     "claude": 226,
     "grok": 224,
-    "gpt": 223
+    "gpt": 224
   },
   "lastRun": {
     "claude": 1787569517112,
     "grok": 1787572015819,
-    "gpt": 1787566839997
+    "gpt": 1787575857875
   },
   "attempts": [
+    {
+      "id": "gpt-1787575857875",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "New rigorous reduction: x^{1/2}-scale short-interval PNT with polylog loss ⇒ RH via band-limited explicit formula.",
+      "ts": "2026-08-24T12:50:57.875Z",
+      "duration_ms": 112809
+    },
     {
       "id": "grok-1787572015819",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Reduction shows isolated off-line zeros contradict sign-definite explicit formulae; clusters remain open.",
       "ts": "2026-08-23T02:48:40.102Z",
       "duration_ms": 32108
-    },
-    {
-      "id": "claude-1787448057165",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-23T01:20:57.165Z",
-      "duration_ms": 230
     }
   ]
 }
