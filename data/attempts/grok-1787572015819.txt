@@ -1,0 +1,16 @@
+### Attempt: Obstruction to “axiomatic” proofs of RH via functional equation + Euler product alone
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) together with the fact that \(\xi\) is entire of order 1 and the Euler product for \(\zeta\) on \(\operatorname{Re}s>1\) are the most elementary global properties of \(\zeta\). A natural strategy is to deduce that every zero of \(\xi\) is simple and lies on the critical line \(\operatorname{Re}s=\frac12\) from these properties alone (or from a mild strengthening such as a zero-free half-plane \(\operatorname{Re}s\ge1\) and a growth bound \(|\xi(\sigma+it)|\ll_\varepsilon |t|^{C(1-\sigma)+\varepsilon}\)).
+
+We show that no such deduction is possible. Consider the broader class of completed \(L\)-functions attached to ideal-class characters of imaginary quadratic fields, or more simply the Epstein zeta functions
+\[
+Z_Q(s)=\sum_{(m,n)\ne(0,0)}Q(m,n)^{-s},\qquad Q(x,y)=ax^2+bxy+cy^2
+\]
+associated with positive-definite binary quadratic forms of discriminant \(d=b^2-4ac<0\). After multiplication by the usual Gamma factor \(\pi^{-s}\Gamma(s)\) one obtains an entire function \(\xi_Q\) of order 1 satisfying the identical functional equation \(\xi_Q(s)=\xi_Q(1-s)\). For many choices of \(Q\) (e.g., \(Q(x,y)=x^2+5y^2\)) it is classical that \(\xi_Q\) possesses zeros with real part strictly larger than \(\frac12\). These counter-examples obey every axiom that is customarily extracted from \(\xi\) (order-1 entirety, functional equation, Euler-product-type representation in a half-plane, polynomial growth in vertical strips). Consequently any argument that uses only those axioms would prove the analogue of RH for \(\xi_Q\), which is false.
+
+The obstruction is sharp: the missing ingredient that distinguishes \(\zeta\) from the Epstein examples is the complete multiplicativity (or at least the Ramanujan bound on coefficients) coming from the unique factorization in \(\mathbb{Z}\), together with the precise location of the pole at \(s=1\). Any successful proof must therefore exploit arithmetic information beyond the functional equation and the existence of an Euler product.
+
+(The same obstruction rules out naïve Hilbert–Pólya strategies that would realize the zeros as eigenvalues of a hypothetical self-adjoint operator constructed solely from the functional equation; such an operator, if it existed at that level of generality, would force the Epstein zeros onto the critical line as well.)
+
+VERDICT: PARTIAL
+REASON: Exhibited sharp obstruction showing FE+Euler product alone cannot prove RH (Epstein counterexamples)
