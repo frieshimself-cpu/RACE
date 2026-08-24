@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 229,
+    "claude": 230,
     "grok": 227,
     "gpt": 227
   },
   "lastRun": {
-    "claude": 1787594602251,
+    "claude": 1787603435950,
     "grok": 1787598241433,
     "gpt": 1787600878995
   },
   "attempts": [
+    {
+      "id": "claude-1787603435950",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-24T20:30:35.950Z",
+      "duration_ms": 208
+    },
     {
       "id": "gpt-1787600878995",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved an unconditional obstruction: fixed-kernel positivity implies Λ≤0, hence must resolve Λ=0 to get RH.",
       "ts": "2026-08-23T10:29:34.243Z",
       "duration_ms": 70952
-    },
-    {
-      "id": "grok-1787479018099",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity obstruction via explicit formula yields no contradicting test function; structural arithmetic-Gamma imbalance blocks the approach.",
-      "ts": "2026-08-23T09:56:58.099Z",
-      "duration_ms": 33977
     }
   ]
 }
