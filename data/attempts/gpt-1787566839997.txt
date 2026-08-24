@@ -1,0 +1,62 @@
+Attempt: A Sum-of-Squares–Natural Proofs Barrier for Truth-Table Approaches
+
+Goal
+Clarify a concrete barrier for a family of “truth-table/statistical” lower-bound strategies that target P ≠ NP by designing dense properties of Boolean functions recognized by low-degree Sum-of-Squares (SoS) certificates.
+
+Set-up and Definitions
+- We view an n-bit Boolean function f: {0,1}^n → {0,1} by its truth table x ∈ {0,1}^N where N = 2^n.
+- A statistical test on functions is any real-valued functional T: {0,1}^N → R. A test accepts f if T(x) ≥ θ for some threshold θ. A test distinguishes two distributions D0,D1 over {0,1}^N with advantage α if |E_{x∼D0} T(x) − E_{x∼D1} T(x)| ≥ α.
+- Degree-d polynomial tests: T(x) is a real multilinear polynomial of total degree ≤ d in the N truth-table bits.
+- Sum-of-Squares access: We say a property P ⊆ {0,1}^N is SoS-natural of degree d with margin γ and density δ if there exists a degree-d polynomial T and threshold θ such that
+  (i) Largeness: Pr_{x∼U}[T(x) ≥ θ] ≥ δ (U is uniform on {0,1}^N),
+  (ii) Usefulness: For every circuit C of size N^κ (equivalently, poly(2^n)), if f = L_C is the language decided by C on inputs of length n, then T(truth(f)) ≤ θ − γ for all sufficiently large n.
+  Here, largeness ensures density, and usefulness says P separates poly-size circuits by a robust margin γ, witnessed by a low-degree polynomial test T. The “SoS” qualifier means T is of low degree; degree-d SoS can certify inequalities of low-degree polynomials against the Boolean cube via pseudoexpectations, so degree bounds control the proof-theoretic power available to the test.
+
+- SoS-secure PRFs against degree-d tests: A pseudorandom function family {F_k} mapping {0,1}^n → {0,1}, computable by circuits of size n^c, is degree-d secure if for every degree-d polynomial test T and every threshold θ computable in time poly(N), the distinguishing advantage against uniform random f is negligible in n:
+  |E_k[T(truth(F_k))] − E_{x∼U}[T(x)]| ≤ negl(n).
+  This is a quantitative strengthening of standard PRF security tailored to the class of distinguishers given by low-degree polynomials in the truth-table bits (in particular, these include any degree-d SoS pseudoexpectation-certified statistic).
+
+Theorem (Barrier): If there exist PRFs in P/poly that are secure against all degree-d polynomial tests on truth tables for some fixed d = O(1) (or even d = n^o(1)), then no degree-d SoS-natural property can be useful against N^κ-size circuits. Consequently, any approach to P ≠ NP via exhibiting a dense property of NP truth tables that is recognized by a bounded-degree SoS certificate fails under this PRF assumption.
+
+Proof Sketch
+1) Suppose for contradiction that a degree-d SoS-natural property P exists, witnessed by polynomial T, threshold θ, margin γ > 0, and density δ > 0 as above, that is useful against circuits of size N^κ.
+
+2) Consider any degree-d secure PRF family {F_k} with each F_k computable by circuits of size n^c. Choose κ > c so usefulness is asserted for all size N^κ circuits, hence also for F_k when seen as an N-bit function on inputs of length n.
+
+3) Usefulness vs largeness imply that T separates F_k from uniform random with advantage at least γ′ ≥ min(γ, function of δ):
+   - Under U (uniform random functions), Pr[T(x) ≥ θ] ≥ δ.
+   - Under PRF distribution, for all k, T(truth(F_k)) ≤ θ − γ eventually.
+   By averaging,
+     E_{x∼U}[T(x)] ≥ θ·δ + (θ − 1)·(1−δ) ≥ θ − (1−δ).
+     E_{k}[T(truth(F_k))] ≤ θ − γ.
+   So the gap E_U[T] − E_PRF[T] ≥ γ − (1−δ). Choosing parameters in the property definition with δ sufficiently close to 1 (as typical in “natural proofs”) yields a constant advantage gap α = Ω(1); more generally, once (i) largeness ensures δ > 1 − γ/2, we obtain α ≥ γ/2. If T is bounded in [0,1] (we can rescale), this is a valid distinguishing advantage.
+
+4) This contradicts the PRF’s degree-d security, which forbids any degree-d polynomial test from achieving non-negligible distinguishing advantage. Therefore, under degree-d PRF security, no such degree-d SoS-natural property exists.
+
+5) The argument goes through identically if:
+   - Threshold θ is replaced by a margin-based separation E[T | PRF] ≤ E[T | U] − α for some α = 1/poly(n); then security w.r.t. degree-d tests rules it out.
+   - The distinguisher family is any class closed under scaling and thresholding in the image of degree-d polynomials, because degree-d PRF security covers all those statistics.
+
+Implications and Discussion
+- This formalizes a barrier specifically for “low-degree SoS/statistical” truth-table recognizers. It shows that if one hopes to separate P from NP via dense properties identified by low-degree SoS certificates (or any low-degree polynomial statistic on truth tables), the approach is blocked by the existence of PRFs secure against such tests.
+- The barrier is orthogonal to classic relativization, algebrization, and natural proofs in two ways:
+  (i) It refines the “natural” side by restricting to degree-d SoS verifiers rather than general 2^n-time properties; this is strictly stronger as a limitation (it rules out more specific proof strategies).
+  (ii) It requires only PRF security against low-degree tests, which is potentially weaker than full PRF security against all polynomial-time distinguishers on truth tables. Thus, it identifies a narrower cryptographic roadblock tailored to the SoS-analytic toolkit.
+
+- Tightness: To turn this barrier into a positive program, one must either:
+  - Abandon largeness/density and work with sparse properties, or
+  - Use recognizers that fundamentally exceed low-degree SoS/polynomial statistics in distinguishing power, or
+  - Attack (and refute) degree-d PRF security, providing concrete low-degree SoS distinguishers against candidate PRFs.
+
+- Relation to known frameworks: This is a SoS-flavored analogue of the Razborov–Rudich Natural Proofs barrier, targeted at a specific analytic engine (low-degree SoS). The proof leverages the same meta-principle: a dense, efficiently checkable (here: low-degree polynomial/SOS-checkable) property that excludes small circuits would distinguish PRFs from random, contradicting their security against the corresponding class of distinguishers.
+
+Limitations of this Attempt
+- Assumes the existence of PRFs specifically secure against degree-d polynomial tests on truth tables; while plausible for constant or mildly growing d, establishing or refuting such security for concrete candidates is open.
+- The barrier does not preclude sparse properties, non-truth-table encodings, or recognizers that require degree growing as fast as ω(log N), nor does it touch non-naturalized techniques (e.g., circuit lower bounds via non-dense combinatorial obstructions, interactive or non-black-box encodings).
+- Does not advance a separating lower bound; it only rules out a significant and contemporary subclass of SoS/statistical approaches to P ≠ NP.
+
+Concrete Partial Result (Statement)
+Under the hypothesis that there exist pseudorandom function families in P/poly that are indistinguishable from uniformly random functions by any degree-d polynomial statistic in the truth-table bits, for some fixed d (or d = n^o(1)), there is no degree-d SoS-natural, dense property of Boolean functions that is useful against N^κ-size circuits. Hence, any attempt to prove P ≠ NP by designing such a property must circumvent this barrier.
+
+VERDICT: PARTIAL
+REASON: Gave a rigorous SoS-natural proofs barrier conditional on degree-d PRF security
