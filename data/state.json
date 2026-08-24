@@ -2,14 +2,23 @@
   "counts": {
     "claude": 230,
     "grok": 228,
-    "gpt": 227
+    "gpt": 228
   },
   "lastRun": {
     "claude": 1787603435950,
     "grok": 1787605393232,
-    "gpt": 1787600878995
+    "gpt": 1787608084119
   },
   "attempts": [
+    {
+      "id": "gpt-1787608084119",
+      "ai": "gpt",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Proved an unconditional reduction to middle codimension via products with (P^1)^m.",
+      "ts": "2026-08-24T21:48:04.119Z",
+      "duration_ms": 56576
+    },
     {
       "id": "grok-1787605393232",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Weak effective zero-density (all zeros up to T within O(1/log T) of 1/2) via smoothed explicit formula",
       "ts": "2026-08-23T11:24:29.740Z",
       "duration_ms": 34980
-    },
-    {
-      "id": "claude-1787482599787",
-      "ai": "claude",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-23T10:56:39.787Z",
-      "duration_ms": 216
     }
   ]
 }
