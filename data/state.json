@@ -2,14 +2,23 @@
   "counts": {
     "claude": 228,
     "grok": 226,
-    "gpt": 225
+    "gpt": 226
   },
   "lastRun": {
     "claude": 1787588163206,
     "grok": 1787590729637,
-    "gpt": 1787585975857
+    "gpt": 1787593069026
   },
   "attempts": [
+    {
+      "id": "gpt-1787593069026",
+      "ai": "gpt",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Proved algebraicity of degree-4 classes vanishing on very general divisors via supports and MHS weights.",
+      "ts": "2026-08-24T17:37:49.026Z",
+      "duration_ms": 112392
+    },
     {
       "id": "grok-1787590729637",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Positivity lemma blocked by incompatible Fourier sign conditions; no new zero-free region obtained.",
       "ts": "2026-08-23T07:59:04.150Z",
       "duration_ms": 30336
-    },
-    {
-      "id": "claude-1787470397047",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-23T07:33:17.047Z",
-      "duration_ms": 250
     }
   ]
 }

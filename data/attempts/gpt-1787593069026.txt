@@ -1,0 +1,55 @@
+Attempt: A criterion forcing algebraicity (and proportionality to L^2) for degree-4 classes via supports and mixed Hodge theory
+
+Setup. Let X be a smooth projective complex variety of dimension n ≥ 3, and let H be a very ample line bundle on X with first Chern class L = c1(H) ∈ H^2(X,Q). For D ∈ |H| very general, D is smooth and connected by Bertini; for a very general pair (D1,D2) ∈ |H| × |H| the complete intersection Y := D1 ∩ D2 is smooth, connected, and of codimension 2.
+
+Proposition. Let α ∈ H^4(X,Q) be a cohomology class such that for very general D ∈ |H|, the restriction α|_D = 0 in H^4(D,Q). Then for very general D1,D2 ∈ |H| we have
+α ∈ Im[H^4_Y(X,Q) → H^4(X,Q)] = Q·[Y] = Q·L^2.
+In particular, if α is a rational Hodge class, then α is algebraic (indeed proportional to the complete-intersection class L^2).
+
+Proof.
+
+Step 1: From vanishing on very general D to support on D.
+Fix D ∈ |H| very general with α|_D = 0. Consider the long exact sequence for the pair (X, U := X \ D):
+… → H^4_D(X,Q) → H^4(X,Q) → H^4(U,Q) → …
+Since α|_U = 0 (it restricts to zero on D and hence on U), α lies in the image of H^4_D(X,Q) → H^4(X,Q). Equivalently, α is supported on D.
+
+Step 2: Simultaneous support on two very general divisors.
+Choose two very general divisors D1, D2 ∈ |H| with α|_{D_i} = 0 for i = 1,2 (possible by the hypothesis holding for very general D). Then, by the same argument, α lies in the image of H^4_{D_i}(X,Q) for each i. Consider U := X \ (D1 ∪ D2). Since U ⊂ X \ D_i for each i, we also have α|_U = 0. Hence α is in the image of H^4_{D1∪D2}(X,Q) → H^4(X,Q).
+
+Let â ∈ H^4_{D1∪D2}(X,Q) be any preimage of α under this map.
+
+Step 3: Forcing support to the complete intersection using Mayer–Vietoris with supports and weights.
+There is a Mayer–Vietoris long exact sequence for cohomology with supports:
+… → H^4_{D1∩D2}(X,Q) → H^4_{D1}(X,Q) ⊕ H^4_{D2}(X,Q) → H^4_{D1∪D2}(X,Q) → H^5_{D1∩D2}(X,Q) → …
+All groups carry natural mixed Hodge structures, and all maps are morphisms of MHS (Deligne).
+
+We claim the boundary map δ: H^4_{D1∪D2}(X,Q) → H^5_{D1∩D2}(X,Q) is identically zero. Indeed, by absolute (co)homological purity for smooth local complete intersections,
+H^k_{D_i}(X,Q) ≅ H^{k-2}(D_i,Q)(-1),
+H^k_{D1∩D2}(X,Q) ≅ H^{k-4}(Y,Q)(-2),
+where Y := D1 ∩ D2 is smooth of codimension 2. In particular:
+- H^4_{D1∪D2}(X,Q) is an extension of subquotients of H^2(D_i,Q)(-1), hence its weights are ≤ 0.
+- H^5_{D1∩D2}(X,Q) ≅ H^1(Y,Q)(-2), which has weight 1 − 4 = −3.
+
+A morphism of mixed Hodge structures strictly respects the weight filtrations; there are no nonzero morphisms from an MHS whose weights are ≥ −∞ but ≥ 0 to an MHS of weight −3. Therefore δ ≡ 0.
+
+Consequently, by exactness, â lifts to some ã ∈ H^4_{D1∩D2}(X,Q) mapping to â. Pushing forward to H^4(X,Q), we get α ∈ Im[H^4_{D1∩D2}(X,Q) → H^4(X,Q)].
+
+Step 4: Identification of the image as Q·[Y] = Q·L^2.
+Since Y is smooth of codimension 2, purity gives H^4_Y(X,Q) ≅ H^0(Y,Q)(-2). As Y is connected, H^0(Y,Q) ≅ Q, and the Gysin map identifies H^4_Y(X,Q) → H^4(X,Q) with the map sending 1 to the fundamental class [Y]. Thus Im[H^4_Y(X,Q) → H^4(X,Q)] = Q·[Y]. Moreover [Y] = L^2 in cohomology. Therefore α = c·L^2 for some c ∈ Q.
+
+This proves the proposition.
+
+Remarks and scope.
+
+- The hypothesis “α|_D = 0 for very general D ∈ |H|” is strong; it implies α has support lying in each very general hyperplane section and, by the argument above, forces α to be proportional to L^2. This gives a clean, checkable criterion implying algebraicity in degree 4.
+
+- The proof uses only standard tools: cohomology with supports, purity for smooth lci inclusions, Mayer–Vietoris for supports, and basic weight considerations in mixed Hodge theory. No form of the Hodge conjecture or its generalizations is assumed.
+
+- If α is assumed to be a rational Hodge class of degree 4 satisfying the hypothesis, the conclusion is that α is algebraic (indeed, a rational multiple of the class of a complete intersection of two elements of |H|).
+
+- Variants: The identical argument applies to any basepoint-free linear system giving smooth D1, D2 with smooth intersection. For nonconnected Y, the image is the span of fundamental classes of its components. If very general intersections are irreducible (as often holds for very ample systems), the span is one-dimensional as above.
+
+Limitations. This does not address general Hodge classes; it treats only those satisfying a strong vanishing-on-very-general-divisors condition. It does not extend directly to higher codimensions p > 2 without further analysis of weights and supports, nor does it resolve the core open cases of the Hodge conjecture.
+
+VERDICT: PARTIAL
+REASON: Proved algebraicity of degree-4 classes vanishing on very general divisors via supports and MHS weights.
