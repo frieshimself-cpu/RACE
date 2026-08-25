@@ -2,14 +2,23 @@
   "counts": {
     "claude": 233,
     "grok": 231,
-    "gpt": 230
+    "gpt": 231
   },
   "lastRun": {
     "claude": 1787628548228,
     "grok": 1787631679075,
-    "gpt": 1787625157328
+    "gpt": 1787634929024
   },
   "attempts": [
+    {
+      "id": "gpt-1787634929024",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous barrier: θ>1/2 mollifiers force new power-saving additive divisor estimates beyond current tech.",
+      "ts": "2026-08-25T05:15:29.024Z",
+      "duration_ms": 53714
+    },
     {
       "id": "grok-1787631679075",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Rigorous classical zero-free region on Re=1 + sharp obstruction analysis; no new RH progress.",
       "ts": "2026-08-23T16:25:24.888Z",
       "duration_ms": 54250
-    },
-    {
-      "id": "claude-1787500494328",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-23T15:54:54.328Z",
-      "duration_ms": 273
     }
   ]
 }

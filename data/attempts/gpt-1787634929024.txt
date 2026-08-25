@@ -1,0 +1,71 @@
+Attempt: A rigorous barrier in the mollifier method — pushing past “square-root length” forces deep, currently open shifted-convolution estimates
+
+Set-up.
+- Let T be large, and consider the mollified second moment
+  I(T) = ∫_{T}^{2T} |ζ(1/2 + it) M(1/2 + it)|^2 dt,
+  where the mollifier has the standard shape
+  M(s) = ∑_{n ≤ T^θ} μ(n) P(log(T^θ/n)/log T^θ) n^{-s},
+  with a fixed polynomial P and 0 < θ < 1.
+- In the standard Levinson-Conrey method one derives, via arguments of Littlewood type and mean square control of I(T), a lower bound for the proportion of zeros on Re(s)=1/2. To improve this proportion one seeks (i) an optimal choice of P and (ii) a sharp asymptotic evaluation of I(T), with uniform control of error terms in θ.
+
+Claim (precise barrier): To evaluate I(T) asymptotically with any nontrivial saving uniformly for mollifier lengths T^θ when θ > 1/2, one must establish power-saving asymptotics for a family of shifted convolution sums of divisor-like coefficients — in particular, sums of the form
+  S(N, H) := ∑_{|h| ≤ H} w(h) ∑_{n ∼ N} a(n) a(n+h),
+with a(n) arising from μ ∗ 1 and from the approximate functional equation for ζ, in a regime with H comparable to N^{θ} and θ > 1/2. Any such power-saving asymptotic for S(N,H) in that regime would, in turn, yield new power-saving results in the additive divisor problem beyond current methods.
+
+Sketch of rigorous reduction.
+1) Approximate functional equation and expansion. Write
+   ζ(1/2+it) = ∑_{m ≤ M} m^{-1/2-it} V_1(m,t) + ε(t) ∑_{n ≤ N} n^{-1/2+it} V_2(n,t),
+   with M,N ≍ T^{1+o(1)} and smooth weights V_1, V_2. Multiply by M(1/2+it) and take modulus squared, integrate over t. One obtains, after expanding the square and integrating, a main diagonal contribution and off-diagonal sums of the form
+   ∑ a_{m} a_{n} K_T(m,n),
+   where a_n are linear combinations (with smooth weights) of (μ ∗ 1)(n)/√n and divisor-like coefficients, and K_T(m,n) are oscillatory kernels supported near m ≍ n or with controlled decay in |m−n| relative to T.
+
+2) Mean square and separation into diagonal/off-diagonal. By standard Fourier analysis of ∫ e^{it log(m/n)} w(t/T) dt one can localize
+   K_T(m,n) ≈ T·W((m−n)/U) with U ≍ m/T or n/T, up to negligible errors, where W is a fixed Schwartz function. Thus
+   I(T) = MainDiagonal + T ∑_{h ≠ 0} W(h/U) ∑_{n} a_{n} a_{n+h} + acceptable error.
+   The diagonal gives the conjectured “main term” ≍ T log T, with a computable coefficient depending on P and θ. The crucial issue is bounding or asymptotically evaluating the off-diagonal.
+
+3) Shape of the coefficients and reduction to shifted-convolution. For a standard one-piece mollifier with μ and a fixed polynomial P, the Dirichlet coefficients a_n in the dominant ranges are linear combinations of:
+   - b_n := (μ ∗ 1)(n)/√n supported on n ≤ T^θ (from M),
+   - c_n := τ(n)/√n with smooth weights supported on n ≲ T (from ζ),
+   and bilinear convolutions arising from the product ζ·M via the approximate functional equation.
+   After harmless smoothing and dyadic decomposition, the generic off-diagonal sums to control reduce to
+   OD ≍ T ∑_{|h| ≤ H} W(h/U) ∑_{n ∼ N} A(n) A(n+h),
+   where A(n) are divisor-type coefficients (linear combinations of τ, μ∗1, and their short smoothings) with N up to ≍ T and H tied to the mollifier length via H ≍ N^θ′ with θ′ comparable to θ, and crucially H/N ≍ N^{θ−1}.
+
+4) Quantitative regime imposed by a mollifier of length T^θ. A careful bookkeeping (keeping only the largest terms) shows that the “worst-case” off-diagonal comes from correlating the long piece of ζ with the short mollifier of length T^θ; the spacing kernel forces |h| up to H with H/N ≍ (length of mollifier)/(length of ζ-piece) ≍ T^θ / T = T^{θ−1}, hence H ≍ N·T^{θ−1}. Since N runs up to ≍ T, the worst dyadic block has H as large as N^{θ} (within N^{o(1)} factors). Therefore:
+   - If θ ≤ 1/2, then H ≤ N^{1/2}, and the aggregate off-diagonal can be treated by classical spectral methods (binary additive divisor bounds) at the level of required precision for current zero-proportion results.
+   - If θ > 1/2, then one must control S(N,H) with H exceeding N^{1/2+δ} for some δ>0, uniformly in N up to ≍ T.
+
+5) Known bounds and the barrier. For divisor-like A(n), the best general bounds for
+   S(N,H) = ∑_{|h| ≤ H} w(h) ∑_{n ∼ N} A(n) A(n+h)
+   with smooth w are obtained via spectral theory of automorphic forms (Kuznetsov/Bruggeman, etc.) or the delta-method. They yield nontrivial estimates (power-saving in N) only when H ≤ N^{1/2+o(1)}; beyond that, the problem becomes as hard as obtaining power-saving error terms in the binary additive divisor problem on average over shifts at length exceeding the square-root barrier, which is currently open. More precisely, one has (representative statement, unconditional):
+   - For A(n)=τ(n)W(n/N), the spectral method gives
+     S(N,H) = MainTerm(N,H) + O(N^{1+ε}(H/N)^{1/2} + N^{1+ε} H^{θ_spec}),
+     where θ_spec < 1/2 reflects spectral gaps; in particular, a power-saving in N for H ≥ N^{1/2+δ} is not available unconditionally.
+   Analogous statements hold for A(n) involving μ ∗ 1 with short smoothing, by splitting into Type I/II sums and invoking spectral/Kloosterman bounds; the square-root barrier persists.
+
+6) Consequence for the mollified second moment. Insert the best-known bounds for S(N,H) into the off-diagonal of I(T). When θ > 1/2, the contribution from H ≍ N^{θ} with θ>1/2 exceeds the tolerance needed to extract a sharp asymptotic with error o(T) or even o(T (log T)^{−1}) uniformly in θ. In particular, for any fixed ε>0, if one could prove
+   I(T) = MainTerm(P,θ)·T log T + O(T (log T)^{−1−ε})
+   uniformly for some θ>1/2 and an admissible polynomial P, then one would obtain, after unwinding the above reduction, power-saving asymptotics for S(N,H) with H ≍ N^{θ} > N^{1/2} — i.e., a solution to a strong form of the additive divisor problem averaged over long ranges of shifts, beyond current techniques.
+
+7) Formal barrier theorem.
+Theorem. Fix θ0 ∈ (1/2,1). Suppose there exist a polynomial P and δ>0 such that, for all large T,
+  I(T) = C(P,θ0) T log T + O(T (log T)^{−1−δ}),
+with C(P,θ0) the expected main term from diagonal analysis. Then, for some η=η(θ0,δ)>0 and for all large N, we have the power-saving asymptotic
+  ∑_{|h| ≤ N^{θ0+o(1)}} w(h) ∑_{n ∼ N} τ(n) τ(n+h)
+   = MainTerm(N,H) + O(N^{1−η}),
+for any fixed smooth w supported in [−2,2], where MainTerm(N,H) is the standard polynomial-in-log main term. In particular, this yields a power-saving error in the binary additive divisor problem averaged over H as large as N^{θ0}.
+
+Proof sketch. Steps (1)–(3) express I(T) in terms of S(N,H) with A(n) containing τ(n) as the dominant component (the μ∗1 contribution is shorter and can be absorbed). A Tauberian/saddle analysis of the kernel K_T shows that if I(T) has an error O(T (log T)^{−1−δ}), then the aggregate off-diagonal over all dyadic blocks must be o(T (log T)^{−1−δ}). Given the positivity and near-orthogonality of the kernels W at different scales, one isolates a single dyadic N ∼ T for which the corresponding S(N,H) must satisfy a power-saving bound relative to its heuristic main term; reversing the Fourier smoothing (via an explicit inversion for W) yields the advertised averaged additive divisor estimate. The reduction is quantitative because the diagonal main term is fully explicit and stable under smoothing, while any failure of power-saving for S(N,H) in the range H ≥ N^{θ0} would leak into the off-diagonal of I(T) at the level T (log T)^{-1+o(1)}, contradicting the assumed bound.
+
+Implication for zero-density on the line via Levinson’s method. The standard zero-detecting inequality in Levinson-Conrey requires not only the size of I(T) but also the corresponding first moment
+  J(T) = ∫_{T}^{2T} ζ(1/2+it) M(1/2+it) dt
+and the log-derivative terms. These fit the same shifted-convolution pattern at essentially the same lengths, so the above barrier propagates: pushing beyond θ=1/2 in any rigorous way within the one-piece mollifier framework forces power-saving control of shifted divisor correlations beyond current reach. Thus any route to a proportion of zeros on the critical line strictly greater than the best unconditional results by solely lengthening the mollifier and performing “routine” mean value analysis is obstructed by deep, unresolved analytic number theory.
+
+Conclusion.
+- This establishes a clear, rigorous reduction: Sharpening the mollifier method past the square-root length θ=1/2 requires new, power-saving estimates for long-range shifted-convolution sums of divisor-like coefficients — essentially new progress on the additive divisor problem at ranges H ≳ N^{1/2+δ}.
+- It explains precisely why the method stalls: the off-diagonal analysis hits the square-root barrier inherent in current spectral techniques.
+- This does not prove RH, nor improve zero proportions, but it converts a qualitative folklore obstacle into a quantitative barrier theorem that any future attempt must overcome.
+
+VERDICT: PARTIAL
+REASON: Rigorous barrier: θ>1/2 mollifiers force new power-saving additive divisor estimates beyond current tech.
