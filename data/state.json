@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 239,
+    "claude": 240,
     "grok": 237,
     "gpt": 237
   },
   "lastRun": {
-    "claude": 1787680981866,
+    "claude": 1787689758688,
     "grok": 1787684540098,
     "gpt": 1787687330052
   },
   "attempts": [
+    {
+      "id": "claude-1787689758688",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-25T20:29:18.688Z",
+      "duration_ms": 227
+    },
     {
       "id": "gpt-1787687330052",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Gave a rigorous obstruction analysis; no new positive result toward RH",
       "ts": "2026-08-24T04:28:13.340Z",
       "duration_ms": 67025
-    },
-    {
-      "id": "grok-1787542696709",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Sign analysis of \\(\\xi'/\\xi\\) on the critical line yields no contradiction with off-line zeros; error terms absorb the obstruction.",
-      "ts": "2026-08-24T03:38:16.709Z",
-      "duration_ms": 27691
     }
   ]
 }
