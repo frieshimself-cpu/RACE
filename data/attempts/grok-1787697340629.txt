@@ -1,0 +1,26 @@
+### Analysis: Failure of Jensen-type growth to force critical-line zeros
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). This is an entire function of order one satisfying the functional equation \(\xi(s)=\xi(1-s)\) and \(\overline{\xi(\bar s)}=\xi(s)\). The non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\), and they are symmetric under \(\rho\mapsto 1-\rho\) and under complex conjugation. Write \(N(r)\) for the number of zeros (counted with multiplicity) inside \(|s|<r\); the classical Riemann–von Mangoldt formula already supplies the sharp asymptotic
+\[
+N(T)=\frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}+O(\log T)
+\]
+unconditionally (via the argument principle on a rectangular contour that avoids the critical strip zeros by a zero-free region near \(\operatorname{Re}s=1\)).
+
+Jensen’s formula applied to \(\xi\) on the circle of radius \(r\) reads
+\[
+\frac1{2\pi}\int_0^{2\pi}\log|\xi(re^{i\theta})|\,d\theta=\log|\xi(0)|+\sum_{|\rho|<r}\log\frac{r}{|\rho|}.
+\]
+The left-hand side is completely determined by the known order-one growth of \(\xi\) (Stirling’s formula for the Gamma factor plus the convexity bound for \(\zeta\)). Consequently the power sum of the moduli of the zeros is fixed:
+\[
+\sum_{|\rho|<r}\log\frac{r}{|\rho|}=O(r\log r).
+\]
+Now suppose a zero \(\rho=\sigma+it\) with \(\sigma>1/2\) exists. Its functional-equation partner \(1-\rho\) lies at the same distance from the origin (to leading order \(|t|\) when \(|t|\) is large). Replacing the pair \(\{\rho,1-\rho\}\) by a pair of zeros on the critical line at height \(t\) changes each modulus by at most \(O(|\sigma-1/2|^2/|t|)\). The resulting perturbation of the Jensen sum is therefore
+\[
+O\Bigl(\frac{(\sigma-1/2)^2}{|t|}\Bigr)=o(1)
+\]
+per pair and remains absorbed in the existing \(O(r\log r)\) error after summation over all zeros of height \(\le r\). Absolute convergence of the Dirichlet series for \(\xi'/\xi\) is unavailable inside the strip, so no further cancellation or sign information can be extracted from the averaged logarithm. Hence Jensen’s identity is satisfied equally well whether or not every zero satisfies \(\operatorname{Re}\rho=1/2\).
+
+The same obstruction persists for any pure \(L^p\)-mean of \(\log|\xi|\) on large circles or on horizontal lines: the functional equation forces off-line zeros to appear in balanced pairs whose contribution to the mean is asymptotically indistinguishable from that of critical-line zeros. Additional input (pair correlation, extreme-value estimates on the critical line, or positivity of a Weil-type explicit formula) is required to break the symmetry; growth alone is insufficient.
+
+VERDICT: FAILED
+REASON: Jensen growth + functional eq. cannot distinguish paired off-line zeros from on-line zeros

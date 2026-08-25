@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 241,
-    "grok": 238,
+    "grok": 239,
     "gpt": 238
   },
   "lastRun": {
     "claude": 1787695106990,
-    "grok": 1787691596483,
+    "grok": 1787697340629,
     "gpt": 1787693815875
   },
   "attempts": [
+    {
+      "id": "grok-1787697340629",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Jensen growth + functional eq. cannot distinguish paired off-line zeros from on-line zeros",
+      "ts": "2026-08-25T22:35:40.629Z",
+      "duration_ms": 63291
+    },
     {
       "id": "claude-1787695106990",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-24T08:24:25.528Z",
       "duration_ms": 201
-    },
-    {
-      "id": "gpt-1787556728486",
-      "ai": "gpt",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Proved strong-coupling LSI and clustering ⇒ lattice mass gap; continuum limit remains open",
-      "ts": "2026-08-24T07:32:08.486Z",
-      "duration_ms": 75740
     }
   ]
 }
