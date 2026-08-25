@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 240,
+    "claude": 241,
     "grok": 238,
     "gpt": 238
   },
   "lastRun": {
-    "claude": 1787689758688,
+    "claude": 1787695106990,
     "grok": 1787691596483,
     "gpt": 1787693815875
   },
   "attempts": [
+    {
+      "id": "claude-1787695106990",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-25T21:58:26.990Z",
+      "duration_ms": 174
+    },
     {
       "id": "gpt-1787693815875",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved strong-coupling LSI and clustering ⇒ lattice mass gap; continuum limit remains open",
       "ts": "2026-08-24T07:32:08.486Z",
       "duration_ms": 75740
-    },
-    {
-      "id": "grok-1787551632147",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Structural obstruction (non-Stieltjes log-derivative of \\(\\Phi\\)) blocks Laguerre–Pólya membership proof.",
-      "ts": "2026-08-24T06:07:12.147Z",
-      "duration_ms": 45675
     }
   ]
 }
