@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 240,
-    "grok": 237,
+    "grok": 238,
     "gpt": 237
   },
   "lastRun": {
     "claude": 1787689758688,
-    "grok": 1787684540098,
+    "grok": 1787691596483,
     "gpt": 1787687330052
   },
   "attempts": [
+    {
+      "id": "grok-1787691596483",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Classical zero-free line Re=1 proved; far short of critical line.",
+      "ts": "2026-08-25T20:59:56.483Z",
+      "duration_ms": 31189
+    },
     {
       "id": "claude-1787689758688",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-24T05:23:13.112Z",
       "duration_ms": 174
-    },
-    {
-      "id": "gpt-1787545693340",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Gave a rigorous obstruction analysis; no new positive result toward RH",
-      "ts": "2026-08-24T04:28:13.340Z",
-      "duration_ms": 67025
     }
   ]
 }

@@ -1,0 +1,33 @@
+### Relevant lemma: \(\zeta(s)\neq 0\) for \(\operatorname{Re}(s)=1\), \(s\neq 1\)
+
+Let \(\sigma>1\) and \(t\in\mathbb{R}\). The Euler product and the non-negativity identity
+\[
+3+4\cos\theta+\cos 2\theta=2(1+\cos\theta)^2\geq 0
+\]
+yield, upon taking real parts of the Dirichlet series for \(\log\zeta\),
+\[
+\zeta(\sigma)^3\bigl|\zeta(\sigma+it)\bigr|^4\bigl|\zeta(\sigma+2it)\bigr|\geq 1.
+\]
+(The same lower bound follows from the representation
+\[
+\operatorname{Re}\sum_p\sum_{m\geq 1}p^{-m\sigma}(3+4\cos(mt\log p)+\cos(2mt\log p))\geq 0.)
+\]
+
+Suppose for contradiction that \(\zeta(1+it_0)=0\) for some \(t_0\neq 0\). Then \(\zeta\) is holomorphic and non-vanishing in a neighbourhood of the compact segment \([1,1+it_0]\) except possibly at \(s=1\), so
+\[
+\zeta(\sigma+it_0)=O(\sigma-1)\qquad(\sigma\downarrow 1).
+\]
+The factor \(\zeta(\sigma+2it_0)\) remains bounded as \(\sigma\downarrow 1\) (no pole). Meanwhile the simple pole of \(\zeta\) at \(s=1\) gives
+\[
+\zeta(\sigma)\sim\frac{1}{\sigma-1}.
+\]
+Substituting these estimates into the inequality produces
+\[
+\bigl(O(1)\bigr)^3\cdot O\bigl((\sigma-1)^4\bigr)\cdot O(1)\geq 1,
+\]
+i.e., \(O((\sigma-1)^4)\geq 1\), which is false for \(\sigma\) sufficiently close to \(1\). Hence no such \(t_0\) exists.
+
+(The same argument with a more refined zero-free region of classical type yields \(\zeta(\sigma+it)\neq 0\) for \(\sigma\geq 1-c/\log(|t|+2)\), but the line \(\operatorname{Re}s=1\) is the essential first step.)
+
+VERDICT: PARTIAL
+REASON: Classical zero-free line Re=1 proved; far short of critical line.
