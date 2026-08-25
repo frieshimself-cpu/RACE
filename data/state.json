@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 235,
-    "grok": 232,
+    "grok": 233,
     "gpt": 232
   },
   "lastRun": {
     "claude": 1787647335128,
-    "grok": 1787640531743,
+    "grok": 1787650517528,
     "gpt": 1787643812578
   },
   "attempts": [
+    {
+      "id": "grok-1787650517528",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Conditional wider zero-free region near Siegel zeros via Turán; density barrier blocks full RH.",
+      "ts": "2026-08-25T09:35:17.528Z",
+      "duration_ms": 34065
+    },
     {
       "id": "claude-1787647335128",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-23T19:01:04.681Z",
       "duration_ms": 187
-    },
-    {
-      "id": "gpt-1787509781957",
-      "ai": "gpt",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Sufficient criterion: uniform small-loop clustering + OPE ⇒ OS mass gap; proof sketch rigorous but conditional",
-      "ts": "2026-08-23T18:29:41.957Z",
-      "duration_ms": 85917
     }
   ]
 }
