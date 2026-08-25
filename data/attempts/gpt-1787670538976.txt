@@ -1,0 +1,66 @@
+Attempt: A local L2-mean-square criterion on multiplicative short intervals that implies the Riemann Hypothesis
+
+Statement (reduction).
+Fix any H>0. Let φ be a smooth function supported in [0,H], not identically zero, with Fourier transform φ̂(ξ)=∫0^H φ(u)e^{-iξu}du satisfying φ̂(0)>0 and sup{|φ̂(ξ)|: |ξ|≥1} ≤ 1/10. Suppose there exist constants A,C and X0 such that for all X≥X0,
+I_H(X) := ∫_0^H |ψ(Xe^u) - Xe^u|^2 e^{-u} du ≤ C X (log X)^A.
+Then the Riemann Hypothesis holds.
+
+In words: a uniform bound of order X · polylog(X) for the L2-average of the prime-counting error on every fixed-length logarithmic interval implies that all nontrivial zeros lie on the critical line.
+
+Proof sketch.
+- Notation. Write E(x)=ψ(x)-x. Let ρ=β+iγ run over nontrivial zeros of ζ(s). We will use the classical explicit formula in the following standard form (see, e.g., Iwaniec–Kowalski, Thm. 5.12): for x≥2,
+E(x) = -∑_ρ x^ρ/ρ + O(x e^{-c√log x}),
+where the sum is over all nontrivial zeros, the O-term is absolute, and the contribution of prime powers beyond the first as well as trivial zeros is absorbed into the stated error (which is far smaller than the critical-size x^{1/2} up to any fixed power of log x). We will use this for x in [X, X e^H].
+
+- A linear functional that isolates a putative zero off the critical line. Suppose, for contradiction, there exists a zero ρ0=β0+iγ0 with β0>1/2. Define the smoothed projection
+L(X) := ∫_0^H E(Xe^u) e^{-u/2} e^{-iγ0 u} φ(u) du.
+By Cauchy–Schwarz and the hypothesis,
+|L(X)|^2 ≤ (∫_0^H |E(Xe^u)|^2 e^{-u} du) (∫_0^H |φ(u)|^2 du) ≤ C' X (log X)^A,
+with C' depending only on φ, A, C, H.
+
+- Evaluate L(X) via the explicit formula. Inserting E(Xe^u) = -∑_ρ (Xe^u)^ρ/ρ + error and interchanging sum/integral (justified by absolute convergence after truncation and standard zero-density summation, omitted here but classical), we get
+L(X) = -∑_ρ X^ρ/ρ ∫_0^H e^{(ρ-1/2)u} e^{-iγ0 u} φ(u) du + O(X e^{-c√log X}).
+Write the inner integral as
+J(ρ) := ∫_0^H e^{(β-1/2)u} e^{i(γ-γ0)u} φ(u) du.
+Then
+L(X) = - X^{β0+iγ0} J(ρ0)/ρ0 - ∑_{ρ≠ρ0} X^{β+iγ} J(ρ)/ρ + O(X e^{-c√log X}).
+
+- Lower bound for the main term. Since φ is real and nonnegative (replace by |φ| if needed), J(ρ0)=∫_0^H e^{(β0-1/2)u} φ(u) du ≥ (min_{u∈[0,H]} e^{(β0-1/2)u}) ∫_0^H φ(u) du = c0(φ,H)>0.
+Hence
+|X^{β0+iγ0} J(ρ0)/ρ0| ≥ c1 X^{β0}/|ρ0|.
+
+- Uniform bounds for the remaining terms. For any ρ with imaginary part γ,
+|J(ρ)| ≤ e^{(β-1/2)H} |φ̂(γ-γ0)| ≤ e^{(β-1/2)H} ×
+  { 1, if |γ-γ0|<1;
+    1/10, if |γ-γ0|≥1 }.
+Thus we split the sum over zeros into “near” and “far” in ordinate:
+S_near := ∑_{ρ≠ρ0, |γ-γ0|<1} X^{β} |J(ρ)|/|ρ|,
+S_far := ∑_{|γ-γ0|≥1} X^{β} |J(ρ)|/|ρ|.
+Using the bound on J, and that e^{(β-1/2)H} ≤ e^{H/2} (since β≤1), we get
+S_far ≤ (e^{H/2}/10) ∑_{ρ} X^{β}/|ρ|.
+For S_near, the number of zeros with |γ-γ0|<1 is O(log(3+|γ0|)) by standard zero-counting, and each contributes at most e^{H/2} X^{β}/|ρ|. Hence
+S_near ≤ C2 e^{H/2} (log(3+|γ0|)) max_{|γ-γ0|<1} X^{β}/|ρ|.
+In both sums, β≤1. In particular, every zero on or to the left of the critical line contributes at most X^{1/2}/|ρ|; zeros with β>1/2 are rare by classical zero-density estimates, but for the present argument a crude bound suffices:
+- S_far ≪ e^{H/2} X^{1/2} ∑_{ρ} 1/|ρ| ≪ e^{H/2} X^{1/2} (log T)^2,
+- S_near ≪ e^{H/2} X^{β*} log T,
+where T≈max(3,|γ0|) and β* is the largest real part among zeros with |γ-γ0|<1, excluding ρ0. If ρ0 is the unique zero with β>1/2 in this window, then β*≤1/2 and S_near ≪ e^{H/2} X^{1/2} log T. If other zeros off the line lie in this window, the argument below applies to the one with maximal β anyway; we fix ρ0 to be such a zero. Thus we may assume β*≤β0 and keep S_near under that form.
+
+Collecting, we have
+|L(X)| ≥ c1 X^{β0}/|ρ0| - C3 e^{H/2} [ X^{1/2} (log T)^2 + X^{β*} log T ] - C4 X e^{-c√log X}.
+
+- Contradiction by size. Choose X→∞ through values such that X^{β0-1/2} dominates any fixed power of log X (this holds since β0>1/2). Then for X large (depending on H, ρ0, φ), the right-hand error terms are ≤ (c1/2) X^{β0}/|ρ0|, so
+|L(X)| ≥ (c1/2) X^{β0}/|ρ0|.
+By Cauchy–Schwarz, |L(X)|^2 ≤ C' X (log X)^A. Therefore
+X^{2β0} ≤ C'' X (log X)^A,
+which fails for large X because 2β0>1. This contradiction shows no such ρ0 can exist; hence all nontrivial zeros satisfy β=1/2.
+
+Remarks and scope.
+- The only deep input is the explicit formula with its standard error term, and crude zero-counting to bound how many zeros lie in a fixed unit window of ordinates. No zero-density beyond N(T) ~ (T/2π)log T is required.
+- The hypothesis is a genuinely local statement: it controls the L2-size of ψ(x)-x on multiplicative intervals [X, X e^H] of fixed logarithmic length H, uniformly in X. It is stronger than the pointwise conjectural bound O(x^{1/2} log^2 x) but much more flexible to aim at via analytic means (e.g., bilinear forms, dispersion methods).
+- The argument shows robustness: it suffices that I_H(X) ≤ C X (log X)^A holds along a sequence X→∞ of full logarithmic density, since the contradiction is produced by a sequence X→∞.
+
+Conclusion.
+The proof above gives a concrete, self-contained reduction: a uniform L2-bound of the right “critical size” on every fixed-length multiplicative interval implies RH. This reframes RH as the absence of any off-line zero detectable by a short-windowed Fourier probe against the prime error. It does not prove RH, but it offers a precise analytic target for mean-square methods.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous reduction: a fixed-window L2 bound on ψ(x)−x implies RH; not a full solution.

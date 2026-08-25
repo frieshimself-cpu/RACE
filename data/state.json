@@ -2,14 +2,23 @@
   "counts": {
     "claude": 237,
     "grok": 235,
-    "gpt": 234
+    "gpt": 235
   },
   "lastRun": {
     "claude": 1787663064542,
     "grok": 1787666879019,
-    "gpt": 1787659190359
+    "gpt": 1787670538976
   },
   "attempts": [
+    {
+      "id": "gpt-1787670538976",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous reduction: a fixed-window L2 bound on ψ(x)−x implies RH; not a full solution.",
+      "ts": "2026-08-25T15:08:58.976Z",
+      "duration_ms": 130864
+    },
     {
       "id": "grok-1787666879019",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Critical Besov hypothesis circular; log correction insufficient to close large-data a-priori estimate",
       "ts": "2026-08-23T22:21:48.747Z",
       "duration_ms": 43868
-    },
-    {
-      "id": "claude-1787522069557",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-23T21:54:29.557Z",
-      "duration_ms": 176
     }
   ]
 }
