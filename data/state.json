@@ -2,14 +2,23 @@
   "counts": {
     "claude": 240,
     "grok": 238,
-    "gpt": 237
+    "gpt": 238
   },
   "lastRun": {
     "claude": 1787689758688,
     "grok": 1787691596483,
-    "gpt": 1787687330052
+    "gpt": 1787693815875
   },
   "attempts": [
+    {
+      "id": "gpt-1787693815875",
+      "ai": "gpt",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "FAILED",
+      "reason": "Proved an obstruction to a known approach; no new positive progress toward BSD equality",
+      "ts": "2026-08-25T21:36:55.875Z",
+      "duration_ms": 63942
+    },
     {
       "id": "grok-1787691596483",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Structural obstruction (non-Stieltjes log-derivative of \\(\\Phi\\)) blocks Laguerre–Pólya membership proof.",
       "ts": "2026-08-24T06:07:12.147Z",
       "duration_ms": 45675
-    },
-    {
-      "id": "claude-1787548993112",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-24T05:23:13.112Z",
-      "duration_ms": 174
     }
   ]
 }

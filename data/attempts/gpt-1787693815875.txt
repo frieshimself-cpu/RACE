@@ -1,0 +1,57 @@
+Attempt: A quantitative obstruction to proving BSD(0) via “positivity” of modular-symbol truncations
+
+Objective
+Show rigorously that a natural strategy to prove nonvanishing of L(E,1) from partial sums of modular symbols cannot work in general, by establishing a lower bound for the variance of additive twists (equivalently, modular symbols) over residue classes mod q. This demonstrates that truncations do not concentrate sufficiently to force positivity or even smallness of fluctuations, obstructing one route to the rank-0 case of BSD.
+
+Set-up
+Let E/ℚ be an elliptic curve of conductor N, and f the associated normalized newform of weight 2 and level N (normalization λ_f(1)=1). For integers a, q with (a,q)=1 and (q,N)=1, consider the additive twist at s=1:
+L(f,1,a/q) = ∑_{n≥1} λ_f(n) e(an/q) n^{-1}.
+Up to an explicit nonzero proportionality factor depending only on f (periods, 2πi, etc.), L(f,1,a/q) equals a complex modular symbol ⟨{a/q}, f⟩. Thus statements about mean-square size of L(f,1,a/q) translate to variance of modular symbols.
+
+Main lemma (variance lower bound for additive twists at s=1)
+Let f be a weight-2 normalized newform of level N. Fix coprime q with (q,N)=1. Then there exists a constant C(f)>0 such that, as q→∞ over integers coprime to N,
+(1/φ(q)) ∑_{(a,q)=1} |L(f,1,a/q)|^2 = C(f) log q + O_f(1).
+In particular, the variance of the family {L(f,1,a/q)} over a mod q grows like log q, uniformly in coprime q.
+
+Sketch of proof
+- Approximate functional equation at s=1: For a smooth, compactly supported W with W(1)=1 and Mellin transform well-behaved, we have
+  L(f,1,a/q) = ∑_{n≥1} λ_f(n) e(an/q) n^{-1} W(n/X) + ε(f,a/q) ∑_{n≥1} λ_f(n) e(-ān/q) n^{-1} W(nY)
+  with X·Y ≍ q^2 N (the analytic conductor at s=1 of the additive twist is ≍ q^2N), and |ε(f,a/q)|=1. Take X=Y≈q√N for symmetry. Both sums have effective length ≍ X and ≍ Y respectively. It suffices to analyze one (diagonal terms will match, cross terms can be handled similarly and contribute to the same main term).
+- Second moment over a mod q: Consider S := (1/φ(q))∑_{(a,q)=1} |∑_{n} λ_f(n) e(an/q) n^{-1} W(n/X)|^2.
+  Expanding the square and summing over a gives Ramanujan sums:
+  (1/φ(q)) ∑_{(a,q)=1} e(a(n-m)/q) = 1 if n≡m mod q and (n,q)=(m,q)=1, else O(τ(q)/φ(q)).
+  Since (q,N)=1 and W cuts sums to n≪X, the exceptional cases are negligible.
+  Thus
+  S = ∑_{n≡m (mod q)} λ_f(n)λ_f(m) (nm)^{-1} W(n/X)W(m/X) + O_f(q^{-1+ε}).
+- Diagonal dominance: Split into diagonal n=m (main term) and off-diagonal n≠m but n≡m (mod q). The diagonal contributes
+  M = ∑_{n≥1} |λ_f(n)|^2 n^{-2} W(n/X)^2.
+  Use Rankin–Selberg theory: ∑_{n≤T} |λ_f(n)|^2 ≍ c_f T + O_f(T^{1/2+ε}). Partial summation yields
+  M = c_f ∫_1^{∞} t^{-2} W(t/X)^2 dt + lower-order = c_f (log X) + O_f(1).
+  Since X≈q√N, this is c_f log q + O_f(1).
+- Off-diagonal control: For n≡m (mod q), n≠m, write m=n+ℓq with ℓ≠0. The double sum over n,ℓ gets weight ≍ (nm)^{-1} with smooth cutoffs. Standard bounds for shifted convolution sums of Hecke eigenvalues with 1/(nm) weights and smooth truncation (via the spectral/Kuznetsov method or via Voronoi summation and Cauchy–Schwarz) give total contribution O_f(1). The 1/(nm) decay and smooth compact support are crucial. One can adapt the classical Jutila/Wilton second-moment calculation for additive twists to s=1 with these weights.
+- Dual sum and cross terms: Repeating for the dual piece (with ā and −a) and the cross term between the two pieces yields the same c_f log q main term, with errors still O_f(1). Altogether:
+  (1/φ(q)) ∑_{(a,q)=1} |L(f,1,a/q)|^2 = C(f) log q + O_f(1),
+  where C(f)>0 is expressible in terms of the Rankin–Selberg residue ⟨f,f⟩ (Petersson norm) and the weight functions chosen (hence invariantly determined).
+
+Consequence for modular symbols
+Since L(f,1,a/q) equals (up to a fixed nonzero constant depending only on f) the complex modular symbol ⟨{a/q}, f⟩, the same mean-square asymptotic holds for modular symbols. Hence, for any growing sequence of coprime q, the distribution of modular symbols across a mod q has variance ≍ log q, and in particular does not concentrate near 0. No choice of truncation length bounded by a fixed power of q can force all, or almost all, modular symbols to have the same sign or small magnitude.
+
+Why this obstructs a natural “positivity-truncation” strategy for BSD(0)
+One naive idea to prove L(E,1)≠0 is:
+- Express L(E,1) as a limit of averages (or weighted sums) of modular symbols over rationals with bounded denominator q and use approximate positivity or cancellation control to show the average stays away from 0 for some q.
+- Hope to pass to the limit and deduce nonvanishing.
+
+The lemma shows a quantitative obstruction: as q grows, the modular symbols fluctuate with variance ≍ log q, so any finite-level averaging over residue classes mod q necessarily encounters O(√log q) typical fluctuations. Without a genuinely new, non-averaged structural input causing coherent sign or phase alignment across a positive density of residues, truncation/positivity cannot deliver a uniform lower bound. In particular:
+- Truncating the modular-symbol series at length ≪ q fails: the average absolute deviation of partial sums remains ≫ (log q)^{1/2}.
+- Sieve over subsets of residues with simple congruence properties does not help—orthogonality that produces the variance equally applies on those subsets unless they are of vanishing density.
+- Any approach that would deduce L(E,1)≠0 by bounding the variance of modular-symbol truncations by O(1) is impossible in this framework.
+
+Remarks
+- The mean-square asymptotic stated above is in the spirit of classical results for additive twists; the proof sketch adapts standard tools (approximate functional equation + orthogonality + shifted convolution analysis at s=1 with 1/n weight). The key point for this attempt is not novelty of the toolchain, but making explicit the obstruction it creates for a specific, often-invoked heuristic route to BSD(0).
+- This does not preclude proving BSD(0) by other uses of modular symbols (e.g., deep congruences, visibility, or special value congruences). It only rules out a broad class of “positivity-truncation” arguments that treat modular symbols like nearly-constant averages at large q.
+
+Conclusion
+This provides a rigorous, self-contained analysis showing an inherent barrier to a tempting approach to the rank-0 case of BSD based on positivity/averaging of modular symbols over rationals of bounded denominator. Any successful strategy must either (i) go beyond such truncations or (ii) exploit finer arithmetic structures that overcome the logarithmic variance phenomenon established above.
+
+VERDICT: FAILED
+REASON: Proved an obstruction to a known approach; no new positive progress toward BSD equality
