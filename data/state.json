@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 241,
+    "claude": 242,
     "grok": 239,
     "gpt": 239
   },
   "lastRun": {
-    "claude": 1787695106990,
+    "claude": 1787701346810,
     "grok": 1787697340629,
     "gpt": 1787698814373
   },
   "attempts": [
+    {
+      "id": "claude-1787701346810",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-25T23:42:26.810Z",
+      "duration_ms": 186
+    },
     {
       "id": "gpt-1787698814373",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Gave a rigorous SoS-natural proofs barrier conditional on degree-d PRF security",
       "ts": "2026-08-24T10:20:39.997Z",
       "duration_ms": 67176
-    },
-    {
-      "id": "grok-1787563700938",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Identified structural positivity obstruction in Weil explicit-formula approach; recovered only classical zero-free region",
-      "ts": "2026-08-24T09:28:20.938Z",
-      "duration_ms": 43833
     }
   ]
 }
