@@ -1,0 +1,47 @@
+Attempt: A rigorous obstruction to “positive-coefficient” mollification of ζ(s)
+
+Statement (Barrier for nonnegative Dirichlet coefficients).
+Fix σ > 1/2. For any Dirichlet polynomial F(s) = ∑_{n≤N} a_n n^{-s} with a_n ≥ 0, one has
+liminf_{T→∞} (1/T) ∫_0^T |1 − ζ(σ+it) F(σ+it)|^2 dt ≥ 1 − 1/ζ(2σ).
+Moreover, equality is attained by the constant choice a_1 = 1/ζ(2σ), a_n = 0 for n ≥ 2.
+
+In particular, for every σ > 1/2 the best possible mean-square error with nonnegative coefficients is a fixed positive constant depending only on σ, and as σ ↓ 1/2 this lower bound tends to 1.
+
+Proof.
+- Work at the fixed vertical line Re s = σ > 1/2. For any Dirichlet series G(s) = ∑_{m≥1} c_m m^{-s} with square-summable coefficients ∑ |c_m|^2 m^{-2σ} < ∞, one has the standard vertical mean-value identity
+  lim_{T→∞} (1/T) ∫_0^T |G(σ+it)|^2 dt = ∑_{m≥1} |c_m|^2 m^{-2σ}.
+  This follows from orthogonality of the characters t ↦ m^{-it} on long intervals.
+
+- Write ζ(s)F(s) = (∑_{k≥1} k^{-s})(∑_{n} a_n n^{-s}) = ∑_{m≥1} b_m m^{-s} with coefficients
+  b_m = ∑_{n|m} a_n.
+  If a_n ≥ 0, then b_m ≥ 0, and b_m is nondecreasing in the a_n.
+
+- The Dirichlet series for the constant 1 is just c_1 = 1, c_m = 0 for m ≥ 2. Hence
+  lim_{T→∞} (1/T) ∫_0^T |1 − ζ(σ+it)F(σ+it)|^2 dt
+  = ∑_{m≥1} |δ_{m1} − b_m|^2 m^{-2σ}
+  = (1 − b_1)^2 + ∑_{m≥2} b_m^2 m^{-2σ}
+  = (1 − a_1)^2 + ∑_{m≥2} b_m^2 m^{-2σ}.
+
+- For fixed a_1 ≥ 0, the sum S = ∑_{m≥2} b_m^2 m^{-2σ} is minimized by taking all other a_n = 0 (because b_m is increasing in each a_n and all terms are nonnegative), yielding b_m ≡ a_1 for all m (since 1|m). Thus the optimal choice under a_n ≥ 0 is a pure constant mollifier:
+  S_min(a_1) = a_1^2 ∑_{m≥2} m^{-2σ} = a_1^2 (ζ(2σ) − 1).
+
+- Therefore the mean-square error is bounded below by
+  E(a_1) = (1 − a_1)^2 + a_1^2 (ζ(2σ) − 1)
+         = 1 − 2a_1 + a_1^2 ζ(2σ).
+  Minimizing in a_1 ≥ 0 gives a_1 = 1/ζ(2σ), with minimum
+  E_min = 1 − 1/ζ(2σ).
+
+- This minimum is attained by choosing a_1 = 1/ζ(2σ), a_n = 0 for n ≥ 2, proving the sharpness claim.
+
+Consequences and interpretation.
+- No sequence of nonnegative-coefficient Dirichlet polynomials can make ζ(σ+it)F(σ+it) approximate 1 in long-interval L^2-mean better than the fixed positive constant 1 − 1/ζ(2σ). Hence there is a hard positivity barrier: nonnegative “mollifiers” cannot even approximately invert ζ(s) in mean square on any fixed line Re s = σ > 1/2.
+- Letting σ ↓ 1/2, ζ(2σ) → ∞, so the lower bound tends to 1. Thus on or arbitrarily near the critical line, positivity-constrained mollification is maximally ineffective on average.
+- Implication for RH strategies: any approach in the Nyman–Beurling/Dirichlet-polynomial paradigm that restricts to coefficients a_n ≥ 0 (for algebraic, positivity, or extremal reasons) cannot succeed in producing small L^2 error for 1 − ζF on Re s ≥ 1/2; in particular it cannot be used (even in mean) to rule out zeros by a simple uniform smallness argument. This quantitatively explains the necessity of substantial sign-changing structure in effective mollifiers and in Beurling–Nyman approximants.
+
+Remarks.
+- The proof uses only basic Dirichlet series orthogonality and positivity; no unproven hypotheses are invoked.
+- The obstruction is sharp and unconditional, and it isolates a concrete failure mode for a natural but overly restrictive class of mollifiers.
+- Removing the positivity constraint permits cancellations among the b_m and is exactly what enables the classical, effective mollifiers (with sign changes and arithmetic structure) to reduce mean-square error and push zero-density/zero-proportion results.
+
+VERDICT: PARTIAL
+REASON: Proved a sharp positivity barrier for mollifiers; clarifies a concrete failure mode, not RH itself.
