@@ -1,0 +1,41 @@
+**Partial result.** Lattice Yang–Mills with compact simple gauge group \(G\) admits a uniform mass gap at strong coupling via convergent cluster expansion; the continuum limit is obstructed by the absence of matching infrared control.
+
+Let \(\Lambda\subset\mathbb{Z}^4\) be a finite toroidal lattice. The Wilson measure is
+\[
+d\mu_\beta=\frac1{Z}\exp\Bigl(-\beta\sum_{p\subset\Lambda}\bigl(1-\tfrac1d\operatorname{Re}\operatorname{Tr}U_p\bigr)\Bigr)\prod_{\ell}dU_\ell,
+\]
+where \(dU_\ell\) is normalized Haar measure on \(G\), \(d=\dim\rho\) for the fundamental representation, and \(U_p\) is the oriented plaquette product. Expectation values of local gauge-invariant observables (Wilson loops, plaquette variables \(F_p=1-\frac1d\operatorname{Re}\operatorname{Tr}U_p\), etc.) are denoted \(\langle\cdot\rangle_{\beta,\Lambda}\). The infinite-volume limit \(\Lambda\uparrow\mathbb{Z}^4\) exists by standard monotonicity/correlation inequalities for \(\beta>0\).
+
+**Lemma (strong-coupling exponential clustering).**  
+There exist \(\beta_0=\beta_0(G)>0\) and \(m_0=m_0(G)>0\) such that for all \(\beta\in(0,\beta_0)\) and all plaquettes \(p,q\),
+\[
+\bigl|\langle F_p;F_q\rangle_\beta\bigr|\le C\exp\bigl(-m_0|p-q|\bigr),
+\]
+where \(\langle\cdot;\cdot\rangle\) denotes the truncated (connected) correlation and \(C<\infty\) is independent of volume. Consequently the lattice transfer-matrix gap satisfies \(\Delta_{\mathrm{latt}}(\beta)\ge m_0>0\).
+
+**Proof sketch.**  
+Expand the Boltzmann weight in a polymer (cluster) representation. Each plaquette contributes a factor whose connected part is bounded by \(O(\beta)\) in the Banach algebra of complex measures on \(G\)-valued links (see Seiler, Lect. Notes Phys. 159, or Rivasseau, From Perturbative to Constructive Renormalization). A polymer \(\gamma\) is a connected set of plaquettes; its activity satisfies
+\[
+|\rho(\gamma)|\le(C\beta)^{|\gamma|}.
+\]
+For \(\beta<\beta_0\) small enough that \(\sum_{\gamma\ni x}|\rho(\gamma)|e^{a|\gamma|}<1\) (with \(a>0\) fixed), the abstract polymer expansion converges absolutely in the sense of Kotecký–Preiss. The resulting cluster expansion for the truncated two-point function yields the claimed exponential decay with rate
+\[
+m_0=-\log(K\beta)>0
+\]
+for an explicit combinatorial constant \(K=K(G)\). Reflection positivity of the Wilson action supplies the transfer-matrix interpretation, so the spectral gap is at least \(m_0\). The constants are uniform in volume, hence survive the infinite-volume limit.
+
+**Continuum obstruction.**  
+The continuum limit requires \(\beta\to\infty\) with lattice spacing \(a(\beta)\to0\) fixed by a renormalization condition (e.g., string tension or correlation length in physical units). Asymptotic freedom supplies the scaling
+\[
+a(\beta)\sim\mu^{-1}\exp\bigl(-1/(2b_0g^2)\bigr),\qquad\beta\sim1/g^2.
+\]
+While the lattice gap \(\Delta_{\mathrm{latt}}(\beta)\) is expected on RG grounds to vanish at a compatible non-perturbative rate, no rigorous bound
+\[
+\Delta_{\mathrm{latt}}(\beta)\ge c\,a(\beta)
+\]
+(with \(c>0\) independent of \(\beta\)) is known. Existing expansions (cluster, strong-coupling, or balaban-type block-spin) either break down for \(\beta\gg1\) or lose the uniform spectral gap when the ultraviolet cutoff is removed. Gauge invariance forbids a simple mass counterterm that would restore a gap by hand. Thus the lattice mass gap, although rigorously positive for each fixed \(\beta<\beta_0\), does not by itself produce a massive continuum theory satisfying the Osterwalder–Schrader axioms on \(\mathbb{R}^4\).
+
+The lemma is therefore only a partial result: it settles the infrared problem in the confining regime but leaves the ultraviolet–infrared interplay required for the Millennium statement untouched.
+
+VERDICT: PARTIAL
+REASON: Strong-coupling lattice gap via polymers; continuum limit still blocked by missing uniform IR/UV estimates

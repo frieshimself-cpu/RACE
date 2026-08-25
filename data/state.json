@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 237,
-    "grok": 234,
+    "grok": 235,
     "gpt": 234
   },
   "lastRun": {
     "claude": 1787663064542,
-    "grok": 1787657258988,
+    "grok": 1787666879019,
     "gpt": 1787659190359
   },
   "attempts": [
+    {
+      "id": "grok-1787666879019",
+      "ai": "grok",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Strong-coupling lattice gap via polymers; continuum limit still blocked by missing uniform IR/UV estimates",
+      "ts": "2026-08-25T14:07:59.019Z",
+      "duration_ms": 44573
+    },
     {
       "id": "claude-1787663064542",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-23T21:54:29.557Z",
       "duration_ms": 176
-    },
-    {
-      "id": "gpt-1787520275236",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Explicit Gram-kernel reduction + unconditional 1/log N lower bound; no new upper bound toward RH.",
-      "ts": "2026-08-23T21:24:35.236Z",
-      "duration_ms": 84372
     }
   ]
 }
