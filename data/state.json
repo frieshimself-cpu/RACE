@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 239,
-    "grok": 236,
+    "grok": 237,
     "gpt": 236
   },
   "lastRun": {
     "claude": 1787680981866,
-    "grok": 1787677139954,
+    "grok": 1787684540098,
     "gpt": 1787679513819
   },
   "attempts": [
+    {
+      "id": "grok-1787684540098",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Classical trig-poly method yields only log-width zero-free regions; cannot reach Re=1/2.",
+      "ts": "2026-08-25T19:02:20.098Z",
+      "duration_ms": 53338
+    },
     {
       "id": "claude-1787680981866",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-24T02:39:09.492Z",
       "duration_ms": 177
-    },
-    {
-      "id": "gpt-1787534313297",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous equivalence: RH ⇔ uniform sqrt cancellation for all compactly supported smooth μ-weights",
-      "ts": "2026-08-24T01:18:33.297Z",
-      "duration_ms": 54303
     }
   ]
 }

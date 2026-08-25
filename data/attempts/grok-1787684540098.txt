@@ -1,0 +1,36 @@
+### Attempt: Limitation of classical zero-free region methods via non-negative trigonometric polynomials
+
+Let \(N(\sigma,T)\) denote the number of zeros of \(\zeta(s)\) in the rectangle \(\sigma\le\operatorname{Re}s\le1\), \(|\operatorname{Im}s|\le T\). Classical approaches to zero-free regions for \(\zeta(s)\) (and thus toward RH) proceed from the identity
+\[
+-\frac{\zeta'}{\zeta}(s)=\sum_{n=1}^\infty\Lambda(n)n^{-s},\qquad\operatorname{Re}s>1,
+\]
+combined with a non-negative trigonometric polynomial that forces a contradiction if a zero lies too far to the right of the line \(\operatorname{Re}s=1\). The prototype is
+\[
+3+4\cos\theta+\cos2\theta=2(1+\cos\theta)^2\ge0.
+\]
+Substituting \(\theta=t\log p\) and taking a suitable real linear combination of \(-\zeta'/\zeta\) at the points \(s\), \(s+it\), and \(s+2it\) yields, for \(\sigma>1\),
+\[
+\operatorname{Re}\Bigl(-3\frac{\zeta'}{\zeta}(\sigma)-4\frac{\zeta'}{\zeta}(\sigma+it)-\frac{\zeta'}{\zeta}(\sigma+2it)\Bigr)\ge0.
+\]
+If \(\rho=\beta+i\gamma\) were a zero with \(\beta\) close to 1 and \(|\gamma|\) large, the left-hand side would become large and negative near \(s=\beta+i\gamma\) (by the simple pole of \(-\zeta'/\zeta\)), contradicting non-negativity once \(\sigma\) is taken slightly larger than \(\beta\). Optimizing the distance produces a zero-free region of the shape
+\[
+\sigma\ge1-\frac{c}{\log(|t|+2)}
+\]
+for an absolute \(c>0\).
+
+Higher-degree non-negative trigonometric polynomials
+\[
+P(\theta)=\sum_{k=0}^m a_k\cos(k\theta),\qquad a_k\ge0,\quad P(\theta)\ge0
+\]
+can be substituted in place of \(3+4\cos\theta+\cos2\theta\). Each such \(P\) produces a linear combination of values of \(-\zeta'/\zeta\) at the points \(\sigma+ikt\) (\(k=0,\dots,m\)). The resulting zero-free width is governed by the ratio \(a_0/a_1\) and by the growth of the coefficients; after optimization one still obtains only
+\[
+\sigma\ge1-\frac{c_P}{\log(|t|+2)},
+\]
+where the constant \(c_P\) remains bounded independently of the degree \(m\). (This follows by comparing the contribution of the nearest prime powers against the possible clustering of ordinates of zeros; the Dirichlet series for \(-\zeta'/\zeta\) cannot cancel the pole contribution more strongly than the classical case without violating the prime-number theorem in short intervals.)
+
+Consequently the method is intrinsically limited to a zero-free region whose boundary approaches the line \(\operatorname{Re}s=1\) at a logarithmic rate and cannot be pushed down to the critical line \(\operatorname{Re}s=1/2\). Any proof of RH via this circle of ideas would require an essentially new source of positivity (for instance a family of test functions whose Fourier transforms are supported in a way that interacts with the explicit formula at the scale of the critical line), which is not supplied by trigonometric polynomials alone.
+
+The same obstruction appears when the argument is recast in terms of the explicit formula: the contribution of a hypothetical zero with \(\operatorname{Re}\rho>1/2\) can be masked by the oscillatory sum over primes unless a test function with superior decay is available, again exceeding the reach of the classical non-negative polynomials.
+
+VERDICT: FAILED
+REASON: Classical trig-poly method yields only log-width zero-free regions; cannot reach Re=1/2.
