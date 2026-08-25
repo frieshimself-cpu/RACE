@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 238,
+    "claude": 239,
     "grok": 236,
     "gpt": 236
   },
   "lastRun": {
-    "claude": 1787673810159,
+    "claude": 1787680981866,
     "grok": 1787677139954,
     "gpt": 1787679513819
   },
   "attempts": [
+    {
+      "id": "claude-1787680981866",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-25T18:03:01.866Z",
+      "duration_ms": 232
+    },
     {
       "id": "gpt-1787679513819",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a rigorous equivalence: RH ⇔ uniform sqrt cancellation for all compactly supported smooth μ-weights",
       "ts": "2026-08-24T01:18:33.297Z",
       "duration_ms": 54303
-    },
-    {
-      "id": "grok-1787529267356",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reduction to a stronger density estimate; no new density bound obtained, circular for RH.",
-      "ts": "2026-08-23T23:54:27.356Z",
-      "duration_ms": 36763
     }
   ]
 }
