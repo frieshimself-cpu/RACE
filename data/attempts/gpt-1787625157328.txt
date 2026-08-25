@@ -1,0 +1,41 @@
+Attempt: An L2-criterion on the Möbius summatory function that implies a zero-free half-plane
+
+Let μ be the Möbius function and M(x)=∑_{n≤x} μ(n). For s with Re s>1, one has the classical identity
+1/ζ(s) = ∑_{n=1}^∞ μ(n) n^{-s} = ∫_{1^-}^{∞} x^{-s} dM(x) = s ∫_{1}^{∞} M(x) x^{-s-1} dx,
+where the Stieltjes integral equals the ordinary integral because M is of bounded variation on compact intervals and M(x)=o(x) as x→∞ is not needed for Re s>1. The last equality follows by integrating by parts.
+
+The following lemma makes precise a robust reduction of zero-free regions to L2-control of M(x) with a power weight.
+
+Lemma (Zero-free half-plane from weighted L2 control of M). Fix σ0∈(1/2,1). Suppose
+I(σ0) := ∫_{1}^{∞} |M(x)|^2 x^{-2σ0-1} dx < ∞.
+Then ζ(s) has no zeros in the open half-plane Re s>σ0.
+
+Proof. Consider F(s):= s ∫_{1}^{∞} M(x) x^{-s-1} dx, initially for Re s>1. By Cauchy–Schwarz,
+for any s with Re s>σ0,
+|F(s)| ≤ |s| ( ∫_{1}^{∞} |M(x)|^2 x^{-2σ0-1} dx )^{1/2} ( ∫_{1}^{∞} x^{-2(Re s)-1+2σ0} dx )^{1/2}.
+The second integral converges exactly when Re s>σ0, and equals C(Re s,σ0)<∞ there. Hence the defining integral for F(s) converges absolutely and uniformly on compact subsets of {Re s>σ0}, so F extends to a holomorphic function on {Re s>σ0}. On the region Re s>1 we already know F(s)=1/ζ(s) by the Dirichlet series and the partial summation identity above. By the identity theorem, the holomorphic continuations coincide on the connected domain {Re s>σ0}. Therefore 1/ζ(s) extends holomorphically to {Re s>σ0}. Consequently, ζ(s) has no zeros in {Re s>σ0}. ∎
+
+Dyadic sufficiency. It is often more convenient to verify I(σ0)<∞ via dyadic pieces. The following is immediate from the monotone convergence theorem.
+
+Proposition. If for some σ0∈(1/2,1) there exists a constant C(σ0) such that for all X≥2
+∫_{X}^{2X} |M(x)|^2 x^{-2σ0-1} dx ≤ C(σ0),
+then I(σ0) < ∞, hence ζ(s)≠0 for Re s>σ0.
+
+Indeed, summing over dyadic X=2^k and using x≈2^k on [2^k,2^{k+1}] shows I(σ0) ≤ C(σ0) ∑_{k=1}^{∞} 1 < ∞.
+
+Corollary (RH reformulated). The Riemann Hypothesis holds if and only if for every σ0>1/2,
+∫_{1}^{∞} |M(x)|^2 x^{-2σ0-1} dx < ∞
+(equivalently, a uniform dyadic bound holds for each σ0>1/2).
+
+Discussion and boundary of current methods
+- The reduction is sharp in the following sense: RH is equivalent to M(x)=O(x^{1/2+ε}) for all ε>0; the L2 condition above is strictly weaker pointwise but still strong enough to imply analyticity of 1/ζ beyond Re s>1.
+- Unconditionally we cannot currently show I(σ0)<∞ for any σ0≤1; the trivial bound |M(x)|≤x gives I(σ0)=∞ for all σ0<1. Thus the above criterion isolates a precise analytic target: prove average square-saving for M(x) against the weight x^{-2σ0-1} on every dyadic interval, for all σ0>1/2.
+- Known zero-density results for ζ(s) yield consequences for averaged behavior of M(x) through explicit formulae, but they do not (as currently proved) provide the uniform dyadic L2-bounds at the scale required to force a zero-free half-plane strictly to the left of Re s=1.
+- Any improvement toward bounding ∫_{X}^{2X} |M(x)|^2 x^{-2σ0-1} dx uniformly in X for some σ0<1 would already imply a nontrivial zero-free region Re s>σ0; pushing this to all σ0>1/2 would prove RH.
+
+Summary
+- A precise, self-contained reduction is proved: weighted L2-control of the Möbius summatory function implies a corresponding zero-free half-plane for ζ(s).
+- This recasts RH as a family of concrete mean-square problems for M(x) with explicit weights and uniformity in dyadic ranges.
+
+VERDICT: PARTIAL
+REASON: Proved a clean reduction: weighted L2 bounds for M(x) imply zero-free half-planes; no new bound obtained

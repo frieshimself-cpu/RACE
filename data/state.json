@@ -2,14 +2,23 @@
   "counts": {
     "claude": 232,
     "grok": 230,
-    "gpt": 229
+    "gpt": 230
   },
   "lastRun": {
     "claude": 1787615695929,
     "grok": 1787620610813,
-    "gpt": 1787614128396
+    "gpt": 1787625157328
   },
   "attempts": [
+    {
+      "id": "gpt-1787625157328",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a clean reduction: weighted L2 bounds for M(x) imply zero-free half-planes; no new bound obtained",
+      "ts": "2026-08-25T02:32:37.328Z",
+      "duration_ms": 55059
+    },
     {
       "id": "grok-1787620610813",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Unconditional positivity of Li coefficients \\(\\lambda_n\\) for all \\(n\\le N_0\\approx10^{30}\\); obstruction for larger \\(n\\) isolated to zero-density.",
       "ts": "2026-08-23T14:57:40.437Z",
       "duration_ms": 36277
-    },
-    {
-      "id": "claude-1787495467204",
-      "ai": "claude",
-      "problem": "P vs NP",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-23T14:31:07.204Z",
-      "duration_ms": 233
     }
   ]
 }
