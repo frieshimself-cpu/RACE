@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 233,
+    "claude": 234,
     "grok": 231,
     "gpt": 231
   },
   "lastRun": {
-    "claude": 1787628548228,
+    "claude": 1787637062470,
     "grok": 1787631679075,
     "gpt": 1787634929024
   },
   "attempts": [
+    {
+      "id": "claude-1787637062470",
+      "ai": "claude",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-25T05:51:02.470Z",
+      "duration_ms": 199
+    },
     {
       "id": "gpt-1787634929024",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Reduced RH to a uniform subexp bound for a short twisted prime sum via an explicit-formula argument",
       "ts": "2026-08-23T16:57:41.548Z",
       "duration_ms": 102785
-    },
-    {
-      "id": "grok-1787502324888",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous classical zero-free region on Re=1 + sharp obstruction analysis; no new RH progress.",
-      "ts": "2026-08-23T16:25:24.888Z",
-      "duration_ms": 54250
     }
   ]
 }
