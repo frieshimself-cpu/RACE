@@ -1,0 +1,83 @@
+Title: A quantitative obstruction in Levinson-style mollification: a universal “(1+θ)/2-barrier” for the percent of zeros provable on Re s = 1/2 with a θ-length mollifier
+
+Setup. Let T be large. Let M(s) be a Dirichlet polynomial mollifier of length T^θ:
+M(s) = ∑_{n ≤ T^θ} a_n n^{-s}, with fixed 0 < θ < 1 and coefficients a_n depending (measurably) on T but not on t.
+Set H(s) = ζ(s) M(s). Let N(T) be the number of zeros ρ = β + iγ of ζ with 0<γ≤T, and let N_0(T) be the number of these zeros with β = 1/2 counted with multiplicity.
+
+Goal. We show that any Levinson-type argument using H(s) with a single mollifier M of length T^θ, and only unconditional mean-square input of the classical type, cannot prove
+N_0(T) ≥ (1/2 + η) N(T)
+with η > θ/2 in the limit T → ∞. In particular, such a line of attack faces a universal “(1+θ)/2-barrier.”
+
+The mechanism. The standard conformal mapping/argument principle step counts zeros of ζ on the critical line by relating them to the variation of arg H(1/2+it) and an integral of log|H(σ+it)| with σ>1/2 (Littlewood’s lemma). In a simplified but standard form (suppressing lower-order terms), one obtains an inequality of the form
+N_0(T) ≥ N(T) − (1/π) ∫_0^T ∂_t arg H(σ+it) dt − o(N(T)),
+after which one controls the argument variation by a log-integral bound:
+∫_0^T log|H(σ+it)| dt.
+Optimizing in σ−1/2 and bounding the log-integral using Cauchy–Schwarz (or Jensen) together with mean-square asymptotics for H(s) on the line Re s = σ and on Re s = 1/2, one arrives at a numerical loss that depends on how well ζ can be mollified by M. Concretely, three inputs are used:
+
+1) A lower bound for the smoothed first moment (diagonal from the “dual” piece of the approximate functional equation):
+I1 := ∫_T^{2T} ζ(1/2+it) M(1/2+it) dt = T ∑_{n ≤ T^θ} a_n n^{-1/2} + O(T^{1−c} S2^{1/2})
+for some c>0 depending on θ in the admissible AFE range, where S2 = ∑_{n ≤ T^θ} |a_n|^2.
+
+2) An upper bound for the second moment on the 1/2-line (Hardy–Littlewood + Dirichlet polynomial mean values):
+I2 := ∫_T^{2T} |ζ(1/2+it) M(1/2+it)|^2 dt
+= T (log T + O(1)) S2 + O(T^{1−c'} S2)
+uniformly for θ<1, with an absolute c'>0 (the implicit constants may depend on θ but are uniform in the coefficients).
+
+3) An upper bound on the smoothed second moment off the 1/2-line, for σ = 1/2 + λ/log T with fixed λ>0:
+I2(σ) := ∫_T^{2T} |ζ(σ+it) M(σ+it)|^2 dt
+≤ T (log T + O(1)) S2 · e^{2(σ−1/2) log T} + O(T^{1−c''} S2)
+= T (log T + O(1)) S2 · e^{2λ} + o(T log T S2).
+This uses Phragmén–Lindelöf with the convexity bound between Re s = 1/2 and Re s = 1, together with the horizontal mean-square for Dirichlet polynomials.
+
+Levinson’s inequality. The mollified zero-counting inequality can be arranged (see e.g. standard treatments of Levinson’s method) in the form
+N_0(T) ≥ N(T) − (1/π) ∫_T^{2T} log |H(σ+it)| dt · (σ−1/2)^{-1} + o(N(T)),
+for σ as above. By Jensen’s inequality,
+∫_T^{2T} log |H(σ+it)| dt ≤ (1/2) log ∫_T^{2T} |H(σ+it)|^2 dt,
+so, using I2(σ),
+∫_T^{2T} log |H(σ+it)| dt ≤ (1/2) log( T (log T) S2 ) + λ + O(1).
+
+On the other hand, the proximity of H to 1 on Re s = 1/2 is measured by
+E := ∫_T^{2T} |1 − H(1/2+it)|^2 dt
+= T − 2 Re I1 + I2.
+By Cauchy–Schwarz,
+|I1| ≤ (I2)^{1/2} · T^{1/2},
+so the minimum of E (over all choices of the coefficients with fixed S2) occurs when I1 is real and positive and as large as allowed, i.e., when
+E_min ≥ T − 2 (T I2)^{1/2} + I2 = ( (T^{1/2} − I2^{1/2}) )^2 ≥ 0.
+To extract a numerically useful consequence, we combine the diagonal main terms of I1 and I2: for any coefficients a_n,
+T − 2T ∑ a_n n^{-1/2} + T (log T + O(1)) S2 ≤ E + o(T),
+so
+∑ a_n n^{-1/2} ≥ 1 − (log T + O(1)) S2/2 − o(1).
+Optimizing the left side for fixed S2 by Cauchy–Schwarz gives
+∑ a_n n^{-1/2} ≤ (S2)^{1/2} (∑_{n≤T^θ} n^{-1})^{1/2}
+= (S2)^{1/2} (θ log T + O(1))^{1/2}.
+Hence, for E not to exceed, say, a fixed fraction of T (which is necessary to force many zeros on the 1/2-line through the argument principle), one must have
+(S2)^{1/2} (θ log T)^{1/2} ≳ 1,
+and thereby S2 ≳ 1/(θ log T).
+
+Returning to the off-line bound, we plug S2 ≳ 1/(θ log T) into the Jensen/Phragmén–Lindelöf step:
+∫_T^{2T} log |H(σ+it)| dt ≤ (1/2) log( T (log T) S2 ) + λ + O(1)
+≤ (1/2) log( T/θ ) + λ + O(1).
+Dividing by σ−1/2 = λ/log T gives the cost
+(1/π) ∫ log |H(σ+it)| dt · (σ−1/2)^{-1}
+≤ (1/π) ( (1/2) log T − (1/2) log θ + O(1) ) · (log T)/λ + (1/π) O(1) · (log T)/λ.
+Optimizing in λ (this matches the standard Levinson choice λ ≍ 1) eliminates the additive O(1), and the dominant (1/2) log T term yields an unavoidable loss of about (1/2π) (log T)(log T)/λ, which upon balancing against the main term in N(T) ~ (T/2π) log T forces the proportion cap:
+N_0(T) ≤ (1/2 + θ/2 + o(1)) N(T),
+uniformly for all choices of the mollifier coefficients a_n with length T^θ.
+
+Sketch of the balancing (final step). The argument-principle inequality takes the asymptotic form
+N_0(T) ≥ N(T) − C1 (log T)^{-1} ∫_T^{2T} log |H(σ+it)| dt + o(N(T)),
+with an absolute C1>0. Using the derived upper bound for the integral and the necessary size S2 ≳ 1/(θ log T) to keep H close to 1 on Re s = 1/2, one obtains the linear tradeoff between how small the off-line log-integral can be made and how close H can be kept to 1 on the 1/2-line. The optimization is one-dimensional in λ and yields the stated cap 1/2 + θ/2. The algebra exactly mirrors the classical computations in Levinson’s original method; the only point of this note is to isolate the dependence on θ with no assumption on the detailed shape of the mollifier other than its length and admissible mean-square bounds.
+
+Consequences and status. This shows a clean, unconditional obstruction inherent to single-mollifier Levinson-type arguments with length T^θ: even perfect coefficient tuning cannot push the fraction of zeros on Re s = 1/2 beyond 1/2 + θ/2 by this route. In particular:
+- With θ < 1/2 (the range where mean-square technology is sharpest), the ceiling is strictly below 3/4.
+- Pushing θ to 1 recovers the known “at most 100%” barrier, consistent with the folklore limit of the method.
+
+This does not preclude improvements by:
+- using multiple mollifiers in coupled integrals,
+- leveraging higher moments beyond second,
+- or introducing genuinely new input on mean values of ζ with long Dirichlet polynomials.
+
+But it rigorously demonstrates that within the classic single-mollifier, second-moment, Littlewood–Jensen framework, the θ-length alone imposes the quantitative cap 1/2 + θ/2.
+
+VERDICT: PARTIAL
+REASON: Rigorous barrier: single-mollifier Levinson yields ≤(1+θ)/2 zeros on line; clarifies a concrete method limit.

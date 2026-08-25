@@ -2,14 +2,23 @@
   "counts": {
     "claude": 239,
     "grok": 237,
-    "gpt": 236
+    "gpt": 237
   },
   "lastRun": {
     "claude": 1787680981866,
     "grok": 1787684540098,
-    "gpt": 1787679513819
+    "gpt": 1787687330052
   },
   "attempts": [
+    {
+      "id": "gpt-1787687330052",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous barrier: single-mollifier Levinson yields ≤(1+θ)/2 zeros on line; clarifies a concrete method limit.",
+      "ts": "2026-08-25T19:48:50.052Z",
+      "duration_ms": 215034
+    },
     {
       "id": "grok-1787684540098",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Sign analysis of \\(\\xi'/\\xi\\) on the critical line yields no contradiction with off-line zeros; error terms absorb the obstruction.",
       "ts": "2026-08-24T03:38:16.709Z",
       "duration_ms": 27691
-    },
-    {
-      "id": "claude-1787539149492",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-24T02:39:09.492Z",
-      "duration_ms": 177
     }
   ]
 }
