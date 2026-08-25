@@ -1,0 +1,62 @@
+### Attempt: A conditional reduction via truncated explicit formulae and a failed positivity closure
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) and the Hadamard factorization
+\[
+\xi(s)=\xi(0)\prod_{\rho}(1-s/\rho)
+\]
+(product over non-trivial zeros, counted with multiplicity, and understood in the usual entire-function sense of order 1) yield, upon logarithmic differentiation and comparison with the Dirichlet series for \(-\zeta'/\zeta\), the classical explicit formula. For a Schwartz test function \(g\) whose Fourier transform
+\[
+\hat g(z)=\int_{-\infty}^{\infty}g(t)e^{izt}\,dt
+\]
+is entire of suitable decay, one has (up to elementary archimedean and polar terms that we absorb into a continuous linear functional \(A\))
+\[
+\sum_{\rho}\hat g(\rho)=A(g)+\sum_{p^k}\frac{\log p}{p^{k/2}}\,g(k\log p)+\sum_{p^k}\frac{\log p}{p^{k/2}}\,g(-k\log p).
+\]
+Weil’s criterion asserts that the Riemann Hypothesis is equivalent to the positivity
+\[
+\sum_{\rho}\hat g(\rho)\ge0
+\]
+for every \(g\) belonging to the class \(\mathcal{W}\) of even Schwartz functions whose Fourier transforms are non-negative on the critical line (more precisely, \(\hat g(\tfrac12+it)\ge0\) for all real \(t\)) and that satisfy a mild support or decay condition guaranteeing absolute convergence.
+
+#### Partial reduction
+Fix an arbitrary height \(T\ge2\) and an even non-negative bump \(\phi\in C_c^\infty((-1,1))\) with \(\int\phi=1\). Define the truncated family
+\[
+g_{T,\varepsilon}(t)=\phi(t/\varepsilon)\cdot\bigl(\operatorname{sinc}(Tt)\bigr)^2,\qquad\varepsilon\in(0,1).
+\]
+Then \(\hat g_{T,\varepsilon}\) is an entire function of exponential type, non-negative on the critical line for all sufficiently small \(\varepsilon>0\) (by the Fejér–Riesz property of the squared sinc and the rapid decay of \(\hat\phi\)), and \(g_{T,\varepsilon}\in\mathcal{W}\). The explicit formula therefore supplies
+\begin{equation}
+\sum_{|\Im\rho|\le2T}\hat g_{T,\varepsilon}(\rho)
+=A(g_{T,\varepsilon})+\Sigma_{\mathrm{primes}}(g_{T,\varepsilon})+R(T,\varepsilon),
+\label{eq:trunc}
+\end{equation}
+where the remainder \(R(T,\varepsilon)\) collects the contribution of zeros with \(|\Im\rho|>2T\) together with the tail of the prime sum; standard zero-density estimates (Ingham–Huxley) give
+\[
+|R(T,\varepsilon)|\ll_{\varepsilon}T\exp\bigl(-c\sqrt{\log T}\bigr)+O(\varepsilon^{-1}T^{-1}).
+\]
+The archimedean functional \(A(g_{T,\varepsilon})\) admits the asymptotic
+\[
+A(g_{T,\varepsilon})=\frac{T}{2\pi}\int_{-\infty}^{\infty}\phi(u/\varepsilon)\,du+O(\log T)= \frac{T\varepsilon}{2\pi}+O(\log T).
+\]
+The prime sum is non-negative once \(\varepsilon\) is small enough that the support of \(g_{T,\varepsilon}\) lies inside an interval free of the first few logarithms of primes (or, alternatively, may be bounded from below by a positive multiple of \(T\varepsilon\) via the prime-number theorem with classical error term). Consequently the right-hand side of \eqref{eq:trunc} is
+\[
+\ge c\,T\varepsilon-O\bigl(T\exp(-c\sqrt{\log T})\bigr)
+\]
+for an absolute \(c>0\) and all large \(T\).
+
+If one could pass to the limit \(\varepsilon\to0^+\) inside the zero sum while retaining non-negativity, the resulting measure would force every zero inside \(|\Im\rho|\le2T\) to satisfy \(\operatorname{Re}\rho=\frac12\). Since \(T\) is arbitrary this would prove RH.
+
+#### Obstruction
+The passage to the limit is illegitimate. The functions \(\hat g_{T,\varepsilon}(\sigma+it)\) develop increasingly large oscillations for \(\sigma\neq\frac12\) as \(\varepsilon\to0\). More precisely, for any fixed vertical strip \(\sigma\in[\tfrac12+\delta,1-\delta]\) one has
+\[
+\sup_{|t|\le2T}\bigl|\hat g_{T,\varepsilon}(\sigma+it)\bigr|\asymp\varepsilon^{-1}T^{2(\sigma-1/2)},
+\]
+so the contribution of a single hypothetical zero \(\rho_0=\beta+i\gamma\) with \(\beta>\frac12\) and \(|\gamma|\le2T\) can be as large as \(\asymp\varepsilon^{-1}T^{2(\beta-1/2)}\). This term may cancel the main term \(c\,T\varepsilon\) before the limit is reached. No uniform lower bound on the zero sum survives that is independent of the possible existence of such off-line zeros. Strengthening the test-function class (e.g., by inserting higher powers of sinc or Gaussian damping) only worsens the off-line growth, while any attempt to keep \(\varepsilon\) bounded away from zero leaves an unclosed gap of width \(\asymp\varepsilon\) in which zeros could still hide.
+
+Thus the truncated positivity argument yields a zero-free region of the classical shape
+\[
+\beta\le1-\frac{c}{\log(|\gamma|+2)}
+\]
+(recovering de la Vallée Poussin) but cannot be closed to the critical line. The same obstruction appears, mutatis mutandis, for every sufficiently regular approximate identity used to mollify Weil’s criterion.
+
+VERDICT: FAILED
+REASON: Truncated Weil positivity recovers only classical zero-free regions; off-line oscillations block the limit.
