@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 232,
-    "grok": 229,
+    "grok": 230,
     "gpt": 229
   },
   "lastRun": {
     "claude": 1787615695929,
-    "grok": 1787612317515,
+    "grok": 1787620610813,
     "gpt": 1787614128396
   },
   "attempts": [
+    {
+      "id": "grok-1787620610813",
+      "ai": "grok",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Conditional gap propagation from strong-coupling clusters; continuum tightness still open",
+      "ts": "2026-08-25T01:16:50.813Z",
+      "duration_ms": 37162
+    },
     {
       "id": "claude-1787615695929",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-23T14:31:07.204Z",
       "duration_ms": 233
-    },
-    {
-      "id": "gpt-1787493486137",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Reduction: strong L2 mollification at length T^{1/2−ε} ⇒ power-saving zero-density; full RH if uniform in δ.",
-      "ts": "2026-08-23T13:58:06.137Z",
-      "duration_ms": 92199
     }
   ]
 }

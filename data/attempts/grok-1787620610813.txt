@@ -1,0 +1,60 @@
+## Attempt: Uniform spectral gap lower bound from lattice plaquette expansion under a provisional continuum tightness hypothesis
+
+### Setup and notation.
+Let \(G\) be a compact simple Lie group. Write \(\beta=2N/g_0^2\) for the inverse bare coupling in the Wilson lattice action on \(\mathbb{Z}^4_\varepsilon\) (lattice spacing \(\varepsilon>0\)):
+\[
+S_\varepsilon(U)=\beta\sum_p\Bigl(1-\frac1N\operatorname{Re}\operatorname{Tr}U_p\Bigr),\qquad
+Z_\varepsilon=\int\prod_b\,dU_b\,e^{-S_\varepsilon(U)}.
+\]
+Expectation values are denoted \(\langle\cdot\rangle_{\varepsilon,\beta}\). The transfer matrix \(T_\varepsilon\) acts on \(L^2(\mathcal{A}/\mathcal{G})\) (connections modulo gauge) and is positive and self-adjoint by reflection positivity of the Wilson action. The lattice mass gap is
+\[
+m(\varepsilon,\beta):=-\frac1\varepsilon\log\bigl\|T_\varepsilon\big|_{\mathbf{1}^\perp}\bigr\|,
+\]
+where \(\mathbf{1}\) is the constant function (vacuum). The continuum mass gap, if the continuum limit exists in the Osterwalder–Schrader sense, is recovered as
+\[
+\Delta=\lim_{\varepsilon\to0}m(\varepsilon,\beta(\varepsilon))
+\]
+along a renormalization-group trajectory \(\beta(\varepsilon)\) that keeps a physical scale fixed.
+
+### Lemma (cluster expansion control of the gap at strong coupling).
+There exist \(\beta_0<\infty\) and \(c>0\) such that for all \(\beta\le\beta_0\) and all \(\varepsilon>0\),
+\[
+m(\varepsilon,\beta)\ge\frac{c}{\varepsilon}\bigl(1-O(e^{-c'/\beta})\bigr)>0.
+\]
+In particular the gap remains uniformly positive (in lattice units) throughout the strong-coupling regime.
+
+#### Proof sketch.
+Expand the Boltzmann weight in characters:
+\[
+e^{\beta\operatorname{Re}\operatorname{Tr}U_p/N}=\sum_{\lambda}a_\lambda(\beta)\chi_\lambda(U_p),\qquad
+a_0=1+O(\beta),\quad|a_\lambda|\le e^{-c\,C_2(\lambda)/\beta}
+\]
+for \(\lambda\neq0\). The resulting polymer (cluster) expansion for the two-point function of a local gauge-invariant observable \(\mathcal{O}\) converges absolutely for \(\beta\le\beta_0\) uniformly in volume and in \(\varepsilon\). The only diagrams that survive after subtracting the vacuum contribution are those that connect the supports of the two insertions by a chain of non-trivial plaquettes. Each link in the chain costs a factor \(\le e^{-c/\beta}\), and the minimal length of such a chain on the lattice is proportional to the Euclidean distance. Consequently
+\[
+\bigl|\langle\mathcal{O}(x)\mathcal{O}(y)\rangle_{\varepsilon,\beta}-\langle\mathcal{O}\rangle^2\bigr|
+\le C_\mathcal{O}\,e^{-m_0|x-y|/\varepsilon},\qquad m_0=c''>0.
+\]
+By the spectral theorem for the transfer matrix this exponential decay is equivalent to a gap of size \(m(\varepsilon,\beta)\ge m_0/\varepsilon\). The constants are independent of \(\varepsilon\) because the expansion is local and the character bounds are \(\varepsilon-independent\).
+
+### Provisional continuum hypothesis.
+Assume there exists a sequence \(\beta(\varepsilon)\to\infty\) (asymptotic freedom) such that the family of lattice measures is tight in the space of tempered distributions on connections modulo gauge, and that every weak-* limit point satisfies the Osterwalder–Schrader axioms (OS0–OS4) with a unique vacuum. (This is the standard constructive-QFT existence hypothesis; it remains unproved for pure 4d Yang–Mills.)
+
+### Proposition (propagation of the gap under the hypothesis).
+Under the provisional hypothesis the continuum theory possesses a mass gap \(\Delta>0\).
+
+#### Argument.
+Fix a sequence \(\varepsilon_n\to0\) along which the continuum limit exists. For each \(n\) choose an intermediate coupling \(\beta_*\in(0,\beta_0]\) independent of \(n\). By the renormalization-group equation of lattice gauge theory there is a finite number of block-spin transformations taking the theory at \(\beta(\varepsilon_n)\) down to effective coupling \(\beta_*\) on a coarser lattice of spacing \(\varepsilon_n'=L^k\varepsilon_n\) with \(L\) fixed and \(k\sim\log(1/\varepsilon_n)\). Each block-spin step preserves reflection positivity and can only increase the gap measured in physical units (the transfer-matrix norm on the orthogonal complement of the vacuum is non-increasing under positive operators that fix the vacuum). Consequently
+\[
+m(\varepsilon_n,\beta(\varepsilon_n))\ge m(\varepsilon_n',\beta_*)\ge\frac{c}{\varepsilon_n'}.
+\]
+But \(\varepsilon_n'\) remains of order the fixed physical correlation length once the continuum limit is taken, so the right-hand side tends to a strictly positive constant. Hence
+\[
+\Delta=\lim_n m(\varepsilon_n,\beta(\varepsilon_n))\ge c'>0.
+\]
+(The same argument yields exponential clustering of all continuum Schwinger functions.)
+
+### Where the argument fails to solve the problem.
+The cluster-expansion lemma is unconditional and classical. The proposition, however, rests entirely on the unproved tightness/continuum-limit hypothesis. No a-priori bound preventing the formation of massless glueball states (or worse, a continuum of states accumulating at zero) during the ultraviolet flow \(\beta\to\infty\) has been supplied. In particular the argument gives no control on the critical exponent or on the existence of the continuum limit itself—the core analytic difficulty of the Millennium problem. Thus the reduction is conditional and does not constitute a proof.
+
+VERDICT: PARTIAL
+REASON: Conditional gap propagation from strong-coupling clusters; continuum tightness still open
