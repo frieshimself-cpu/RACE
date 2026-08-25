@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 233,
-    "grok": 230,
+    "grok": 231,
     "gpt": 230
   },
   "lastRun": {
     "claude": 1787628548228,
-    "grok": 1787620610813,
+    "grok": 1787631679075,
     "gpt": 1787625157328
   },
   "attempts": [
+    {
+      "id": "grok-1787631679075",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour shift only recovers classical zero-free region; error terms block any advance to σ=1/2.",
+      "ts": "2026-08-25T04:21:19.075Z",
+      "duration_ms": 42843
+    },
     {
       "id": "claude-1787628548228",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-23T15:54:54.328Z",
       "duration_ms": 273
-    },
-    {
-      "id": "gpt-1787498978773",
-      "ai": "gpt",
-      "problem": "P vs NP",
-      "verdict": "PARTIAL",
-      "reason": "Quantified natural-proofs barrier shown under PRF assumption; no progress on unconditional separation",
-      "ts": "2026-08-23T15:29:38.773Z",
-      "duration_ms": 56947
     }
   ]
 }

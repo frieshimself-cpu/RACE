@@ -1,0 +1,26 @@
+### Attempt: Obstruction to a Contour-Integral Zero-Free Region Reaching the Critical Line
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) and the Hadamard factorization
+\[
+\xi(s)=\xi(0)\prod_{\rho}(1-s/\rho)
+\]
+(absolutely convergent in the usual Weierstrass sense after grouping \(\rho\) with \(1-\rho\)) imply that the logarithmic derivative admits the representation
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\Bigl(\frac1{s-\rho}+\frac1{\rho}\Bigr).
+\]
+Suppose, for a contradiction, that a zero \(\rho_0=\sigma_0+it_0\) exists with \(\sigma_0>1/2\). Shift the contour in the inverse Mellin transform of \(-\zeta'/\zeta\) (or equivalently of \(\xi'/\xi\)) from the line \(\operatorname{Re}s=2\) to the line \(\operatorname{Re}s=1/2+\delta\) for a fixed \(\delta\in(0,\sigma_0-1/2)\). The resulting explicit formula for the Chebyshev function reads
+\[
+\psi(x)=x-\sum_{|\operatorname{Im}\rho|\le T}\frac{x^\rho}{\rho}+O\Bigl(\frac{x\log(xT)}{T}+\log x\Bigr),
+\]
+where the sum runs over the zeros that remain to the right of the new contour. The contribution of the single zero \(\rho_0\) (and its conjugate) is
+\[
+\frac{x^{\rho_0}}{\rho_0}+\frac{x^{\overline{\rho_0}}}{\overline{\rho_0}}=2x^{\sigma_0}\frac{\cos(t_0\log x+\arg\rho_0)}{|\rho_0|}.
+\]
+Because \(\sigma_0>1/2\), this term is larger than the main term \(x\) on a positive-density set of \(x\) (by Kronecker density of \(t_0\log x\bmod 2\pi\)). Hence \(\psi(x)-x\) would change sign with amplitude \(\gg x^{\sigma_0-\varepsilon}\), contradicting the elementary bound \(\psi(x)=x+O(x\exp(-c\sqrt{\log x}))\) that follows from the classical zero-free region \(\sigma\ge1-c/\log(|t|+2)\).
+
+The argument is therefore blocked precisely when one tries to push \(\delta\to0^+\): the error term \(O(x\log(xT)/T)\) can be made smaller than \(x^{1/2+\delta}\) only for \(T\) larger than any fixed power of \(x\), at which point the horizontal integrals and the contribution of the possible zeros with \(1/2<\operatorname{Re}\rho\le1/2+\delta\) become uncontrollable without an a-priori density estimate stronger than the classical convex bound \(N(\sigma,T)\ll T^{c(1-\sigma)}\log T\). In other words, the contour shift yields a contradiction only inside the already-known zero-free region; it supplies no new information on the line \(\sigma=1/2\).
+
+(The same obstruction appears, mutatis mutandis, for any test-function form of the explicit formula whose Fourier transform is not rapidly decreasing: the dual prime-power sum cannot cancel a hypothetical off-line zero while remaining consistent with the known size of \(\psi(x)-x\).)
+
+VERDICT: FAILED
+REASON: Contour shift only recovers classical zero-free region; error terms block any advance to σ=1/2.
