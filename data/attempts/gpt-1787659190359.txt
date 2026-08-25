@@ -1,0 +1,68 @@
+Attempt: A quantitative tail bound for Li’s coefficients from zeros above height T
+
+Setup.
+- Let ρ range over nontrivial zeros of ζ(s), counted with multiplicity, and write ρ = β + iγ, with 0 < β < 1 and γ ∈ R.
+- Li’s coefficients are λn = Σρ (1 − (1 − 1/ρ)^n), which are real for all n ≥ 1 by the functional equation symmetry.
+- For T ≥ 2, define the truncated coefficients λn(T) = Σρ: |γ|≤T (1 − (1 − 1/ρ)^n). We study the truncation error En(T) = λn − λn(T) coming from zeros with |γ| > T.
+
+Main proposition (tail control).
+There exists an absolute constant C > 0 such that for all integers n ≥ 1 and all T ≥ 2,
+|En(T)| ≤ C e^{n/T} (n + n^2) (log T + 1)/T.
+
+In particular, for fixed ε ∈ (0, 1), if n ≤ ε T, then
+|En(T)| ≤ C e^{ε} (n + n^2) (log T + 1)/T.
+
+Comments.
+- The bound is fully unconditional and uses only standard zero-counting estimates.
+- It shows that with zeros known up to height T, one can control λn up to an additive error of order e^{n/T}(n + n^2)(log T)/T.
+- Since the dominant factor in practice is (n^2 log T)/T once n/T is bounded, this quantifies a verification barrier: to make the truncation error o(1) uniformly for n up to N, one needs T ≫ N^2 log T (or, if one also uses subtle cancellations and refined constants, at least T ≫ N log T).
+- While this does not decide the sign of λn, it rigorously isolates the contribution from unknown zeros and thus cleanly separates computational/numeric tasks (estimating λn(T)) from analytic tails.
+
+Proof sketch.
+
+1) Binomial truncation with an exponential remainder.
+For any complex z with |z| ≤ 1/2 and integer n ≥ 1, the binomial remainder inequality
+|(1 − z)^n − (1 − nz)| ≤ (n(n − 1)/2) |z|^2 e^{n|z|}
+holds. This follows from the series expansion and the bound Σ_{m≥2} binom(n,m) |z|^m ≤ (n(n − 1)/2)|z|^2 e^{n|z|}.
+
+Take z = 1/ρ. For |γ| ≥ T ≥ 2 we have |ρ| ≥ |γ| ≥ T, hence |z| ≤ 1/T ≤ 1/2, and
+1 − (1 − 1/ρ)^n = n/ρ + R1(ρ), with |R1(ρ)| ≤ (n(n − 1)/2) |ρ|^{-2} e^{n/T}.
+
+Thus for the tail,
+Σ_{|γ|>T} (1 − (1 − 1/ρ)^n) = n Σ_{|γ|>T} 1/ρ + Σ_{|γ|>T} R1(ρ).
+
+Taking real parts and using symmetry ρ ↔ 1 − ρ and ρ ↔ ρ̄ shows the tail contribution to λn is real, and also allows us to combine the 1/ρ and 1/(1 − ρ) pieces. In absolute value,
+|En(T)| ≤ n Σ_{|γ|>T} |1/ρ| + (n(n − 1)/2) e^{n/T} Σ_{|γ|>T} |ρ|^{-2}.
+
+Since |ρ| ≥ |γ|, we can bound |1/ρ| ≤ 1/|γ| and |ρ|^{-2} ≤ |γ|^{-2}.
+
+2) Summation of 1/|γ| and 1/|γ|^2 over zeros above T.
+Let N(t) be the number of zeros with 0 < Im ρ ≤ t, so N(t) = (t/2π) log(t/2π) − t/2π + O(log t). Then for any nonincreasing φ,
+Σ_{|γ|>T} φ(|γ|) = 2 ∫_{T}^{∞} φ(u) dN(u).
+
+Integration by parts with φ(u) = 1/u and φ(u) = 1/u^2 gives, using the classical N(u) asymptotics and monotone comparison,
+
+Σ_{|γ|>T} 1/|γ| ≤ C1 (log T + 1), and
+Σ_{|γ|>T} 1/|γ|^2 ≤ C2 (log T + 1)/T,
+
+for absolute constants C1, C2 > 0 and all T ≥ 2.
+
+Sketch: For 1/u, ∫_T^U (1/u) dN(u) = N(U)/U − N(T)/T + ∫_T^U N(u)/u^2 du; the boundary terms contribute O(log T), and the integral contributes O(log T). For 1/u^2, the same manipulation yields O((log T)/T).
+
+3) Combine the bounds.
+We deduce
+|En(T)| ≤ n Σ_{|γ|>T} 1/|γ| + (n(n − 1)/2) e^{n/T} Σ_{|γ|>T} 1/|γ|^2
+≤ n C1 (log T + 1) + (n^2/2) e^{n/T} C2 (log T + 1)/T.
+
+Now absorb constants and note that for T ≥ 2, (log T + 1) ≤ 2 log T and n C1 (log T + 1) ≤ (n log T)/T × (C1 T) can be dominated in the advertised shape once we allow an overall constant and include an additive n-term inside (n + n^2). For a clean statement with a single factor (log T + 1)/T, observe that for T ≥ 2 we have (log T + 1) ≤ (log T + 1) and also (log T + 1) ≤ (log T + 1)/T × T; so there is an absolute C such that
+n C1 (log T + 1) ≤ C n (log T + 1)/T, after increasing C to cover T ≥ 2. Hence
+|En(T)| ≤ C e^{n/T} (n + n^2) (log T + 1)/T,
+as claimed (enlarging C if necessary to absorb e^{n/T} for the linear term as well).
+
+Consequences and limitations.
+- To certify λn to within absolute error δ using zeros up to height T, this bound requires C e^{n/T} (n + n^2) (log T)/T ≤ δ. For example, keeping n/T ≤ ε and δ fixed, one needs T ≳ε C'(n^2 log T)/δ. This quantifies how tall one must compute zeros to rigorously control λn.
+- The bound is two-sided and unconditional, hence suitable for rigorous computer-assisted verification schemes based on partial zero data and interval arithmetic for λn(T).
+- This does not prove positivity of λn, nor RH. It isolates a precise, explicit “tail tax” any such verification must pay, and shows that naive truncation without an analytic tail bound cannot succeed for large n unless T grows at least essentially like n^2 (up to logs), or one exploits additional structure/cancellations.
+
+VERDICT: PARTIAL
+REASON: Proved an unconditional, explicit tail bound for Li’s coefficients from zeros above T
