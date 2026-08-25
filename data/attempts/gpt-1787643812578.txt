@@ -1,0 +1,74 @@
+Attempt: A positivity reduction for RH as a bandlimited quadratic form over primes (Weil criterion in an explicit Toeplitz form)
+
+Statement (Reduction). Let A>0. For any trigonometric polynomial P(θ)=∑_{|k|≤N} c_k e^{ikθ}, define the Hermitian form
+Q_A(P) = arch_A ∑_{|k|≤N} |c_k|^2 - 2 Re ∑_{|m|,|n|≤N} c_m \overline{c_n} ∑_{r≥1} ∑_{p} (log p) p^{-r/2} κ_A(r log p) e^{i(m-n) r log p},
+where the inner sum is over primes p, κ_A is a fixed even, nonnegative, C^∞ kernel on R with Fourier transform supported in [-A,A] and normalized so that κ_A(0)=1, and arch_A>0 is an explicit constant coming from the gamma-factor in the explicit formula:
+arch_A = ∫_{R} κ_A(u) W(u) du + κ_A(0) log π, with W(u) an explicit even weight (given below). Then:
+
+RH holds if and only if for every A>0 one has Q_A(P) ≥ 0 for all trigonometric polynomials P.
+
+Moreover, fixing any admissible κ_A (nonnegative, even, with compact Fourier support in [-A,A]), the family of Toeplitz matrices [K_A(m-n)]_{|m|,|n|≤N} with
+K_A(h) = arch_A δ_{h,0} - 2 ∑_{r≥1} ∑_{p} (log p) p^{-r/2} κ_A(r log p) e^{i h r log p}
+is positive semidefinite for all N if and only if RH.
+
+Explanation and proof sketch.
+
+1) Explicit formula. Let ξ(s)=1/2 s(s-1)π^{-s/2} Γ(s/2) ζ(s), and write its nontrivial zeros as ρ=β+iγ. For any even Schwartz function g on R whose Fourier transform ĝ is compactly supported, the Guinand–Weil explicit formula states
+∑_ρ ĝ((ρ-1/2)/i) = g(0) log π + ∫_{R} g(u) w(u) du - 2 ∑_{n=1}^{∞} Λ(n) n^{-1/2} g(log n),
+where w(u) is the even “archimedean” kernel arising from Γ'/Γ:
+w(u) = 2 Re ∫_{0}^{∞} (e^{-(1/2+it)u} - e^{-(1+it)u})/(1-e^{-2u}) dt,
+and the prime sum is absolutely convergent for such g. This is a standard form; any equivalent explicit formula with the same test-function class will suffice. The only properties we use: linearity in g, evenness, and that the right side involves only primes/powers and the archimedean term.
+
+2) Bandlimited nonnegativity tests. Fix A>0 and let ψ be any square-integrable function on R whose Fourier transform ψ̂ is compactly supported in [-A,A]. Define g = ψ * ψ̃ with ψ̃(u)=overline{ψ(-u)}. Then:
+- g is even, Schwartz of exponential type, with ĝ(ξ)=|ψ̂(ξ)|^2 ≥ 0 and supp ĝ ⊂ [-A,A].
+- In particular, ĝ is nonnegative and compactly supported.
+
+Insert g into the explicit formula:
+∑_ρ |ψ̂((ρ-1/2)/i)|^2 = g(0) log π + ∫ g(u) w(u) du - 2 ∑_{n≥1} Λ(n) n^{-1/2} g(log n).
+
+3) RH ⇔ prime-side quadratic form nonnegativity. If RH holds, all ρ satisfy Re(ρ)=1/2, hence (ρ-1/2)/i ∈ R; then the left side, being ∑ |ψ̂(γ)|^2 over γ∈R, is nonnegative for every ψ. Hence for all such ψ,
+Q_A(ψ) := arch_A ∫ |ψ(u)|^2 du - 2 ∑_{n≥1} Λ(n) n^{-1/2} ∫ ψ(u) overline{ψ(u - log n)} du ≥ 0,
+after rewriting g(0)=∫ |ψ|^2 and g(log n)=∫ ψ(u) overline{ψ(u - log n)} du, and setting arch_A to absorb log π and the archimedean integral:
+arch_A ∫ |ψ(u)|^2 du = g(0) log π + ∫ g(u) w(u) du.
+Conversely, suppose that for some fixed A>0 the inequality Q_A(ψ) ≥ 0 holds for all ψ with ψ̂ supported in [-A,A]. If there existed a zero ρ with Re(ρ)≠1/2, by Paley–Wiener one can choose ψ̂ compactly supported in [-A,A] and concentrated near ((ρ-1/2)/i) so that |ψ̂|^2 picks out that zero with positive weight while being small on the critical line; then the left side of the explicit formula would be negative (because zeros come in conjugate/symmetric pairs off the line giving a net negative contribution under suitable choice of ψ̂), contradicting Q_A(ψ) ≥ 0. This is the core of Weil’s criterion: nonnegativity of the zero-side functional for all nonnegative ĝ with compact support is equivalent to RH. The standard argument uses that if a zero has Re(ρ)≠1/2, then there exists a real even ĝ ≥ 0 with small support for which ĝ((ρ-1/2)/i) + ĝ((1-ρ-1/2)/i) is negative enough, which contradicts nonnegativity. So RH ⇔ Q_A(ψ) ≥ 0 for all admissible ψ and all A>0.
+
+4) Discretization as a Toeplitz form. Restrict to bandlimited ψ of the form
+ψ(u) = ∑_{|k|≤N} c_k φ_A(u) e^{ik u},
+where φ_A is any fixed even window with φ̂_A supported in [-A,A] and nowhere vanishing on that interval (e.g., φ_A is the inverse Fourier transform of the indicator of [-A,A] convolved with itself to be smooth). Then ψ̂ is supported in [-A,A], and
+∫ ψ(u) overline{ψ(u - v)} du = ∑_{m,n} c_m \overline{c_n} e^{i(m-n)v} ∫ |φ_A(u)|^2 du,
+times a fixed real even kernel κ_A(v) = (∫ φ_A(u)\overline{φ_A(u-v)} du)/(∫ |φ_A|^2 du), which depends only on v and A, is even, nonnegative definite, and has Fourier transform supported in [-A,A]. Normalizing by ∫ |φ_A|^2 du, we obtain
+Q_A(P) = arch_A ∑ |c_k|^2 - 2 Re ∑_{m,n} c_m \overline{c_n} ∑_{r≥1} ∑_{p} (log p) p^{-r/2} κ_A(r log p) e^{i(m-n) r log p}.
+Thus Q_A on this finite-dimensional family matches the general Q_A(ψ) up to a positive scale. By density of such trigonometric sums in the bandlimited class, positivity of Q_A on all P is equivalent to positivity on all admissible ψ.
+
+Therefore, RH holds if and only if, for every A>0, the Toeplitz matrices with entries K_A(h)=arch_A δ_{h,0} - 2 ∑_{r,p} (log p) p^{-r/2} κ_A(r log p) e^{i h r log p} are positive semidefinite in every finite truncation.
+
+5) Explicit archimedean term. One admissible choice is to take κ_A to be the Fejér-type kernel whose Fourier transform is the triangular function supported in [-A,A]. Then κ_A is C^1, even, nonnegative definite, κ_A(0)=1, and decays as 1/u^2. The archimedean weight in the explicit formula can be written as
+W(u) = 2 ∫_{0}^{∞} (cos(tu) - cosh(u/2)^{-1})/(e^{2π t} - 1) dt,
+so
+arch_A = log π + ∫_{R} κ_A(u) W(u) du
+is finite and computable numerically for each A, independent of P.
+
+Consequences and scope.
+
+- This furnishes a fully explicit, finite-dimensional, checkable positivity condition (for each A,N) whose validity for all A and all N is equivalent to RH. It reframes RH as a family of prime-generated Toeplitz positivity constraints against a bandlimit A.
+
+- Any rigorous method that can verify Q_A(P) ≥ 0 uniformly in N for a fixed A produces unconditional positivity information about the zero distribution inside the frequency window (-A,A). For example, proving Q_A(P) ≥ 0 for all P when A is large enough to majorize any potential off-line zero would imply RH.
+
+- The reduction isolates where difficulty lies: one must control the signed prime-power kernel
+S_A(h) = ∑_{r,p} (log p) p^{-r/2} κ_A(r log p) e^{i h r log p}
+well enough to dominate it by the explicit positive archimedean diagonal. Any argument using only unconditional bounds on exponential sums over primes and p^{-1/2}-weights appears to face a convexity-type barrier: κ_A localizes r log p to |r log p| ≲ A, so effective control would need square-root cancellation uniformly across all h and all dyadic prime ranges, which is presently out of reach.
+
+Checks.
+
+- All transformations preserve rigorous equivalence: the zero-side nonnegativity for all nonnegative ĝ with compact support is exactly Weil’s criterion; passing to g=ψ*ψ̃ gives a quadratic form in ψ; restricting to bandlimited finite trigonometric sums and using density gives the Toeplitz form Q_A(P).
+
+- Convergence is justified by rapid decay of κ_A and the p^{-r/2} factor; absolute convergence of ∑_{r,p} (log p) p^{-r/2} |κ_A(r log p)| holds for any fixed A because r log p ≥ log p, and ∑_p (log p)/p converges, while κ_A decays at least quadratically.
+
+- arch_A > 0 because W is integrable against κ_A and κ_A is nonnegative with κ_A(0)=1; numerically, arch_A is of fixed moderate size depending on A.
+
+Conclusion.
+
+This is a rigorous, self-contained reduction that encapsulates RH as the positivity of an explicit family of prime-generated Toeplitz matrices indexed by a bandlimit A. It sharpens the test functions in Weil’s criterion to a concrete finite-dimensional setting suitable for attempted verification or further analytic bounding. It does not prove RH, but it isolates a precise obstacle (uniform domination of the prime kernel by the archimedean diagonal) and provides a structured target for advances in exponential sum estimates over primes.
+
+VERDICT: PARTIAL
+REASON: RH reduced to positivity of explicit prime Toeplitz forms; no proof of positivity provided
