@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 238,
-    "grok": 235,
+    "grok": 236,
     "gpt": 235
   },
   "lastRun": {
     "claude": 1787673810159,
-    "grok": 1787666879019,
+    "grok": 1787677139954,
     "gpt": 1787670538976
   },
   "attempts": [
+    {
+      "id": "grok-1787677139954",
+      "ai": "grok",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Standard Lefschetz reduction to dim=2k made fully rigorous; no new cycles or middle-dim progress.",
+      "ts": "2026-08-25T16:58:59.954Z",
+      "duration_ms": 41677
+    },
     {
       "id": "claude-1787673810159",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-23T23:21:33.585Z",
       "duration_ms": 199
-    },
-    {
-      "id": "gpt-1787525719085",
-      "ai": "gpt",
-      "problem": "Hodge Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Proved a blow-up propagation lemma: HC(Y,p) from HC(X,p) and HC(Z,p−j) via the blow-up cohomology decomposition.",
-      "ts": "2026-08-23T22:55:19.085Z",
-      "duration_ms": 41275
     }
   ]
 }

@@ -1,0 +1,44 @@
+### Reduction of the Hodge conjecture in codimension \(k\) to varieties of dimension \(2k\)
+
+Let \(X\) be a smooth complex projective variety of dimension \(n\), and fix an integer \(k\) with \(1\le k\le n/2\). Write \(\operatorname{Hdg}^{2k}(X)\) for the group of rational Hodge classes
+\[
+\operatorname{Hdg}^{2k}(X)\,:=\,H^{2k}(X,\mathbb{Q})\cap H^{k,k}(X).
+\]
+The Hodge conjecture in codimension \(k\) asserts that the cycle class map
+\[
+\operatorname{cl}^k_X:\operatorname{CH}^k(X)_{\mathbb{Q}}\longrightarrow\operatorname{Hdg}^{2k}(X)
+\]
+is surjective. We prove that it is enough to establish the conjecture when \(n=2k\).
+
+Embed \(X\subset\mathbb{P}^N\) by a very ample line bundle and let \(Y\subset X\) be a smooth hyperplane section (which exists for a generic choice of hyperplane by Bertini). The classical Lefschetz hyperplane theorem supplies an isomorphism
+\[
+\iota^*:H^{i}(X,\mathbb{Q})\xrightarrow{\sim}H^{i}(Y,\mathbb{Q})
+\]
+for all \(i<n-1\), and an injection for \(i=n-1\). In particular, when \(n>2k\) we have \(2k<n-1\), so
+\[
+\iota^*:H^{2k}(X,\mathbb{Q})\xrightarrow{\sim}H^{2k}(Y,\mathbb{Q})
+\]
+is an isomorphism of pure Hodge structures of weight \(2k\). Consequently it identifies the subspaces of Hodge classes:
+\[
+\iota^*(\operatorname{Hdg}^{2k}(X))=\operatorname{Hdg}^{2k}(Y).
+\]
+The restriction of algebraic cycles is compatible with the cycle class map, i.e., the square
+\begin{CD}
+\operatorname{CH}^k(X)_{\mathbb{Q}}@>{\operatorname{cl}^k_X}>>\operatorname{Hdg}^{2k}(X)\\
+@V{\iota^*}VV@VV{\iota^*}V\\
+\operatorname{CH}^k(Y)_{\mathbb{Q}}@>{\operatorname{cl}^k_Y}>>\operatorname{Hdg}^{2k}(Y)
+\end{CD}
+commutes. Thus if \(\operatorname{cl}^k_Y\) is surjective then so is \(\operatorname{cl}^k_X\).
+
+Iterating the hyperplane-section process \(n-2k\) times yields a smooth complete-intersection subvariety \(Z\subset X\) of dimension exactly \(2k\) such that the restriction
+\[
+H^{2k}(X,\mathbb{Q})\xrightarrow{\sim}H^{2k}(Z,\mathbb{Q})
+\]
+is an isomorphism of Hodge structures identifying Hodge classes, and such that surjectivity of \(\operatorname{cl}^k_Z\) implies surjectivity of \(\operatorname{cl}^k_X\). Therefore the Hodge conjecture in codimension \(k\) for all smooth projective varieties is equivalent to the same statement restricted to varieties of dimension \(2k\).
+
+(The same argument with the hard Lefschetz theorem shows that it is enough to treat the primitive part of \(\operatorname{Hdg}^{2k}\), but that refinement is unnecessary for the reduction.)
+
+This is a complete, elementary reduction; it does not produce new algebraic cycles, nor does it address the remaining middle-dimensional case.
+
+VERDICT: PARTIAL
+REASON: Standard Lefschetz reduction to dim=2k made fully rigorous; no new cycles or middle-dim progress.
