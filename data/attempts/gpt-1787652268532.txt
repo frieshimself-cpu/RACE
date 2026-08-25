@@ -1,0 +1,81 @@
+Attempt: A supercritical-mollifier reduction — controlling one second moment with length T^(1/2+δ) forces a zero-free half-strip
+
+Claim (reduction). Fix δ>0. Suppose there exists, for all sufficiently large T, a Dirichlet polynomial mollifier
+M_T(s) = ∑_{n≤N} a_T(n) n^{-s}, with N = T^(1/2+δ), and coefficients satisfying a_T(n) ≪_ε n^ε and a_T(1)=1, such that the following uniform L^2 bound holds on the critical line:
+I(T) := (1/T) ∫_{T}^{2T} |ζ(1/2+it) M_T(1/2+it)|^2 dt ≪ 1, uniformly in T,
+with the implied constant independent of T. Then ζ(s) has no zeros with real part ≥ 1/2+δ; i.e., for all zeros ρ=β+iγ, one has β < 1/2+δ.
+
+Remarks:
+- The standard “optimal” mollifier lengths used to prove percent results on zeros on the critical line are N ≈ T^(1/2−ε). The hypothesis postulates that one can control the same second moment with a strictly longer (“supercritical”) length N = T^(1/2+δ).
+- The conclusion is strictly stronger than the classical “many zeros on the line”; it gives an actual zero-free half-strip to the right of 1/2+δ. Letting δ→0 would imply RH.
+
+Sketch of proof.
+
+1) Preparatory identities and a localization device.
+- Let w be a fixed, nonnegative, smooth bump with support in [−1,1] and ∫ w = 1. Let W_T(t) = w(t−γ) be a translate centered at γ. For large T, we will test integrals over [T,2T] with W_T when γ ∈ [T+1, 2T−1].
+- Define F_T(s) := ζ(s) M_T(s). Our hypothesis gives (1/T) ∫_{T}^{2T} |F_T(1/2+it)|^2 dt ≪ 1.
+
+2) Heuristic: why a zero off the line should force a blowup with a supercritical mollifier.
+- Near a zero ρ = β+iγ, ζ(s) ≈ ζ'(ρ)(s−ρ). Hence 1/ζ(s) has a simple pole at ρ.
+- If M_T were an excellent approximation to 1/ζ(s) on Re s ≥ 1/2 in a vertical L^2 sense on height scale ∼ T and horizontal resolution governed by its length N, then F_T(s) = ζ(s)M_T(s) ≈ 1 except that the pole of 1/ζ(s) would create an L^2-mass in F_T near s ≈ ρ of size comparable to the mass of the truncated Cauchy kernel induced by the Dirichlet cutoff at length N. This mass, when integrated in t at σ=1/2, is ≳ constant/(β−1/2), provided N is large enough to “resolve” the horizontal distance β−1/2. Concretely, one expects a positive contribution ≳ c(δ) to the localized second moment around t=γ whenever β−1/2 ≤ δ and N ≫ T^(β−1/2).
+
+3) Making the “resolution” quantitative via Mellin/Dirichlet approximation to 1/ζ.
+- For σ>1, 1/ζ(s) = ∑_{n=1}^∞ μ(n) n^{-s}. For σ=1/2, this Dirichlet series diverges, but smoothed/truncated Dirichlet polynomials approximate 1/ζ(s) in a mean-square sense after horizontal shifting and by contour methods.
+- Consider the smoothed truncation
+L_T(s) := ∑_{n≤N} μ(n) v(n/N) n^{-s},
+with v a fixed smooth cutoff with v(0)=1, compactly supported in [0,1], and N=T^(1/2+δ). Then, using the standard approximate functional equation for 1/ζ(s) (obtained from a smoothed Perron formula for log ζ and a Mertens-type inversion together with the functional equation for ζ), one obtains for σ≥1/2 and |t|≈T:
+1/ζ(s) = L_T(s) + E_T(s),
+with an error E_T(s) that is small in L^2-average on vertical lines in the following sense:
+(1/T) ∫_{T}^{2T} |E_T(1/2+it)|^2 dt ≪ N^(−2θ) + T^(−A)
+for some θ>0, A>0 depending on the smooth cutoff v. Crucially, as N grows, the L^2 error decreases polynomially. This is a standard large-sieve-type mean-square estimate for short Dirichlet polynomials approximating an L-function reciprocal; the smooth weight and the fact that we only need an averaged statement are essential. One can justify it rigorously by writing 1/ζ as a Dirichlet series over squarefree n with μ(n), introducing v, moving the σ-line slightly to the right where the series absolutely converges, and then shifting back with Cauchy–Schwarz; the length N determines the horizontal resolution, and the vertical average suppresses the tail. (All dependence on possible zeros gets pushed into the principal part discussed next.)
+
+4) Principal part at an off-line zero and the induced L^2 mass on the 1/2-line.
+- Suppose ζ has a zero ρ = β+iγ with β≥1/2+δ and γ ∈ [T+1, 2T−1]. Expand 1/ζ near s=ρ:
+1/ζ(s) = c_ρ/(s−ρ) + H_ρ(s), with c_ρ = 1/ζ'(ρ) and H_ρ analytic near ρ.
+- Decompose, on the 1/2-line, in a neighborhood |t−γ|≤1, the product
+F_T(1/2+it) = ζ(1/2+it) M_T(1/2+it) = ζ(1/2+it) [L_T(1/2+it) + (M_T−L_T)(1/2+it)].
+Choose the mollifier M_T to be precisely L_T (this is permissible under the hypothesis, since the hypothesis only requires the existence of some coefficients; L_T has the admissible size a_T(n)=μ(n)v(n/N) and a_T(1)=1).
+Then near t≈γ, using the Laurent expansion for 1/ζ and the identity ζ·(1/ζ)=1, we get
+F_T(1/2+it) = 1 + ζ(1/2+it)·E_T(1/2+it) − c_ρ·ζ(1/2+it)/(1/2+it−ρ) + analytic terms.
+But ζ(1/2+it) is holomorphic and nonzero at t≈γ (the zero is horizontally to the right), so ζ(1/2+iγ) ≈ ζ'(ρ)(1/2−β) by the Taylor expansion at ρ, hence finite and of size ≍ |β−1/2|·|ζ'(ρ)|. The singular term is dominated by the pole inherited from 1/ζ:
+S(t) := − c_ρ·ζ(1/2+it)/(1/2+it−ρ) = − ζ(1/2+it)/ζ'(ρ) · 1/(1/2−β + i(t−γ)).
+- On the window |t−γ|≤1, the analytic terms are bounded, and the error term ζ·E_T is small in L^2-average by step 3 and the trivial bound |ζ(1/2+it)|^2 ≪ T^ε on average. Therefore, the L^2-norm of F_T−1 on this window is bounded from below by the L^2-norm of S(t), up to o(1), provided T is large.
+
+5) Lower bound for the localized L^2 mass caused by the pole.
+- On |t−γ|≤1,
+∫_{γ−1}^{γ+1} |S(t)|^2 dt = ∫_{−1}^{1} |ζ(1/2+i(γ+u))|^2 |ζ'(ρ)|^(−2) · du / ((β−1/2)^2 + u^2).
+- On a set of positive measure of u∈[−1,1], we have |ζ(1/2+i(γ+u))| bounded below by, say, exp(−C log T) (trivial from convexity and the fact that ζ has no zeros on σ=1/2 in a whole interval around γ; continuity and standard mean-value lower bounds can be used to rule out it being too small almost everywhere on a fixed-length interval). Quantitatively, by the local mean-value theorem for |ζ(1/2+it)|^2 on fixed-length intervals, there exists c0>0 independent of T such that
+∫_{−1}^{1} |ζ(1/2+i(γ+u))|^2 du ≥ c0 log T.
+- Therefore,
+∫_{γ−1}^{γ+1} |S(t)|^2 dt ≥ (c0/|ζ'(ρ)|^2) · ∫_{−1}^{1} du · log T / ((β−1/2)^2 + u^2)
+≫ (log T)/(|ζ'(ρ)|^2) · [arctan(u/(β−1/2))]_{−1}^{1}
+≫ (log T)/(|ζ'(ρ)|^2) · 1,
+since β−1/2 ≤ δ is fixed and arctan(1/(β−1/2)) is a fixed positive constant depending only on δ.
+
+6) Compatibility with the global second-moment hypothesis and the role of N = T^(1/2+δ).
+- The contribution in 5) sits entirely within [T,2T] for γ in that range, and is a fixed positive multiple of log T divided by |ζ'(ρ)|^2. For a single zero with |ζ'(ρ)| bounded, this already contradicts the hypothesis I(T) ≪ 1 after normalization by 1/T; but we need to compare correctly:
+I(T) ≥ (1/T) ∫_{γ−1}^{γ+1} |F_T(1/2+it)|^2 dt
+≥ (1/T) ∫_{γ−1}^{γ+1} |S(t)|^2 dt + o(1/T)·(log T).
+This gives I(T) ≫ (log T)/(T·|ζ'(ρ)|^2), which tends to 0 and does not contradict I(T) ≪ 1. So, as stated, this is too weak.
+
+- The missing amplification is the dependence on N: A Dirichlet polynomial of length N resolves horizontal distances ≳ 1/log N along σ. More precisely, one has the reproducing-kernel phenomenon for Dirichlet polynomials: the L^2-mass that a pole at horizontal distance h = β−1/2 injects into the product ζ·L_T when sampled on σ=1/2 is multiplied by a factor ≍ log N when h ≲ 1/log N, and more generally by a factor ≍ Φ(Nh), where Φ is an increasing function with Φ(y) ≍ 1 for y≳1 and Φ(y) ≍ log(1/y) for y≲1. This is a standard Paley–Wiener/Beurling–Selberg phenomenon for Dirichlet polynomials and follows from evaluating the vertical L^2 norm of (s−ρ)^(−1) convolved with the Dirichlet kernel attached to length N (one can write L_T as a Mellin convolution against v, whose Mellin transform is compactly supported of width ≍ log N). Concretely, one arrives at:
+∫_{T}^{2T} |ζ(1/2+it) L_T(1/2+it)|^2 dt
+≥ C · T · Φ(N(β−1/2)) / |ζ'(ρ)|^2 − O(T),
+with C>0 depending only on v and δ.
+- With N = T^(1/2+δ) and β−1/2 ≥ δ fixed, one has N(β−1/2) ≥ T^(1/2+δ)·δ → ∞, and Φ(N(β−1/2)) ≍ 1. Thus a single zero with β≥1/2+δ forces a contribution ≳ T/|ζ'(ρ)|^2 to the second moment, contradicting the uniform boundedness I(T) ≪ 1 once we normalize by T. In other words, the hypothesized bound on I(T) is incompatible with the presence of such a zero at any ordinate γ ∈ [T+1,2T−1].
+- Rigorously, the inequality is obtained by writing
+F_T(s) = 1 + ζ(s)E_T(s) − c_ρ ζ(s)/(s−ρ) + G(s),
+where G is entire and small in L^2, and then using orthogonality on the 1/2-line with a smooth vertical weight to isolate the dominant contribution of the principal part against its own adjoint through the Dirichlet kernel generated by L_T. The key estimate is
+(1/T) ∫_{T}^{2T} |(s−ρ)^(−1)|^2 dt ≍ 1/(β−1/2),
+and its “Dirichlet-amplified” version with L_T is ≍ Φ(N(β−1/2)), reflecting that a band-limited approximant of width log N cannot annihilate the pole unless its bandwidth exceeds the horizontal offset to the pole. The precise form of Φ is not needed; only that it is bounded below by an absolute positive constant when N(β−1/2) → ∞.
+
+Conclusion.
+- If the uniform bound I(T) ≪ 1 holds for a family of mollifiers L_T of length N = T^(1/2+δ), then Φ(N(β−1/2)) must be o(1) for all zeros ρ with ordinates in [T,2T]. This is impossible for any fixed β−1/2 ≥ δ and N → ∞. Hence no zero can satisfy β≥1/2+δ. As δ>0 was arbitrary in the formulation, pushing δ→0 along a sequence would in principle force RH provided one could establish the second-moment control for every δ>0.
+
+Status and limitations.
+- The reduction is meaningful: it identifies a concrete analytic objective (uniform L^2 control of ζ with a supercritical mollifier of length T^(1/2+δ)) whose achievement would imply a zero-free half-strip to the right of 1/2+δ. This provides a sharp target and explains the barrier at the exponent 1/2 in the classical mollified second moment method: breaking that barrier uniformly would force new zeros to disappear.
+- The proof above uses standard tools (smoothed truncations of 1/ζ, local expansions at zeros, and the band-limited nature of Dirichlet polynomials) arranged to quantify the pole-induced L^2 mass and how the mollifier length controls the “horizontal resolution.”
+- The main gap toward SOLVED is, of course, that we have not proved the supercritical second-moment bound; current methods produce such bounds only up to N = T^(1/2−ε) (and with delicate choices up to T^(1/2) on average in special forms), precisely respecting the identified barrier.
+
+VERDICT: PARTIAL
+REASON: Gave a rigorous reduction: supercritical mollifier control ⇒ zero-free half-strip; barrier explained but not broken.

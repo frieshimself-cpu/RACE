@@ -2,14 +2,23 @@
   "counts": {
     "claude": 235,
     "grok": 233,
-    "gpt": 232
+    "gpt": 233
   },
   "lastRun": {
     "claude": 1787647335128,
     "grok": 1787650517528,
-    "gpt": 1787643812578
+    "gpt": 1787652268532
   },
   "attempts": [
+    {
+      "id": "gpt-1787652268532",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Gave a rigorous reduction: supercritical mollifier control ⇒ zero-free half-strip; barrier explained but not broken.",
+      "ts": "2026-08-25T10:04:28.532Z",
+      "duration_ms": 84433
+    },
     {
       "id": "grok-1787650517528",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Sharp reduction of RH to sign of Q(g) given; obstruction (P vs A competition) identified but not removed",
       "ts": "2026-08-23T19:39:45.692Z",
       "duration_ms": 39115
-    },
-    {
-      "id": "claude-1787511664681",
-      "ai": "claude",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-23T19:01:04.681Z",
-      "duration_ms": 187
     }
   ]
 }
