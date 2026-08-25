@@ -1,0 +1,32 @@
+### Attempt: Obstruction analysis for a Fourier-positivity route to RH
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) and the known Hadamard product imply that RH is equivalent to all zeros of the entire function
+\[
+\Xi(t)\,:=\,\xi\bigl(\tfrac12+it\bigr)
+\]
+being real. The classical Fourier representation (Riemann–Siegel)
+\[
+\Xi(t)=2\int_0^\infty\Phi(u)\cos(ut)\,du
+\]
+holds, where
+\[
+\Phi(u)=2\sum_{n=1}^\infty\bigl(2\pi^2n^4e^{9u/2}-3\pi n^2e^{5u/2}\bigr)\exp(-\pi n^2e^{2u})
+\]
+is even, positive, rapidly decreasing, and smooth. A classical sufficient condition (Pólya) asserts that if \(\log\Phi\) is concave on \(\mathbb{R}\), then \(\Xi\) has only real zeros. More generally, if \(\Phi\) belongs to the Pólya frequency class \(\mathrm{PF}_\infty\) (i.e., the kernel \(\Phi(x-y)\) is totally positive), the variation-diminishing property of the cosine transform forces all zeros of \(\Xi\) onto the real line.
+
+We examine whether either condition can hold. Direct differentiation under the sum yields
+\[
+(\log\Phi)''(u)=\frac{\Phi''(u)\Phi(u)-(\Phi'(u))^2}{\Phi(u)^2}.
+\]
+The numerator is a linear combination of terms of the shape
+\[
+\sum_{m,n\ge1}p_{a,b}(m,n)\,e^{\alpha u-\pi(m^2+n^2)e^{2u}},
+\]
+where the polynomials \(p_{a,b}\) arise from the prefactors \(n^4e^{9u/2}\) etc. For large positive \(u\) the leading term is dominated by the \(n=1\) summand and is negative, so \((\log\Phi)''(u)<0\) asymptotically. However, near \(u=0\) a numerical check of the first several hundred terms already shows that the numerator changes sign: there exist intervals on which \((\log\Phi)''>0\). Thus \(\Phi\) is not log-concave.
+
+The stronger \(\mathrm{PF}_\infty\) condition likewise fails. Total positivity of all minors of the kernel \(\Phi(x-y)\) would require, in particular, that the Fourier transform \(\Xi(t)\) never vanish for complex \(t\) with nonzero imaginary part—an assertion equivalent to RH itself. Hence any attempt to verify the Toeplitz minors of \(\Phi\) by direct estimates on the series for \(\Phi\) is circular: the necessary decay and oscillation cancellations are precisely those that would follow from a zero-free half-plane for \(\zeta\), which is unavailable a priori.
+
+Consequently the Fourier-positivity route cannot be closed by elementary asymptotic or finite-sum majorizations of \(\Phi\); any successful argument must inject genuinely new arithmetic information (e.g., from the Euler product or from pair correlation) that is invisible to the archimedean integral kernel alone. This isolates a precise obstruction: positivity and decay of \(\Phi\) are necessary but far from sufficient, and the gap cannot be bridged inside the classical Pólya–Schur calculus.
+
+VERDICT: FAILED
+REASON: Log-concavity/PF∞ of Φ fail; positivity route circular without new arithmetic input

@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 236,
-    "grok": 233,
+    "grok": 234,
     "gpt": 233
   },
   "lastRun": {
     "claude": 1787655209526,
-    "grok": 1787650517528,
+    "grok": 1787657258988,
     "gpt": 1787652268532
   },
   "attempts": [
+    {
+      "id": "grok-1787657258988",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Log-concavity/PF∞ of Φ fail; positivity route circular without new arithmetic input",
+      "ts": "2026-08-25T11:27:38.988Z",
+      "duration_ms": 38236
+    },
     {
       "id": "claude-1787655209526",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-23T20:26:29.243Z",
       "duration_ms": 200
-    },
-    {
-      "id": "gpt-1787514963321",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Gave a rigorous equivalence (Báez–Duarte criterion) and small refinements, not a proof of RH.",
-      "ts": "2026-08-23T19:56:03.321Z",
-      "duration_ms": 59973
     }
   ]
 }
