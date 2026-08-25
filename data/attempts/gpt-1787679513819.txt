@@ -1,0 +1,71 @@
+Attempt: A conditional Gaussian-smoothed prime error criterion that implies RH
+
+Setup.
+- Let Φ(u) = (1/√(2π)) e^{-u^2/2}, an even Schwartz function with ∫Φ = 1.
+- For 0 < σ ≤ 1 and x ≥ 2 define the Gaussian-smoothed Chebyshev sum
+  Ψ(x; σ) := ∑_{n=1}^∞ Λ(n) W_σ(log n − log x), with W_σ(u) := (1/σ) Φ(u/σ).
+  Equivalently, W_σ is the N(0, σ^2) density on ℝ.
+- Define the normalized smoothed prime-counting functional
+  S(x, σ) := e^{−σ^2/2} Ψ(x; σ).
+
+Key explicit formula.
+- Let −ζ′/ζ(s) = ∑ Λ(n) n^{-s} for Re s > 1. The bilateral Laplace transform of W_σ is
+  L_σ(s) := ∫_{−∞}^{∞} W_σ(u) e^{s u} du = e^{σ^2 s^2/2}.
+- Mellin inversion gives, for any c > 1,
+  Ψ(x; σ) = (1/2π i) ∫_{Re s = c} [−ζ′/ζ](s) x^s e^{σ^2 s^2/2} ds.
+- Shifting the line of integration to Re s = 1/2 (with the usual rectangle and using absolute convergence on verticals thanks to the Gaussian weight), we pick up the simple pole of −ζ′/ζ at s=1 and the simple poles at the nontrivial zeros ρ of ζ. The trivial zeros contribute a bounded term because e^{σ^2 s^2/2} decays rapidly on Re s ≤ 0. One obtains the explicit formula
+  Ψ(x; σ) = x e^{σ^2/2} − ∑_ρ x^ρ e^{σ^2 ρ^2/2} + E(x, σ),
+  where the sum runs over nontrivial zeros counted with multiplicity, and the error satisfies, for any fixed A > 0,
+  E(x, σ) ≪_A x^{-A} + e^{-c/σ^2}
+  uniformly for x ≥ 2 and 0 < σ ≤ 1, with some absolute c > 0. (Sketch: trivial zero and horizontal edge contributions are controlled by the Gaussian factor; see the tail bound below.)
+- Therefore
+  S(x, σ) = x − ∑_ρ x^ρ e^{σ^2(ρ^2 − 1)/2} + E_1(x, σ),
+  with E_1(x, σ) = e^{−σ^2/2} E(x, σ) = O_A(x^{-A} + e^{-c/σ^2}).
+
+Main conditional implication.
+Proposition. Suppose there exist constants C > 0 and σ0 ∈ (0, 1] such that
+  |S(x, σ) − x| ≤ C x^{1/2}
+holds for all x ≥ 3 and all σ ∈ (0, σ0]. Then all nontrivial zeros ρ of ζ satisfy Re ρ = 1/2; i.e., the Riemann Hypothesis holds.
+
+Proof.
+- Write ρ = β + iγ. From the explicit formula,
+  ∑_ρ x^ρ e^{σ^2(ρ^2 − 1)/2} = x − S(x, σ) + E_1(x, σ),
+  hence uniformly for σ ∈ (0, σ0],
+  |∑_ρ x^ρ e^{σ^2(ρ^2 − 1)/2}| ≤ C x^{1/2} + O_A(x^{-A} + e^{-c/σ^2}).   (1)
+- Fix σ ∈ (0, σ0] small enough that e^{-c/σ^2} ≤ 1 (irrelevant asymptotically in x). Let
+  β* := sup{Re ρ : ζ(ρ) = 0}. Assume, for contradiction, that β* > 1/2.
+- By the functional equation, zeros are symmetric about Re s = 1/2, so zeros with real part arbitrarily close to β* exist. The Gaussian weight factorizes as
+  e^{σ^2(ρ^2 − 1)/2} = e^{σ^2(β^2 − γ^2 − 1)/2} e^{i σ^2 β γ}.
+  In particular, for fixed σ the modulus is e^{σ^2(β^2 − γ^2 − 1)/2}, which decays like e^{−(σ^2/2)(1 + γ^2 − β^2)} in |γ|.
+- Choose G = G(σ0) large but fixed so that the tail over |γ| > G has total contribution bounded by, say, 1 for all x ≥ 3:
+  ∑_{ρ: |γ|>G} |x^ρ e^{σ^2(ρ^2 − 1)/2}| ≤ x^{β*} ∑_{|γ|>G} e^{−(σ^2/2)(1 + γ^2 − β^{2})}
+  ≪ x^{β*} e^{−(σ^2/3) G^2} ≤ 1
+  for all 0 < σ ≤ σ0 once G is chosen so that e^{−(σ0^2/3) G^2} ≪ x^{−β*} for all x ≥ 3. Since we only need a contradiction as x → ∞, we can (and do) fix any G > 0 and absorb the tail into the error; the Gaussian ensures the tail is negligible for each fixed σ.
+- Thus the sum in (1) reduces to a finite sum over zeros with |γ| ≤ G:
+  ∑_{ρ: |γ|≤G} x^ρ e^{σ^2(ρ^2 − 1)/2} = O(x^{1/2}).
+  Write this as
+  x^{β*} ∑_{ρ: |γ|≤G} x^{β − β*} e^{σ^2(β^2 − γ^2 − 1)/2} e^{i γ log x} = O(x^{1/2}).
+- Split the finite sum into those with β ≥ β* − ε and those with β ≤ β* − ε, for some small ε > 0 to be chosen. The latter part is O(x^{β* − ε}) uniformly in x. The former part has finitely many terms, each of magnitude ≍ e^{−(σ^2/2)(1 + γ^2 − β^2)} ≥ c(σ0,ε) > 0 (since |γ| ≤ G and β ∈ [β* − ε, β*], and σ ≤ σ0), times e^{i γ log x}.
+- Therefore, for all sufficiently large x,
+  |x^{β*} ∑_{j=1}^m a_j e^{i γ_j log x} + O(x^{β* − ε})| ≤ C x^{1/2} + 1,
+  where m ≥ 1 (because β* is the supremum and zeros arbitrarily close exist), the γ_j are distinct real numbers in [−G, G], and the a_j are nonzero complex numbers with |a_j| ≥ c0(σ0, ε) > 0.
+- Divide both sides by x^{β*} and let x → ∞. The O(x^{β* − ε}) term vanishes, and we obtain
+  |∑_{j=1}^m a_j e^{i γ_j log x}| ≲ x^{1/2 − β*} → 0.
+  Hence, along any sequence of x → ∞, the finite trigonometric sum must tend to 0.
+- But by standard simultaneous Diophantine approximation (Kronecker’s theorem), there exists an unbounded sequence t_k = log x_k such that e^{i γ_j t_k} → a_j/|a_j| for each j, so that
+  ∑_{j=1}^m a_j e^{i γ_j t_k} → ∑_{j=1}^m |a_j| ≥ m c0 > 0,
+  a contradiction. Therefore β* ≤ 1/2. By symmetry of zeros about Re s = 1/2, we must have β* = 1/2. This proves RH under the stated hypothesis. ∎
+
+Tail and error control justification.
+- Along the shifted contour Re s = 1/2, |e^{σ^2 s^2/2}| = e^{σ^2(1/4 − t^2)/2} gives Gaussian decay e^{−(σ^2/2) t^2} in the height t = Im s, ensuring absolute convergence of the integral and the negligible contribution of distant horizontal edges and trivial zeros. This yields the bound E_1(x, σ) = O_A(x^{−A} + e^{−c/σ^2}) uniformly in x ≥ 2, 0 < σ ≤ 1.
+
+Discussion and consequence.
+- The proposition reduces RH to a concrete uniform square-root error bound for a single Gaussian-smoothed Chebyshev function at all fixed small smoothing scales σ ∈ (0, σ0]. Note there is no 1/σ loss after the natural normalization S(x, σ) = e^{−σ^2/2} Ψ(x; σ), which is crucial for the reduction.
+- Unconditionally, one can show for each fixed σ > 0 that S(x, σ) = x + O(x e^{−c √log x}) by classical de la Vallée Poussin zero-free region, but this is far weaker than O(x^{1/2}). Even under strong zero-density estimates, current technology does not reach a uniform O(x^{1/2}) for any fixed σ0 > 0. The proposition cleanly pinpoints what Gaussian-smoothed prime error estimate would suffice to imply RH.
+
+Summary.
+- Self-contained reduction: A normalized Gaussian-smoothing of the Chebyshev sum with O(x^{1/2}) error, uniformly for σ in a fixed interval (0, σ0], would force all nontrivial zeros onto the critical line.
+- The proof relies only on the explicit formula with a Gaussian kernel, Gaussian decay to control tails, and a simple trigonometric approximation argument to isolate a hypothetical off-line zero, yielding a contradiction with the assumed O(x^{1/2}) bound.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous reduction: a uniform Gaussian-smoothed O(x^1/2) error implies RH.

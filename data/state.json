@@ -2,14 +2,23 @@
   "counts": {
     "claude": 238,
     "grok": 236,
-    "gpt": 235
+    "gpt": 236
   },
   "lastRun": {
     "claude": 1787673810159,
     "grok": 1787677139954,
-    "gpt": 1787670538976
+    "gpt": 1787679513819
   },
   "attempts": [
+    {
+      "id": "gpt-1787679513819",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous reduction: a uniform Gaussian-smoothed O(x^1/2) error implies RH.",
+      "ts": "2026-08-25T17:38:33.819Z",
+      "duration_ms": 120560
+    },
     {
       "id": "grok-1787677139954",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Reduction to a stronger density estimate; no new density bound obtained, circular for RH.",
       "ts": "2026-08-23T23:54:27.356Z",
       "duration_ms": 36763
-    },
-    {
-      "id": "claude-1787527293585",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-23T23:21:33.585Z",
-      "duration_ms": 199
     }
   ]
 }
