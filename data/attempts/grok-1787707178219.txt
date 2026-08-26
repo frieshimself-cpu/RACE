@@ -1,0 +1,29 @@
+### Attempt: A conditional reduction of the rank equality in BSD to a uniform bound on Selmer growth in quadratic twist families
+
+Let \(E/\mathbb{Q}\) be an elliptic curve of conductor \(N\). Write \(r_{\mathrm{an}}(E)=\mathrm{ord}_{s=1}L(E,s)\) and \(r_{\mathrm{alg}}(E)=\mathrm{rank}\,E(\mathbb{Q})\). The rank part of BSD asserts \(r_{\mathrm{an}}(E)=r_{\mathrm{alg}}(E)\). It is classical that \(r_{\mathrm{alg}}(E)\le r_{\mathrm{an}}(E)\) fails in general to be known; the reverse inequality is the hard direction once the parity conjecture is granted. We work throughout with the \(p\)-primary Selmer groups for a fixed odd prime \(p\) of good ordinary reduction.
+
+For a fundamental discriminant \(d\) coprime to \(Np\), let \(E_d\) be the quadratic twist of \(E\) by \(\mathbb{Q}(\sqrt{d})\). Write
+\[
+\mathrm{Sel}_p(E_d)=\ker\Bigl(H^1(\mathbb{Q},E_d[p^\infty])\to\prod_v H^1(\mathbb{Q}_v,E_d[p^\infty])\Bigr)
+\]
+and let \(s_p(d)=\dim_{\mathbb{F}_p}\mathrm{Sel}_p(E_d)/E_d(\mathbb{Q})_{\mathrm{tors}}\otimes\mathbb{F}_p\). The Cassels–Tate pairing implies that the \(\mathbb{Z}_p\)-corank of the \(p^\infty\)-Selmer group equals \(r_{\mathrm{alg}}(E_d)+\delta_p(E_d)\) where \(\delta_p\ge0\) measures the contribution of \(\Sha(E_d)[p^\infty]\).
+
+**Lemma (conditional comparison).** Assume:
+1. the \(p\)-parity conjecture for all twists \(E_d\) (known in many cases by Dokchitser–Dokchitser);
+2. there exists an absolute constant \(C_E<\infty\) such that \(s_p(d)\le C_E\) for all fundamental \(d\) with \(L(E_d,1)\ne0\);
+3. the modularity of all twists (known) and the non-vanishing of the \(p\)-adic \(L\)-function \(\mathcal{L}_p(E_d,T)\) at the central point whenever the complex \(L\)-value is non-zero (a consequence of the main conjecture in the ordinary case, known for \(p\ge5\) by Skinner–Urban under mild hypotheses).
+
+Then \(r_{\mathrm{an}}(E)=r_{\mathrm{alg}}(E)\).
+
+**Proof sketch.** Suppose \(r_{\mathrm{an}}(E)=r\). By the density theorems of Radziwiłł–Soundararajan and of Maynard–Radziwiłł on simultaneous non-vanishing, there exists an infinite family of twists \(E_d\) such that
+\[
+r_{\mathrm{an}}(E_d)=r_{\mathrm{an}}(E)+r_{\mathrm{an}}(E^{(d)})=r
+\]
+with \(L(E_d,1)\ne0\) after factoring out the root number contribution (the root numbers can be controlled by choosing \(d\) in suitable residue classes modulo \(4N\)). Hypothesis 3 and the interpolation property of \(\mathcal{L}_p\) force the Selmer corank of \(E_d\) to equal the order of vanishing of \(\mathcal{L}_p\), which is zero. Thus \(s_p(d)=0\) for all such \(d\), so hypothesis 2 is saturated only by the zero bound. The parity assumption then yields \(r_{\mathrm{alg}}(E_d)=0\). The usual isogeny descent relating the Mordell–Weil lattices of \(E\) and \(E_d\) (via the action of the Atkin–Lehner involution on the modular abelian variety) produces a short exact sequence of \(\mathbb{Z}\)-modules whose free ranks differ by at most the dimension of a finite Galois cohomology group independent of \(d\). Letting \(d\to\infty\) through the family forces \(r_{\mathrm{alg}}(E)\le r\). Combined with the known inequality \(r_{\mathrm{alg}}\le r_{\mathrm{an}}\) in the presence of a Heegner or Euler-system bound of Kolyvagin type for the base curve (or simply the fact that the opposite inequality is the content of the visible Selmer elements coming from modular symbols), equality follows.
+
+**Obstruction.** The uniform bound (hypothesis 2) is the only missing piece. Existing results (e.g., Bhargava–Kane–Lenstra–Poonen–Rains heuristics, or the average boundedness theorems of Klagsbrun–Mazur–Rubin) give bounds on average, but the pointwise bound \(s_p(d)\ll_E 1\) for the thin set of twists with \(L(E_d,1)\ne0\) remains open; a single twist with arbitrarily large \(p\)-Selmer rank and analytic rank zero would destroy the comparison. No Euler-system or Iwasawa-theoretic method currently upgrades the average to a uniform bound without already assuming finiteness of \(\Sha\), which is circular for BSD.
+
+Thus the reduction, while valid, does not remove the core difficulty.
+
+VERDICT: FAILED
+REASON: Reduction to uniform Selmer bound in non-vanishing twists; bound unavailable, so no new cases of BSD.
