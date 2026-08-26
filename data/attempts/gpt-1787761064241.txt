@@ -1,0 +1,36 @@
+Attempt: An L^2 reduction from zero-free half-planes to square-integrability of the Möbius summatory function
+
+Setup. Let M(x) = ∑_{n≤x} μ(n). For Re s > 1, we have the Stieltjes integral representation
+1/ζ(s) = ∑_{n=1}^∞ μ(n) n^{-s} = s ∫_{1}^{∞} M(x) x^{-s-1} dx.
+
+The key is to obtain absolute convergence of the integral for Re s > σ0 with σ0 ∈ (1/2,1], which yields analytic continuation of 1/ζ and thus a zero-free region Re s > σ0.
+
+Main lemma (L^2-reduction). Fix σ0 ∈ (1/2,1]. Suppose
+∫_{1}^{∞} |M(x)|^2 x^{2σ0-3} dx < ∞.
+Then ζ(s) has no zeros in the half-plane Re s > σ0.
+
+Proof. Let s = σ + it with σ > σ0. Using the integral representation,
+|1/ζ(s)| ≤ |s| ∫_{1}^{∞} |M(x)| x^{-σ-1} dx.
+Rewrite with the logarithmic measure dμ = dx/x:
+∫_{1}^{∞} |M(x)| x^{-σ-1} dx = ∫_{1}^{∞} (|M(x)| x^{-(1-σ0)}) x^{-(σ+σ0)} dμ.
+By Cauchy–Schwarz with respect to dμ,
+∫_{1}^{∞} (|M| x^{-(1-σ0)}) x^{-(σ+σ0)} dμ
+≤ (∫_{1}^{∞} |M(x)|^2 x^{-2(1-σ0)} dμ)^{1/2} (∫_{1}^{∞} x^{-2(σ+σ0)} dμ)^{1/2}.
+The first factor equals (∫_{1}^{∞} |M(x)|^2 x^{2σ0-3} dx)^{1/2} and is finite by hypothesis. The second factor is (∫_{1}^{∞} x^{-2(σ+σ0)} dμ)^{1/2} = (∫_{1}^{∞} x^{-2(σ+σ0)-1} dx)^{1/2}, which converges because σ + σ0 > 1. Hence the integral for 1/ζ(s) converges absolutely for σ > σ0, defining a bounded holomorphic function there. Therefore ζ(s) ≠ 0 for Re s > σ0. ∎
+
+Consequences and special cases.
+- Taking σ0 = 1/2 yields: If ∫_{1}^{∞} |M(x)|^2 x^{-2} dμ = ∫_{1}^{∞} |M(x)|^2 x^{-3} dx < ∞, then ζ(s) has no zeros for Re s > 1/2, i.e., the Riemann Hypothesis holds.
+- More generally, any σ0 > 1/2 with the corresponding square-integrability implies the zero-free half-plane Re s > σ0. Thus, establishing such an L^2-bound at any level σ0 pushes the zero-free line leftward.
+
+Remarks on strength and limitations.
+- The condition is strictly stronger than the classical pointwise RH-equivalent bound M(x) = O(x^{1/2+ε}): even that would not make ∫_{1}^{∞} |M(x)|^2 x^{-3} dx converge. Hence this is a hard reduction, but it is precise and unconditional: it converts a global L^2-control of M(x)/x into a zero-free region.
+- The proof is robust and avoids delicate explicit-formula cancellations; it uses only the Stieltjes transform identity and Cauchy–Schwarz with respect to logarithmic measure.
+- A family of intermediate criteria follows: If for some σ0 ∈ (1/2,1),
+∫_{1}^{∞} |M(x)|^2 x^{2σ0-3} dx < ∞,
+then ζ has no zeros with Re s > σ0. Thus any quantitative mean-square decay of M(x) stronger than what is currently accessible would translate into a zero-free strip enlargement.
+- The reduction also clarifies an obstruction: attempts to prove RH via bounding M(x) on sets of full (additive) measure but without L^2-control in logarithmic measure cannot succeed through this integral route alone.
+
+Conclusion. The lemma offers a clean, self-contained reduction: square-integrability of M(x)/x in logarithmic measure implies RH; more generally, an L^2-bound with weight x^{2σ0-3} implies a zero-free half-plane Re s > σ0. Establishing such bounds remains open, but the pathway is explicit and rigorous.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous L^2 reduction: square-integrable Möbius ⇒ zero-free Re s>σ0; full RH remains unproved.

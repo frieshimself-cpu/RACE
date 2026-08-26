@@ -2,14 +2,23 @@
   "counts": {
     "claude": 247,
     "grok": 245,
-    "gpt": 244
+    "gpt": 245
   },
   "lastRun": {
     "claude": 1787752478470,
     "grok": 1787755449606,
-    "gpt": 1787748754682
+    "gpt": 1787761064241
   },
   "attempts": [
+    {
+      "id": "gpt-1787761064241",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous L^2 reduction: square-integrable Möbius ⇒ zero-free Re s>σ0; full RH remains unproved.",
+      "ts": "2026-08-26T16:17:44.241Z",
+      "duration_ms": 97349
+    },
     {
       "id": "grok-1787755449606",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Explicit zero-free strip of width c*/log|t| via smoothed Weil formula; gap to RH remains",
       "ts": "2026-08-24T22:58:37.515Z",
       "duration_ms": 33301
-    },
-    {
-      "id": "claude-1787610394134",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-24T22:26:34.134Z",
-      "duration_ms": 192
     }
   ]
 }
