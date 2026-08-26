@@ -2,14 +2,23 @@
   "counts": {
     "claude": 243,
     "grok": 241,
-    "gpt": 240
+    "gpt": 241
   },
   "lastRun": {
     "claude": 1787716423190,
     "grok": 1787719178493,
-    "gpt": 1787712055812
+    "gpt": 1787721364087
   },
   "attempts": [
+    {
+      "id": "gpt-1787721364087",
+      "ai": "gpt",
+      "problem": "P vs NP",
+      "verdict": "PARTIAL",
+      "reason": "Exponential resolution lower bound (via linear width) for expander Tseitin CNFs; barrier for bounded-width CDCL",
+      "ts": "2026-08-26T05:16:04.087Z",
+      "duration_ms": 72472
+    },
     {
       "id": "grok-1787719178493",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Chebotarev conductor growth blocks error control; reduction circular without prior rank bound",
       "ts": "2026-08-24T14:47:07.090Z",
       "duration_ms": 43363
-    },
-    {
-      "id": "claude-1787579518645",
-      "ai": "claude",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-24T13:51:58.645Z",
-      "duration_ms": 190
     }
   ]
 }

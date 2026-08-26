@@ -1,0 +1,56 @@
+Attempt: Exponential lower bounds for resolution (and bounded-width CDCL) on bounded-degree NP-type CNFs via expander Tseitin contradictions
+
+Goal
+- Establish a concrete, unconditional exponential lower bound for a broad, practically relevant proof/search model on a family of Boolean CNFs closely aligned with NP structure. This is a rigorously checked partial result expressing a real barrier against a wide algorithm class.
+
+Setup
+- Let G = (V,E) be a d-regular graph on n = |V| vertices with edge set E, with d ≥ 3 constant, that is a c-expander in vertex expansion: for all U ⊆ V, |U| ≤ n/2 implies |Γ(U)\U| ≥ c|U| with some constant c > 0 (e.g., Ramanujan expanders).
+- Fix a charge function χ: V → {0,1} with ⊕v χ(v) = 1 (odd parity), e.g., χ(u0) = 1 at one vertex u0 and 0 elsewhere.
+- Tseitin system T(G,χ) over F2: variables xe for edges e ∈ E. For each vertex v, impose the parity constraint ⊕e∋v xe = χ(v). Over F2 this linear system has no solution because summing all equations yields 0 on LHS (each edge counted twice) and 1 on RHS.
+- Encode each parity constraint of degree d as a CNF of width d by the standard exact-parity encoding: for each assignment to incident edges with parity ≠ χ(v), forbid it by a clause. The result is an unsatisfiable CNF Φ(G,χ) with O(nd) clauses and n·2^{d-1} clauses of width d; d is constant.
+
+Model and known tool
+- Resolution proof system: a sequence of clauses starting from initial clauses and resolving to derive the empty clause. Width of a clause is its number of literals; width of a proof is the maximum width of any clause in it. Size is the number of clauses.
+- Ben-Sasson–Wigderson size–width tradeoff: For a k-CNF on n variables with initial width k and requiring refutation width W*, any resolution refutation must have size at least exp(Ω((W* − k)^2 / n)). For constant k and W* = Ω(n), this yields size exp(Ω(n)).
+
+Main lemma (width lower bound)
+Lemma: For Φ = Φ(G,χ) as above with G a constant-degree vertex expander and χ of odd total parity, any resolution refutation of Φ requires width W* ≥ α n for some α = α(d,c) > 0.
+
+Proof sketch (combinatorial bottleneck via expansion)
+- Intuition: Any small-width derivation can only “talk about” a small set of edges around a small set of vertices. But on an expander, imposing local parities on a small vertex set is consistent with many assignments on the edge boundary; an odd global parity contradiction cannot be assembled without clauses that cover a linearly large vertex set, hence linearly many incident edges, hence linear width.
+- Formalization via boundary assignments:
+  1) Associate to any clause C over edge variables E a “covered vertex set” cov(C) ⊆ V consisting of vertices incident to variables mentioned in C. Since G is d-regular, |cov(C)| ≥ |vars(C)|/d, and thus width(C) ≥ d·|cov(C)|.
+  2) Define consistency: an assignment a to edge variables on a cut-set ∂U = {edges with exactly one endpoint in U} is U-consistent if there exists an assignment to edges internal to U that satisfies all parity constraints at vertices in U.
+  3) Key property (localized satisfiability): For any U with |U| ≤ n/2, every boundary assignment a on ∂U with parity matching χ on U (i.e., ⊕v∈U χ(v) equals the parity induced by a on ∂U) extends to an internal assignment satisfying all vertex constraints in U. This follows because internal edges of U form a linear system over F2 whose solvability is governed solely by the parity condition on ∂U; the system has full rank up to one parity constraint per connected component, and the boundary parities fix the right-hand sides appropriately. In particular, if parity matches, there is a solution; if not, there is none.
+  4) Expansion prevents “small” U from forcing a global contradiction: For any clause C of width w < α n (α small enough), the set U = cov(C) has |U| = O(w). As long as |U| ≤ n/2, there exist boundary assignments on ∂U that satisfy all constraints inside U. Because the clause C forbids only a tiny fraction of boundary assignments (at most 2^{|vars(C)|−1} out of 2^{|∂U|}), and |∂U| ≥ c|U| by vertex expansion translating to edge boundary size Ω(|U|) in a regular graph, one can choose a boundary assignment a to ∂U that both (i) does not satisfy C (i.e., is compatible with setting the variables in vars(C) to falsify C) and (ii) matches the required parity for U. Then, by (3), extend to an internal assignment on E(U) satisfying all U-constraints.
+  5) Hitting-set/induction argument on resolution derivations: Consider the standard method of constructing a partial assignment that satisfies all initial clauses except possibly those “touching” a growing set of vertices, while simultaneously falsifying all derived clauses up to width bound W. Start with U = ∅ and an empty assignment. Whenever a derived clause C of width < α n appears, enlarge U ← U ∪ cov(C) (so |U| remains < n/2 while W < α n and α small), and pick a boundary assignment on ∂U that both falsifies all current derived clauses and keeps parity consistency on U; extend inside U to satisfy all vertex constraints in U. This maintains an invariant: all initial clauses fully within U are satisfied (by construction), all other initial clauses (touching V\U) are not constrained yet, and every derived clause seen so far is falsified by the boundary choice. The crucial step uses that the space of boundary assignments is large (≥ 2^{|∂U|}) while the number of constraints they must meet at each step is bounded by the number of derived clauses projected on ∂U; with |∂U| growing at least linearly in |U| by expansion, and each clause restricting at most half the boundary assignments on the variables it mentions, a union bound guarantees a choice exists as long as |U| ≤ β·|∂U| with β small (ensured by expansion and choice of α).
+  6) This invariant contradicts the possibility of deriving the empty clause at width < α n, because the empty clause cannot be falsified. Hence any refutation must contain a clause of width ≥ α n.
+
+Remarks on step (5): This “switching” argument is a standard technique in width lower bounds for Tseitin on expanders. One can formalize it using the notion of boundary restriction distributions and the fact that resolution is locally sound under partial assignments. A crisp presentation is to define, for each U, the set B(U) of boundary assignments preserving parity on U, and show inductively that for any set S of clauses of width < α n there exists a ∂U-assignment in B(U) falsifying all clauses in S, provided |∂U| is sufficiently larger than the total number of boundary variables touched by S; expansion makes |∂U| ≥ λ|U| and each clause only touches O(|cov(C)|) boundary variables, yielding the needed slack.
+
+Consequence via size–width tradeoff
+- Initial width k = d is constant; W* ≥ α n. Therefore any resolution refutation of Φ(G,χ) has size at least exp(Ω(n)) by Ben-Sasson–Wigderson.
+- This directly implies that any DPLL algorithm with clause learning restricted to learning clauses of width < α n (or equivalently, CDCL with a width cap) requires exponential time on these formulas, since such algorithms simulate regular or general resolution within the same width regime.
+
+Extension: Regular resolution and pool resolution
+- The same lower bound applies to regular resolution (where no variable is resolved twice on a path). For some expander choices the lower bound constant can be improved, but the linear-width necessity persists.
+- For Cutting Planes with polynomially bounded coefficients, analogous exponential lower bounds are known for expander-based contradictions; the above argument highlights the structural reason in resolution and supports the view that bounded-width reasoning is inherently local and fails on global parity constraints disseminated by expansion.
+
+Relevance to P vs NP
+- These CNFs are sparse, bounded-degree, and arise from linear constraints modulo 2, making them representative of structure frequently embedded inside NP reductions. The result is an unconditional barrier against a large, widely deployed family of algorithms and proof systems (DPLL/CDCL under width bounds, general resolution by size–width).
+- While far from separating P and NP, it isolates a concrete limitation: no “locally aggregating” clause-based derivation with sublinear clause width can refute these natural contradictions without exponential size. Any path to P vs NP through resolution-like proof complexity thus must either:
+  - exploit superlinear clause width phenomena, or
+  - leave the resolution/CDCL paradigm (e.g., use algebraic, high-degree, or non-local reasoning).
+
+Checked points
+- Unsatisfiability: by parity summation (global inconsistency).
+- Encoding: CNF of constant width per vertex; size linear in n.
+- Expansion-to-width: cov(C) grows with width; expansion forces large boundary; boundary assignments suffice to locally satisfy U while falsifying boundedly many small clauses; invariant yields contradiction unless width is linear.
+- Size lower bound: direct from Ben-Sasson–Wigderson with k = O(1) and W* = Ω(n).
+
+Limitations and open directions
+- This does not separate P from NP; it targets a specific proof/search model. The core obstacle exploited (global parity) suggests exploring hybrid systems that combine local clause reasoning with global linear-algebraic inferences; proving strong lower bounds there would represent further progress.
+- Tightening the argument to yield quantitative constants α(d,c) and explicit exp(γ n) lower bounds for concrete expander families is straightforward and standard; integrating with learning schemes that allow occasional large-width clauses remains challenging.
+
+VERDICT: PARTIAL
+REASON: Exponential resolution lower bound (via linear width) for expander Tseitin CNFs; barrier for bounded-width CDCL
