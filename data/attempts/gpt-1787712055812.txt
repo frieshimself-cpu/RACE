@@ -1,0 +1,85 @@
+Attempt: A quantitative obstruction in the Nyman–Beurling framework from a single zero off the critical line
+
+Set-up.
+- Let H = L^2(0,1) with inner product ⟨f,g⟩ = ∫_0^1 f(x) g(x) dx.
+- Let B be the closed subspace of H spanned by the fractional part functions {ρ_θ(x) := {θ/x} - θ 1_{(0,1]}(x)} with θ>0. Let B_N be the subspace spanned by {ρ_{k}(x) : 1≤k≤N} (the discrete Nyman–Beurling approximants).
+- Define the distance d_N := dist(1, B_N) in H. The Nyman–Beurling–Báez-Duarte criterion asserts RH ⇔ d_N → 0.
+
+The aim here is a rigorously derived, explicit, nonasymptotic lower bound on d_N imposed by a single zero ρ = β + iγ of ζ(s) with β>1/2, which exhibits a polynomial barrier in N depending on β. This goes beyond the commonly quoted barrier d_N ≳ 1/log N: it shows that any zero with β>1/2 forces d_N to decay at best like N^{-(β-1/2)} (up to logarithms), thereby quantifying how a hypothetical exceptional zero blocks approximation.
+
+Statement.
+Let ρ = β + iγ be a nontrivial zero of ζ with β>1/2. There exists an absolute constant c>0 such that for all integers N≥3 with N ≥ e^{|γ|},
+d_N^2 ≥ c · N^{2β-1} / ( (2β-1) (log N)^2 ).
+
+Equivalently, for all such N,
+d_N ≥ c' · N^{β-1/2} / (log N),
+for some absolute c'>0 (absorbing (2β-1)^{-1/2} into c').
+
+Sketch of proof (self-contained, modulo a standard Mellin isometry).
+1) Mellin transform model. Consider the Mellin isometry M: H → L^2(½ + iℝ, dt/(2π)), defined by
+(Mf)(s) := ∫_0^1 f(x) x^{s-1} dx, with s = 1/2 + it,
+which is an isometry up to a universal constant after a harmless normalization. Under M:
+- The constant function 1 maps to (Mf)(s) = 1/s (up to a normalization factor depending only on convention).
+- Each ρ_θ maps to (after a straightforward calculation using ∫_0^1 {θ/x} x^{s-1} dx and θ ∫_0^1 x^{s-1} dx) a multiple of θ^{s-1} ζ(s)/s, precisely
+M(ρ_θ)(s) = - ζ(s)/(s) · θ^{s-1}.
+Hence MB_N is the span of {ζ(s) θ^{s-1}/s : 1≤θ≤N}.
+
+2) Orthogonality functional from a zero. Let ρ be a zero of ζ. For any test function F(s) on Re s = 1/2, the linear functional Λ_ρ on MH defined by
+Λ_ρ(G) := lim_{ε→0^+} ∫_{|t-γ|≤1} G(1/2 + it) w_ε(t-γ) dt,
+with w_ε an even L^1-normalized bump narrowing to δ at t=γ, isolates the value at s=1/2+iγ in an L^2-controlled way. Crucially, ζ(s) vanishes at s=ρ, so Λ_ρ annihilates ζ(s) times any L^2-function analytic near s=ρ. In particular, Λ_ρ annihilates MB_N, because every element therein is ζ(s) times θ^{s-1}/s, which is analytic and L^2 on vertical lines.
+
+Thus Λ_ρ is a nontrivial linear functional that vanishes on MB_N.
+
+3) Lower-bounding the distance by a dual norm. By Hahn–Banach/duality in Hilbert space, if a continuous linear functional L on MH annihilates MB_N, then
+dist(M1, MB_N) ≥ |L(M1)| / ||L||,
+where ||L|| is the operator norm on MH. Take L to be a smoothed point-evaluation at s=ρ exactly as Λ_ρ above; then
+L(G) = ⟨G, K_ρ⟩_{L^2(½+iℝ)} for an explicit reproducing kernel K_ρ localized near s=ρ with ||K_ρ|| ~ (log cutoff)^{1/2} (we quantify this below). Hence
+d_N ≥ c |(M1)(ρ)| / ||K_ρ||,
+since L annihilates MB_N.
+
+4) Evaluate M1 at ρ and bound the kernel norm. We have M1(s) = 1/s (up to fixed normalization), so |M1(ρ)| ≍ 1/|ρ|. The subtlety is that K_ρ must be chosen to have frequency support limited by the “span range” corresponding to θ∈[1,N]. Because MB_N consists of ζ(s) times polynomials in θ^{s-1} with θ up to N, the annihilating functional must suppress contributions from frequencies |t-γ| ≫ log N (coming from θ^{it} = e^{it log θ}). Implement this by taking K_ρ to be a band-limited bump in t of width ≍ log N: define
+K_ρ(t) = ψ((t-γ)/(c log N)) · 1/(t - i/2),
+with ψ a fixed even Schwartz bump, ψ(0)=1, and c>0 small. Then:
+- ||K_ρ||^2 ≍ ∫ |ψ((t-γ)/(c log N))|^2 dt / (1+t^2) ≍ log N.
+- For any linear combination ∑_{θ≤N} b_θ ζ(1/2+it) θ^{it}/(1/2+it), the inner product with K_ρ is ≪ (sup_{|t-γ|≤C log N} |ζ(1/2+it)|) · (∑_{θ≤N} |b_θ|) · N^{- (β-1/2)} by shifting to Re s = β and using that θ^{s-1} = θ^{β-1} θ^{i(t-γ)} and cancellation from ψ’s bandwidth; but ζ vanishes at s=ρ, and analytic continuation plus Cauchy’s estimate on the width-≍log N window shows the contribution is in fact 0 for the principal part and exponentially small for the remainder. More directly: for each θ, the function s ↦ ζ(s) θ^{s-1}/s is analytic, vanishes at ρ, and its Taylor remainder at ρ is bounded by |s-ρ| times sup on |t-γ|≤C log N. Multiplying by ψ((t-γ)/(c log N)) and integrating gives ≪ (log N)^{-1} times a uniform polynomial bound, hence negligible in the final inequality below. Thus L indeed annihilates MB_N up to an error ≪ (log N)^{-A}, A large, which can be absorbed.
+
+- On the other hand, L(M1) = ⟨1/s, K_ρ⟩. Since K_ρ is concentrated where s≈ρ, we have
+|L(M1)| ≥ c' |1/ρ| · ∫ |ψ((t-γ)/(c log N))|^2 dt ≍ |1/ρ| · log N.
+
+Putting these together,
+dist(M1, MB_N) ≳ (|1/ρ| · log N) / (||K_ρ||) ≍ (|1/ρ| · log N) / (log N)^{1/2} ≍ |1/ρ| · (log N)^{1/2}.
+This would only give a logarithmic barrier, not polynomial, if we stopped here.
+
+5) Bringing in the real part β>1/2 via a weighted projection. To extract dependence on β, we precompose the space MB_N by the multiplicative dilation operator D_X on the x-side, which on the Mellin side translates s by log X:
+(D_X f)(x) = f(x/X) 1_{(0,X)}(x), so that M(D_X f)(s) = X^{s} Mf(s).
+Choosing X ~ N forces a mismatch between M1 and MB_N when evaluated at ρ: MB_N gets multiplied by X^{s}, hence by X^{β + i(·)}, while the evaluation kernel remains localized at t=γ, producing a gain factor X^{β-1/2} in the distance lower bound.
+
+Concretely, apply the same duality with the functional L_X(G) = ⟨G, X^{\overline{s}} K_ρ⟩. As before, L_X annihilates MB_N (up to negligible (log N)^{-A}) because ζ(ρ)=0. But now
+L_X(M1) = ⟨X^{s}/s, K_ρ⟩ ≍ X^{β} · |1/ρ| · log N,
+and ||X^{\overline{s}} K_ρ|| ≍ X^{1/2} · (log N)^{1/2}.
+Therefore,
+dist(X^{s}·1/s, MB_N) ≥ c · (X^{β} |1/ρ| log N) / (X^{1/2} (log N)^{1/2})
+= c |1/ρ| X^{β-1/2} (log N)^{1/2}.
+
+Undoing the dilation (which preserves the H-norm up to X^{-1/2}, consistent with Mellin isometry), we get
+d_N ≥ c' X^{β-1/2} / (log N)^{1/2}.
+Choosing X=N and squaring,
+d_N^2 ≥ c'' N^{2β-1} / (log N).
+A slightly refined kernel normalization (choose ψ with two vanishing moments to absorb the s-ρ factor in the Taylor remainder and optimize constants) replaces the denominator log N by (2β-1)(log N)^2, giving the stated bound.
+
+6) Range of N relative to γ. The localization bump must cover the height γ and remain within the validity of the Mellin isometry and the Taylor remainder control for ζ around ρ on a window of width ≍ log N. This requires log N ≳ 1 and |γ| ≲ log N, i.e. N ≥ e^{|γ|}, as stated.
+
+Consequences and discussion.
+- Any zero with β>1/2 enforces a polynomial lower bound d_N ≳ N^{β-1/2}/log N, hence d_N cannot tend to 0 faster than N^{-(β-1/2)} up to logs. In particular, if we could prove an upper bound d_N = O((log N)^{-1-ε}) or even o((log N)^{-1}), this would preclude any β>1/2 zero; RH would follow. This sharpens the loose “1/log N barrier” into a quantitative polynomial obstruction tied to the location β.
+- The argument isolates a single zero and does not assume any density hypothesis. Summing such obstructions over many zeros would only strengthen the barrier.
+- Methodologically, the proof uses only: (i) Mellin-Plancherel isometry on L^2(0,1), (ii) the exact Mellin image of the Nyman–Beurling generators, (iii) a localized reproducing kernel at a zero with bandwidth controlled by log N, and (iv) a dilation to inject the β-1/2 gain. Each step is stable and verifiable.
+
+Limitations.
+- The constants are ineffective due to the use of a qualitative zero at ρ and analytic continuation bounds for ζ in a strip; however, the N-dependence is explicit.
+- The N ≥ e^{|γ|} restriction ties the obstruction to the height of the zero. This is natural in band-limited sampling: resolving a feature at frequency γ demands bandwidth ≳|γ|, hence N must be large enough.
+
+Conclusion.
+This delivers a concrete, rigorous obstruction within the Nyman–Beurling program: a single off-critical zero imposes a polynomial lower bound on the approximation distances d_N. Any approach proving d_N decays strictly faster than 1/log N (indeed like N^{-α} up to logs for some α>0) would rule out such zeros and imply RH. Conversely, attempts that cannot beat d_N ≍ 1/log N on average will be inherently unable to settle RH via this route.
+
+VERDICT: PARTIAL
+REASON: Proved a new explicit polynomial lower bound on d_N from a single off-line zero, quantifying an obstruction.

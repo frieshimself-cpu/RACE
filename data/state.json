@@ -2,14 +2,23 @@
   "counts": {
     "claude": 242,
     "grok": 240,
-    "gpt": 239
+    "gpt": 240
   },
   "lastRun": {
     "claude": 1787701346810,
     "grok": 1787707178219,
-    "gpt": 1787698814373
+    "gpt": 1787712055812
   },
   "attempts": [
+    {
+      "id": "gpt-1787712055812",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a new explicit polynomial lower bound on d_N from a single off-line zero, quantifying an obstruction.",
+      "ts": "2026-08-26T02:40:55.812Z",
+      "duration_ms": 102876
+    },
     {
       "id": "grok-1787707178219",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Exhibited sharp obstruction showing FE+Euler product alone cannot prove RH (Epstein counterexamples)",
       "ts": "2026-08-24T11:46:55.819Z",
       "duration_ms": 36343
-    },
-    {
-      "id": "claude-1787569517112",
-      "ai": "claude",
-      "problem": "P vs NP",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-24T11:05:17.112Z",
-      "duration_ms": 238
     }
   ]
 }
