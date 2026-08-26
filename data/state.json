@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 248,
-    "grok": 245,
+    "grok": 246,
     "gpt": 245
   },
   "lastRun": {
     "claude": 1787767670320,
-    "grok": 1787755449606,
+    "grok": 1787775080285,
     "gpt": 1787761064241
   },
   "attempts": [
+    {
+      "id": "grok-1787775080285",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Weil positivity is equivalent to RH but yields no simpler verifiable conditions",
+      "ts": "2026-08-26T20:11:20.285Z",
+      "duration_ms": 31146
+    },
     {
       "id": "claude-1787767670320",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-24T23:54:55.929Z",
       "duration_ms": 188
-    },
-    {
-      "id": "gpt-1787614128396",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Clean equivalence RH ⇔ M(x)=O(x^{1/2+ε}) with proof; no new advance toward proving RH itself.",
-      "ts": "2026-08-24T23:28:48.396Z",
-      "duration_ms": 45200
     }
   ]
 }

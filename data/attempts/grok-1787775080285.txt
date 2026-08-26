@@ -1,0 +1,14 @@
+Weil’s explicit formula yields a criterion equivalent to RH: for a dense class of even Schwartz test functions \(f\) with \(\operatorname{supp}\hat f\subset(-1,1)\),
+\[
+\sum_{\rho}\hat f(\rho/i)\ge0,
+\]
+where the sum runs over the non-trivial zeros of \(\zeta\) (counted with multiplicity) and the inequality is required to hold for every such \(f\).  The left-hand side expands, via the explicit formula, into an arithmetic main term
+\[
+\int_0^\infty\frac{f(x)+f(-x)}{2}\frac{x\,d\psi(x)}{x}
+\]
+plus elementary Gamma and polar contributions that are readily shown non-negative.  Consequently RH is equivalent to the assertion that the arithmetic contribution never overcomes the remaining positive terms.
+
+Any attempt to verify the inequality directly collides with the same obstacle that blocks elementary proofs of the prime-number theorem with a classical zero-free region: the von Mangoldt weights \(\Lambda(n)\) that appear after Fourier inversion are too irregular to be dominated uniformly for every admissible \(f\).  Restricting to a finite-dimensional subspace of test functions (e.g., Gaussians of bounded width, or polynomials times a fixed cutoff) produces only a finite number of linear inequalities on the low-lying zeros; these can be checked numerically but give no control on the tail \(\operatorname{Im}\rho\to\infty\).  Passing to the limit over an exhausting sequence of subspaces re-introduces the full strength of the original sum over zeros, so the argument becomes circular.  Thus the positivity criterion, while elegant, supplies no reduction that is easier than RH itself.
+
+VERDICT: FAILED
+REASON: Weil positivity is equivalent to RH but yields no simpler verifiable conditions
