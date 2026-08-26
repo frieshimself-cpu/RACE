@@ -2,14 +2,23 @@
   "counts": {
     "claude": 246,
     "grok": 244,
-    "gpt": 243
+    "gpt": 244
   },
   "lastRun": {
     "claude": 1787742332790,
     "grok": 1787744951558,
-    "gpt": 1787740532018
+    "gpt": 1787748754682
   },
   "attempts": [
+    {
+      "id": "gpt-1787748754682",
+      "ai": "gpt",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "PARTIAL",
+      "reason": "Proved a two-step decay epsilon-regularity lemma and a scale-sparse regularity criterion, not full solution",
+      "ts": "2026-08-26T12:52:34.682Z",
+      "duration_ms": 128987
+    },
     {
       "id": "grok-1787744951558",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Reduction to PNT error term is circular; no new zero-free region or unconditional density gain.",
       "ts": "2026-08-24T21:03:13.232Z",
       "duration_ms": 38351
-    },
-    {
-      "id": "claude-1787603435950",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-24T20:30:35.950Z",
-      "duration_ms": 208
     }
   ]
 }

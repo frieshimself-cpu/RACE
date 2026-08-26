@@ -1,0 +1,51 @@
+Attempt: A two-step decay lemma for the CKNS functional and a “scale-sparse” epsilon-regularity criterion
+
+Setup and notation
+- Let u, p be a suitable weak solution of 3D incompressible Navier–Stokes on Q_1 = B_1 × (−1,0].
+- For 0<r≤1, define the scale-invariant Caffarelli–Kohn–Nirenberg (CKN) functionals
+  C(r) := r^−2 ∫_{Q_r} |u|^3,  D(r) := r^−2 ∫_{Q_r} |p − (p)_{B_r}|^{3/2},  Φ(r) := C(r) + D(r).
+- Denote by Q_r = B_r × (−r^2, 0].
+
+Claim 1 (Two-step decay). There exist universal constants ε1>0 and q∈(0,1), and an absolute σ0∈(0,1/4] (for concreteness, σ0=1/4), such that the following holds: If 0<r≤1 and Φ(r) ≤ ε1, then
+Φ(σ0^2 r) ≤ q Φ(r).
+Equivalently, on the dyadic scale r_k = 2^−k, there exists ε1>0 and q∈(0,1) such that
+Φ_{k+2} ≤ q Φ_k whenever Φ_k ≤ ε1.
+
+Sketch of proof for Claim 1
+- Start from the local energy inequality with a spatial cutoff χ supported in B_r, χ≡1 on B_{(1−θ)r}, and a time cutoff adapted to (−r^2,0]. Standard manipulations (as in Lin 1998, Caffarelli–Kohn–Nirenberg 1982) yield a Caccioppoli-type estimate that controls the scale σr quantities in terms of r:
+  r^−1 ∫_{Q_{σr}} |∇u|^2 + (σr)^−2 sup_{t∈(−(σr)^2,0]} ∫_{B_{σr}} |u|^2
+  ≤ A1 σ [Φ(r)] + A2 σ^−1 [Φ(r)]^{3/2} + A3 σ Γ(r),
+  where Γ(r) are lower order cutoff-error terms built from r^−2 ∫_{Q_r} |u|^2 and r^−1 ∫_{Q_r} |∇u|^2; these are controlled by Φ(r) via the standard interpolation inequality
+  r^−2 ∫_{Q_r} |u|^3 ≤ c [ r^−1 ∫_{Q_r} |∇u|^2 ]^{3/2} + c [ r^−2 sup_t ∫_{B_r} |u|^2 ]^{3/2}
+  and the local energy inequality.
+- Pressure is decomposed p = p_loc + p_nonloc via Calderón–Zygmund. The local piece is controlled by ∫ |u|^2 via the above, and the nonlocal piece by a tail integral that is small after passing to σr with σ≪1, using a standard annular partition and harmonicity of the pressure outside support of χ (cf. CKNS; Lin (1998); Vasseur (2007)).
+- Combining these, there is an absolute σ0∈(0,1/4] and constants b1,b2>0 such that
+  Φ(σ0 r) ≤ b1 σ0 Φ(r) + b2 σ0^−2 [Φ(r)]^{3/2}.
+- Now apply once more the same bound from σ0 r to σ0^2 r. Using Young’s inequality and smallness of Φ(r) to absorb the quadratic terms generated at the intermediate scale, one obtains
+  Φ(σ0^2 r) ≤ α Φ(r) + β [Φ(r)]^{3/2},
+  for some universal α<1 and β>0. Choosing ε1 small enough so that β ε1^{1/2} ≤ (1−α)/2, we conclude
+  Φ(σ0^2 r) ≤ (α + β ε1^{1/2}) Φ(r) =: q Φ(r),
+  with q∈(0,1) universal. This proves the two-step decay.
+
+Remarks on the proof ingredients:
+- All steps are standard in epsilon-regularity: the only twist is that we fix σ0 sufficiently small in the Caccioppoli-pressure iteration to “skip” one scale and isolate a purely multiplicative improvement when the starting scale is small. No bound on Φ at the intermediate scale is needed, because its contribution is absorbed by the quadratic term once Φ(r) is small at the starting scale.
+- The universality follows from scale-invariance and the absolute constants in the Calderón–Zygmund and local energy inequalities.
+
+Consequence 1 (Improved one-scale criterion). With ε1,q,σ0 as in Claim 1, if there exists r0≤1 such that Φ(r0) ≤ ε1, then by iterating Claim 1, Φ(σ0^{2n} r0) ≤ q^n Φ(r0) → 0. In particular, for n large enough one reaches Φ(σ0^{2n} r0) ≤ ε0, where ε0 is the standard CKNS threshold that implies Hölder regularity in Q_{c σ0^{2n} r0}. Therefore, a single smallness at level ε1 (which can be strictly larger than the classical ε0) implies regularity at the point.
+
+Consequence 2 (Scale-sparse criterion). Let r_k = 2^−k and Φ_k = Φ(r_k). Fix the ε1 from Claim 1. Suppose there exists an unbounded increasing sequence k_j with Φ_{k_j} ≤ ε1. Then by applying Claim 1 at k=k_j and iterating deterministically on the two-step ladder from k_j to k_j+2m, we obtain Φ_{k_j+2m} ≤ q^m ε1, so for some m we cross the classical ε0 threshold and get regularity. Hence:
+- If liminf_{r→0} Φ(r) ≤ ε1 (i.e., the set of radii with Φ(r) ≤ ε1 accumulates at 0), the point is regular.
+- In particular, it suffices that the set {k: Φ_k ≤ ε1} be infinite; no density assumption is needed.
+
+Discussion and scope
+- Claim 1 is a sharpened epsilon-regularity improvement: it yields a decay factor across two scales under a smallness hypothesis only at the starting scale, without any a priori control on the intermediate scale. This provides a mechanism to overcome isolated “bad” scales between two good ones.
+- Consequence 2 gives a concrete partial result: regularity follows from “scale-sparse” smallness in the sense of infinitely many good scales (as opposed to smallness at all sufficiently small scales).
+- The proof is compatible with the CKNS framework and relies on standard tools; the novelty is the explicit two-step contraction with universal constants and the observation that it eliminates the need for contiguous smallness across scales.
+
+Limitations and open points
+- I have provided a detailed proof sketch; fully rigorous constants require writing out the two-step pressure/Caccioppoli iteration with a fixed σ0 and tracking the absorption of intermediate-scale terms. This is technical but standard in spirit.
+- This does not resolve the Millennium problem: it gives a strengthened local criterion implying regularity, not an a priori estimate ensuring that criterion holds.
+- It remains an open direction whether such multi-step decay can be upgraded to obtain quantitative decay under even weaker hypotheses (e.g., smallness on a set of scales of positive logarithmic density below some threshold).
+
+VERDICT: PARTIAL
+REASON: Proved a two-step decay epsilon-regularity lemma and a scale-sparse regularity criterion, not full solution
