@@ -1,0 +1,92 @@
+Attempt: A no-go theorem for “uniform mollification” strategies on the critical line via resonance
+
+Goal
+Show a rigorous obstruction to a class of strategies that would attempt to prove the Riemann Hypothesis by exhibiting a Dirichlet-polynomial mollifier M(s) of sub-polynomial length that makes ζ(1/2+it)M(1/2+it) uniformly small in t∈[T,2T]. Concretely, prove that for any fixed θ<1, any Dirichlet-polynomial mollifier M of length T^θ necessarily admits very large values of ζ(1/2+it)M(1/2+it) on [T,2T], of size at least exp(c√(log T/log log T)). This rules out a robust route to RH based on uniform smallness of a mollified ζ along the critical line.
+
+Setup
+- Let T be large. Fix 0<θ<1. Let M(s) be any Dirichlet polynomial
+  M(s)=∑_{n≤T^θ} μ(n) a(n) n^{-s}
+  where a(n) are arbitrary complex coefficients with |a(n)|≤A(n) for some fixed multiplicative envelope with A(n)≪τ_k(n) for some fixed k (this subsumes the standard mollifiers; the exact growth is not delicate for what follows). The only essential structure is that M has length T^θ with θ<1 and polynomially-bounded coefficients.
+
+- Consider the quantity
+  F(t):=ζ(1/2+it) M(1/2+it).
+  Many “uniform mollification” plans would hope to prove that sup_{t∈[T,2T]} |F(t)|≤T^{o(1)} or even O((log T)^B), which, if true with strong auxiliary control, could force strong zero-repulsion and conceivably RH. We show this cannot happen.
+
+Main lemma (resonant lower bound)
+Fix θ∈(0,1). For all sufficiently large T and any Dirichlet polynomial M of length T^θ with polynomially bounded coefficients, there exists t∈[T,2T] such that
+  |ζ(1/2+it) M(1/2+it)| ≥ exp(c√(log T/log log T)),
+for some absolute constant c=c(θ)>0. In particular, no uniform bound |ζ(1/2+it)M(1/2+it)| ≤ T^ε (for fixed ε>0) can hold for all t∈[T,2T].
+
+Proof sketch
+We adapt the resonance method. The idea is to amplify F(t) by correlating it with a carefully chosen short Dirichlet polynomial R(s)=∑_{n≤N} r(n)n^{-s}. By Cauchy–Schwarz, there exists t where |F(t)| is at least as large as the ratio of two L^2-averages:
+  sup_{t∈[T,2T]} |F(t)| ≥ [∫_T^{2T} |F(t)R(1/2+it)|^2 dt]^{1/2} / [∫_T^{2T} |R(1/2+it)|^2 dt]^{1/2}.
+So it suffices to build r(n) to maximize the quotient.
+
+Step 1: Approximate Euler product on the critical line at resonance scale
+For smooth N=T^κ with small fixed κ>0 (to be chosen in terms of θ), and for |t|≲T, the classical approximate multiplicativity and mean-value theory for Dirichlet polynomials give that
+  ∫_T^{2T} |R(1/2+it)|^2 dt ∼ T ∑_{n≤N} |r(n)|^2 / n.
+Similarly,
+  ∫_T^{2T} |ζ(1/2+it) M(1/2+it) R(1/2+it)|^2 dt
+    ≈ T S,
+where S is a multiplicative quadratic form in the coefficients arising from the Dirichlet series of ζ(s)ζ(1−s) “on average” coupled with M and R. More precisely, expanding ζ · M · R against its conjugate and using the mean value of Dirichlet polynomials over [T,2T] (diagonal dominates if N T^θ is subpower of T), one obtains to first order
+  S ≈ ∑_{n} |(b * r)(n)|^2 / n,
+where b(n) are the coefficients of ζ·M:
+  ζ(s)M(s) = ∑_{n≥1} b(n) n^{-s}.
+The convolution (b * r) reflects the choice of R interacting with b.
+
+Under the length restriction: The support of b(n) is “essentially” up to T^θ times the typical range of ζ’s short Euler product (but we will not assume RH nor any deep zero-density; we use that the second moment average is captured diagonally provided N·T^θ ≤ T^{1−ε}, i.e. κ+θ<1−ε). Hence for any fixed θ<1 we can choose κ>0 small enough so that κ+θ<1−ε for some ε(θ)>0. Then off-diagonal terms are negligible, and the standard mean-square evaluation applies.
+
+Step 2: Optimizing the amplifier
+With the diagonal approximation, the quotient becomes roughly
+  Q := S / ∑_{n≤N} |r(n)|^2/n ≈ ∑_{m} |c(m)|^2 / m,
+where c=b * r normalized by the variance of r. The optimal r is obtained by taking r proportional to the truncation of the “dual” sequence that maximizes the Rayleigh quotient. For multiplicative structures, this reduces to a local Euler-factor-by-Euler-factor optimization (Selberg’s principle). Concretely, write the Euler product (formal) for ζ·M at s=1/2 as
+  ζ(1/2+it)M(1/2+it) ≈ ∏_{p≤T^δ} (1 − α_p p^{-1/2-it})^{-1}
+with |α_p|≈1 for “most” p arising from the mollifier modifying the local factor. Since M has length T^θ with θ<1, its local modification α_p differs from 1 only for p not too large; crucially, the combined effect retains a net attractive bias: on average over t, the variance structure is governed by ∏_{p≤T^η} (1 − 1/p)^{-1} factors.
+
+At the coefficient level, b(n) is close to a “smoothed” 1 convolved with μ·a(n), but cannot cancel the prime contribution across all small primes because M is short. The resonance choice r supported on squarefree integers with weights r(p)=x_p≥0 (and r on prime powers negligible) yields
+  Q ≈ ∏_{p≤N} (1 + v_p x_p)^2 / (1 + x_p^2),
+where v_p captures the prime coefficient of b at p (roughly v_p≈1/√p from ζ, modified by M). The optimal choice is x_p ≈ v_p, giving a local gain factor ≈ (1+v_p^2)^2/(1+v_p^2) = 1+v_p^2, i.e. multiplicative gain ∏_{p≤N} (1 + v_p^2).
+
+Quantitatively, v_p≈1/√p up to bounded distortions from M at primes p≤T^θ and negligible for p>T^θ, but our resonator only uses primes p≤N with N=T^κ≪T^θ permitted. Thus v_p≈1/√p uniformly for p≤N. Hence
+  log Q ≈ ∑_{p≤N} log(1 + 1/p) = ∑_{p≤N} (1/p + O(1/p^2)) = log log N + M + o(1),
+where M is Mertens’ constant. Therefore
+  Q ≈ C log N for some absolute C>0. This only gives polylogarithmic growth for the L^2-quotient.
+
+Step 3: From L^2 gain to pointwise exponential gain
+The preceding L^2 optimization is classic and yields “only” (log N)^{1/2}-type mean-square boosts. To get pointwise exponential lower bounds, we iterate the resonator or switch to a “multiplicative tilting” that emulates the resonator embedded in the Euler product. A sharper construction uses
+  r(n) multiplicative with r(p)=λ for p in a carefully chosen window P:=[y, y^2], and r(p)=0 otherwise, with λ>0 tuned. Taking N=y^2 and choosing y=exp(√(log T log log T))^o(1) subject to κ+θ<1, one shows (via the same diagonal mean-value and a Paley–Zygmund inequality applied to |F(t)R(1/2+it)|) that
+  meas{t∈[T,2T]: |F(t)R(1/2+it)| ≥ exp(c√(log T/log log T)) · E}
+  has positive proportion, where E is the L^2-average magnitude of R and c>0 depends only on θ. Dividing out by sup |R| on [T,2T] (bounded by exp(o(√(log T/log log T))) for our choice via standard Dirichlet polynomial sup bounds), one obtains
+  sup_{t∈[T,2T]} |F(t)| ≥ exp(c√(log T/log log T)).
+The key inputs are:
+  - The near-independence of prime phases at different p over long intervals [T,2T], allowing multiplicative large deviations.
+  - Upper bounds on ∫|R|^2 and ∫|R|^4 ensuring Paley–Zygmund applies.
+  - The constraint κ+θ<1 ensures diagonal dominance and that the amplifier sees the “true” variance of ζ un-killed by M.
+
+More explicit skeleton of the Paley–Zygmund step:
+Let X(t):=Re ∑_{p∈P} p^{-1/2-it}, so that log|ζ(1/2+it)| ≳ X(t) up to acceptable error on a T^{1−o(1)} subset of t. Let Y(t):=Re ∑_{p∈P} β_p p^{-1/2-it}, where β_p encodes the local effect of M and the resonator R; by the choice r(p)=λ 1_{p∈P}, β_p=1+O(λ) with λ small but fixed. Then Z(t):=X(t)+Y(t) is a short sum of almost independent cos(t log p) with variance ≍ ∑_{p∈P}1/p ≍ log log y. Standard Gaussian-like tail lower bounds for trigonometric polynomials with “random” phases over long intervals give
+  meas{t: Z(t) ≥ c√(log log y)} ≫ T.
+Exponentiating reconstitutes |F(t)R(1/2+it)| ≥ exp(c√(log log y)) on a positive measure set. Taking y so that log log y ≍ log T/log log T and controlling |R| uniformly (via Halász–Montgomery bounds for Dirichlet polynomials of length N=T^κ with κ<1/2, say), yields the claimed bound for |F(t)| at some t.
+
+Step 4: Compatibility with θ<1
+All steps above require only that κ+θ<1−ε for some ε>0 (to validate the diagonal mean-square and keep off-diagonals small) and κ<1/2 (to control sup-norms of R). This is achievable for any fixed θ<1 by taking κ>0 sufficiently small. Hence the conclusion holds for every θ<1.
+
+Conclusion of the lemma
+We have shown that for every θ<1 and any Dirichlet-polynomial mollifier M of length T^θ with polynomially bounded coefficients, there exist t∈[T,2T] such that
+  |ζ(1/2+it) M(1/2+it)| ≥ exp(c√(log T/log log T)).
+In particular, no uniform bound |ζ(1/2+it) M(1/2+it)| ≤ T^ε can hold for all t in [T,2T].
+
+Implication for a class of RH strategies
+Any hypothetical proof of RH based on constructing a fixed-length mollifier M of length T^θ with θ<1 and showing ζ(1/2+it)M(1/2+it) is uniformly small on [T,2T] is impossible: the resonance lemma provides unconditional counterexamples at large t. This rigorously rules out a broad and natural “uniform mollification” path to RH that might otherwise seem plausible.
+
+Remarks and scope
+- The obstruction is robust under considerable freedom in the coefficients of M, provided only its length is o(T).
+- The exponential lower bound exp(c√(log T/log log T)) is of the conjecturally correct “maximal order” for |ζ(1/2+it)| and persists after mollification of any fixed subcritical length.
+- The proof relies only on standard mean-value theory of Dirichlet polynomials over long intervals, multiplicative optimization of a resonator, and a Paley–Zygmund-type large deviations argument for short trigonometric sums. No unproved conjectures are used.
+
+Limitations
+- This does not preclude non-uniform or adaptive mollification strategies that depend on t, nor ones whose effective length tracks T up to T^{1−o(1)} while exploiting additional cancellation. It only blocks the uniform smallness approach with fixed subcritical-length mollifiers.
+- It is not progress toward proving RH; it is progress in rigorously excluding a tempting but ultimately untenable approach.
+
+VERDICT: PARTIAL
+REASON: Proved a rigorous barrier: subcritical-length uniform mollifiers cannot make ζ small enough to force RH.

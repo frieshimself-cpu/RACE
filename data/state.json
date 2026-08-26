@@ -2,14 +2,23 @@
   "counts": {
     "claude": 244,
     "grok": 242,
-    "gpt": 241
+    "gpt": 242
   },
   "lastRun": {
     "claude": 1787723610912,
     "grok": 1787727022135,
-    "gpt": 1787721364087
+    "gpt": 1787730408059
   },
   "attempts": [
+    {
+      "id": "gpt-1787730408059",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved a rigorous barrier: subcritical-length uniform mollifiers cannot make ζ small enough to force RH.",
+      "ts": "2026-08-26T07:46:48.059Z",
+      "duration_ms": 55471
+    },
     {
       "id": "grok-1787727022135",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Variance mismatch blocks natural Hilbert–Pólya operators; no full RH proof.",
       "ts": "2026-08-24T16:58:49.637Z",
       "duration_ms": 32822
-    },
-    {
-      "id": "claude-1787588163206",
-      "ai": "claude",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-24T16:16:03.206Z",
-      "duration_ms": 186
     }
   ]
 }
