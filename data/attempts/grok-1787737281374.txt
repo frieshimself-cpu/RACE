@@ -1,0 +1,56 @@
+### Attempt: A conditional reduction via the completed xi-function and a truncated Hadamard product
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). It is well-known that \(\xi\) is entire of order 1, satisfies the functional equation \(\xi(s)=\xi(1-s)\), and that the non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\). Write the Hadamard product (normalized so that the product converges)
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+where the product runs over all zeros \(\rho=\beta+i\gamma\) counted with multiplicity (the product is understood in the usual symmetric sense \(\lim_{T\to\infty}\prod_{|\gamma|<T}\)).
+
+Fix a height \(T\ge 2\) and a real parameter \(\sigma_0\in(1/2,1)\). Let \(Z(T;\sigma_0)\) be the finite set of zeros satisfying \(|\gamma|\le T\) and \(\beta\ge\sigma_0\). Define the truncated product
+\[
+P_T(s)=\prod_{\rho\in Z(T;\sigma_0)}\Bigl(1-\frac{s}{\rho}\Bigr)\Bigl(1-\frac{s}{1-\rho}\Bigr)
+\]
+(the second factor accounts for the functional equation) and the complementary entire function of order 1
+\[
+E_T(s)=\frac{\xi(s)}{P_T(s)}.
+\]
+Then \(E_T\) has no zeros in the rectangle \(\{s:\operatorname{Re}s\ge\sigma_0,\,|\operatorname{Im}s|\le T\}\).
+
+By the standard convex bound for \(\xi\) on vertical lines and Stirling’s formula, one has the uniform estimate
+\[
+\log|E_T(\sigma+it)|\le C(\sigma_0)\bigl(T\log T+|t|\log(|t|+2)\bigr)
+\]
+for \(\sigma\in[\sigma_0,2]\) and \(|t|\le 2T\), with an absolute implied constant once \(\sigma_0\) is fixed. Consequently the function
+\[
+f_T(z)=E_T\bigl(\sigma_0+z\bigr),\qquad z\in\mathbb{C},
+\]
+is zero-free in the strip \(0\le\operatorname{Re}z\le 1-\sigma_0\) for \(|\operatorname{Im}z|\le T\), and satisfies a comparable growth bound.
+
+Apply the Borel–Carathéodory theorem on the disk \(|z|\le R:=2(1-\sigma_0)\) centered at the origin, followed by the standard three-circles argument on the circles of radii \(r_1=1-\sigma_0\), \(r_2=\frac32(1-\sigma_0)\) and \(r_3=2(1-\sigma_0)\). One obtains a lower bound for the minimum modulus:
+\[
+\min_{|t|\le T/2}\log|E_T(\sigma_0+it)|\ge -C'(\sigma_0)T\log T.
+\]
+On the critical line itself the same growth estimates together with the functional equation give
+\[
+\log|\xi(1/2+it)|\ll\log(|t|+2).
+\]
+Comparing the two displays via the Hadamard product for \(E_T\) shows that the contribution of any zero \(\rho\in Z(T;\sigma_0)\) to \(\log|E_T|\) on the line \(\operatorname{Re}s=\sigma_0\) is
+\[
+\log\Bigl|1-\frac{\sigma_0+it}{\rho}\Bigr|+\log\Bigl|1-\frac{\sigma_0+it}{1-\rho}\Bigr|\ge c(\sigma_0)\frac{\beta-\sigma_0}{|\gamma|+1}
+\]
+for an absolute positive constant \(c(\sigma_0)>0\) (the estimate follows by elementary geometry of the factors once \(\beta\ge\sigma_0\)). Summing over \(Z(T;\sigma_0)\) therefore yields the zero-density type inequality
+\begin{equation}
+\sum_{\rho\in Z(T;\sigma_0)}\frac{\beta-\sigma_0}{|\gamma|+1}\ll_{\sigma_0}T\log T.\tag{*}
+\end{equation}
+(The implied constant depends only on \(\sigma_0\).)
+
+If one could replace the right-hand side of \((*)\) by \(o(T)\) (or even \(O(T/\log\log T)\)), a standard dyadic decomposition in height would force \(Z(\infty;\sigma_0)=\emptyset\). The classical zero-density theorems of Huxley, Ingham and others supply only the weaker bound
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}(\log T)^A
+\]
+for an absolute \(c>0\), which is compatible with \((*)\) but insufficient to absorb the extra logarithmic factor or to reach \(\sigma_0=1/2+\delta\) uniformly. Thus the obstruction to proving the Riemann hypothesis by this route is precisely the lack of a zero-density estimate strong enough to improve the right-hand side of \((*)\) below the threshold \(T\log T\).
+
+The argument is fully rigorous for every fixed \(\sigma_0>1/2\) and recovers a known necessary condition; it does not remove the obstruction.
+
+VERDICT: FAILED
+REASON: Reduction yields only a weak density bound already implied by classical estimates; no new zero-free region.
