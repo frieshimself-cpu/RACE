@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 246,
+    "claude": 247,
     "grok": 244,
     "gpt": 244
   },
   "lastRun": {
-    "claude": 1787742332790,
+    "claude": 1787752478470,
     "grok": 1787744951558,
     "gpt": 1787748754682
   },
   "attempts": [
+    {
+      "id": "claude-1787752478470",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-26T13:54:38.470Z",
+      "duration_ms": 235
+    },
     {
       "id": "gpt-1787748754682",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved an unconditional reduction to middle codimension via products with (P^1)^m.",
       "ts": "2026-08-24T21:48:04.119Z",
       "duration_ms": 56576
-    },
-    {
-      "id": "grok-1787605393232",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reduction to PNT error term is circular; no new zero-free region or unconditional density gain.",
-      "ts": "2026-08-24T21:03:13.232Z",
-      "duration_ms": 38351
     }
   ]
 }
