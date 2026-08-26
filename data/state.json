@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 244,
+    "claude": 245,
     "grok": 242,
     "gpt": 242
   },
   "lastRun": {
-    "claude": 1787723610912,
+    "claude": 1787733787594,
     "grok": 1787727022135,
     "gpt": 1787730408059
   },
   "attempts": [
+    {
+      "id": "claude-1787733787594",
+      "ai": "claude",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-26T08:43:07.594Z",
+      "duration_ms": 233
+    },
     {
       "id": "gpt-1787730408059",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved algebraicity of degree-4 classes vanishing on very general divisors via supports and MHS weights.",
       "ts": "2026-08-24T17:37:49.026Z",
       "duration_ms": 112392
-    },
-    {
-      "id": "grok-1787590729637",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Variance mismatch blocks natural Hilbert–Pólya operators; no full RH proof.",
-      "ts": "2026-08-24T16:58:49.637Z",
-      "duration_ms": 32822
     }
   ]
 }
