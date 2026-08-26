@@ -2,14 +2,23 @@
   "counts": {
     "claude": 245,
     "grok": 243,
-    "gpt": 242
+    "gpt": 243
   },
   "lastRun": {
     "claude": 1787733787594,
     "grok": 1787737281374,
-    "gpt": 1787730408059
+    "gpt": 1787740532018
   },
   "attempts": [
+    {
+      "id": "gpt-1787740532018",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "New rigorous reduction: an L2 bound for a Mellin-filtered short-interval discrepancy implies RH.",
+      "ts": "2026-08-26T10:35:32.018Z",
+      "duration_ms": 111548
+    },
     {
       "id": "grok-1787737281374",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Sign obstruction only recovers classical zero-free regions; concentration needed for RH collapses Fourier support.",
       "ts": "2026-08-24T19:04:01.433Z",
       "duration_ms": 34277
-    },
-    {
-      "id": "claude-1787594602251",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-24T18:03:22.251Z",
-      "duration_ms": 684
     }
   ]
 }

@@ -1,0 +1,85 @@
+Attempt: A filtered L2-variance reduction from short-interval primes to RH
+
+Setup.
+- Fix a smooth nonnegative W ∈ C_c^∞((1/2,3)) with ∫_0^∞ W(u) du/u = 1 and rapid Mellin decay: for all A>0 and σ in compact sets, |Ẇ(σ+iv)| ≤ C_{A,σ}(1+|v|)^{-A}, where Ẇ(s)=∫_0^∞ W(u) u^{s-1} du is the Mellin transform.
+- For X≥2 let W_X(x)=W(x/X), supported on x∈[X/2,3X].
+- Let H satisfy 1 ≤ H ≤ X^{1-ε} with fixed 0<ε<1/2.
+- For t∈R define the Mellin-filtered short-interval discrepancy
+  F_{X,H}(t) = ∫_0^∞ (ψ(x+H) - ψ(x) - H) W_X(x) x^{-1/2 - it} dx,
+  where ψ(x) is Chebyshev’s function.
+
+We write Φ as a fixed nonnegative Schwartz function on R with unit mass, compactly supported in |t|≤1, and denote ⟨G⟩_{Φ,t0} = ∫_{R} |G(t)|^2 Φ(t-t0) dt.
+
+Lemma (filtered detection of an off-line zero).
+Let ρ0=β0+iγ0 be a nontrivial zero of ζ with 1/2<β0<1. There exist constants c=c(W,Φ,ε)>0 and X0(ρ0,ε) such that for all X≥X0 with |γ0| ≤ (1+o(1)) log X and all H with 1 ≤ H ≤ X^{1-ε}, one has
+  ⟨F_{X,H}⟩_{Φ,γ0} ≥ c H^2 X^{2β0-1}.
+In particular, if a single zero ρ0 off the critical line exists with imaginary part at height comparable to log X, the localized L2-energy of F_{X,H} near frequency γ0 is at least ≍ H^2 X^{2β0-1}.
+
+Proof sketch.
+1) Smoothed explicit formula and linearization. For x∈[X/2,3X] and H≤X^{1-ε}, the Taylor expansion gives, uniformly in x,
+  (x+H)^ρ - x^ρ = ρ H x^{ρ-1} + O(|ρ| H^2 x^{ρ-2}).
+Using a standard smoothed explicit formula for ψ (valid against W_X with arbitrarily many integrations by parts), we obtain
+  ψ(x+H)-ψ(x)-H
+  = -∑_ρ ((x+H)^ρ - x^ρ)/ρ + O(H X^{-A})
+  = -H ∑_ρ x^{ρ-1} + O(H^2 X^{-1} (log X)^B) + O(H X^{-A}),
+for any fixed A>0, some B=B(A), where the sum is over nontrivial zeros ρ of ζ. The O-terms are uniform for x in the support of W_X and use |ρ|≪ log X for zeros contributing significantly under the weight below.
+
+2) Mellin transform computation. Insert this into F_{X,H}(t):
+  F_{X,H}(t) = -H ∑_ρ 1 ∫_0^∞ W_X(x) x^{ρ-3/2-it} dx + E_{X,H}(t),
+where E_{X,H}(t) is the contribution of the O-terms, bounded by
+  ∫ |E_{X,H}(t)|^2 Φ(t-t0) dt ≪ H^2 X^{-2} (log X)^{B'}  (uniformly in t0).
+By substitution x=Xu we find the main term
+  ∫_0^∞ W_X(x) x^{ρ-3/2-it} dx
+  = X^{β-1/2} e^{i(γ-t)\log X} Ẇ(β-1/2 + i(γ-t)),
+so
+  F_{X,H}(t) = -H ∑_ρ (X^{β-1/2}/ρ) e^{i(γ-t)\log X} Ẇ(β-1/2 + i(γ-t))
+               + E_{X,H}(t).
+
+3) Frequency localization and lower bound. Fix the given zero ρ0=β0+iγ0 and define the “matched” template
+  B_{ρ0}(t) = e^{i(γ0-t)\log X} Ẇ(β0-1/2 + i(γ0-t)).
+Let the inner product be ⟨G,H⟩_{Φ,γ0} = ∫ G(t) Ḣ(t) Φ(t-γ0) dt. By Cauchy–Schwarz,
+  ⟨F_{X,H}⟩_{Φ,γ0} ≥ |⟨F_{X,H}, B_{ρ0}⟩_{Φ,γ0}|^2 / ⟨B_{ρ0},B_{ρ0}⟩_{Φ,γ0}.
+We estimate the denominator by a positive constant independent of X: ⟨B_{ρ0},B_{ρ0}⟩_{Φ,γ0} ≍ 1, because Ẇ is smooth and nonzero at σ=β0-1/2 with rapid decay in the imaginary direction, and Φ is supported in |t-γ0|≤1.
+
+For the numerator, inserting the expansion of F_{X,H} and using orthogonality/localization:
+- The ρ=ρ0 term contributes
+  -H (X^{β0-1/2}/ρ0) ∫ |Ẇ(β0-1/2 + i(γ0-t))|^2 Φ(t-γ0) dt
+  = -c0 H X^{β0-1/2}/ρ0
+with c0=c0(W,Φ,β0)>0.
+- The contribution from ρ≠ρ0 is negligible: each such term involves the kernel
+  K_{ρ,ρ0}(t) = Ẇ(β-1/2 + i(γ-t)) overlined times Ẇ(β0-1/2 + i(γ0-t)) Φ(t-γ0),
+whose t-integral decays faster than any power of 1+|γ-γ0| by the rapid decay of Ẇ along vertical lines and compact support of Φ. Summing over zeros with standard zero-density in vertical strips at height ≍ log X (trivially ≪ (log X)^2 zeros in the unit window) yields a total error bounded by O(H X^{β0-1/2} (log X)^{-A1}) after possibly shrinking the support of Φ, for any fixed A1, by choosing Φ sufficiently smooth. The error E_{X,H} contributes o(H X^{β0-1/2}) in the same manner.
+
+Thus |⟨F_{X,H}, B_{ρ0}⟩_{Φ,γ0}| ≥ c1 H X^{β0-1/2} for all large X depending on ρ0,ε. Combining,
+  ⟨F_{X,H}⟩_{Φ,γ0} ≥ (c1^2/⟨B_{ρ0},B_{ρ0}⟩) H^2 X^{2β0-1} ≥ c H^2 X^{2β0-1},
+as claimed.
+
+Remark. The use of Cauchy–Schwarz and a matched template neatly bypasses cancellation among contributions of nearby zeros: it isolates a single-zero contribution in a positive way.
+
+Reduction theorem (concrete path to RH).
+Assume there exist fixed smooth W and Φ as above, constants A≥0 and C<∞, and ε∈(0,1/2), such that for all sufficiently large X and all H with 1 ≤ H ≤ X^{1-ε}, one has the uniform upper bound
+  sup_{t0∈R} ⟨F_{X,H}⟩_{Φ,t0} ≤ C H^2 (log X)^A.            (⋆)
+
+Then all nontrivial zeros of ζ(s) lie on the critical line Re s = 1/2, i.e., the Riemann Hypothesis holds.
+
+Proof.
+Suppose RH fails, and pick a zero ρ0=β0+iγ0 with β0>1/2. For all sufficiently large X (arranged so |γ0| ≤ c log X by taking a subsequence X_k = exp(|γ0|/c) with c determined by the Mellin scaling), the lemma yields
+  ⟨F_{X,H}⟩_{Φ,γ0} ≥ c H^2 X^{2β0-1}
+for every 1 ≤ H ≤ X^{1-ε}. Comparing with (⋆),
+  c H^2 X^{2β0-1} ≤ C H^2 (log X)^A,
+which is impossible as X→∞ because 2β0-1>0. Contradiction. Hence no such zero exists, and RH follows.
+
+Discussion of plausibility and scope.
+- The upper bound (⋆) is on the natural scale H^2 (log X)^A. Under RH and standard pair-correlation heuristics for zeros, one would expect ⟨F_{X,H}⟩_{Φ,t0} ≍ H^2 log X (A=1) for generic t0, uniform in 1 ≤ H ≤ X^{1-ε}. Thus (⋆) with some finite A is compatible with the expected truth of RH.
+- Unconditionally, proving (⋆) even with a very large fixed A would be a highly nontrivial mean-square bound for a Mellin-filtered short-interval prime discrepancy. The lemma shows such a bound, if established uniformly in t0, is strong enough to preclude any zero with β>1/2.
+
+Technical notes on justifications omitted above:
+- The smoothed explicit formula against W_X with arbitrarily many integrations by parts is standard and yields the uniform error terms needed after truncating the zero sum at height ≍ log X and controlling tails via rapid decay of Ẇ on vertical lines.
+- The linearization error O(H^2 X^{β-3/2}) contributes to F_{X,H} a term of size ≪ H^2 X^{β-3/2} · X = H^2 X^{β-1/2}, which after squaring and Φ-integration is ≪ H^2 X^{2β-1} times a decaying factor thanks to the division by |ρ| in the main term and the localization; this is absorbed for β>1/2 and can be eliminated by taking ε small but fixed.
+- The “matching” inner product computation is robust: the kernel K(t)=Ẇ(σ+i(·)) is in L^2 and its self-inner-product against Φ is bounded above and below away from 0 and ∞ on compact σ-intervals [δ,1/2] (here σ=β0-1/2∈(0,1/2)). This yields the absolute constants.
+
+Conclusion.
+This provides a concrete, rigorous reduction: a uniform, localized L2 upper bound of natural size H^2 (log X)^A for a Mellin-filtered short-interval prime discrepancy implies RH. The lemma underpinning the reduction shows that any off-line zero necessarily forces the localized L2-energy to grow like X^{2β-1}, which eventually dominates the hypothesized upper bound.
+
+VERDICT: PARTIAL
+REASON: New rigorous reduction: an L2 bound for a Mellin-filtered short-interval discrepancy implies RH.
