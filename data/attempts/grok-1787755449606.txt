@@ -1,0 +1,57 @@
+### Attempt: Obstruction analysis for Weil positivity on a truncated explicit formula
+
+Let \(\Xi(t) := \xi(1/2 + it)\), where \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The non-trivial zeros of \(\zeta\) are in one-to-one correspondence with the real zeros of the entire function \(\Xi\) of order 1. Weil’s explicit formula, specialized to a fixed even Schwartz test function \(g\in\mathcal{S}(\mathbb{R})\) with Fourier transform
+\[
+\hat g(\tau) = \int_{-\infty}^{\infty} g(t)e^{-i\tau t}\,dt,
+\]
+reads
+\begin{align*}
+\sum_{\rho} \hat g\bigl(\tfrac{\rho-1/2}{i}\bigr)
+&= \hat g\bigl(\tfrac{i}{2}\bigr)+\hat g\bigl(-\tfrac{i}{2}\bigr)
+-\frac1{2\pi}\int_{-\infty}^{\infty}\frac{\Gamma'}{\Gamma}\bigl(\tfrac14+\tfrac{it}2\bigr)\hat g(t)\,dt\\
+&\quad +g(0)\log\pi
+-2\sum_{n=1}^{\infty}\frac{\Lambda(n)}{\sqrt n}\,g(\log n),
+\end{align*}
+the sum on the left running over the non-trivial zeros \(\rho=\beta+i\gamma\) (counted with multiplicity).
+
+Define the quadratic form associated with \(g\) by
+\[
+W(g) := \sum_{\gamma} \hat g(\gamma)
+\]
+(the sum is absolutely convergent for Schwartz \(g\)). Weil’s criterion asserts that RH holds if and only if \(W(g)\ge0\) for every even non-negative \(g\in\mathcal{S}(\mathbb{R})\) that is not identically zero. (The “if” direction follows by taking approximate identities concentrated at a hypothetical zero off the critical line; the “only if” direction is a direct consequence of the explicit formula once all \(\beta=1/2\).)
+
+#### Truncation and the resulting error term
+Fix a large cutoff \(T>0\) and an even non-negative bump \(g_T\) supported in \([-T,T]\) with \(0\le g_T\le1\) and \(g_T\equiv1\) on \([-T+1,T-1]\). Write
+\[
+W(g_T)=W_{\mathrm{crit}}(g_T)+E_{\mathrm{off}}(g_T)+R(g_T),
+\]
+where
+- \(W_{\mathrm{crit}}\) sums only over zeros with \(\lvert\gamma\rvert\le T\) and \(\beta=1/2\),
+- \(E_{\mathrm{off}}\) sums the contribution of any zeros with \(\beta\neq1/2\),
+- \(R(g_T)\) collects the explicit arithmetic and Gamma terms (all of which are \(O(T\log T)\) by the classical zero-density estimate \(N(T)=O(T\log T)\) and the rapid decay of \(\hat g_T\)).
+
+A direct stationary-phase estimate on the Fourier transform yields
+\[
+\lvert\hat g_T(\tau)\rvert\le C_k(1+\lvert\tau\rvert)^{-k}T
+\]
+for every \(k\), uniformly in the support length. Consequently, if a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>1/2\) existed, one could choose a sequence of bumps \(g_T\) concentrating at frequency \(\gamma_0\) so that
+\[
+E_{\mathrm{off}}(g_T)\sim c\cdot T^{2\beta_0-1}\qquad(c>0).
+\]
+The arithmetic side \(R(g_T)\) remains \(O(T\log T)\). Thus positivity of \(W(g_T)\) would already fail for large \(T\) whenever \(2\beta_0-1>1\), i.e., \(\beta_0>1\). The classical zero-free region \(\beta\le1-c/\log(\lvert\gamma\rvert+2)\) therefore makes the obstruction invisible at this level of truncation: the possible excess \(\beta_0-1/2\) is smaller than any positive power of \(1/\log T\), and the resulting contribution is absorbed by the \(O(T\log T)\) main term.
+
+#### Concrete obstruction
+To turn Weil positivity into a proof one must therefore control the off-critical contribution at the scale
+\[
+\beta-1/2\ll\frac{\log\log T}{\log T}.
+\]
+No presently available zero-density estimate (even the best hybrid subconvexity bounds for \(\zeta\)) reaches this uniformity. In particular, the Ingham–Huxley density theorem
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}\log(2/(1-\sigma))}
+\]
+still leaves a residual factor \(T^{\delta}\) with \(\delta>0\) that cannot be absorbed by the arithmetic main term once the test-function width is sent to infinity. Hence any attempt to verify \(W(g)\ge0\) by truncating the explicit formula at finite height necessarily leaves an uncontrolled error of size larger than the expected positive main term coming from the critical zeros. This is a sharp, quantitative obstruction: the method cannot close without an essentially RH-strength density estimate, which is circular.
+
+(The same obstruction appears, mutatis mutandis, for the Liouville-function approach via the Dirichlet series of \(\lambda(n)n^{-s}\) and for the pair-correlation approach of Montgomery once the form factor is truncated.)
+
+VERDICT: FAILED
+REASON: Quantified circularity in truncated Weil positivity; needs near-RH density to close.

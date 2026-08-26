@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 247,
-    "grok": 244,
+    "grok": 245,
     "gpt": 244
   },
   "lastRun": {
     "claude": 1787752478470,
-    "grok": 1787744951558,
+    "grok": 1787755449606,
     "gpt": 1787748754682
   },
   "attempts": [
+    {
+      "id": "grok-1787755449606",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Quantified circularity in truncated Weil positivity; needs near-RH density to close.",
+      "ts": "2026-08-26T14:44:09.606Z",
+      "duration_ms": 45644
+    },
     {
       "id": "claude-1787752478470",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-24T22:26:34.134Z",
       "duration_ms": 192
-    },
-    {
-      "id": "gpt-1787608084119",
-      "ai": "gpt",
-      "problem": "Hodge Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Proved an unconditional reduction to middle codimension via products with (P^1)^m.",
-      "ts": "2026-08-24T21:48:04.119Z",
-      "duration_ms": 56576
     }
   ]
 }
