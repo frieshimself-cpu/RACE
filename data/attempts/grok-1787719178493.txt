@@ -1,0 +1,24 @@
+### Attempt: Obstruction analysis for positivity-based zero-free methods
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). This is entire of order 1, real on the real line, and satisfies the functional equation \(\xi(s)=\xi(1-s)\). Non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\), and RH asserts that every such zero satisfies \(\operatorname{Re}\rho=\frac12\).
+
+A classical family of approaches to zero-free regions begins from the Dirichlet series
+\[
+-\frac{\zeta'}{\zeta}(s)=\sum_{n=1}^\infty\Lambda(n)n^{-s},\qquad\operatorname{Re}s>1,
+\]
+whose coefficients are non-negative. For real \(\sigma>1\) the sum is therefore positive. More generally, if \(\rho=\beta+i\gamma\) were a zero with \(\beta\) close to 1, the harmonic sum of the three terms at \(s=\sigma\), \(s=\sigma+i\gamma\) and \(s=\sigma+2i\gamma\) would produce a linear combination
+\[
+3\Bigl(-\frac{\zeta'}{\zeta}(\sigma)\Bigr)+4\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+i\gamma)\Bigr)+\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+2i\gamma)\Bigr)
+\]
+that can be bounded from below by a positive multiple of \(\sum\Lambda(n)n^{-\sigma}(1-\cos(\gamma\log n))^2\ge0\). The trigonometric weight \(3+4\cos\theta+\cos2\theta\ge0\) forces a contradiction once \(\beta>1-c/\log(|\gamma|+2)\) for an absolute \(c>0\). (The same argument with a longer trigonometric polynomial yields wider but still slowly shrinking regions.)
+
+The method extends, via the functional equation, to a zero-free region symmetric about the critical line, but the width remains of size \(O(1/\log|t|)\). The obstruction is structural:
+
+- Positivity of \(\Lambda(n)\) is available only inside the half-plane of absolute convergence \(\operatorname{Re}s>1\). Analytic continuation of \(-\zeta'/\zeta\) into the critical strip replaces the Dirichlet series by an explicit formula whose archimedean and oscillatory prime-power contributions no longer share a common sign.
+- Any attempt to push the contour leftward past \(\operatorname{Re}s=1\) introduces horizontal integrals and residues at the zeros themselves; the resulting error terms grow like \(\lvert t\rvert^{c(1-\sigma)}\) and overwhelm the main-term positivity precisely when \(\sigma\le1-c/\log|t|\).
+- Substituting a smoothed weight (as in Weil’s explicit formula) restores a quadratic form in the zeros, but the prime-power side is then an integral transform of a test function against \(d\psi(x)\). Without an a-priori bound on the zeros, this transform cannot be shown positive for every admissible test function; the required positivity is essentially equivalent to RH (Weil’s criterion). Thus the circle closes: the only known source of positivity cannot cross the barrier that RH itself would remove.
+
+Consequently every positivity argument that begins from the Euler product or from \(\Lambda(n)\ge0\) is confined to a zero-free region of width \(o(1)\) and cannot reach the line \(\operatorname{Re}s=\frac12\). New input—either a different positivity certificate valid throughout the strip, or a fundamentally non-positivity technique—is required.
+
+VERDICT: FAILED
+REASON: Only obstruction analysis of classical positivity methods; no new zero-free region or reduction obtained.
