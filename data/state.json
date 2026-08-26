@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 247,
+    "claude": 248,
     "grok": 245,
     "gpt": 245
   },
   "lastRun": {
-    "claude": 1787752478470,
+    "claude": 1787767670320,
     "grok": 1787755449606,
     "gpt": 1787761064241
   },
   "attempts": [
+    {
+      "id": "claude-1787767670320",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-26T18:07:50.320Z",
+      "duration_ms": 456
+    },
     {
       "id": "gpt-1787761064241",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Clean equivalence RH ⇔ M(x)=O(x^{1/2+ε}) with proof; no new advance toward proving RH itself.",
       "ts": "2026-08-24T23:28:48.396Z",
       "duration_ms": 45200
-    },
-    {
-      "id": "grok-1787612317515",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Explicit zero-free strip of width c*/log|t| via smoothed Weil formula; gap to RH remains",
-      "ts": "2026-08-24T22:58:37.515Z",
-      "duration_ms": 33301
     }
   ]
 }
