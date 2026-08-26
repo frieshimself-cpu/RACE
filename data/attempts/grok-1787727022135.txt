@@ -1,0 +1,66 @@
+### Attempt: Obstruction to elementary zero-free regions reaching the critical line
+
+Let \(\zeta(s)\) denote the Riemann zeta function. Classical zero-free regions of the form
+\[
+\sigma\ge 1-\frac{c}{(\log|t|)^{2/3}(\log\log|t|)^{1/3}}
+\]
+(for \(|t|\ge t_0\)) arise from a quantitative form of the non-vanishing of \(\zeta\) on \(\operatorname{Re}s=1\), combined with a Jensen–Borel–Carathéodory estimate on a carefully chosen contour. We isolate a precise analytic obstruction that prevents any such contour-plus-convexity argument from reaching the half-plane \(\sigma>1/2\).
+
+#### Setup
+Write \(s=\sigma+it\) with \(t\ge 2\). Let
+\[
+N(T)=\#\{\rho=\beta+i\gamma:\,0<\gamma\le T\}
+\]
+be the usual zero-counting function (counted with multiplicity). The Riemann–von Mangoldt formula gives
+\[
+N(T)=\frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}+O(\log T).
+\]
+Suppose, for a contradiction with the desired conclusion, that one attempts to prove
+\[
+\zeta(\sigma+it)\ne0\qquad\text{for all }\sigma\ge\tfrac12+\delta,\quad|t|\ge T_0(\delta),
+\]
+by an elementary contour method that uses only:
+1. the Euler product (hence \(\log\zeta\) holomorphic and \(O(\log\log|t|)\) for \(\sigma\ge1+\varepsilon\));
+2. the functional equation in the form \(\xi(s)=\xi(1-s)\), which supplies a growth bound \(|\zeta(\sigma+it)|\ll_\varepsilon |t|^{C(1-\sigma)+\varepsilon}\) for \(\sigma\le0\);
+3. a convexity bound (Phragmén–Lindelöf or Borel–Carathéodory) on vertical strips;
+4. a fixed-width rectangular contour whose right edge lies in \(\operatorname{Re}s\ge1+\varepsilon\) and whose left edge lies at \(\operatorname{Re}s=\tfrac12+\delta\).
+
+#### The obstruction
+Fix \(\delta\in(0,1/2)\) and consider the rectangle
+\[
+R_T=\bigl\{s:\,\tfrac12+\delta\le\operatorname{Re}s\le1+\varepsilon,\; | \operatorname{Im}s|\le T\bigr\}.
+\]
+Apply the argument principle to \(\zeta'/ \zeta\) on \(\partial R_T\). The change in argument on the right vertical side is \(O(\log T)\) by the Euler product. On the horizontal sides the contribution is \(O((\log T)^2)\) by the convexity bound and a standard truncated Perron formula. Consequently any zero-free assertion inside \(R_T\) is equivalent to showing that the change in argument on the left vertical side
+\[
+V(T):=\Delta_{\substack{\sigma=1/2+\delta\\ |t|\le T}}\arg\zeta(\sigma+it)
+\]
+satisfies \(V(T)=o(N(T))\). 
+
+By the functional equation the values of \(\zeta\) on the line \(\sigma=1/2+\delta\) are tied to those on \(\sigma=1/2-\delta\). The convexity bound on the critical strip yields only
+\[
+\log|\zeta(\tfrac12+\delta+it)|\ll_\delta\log|t|,
+\]
+which is too weak to force the argument variation \(V(T)\) to be \(o(T\log T)\). More precisely, the Borel–Carathéodory lemma applied to \(\log\zeta(s)\) on a disk of radius \(1-2\delta\) centered at \(1+\varepsilon+it\) produces an upper bound
+\[
+\bigl|\log\zeta(\tfrac12+\delta+it)\bigr|\ll_\delta\frac{\log|t|}{\delta},
+\]
+but supplies no cancellation in the imaginary part. The resulting estimate is merely
+\[
+V(T)\ll_\delta T\log T,
+\]
+which is of exactly the same order as \(N(T)\). Thus the contour integral of \(\zeta'/\zeta\) cannot be shown to be smaller than the main term of \(N(T)\); the error term absorbs the putative main term and no zero-free conclusion follows.
+
+#### Why the constant \(c\) cannot be driven to infinity
+Any attempt to shrink \(\delta=\delta(T)\to0\) (so that the left edge approaches the critical line) forces the convexity constant to blow up like \(1/\delta\). The resulting bound on \(V(T)\) becomes
+\[
+V(T)\ll\frac{T\log T}{\delta(T)}.
+\]
+To beat \(N(T)\) one would need \(\delta(T)\gg1\), which is absurd. Inserting the best available subconvexity bounds (Weyl, or even the current hybrid subconvexity) improves the exponent of \(\log T\) but never removes the factor \(1/\delta\). Hence no choice of \(\delta(T)\to0\) is admissible inside this purely convexity-plus-contour framework.
+
+#### Conclusion of the obstruction
+The classical method therefore necessarily stops at a zero-free region whose width tends to zero slower than any positive power of \(1/\log|t|\). Reaching \(\sigma>1/2\) requires an input that produces genuine cancellation in \(\arg\zeta(1/2+\delta+it)\) (e.g., a strong form of the pair-correlation conjecture, a positive-proportion result for simple zeros on the critical line with explicit angular control, or a non-negativity statement for a suitably weighted explicit formula). No such cancellation is available from the Euler product, the functional equation, and convexity alone.
+
+This isolates a sharp analytic barrier: elementary contour methods are structurally incapable of proving the Riemann hypothesis.
+
+VERDICT: FAILED
+REASON: Contour+convexity methods blocked by arg variation of size N(T); no new zero-free region.
