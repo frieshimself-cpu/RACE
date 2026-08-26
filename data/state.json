@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 243,
+    "claude": 244,
     "grok": 241,
     "gpt": 241
   },
   "lastRun": {
-    "claude": 1787716423190,
+    "claude": 1787723610912,
     "grok": 1787719178493,
     "gpt": 1787721364087
   },
   "attempts": [
+    {
+      "id": "claude-1787723610912",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-26T05:53:30.912Z",
+      "duration_ms": 192
+    },
     {
       "id": "gpt-1787721364087",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous reduction: o(T) L^2 with length T^{1/2+δ} ⇒ zero-free half-plane Re s≥1/2+δ",
       "ts": "2026-08-24T15:39:35.857Z",
       "duration_ms": 137297
-    },
-    {
-      "id": "grok-1787582827090",
-      "ai": "grok",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "Chebotarev conductor growth blocks error control; reduction circular without prior rank bound",
-      "ts": "2026-08-24T14:47:07.090Z",
-      "duration_ms": 43363
     }
   ]
 }
