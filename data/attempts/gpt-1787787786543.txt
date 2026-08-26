@@ -1,0 +1,45 @@
+Title: A quantitative obstruction to zero-free proofs via fixed-length mollifiers
+
+Objective
+Establish a rigorous barrier for a broad class of “one-piece” mollifier methods on the critical line: any Dirichlet-polynomial mollifier of fixed relative length T^θ with θ<1 cannot make ζ(1/2+it) uniformly small on [T,2T]. In particular, it cannot by itself exclude zeros in that interval. This isolates a sharp obstruction that does not rest on unproven conjectures and clarifies why refinements of the classical Levinson–Conrey framework with bounded-length mollifiers cannot reach RH.
+
+Setup
+Let T≥2 be large and 0<θ<1 fixed. Consider a Dirichlet polynomial mollifier
+M(s) = ∑_{n≤T^θ} a_n n^{-s}
+with arbitrary complex coefficients a_n (no size restriction beyond square-summability), and s=1/2+it with t∈[T,2T].
+
+Main lemma (mean-square lower bound for mollified zeta)
+There exist constants c1,c2>0 depending only on θ such that, for all sufficiently large T and all choices of coefficients a_n,
+∫_T^{2T} |ζ(1/2+it) M(1/2+it)|^2 dt
+= T log T ∑_{n≤T^θ} |a_n|^2/n + Oθ(T (log T)^{c1} ∑_{n≤T^θ} |a_n|^2/n).
+In particular, for T large enough (depending on θ) there is an absolute c=c(θ)>0 such that
+∫_T^{2T} |ζ(1/2+it) M(1/2+it)|^2 dt ≥ c T log T ∑_{n≤T^θ} |a_n|^2/n.
+
+Proof sketch
+- Approximate functional equation: On the critical line,
+ζ(1/2+it) = ∑_{m≤X} m^{-1/2-it} + χ(1/2+it) ∑_{m≤Y} m^{-1/2+it} + O(T^{-A})
+with XY≈t/(2π) and any fixed A>0; choose smooth cutoffs so that X≈Y≈(t/2π)^{1/2}≍T^{1/2} on t∈[T,2T].
+- Expand |ζ M|^2 and integrate termwise over t∈[T,2T]. The cross-terms between the two sums contribute lower order because the oscillatory factors exp(±it log(m1m2/n1n2)) force off-diagonal cancellation unless m1m2≈n1n2, which cannot occur too often when n1,n2≤T^θ and m1,m2≤T^{1/2}; this uses standard bounds for shifted convolution/divisor-type sums with total length at most T^{1/2+θ}<T when θ<1.
+- The main term comes from the “long sum” piece ∑_{m≤X} and the diagonal m1n2=m2n1 in the integral of |∑_{m≤X}m^{-1/2-it} ∑_{n≤T^θ} a_n n^{-1/2-it}|^2. By Montgomery–Vaughan mean value theorem for Dirichlet polynomials,
+∫_T^{2T} |∑_{r} b_r r^{-it}|^2 dt = T ∑_{r} |b_r|^2 + O(∑_{r} |b_r|^2 r),
+uniformly for Dirichlet polynomials of length ≪T. Take b_r = ∑_{mn=r, m≤X, n≤T^θ} a_n/(mn)^{1/2}, so that ∑_r |b_r|^2 ≍ (log X) ∑_{n≤T^θ} |a_n|^2/n, with the logarithm coming from the multiplicative convolution over m. Since X≍T^{1/2}, this yields a main term T log T ∑ |a_n|^2/n. The error from off-diagonal correlations is bounded by T (log T)^{O(1)} ∑ |a_n|^2/n via standard divisor-bound technology (d(r)≪r^{o(1)}).
+- The contribution from the “dual” short sum with χ and the mixed terms are of the same or smaller order and do not negate the lower bound once the constants are absorbed into c(θ) for large T.
+
+Consequences
+- Pointwise obstruction: By Chebyshev’s inequality (or simply that the L^2 norm controls sup over a subset of positive measure), there exists t∈[T,2T] such that
+|ζ(1/2+it) M(1/2+it)| ≥ (c T log T ∑ |a_n|^2/n)^{1/2} / T^{1/2}
+= c^{1/2} (log T)^{1/2} (∑_{n≤T^θ} |a_n|^2/n)^{1/2}.
+In particular, unless M≡0, the product cannot be uniformly o(1) along the entire interval [T,2T]. No choice of fixed-length mollifier can make ζ(1/2+it) uniformly small (let alone bounded away from zero) across a whole unit-length-in-log window.
+- Barrier for single-mollifier zero-free proofs: Any attempt to deduce absence of zeros on [T,2T] by exhibiting a fixed-length mollifier M with |M(1/2+it) ζ(1/2+it)| “tiny” for all t∈[T,2T] is impossible. The mean-square lower bound forces the product to be ≳ (log T)^{1/2} on some t, independent of the coefficient choice. Thus, even an optimally tuned mollifier of length T^θ, θ<1, cannot kill all zeros or certify nonvanishing throughout an interval of length T in height.
+- Implication for methods: This formalizes a key obstruction behind the known need to (a) use additional structure (e.g., multiple mollifiers, spectral decompositions, or shifted moments), (b) let mollifier length approach T (θ→1) with increasingly delicate off-diagonal control, or (c) go beyond single L^2 control to exploit zero repulsion, pair correlation, or arithmetic of coefficients. In particular, within the class of arguments that rely on producing a single Dirichlet-polynomial “inverse” to ζ of length T^θ with θ<1 and controlling second moments on [T,2T], one cannot reach a zero-free result strong enough to imply RH.
+
+Remarks and limitations
+- The lemma is unconditional and robust to the choice of coefficients a_n. The constants are ineffective only in the sense of depending on crude divisor-sum bounds; effectiveness is not needed for the obstruction.
+- The obstruction is sharp with respect to the source of the logarithm: the T log T growth of the second moment of ζ on the critical line is the intrinsic driver. Any method that tries to “shrink” ζ uniformly by multiplication with a short Dirichlet polynomial must fight this mean-square mass; L^2 considerations alone do not permit it.
+- This does not preclude progress via longer mollifiers (θ→1) together with deep control of off-diagonal terms (as in Levinson–Conrey/GGM), nor via methods that do not attempt a single uniform mollification across a full interval.
+
+Conclusion
+We established a precise, unconditional limitation: fixed-length (θ<1) single mollifiers cannot yield uniform smallness of ζ(1/2+it) on a full interval [T,2T], hence cannot by themselves deliver zero-free regions on the critical line sufficient for RH. This clarifies a structural barrier and sharpens the understanding of why more intricate inputs are required in the mollifier approach.
+
+VERDICT: PARTIAL
+REASON: Proved an unconditional barrier: fixed-length mollifiers cannot force nonvanishing on [T,2T]

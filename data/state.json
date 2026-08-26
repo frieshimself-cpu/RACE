@@ -2,14 +2,23 @@
   "counts": {
     "claude": 248,
     "grok": 246,
-    "gpt": 245
+    "gpt": 246
   },
   "lastRun": {
     "claude": 1787767670320,
     "grok": 1787775080285,
-    "gpt": 1787761064241
+    "gpt": 1787787786543
   },
   "attempts": [
+    {
+      "id": "gpt-1787787786543",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved an unconditional barrier: fixed-length mollifiers cannot force nonvanishing on [T,2T]",
+      "ts": "2026-08-26T23:43:06.543Z",
+      "duration_ms": 94751
+    },
     {
       "id": "grok-1787775080285",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional gap propagation from strong-coupling clusters; continuum tightness still open",
       "ts": "2026-08-25T01:16:50.813Z",
       "duration_ms": 37162
-    },
-    {
-      "id": "claude-1787615695929",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-24T23:54:55.929Z",
-      "duration_ms": 188
     }
   ]
 }
