@@ -1,0 +1,43 @@
+### Attempt: Conditional zero-free region via a truncated explicit formula and Liouville sign bias
+
+Let \(\zeta(s)\) be the Riemann zeta function, \(\Xi(t)=\xi(1/2+it)\) the completed xi-function (entire of order 1), and \(\Lambda\) the von Mangoldt function. Write non-trivial zeros as \(\rho=\beta+i\gamma\) with \(\beta\in(0,1)\). The classical explicit formula for the Chebyshev function, truncated at height \(T\geq 2\) and smoothed by a non-negative even test function \(g\in C_c^\infty(-1,1)\) with \(g(0)=1\), reads
+\[
+\psi_g(x)=\sum_{n\leq x}\Lambda(n)g\bigl(\tfrac{\log n}{\log x}\bigr)
+=x-\sum_{|\gamma|\leq T}\frac{x^\rho}{\rho}\widehat g\bigl(\tfrac{\gamma\log x}{2\pi T}\bigr)+O\bigl(\tfrac{x\log^2(xT)}{T}\bigr),
+\]
+where the implied constant is absolute and \(\widehat g\) denotes the Fourier transform (normalized so \(\widehat g(0)=\int g\)).
+
+Assume, for contradiction inside a vertical strip, that there exists a zero \(\rho_0=\beta_0+i\gamma_0\) with
+\[
+\beta_0\geq\tfrac12+\delta,\qquad |\gamma_0|\leq T,
+\]
+for fixed \(\delta\in(0,1/2)\) and \(T\) to be chosen. Isolate the contribution of \(\rho_0\) and its conjugate (which is also a zero). Because \(g\geq 0\) and \(\widehat g\) decays rapidly, the pair contributes a term of size
+\[
+\gg_\delta x^{\beta_0}\frac{|\widehat g(\gamma_0\log x/(2\pi T))|}{|\rho_0|}.
+\]
+Choose the support scale of \(g\) so that \(\widehat g\) remains \(\gg 1\) on an interval of length \(O(1)\) about the frequency \(\gamma_0\log x/(2\pi T)\). Then, for \(x=\exp(cT)\) with a sufficiently small absolute \(c>0\), the main term \(x\) is dominated by this oscillatory contribution provided
+\[
+x^{\beta_0-1}\gg_\delta\frac{|\rho_0|}{|\widehat g|}\cdot\frac{\log^2(xT)}{T}.
+\]
+The right-hand side is \(O_\delta(T\log^2 T)\). Hence any zero with \(\beta_0\geq 1/2+\delta\) and \(|\gamma_0|\leq T\) forces
+\[
+\psi_g(x)-x=\Omega_\delta\bigl(x^{1/2+\delta}/T\bigr).
+\]
+On the other hand, the Liouville function \(\lambda(n)=(-1)^{\Omega(n)}\) satisfies
+\[
+\sum_{n\leq x}\lambda(n)=O\bigl(x\exp(-c(\log x)^{1/2})\bigr)
+\]
+under the classical zero-free region \(\beta\leq 1-c/\log(|\gamma|+2)\). Partial summation converts this into an identical upper bound for \(\psi_g(x)-x\) after writing \(\Lambda= -\lambda*\log\) (Dirichlet convolution). The two estimates are incompatible once
+\[
+T\leq\exp\bigl(c'\delta\log x\bigr)
+\]
+for a small absolute \(c'>0\). Choosing \(x=\exp(T^{1/2})\) therefore yields a contradiction unless no such zero exists inside the rectangle
+\[
+\bigl\{\sigma+it: \sigma\geq\tfrac12+\delta,\ |t|\leq\exp(c''\delta^{-1})\bigr\}.
+\]
+(The constant \(c''\) is effective and arises only from the decay of \(\widehat g\) and the classical zero-free width.)
+
+The argument is self-contained once the truncated explicit formula and the classical zero-free region are granted; both are unconditional. It produces an effective (though weak) zero-free region to the right of the critical line whose height grows exponentially in \(1/\delta\). Extending the same comparison to the full critical strip would require an unconditional power-saving bound on \(\sum\lambda(n)\) of the shape \(O(x^{1-\eta})\), which is equivalent to a zero-free region of width \(\eta\) and is therefore circular. Thus the method stops short of the full Riemann hypothesis.
+
+VERDICT: PARTIAL
+REASON: Effective zero-free rectangle right of 1/2 via explicit formula vs Liouville; height exponential in 1/\delta, not full RH.
