@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 249,
-    "grok": 246,
+    "grok": 247,
     "gpt": 246
   },
   "lastRun": {
     "claude": 1787817317566,
-    "grok": 1787775080285,
+    "grok": 1787856913519,
     "gpt": 1787787786543
   },
   "attempts": [
+    {
+      "id": "grok-1787856913519",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Truncated Weil positivity only recovers classical zero-free regions; exponential-type barrier blocks progress on RH.",
+      "ts": "2026-08-27T18:55:13.519Z",
+      "duration_ms": 34266
+    },
     {
       "id": "claude-1787817317566",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-25T03:29:08.228Z",
       "duration_ms": 211
-    },
-    {
-      "id": "gpt-1787625157328",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a clean reduction: weighted L2 bounds for M(x) imply zero-free half-planes; no new bound obtained",
-      "ts": "2026-08-25T02:32:37.328Z",
-      "duration_ms": 55059
     }
   ]
 }

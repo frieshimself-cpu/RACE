@@ -1,0 +1,34 @@
+### Attempt: Obstruction in the Weil positivity approach via a truncated explicit formula
+
+Let \(\Xi(t) := \xi(1/2 + it)\) denote the Riemann xi-function on the critical line (entire, real for real \(t\), even). The classical Weil explicit formula equates a test-function pairing against the non-trivial zeros to an arithmetic side involving primes. Write zeros as \(\rho = 1/2 + i\gamma\) (no assumption yet that all \(\gamma\) are real). For a fixed even Schwartz test function \(g\) whose Fourier transform \(\hat g\) is compactly supported in \((-1,1)\), the formula reads
+\[
+\sum_{\gamma} \hat g(\gamma) = \hat g(0)\frac{\Omega}{2\pi} - \sum_{p^k} \frac{\log p}{p^{k/2}} \bigl(g(k\log p) + g(-k\log p)\bigr) + \text{archimedean terms},
+\]
+where the archimedean contribution is an explicit continuous functional of \(g\) that is positive for the usual Gaussians (Weil’s positivity criterion). If every \(\gamma\) is real, the left-hand side is non-negative whenever \(\hat g\ge 0\), and the resulting inequality on the prime side is known to be consistent with RH.
+
+Now truncate. Let \(g_T\) be a sequence of even non-negative test functions with \(\operatorname{supp}\hat g_T\subset[-1+1/T,1-1/T]\) that approximate the Fejér kernel scaled to height \(T\), so that
+\[
+\sum_{|\gamma|\le T} \hat g_T(\gamma) = \int_{-T}^{T}\hat g_T(t)\,dN(t) + O\bigl(\|g_T\|_{1,\mathrm{Sob}}\bigr),
+\]
+where \(N(t)\) is the usual zero-counting function. The arithmetic side remains bounded by \(O(T\exp(-c\sqrt{\log T}))\) once the support of \(\hat g_T\) is kept inside \((-1,1)\). Consequently the truncated sum
+\[
+S(T) := \sum_{|\gamma|\le T}\hat g_T(\gamma)
+\]
+is forced to be \(o(T)\) (in fact \(O(T^{1-\delta})\) for a small explicit \(\delta>0\) coming from the classical zero-free region).  
+
+If a zero \(\rho_0=\beta+i\gamma_0\) with \(\beta>1/2\) existed, the contribution of the pair \(\rho_0,\overline{\rho_0}\) (and their functional-equation mirrors) to \(S(T)\) would be asymptotically
+\[
+2\operatorname{Re}\hat g_T(\gamma_0-i(\beta-1/2))\sim 2\hat g_T(0)\cdot e^{c(\beta-1/2)T}
+\]
+once \(T\gg|\gamma_0|\), because the Fourier transform of a positive approximate identity grows exponentially off the real axis. This exponential growth contradicts the \(o(T)\) bound obtained from the prime side, provided the test-function family can be chosen so that \(\hat g_T\) remains non-negative on a fixed complex neighbourhood of the real axis while still having support inside \((-1,1)\).  
+
+The obstruction appears precisely here: any Schwartz function whose Fourier transform is supported in a fixed compact subset of \((-1,1)\) is analytic of exponential type less than 1, and the Phragmén–Lindelöf indicator forces
+\[
+\sup_{|\operatorname{Im}z|\le\delta}|\hat g_T(z)|\le C_\delta\exp\bigl((1-\eta(\delta))T\bigr)
+\]
+with \(\eta(\delta)\to 0\) only as \(\delta\to 0\). Thus the exponential excess \(e^{c(\beta-1/2)T}\) can be absorbed into the error term as soon as \(\beta-1/2\) is smaller than the width of the classical zero-free region. In other words, the truncated Weil inequality detects only zeros lying outside every previously known zero-free region; it cannot rule out zeros that approach the critical line sufficiently slowly.  
+
+The same gap persists if one replaces the Fejér approximants by the more refined Beurling–Selberg majorants: their extremal exponential type is still strictly less than 1 when positivity on a complex strip is required, and the resulting constant never improves the classical zero-free width. Hence the positivity method, even after optimal truncation and majorization, yields no new zero-free region and supplies no contradiction with the existence of zeros off the line that stay inside the classical envelope.
+
+VERDICT: FAILED
+REASON: Truncated Weil positivity only recovers classical zero-free regions; exponential-type barrier blocks progress on RH.
