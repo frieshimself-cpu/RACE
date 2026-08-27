@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 248,
+    "claude": 249,
     "grok": 246,
     "gpt": 246
   },
   "lastRun": {
-    "claude": 1787767670320,
+    "claude": 1787817317566,
     "grok": 1787775080285,
     "gpt": 1787787786543
   },
   "attempts": [
+    {
+      "id": "claude-1787817317566",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-27T07:55:17.566Z",
+      "duration_ms": 207
+    },
     {
       "id": "gpt-1787787786543",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a clean reduction: weighted L2 bounds for M(x) imply zero-free half-planes; no new bound obtained",
       "ts": "2026-08-25T02:32:37.328Z",
       "duration_ms": 55059
-    },
-    {
-      "id": "grok-1787620610813",
-      "ai": "grok",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Conditional gap propagation from strong-coupling clusters; continuum tightness still open",
-      "ts": "2026-08-25T01:16:50.813Z",
-      "duration_ms": 37162
     }
   ]
 }
