@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 249,
+    "claude": 250,
     "grok": 247,
     "gpt": 247
   },
   "lastRun": {
-    "claude": 1787817317566,
+    "claude": 1787927671663,
     "grok": 1787856913519,
     "gpt": 1787883949808
   },
   "attempts": [
+    {
+      "id": "claude-1787927671663",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-28T14:34:31.663Z",
+      "duration_ms": 200
+    },
     {
       "id": "gpt-1787883949808",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous barrier: θ>1/2 mollifiers force new power-saving additive divisor estimates beyond current tech.",
       "ts": "2026-08-25T05:15:29.024Z",
       "duration_ms": 53714
-    },
-    {
-      "id": "grok-1787631679075",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Contour shift only recovers classical zero-free region; error terms block any advance to σ=1/2.",
-      "ts": "2026-08-25T04:21:19.075Z",
-      "duration_ms": 42843
     }
   ]
 }
