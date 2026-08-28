@@ -1,0 +1,48 @@
+## Attempt: Failure analysis of a contour-shift argument for zero-free half-planes beyond the classical zero-free region
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) and the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_{\rho}(1-s/\rho)
+\]
+(over the non-trivial zeros, written with multiplicity) are taken as given. Write \(\rho=\beta+i\gamma\). The classical zero-free region of Vinogradov–Korobov type already guarantees \(\beta\le 1-c(\log|\gamma|)^{-2/3}(\log\log|\gamma|)^{-1/3}\) for large \(|\gamma|\). The goal of the present sketch is to test whether a direct contour deformation of a truncated Mellin transform of \(\xi'/\xi\) can push the abscissa strictly left of \(1/2\) on a set of positive density, or at least produce a uniform strip \(\operatorname{Re}s\le 1/2+\delta\) free of zeros for some absolute \(\delta>0\).
+
+### Setup
+Fix a smooth even test function \(\phi\in C_c^\infty(\mathbb{R})\) supported in \([-1,1]\) with \(\widehat\phi\ge 0\) and \(\widehat\phi(0)=1\). For \(T\ge 2\) and \(\sigma\in(1/2,1)\) define the truncated logarithmic derivative
+\[
+F_{\sigma,T}(s)=\sum_{|\gamma|\le T}\frac{\phi((\gamma)/(T))}{s-\rho},\qquad s=\sigma+it,\quad |t|\le T.
+\]
+By the explicit formula (or directly from the Hadamard product differentiated logarithmically and smoothed) one has the identity
+\[
+\operatorname{Re}F_{\sigma,T}(\sigma+it)=-\frac12\log\pi+\frac12\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\frac{\sigma+it}{2}\Bigr)+\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+it)+O\bigl((1+|t|)/T\bigr)
+\]
+uniformly for \(\sigma\ge 1/2+\varepsilon\) and \(|t|\le T/2\), the error arising from the tails of the Euler product and the Stirling expansion of \(\Gamma'/\Gamma\).
+
+### Contour shift attempt
+Suppose, for contradiction inside a fixed height window, that a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>1/2+\delta\) and \(|\gamma_0|\le T/2\) exists. Shift the contour of the inverse Mellin transform of \(F_{\sigma,T}\) from the line \(\operatorname{Re}s=\sigma\) leftward to \(\operatorname{Re}s=1/2+\delta/2\). The residue at \(\rho_0\) contributes a term
+\[
+\phi(\gamma_0/T)/(\sigma-\beta_0)
+\]
+whose real part is bounded below by \(c_\phi\delta^{-1}\) (after averaging in a short interval of length \(T^\theta\), \(\theta<1\)). On the new vertical line the integrand is estimated by the convexivity bound
+\[
+\bigl|\zeta(1/2+\delta/2+it)\bigr|\ll_\varepsilon |t|^{1/4-\delta/4+\varepsilon}
+\]
+together with the standard bound \(\Gamma'/\Gamma(s)=O(\log(|s|+2))\). After integration against \(\widehat\phi\) one obtains
+\[
+\int_{-T}^T\operatorname{Re}F_{\sigma,T}(1/2+\delta/2+it)\,dt\ll T^{1-\eta}
+\]
+for a positive \(\eta=\eta(\delta)>0\). Comparing with the residue lower bound yields an immediate numerical contradiction once \(T\) is large, provided the error terms remain smaller than the main term.
+
+### Where the argument collapses
+The convexivity bound is too weak once \(\delta\) is allowed to tend to zero with \(T\). More decisively, the same contour shift applied to a zero that lies only \(O((\log T)^{-1})\) to the right of the critical line produces a residue of size \(O(\log T)\), while the horizontal integrals that appear when the contour is closed pick up contributions of size \(\asymp T^\varepsilon\) from the possible Siegel zeros or from the accumulation of zeros near \(\operatorname{Re}s=1\). After smoothing, these horizontal contributions are not \(o(\log T)\) uniformly; they cancel the putative main-term contradiction.
+
+A secondary obstruction appears in the \(\Gamma\)-factor: Stirling’s series on the line \(\operatorname{Re}s=1/2+\delta/2\) still grows like \(\log|t|\), and the oscillatory integral against \(\phi\) does not save enough powers of \(T\) to absorb an arbitrary number of zeros with \(\beta-1/2\ll(\log T)^{-1}\). Consequently the argument recovers only a zero-free region of the classical shape
+\[
+\beta\le\frac12+C\frac{\log\log\log|\gamma|}{\log\log|\gamma|},
+\]
+which is inferior to Vinogradov–Korobov and does not reach any fixed strip to the left of \(\operatorname{Re}s=1\).
+
+### Conclusion of the attempt
+The contour-shift method, even after optimal smoothing, cannot improve upon the classical zero-free region and supplies no density estimate stronger than the classical density theorem \(N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}\log T}\). The obstruction is fundamental: the growth of \(\zeta\) on vertical lines to the right of \(1/2\) is not known to be small enough to dominate the residues of zeros that hug the critical line. Any successful approach must therefore replace pure contour integration by an input that encodes cancellation among the zeros themselves (e.g., pair correlation or a positivity certificate for a Weil-type quadratic form).
+
+VERDICT: FAILED
+REASON: Contour shift recovers only classical zero-free region; residue/horizontal errors block any fixed strip past Re=1/2.

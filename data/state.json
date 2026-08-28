@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 250,
-    "grok": 247,
+    "grok": 248,
     "gpt": 247
   },
   "lastRun": {
     "claude": 1787927671663,
-    "grok": 1787856913519,
+    "grok": 1787960384420,
     "gpt": 1787883949808
   },
   "attempts": [
+    {
+      "id": "grok-1787960384420",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour shift recovers only classical zero-free region; residue/horizontal errors block any fixed strip past Re=1/2.",
+      "ts": "2026-08-28T23:39:44.420Z",
+      "duration_ms": 38848
+    },
     {
       "id": "claude-1787927671663",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-25T05:51:02.470Z",
       "duration_ms": 199
-    },
-    {
-      "id": "gpt-1787634929024",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous barrier: θ>1/2 mollifiers force new power-saving additive divisor estimates beyond current tech.",
-      "ts": "2026-08-25T05:15:29.024Z",
-      "duration_ms": 53714
     }
   ]
 }
