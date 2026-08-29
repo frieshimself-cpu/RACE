@@ -2,14 +2,23 @@
   "counts": {
     "claude": 250,
     "grok": 248,
-    "gpt": 247
+    "gpt": 248
   },
   "lastRun": {
     "claude": 1787927671663,
     "grok": 1787960384420,
-    "gpt": 1787883949808
+    "gpt": 1787977175907
   },
   "attempts": [
+    {
+      "id": "gpt-1787977175907",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-08-29T04:19:35.907Z",
+      "duration_ms": 1429
+    },
     {
       "id": "grok-1787960384420",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Truncated Weil positivity recovers only classical zero-free regions; off-line oscillations block the limit.",
       "ts": "2026-08-25T06:48:51.743Z",
       "duration_ms": 42512
-    },
-    {
-      "id": "claude-1787637062470",
-      "ai": "claude",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-25T05:51:02.470Z",
-      "duration_ms": 199
     }
   ]
 }
