@@ -1,0 +1,42 @@
+### Attempt: A conditional zero-free strip via a truncated explicit formula and L² discrepancy
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\). Write \(s=\sigma+it\) and consider the completed logarithmic derivative
+\[
+\frac{\xi'}{\xi}(s)=\sum_\rho\frac1{s-\rho},
+\]
+where the sum runs over zeros of \(\xi\) (counted with multiplicity) and is understood in the usual symmetric limiting sense. The explicit formula equates a smoothed sum over primes to a sum over zeros:
+\[
+\sum_{n\le X}\Lambda(n)\,f(\log n)=\sum_\rho\hat f(\rho)+ \text{(archimedean and trivial terms)},
+\]
+for a Schwartz test function \(f\) supported in \([-1,1]\) (say) whose Fourier transform \(\hat f\) decays rapidly.
+
+**Lemma (conditional discrepancy).** Fix \(\theta\in(\frac12,1)\). Suppose there exists a zero \(\rho_0=\beta+i\gamma\) with \(\beta\ge\theta\) and \(|\gamma|\ge2\). Choose a non-negative even test function \(f_\delta\) whose Fourier transform satisfies
+\[
+\hat f_\delta(s)=\Bigl(\frac{\sin(\delta(s-\tfrac12)/2)}{\delta(s-\tfrac12)/2}\Bigr)^2 e^{-(s-\tfrac12)^2/T^2}
+\]
+for a large height parameter \(T\sim|\gamma|\) and a small width \(\delta=T^{-\alpha}\) with \(\alpha\in(0,1)\) to be chosen. Then the left-hand side of the explicit formula is \(O_\varepsilon(X^\varepsilon)\) uniformly in the support scale, while the contribution of \(\rho_0\) alone on the right-hand side is
+\[
+\gg_\theta X^{\beta-1/2}\cdot\delta^{-1}\cdot e^{-c(\beta-1/2)^2 T^{2-2\alpha}}.
+\]
+Balancing parameters forces a contradiction whenever
+\[
+\beta>\frac12+c\frac{\log\log|\gamma|}{\log|\gamma|}
+\]
+for an absolute \(c>0\), provided one assumes a weak zero-density estimate of the classical Ingham type
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}\log^C T
+\]
+in the region \(\sigma\ge\theta\). (The density bound controls the collective contribution of all other zeros inside the \(\delta\)-neighborhood of the critical line.)
+
+**Proof sketch of the lemma.** The archimedean terms are absorbed by the Gaussian decay of \(\hat f_\delta\). The prime-power side is bounded by the prime-number theorem with classical zero-free region (or even by Chebyshev bounds) once the support of \(f_\delta\) is truncated at length \(\asymp\delta^{-1}\). On the zero side, isolate \(\rho_0\); the squared-sinc factor produces a main term of size \(\asymp\delta^{-1}\) while the Gaussian localizes the sum to an interval of length \(T^{1-\alpha}\) about \(\gamma\). All remaining zeros are estimated by partial summation against the assumed density bound, yielding an error smaller than the main term precisely when \(\beta\) exceeds the logarithmic threshold above. Optimizing \(\alpha=1/2\) recovers the stated width.
+
+**Where the argument stops.** The required zero-density estimate is known unconditionally only for \(\sigma\ge\frac{5}{6}+\varepsilon\) (Huxley) or under RH itself in stronger form. Inserting the best available density theorems therefore yields only a zero-free region of the shape
+\[
+\beta\le1-c(\log|\gamma|)^{-2/3}(\log\log|\gamma|)^{-1/3},
+\]
+which is already classical (Vinogradov–Korobov). The new element—the truncated squared-sinc weight—does not improve the exponent because the density hypothesis remains the bottleneck. No unconditional improvement on the classical zero-free region is obtained, nor is a reduction of RH to a density statement that is easier than RH itself.
+
+Thus the approach recovers known territory but does not advance the frontier.
+
+VERDICT: FAILED
+REASON: Recovers only classical zero-free width; density bottleneck prevents any new unconditional strip.
