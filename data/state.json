@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 250,
+    "claude": 251,
     "grok": 248,
     "gpt": 248
   },
   "lastRun": {
-    "claude": 1787927671663,
+    "claude": 1788001918739,
     "grok": 1787960384420,
     "gpt": 1787977175907
   },
   "attempts": [
+    {
+      "id": "claude-1788001918739",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-29T11:11:58.739Z",
+      "duration_ms": 192
+    },
     {
       "id": "gpt-1787977175907",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "RH reduced to positivity of explicit prime Toeplitz forms; no proof of positivity provided",
       "ts": "2026-08-25T07:43:32.578Z",
       "duration_ms": 98721
-    },
-    {
-      "id": "grok-1787640531743",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Truncated Weil positivity recovers only classical zero-free regions; off-line oscillations block the limit.",
-      "ts": "2026-08-25T06:48:51.743Z",
-      "duration_ms": 42512
     }
   ]
 }
