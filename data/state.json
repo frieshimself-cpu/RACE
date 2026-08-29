@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 251,
+    "claude": 252,
     "grok": 249,
     "gpt": 249
   },
   "lastRun": {
-    "claude": 1788001918739,
+    "claude": 1788039103901,
     "grok": 1788017994326,
     "gpt": 1788029515672
   },
   "attempts": [
+    {
+      "id": "claude-1788039103901",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-29T21:31:43.901Z",
+      "duration_ms": 187
+    },
     {
       "id": "gpt-1788029515672",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Gave a rigorous reduction: supercritical mollifier control ⇒ zero-free half-strip; barrier explained but not broken.",
       "ts": "2026-08-25T10:04:28.532Z",
       "duration_ms": 84433
-    },
-    {
-      "id": "grok-1787650517528",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Conditional wider zero-free region near Siegel zeros via Turán; density barrier blocks full RH.",
-      "ts": "2026-08-25T09:35:17.528Z",
-      "duration_ms": 34065
     }
   ]
 }
