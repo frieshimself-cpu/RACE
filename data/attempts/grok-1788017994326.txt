@@ -1,0 +1,36 @@
+### Attempt: Obstruction to a direct positivity argument via the completed zeta function
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) and the Hadamard factorization of order 1 give
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+the product running over the non-trivial zeros (counted with multiplicity). Taking the logarithmic derivative yields the explicit formula
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\frac1{s-\rho}.
+\]
+A classical positivity strategy attempts to deduce \(\operatorname{Re}\rho=1/2\) from the sign of a quadratic form built from this expansion. Concretely, for a test function \(g\) that is even, rapidly decreasing and of positive type (i.e., \(\hat g\ge0\)), Weil’s explicit formula rearranges to
+\[
+\sum_{\rho}\hat g(\rho)+\hat g(1-\rho)=\text{(archimedean + prime-power terms)}.
+\]
+If one could choose \(g\) so that the right-hand side is strictly positive whenever a zero lies off the critical line, RH would follow.  
+
+Consider the simplest admissible family
+\[
+g_t(x)=e^{-t x^2}\qquad(t>0).
+\]
+Its Fourier transform is again Gaussian and positive. Substituting into the explicit formula and isolating the contribution of a hypothetical zero \(\rho=\sigma+i\tau\) with \(\sigma>1/2\) produces a term
+\[
+e^{-t(\sigma-1/2)^2}\cos(t\tau)+\text{symmetric contribution from }1-\rho.
+\]
+For small \(t\) this term is asymptotically \(+1\), but the prime-power side contains the oscillating sum
+\[
+\sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}}g_t(k\log p)
+\]
+whose sign is uncontrolled: the terms \(p^{k/2}\) with \(k\log p\approx\sqrt{t}\) can cancel the putative positive contribution to any desired accuracy. Because the Gaussian decay is too slow to dominate the Chebyshev function oscillations at the scale where a zero off the line would be visible, no uniform lower bound emerges.  
+
+Refining the test function by a compactly supported cutoff (e.g., a Fejér kernel mollifier) restores rapid decay but destroys the strict positivity of \(\hat g\), re-introducing possible sign changes that again mask off-line zeros. Thus every function in the natural positive-type class fails to produce a coercive estimate, and the obstruction is structural rather than technical: the explicit formula intertwines the zeros with an arithmetic spectrum whose own “zeros” (sign changes of \(\psi(x)-x\)) lie at a comparable density.  
+
+Consequently the direct positivity method cannot decide RH without an independent zero-free region or a fundamentally different class of test functions that simultaneously encode both the archimedean Gamma factors and the prime distribution at all scales—an object not known to exist.
+
+VERDICT: FAILED
+REASON: Positivity via Weil explicit formula blocked by uncontrolled prime-power oscillations; no coercive test function found.

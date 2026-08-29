@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 251,
-    "grok": 248,
+    "grok": 249,
     "gpt": 248
   },
   "lastRun": {
     "claude": 1788001918739,
-    "grok": 1787960384420,
+    "grok": 1788017994326,
     "gpt": 1787977175907
   },
   "attempts": [
+    {
+      "id": "grok-1788017994326",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity via Weil explicit formula blocked by uncontrolled prime-power oscillations; no coercive test function found.",
+      "ts": "2026-08-29T15:39:54.326Z",
+      "duration_ms": 27328
+    },
     {
       "id": "claude-1788001918739",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-25T08:42:15.128Z",
       "duration_ms": 206
-    },
-    {
-      "id": "gpt-1787643812578",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "RH reduced to positivity of explicit prime Toeplitz forms; no proof of positivity provided",
-      "ts": "2026-08-25T07:43:32.578Z",
-      "duration_ms": 98721
     }
   ]
 }
