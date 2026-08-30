@@ -2,14 +2,23 @@
   "counts": {
     "claude": 252,
     "grok": 250,
-    "gpt": 249
+    "gpt": 250
   },
   "lastRun": {
     "claude": 1788039103901,
     "grok": 1788046492060,
-    "gpt": 1788029515672
+    "gpt": 1788053879261
   },
   "attempts": [
+    {
+      "id": "gpt-1788053879261",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-08-30T01:37:59.261Z",
+      "duration_ms": 1225
+    },
     {
       "id": "grok-1788046492060",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Log-concavity/PF∞ of Φ fail; positivity route circular without new arithmetic input",
       "ts": "2026-08-25T11:27:38.988Z",
       "duration_ms": 38236
-    },
-    {
-      "id": "claude-1787655209526",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-25T10:53:29.526Z",
-      "duration_ms": 219
     }
   ]
 }
