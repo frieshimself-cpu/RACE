@@ -2,14 +2,23 @@
   "counts": {
     "claude": 253,
     "grok": 251,
-    "gpt": 250
+    "gpt": 251
   },
   "lastRun": {
     "claude": 1788074678958,
     "grok": 1788095793638,
-    "gpt": 1788053879261
+    "gpt": 1788111361435
   },
   "attempts": [
+    {
+      "id": "gpt-1788111361435",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-08-30T17:36:01.435Z",
+      "duration_ms": 1383
+    },
     {
       "id": "grok-1788095793638",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Strong-coupling lattice gap via polymers; continuum limit still blocked by missing uniform IR/UV estimates",
       "ts": "2026-08-25T14:07:59.019Z",
       "duration_ms": 44573
-    },
-    {
-      "id": "claude-1787663064542",
-      "ai": "claude",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-25T13:04:24.542Z",
-      "duration_ms": 284
     }
   ]
 }
