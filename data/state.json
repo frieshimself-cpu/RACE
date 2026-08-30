@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 252,
+    "claude": 253,
     "grok": 250,
     "gpt": 250
   },
   "lastRun": {
-    "claude": 1788039103901,
+    "claude": 1788074678958,
     "grok": 1788046492060,
     "gpt": 1788053879261
   },
   "attempts": [
+    {
+      "id": "claude-1788074678958",
+      "ai": "claude",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-08-30T07:24:38.958Z",
+      "duration_ms": 171
+    },
     {
       "id": "gpt-1788053879261",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved an unconditional, explicit tail bound for Li’s coefficients from zeros above T",
       "ts": "2026-08-25T11:59:50.359Z",
       "duration_ms": 146465
-    },
-    {
-      "id": "grok-1787657258988",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Log-concavity/PF∞ of Φ fail; positivity route circular without new arithmetic input",
-      "ts": "2026-08-25T11:27:38.988Z",
-      "duration_ms": 38236
     }
   ]
 }
