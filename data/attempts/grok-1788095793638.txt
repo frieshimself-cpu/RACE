@@ -1,0 +1,54 @@
+### Attempt: Closing a critical enstrophy estimate via a logarithmic refinement of the vorticity stretching term
+
+Consider a smooth divergence-free solution \(u\) to the 3D incompressible Navier–Stokes equations on \(\mathbb{R}^3\times[0,T)\),
+\[
+\partial_t u+(u\cdot\nabla)u=\Delta u-\nabla p,\qquad\operatorname{div}u=0,
+\]
+with finite-energy initial data. Let \(\omega=\nabla\times u\) and write the enstrophy \(E(t)=\frac12\|\omega(t)\|_{L^2}^2\). The vorticity equation yields the exact identity
+\[
+\frac{dE}{dt}+\|\nabla\omega\|_{L^2}^2=\int_{\mathbb{R}^3}(\omega\cdot\nabla u)\cdot\omega\,dx.
+\]
+The stretching integral is estimated in the usual way by Hölder and the Biot–Savart law:
+\[
+\bigl|\int(\omega\cdot\nabla u)\cdot\omega\bigr|\le C\|\omega\|_{L^3}^3.
+\]
+Interpolate \(\|\omega\|_{L^3}\le C\|\omega\|_{L^2}^{1/2}\|\nabla\omega\|_{L^2}^{1/2}\) to obtain
+\[
+\frac{dE}{dt}+\|\nabla\omega\|_{L^2}^2\le C E^{3/2}\|\nabla\omega\|_{L^2}^{3/2}.
+\]
+Young’s inequality with a small coefficient on the dissipation then produces the differential inequality
+\[
+\frac{dE}{dt}\le C E^3,
+\]
+which is supercritical and does not preclude finite-time blow-up of \(E\).
+
+To improve the power, insert a logarithmic correction that exploits the structure of the singular integral defining \(\nabla u\). Decompose the stretching term in frequency space. Let \(P_{\le N}\) and \(P_{>N}\) be the standard Littlewood–Paley projectors. Split
+\[
+\int(\omega\cdot\nabla u)\cdot\omega=\int(\omega\cdot\nabla u_{\le N})\cdot\omega+\int(\omega\cdot\nabla u_{>N})\cdot\omega.
+\]
+The low-frequency piece is controlled by
+\[
+\bigl|\int(\omega\cdot\nabla u_{\le N})\cdot\omega\bigr|\le C N\|\omega\|_{L^2}^2\cdot\|\omega\|_{L^\infty}\le C N E\cdot\|\omega\|_{L^\infty}.
+\]
+For the high-frequency piece, use the Coifman–Meyer estimate on the paraproduct together with the fact that \(\nabla u_{>N}\) gains an extra derivative relative to \(\omega_{>N}\):
+\[
+\bigl|\int(\omega\cdot\nabla u_{>N})\cdot\omega\bigr|\le C\|\omega\|_{L^2}\|\nabla\omega\|_{L^2}\|\omega_{>N}\|_{BMO}.
+\]
+By the John–Nirenberg inequality and Bernstein,
+\[
+\|\omega_{>N}\|_{BMO}\le C(\log N)^{1/2}\|\omega\|_{L^\infty}^{1/2}\|\nabla\omega\|_{L^2}^{1/2}+C N^{-1}\|\nabla\omega\|_{L^2}.
+\]
+Collecting terms and optimizing the cut-off at \(N=E\cdot\exp(E^{1/2})\) produces the refined inequality
+\[
+\frac{dE}{dt}+\frac12\|\nabla\omega\|_{L^2}^2\le C E^2(\log(2+E))\cdot\|\omega\|_{L^\infty}.
+\]
+If one could absorb the remaining \(\|\omega\|_{L^\infty}\) factor by a Beale–Kato–Majda-type bound that is itself controlled by \(E\), the logarithm would be integrable and global regularity would follow. However, the only available bound is the classical BKM criterion
+\[
+\int_0^T\|\omega(t)\|_{L^\infty}\,dt=\infty\qquad\Rightarrow\qquad\text{possible blow-up at }T,
+\]
+which is circular: the refined enstrophy inequality still contains an uncontrolled \(L^\infty\) factor whose time integral may diverge precisely when \(E\) blows up. The logarithmic gain is therefore insufficient to close the a-priori estimate.
+
+The obstruction is sharp: the same frequency cut-off, when inserted into the known self-similar blow-up ansätze (or into the numerically observed extreme vortex-stretching events), produces a logarithm that grows too slowly to counteract the cubic enstrophy production. Consequently the approach fails to yield a new global regularity criterion beyond the already-known Escauriaza–Seregin–Šverák \(L^\infty_t L^3_x\) endpoint.
+
+VERDICT: FAILED
+REASON: Log-refined enstrophy estimate still circular in BKM; no new closed a-priori bound.
