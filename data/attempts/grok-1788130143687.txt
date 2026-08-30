@@ -1,0 +1,36 @@
+### Attempt: Obstruction to a Contour-Shift Argument for a Zero-Free Half-Plane
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed xi-function, entire of order 1, satisfying \(\xi(s)=\xi(1-s)\) and having the same non-trivial zeros as \(\zeta\). Write the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+the product running over the non-trivial zeros (counted with multiplicity) and converging in the usual Weierstrass sense after grouping \(\rho\) with \(1-\rho\).
+
+Assume, for contradiction, that there exists a zero \(\rho_0=\beta+i\gamma\) with \(\beta>1/2\) and \(\gamma\neq0\). (The functional equation forces \(\overline{\rho_0}\) and \(1-\rho_0\) to be zeros as well.) Fix a large height \(T>|\gamma|+2\) and consider the rectangular contour \(C_T\) with vertices
+\[
+\frac12+\varepsilon\pm iT,\qquad 2\pm iT
+\]
+(\(\varepsilon>0\) small enough that no zero lies on the vertical lines). The goal of many classical attempts is to show that
+\[
+\frac1{2\pi i}\int_{C_T}\frac{\xi'}{\xi}(s)\,ds
+\]
+cannot equal the number of zeros inside \(C_T\) once the horizontal integrals are shown to be \(o(T)\) and the right-hand vertical integral is controlled by the Dirichlet series for \(-\zeta'/\zeta\).
+
+On the right-hand side \(\operatorname{Re}s=2\) one has the absolutely convergent expansion
+\[
+\frac{\xi'}{\xi}(s)=-\frac12\log\pi+\frac12\frac{\Gamma'}{\Gamma}(s/2)+\frac{\zeta'}{\zeta}(s)=O(\log|s|),
+\]
+so the vertical integral is \(O(T\log T)\). The functional equation converts the left-hand vertical integral (at \(\operatorname{Re}s=1/2+\varepsilon\)) into an integral involving \(\xi'/\xi(1-s)\), which again produces a factor \(O(T\log T)\) plus a possible contribution from any zeros with real part \(>\frac12+\varepsilon\). Horizontal integrals are estimated by the convexivity bound \(\xi(\sigma+it)\ll_\varepsilon |t|^{C(1-\sigma)+\varepsilon}\) (or any subconvexity bound) and Stirling’s formula; after a standard dyadic decomposition they contribute \(o(N(T))\) where \(N(T)\) is the zero-counting function.
+
+The resulting asymptotic
+\[
+N(T)=\frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}+O(\log T)
+\]
+is of course classical and unconditional. The obstruction appears when one tries to upgrade the argument to a strict zero-free region \(\operatorname{Re}s\ge\frac12+\delta\). Any zero \(\rho_0\) with \(\beta>1/2\) forces an additional residue on every contour that encloses it. Because the horizontal integrals only give an \(O(\log T)\) error (even under the Lindelöf hypothesis the error remains \(\gg\log T\) on average), the contribution of a single off-line zero is absorbed into the error term and never produces a contradiction with the main term coming from the right-hand vertical integral. In other words, the contour-shift identity is consistent with the existence of zeros arbitrarily close to the critical line; the error term is simply too large to detect a discrete violation of \(\beta=1/2\).
+
+A quantitative version makes the gap explicit. Suppose one zeros of height \(\le T\) satisfies \(\beta\ge\frac12+\delta\). The difference between the contour integral and the main term of \(N(T)\) is then at least \(1-O(\delta^{-1}\log T\cdot\operatorname{meas}(E_T))\), where \(E_T\) is the set of ordinates at which a horizontal integral exceeds its mean size. Known bounds on the measure of \(E_T\) (from the second moment of \(|\zeta|\) or from the explicit formula) are only \(O(T/\log T)\) or slightly better; they never fall below \(c_\delta T\), which is precisely the size needed to absorb the extra residue. Thus the argument cannot rule out even a single zero with \(\beta>1/2\).
+
+The same obstruction persists if the rectangle is replaced by a circle centered at \(2\) (or any fixed point in the region of absolute convergence) or by a truncated Hankel contour: the contribution of the “bad” arcs always dominates the putative residue at \(\rho_0\). Consequently every pure contour-integration approach that relies on convexivity-type bounds for \(\xi\) on horizontal or circular arcs is blocked by an error term larger than the signal produced by an off-critical zero.
+
+VERDICT: FAILED
+REASON: Contour-shift yields only classical N(T); error terms absorb any off-line zero, no contradiction.

@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 254,
-    "grok": 251,
+    "grok": 252,
     "gpt": 251
   },
   "lastRun": {
     "claude": 1788120057939,
-    "grok": 1788095793638,
+    "grok": 1788130143687,
     "gpt": 1788111361435
   },
   "attempts": [
+    {
+      "id": "grok-1788130143687",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour-shift yields only classical N(T); error terms absorb any off-line zero, no contradiction.",
+      "ts": "2026-08-30T22:49:03.687Z",
+      "duration_ms": 33746
+    },
     {
       "id": "claude-1788120057939",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-25T16:03:30.159Z",
       "duration_ms": 295
-    },
-    {
-      "id": "gpt-1787670538976",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous reduction: a fixed-window L2 bound on ψ(x)−x implies RH; not a full solution.",
-      "ts": "2026-08-25T15:08:58.976Z",
-      "duration_ms": 130864
     }
   ]
 }
