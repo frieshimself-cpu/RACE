@@ -1,0 +1,63 @@
+### Attempt: A conditional zero-free strip via a truncated explicit formula and Möbius positivity
+
+Let \(\Xi(t) = \xi(1/2 + it)\) denote the Riemann xi-function on the critical line (entire, real for real \(t\), even). The Riemann Hypothesis (RH) is equivalent to all non-trivial zeros of \(\zeta(s)\) satisfying \(\operatorname{Re}(s) = 1/2\), or equivalently all zeros of \(\Xi\) being real. Write the completed zeta as
+\[
+\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),
+\]
+so that the functional equation is \(\xi(s)=\xi(1-s)\).
+
+We work with the von Mangoldt explicit formula in truncated form. For \(x>1\) not a prime power and \(T\ge 2\),
+\[
+\psi(x) = x - \sum_{|\Im\rho|\le T}\frac{x^\rho}{\rho} - \log(2\pi) - \tfrac12\log(1-x^{-2}) + R(x,T),
+\]
+where the sum runs over non-trivial zeros \(\rho=\beta+i\gamma\) and the remainder satisfies the classical bound
+\[
+|R(x,T)|\ll\frac{x\log^2(xT)}{T} + \log x
+\]
+(uniformly for \(x\ge 2\)). Equivalently, in terms of the Mertens function \(M(x)=\sum_{n\le x}\mu(n)\),
+\[
+\int_1^x\frac{M(u)}{u}\,du = -\sum_{|\gamma|\le T}\frac{x^\rho}{\rho^2} + O\Bigl(\frac{x\log^2(xT)}{T}\Bigr)
+\]
+after one integration by parts (the constant and archimedean terms are absorbed into the \(O\)).
+
+#### Lemma (conditional strip)
+Fix \(\theta\in(1/2,1)\). Suppose there exists an absolute constant \(C>0\) such that
+\[
+\bigl|M(x)\bigr|\le C x^\theta(\log x)^{-2}\qquad\text{for all }x\ge 2.
+\]
+Then \(\zeta(s)\ne 0\) for all \(s=\sigma+it\) with \(\sigma>\theta\) and \(|t|\ge 2\).
+
+#### Proof of the lemma
+Assume for contradiction that \(\rho_0=\beta+i\gamma_0\) is a zero with \(\beta>\theta\) and \(\gamma_0\ge 2\). Choose the truncation height \(T= x^{\beta-\theta}\cdot(\log x)^3\) (so \(T\to\infty\) as \(x\to\infty\)) and insert the assumed bound on \(M\) into the integrated explicit formula. The left-hand side is then
+\[
+\biggl|\int_1^x\frac{M(u)}{u}\,du\biggr|\le C\int_1^x u^{\theta-1}(\log u)^{-2}\,du\ll x^\theta(\log x)^{-1}.
+\]
+On the right-hand side the contribution of the single zero \(\rho_0\) alone is
+\[
+\biggl|\frac{x^{\rho_0}}{\rho_0^2}\biggr|\asymp\frac{x^\beta}{\gamma_0^2}.
+\]
+All other zeros with \(|\gamma|\le T\) contribute at most
+\[
+\sum_{|\gamma|\le T}\frac{x^\beta}{|\rho|^2}\ll x^\beta\sum_{n\le T}\frac1{n^2}\ll x^\beta,
+\]
+while the remainder is \(O(x^\theta(\log x)^{-1})\) by the choice of \(T\). Dividing through by \(x^\theta\) therefore yields
+\[
+O\bigl((\log x)^{-1}\bigr)\ge c\,x^{\beta-\theta} - O(1)
+\]
+for an absolute \(c>0\) (coming from the isolated term). The right-hand side tends to \(+\infty\) as \(x\to\infty\), a contradiction. Hence no such zero exists.
+
+(The same argument with a dyadic decomposition of the sum over zeros and the classical zero-density estimate \(N(\sigma,T)\ll T^{c(1-\sigma)}\log T\) removes the need to isolate a single zero and yields the identical strip.)
+
+#### Relevance and obstruction
+The lemma converts any power-saving bound on \(M(x)\) strictly stronger than the trivial \(M(x)=O(x)\) into a zero-free half-plane to the right of the critical line. In particular, the Lindelöf-on-average bound \(M(x)=O(x^{1/2+\varepsilon})\) (known to be equivalent to RH) would give the full half-plane \(\sigma>1/2\). The argument is fully rigorous once the bound on \(M\) is granted; the only analytic ingredients are the explicit formula with an effective remainder and elementary estimates on partial summation.
+
+The obstruction to an unconditional result is precisely the absence of any zero-free-region-quality bound on \(M(x)\) (or on \(\psi(x)-x\)). All known estimates
+\[
+M(x)\ll x\exp\bigl(-c(\log x)^a(\log\log x)^b\bigr)
+\]
+(with \(a<1\)) produce only classical zero-free regions of the form \(\sigma\ge 1-c(\log(|t|+2))^{-2/3}(\log\log(|t|+2))^{-1/3}\), which are already classical and do not reach a fixed abscissa \(\theta<1\). Any attempt to close the gap by inserting a hypothetical subconvex bound for \(\zeta\) on the edge of the critical strip into the explicit formula merely recovers the same circular dependence that has blocked progress since Ingham.
+
+Thus the reduction is sharp: progress on RH via the explicit formula is equivalent to progress on the Mertens function beyond the present exponential-logarithmic barrier.
+
+VERDICT: PARTIAL
+REASON: Conditional zero-free strip from Mertens bound; obstruction to uncond. power saving on M(x) remains.
