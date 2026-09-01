@@ -1,0 +1,30 @@
+The completed Riemann xi-function admits the representation
+\[
+\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),
+\]
+entire of order one.  Equivalently, RH asserts that every zero of the even entire function
+\[
+\Xi(z)=\xi\bigl(\tfrac12+iz\bigr)
+\]
+is real.  A classical Fourier representation
+\[
+\Xi(z)=\int_{-\infty}^\infty\Phi(u)\,e^{izu}\,du
+\]
+holds, where the kernel
+\[
+\Phi(u)=2\sum_{n=1}^\infty\bigl(2\pi^2n^4e^{9u/2}-3\pi n^2e^{5u/2}\bigr)\exp(-\pi n^2e^{2u})
+\]
+is positive, even and of rapid decay \(\Phi(u)\asymp\exp(-c\,e^{2|u|})\).
+
+Positivity of \(\Phi\) alone does not force the Fourier transform to lie in the Laguerre–Pólya class.  A concrete obstruction is obtained by comparing with the one-parameter family
+\[
+\Phi_\alpha(u)=\exp\bigl(-e^{\alpha|u|}\bigr),\qquad\alpha>0.
+\]
+For every \(\alpha>2\) the Fourier transform of \(\Phi_\alpha\) possesses non-real zeros (this follows by writing the transform as a Mellin–Barnes integral and locating poles of the resulting Gamma factors off the real axis).  Since the true kernel \(\Phi\) differs from a multiple of \(\Phi_2\) by a relative error that is only polynomially small in the exponent, the same contour shift produces a non-real zero of \(\Xi\) unless an additional cancellation, invisible from the positivity of \(\Phi\), is present.  No such cancellation can be read off from the series defining \(\Phi\) without already knowing the location of the zeros of \(\xi\).  Consequently every approach that relies solely on the sign of \(\Phi\) (or of its finite truncations) is blocked by this analytic continuation obstruction.
+
+The same gap appears when one attempts to verify the Pólya–Schur multiplier sequences associated with the Taylor coefficients of \(\Xi\); the necessary higher-order inequalities on the derivatives of \(\log\Phi\) fail to hold uniformly, again by comparison with the model kernels \(\Phi_\alpha\).
+
+Thus the Fourier-positivity route yields no unconditional zero-free region beyond what is already classical.
+
+VERDICT: FAILED
+REASON: Positivity of the xi-kernel is insufficient; model kernels with same decay produce non-real zeros.
