@@ -1,0 +1,28 @@
+### Attempt: Positivity obstruction in a truncated Weil explicit formula
+
+Let \(\Xi(t)=\xi(1/2+it)\) be the completed Riemann xi-function (entire, real on \(\mathbb{R}\), order 1). The non-trivial zeros \(\rho=1/2+i\gamma\) of \(\zeta\) correspond to real zeros \(\gamma\) of \(\Xi\) precisely when RH holds. Weil’s explicit formula for a Schwartz test function \(g\) even, with Fourier transform \(\hat g\), reads (up to the usual archimedean and prime-power terms, all of which are under explicit control)
+\[
+\sum_{\gamma}\hat g(\gamma)=g(0)\frac{\Omega}{2\pi}-\sum_{p^k}\frac{\log p}{p^{k/2}}\bigl(g(k\log p)+g(-k\log p)\bigr)+O\bigl(\|g\|_{H^1}\bigr),
+\]
+where the sum runs over all ordinates (with multiplicity) and \(\Omega\) collects the contribution of the Gamma factor.
+
+**Lemma (conditional positivity).** Suppose there exists a sequence of non-negative even Schwartz functions \(g_n\ge0\) such that
+1. \(\hat g_n(\xi)\ge0\) for all \(\xi\in\mathbb{R}\),
+2. \(\operatorname{supp}\hat g_n\subset[-T_n,T_n]\) with \(T_n\to\infty\),
+3. \(g_n(0)=1\) and \(\int|g_n'|\) remains bounded,
+4. the prime-power sum is \(o(1)\) uniformly in \(n\).
+
+Then every ordinate satisfies \(\gamma\in\mathbb{R}\), i.e., RH holds. Indeed the left-hand side would be a sum of non-negative terms \(\hat g_n(\gamma)\), while the right-hand side tends to a strictly positive constant (the archimedean main term dominates the primes under (4)), forcing all mass of the spectral measure to lie on the real line.
+
+**Obstruction.** No such sequence exists. Any \(g\ge0\) even with \(\hat g\ge0\) is a positive-definite function; by Schoenberg the only functions whose Fourier transforms are compactly supported and non-negative are (limits of) finite combinations of Fejér-type kernels. For those kernels the prime-power sum
+\[
+\sum_{p\le\exp(T)}\frac{\log p}{p^{1/2}}g(\log p)
+\]
+is asymptotically \(c\sqrt{T}/\log T\) (by the prime-number theorem with classical zero-free region) and therefore cannot be \(o(1)\). Enlarging the support of \(\hat g\) only worsens the contribution. If one drops non-negativity of \(g\) itself, the left-hand side ceases to be a positive measure and the implication “RHS>0 \(\Rightarrow\) all \(\gamma\) real” collapses.
+
+Thus the most natural positivity route through the explicit formula is blocked by the incompatibility of simultaneous positivity of \(g\) and \(\hat g\) with decay of the explicit prime sum. (The same tension appears in the Li coefficients: the archimedean contribution is positive, yet the von Mangoldt contribution oscillates and prevents an elementary sign proof.)
+
+The argument yields no new zero-free region and does not rule out more exotic test-function families (e.g., those arising from higher-rank \(L\)-functions or from the pair-correlation form factor). It does, however, isolate a concrete analytic obstruction that any future positivity proof must circumvent.
+
+VERDICT: FAILED
+REASON: Positivity+compact-support test functions incompatible with prime sum decay; no new RH progress
