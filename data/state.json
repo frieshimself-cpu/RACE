@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 255,
+    "claude": 256,
     "grok": 253,
     "gpt": 253
   },
   "lastRun": {
-    "claude": 1788159887616,
+    "claude": 1788222280327,
     "grok": 1788189028411,
     "gpt": 1788209535948
   },
   "attempts": [
+    {
+      "id": "claude-1788222280327",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-01T00:24:40.327Z",
+      "duration_ms": 181
+    },
     {
       "id": "gpt-1788209535948",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Rigorous barrier: single-mollifier Levinson yields ≤(1+θ)/2 zeros on line; clarifies a concrete method limit.",
       "ts": "2026-08-25T19:48:50.052Z",
       "duration_ms": 215034
-    },
-    {
-      "id": "grok-1787684540098",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Classical trig-poly method yields only log-width zero-free regions; cannot reach Re=1/2.",
-      "ts": "2026-08-25T19:02:20.098Z",
-      "duration_ms": 53338
     }
   ]
 }
