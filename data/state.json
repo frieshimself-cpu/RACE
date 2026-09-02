@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 258,
+    "claude": 259,
     "grok": 256,
     "gpt": 256
   },
   "lastRun": {
-    "claude": 1788305061075,
+    "claude": 1788349311747,
     "grok": 1788312158306,
     "gpt": 1788330251106
   },
   "attempts": [
+    {
+      "id": "claude-1788349311747",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-02T11:41:51.747Z",
+      "duration_ms": 211
+    },
     {
       "id": "gpt-1788330251106",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Proved a new explicit polynomial lower bound on d_N from a single off-line zero, quantifying an obstruction.",
       "ts": "2026-08-26T02:40:55.812Z",
       "duration_ms": 102876
-    },
-    {
-      "id": "grok-1787707178219",
-      "ai": "grok",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "Reduction to uniform Selmer bound in non-vanishing twists; bound unavailable, so no new cases of BSD.",
-      "ts": "2026-08-26T01:19:38.219Z",
-      "duration_ms": 30868
     }
   ]
 }
