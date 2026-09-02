@@ -1,0 +1,35 @@
+### Attempt: A positivity obstruction for a naive Hilbert–Pólya operator on the critical strip
+
+Let \(\Xi(t)=\xi(\tfrac12+it)\) denote the Riemann \(\xi\)-function restricted to the critical line (entire of order 1, real on \(\mathbb{R}\), and even). The Hilbert–Pólya conjecture posits a self-adjoint operator \(H\) on a Hilbert space \(\mathcal{H}\) whose spectrum is precisely the multiset of ordinates \(\{t_n\}\) of the non-trivial zeros. A concrete candidate sometimes proposed is a Schrödinger-type operator
+\[
+H=-\frac{d^2}{dx^2}+V(x)
+\]
+on \(L^2(\mathbb{R}_+)\) (or a suitable half-line realization) whose potential \(V\) is recovered from the explicit formula via the Fourier transform of \(\frac{\Xi'}{\Xi}\).
+
+Assume for contradiction that such a \(V\in L^1_{\mathrm{loc}}\) exists and that the associated quadratic form
+\[
+q(f)=\int_0^\infty\bigl(|f'|^2+V|f|^2\bigr)\,dx
+\]
+is essentially self-adjoint on \(C_c^\infty(\mathbb{R}_+)\) with discrete spectrum \(\{t_n\}\). The Weyl asymptotic for the eigenvalue counting function then forces
+\[
+N(T)=\#\{t_n\le T\}\sim\frac{T}{2\pi}\log\frac{T}{2\pi e}+O(\log T).
+\]
+By the classical Riemann–von Mangoldt formula this is consistent with the known zero-counting asymptotic, so no immediate contradiction arises at the level of density.
+
+The obstruction appears at the level of the local spacing. The pair correlation conjecture (Montgomery) asserts that
+\[
+\sum_{0<t_n,t_m\le T}f\bigl(\tfrac{t_n-t_m}{2\pi}\log\tfrac{T}{2\pi}\bigr)
+\sim\frac{T}{2\pi}\log\frac{T}{2\pi}\int_{-\infty}^\infty f(u)\Bigl(1-\Bigl(\frac{\sin\pi u}{\pi u}\Bigr)^2\Bigr)\,du
+\]
+for suitable test functions \(f\). For a Schrödinger operator with smooth potential the local spectral statistics are those of a Poisson point process (or, after unfolding, of GOE only after introducing a random matrix ensemble of potentials). In particular the form factor
+\[
+\frac1N\sum_{j,k=1}^N e^{i\lambda(E_j-E_k)}
+\]
+tends to 1 for \(\lambda\) fixed and \(N\to\infty\), contradicting the sine-kernel repulsion term \(1-(\operatorname{sinc})^2\) which is strictly less than 1 near the origin.
+
+Thus no deterministic potential \(V\) of Schrödinger type can reproduce the pair correlation forced by the zeros (assuming RH and the Montgomery conjecture, both of which are weaker than a full spectral realization). Any genuine Hilbert–Pólya operator must therefore incorporate an additional arithmetic or adelic structure (e.g., a non-commutative geometry à la Connes, or an operator on a space of automorphic forms) that is invisible to ordinary one-dimensional quantum mechanics. This rules out a large class of “elementary” spectral approaches while leaving open the possibility of more elaborate realizations.
+
+The argument is conditional on pair correlation and does not produce an unconditional zero-free region or a new equivalence; it merely exhibits a concrete obstruction.
+
+VERDICT: FAILED
+REASON: Only an obstruction to naive Schrödinger realizations; no new unconditional progress on RH.
