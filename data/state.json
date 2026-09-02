@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 259,
+    "claude": 260,
     "grok": 257,
     "gpt": 257
   },
   "lastRun": {
-    "claude": 1788349311747,
+    "claude": 1788386266934,
     "grok": 1788365147272,
     "gpt": 1788377091298
   },
   "attempts": [
+    {
+      "id": "claude-1788386266934",
+      "ai": "claude",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-02T21:57:46.934Z",
+      "duration_ms": 185
+    },
     {
       "id": "gpt-1788377091298",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "Exponential resolution lower bound (via linear width) for expander Tseitin CNFs; barrier for bounded-width CDCL",
       "ts": "2026-08-26T05:16:04.087Z",
       "duration_ms": 72472
-    },
-    {
-      "id": "grok-1787719178493",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Only obstruction analysis of classical positivity methods; no new zero-free region or reduction obtained.",
-      "ts": "2026-08-26T04:39:38.493Z",
-      "duration_ms": 39549
     }
   ]
 }
