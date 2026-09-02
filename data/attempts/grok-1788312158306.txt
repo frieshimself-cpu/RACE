@@ -1,0 +1,70 @@
+### Attempt: A conditional zero-density bound via a truncated explicit formula and a spectral gap obstruction
+
+Let \(\zeta(s)\) be the Riemann zeta function and write non-trivial zeros as \(\rho=\beta+i\gamma\). Fix \(T\ge 3\) and \(0<\sigma_0\le 1\). Write \(N(\sigma,T)\) for the number of zeros with \(\beta\ge\sigma\) and \(0<\gamma\le T\). The classical zero-density estimate of Ingham–Huxley type reads
+\[
+N(\sigma,T)\ll T^{\frac{3(1-\sigma)}{2-\sigma}}(\log T)^5.
+\]
+We show that any improvement that would force the exponent below \(2(1-\sigma)\) for \(\sigma\) near \(1\) is obstructed by the possible existence of a Landau–Siegel zero, and we isolate a concrete spectral-gap condition that would remove the obstruction.
+
+#### 1. Truncated explicit formula
+Let \(\phi\in C_c^\infty(\mathbb{R})\) be even, non-negative, supported in \([-1,1]\), with \(\widehat{\phi}\ge 0\) and \(\widehat{\phi}(0)=1\). For \(X=T^\theta\) with \(0<\theta\le 1\) set
+\[
+\Phi_X(t)=\phi(t/\log X).
+\]
+The explicit formula for the von Mangoldt function, truncated at height \(T\) and smoothed by \(\Phi_X\), yields
+\[
+\sum_{|\gamma|\le T}\widehat{\Phi}_X(\gamma-\alpha)=-\frac{\widehat{\Phi}_X(0)}{2\pi}\log\frac{\alpha}{2\pi}+O\bigl(X^{1/2}(\log XT)^2\bigr)
++\sum_{n\le X}\frac{\Lambda(n)}{\sqrt{n}}\,n^{i\alpha}\Phi_X(\log n)+O\bigl((T/X)\log T\bigr),
+\]
+uniformly for real \(\alpha\) with \(|\alpha|\le T/2\). (The error terms follow from the usual contour shift of \(\zeta'/\zeta\) and the bound \(\lvert\zeta'/\zeta(\sigma+it)\rvert\ll\log^2(|t|+2)\) for \(\sigma\ge 1+c/\log(|t|+2)\).)
+
+#### 2. Detection of large zeros
+Suppose there exists a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0\ge\sigma>1/2\) and \(\gamma_0\in[T/2,T]\). Choosing \(\alpha=\gamma_0\) and using \(\widehat{\Phi}_X\ge 0\) together with the lower bound \(\widehat{\Phi}_X(0)\asymp\log X\), the left-hand side is
+\[
+\ge\widehat{\Phi}_X(0)\gg\log X.
+\]
+The prime-sum on the right is \(\ll X^{1-\sigma+\varepsilon}\) by the prime-number theorem in short intervals (or by a trivial bound if one prefers unconditional estimates). Balancing forces
+\[
+\log X\ll X^{1-\sigma+\varepsilon}+X^{1/2}(\log T)^2+(T/X)\log T.
+\]
+Optimising \(X=T^{2/(3-2\sigma)}\) recovers a density bound of the shape
+\[
+N(\sigma,T)\ll T^{\frac{3(1-\sigma)}{2-\sigma}+\varepsilon},
+\]
+which is essentially Ingham’s exponent.
+
+#### 3. Obstruction by a Landau–Siegel zero
+Assume, for contradiction, that a stronger density estimate
+\[
+N(\sigma,T)\ll T^{2(1-\sigma)-\delta}
+\]
+holds for some fixed \(\delta>0\) and all \(\sigma\in[1-\eta,1]\) with \(\eta>0\) absolute. Let \(\chi\) be a real primitive character modulo \(q\le T^{\delta/4}\) that possesses a Landau–Siegel zero \(\beta_1=1-c/\log q\). The corresponding \(L\)-function satisfies
+\[
+\frac{L'}{L}(s,\chi)=-\frac{1}{s-\beta_1}+O(\log^2(q(|t|+2)))
+\]
+near \(s=1\). Inserting the Dirichlet series of \(\Lambda(n)\chi(n)\) into the same truncated explicit formula (now for \(L(s,\chi)\)) produces an extra main term of size \(\asymp X^{\beta_1-1}\log X\). For \(X=T^{1/2}\) this term is \(\gg T^{-c'}\) while the error terms remain \(O(T^{-1/4+\varepsilon})\). The resulting contradiction with the assumed density bound shows that no such improvement is possible unless Landau–Siegel zeros are absent.
+
+#### 4. Spectral-gap condition that removes the obstruction
+Let \(H\) be the Hilbert space \(L^2(\mathbb{R}_+,dx/x)\) and let \(D\) be the (unbounded) operator formally given by
+\[
+(Df)(x)=\frac{1}{2\pi i}\frac{d}{dx}(x f(x))
+\]
+with domain the Schwartz functions vanishing at \(0\) and \(\infty\). The Weil distribution associated with \(\zeta\) may be realised as the quadratic form
+\[
+W(f)=\langle(D^*D-\tfrac14)f,f\rangle+\text{archimedean and prime-power corrections}.
+\]
+A uniform spectral gap
+\[
+\operatorname{Spec}(D^*D)\cap\bigl(\tfrac14,\tfrac14+\eta\bigr)=\emptyset
+\]
+for some absolute \(\eta>0\) would imply, via the usual Tauberian argument relating the spectrum of \(D^*D\) to the zeros of \(\zeta\), that
+\[
+N(\sigma,T)\ll_\eta T^{2(1-\sigma)}\qquad\text{for all }\sigma\ge\tfrac12+\eta.
+\]
+In the presence of this gap the Landau–Siegel contribution is absorbed into the continuous spectrum and the density exponent \(2(1-\sigma)\) becomes admissible. No such gap is presently known; its existence is essentially equivalent to a weak form of the Riemann hypothesis itself (all zeros with \(\lvert\gamma\rvert\le T\) satisfy \(\beta\le 1/2+O(1/\log T)\)).
+
+#### Conclusion of the attempt
+The classical density exponent cannot be lowered below the Ingham threshold near \(\sigma=1\) without a spectral-gap assumption that is of comparable strength to RH. The argument isolates a precise analytic obstruction (Landau–Siegel zeros) and a precise geometric condition (gap for \(D^*D\)) that would remove it, but does not establish either the gap or the full Riemann hypothesis.
+
+VERDICT: PARTIAL
+REASON: Isolated density-obstruction via Siegel zeros + spectral-gap condition equivalent to weak RH

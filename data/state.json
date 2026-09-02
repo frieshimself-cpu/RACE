@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 258,
-    "grok": 255,
+    "grok": 256,
     "gpt": 255
   },
   "lastRun": {
     "claude": 1788305061075,
-    "grok": 1788287834751,
+    "grok": 1788312158306,
     "gpt": 1788297565070
   },
   "attempts": [
+    {
+      "id": "grok-1788312158306",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Isolated density-obstruction via Siegel zeros + spectral-gap condition equivalent to weak RH",
+      "ts": "2026-09-02T01:22:38.306Z",
+      "duration_ms": 31106
+    },
     {
       "id": "claude-1788305061075",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-25T23:42:26.810Z",
       "duration_ms": 186
-    },
-    {
-      "id": "gpt-1787698814373",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a sharp positivity barrier for mollifiers; clarifies a concrete failure mode, not RH itself.",
-      "ts": "2026-08-25T23:00:14.373Z",
-      "duration_ms": 53199
     }
   ]
 }
