@@ -1,0 +1,26 @@
+### Attempt: A reduction of the Hodge conjecture to primitive Hodge classes on hypersurfaces via iterated Lefschetz pencils
+
+Let \(X\) be a smooth complex projective variety of dimension \(n\). Write \(H^{2k}(X,\mathbb{Q})_{\mathrm{Hodge}}\) for the space of rational Hodge classes of codimension \(k\), and \(\mathrm{Alg}^{k}(X)_{\mathbb{Q}}\) for the \(\mathbb{Q}\)-span of classes of irreducible codimension-\(k\) subvarieties. The Hodge conjecture asserts equality of these two spaces for every \(k\).
+
+Fix a very ample line bundle \(L\) on \(X\) and a Lefschetz pencil \(\{Y_t\}_{t\in\mathbb{P}^1}\) of smooth hyperplane sections of \(X\) cut out by members of \(|L|\) (after replacing \(L\) by a sufficiently high power if needed so that the pencil is Lefschetz). Let \(\pi:\widetilde{X}\to\mathbb{P}^1\) be the blow-up of the base locus, so that the fibres of \(\pi\) are the \(Y_t\). The hard Lefschetz theorem and the Lefschetz hyperplane theorem give a short exact sequence of Hodge structures
+\[
+0\to H^{2k}(X,\mathbb{Q})\xrightarrow{\cdot c_1(L)} H^{2k+2}(X,\mathbb{Q})\to H^{2k}_{\mathrm{prim}}(Y_t,\mathbb{Q})\to 0
+\]
+for a general smooth fibre \(Y=Y_t\), where the primitive part is taken with respect to \(L|_Y\). Consequently every primitive Hodge class on \(Y\) of degree \(2k\) lifts (after adding a multiple of \(c_1(L)\)) to a Hodge class on \(X\).
+
+**Claim.** Suppose the Hodge conjecture holds for every smooth hypersurface section of \(X\) appearing in some Lefschetz pencil, in every codimension. Then it holds for \(X\).
+
+**Sketch of argument.** Proceed by induction on \(\dim X=n\). The case \(n=1\) is trivial. Assume the claim known in dimension \(<n\). Let \(\alpha\in H^{2k}(X,\mathbb{Q})_{\mathrm{Hodge}}\). By the Lefschetz decomposition it is enough to treat the case that \(\alpha\) is primitive. Choose a Lefschetz pencil as above with general fibre \(Y\). The restriction \(\alpha|_Y\) is a primitive Hodge class on \(Y\). By the inductive hypothesis (applied to \(Y\), whose own hyperplane sections are again hypersurface sections of \(X\)) we may write
+\[
+\alpha|_Y=\sum_i q_i[Z_i],\qquad q_i\in\mathbb{Q},
+\]
+where the \(Z_i\subset Y\) are irreducible subvarieties of codimension \(k\). Each \(Z_i\) is the intersection of \(Y\) with a subvariety \(W_i\subset X\) of codimension \(k\) (because the normal bundle of \(Y\) in \(X\) is \(L|_Y\), so the ideal sheaf sequence allows unique extension of the ideal of \(Z_i\) across the pencil after clearing denominators). The difference
+\[
+\beta:=\alpha-\sum_i q_i[W_i]
+\]
+is therefore a Hodge class on \(X\) that restricts to zero on a general hyperplane section. By the Lefschetz hyperplane theorem in cohomology (and the fact that the restriction map is a morphism of Hodge structures) one obtains \(\beta=c_1(L)\cdot\gamma\) for a unique Hodge class \(\gamma\in H^{2k-2}(X,\mathbb{Q})\). The inductive hypothesis applied to the lower-degree class \(\gamma\) finishes the argument.
+
+**Obstruction.** The reduction is circular: the inductive step requires the Hodge conjecture already for all smooth hypersurfaces in the ambient projective space that contain \(X\) (or for complete intersections of the same multidegree), because a general member of \(|L|\) is such a hypersurface only after embedding \(X\subset\mathbb{P}^N\). No independent proof for hypersurfaces is supplied, and the primitive cohomology of a hypersurface of degree \(\ge 3\) in \(\mathbb{P}^{n+1}\) still contains transcendental Hodge classes whose algebraicity is unknown. The same circularity appears when one tries to replace the pencil by a higher-dimensional linear system. Thus the reduction does not remove any essential difficulty.
+
+VERDICT: FAILED
+REASON: Circular reduction to hypersurfaces; no independent control of primitive Hodge classes obtained.
