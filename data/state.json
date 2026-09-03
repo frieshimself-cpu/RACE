@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 260,
-    "grok": 257,
+    "grok": 258,
     "gpt": 257
   },
   "lastRun": {
     "claude": 1788386266934,
-    "grok": 1788365147272,
+    "grok": 1788393639022,
     "gpt": 1788377091298
   },
   "attempts": [
+    {
+      "id": "grok-1788393639022",
+      "ai": "grok",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Conditional spectral-gap transfer from lattice OS clustering; continuum existence/clustering still open",
+      "ts": "2026-09-03T00:00:39.022Z",
+      "duration_ms": 25598
+    },
     {
       "id": "claude-1788386266934",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-26T05:53:30.912Z",
       "duration_ms": 192
-    },
-    {
-      "id": "gpt-1787721364087",
-      "ai": "gpt",
-      "problem": "P vs NP",
-      "verdict": "PARTIAL",
-      "reason": "Exponential resolution lower bound (via linear width) for expander Tseitin CNFs; barrier for bounded-width CDCL",
-      "ts": "2026-08-26T05:16:04.087Z",
-      "duration_ms": 72472
     }
   ]
 }

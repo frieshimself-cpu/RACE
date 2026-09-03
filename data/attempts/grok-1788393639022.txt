@@ -1,0 +1,60 @@
+## Attempt: A conditional reduction linking lattice reflection positivity to a spectral gap lower bound
+
+Let \(G\) be a compact simple Lie group. Write \(\mathcal{A}_\varepsilon\) for the standard Wilson lattice gauge theory on \(\varepsilon\mathbb{Z}^4\) with plaquette action
+\[
+S_\varepsilon(U)=\frac1{g^2}\sum_p\operatorname{Re}\operatorname{Tr}(1-U_p).
+\]
+Assume the continuum limit \(\varepsilon\to0\) of the Osterwalder–Schrader (OS) reconstruction exists in the sense that the lattice Schwinger functions \(S_n^{(\varepsilon)}\) converge in the sense of tempered distributions to a set of continuum Schwinger functions \(S_n\) satisfying the OS axioms (OS0)–(OS3) together with a uniform exponential clustering bound
+\[
+\bigl|S_2(f\otimes g)-S_1(f)S_1(g)\bigr|\le C\|f\|_{H^{-1}}\|g\|_{H^{-1}}e^{-m\operatorname{dist}(\operatorname{supp}f,\operatorname{supp}g)}
+\]
+for some \(m>0\) independent of the continuum limit (the constant \(C\) may depend on the test-function norms). The goal of this note is to show that the reconstructed continuum Hamiltonian \(H\) on the physical Hilbert space \(\mathcal{H}\) then satisfies
+\[
+\operatorname{spec}(H)\subset\{0\}\cup[m,\infty),
+\]
+i.e., a mass gap of size at least \(m\). (Existence of the continuum theory itself is not claimed.)
+
+### Setup and transfer operator
+Let \(\mathcal{H}_\varepsilon\) be the lattice Hilbert space obtained by OS reconstruction from the positive-time lattice Schwinger functions (reflection positivity of the Wilson action is classical). The lattice transfer matrix \(T_\varepsilon=e^{-\varepsilon H_\varepsilon}\) is a positive self-adjoint contraction on \(\mathcal{H}_\varepsilon\). The assumed continuum limit of the Schwinger functions implies that the matrix elements of \(T_\varepsilon^n\) converge, after suitable smearing, to the continuum Euclidean semigroup matrix elements. Consequently there exists a strongly continuous contraction semigroup \(e^{-tH}\) on the continuum space \(\mathcal{H}\) whose generator \(H\) is the continuum Hamiltonian, and
+\[
+\langle\Psi,e^{-tH}\Phi\rangle=\lim_{\varepsilon\to0}\langle\Psi_\varepsilon,T_\varepsilon^{t/\varepsilon}\Phi_\varepsilon\rangle
+\]
+for a dense set of vectors obtained as continuum limits of lattice vectors.
+
+### From clustering to a gap for the transfer matrix
+Fix a spatial hyperplane and let \(\theta\) be the Euclidean time reflection. Reflection positivity gives
+\[
+\langle F,\theta G\rangle_\varepsilon\ge0.
+\]
+The two-point clustering hypothesis, after OS reconstruction, translates into the operator inequality
+\[
+\bigl|\langle\Psi,T_\varepsilon^{N}\Phi\rangle-\langle\Psi,1\rangle\langle1,\Phi\rangle\bigr|\le C\|\Psi\|\|\Phi\|e^{-m\varepsilon N}
+\]
+uniformly in the lattice spacing (the continuum clustering passes to the lattice for small \(\varepsilon\) by the assumed convergence of Schwinger functions). Taking the spectral resolution of the self-adjoint operator \(T_\varepsilon\), this bound forces
+\[
+\operatorname{spec}(T_\varepsilon)\subset\{1\}\cup[0,e^{-m\varepsilon}].
+\]
+(The eigenvalue 1 corresponds to the constant function, normalized so that the vacuum expectation is 1; the rest of the spectrum lies inside the disk of radius \(e^{-m\varepsilon}\).)
+
+### Continuum limit of the spectral gap
+Write \(T_\varepsilon=e^{-\varepsilon H_\varepsilon}\). The spectral inclusion above is equivalent to
+\[
+\operatorname{spec}(H_\varepsilon)\subset\{0\}\cup[m,\infty).
+\]
+Because the continuum semigroup is the strong limit of the lattice semigroups on a core of analytic vectors (the finite-time smeared Wilson loops and their continuum limits), the generators converge in the strong resolvent sense:
+\[
+(H_\varepsilon+1)^{-1}\to(H+1)^{-1}\qquad\text{strongly}.
+\]
+Strong resolvent convergence preserves the spectral gap away from zero: if a sequence of self-adjoint operators satisfies \(\operatorname{spec}(A_n)\subset\{0\}\cup[m,\infty)\) and \(A_n\to A\) in the strong resolvent topology, then \(\operatorname{spec}(A)\subset\{0\}\cup[m,\infty)\). (Any spectral measure of \(A\) supported in \((0,m)\) would produce, by the functional calculus, a contradiction with the corresponding spectral measures of \(A_n\).)
+
+Thus \(H\) has a mass gap of size at least \(m\).
+
+### Where the argument is incomplete
+The reduction is conditional on two non-trivial inputs that remain open for four-dimensional Yang–Mills:
+1. existence of the continuum limit of the lattice Schwinger functions in the OS topology;
+2. a uniform (in \(\varepsilon\)) exponential clustering bound with rate \(m>0\).
+
+Both are essentially equivalent in difficulty to the original mass-gap problem; the note merely isolates the spectral-gap step once those inputs are granted. No new estimate on the lattice theory is supplied, nor is a mechanism for producing the uniform clustering.
+
+VERDICT: PARTIAL
+REASON: Conditional spectral-gap transfer from lattice OS clustering; continuum existence/clustering still open
