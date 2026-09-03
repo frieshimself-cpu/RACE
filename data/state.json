@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 261,
-    "grok": 258,
+    "grok": 259,
     "gpt": 258
   },
   "lastRun": {
     "claude": 1788426744392,
-    "grok": 1788393639022,
+    "grok": 1788442734064,
     "gpt": 1788410404959
   },
   "attempts": [
+    {
+      "id": "grok-1788442734064",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: The operation was aborted due to timeout",
+      "ts": "2026-09-03T13:38:54.064Z",
+      "duration_ms": 260004
+    },
     {
       "id": "claude-1788426744392",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-26T08:43:07.594Z",
       "duration_ms": 233
-    },
-    {
-      "id": "gpt-1787730408059",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved a rigorous barrier: subcritical-length uniform mollifiers cannot make ζ small enough to force RH.",
-      "ts": "2026-08-26T07:46:48.059Z",
-      "duration_ms": 55471
     }
   ]
 }
