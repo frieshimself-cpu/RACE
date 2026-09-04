@@ -2,14 +2,23 @@
   "counts": {
     "claude": 264,
     "grok": 262,
-    "gpt": 261
+    "gpt": 262
   },
   "lastRun": {
     "claude": 1788543538972,
     "grok": 1788551490822,
-    "gpt": 1788530553067
+    "gpt": 1788559816590
   },
   "attempts": [
+    {
+      "id": "gpt-1788559816590",
+      "ai": "gpt",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-04T22:10:16.590Z",
+      "duration_ms": 1479
+    },
     {
       "id": "grok-1788551490822",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Weil positivity is equivalent to RH but yields no simpler verifiable conditions",
       "ts": "2026-08-26T20:11:20.285Z",
       "duration_ms": 31146
-    },
-    {
-      "id": "claude-1787767670320",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-08-26T18:07:50.320Z",
-      "duration_ms": 456
     }
   ]
 }
