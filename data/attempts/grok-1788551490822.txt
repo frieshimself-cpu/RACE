@@ -1,0 +1,28 @@
+### Attempt: Obstruction in a contour-shift argument for zero-free regions beyond the classical zero-free region
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed xi-function, entire of order 1, satisfying \(\xi(s)=\xi(1-s)\). The non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\). Write \(s=\sigma+it\). Suppose, for a contradiction in a putative stronger zero-free region, that there exists a zero \(\rho_0=\beta+i\gamma\) with \(\beta>1/2\) and \(|\gamma|\) arbitrarily large. (Classical zero-free regions already exclude a thin region near \(\operatorname{Re}s=1\); the goal is to exclude a fixed-width strip \(\beta\ge 1/2+\delta\).)
+
+Consider the logarithmic derivative on the vertical line \(\operatorname{Re}s=1/2+\delta\):
+\[
+\frac{\xi'}{\xi}(s)=\sum_\rho\Bigl(\frac1{s-\rho}+\frac1\rho\Bigr)+O(\log(|t|+2)),
+\]
+where the sum runs over zeros of \(\xi\) (counted with multiplicity) and the \(O\)-term arises from the Hadamard product after accounting for the Gamma factor. Shift a rectangular contour with vertical sides at \(\operatorname{Re}s=1/2+\delta\) and \(\operatorname{Re}s=2\), horizontal sides at \(\operatorname{Im}s=\pm T\), and let \(T\to\infty\) through values avoiding zeros by \(\gg 1/\log T\).
+
+On the far-right side the sum is \(O(\log T)\) by the classical zero-density estimate \(N(\sigma,T)\ll T^{c(1-\sigma)}\log T\). On the horizontal sides the contribution is likewise \(O((\log T)^2)\) after standard convexivity bounds on \(\xi\). The residue theorem therefore forces
+\[
+\frac1{2\pi i}\int_{1/2+\delta-iT}^{1/2+\delta+iT}\frac{\xi'}{\xi}(s)\,ds = N(1/2+\delta,T)+O((\log T)^2),
+\]
+where \(N(\sigma,T)\) counts zeros with real part \(\ge\sigma\) and imaginary part in \([0,T]\). If a positive-density set of zeros satisfied \(\beta\ge 1/2+\delta\), the left-hand side would grow like \(\gg T\log T\). But the functional equation pairs zeros \(\rho\) with \(1-\rho\), so any zero with \(\beta>1/2\) forces a companion with real part \(<1/2\). Inserting the pair into the Hadamard product produces a factor
+\[
+\bigl|(s-\rho)(s-(1-\rho))\bigr| = \bigl|(s-1/2)^2-(\beta-1/2)^2+\gamma^2\bigr|
+\]
+whose logarithmic derivative on the critical line contributes a term whose real part is strictly negative and of size \(\asymp(\beta-1/2)/((t-\gamma)^2+(\beta-1/2)^2)\). Summing over a hypothetical positive-density set of such pairs yields a negative main term that cancels the positive contribution coming from the density of zeros, contradicting the argument principle count unless the density of off-line zeros is \(o(T/\log T)\).
+
+The argument therefore yields only the weak density bound
+\[
+N(1/2+\delta,T)=o\Bigl(\frac{T}{\log T}\Bigr)
+\]
+rather than \(N(1/2+\delta,T)=0\). The obstruction is the lack of a sufficiently strong lower bound on the horizontal integrals (or an equivalent large-value estimate for \(|\xi'/\xi|\)) that would absorb the error and force the density all the way to zero. Improving the horizontal estimates requires subconvexity or moment bounds for \(\xi\) that are presently unavailable at the necessary strength; all known subconvexity exponents leave a residual error larger than the putative main term when \(\delta>0\) is fixed. Consequently the contour shift cannot be closed and RH is not obtained.
+
+VERDICT: FAILED
+REASON: Contour argument only yields weak zero-density, blocked by insufficient horizontal estimates
