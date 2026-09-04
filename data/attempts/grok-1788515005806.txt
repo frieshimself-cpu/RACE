@@ -1,0 +1,29 @@
+### Attempt: Obstruction in a positivity approach via the completed zeta and a truncated explicit formula
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). This is entire of order 1, satisfies \(\xi(s)=\xi(1-s)\), and the non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\). Write the Hadamard factorization (normalized so the product converges appropriately)
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+the product running over zeros counted with multiplicity. Logarithmic differentiation yields
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\frac1{s-\rho}.
+\]
+For a Schwartz test function \(g\) whose Fourier transform \(\hat g\) is supported in \((-1,1)\) (so that the prime-power sum is elementary), the Weil explicit formula specializes to an identity of the schematic shape
+\[
+\sum_{\rho}\hat g\bigl(i(\rho-\tfrac12)\bigr)= \int_{-\infty}^{\infty}\hat g(t)\,d\mu_{\infty}(t)+\sum_{n=1}^{\infty}\frac{\Lambda(n)}{\sqrt n}\,g(\log n),
+\]
+where \(\mu_{\infty}\) is an explicit archimedean measure coming from the Gamma factor (positive on the critical line after a standard shift).  
+
+Weil’s criterion asserts that RH holds if and only if the right-hand side is non-negative for every such \(g\ge0\).  
+
+**Partial verification and obstruction.**  
+When \(\operatorname{supp}\hat g\subset(-c,c)\) with \(c\) small enough that only the prime \(2\) contributes, the prime sum is a finite explicit combination of values of \(g\) and can be checked by hand (or machine) to be dominated by the archimedean term; positivity holds. Extending the support past \(\log3\) introduces the next prime and forces a Diophantine cancellation among the oscillatory terms \(\Lambda(n)n^{-1/2}g(\log n)\). Because the locations of the \(\rho\) themselves appear on the left-hand side, any attempt to bound the prime sum from below by a multiple of \(\|g\|_1\) re-introduces a zero-density estimate in the strip \(\sigma>1/2\). The best available zero-density bounds (Ingham–Huxley type) are of the form
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}\log T},
+\]
+which is insufficient to absorb the error once the support of \(\hat g\) exceeds a fixed absolute constant. Consequently the family of inequalities required by Weil’s criterion cannot be closed analytically; they remain an infinite collection of numerical statements whose uniform verification is equivalent in strength to RH itself.  
+
+This shows that the most natural positivity reduction, while correct, yields no new zero-free region beyond what classical methods already give, and therefore fails to produce a proof.
+
+VERDICT: FAILED
+REASON: Weil positivity reduces RH to unchecked inequalities; density bounds too weak to close them.

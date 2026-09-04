@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 263,
-    "grok": 260,
+    "grok": 261,
     "gpt": 260
   },
   "lastRun": {
     "claude": 1788498217182,
-    "grok": 1788474139031,
+    "grok": 1788515005806,
     "gpt": 1788481351431
   },
   "attempts": [
+    {
+      "id": "grok-1788515005806",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Weil positivity reduces RH to unchecked inequalities; density bounds too weak to close them.",
+      "ts": "2026-09-04T09:43:25.806Z",
+      "duration_ms": 32615
+    },
     {
       "id": "claude-1788498217182",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-26T13:54:38.470Z",
       "duration_ms": 235
-    },
-    {
-      "id": "gpt-1787748754682",
-      "ai": "gpt",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "PARTIAL",
-      "reason": "Proved a two-step decay epsilon-regularity lemma and a scale-sparse regularity criterion, not full solution",
-      "ts": "2026-08-26T12:52:34.682Z",
-      "duration_ms": 128987
     }
   ]
 }
