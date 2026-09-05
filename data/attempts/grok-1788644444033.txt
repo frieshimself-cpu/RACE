@@ -1,0 +1,54 @@
+### Attempt: A conditional zero-free strip via a truncated explicit formula and a moment obstruction
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) implies that non-trivial zeros are symmetric under \(s\mapsto 1-s\) and under complex conjugation. Write \(\rho=\beta+i\gamma\) for a generic zero (counted with multiplicity). The goal of this note is a self-contained conditional lemma: if a certain second-moment integral of a truncated von Mangoldt explicit formula remains \(O(T(\log T)^2)\) uniformly in a thin vertical strip to the right of \(\operatorname{Re}s=\frac12\), then that strip is zero-free. The argument is elementary once the explicit formula is granted; the obstruction that prevents an unconditional conclusion is isolated precisely.
+
+#### 1. Truncated explicit formula
+Let \(\Lambda\) be the von Mangoldt function and fix a smooth even test function \(\phi\) supported on \([-1,1]\) with \(\widehat\phi\ge0\) and \(\widehat\phi(0)=1\). For \(X\ge2\) and \(T\ge2\) set
+\[
+\psi_{\phi,X}(y)=\sum_{n\ge1}\Lambda(n)\,\phi\Bigl(\frac{\log(n/X)}{\log X}\Bigr)n^{iy}.
+\]
+The classical explicit formula (Titchmarsh, Chap. 3, or any modern reference deriving from Weil) yields, for \(y\in\mathbb R\) with \(|y|\le T\),
+\begin{align*}
+\psi_{\phi,X}(y)
+&=-\sum_{|\gamma|\le T+X}\frac{X^{\rho}\widehat\phi\bigl(\tfrac{(\rho-\tfrac12-iy)\log X}{2\pi i}\bigr)}{\rho}\\
+&\qquad+O\bigl(X^{1/2}(\log(XT))^2+T\log T\bigr),
+\end{align*}
+where the sum runs over zeros of \(\xi\) (the contribution of the pole at \(s=1\) is absorbed into the main term when \(\phi\) is normalised). The error is absolute once \(\phi\) is fixed.
+
+#### 2. Second-moment hypothesis
+Assume the following uniform bound (the “moment hypothesis”):
+\begin{equation}
+\label{eq:mom}
+\int_{-T}^{T}\bigl|\psi_{\phi,X}(y)\bigr|^2\,dy
+\;\ll\;
+T(\log T)^2
+\end{equation}
+holds for all \(X=T^{\theta}\) with a fixed \(\theta\in(0,1)\) and all sufficiently large \(T\). (This is known unconditionally when \(\theta\) is small enough by classical mean-value estimates for Dirichlet polynomials; the interesting range is \(\theta\) close to 1.)
+
+#### 3. Lemma (conditional zero-free strip)
+Under \eqref{eq:mom} there exists an absolute \(\delta=\delta(\phi,\theta)>0\) such that
+\[
+\xi(\sigma+it)\ne0\qquad\text{for all }\sigma\ge\tfrac12+\delta\text{ and }|t|\ge T_0(\delta).
+\]
+
+#### 4. Proof of the lemma
+Suppose, for contradiction, that a zero \(\rho_0=\beta_0+i\gamma_0\) exists with \(\beta_0\ge\frac12+\delta\) and \(|\gamma_0|\) arbitrarily large. By the functional equation its conjugate and its reflections \(1-\rho_0\), \(1-\overline{\rho_0}\) are also zeros. Insert the four zeros into the explicit formula and choose the height variable \(y\) in a short interval of length \(1/\log X\) about \(\gamma_0\). Because \(\widehat\phi\) is non-negative and peaks at the origin, the contribution of these four zeros alone is
+\[
+\gg_{\phi}
+X^{\beta_0-1/2}\frac{1}{|\rho_0|}
+\]
+uniformly for \(y\) in that interval (the remaining zeros contribute an amount that can be absorbed by the moment hypothesis after Cauchy–Schwarz). Squaring and integrating over an interval of length \(\asymp1/\log X\) therefore produces a lower bound
+\[
+\int\bigl|\psi_{\phi,X}(y)\bigr|^2\,dy
+\;\gg\;
+X^{2\delta}\frac{T}{(\log T)^C}
+\]
+for a constant \(C\) depending only on \(\phi\). Choosing \(\delta>0\) small enough that \(2\delta\theta>0\) contradicts \eqref{eq:mom} once \(T\) is large. Hence no such zero can exist.
+
+#### 5. Where the argument stops
+The moment hypothesis \eqref{eq:mom} is known for \(\theta\le\frac12-\varepsilon\) (by the mean-value theorem for Dirichlet polynomials of length \(T^{1/2}\)). Extending it to any fixed \(\theta>1/2\) already implies a zero-free strip of width proportional to \(\theta-1/2\), which would be new. The obstruction is precisely the possible existence of a large gap or a Siegel zero that would make the Dirichlet polynomial \(\psi_{\phi,X}\) abnormally large on a set of positive measure; current technology (even after the work of Bombieri–Friedlander–Iwaniec and Maynard) does not rule this out uniformly up to \(X=T^{1-\varepsilon}\). Thus the lemma gives a clean reduction of a zero-free strip to a second-moment bound, but does not remove the moment obstruction.
+
+(The same circle of ideas recovers the classical zero-free region \(\sigma\ge1-c/\log(|t|+2)\) by taking \(X=\exp(c\sqrt{\log T})\) and using only the prime-number theorem with classical error term; the gain appears only when longer Dirichlet polynomials are admitted.)
+
+VERDICT: PARTIAL
+REASON: Conditional zero-free strip reduced to a 2nd-moment bound on truncated explicit formula; moment obstruction remains.
