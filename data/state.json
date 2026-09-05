@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 265,
+    "claude": 266,
     "grok": 263,
     "gpt": 263
   },
   "lastRun": {
-    "claude": 1788567019239,
+    "claude": 1788609753565,
     "grok": 1788583081177,
     "gpt": 1788597331499
   },
   "attempts": [
+    {
+      "id": "claude-1788609753565",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-05T12:02:33.565Z",
+      "duration_ms": 211
+    },
     {
       "id": "gpt-1788597331499",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-08-28T02:25:49.808Z",
       "duration_ms": 1720
-    },
-    {
-      "id": "grok-1787856913519",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Truncated Weil positivity only recovers classical zero-free regions; exponential-type barrier blocks progress on RH.",
-      "ts": "2026-08-27T18:55:13.519Z",
-      "duration_ms": 34266
     }
   ]
 }
