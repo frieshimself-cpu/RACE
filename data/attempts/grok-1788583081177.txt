@@ -1,0 +1,51 @@
+### Attempt: Obstruction in a contour-shift argument for a zero-free half-plane
+
+Let \(\xi(s)= \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). Then \(\xi\) is entire of order 1, satisfies \(\xi(s)=\xi(1-s)\), and the non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\). Write the Hadamard factorization (normalized)
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+the product running over zeros \(\rho=\beta+i\gamma\) counted with multiplicity (convergent after the usual grouping of \(\rho\) with \(1-\rho\)).
+
+Fix \(\sigma_0\in(\tfrac12,1)\) and suppose, for contradiction, that there exists at least one zero with \(\beta\ge\sigma_0\). Consider the rectangular contour \(C_T\) with vertices
+\[
+\tfrac12\pm iT,\qquad 2\pm iT
+\]
+(oriented positively) and the meromorphic function
+\[
+f(s)=\frac{\xi'(s)}{\xi(s)}\cdot\frac{1}{s-\sigma_0}.
+\]
+By the argument principle,
+\[
+\frac1{2\pi i}\int_{C_T}f(s)\,ds = \sum_{\rho\in\operatorname{int}C_T}\frac1{\rho-\sigma_0} - \mathbf{1}_{\{\xi(\sigma_0)=0\}}.
+\]
+The horizontal integrals vanish as \(T\to\infty\) through a sequence avoiding the ordinates of zeros (standard Stirling bounds on \(\Gamma\) and the convex bound \(\zeta(\sigma+it)\ll |t|^{c(1-\sigma)^{3/2}\log|t|}\) on \(\tfrac12\le\sigma\le2\) give
+\[
+\int_{\pm iT}\Bigl|\frac{\xi'}{\xi}(s)\Bigr|\,|ds|\ll\log^2 T).
+\]
+The vertical integral on \(\operatorname{Re}s=2\) is \(O(1)\) by the absolutely convergent Dirichlet series for \(-\zeta'/\zeta\). Thus one obtains the identity
+\begin{equation}
+\sum_{\rho}\frac1{\rho-\sigma_0} = \frac{\xi'}{\xi}(\sigma_0) + O(1),
+\label{eq:sum}
+\end{equation}
+where the sum is understood in the principal-value sense \(\lim_{T\to\infty}\sum_{|\gamma|\le T}\).
+
+The functional equation forces the zeros to be symmetric under \(\rho\mapsto1-\rho\). Split the sum into zeros with \(\beta\ge\sigma_0\) and the rest. For every zero with \(\beta>\tfrac12\) its partner \(1-\rho\) contributes a term whose real part has opposite sign. A direct estimate of the real part of the left-hand side of \eqref{eq:sum} therefore yields
+\[
+\operatorname{Re}\sum_{\beta\ge\sigma_0}\frac1{\rho-\sigma_0} \le O\bigl(\log\tfrac1{\sigma_0-\tfrac12}\bigr),
+\]
+the implied constant absolute. On the other hand, if a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0\ge\sigma_0\) exists, the single term \(1/(\rho_0-\sigma_0)\) already satisfies
+\[
+\operatorname{Re}\frac1{\rho_0-\sigma_0}\ge\frac{\beta_0-\sigma_0}{(\beta_0-\sigma_0)^2+\gamma_0^2}.
+\]
+When \(|\gamma_0|\) is bounded the right-hand side is \(\gg1\), contradicting the upper bound for \(\sigma_0\) sufficiently close to \(\tfrac12\). The obstruction appears when \(|\gamma_0|\to\infty\): the same term becomes \(O(1/|\gamma_0|)\), which is absorbed by the \(O(\log)\) error coming from the density of zeros \(N(T)\sim(T/2\pi)\log T\). No uniform contradiction arises.
+
+The same contour argument can be repeated with a smoothed weight \(\operatorname{Re}(s-\sigma_0)^{-\alpha}\) for \(\alpha\in(0,1)\), but the resulting horizontal integrals cease to vanish and re-introduce an error of size \(\asymp T^{1-\alpha}\), again large enough to hide any individual high zero. Consequently the method produces only the classical zero-density type bound
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}\log T}\qquad(\sigma\ge\sigma_0),
+\]
+which is already known and insufficient to force \(\sigma_0=\tfrac12\).
+
+The gap is fundamental: any contour that stays a fixed distance to the right of the critical line cannot “see” the possible cancellation between a high-lying zero and the bulk of the zeros near \(\operatorname{Re}s=\tfrac12\), while any contour that approaches the critical line re-introduces horizontal contributions that destroy the necessary precision.
+
+VERDICT: FAILED
+REASON: Contour argument yields only classical density estimates; high zeros evade contradiction via 1/|γ| decay.

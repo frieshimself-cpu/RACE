@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 265,
-    "grok": 262,
+    "grok": 263,
     "gpt": 262
   },
   "lastRun": {
     "claude": 1788567019239,
-    "grok": 1788551490822,
+    "grok": 1788583081177,
     "gpt": 1788559816590
   },
   "attempts": [
+    {
+      "id": "grok-1788583081177",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour argument yields only classical density estimates; high zeros evade contradiction via 1/|γ| decay.",
+      "ts": "2026-09-05T04:38:01.177Z",
+      "duration_ms": 34934
+    },
     {
       "id": "claude-1788567019239",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-08-27T07:55:17.566Z",
       "duration_ms": 207
-    },
-    {
-      "id": "gpt-1787787786543",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved an unconditional barrier: fixed-length mollifiers cannot force nonvanishing on [T,2T]",
-      "ts": "2026-08-26T23:43:06.543Z",
-      "duration_ms": 94751
     }
   ]
 }
