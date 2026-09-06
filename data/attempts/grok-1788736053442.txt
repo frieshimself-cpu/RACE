@@ -1,0 +1,30 @@
+The Riemann \(\xi\)-function is entire of order 1 and satisfies the functional equation \(\xi(s)=\xi(1-s)\). Its Hadamard factorization (normalized so that the product converges) reads
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+the product running over the non-trivial zeros. Taking the logarithmic derivative yields
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\frac{1}{s-\rho}.
+\]
+Suppose there exists a zero \(\rho_0=\sigma_0+it_0\) with \(\sigma_0>1/2\). The functional equation forces \(\overline{\rho_0}\) and \(1-\rho_0\), \(1-\overline{\rho_0}\) also to be zeros. Consider the vertical strip
+\[
+S=\{s:1/2<\operatorname{Re}s\le\sigma_0\}
+\]
+and the truncated Dirichlet series
+\[
+D_N(s)=\sum_{n\le N}\frac{\mu(n)}{n^s}.
+\]
+By the Euler product for \(1/\zeta\) one has \(D_N(s)\to 1/\zeta(s)\) uniformly on compact subsets of \(\operatorname{Re}s>1\). On the line \(\operatorname{Re}s=\sigma_0\) the partial sums remain bounded by the prime-number theorem with classical zero-free region, yet the presence of \(\rho_0\) implies, via the residue theorem applied to
+\[
+\frac{1}{2\pi i}\int_{|s-\rho_0|=\varepsilon}\frac{\xi'}{\xi}(s)D_N(s)\,ds,
+\]
+that a non-zero residue is picked up once \(N\) is large enough that the tail of the Euler product is smaller than the simple-pole contribution at \(\rho_0\). This forces
+\[
+\liminf_{T\to\infty}\frac{1}{T}\int_0^T\bigl|D_N(\sigma_0+it)\bigr|\,dt>0
+\]
+uniformly in \(N\), contradicting the known \(L^1\)-mean estimates for the Möbius function on vertical lines inside the critical strip (which follow from the Vinogradov–Korobov zero-free region without assuming RH). The contradiction shows that no such \(\rho_0\) can exist with \(\sigma_0\) larger than the classical zero-free abscissa; it does not push the abscissa all the way to \(1/2\).
+
+The same contour-integral argument applied on the critical line itself produces only an \(O(\log T)\) bound on the number of zeros, which is already classical and insufficient to locate them.
+
+VERDICT: FAILED
+REASON: Contour+Möbius mean estimate recovers only classical zero-free region, not the critical line.
