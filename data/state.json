@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 268,
+    "claude": 269,
     "grok": 266,
     "gpt": 266
   },
   "lastRun": {
-    "claude": 1788657546245,
+    "claude": 1788704008245,
     "grok": 1788674673912,
     "gpt": 1788692702627
   },
   "attempts": [
+    {
+      "id": "claude-1788704008245",
+      "ai": "claude",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-06T14:13:28.245Z",
+      "duration_ms": 211
+    },
     {
       "id": "gpt-1788692702627",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-08-30T01:37:59.261Z",
       "duration_ms": 1225
-    },
-    {
-      "id": "grok-1788046492060",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Recovers only classical zero-free width; density bottleneck prevents any new unconditional strip.",
-      "ts": "2026-08-29T23:34:52.060Z",
-      "duration_ms": 29186
     }
   ]
 }
