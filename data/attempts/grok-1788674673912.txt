@@ -1,0 +1,38 @@
+### Attempt: Obstruction to a contour-based proof that all non-trivial zeros lie on the critical line
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). This is an entire function of order 1 satisfying the functional equation \(\xi(s)=\xi(1-s)\). The non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\), and they are symmetric under \(s\mapsto 1-s\) and under complex conjugation. The Riemann Hypothesis (RH) is equivalent to all zeros of \(\xi\) having real part \(1/2\).
+
+A natural strategy is to apply the argument principle on a family of rectangles
+\[
+R_T = \{s=\sigma+it : 0\le\sigma\le 1,\ |t|\le T\}
+\]
+(with small semicircular indentations about any zeros on the boundary, and with \(T\) chosen so that the horizontal sides avoid zeros). The change in \(\arg\xi(s)\) around \(\partial R_T\) equals \(2\pi\) times the number of zeros inside. By the functional equation the contributions on the left and right vertical sides are related, and the contribution on the critical line segment can be isolated. If one could show that the total variation of \(\arg\xi\) on the two horizontal sides tends to \(o(T)\) (or at least \(O(T/\log T)\)) as \(T\to\infty\) through a suitable sequence, while the vertical contribution on \(\mathrm{Re}\,s=1\) is known to be \(\sim(T/2\pi)\log(T/2\pi)\) by the classical zero-free region and the prime-number theorem, one would conclude that asymptotically all zeros lie on \(\mathrm{Re}\,s=1/2\).
+
+#### Where the argument fails rigorously
+
+Write \(s=\sigma+iT\) on the upper horizontal side (\(0\le\sigma\le 1\)). Then
+\[
+\frac{\xi'}{\xi}(s) = \frac12\log\pi + \frac12\frac{\Gamma'}{\Gamma}(s/2) + \frac{\zeta'}{\zeta}(s) + \frac1s + \frac1{s-1}.
+\]
+The gamma factor admits the Stirling expansion
+\[
+\frac{\Gamma'}{\Gamma}(s/2) = \log(s/2) - \frac1s + O(|s|^{-1}),
+\]
+which is holomorphic and of size \(O(\log T)\) uniformly for \(\sigma\in[0,1]\). The rational terms are \(O(1)\). Consequently the horizontal integral of \(\xi'/\xi\) is controlled by the integral of \(\zeta'/\zeta\) once the gamma contribution is subtracted.
+
+By the Borel–Carathéodory lemma and the convexivity bound \(\zeta(\sigma+it)\ll_\varepsilon |t|^{c(1-\sigma)^{3/2}+\varepsilon}\) (or any subconvex bound short of Lindelöf), one obtains
+\[
+\frac{\zeta'}{\zeta}(\sigma+iT) = \sum_{|T-\gamma|<1}\frac1{s-\rho} + O(\log^2 T)
+\]
+uniformly for \(\sigma\in[\delta,1-\delta]\), where the sum runs over zeros \(\rho=\beta+i\gamma\). Integrating in \(\sigma\) therefore produces a contribution
+\[
+\int_0^1\frac{\zeta'}{\zeta}(\sigma+iT)\,d\sigma = \sum_{|T-\gamma|<1}\log\Bigl|\frac{1-\rho}{-\rho}\Bigr| + O(\log^2 T).
+\]
+Each term \(\log|(1-\rho)/(-\rho)|\) is \(O(1)\) only when \(\beta\) is bounded away from \(0\) and \(1\); if there exists a zero with \(\beta\ge 1/2+\delta\), the corresponding horizontal displacement of argument can be as large as \(\asymp\log T\). Even under the assumption that all zeros satisfy \(\beta\le 1/2+\varepsilon(T)\) with \(\varepsilon(T)\to 0\), the number of zeros in a unit interval is \(\ll\log T\), so the cumulative error is still \(O(\varepsilon(T)\log^2 T)\). Existing zero-density estimates (e.g., Huxley’s \(N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}\log^C T\)) are not strong enough to force the summed horizontal variation below \(o(T)\) uniformly; they only recover the classical density theorem that almost all zeros lie in \(|\beta-1/2|<(\log\log\log T)/\log\log T\), which is far weaker than RH.
+
+Moreover, the same estimates are circular for a proof of RH: any attempt to bound the horizontal integrals more sharply requires a zero-free region or density estimate that already encodes substantial information about the horizontal distribution of zeros. In the absence of the Lindelöf hypothesis (itself a consequence of RH), the growth of \(\zeta'/\zeta\) on horizontal lines inside the strip remains too large to close the contour argument.
+
+Thus the contour method reduces RH to a quantitative bound on horizontal integrals of \(\zeta'/\zeta\) that is essentially equivalent in strength to RH itself, and no unconditional improvement of the classical zero-density technology is known that would break the equivalence. This constitutes a precise obstruction: the approach cannot succeed without an independent source of cancellation or growth control that is not presently available.
+
+VERDICT: FAILED
+REASON: Contour/argument-principle approach circularly requires horizontal growth bounds equivalent to RH.
