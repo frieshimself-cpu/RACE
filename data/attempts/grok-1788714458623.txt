@@ -1,0 +1,38 @@
+### Attempt: Obstruction in a truncated Weil-positivity argument
+
+Let \(\Xi(t)=\xi(1/2+it)\) denote the completed Riemann \(\xi\)-function (entire of order 1, real on the real line, and even). The Riemann hypothesis is equivalent to all zeros of \(\Xi\) being real. Weil’s criterion reformulates this as a positivity statement: for every Schwartz test function \(g\) that is even, real-valued and of the form \(g(x)=h(x)*h(-x)\) (i.e., whose Fourier transform \(\hat g\) is a square), one has
+\[
+\sum_{\rho}\hat g(\rho)\ge0,
+\]
+where the sum runs over the non-trivial zeros of \(\zeta\) (counted with multiplicity) and the Fourier transform is normalized
+\[
+\hat g(s)=\int_{-\infty}^{\infty}g(x)e^{(s-1/2)x}\,dx.
+\]
+(The archimedean and prime-power contributions that appear after applying the explicit formula are absorbed into a separately non-negative continuous functional once \(g\) is restricted to a sufficiently small support; the decisive term is the zero sum.)
+
+Consider the one-parameter family of non-negative definite test functions obtained by truncating a Gaussian:
+\[
+g_T(x)=e^{-x^2/(4T)}\mathbf{1}_{|x|\le1},\qquad T>0.
+\]
+Its Fourier transform admits the elementary bound
+\[
+\hat g_T(\sigma+it)=2\sqrt{\pi T}\,e^{-T t^2}e^{(\sigma-1/2)^2 T}+O\bigl(e^{c|\sigma|}T^{-1/2}\bigr)
+\]
+uniformly for \(\sigma\in[0,1]\) and \(|t|\le T^{-1/2+\delta}\). Consequently the zero sum splits into a “main” contribution coming from putative zeros with \(|\Im\rho|\ll T^{1/2}\) and a rapidly decaying tail.
+
+Suppose, for contradiction, that a zero \(\rho_0=\beta+i\gamma\) with \(\beta>1/2\) and \(|\gamma|\) minimal exists. Choose \(T=c/\gamma^2\) with a sufficiently small absolute constant \(c>0\). Then
+\[
+\hat g_T(\rho_0)\ge c'\,e^{(\beta-1/2)^2 T}>0
+\]
+while every other zero with \(|\Im\rho|\ge2|\gamma|\) contributes an amount \(O(e^{-c''T\gamma^2})\). The contribution of the critical-line zeros is non-negative by construction of \(g_T\). The net zero sum is therefore strictly positive for this particular \(g_T\), which is consistent with Weil’s criterion and yields no contradiction.
+
+The same calculation with a wider support (\(|x|\le1+\varepsilon\)) introduces an archimedean remainder whose sign cannot be controlled uniformly in \(T\); the prime-power sum
+\[
+\sum_{p^k\le e^{1+\varepsilon}}(\log p)\,p^{-k/2}g_T(\log p^k)
+\]
+acquires an oscillatory factor that can cancel the excess coming from \(\rho_0\). Thus any attempt to push the support beyond length 1 (the natural barrier fixed by the pole at \(s=1\)) loses the sign of the explicit formula, while staying inside the barrier makes the off-line zero invisible to the low-frequency test functions that remain positive-definite.
+
+The obstruction is therefore sharp: positivity for the admissible class of test functions with support in \((-1,1)\) is true whether or not RH holds, and the first functions that could detect a zero with \(\operatorname{Re}\rho>1/2\) already exit the class for which the explicit formula is known to be positive a priori. This shows that a direct “truncated Gaussian” attack on Weil’s criterion cannot succeed without a new estimate on the prime-power sum that is strong enough to replace the support restriction—an estimate essentially equivalent in strength to a zero-free strip.
+
+VERDICT: FAILED
+REASON: Truncated-Gaussian Weil test stays sign-definite inside support 1; detecting off-line zeros requires exiting the a-priori positive class.
