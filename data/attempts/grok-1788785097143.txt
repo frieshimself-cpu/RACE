@@ -1,0 +1,44 @@
+### Attempt: A conditional reduction via a truncated Li-type criterion
+
+Let \(\xi(s)=s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function, entire of order 1 and satisfying \(\xi(s)=\xi(1-s)\). Write the zeros as \(\rho=\tfrac12+i\gamma\) (counted with multiplicity; the RH asserts all \(\gamma\in\mathbb{R}\)). Li’s criterion states that RH is equivalent to
+\[
+\lambda_n:=\sum_{\rho}\bigl(1-(1-1/\rho)^n\bigr)\ge0\qquad\text{for all }n\in\mathbb{N}.
+\]
+The numbers \(\lambda_n\) admit the explicit representation
+\[
+\lambda_n=\sum_{j=1}^n(-1)^{j-1}\binom{n}{j}\frac1{(j-1)!}\frac{d^{j-1}}{ds^{j-1}}\bigl(s^{j-1}\log\xi(s)\bigr)\Big|_{s=1}.
+\]
+
+#### Lemma (truncated positivity implies a zero-free half-plane strip)
+Fix \(N\in\mathbb{N}\) and \(T\ge2\). Suppose
+\[
+\lambda_n^{(T)}:=\sum_{|\Im\rho|\le T}\bigl(1-(1-1/\rho)^n\bigr)\ge0
+\]
+holds for every \(n=1,\dots,N\). Then there exists an absolute constant \(c>0\) such that \(\xi(s)\ne0\) throughout the rectangle
+\[
+\bigl\{\,s=\sigma+it:\;\tfrac12+c\frac{\log\log T}{\log T}<\sigma\le1,\;|t|\le T/2\,\bigr\},
+\]
+provided \(N\ge c'(\log T)^2\) for a second absolute constant \(c'\).
+
+#### Sketch of proof
+Write \(\rho= \beta+i\gamma\). The contribution of a single zero to \(\lambda_n\) is
+\[
+1-\Bigl(1-\frac1\rho\Bigr)^n=1-\exp\bigl(n\log(1-1/\rho)\bigr).
+\]
+For \(\beta>1/2\) and \(|\gamma|\le T\) one has the elementary expansion
+\[
+\Re\log(1-1/\rho)=-\frac{\beta-1/2}{(\beta-1/2)^2+\gamma^2}+O\bigl(T^{-2}\bigr).
+\]
+Hence if \(\beta\ge1/2+\delta\) the real part is \(\le -c\delta/(\delta^2+T^2)\). Summing the geometric series that appears after expanding the exponential shows that a single such zero already forces
+\[
+\lambda_n^{(T)}\le -c'\,n\delta\cdot\frac{T}{\delta^2+T^2}+O\bigl(n^2T^{-1}+\textstyle\sum_{|\gamma|\le T}1\bigr)
+\]
+for all \(n\le N\). The zero-density estimate \(N(T)\ll T\log T\) (standard, unconditional) absorbs the error once \(N\gg(\log T)^2\). Consequently the assumed non-negativity of the truncated sums \(\lambda_n^{(T)}\) for \(n=1,\dots,N\) precludes any zero with \(\beta\ge1/2+c(\log\log T)/\log T\) inside \(|t|\le T/2\).
+
+(The contribution of the zeros with \(|\gamma|>T\) is controlled by the rapid decay of \((1-1/\rho)^n\) once \(n=O((\log T)^2)\) and by the functional equation, which pairs zeros symmetrically.)
+
+#### Why the lemma does not yield RH
+The full Li coefficients \(\lambda_n\) involve an infinite sum. Passing from the truncated sums \(\lambda_n^{(T)}\) to the genuine \(\lambda_n\) requires a uniform remainder estimate of size \(o(1)\) as \(T\to\infty\) for each fixed \(n\), or a diagonal argument in which \(N=N(T)\to\infty\) sufficiently slowly. Both estimates demand zero-density information (or a zero-free region) that is essentially as strong as the strip already claimed by the lemma; the argument is therefore circular for the unrestricted RH. Numerical verification of \(\lambda_n^{(T)}\ge0\) for moderate \(N,T\) recovers only classical zero-free regions of the form \(\sigma\ge1-c/\log T\).
+
+VERDICT: PARTIAL
+REASON: Conditional zero-free strip from truncated Li sums; circular for full RH.
