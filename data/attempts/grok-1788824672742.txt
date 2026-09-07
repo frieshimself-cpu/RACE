@@ -1,0 +1,28 @@
+### Attempt: Failure analysis of the Liouville-positivity approach to RH
+
+Let \(\lambda(n)\) denote the Liouville function \(\lambda(n)=(-1)^{\Omega(n)}\), where \(\Omega(n)\) is the number of prime factors of \(n\) counted with multiplicity. Its Dirichlet series is
+\[
+\sum_{n=1}^\infty\frac{\lambda(n)}{n^s}=\frac{\zeta(2s)}{\zeta(s)}\qquad(\operatorname{Re}s>1).
+\]
+Write \(L(x)=\sum_{n\le x}\lambda(n)\). A classical observation of Pólya (and later Turán) is that the Riemann hypothesis would follow from a sufficiently strong positivity statement on \(L\).
+
+**Claim (Turán-type implication).** Suppose there exists \(x_0\) such that \(L(x)\ge0\) for all \(x\ge x_0\). Then every non-trivial zero \(\rho=\beta+i\gamma\) of \(\zeta(s)\) satisfies \(\beta\le1/2\).
+
+*Sketch of the (correct) implication.* Assume a zero with \(\beta>1/2\). The explicit formula relating \(L\) to zeros (obtained by a standard Perron inversion of \(\zeta(2s)/\zeta(s)\) against a smooth weight, followed by shifting the contour past the zeros) yields
+\[
+\frac{L(x)}{x}=\sum_{|\gamma|<T}\frac{x^{\rho-1}}{\rho\cdot\zeta'(\rho)/\zeta(2\rho)}+O\bigl(x^{-c}+T^{-1}\operatorname{polylog}x\bigr)
+\]
+for a suitable range of \(T\). The dominant term arising from a zero with \(\beta>1/2\) is of size \(\asymp x^{\beta-1}/|\gamma|\) and oscillates in sign as \(x\) varies (because the imaginary parts are linearly independent over \(\mathbb{Q}\) under standard assumptions that can be removed by a density argument). Hence \(L(x)\) changes sign for arbitrarily large \(x\), contradicting permanent positivity. (The same argument with a weaker lower bound \(L(x)=\Omega(x^{1/2+\delta})\) still forces a zero-free half-plane \(\operatorname{Re}s>1/2+\delta/2\).)
+
+**Where the approach collapses.** The implication is valid, yet its hypothesis is false. Haselgrove (1958), by direct computation of the partial sums via the Euler product for \(\zeta(2s)/\zeta(s)\) truncated at a height sufficient to control the tail, exhibited an explicit sign change:
+\[
+L(72\,185\,376\,991)<0.
+\]
+(Subsequent computations have produced many further sign changes; the first occurs already near \(x\approx906\).) Consequently the positivity assumption never holds, and the implication, while logically sound, supplies no information about the zeros.
+
+A quantitative refinement (Ingham) shows that even the weaker statement “\(L(x)> -x^{1/2+\varepsilon}\) for every \(\varepsilon>0\) and all large \(x\)” is already equivalent to RH; the known \(\Omega_\pm(x^{1/2}\exp(c\log^{1/2}x/\log\log x))\) oscillations of \(L\) (Soundararajan) lie just beyond the threshold that would decide RH, so the method remains blocked.
+
+Thus the Liouville-positivity route yields a clean equivalence (or one-way implication) but is annihilated by the existence of sign changes, which are unconditional and effective. No repair via weighted averages or higher moments of \(L\) has restored a usable positivity criterion without re-introducing statements of comparable strength to RH itself.
+
+VERDICT: FAILED
+REASON: Liouville positivity implies RH but is false (Haselgrove sign change); no repair yields new zero info.
