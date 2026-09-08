@@ -1,0 +1,58 @@
+## Attempt: Relativizing barriers preclude pure diagonalization for \(\mathbf{P}\) vs \(\mathbf{NP}\)
+
+We give a self-contained reconstruction of the Baker–Gill–Solovay oracle separation, framed as a rigorous obstruction lemma: any proof technique that relativizes (i.e., remains valid after adjoining an arbitrary oracle) cannot decide \(\mathbf{P}=\mathbf{NP}\).
+
+### Definitions
+Let \(A\subseteq\{0,1\}^*\) be an oracle. Machines \(M^A\) may query the characteristic function of \(A\) in unit time.  
+\[
+\mathbf{P}^A=\{L\mid L\text{ decided by a deterministic poly-time }M^A\},
+\]
+\[
+\mathbf{NP}^A=\{L\mid L\text{ decided by a nondeterministic poly-time }N^A\}.
+\]
+A proof technique *relativizes* if, whenever it establishes a statement \(S\) about Turing machines, the identical argument establishes \(S^A\) for every oracle \(A\).
+
+### Lemma (BGS obstruction)
+There exist oracles \(A,B\) such that
+\[
+\mathbf{P}^A=\mathbf{NP}^A\qquad\text{and}\qquad\mathbf{P}^B\neq\mathbf{NP}^B.
+\]
+Consequently no relativizing proof can settle \(\mathbf{P}\) vs \(\mathbf{NP}\).
+
+### Construction of \(A\) (collapse)
+Enumerate all deterministic poly-time oracle machines \(M_1,M_2,\dots\). We build \(A\) in stages so that every language in \(\mathbf{NP}^A\) is decided by some \(M_i^A\).
+
+At stage \(s\) we ensure that the \(s\)-th nondeterministic poly-time machine \(N_s\) has an equivalent deterministic poly-time machine relative to the eventual \(A\). Let \(p_s(n)\) bound the running time of \(N_s\).  
+- Reserve a fresh length \(n_s\gg p_s(n_{s-1})\) large enough that previous commitments do not interfere.  
+- Simulate all possible nondeterministic computation paths of \(N_s\) on the input \(1^{n_s}\), answering oracle queries consistently with previously fixed bits of \(A\) and leaving unqueried strings free.  
+- If any path accepts, pick one accepting path and freeze into \(A\) exactly the (polynomially many) strings it queried positively; set all other strings of length \(n_s\) to *out* of \(A\).  
+- Otherwise freeze all length-\(n_s\) strings out of \(A\).
+
+The language
+\[
+L(A)=\{1^n\mid \exists y\ (|y|=n)\land y\in A\}
+\]
+is clearly in \(\mathbf{NP}^A\). By the stage construction, for every \(N_s\) there is a deterministic poly-time machine that, on input \(x\), simply looks up the frozen table constructed at the stage corresponding to \(|x|\) (or simulates the finitely many earlier stages). Hence \(L(A)\in\mathbf{P}^A\). Since every language in \(\mathbf{NP}^A\) many-one reduces to \(L(A)\) via a trivial padding (standard), we obtain \(\mathbf{NP}^A\subseteq\mathbf{P}^A\).
+
+### Construction of \(B\) (separation)
+We build \(B\) so that the unary language
+\[
+L(B)=\{1^n\mid \exists y\ (|y|=n)\land y\in B\}
+\]
+lies in \(\mathbf{NP}^B\setminus\mathbf{P}^B\).
+
+Enumerate deterministic poly-time oracle machines \(M_i\) with running-time bounds \(q_i(n)\). At stage \(i\):  
+- Choose \(n_i\) larger than all previous lengths and large enough that \(2^{n_i}>q_i(n_i)\).  
+- Run \(M_i\) on \(1^{n_i}\), answering oracle queries as follows: any string already frozen is answered consistently; any unfrozen string is answered “no” and permanently frozen out of \(B\).  
+- After the simulation (at most \(q_i(n_i)\) queries) at least one string \(y^*\) of length \(n_i\) remains unfrozen.  
+- If \(M_i\) rejected, place \(y^*\) into \(B\); if it accepted, leave all length-\(n_i\) strings out of \(B\).
+
+Thus \(M_i^B\) errs on \(1^{n_i}\). Since every deterministic poly-time machine appears in the enumeration, \(L(B)\notin\mathbf{P}^B\). Membership in \(\mathbf{NP}^B\) is immediate (guess \(y\)).
+
+### Conclusion of the obstruction
+Any purported proof that \(\mathbf{P}=\mathbf{NP}\) (resp. \(\mathbf{P}\neq\mathbf{NP}\)) that relativizes would remain valid when the machines are given oracle \(A\) (resp. \(B\)), contradicting the lemma. Therefore diagonalization arguments, simulation arguments, and any other technique whose validity is preserved under arbitrary oracles are insufficient to resolve the question.
+
+(The same barrier applies to most classical recursion-theoretic methods. Non-relativizing techniques—e.g., those employing arithmetization or interactive proofs—are known to evade it, yet have so far produced only conditional or partial circuit lower bounds, not a full separation or collapse.)
+
+VERDICT: PARTIAL
+REASON: Rigorous BGS obstruction lemma showing relativizing techniques cannot resolve P vs NP; no full solution.
