@@ -1,0 +1,34 @@
+### Attempt: Obstruction lemma for a class of positivity proofs of RH via the Guinand–Weil explicit formula
+
+Let \(\Xi(t)=\xi(1/2+it)\) be the completed Riemann xi-function (even, real on \(\mathbb{R}\), of order 1). The Guinand–Weil explicit formula equates, for a sufficiently nice even test function \(g\) of rapid decay whose Fourier transform \(\hat g\) is supported in \((-2,2)\),
+\[
+\sum_{\rho} g\bigl(\tfrac{\rho-1/2}{i}\bigr)
+=
+\int_{-\infty}^{\infty} g(t)\frac{\Xi'}{\Xi}(t)\,dt
++
+\text{(explicit archimedean and prime-power terms involving \(\hat g\))}.
+\]
+(The precise form of the prime-power side is immaterial below; call it \(P(g)\).) A long-standing strategy for RH is to produce a family of \(g\ge0\) for which the left-hand side is visibly non-negative only when every non-trivial zero satisfies \(\operatorname{Re}\rho=1/2\), while the right-hand side is controlled by \(P(g)\).
+
+**Lemma (obstruction).** Suppose \(g\) is even, Schwartz, \(\operatorname{supp}\hat g\subset(-2,2)\), and \(g(t)\ge0\) for all \(t\). Write the ordinates of zeros as \(\rho=1/2+i\tau+\delta\) with \(\delta\in\mathbb{R}\) (so RH is \(\delta=0\) for all zeros). Then the contribution of any zero with \(|\delta|\ge\varepsilon>0\) to the left-hand side is
+\[
+g(\tau-i\delta)+g(-\tau-i\delta)=2\operatorname{Re}g(\tau-i\delta).
+\]
+If in addition \(g\) is the Fourier transform of a non-negative measure (i.e., \(g\) is positive-definite), Bochner’s theorem forces
+\[
+\operatorname{Re}g(\tau-i\delta)\le g(\tau)\le C_g\,e^{c|\delta|}
+\]
+with a constant independent of \(\tau\), but the exponential growth in the imaginary direction cannot be cancelled by the prime-power side \(P(g)\) once \(\operatorname{supp}\hat g\) is fixed inside \((-2,2)\). Consequently no single such \(g\) (nor any finite linear combination with positive coefficients) can force \(\delta=0\): the contribution of a putative zero with \(\delta\neq0\) remains of the same sign and comparable magnitude to the on-line contribution, while \(P(g)\) stays bounded by the length of the support of \(\hat g\).
+
+**Proof sketch of the obstruction.** Positive-definiteness + evenness imply \(g(z)=\int_{-2}^{2}e^{iz\xi}\,d\mu(\xi)\) for a positive finite measure \(\mu\). Hence
+\[
+\operatorname{Re}g(\tau-i\delta)=\int_{-2}^{2}e^{\delta\xi}\cos(\tau\xi)\,d\mu(\xi).
+\]
+The factor \(e^{\delta\xi}\) is bounded by \(e^{2|\delta|}\) on the support, and the oscillatory integral is at most \(\|\mu\|\) in absolute value; the same bound holds for the on-line term \(g(\tau)\). The archimedean contribution on the right-hand side of the explicit formula is an entire function of exponential type at most 2 (by the support restriction) and therefore cannot absorb an arbitrarily large vertical shift \(\delta\). The prime-power terms are linear combinations of \(\hat g(\log n)\) and are likewise controlled solely by \(\operatorname{supp}\hat g\). Thus the sign of the left-hand side is not forced by the sign of \(g\) on the real line once off-line zeros are admitted. Extending to a sequence \(g_n\) with \(\operatorname{supp}\hat g_n\) expanding toward the whole line re-introduces the classical divergence of the prime harmonic series and destroys absolute convergence of the explicit formula, returning one to the unproved prime-number theorem in the critical strip.
+
+The same obstruction applies verbatim to any attempt that replaces \(g\) by a square \(h*\check h\) (so that positivity is automatic) while keeping Fourier support inside a fixed compact set. Therefore every proof of RH that proceeds by exhibiting a single positive-definite test function (or a compactly supported family thereof) in the Guinand–Weil formula is blocked by this uniform exponential estimate. Any successful positivity argument must either (i) allow Fourier support to grow with a carefully controlled rate that still keeps the explicit formula convergent, or (ii) abandon positive-definiteness and work with sign-changing test functions whose off-line values can be made negative.
+
+(This does not rule out all positivity methods—e.g., those based on the Li coefficients or on pair-correlation measures—but it eliminates an entire and frequently rediscovered class of “obvious” candidates.)
+
+VERDICT: PARTIAL
+REASON: Obstruction lemma blocking compactly-supported positive-definite test functions in explicit-formula positivity attacks on RH
