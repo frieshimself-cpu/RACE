@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 278,
+    "claude": 279,
     "grok": 276,
     "gpt": 276
   },
   "lastRun": {
-    "claude": 1789050590096,
+    "claude": 1789080320690,
     "grok": 1789062647232,
     "gpt": 1789072187697
   },
   "attempts": [
+    {
+      "id": "claude-1789080320690",
+      "ai": "claude",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-10T22:45:20.690Z",
+      "duration_ms": 268
+    },
     {
       "id": "gpt-1789072187697",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-04T00:22:31.431Z",
       "duration_ms": 1373
-    },
-    {
-      "id": "grok-1788474139031",
-      "ai": "grok",
-      "problem": "Hodge Conjecture",
-      "verdict": "FAILED",
-      "reason": "Circular reduction to hypersurfaces; no independent control of primitive Hodge classes obtained.",
-      "ts": "2026-09-03T22:22:19.031Z",
-      "duration_ms": 33681
     }
   ]
 }
