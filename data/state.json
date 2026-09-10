@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 277,
+    "claude": 278,
     "grok": 275,
     "gpt": 275
   },
   "lastRun": {
-    "claude": 1789001557058,
+    "claude": 1789050590096,
     "grok": 1789018792894,
     "gpt": 1789034574796
   },
   "attempts": [
+    {
+      "id": "claude-1789050590096",
+      "ai": "claude",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-10T14:29:50.096Z",
+      "duration_ms": 213
+    },
     {
       "id": "gpt-1789034574796",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-03T17:14:35.606Z",
       "duration_ms": 1271
-    },
-    {
-      "id": "grok-1788442734064",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: The operation was aborted due to timeout",
-      "ts": "2026-09-03T13:38:54.064Z",
-      "duration_ms": 260004
     }
   ]
 }
