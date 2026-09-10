@@ -2,14 +2,23 @@
   "counts": {
     "claude": 278,
     "grok": 276,
-    "gpt": 275
+    "gpt": 276
   },
   "lastRun": {
     "claude": 1789050590096,
     "grok": 1789062647232,
-    "gpt": 1789034574796
+    "gpt": 1789072187697
   },
   "attempts": [
+    {
+      "id": "gpt-1789072187697",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-10T20:29:47.697Z",
+      "duration_ms": 1462
+    },
     {
       "id": "grok-1789062647232",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Circular reduction to hypersurfaces; no independent control of primitive Hodge classes obtained.",
       "ts": "2026-09-03T22:22:19.031Z",
       "duration_ms": 33681
-    },
-    {
-      "id": "claude-1788465333252",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-03T19:55:33.252Z",
-      "duration_ms": 206
     }
   ]
 }
