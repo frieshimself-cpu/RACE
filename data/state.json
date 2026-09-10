@@ -2,14 +2,23 @@
   "counts": {
     "claude": 277,
     "grok": 275,
-    "gpt": 274
+    "gpt": 275
   },
   "lastRun": {
     "claude": 1789001557058,
     "grok": 1789018792894,
-    "gpt": 1788993831758
+    "gpt": 1789034574796
   },
   "attempts": [
+    {
+      "id": "gpt-1789034574796",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-10T10:02:54.796Z",
+      "duration_ms": 1960
+    },
     {
       "id": "grok-1789018792894",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: The operation was aborted due to timeout",
       "ts": "2026-09-03T13:38:54.064Z",
       "duration_ms": 260004
-    },
-    {
-      "id": "claude-1788426744392",
-      "ai": "claude",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-03T09:12:24.392Z",
-      "duration_ms": 195
     }
   ]
 }
