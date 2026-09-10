@@ -1,0 +1,48 @@
+### Attempt: Obstruction to a Direct Euler-Product Attack on the Rank Equality
+
+Let \(E/\mathbb{Q}\) be an elliptic curve of conductor \(N\), with minimal discriminant \(\Delta\), and let
+\[
+L(E,s)=\sum_{n\ge1}a_n n^{-s}=\prod_p\bigl(1-a_pp^{-s}+\mathbf{1}_{p\nmid N}p^{1-2s}\bigr)^{-1}
+\]
+be its Hasse–Weil \(L\)-function (absolutely convergent for \(\operatorname{Re}s>3/2\)). Write \(r_{\mathrm{an}}=\operatorname{ord}_{s=1}L(E,s)\) and \(r_{\mathrm{alg}}=\operatorname{rank}E(\mathbb{Q})\). The BSD rank conjecture asserts \(r_{\mathrm{an}}=r_{\mathrm{alg}}\).
+
+A naïve approach proceeds from the formal identity
+\[
+-\frac{L'(E,s)}{L(E,s)}=\sum_p\frac{\partial_s\log\bigl(1-a_pp^{-s}+\cdots\bigr)}{1}+\text{holomorphic correction}
+\]
+and attempts to extract the order of vanishing at \(s=1\) by comparing the growth of partial Euler products
+\[
+P_X(s)=\prod_{p\le X}\bigl(1-a_pp^{-s}+\mathbf{1}_{p\nmid N}p^{1-2s}\bigr)^{-1}
+\]
+against the conjectural leading term
+\[
+L^{(r)}(E,1)/r!\sim\Omega\cdot\operatorname{Reg}\cdot\#\Sha\cdot\prod c_p/(\#E(\mathbb{Q})_{\mathrm{tors}})^2
+\]
+(with \(r=r_{\mathrm{alg}}\)).  The hope is that the logarithmic derivative of \(P_X(1)\) already encodes \(r_{\mathrm{alg}}\) once \(X\to\infty\), via the relation
+\[
+\sum_{p\le X}\frac{a_p\log p}{p}\sim -r_{\mathrm{alg}}\log X+O(1)
+\]
+that would follow from the prime-number theorem for the coefficients \(a_p\) if one knew the Sato–Tate measure and the distribution of Frobenius angles sufficiently well.
+
+#### Precise obstruction
+
+Assume for contradiction that the above asymptotic holds with an error \(O(X^{1/2-\delta})\) for some \(\delta>0\).  By partial summation and the known bound \(|a_p|\le2\sqrt{p}\), this would imply that the Dirichlet series
+\[
+D(s)=\sum_p a_p p^{-s}\log p
+\]
+admits a meromorphic continuation to \(\operatorname{Re}s>1/2\) with a single simple pole at \(s=1\) of residue \(-r_{\mathrm{alg}}\).  But the Rankin–Selberg convolution \(L(E\otimes E,s)\) has a simple pole at \(s=1\) whose residue is proportional to the symmetric-square \(L\)-value \(L(\operatorname{Sym}^2E,1)\), which is known to be non-zero.  Consequently the Dirichlet series of \(a_p^2\) already produces a pole of residue \(\asymp1\), and the linear series \(\sum a_p p^{-s}\) cannot simultaneously possess a pole whose residue is an integer \(r_{\mathrm{alg}}\) independent of the Sato–Tate measure unless the measure is supported on a single angle—an eventuality ruled out by the existence of supersingular primes (Elkies) and by the equidistribution theorems of Clozel–Harris–Shepherd-Barron–Taylor for non-CM curves.
+
+More quantitatively, write \(\theta_p\in[0,\pi]\) for the Frobenius angle so that \(a_p=2\sqrt{p}\cos\theta_p\).  The hypothetical asymptotic forces
+\[
+\sum_{p\le X}\cos\theta_p\cdot\frac{\log p}{\sqrt{p}}\sim -r_{\mathrm{alg}}\log X.
+\]
+The left-hand side is an oscillatory sum whose square-mean, by the Rankin–Selberg theory already cited, grows like \(X^{1/2}(\log X)^c\).  By the law of the iterated logarithm for orthogonal automorphic forms (or simply by Cauchy–Schwarz on dyadic blocks), the sum is \(o(\log X)\) on a set of density 1; it cannot tend to \(-\infty\) at a linear rate.  This contradiction is unconditional for non-CM curves and, after a finite base change, for CM curves as well (the CM case reduces to a Hecke \(L\)-function whose non-vanishing on \(\operatorname{Re}s=1\) is classical).
+
+Thus any proof of the rank equality must bypass direct comparison of Euler products at the central point and must instead exploit either
+- Euler-system bounds that control Selmer ranks (Kolyvagin, Kato, \ldots), or
+- \(p\)-adic \(L\)-functions whose interpolation properties convert the analytic order into a Selmer corank (Mazur–Tate–Teitelbaum, Perrin-Riou, \ldots).
+
+The Euler-product route is irretrievably blocked by the orthogonal nature of the Sato–Tate measure.
+
+VERDICT: FAILED
+REASON: Euler-product attack on rank equality blocked by Rankin-Selberg pole + Sato-Tate oscillation
