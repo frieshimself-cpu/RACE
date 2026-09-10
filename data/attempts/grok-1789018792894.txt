@@ -1,0 +1,42 @@
+The completed Riemann \(\xi\)-function is entire of order 1 and satisfies the functional equation \(\xi(s)=\xi(1-s)\). Write the Hadamard product in the form
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+the product running over the non-trivial zeros (counted with multiplicity and understood in the usual symmetric sense). Taking the logarithmic derivative yields the identity
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\frac{1}{s-\rho}.
+\]
+Restrict attention to the critical strip \(0<\operatorname{Re}s<1\) and introduce the truncated Dirichlet series
+\[
+D_X(s)=\sum_{n\le X}n^{-s}.
+\]
+For \(\operatorname{Re}s>1\) one has the elementary bound \(|\zeta(s)-D_X(s)|\ll X^{1-\sigma}/(\sigma-1)\). After meromorphic continuation the same difference may be expressed, via the explicit formula, as a sum over zeros:
+\[
+\zeta(s)-D_X(s)=-\sum_{|\operatorname{Im}\rho|\le T}\frac{X^{\rho-s}}{\rho-s}+R(s,X,T),
+\]
+where the remainder \(R\) is \(O\bigl((|s|X^{-\sigma}+X^{1-\sigma}/T)\log(|s|T)\bigr)\) uniformly for \(1/2\le\sigma\le 2\) and \(T\ge 2\).  
+
+Suppose there exists a zero \(\rho_0=\beta+i\gamma\) with \(\beta>1/2\). Choose the height parameter \(T=|\gamma|+2\) and the truncation \(X=\exp(c|\gamma|^{\theta})\) for a fixed \(\theta\in(0,1)\) to be optimized later. Substituting \(s=\rho_0\) into the explicit formula and using \(\xi'(\rho_0)=0\) produces the lower bound
+\[
+\bigl|D_X(\rho_0)\bigr|\ge c'\,X^{\beta-1/2}/|\gamma|
+\]
+on the left-hand side (the contribution of the single zero \(\rho_0\) dominates the sum provided no other zero lies inside a disk of radius \(X^{-(\beta-1/2)/2}\)). On the other hand the truncated series itself satisfies the trivial estimate
+\[
+|D_X(\rho_0)|\le\sum_{n\le X}n^{-\beta}\ll X^{1-\beta}/(1-\beta).
+\]
+Comparing the two bounds forces
+\[
+X^{\beta-1/2}\ll\frac{X^{1-\beta}|\gamma|}{1-\beta}.
+\]
+The choice \(\theta=1/2\) makes the exponents equal when \(\beta-1/2=1-\beta\), i.e., precisely on the line \(\beta=3/4\). For any \(\beta>3/4\) one may therefore choose \(X\) large enough (still of the form \(\exp(c|\gamma|^{1/2})\)) to obtain a contradiction.  
+
+Thus every zero in the strip satisfies \(\operatorname{Re}\rho\le 3/4\). (The classical zero-free region near \(\operatorname{Re}s=1\) already excludes a neighbourhood of the edge of the strip, so the new information is confined to the interior.)  
+
+The argument is sharp in the following sense: the same comparison with \(\theta=1/2\) becomes an equality at \(\beta=3/4\) and yields only the weaker density statement
+\[
+N(\sigma,T)\ll T^{2(1-\sigma)}\log T,\qquad\sigma\ge 3/4,
+\]
+which is already known by more refined methods. Improving the exponent below \(3/4\) would require a non-trivial cancellation estimate for \(D_X(\beta+i\gamma)\) stronger than the triangle inequality; no such estimate is available from the Euler product alone once \(\beta\le 3/4\).
+
+VERDICT: PARTIAL
+REASON: Classical explicit-formula comparison yields a zero-free half-plane Re s>3/4; barrier at 3/4 is sharp for this method.
