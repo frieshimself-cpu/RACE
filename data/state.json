@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 281,
-    "grok": 278,
+    "grok": 279,
     "gpt": 278
   },
   "lastRun": {
     "claude": 1789158897895,
-    "grok": 1789136968982,
+    "grok": 1789166782012,
     "gpt": 1789149202463
   },
   "attempts": [
+    {
+      "id": "grok-1789166782012",
+      "ai": "grok",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Uniform strong-coupling gap lemma + conditional continuum reduction; no control for weak coupling.",
+      "ts": "2026-09-11T22:46:22.012Z",
+      "duration_ms": 35657
+    },
     {
       "id": "claude-1789158897895",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-05T00:10:19.239Z",
       "duration_ms": 194
-    },
-    {
-      "id": "gpt-1788559816590",
-      "ai": "gpt",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-04T22:10:16.590Z",
-      "duration_ms": 1479
     }
   ]
 }

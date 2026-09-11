@@ -1,0 +1,40 @@
+### Attempt: Uniform infrared bound via cluster expansion for the continuum limit candidate
+
+Let \(G\) be a compact simple Lie group (e.g. \(SU(N)\)). Consider the pure lattice Yang–Mills measure on a finite 4-torus \(\Lambda_L = (\mathbb{Z}/L\mathbb{Z})^4\) with Wilson action
+\[
+S_\beta(U)=\frac{\beta}{2}\sum_{p\subset\Lambda_L}\operatorname{Re}\operatorname{Tr}(1-U_p),\qquad
+d\mu_{\beta,L}(U)=Z^{-1}e^{-S_\beta(U)}\,dU,
+\]
+where \(dU\) is Haar measure on \(G^{\text{links}}\). Gauge-invariant local observables are polynomials in the plaquette variables \(U_p\).
+
+**Lemma (strong-coupling spectral gap, volume-uniform).**  
+There exist \(\beta_0>0\) and \(c>0\) such that for all \(\beta\in(0,\beta_0)\) and all \(L\ge 4\), the connected two-point function of any two local gauge-invariant operators \(A,B\) of diameter \(\le 1\) satisfies
+\[
+\bigl|\langle A(x)B(y)\rangle_{\beta,L}-\langle A\rangle\langle B\rangle\bigr|
+\le C_{A,B}\,e^{-m|x-y|},\qquad m\ge c\log(1/\beta)>0.
+\]
+Consequently the transfer-matrix Hamiltonian on the spatial slice has a spectral gap \(\Delta\ge m>0\) uniformly in \(L\).
+
+*Proof sketch (standard cluster expansion, recorded for self-containedness).*  
+Expand the Boltzmann weight in the Peter–Weyl character basis:
+\[
+e^{(\beta/2)\operatorname{Re}\operatorname{Tr}U_p}=\sum_{\rho}c_\rho(\beta)\,d_\rho\chi_\rho(U_p),
+\]
+with \(c_\rho(\beta)=O(\beta^{k_\rho})\) where \(k_\rho\) is the minimal degree. The resulting polymer expansion for the partition function and for \(\langle A(x)B(y)\rangle\) consists of connected diagrams of plaquettes joining the supports of \(A\) and \(B\). Each diagram of length \(\ell\) carries a factor \(\le (C\beta)^{\ell}\). Summation over embeddings on the torus yields the exponential decay with rate \(m=\log(1/(C'\beta))\) provided \(\beta<\beta_0:=1/(2C')\). The constants are independent of \(L\) because the expansion is absolutely convergent in the infinite-volume limit (the usual Kotecký–Preiss criterion holds uniformly). The spectral-gap claim follows by the standard transfer-matrix reconstruction: the gap equals the decay rate of the two-point function of the time-zero algebra.
+
+**Continuum-limit obstruction and a conditional reduction.**  
+To reach the continuum one must send \(\beta\to\infty\) while the lattice spacing \(a(\beta)\sim\exp(-c\beta)\) (asymptotic freedom) tends to zero, keeping a physical length scale fixed. The lemma supplies a gap only for \(\beta\le\beta_0\).  
+
+Define the renormalized mass by
+\[
+m_{\mathrm{phys}}(\beta,L):=a(\beta)^{-1}\cdot\Delta(\beta,L),
+\]
+where \(\Delta(\beta,L)\) is the lattice spectral gap. Suppose one can establish the existence of a continuum Osterwalder–Schrader limit \(\mu_*\) of the lattice measures (after suitable field-strength renormalization) along a sequence \(\beta_n\to\infty\), \(L_na(\beta_n)\to\infty\).  
+
+**Conditional statement.**  
+If \(\liminf_{n\to\infty}m_{\mathrm{phys}}(\beta_n,L_n)>0\), then the continuum theory \(\mu_*\) satisfies the mass-gap axiom: the spectrum of the continuum Hamiltonian lies in \(\{0\}\cup[m_*,\infty)\) with \(m_*>0\).  
+
+The hypothesis is presently unverified; the only rigorous control on \(\Delta(\beta,L)\) remains the strong-coupling regime. No uniform lower bound on \(\Delta(\beta,L)\) for large \(\beta\) is known, nor is the continuum limit itself constructed. The reduction therefore isolates the analytic difficulty to a single quantitative estimate (persistence of a positive lattice gap under the asymptotically free scaling) but does not resolve it.
+
+VERDICT: PARTIAL
+REASON: Uniform strong-coupling gap lemma + conditional continuum reduction; no control for weak coupling.
