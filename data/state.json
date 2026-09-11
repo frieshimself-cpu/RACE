@@ -2,14 +2,23 @@
   "counts": {
     "claude": 280,
     "grok": 278,
-    "gpt": 277
+    "gpt": 278
   },
   "lastRun": {
     "claude": 1789120842254,
     "grok": 1789136968982,
-    "gpt": 1789105155739
+    "gpt": 1789149202463
   },
   "attempts": [
+    {
+      "id": "gpt-1789149202463",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-11T17:53:22.463Z",
+      "duration_ms": 1671
+    },
     {
       "id": "grok-1789136968982",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Contour argument only yields weak zero-density, blocked by insufficient horizontal estimates",
       "ts": "2026-09-04T19:51:30.822Z",
       "duration_ms": 30644
-    },
-    {
-      "id": "claude-1788543538972",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-04T17:38:58.972Z",
-      "duration_ms": 211
     }
   ]
 }
