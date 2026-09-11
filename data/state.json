@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 279,
-    "grok": 276,
+    "grok": 277,
     "gpt": 276
   },
   "lastRun": {
     "claude": 1789080320690,
-    "grok": 1789062647232,
+    "grok": 1789087848814,
     "gpt": 1789072187697
   },
   "attempts": [
+    {
+      "id": "grok-1789087848814",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Obstruction lemma shows circularity in positivity methods; no new zero-free region or reduction obtained.",
+      "ts": "2026-09-11T00:50:48.814Z",
+      "duration_ms": 36767
+    },
     {
       "id": "claude-1789080320690",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-04T05:03:37.182Z",
       "duration_ms": 194
-    },
-    {
-      "id": "gpt-1788481351431",
-      "ai": "gpt",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-04T00:22:31.431Z",
-      "duration_ms": 1373
     }
   ]
 }

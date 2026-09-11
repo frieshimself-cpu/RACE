@@ -1,0 +1,30 @@
+### Attempt: Obstruction lemma for naive positivity approaches to RH via the completed xi-function
+
+Let \(\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). It is entire of order 1, satisfies the functional equation \(\xi(s)=\xi(1-s)\), and the Riemann Hypothesis (RH) is equivalent to all non-trivial zeros lying on the critical line \(\operatorname{Re}s=1/2\).
+
+Write \(\Xi(t):=\xi(\tfrac12+it)\). Then \(\Xi\) is real-entire and even, and RH holds if and only if every zero of \(\Xi\) is real. A classical positivity strategy seeks a representation
+\[
+\Xi(t)=\int_{-\infty}^{\infty}e^{itu}\,d\mu(u)
+\]
+(or a closely related Fourier–Laplace transform) in which the measure \(\mu\) is positive (or the associated quadratic form is positive-definite on a suitable test-function space). If such a representation exists with \(\mu\ge0\) and sufficient decay, the zeros of \(\Xi\) are forced to be real by standard arguments on Fourier transforms of positive measures (or by the theory of Polya frequency functions).
+
+#### Lemma (archimedean obstruction)
+No representation of the above type can hold with a tempered positive measure \(\mu\) that is independent of an a-priori zero-free region. More precisely: suppose
+\[
+\Xi(t)=\int_{\mathbb{R}}e^{itu}\phi(u)\,du
+\]
+where \(\phi\) is continuous, rapidly decreasing, and \(\phi(u)>0\) for all sufficiently large \(|u|\). Then the identity already forces infinitely many complex zeros of \(\Xi\) unless additional cancellation (coming from the non-archimedean Euler product) is imposed by hand.
+
+#### Proof sketch
+The Gamma factor in \(\xi(s)\) produces, after the change of variables \(s=\tfrac12+it\), a leading asymptotic
+\[
+\log|\Gamma(\tfrac14+i\tfrac t2)|\sim\tfrac{|t|}{2}\log\tfrac{|t|}{2}-\tfrac{|t|}{2}
+\]
+by Stirling. Consequently the Fourier transform of the archimedean contribution alone behaves like a Gaussian with a slowly varying prefactor of the form \(\exp(-c|u|\log|u|)\) only after a contour shift that already assumes a zero-free strip; without that shift the inverse Fourier transform of \(\Xi_{\infty}(t):=\tfrac12(\tfrac12+it)(-\tfrac12+it)\pi^{-1/4-it/2}\Gamma(\tfrac14+it/2)\) is not positive. Explicitly, the Mellin inversion contour for the Gamma factor must be moved past the critical line before the resulting kernel is positive-definite on \(\mathbb{R}\). Any such move requires a preliminary zero-free region for \(\zeta(s)\) of width at least \(\gg 1/\log|t|\), which is circular for a proof of RH. The Euler product (or the von Mangoldt explicit formula) can cancel the residual oscillations, but only after one already controls the horizontal distribution of zeros—an input equivalent in strength to a weak form of RH itself. Thus the positivity of \(\phi\) cannot be verified unconditionally from the archimedean data alone, and every known attempt to absorb the Euler factor into a positive kernel re-introduces the same circularity (via truncated Dirichlet polynomials or mollifiers whose \(L^2\) norms are estimated by assuming RH-scale zero density).
+
+The same obstruction appears in the Weil explicit formula: the archimedean Weil term is negative for test functions supported far from the origin, and positivity of the whole explicit formula on a large enough class of test functions is known to be equivalent to RH, not a route to it.
+
+This rules out a large class of “purely archimedean + positivity” strategies without new input on the distribution of primes (or on zero density). 
+
+VERDICT: FAILED
+REASON: Obstruction lemma shows circularity in positivity methods; no new zero-free region or reduction obtained.
