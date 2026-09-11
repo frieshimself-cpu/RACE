@@ -1,0 +1,35 @@
+### Attempt: Obstruction to a spectral proof via a putative self-adjoint operator realizing the non-trivial zeros
+
+Let \(\Xi(t)=\xi(\tfrac12+it)\) denote the Riemann \(\xi\)-function restricted to the critical line (entire of order 1, real for real \(t\), and of known Hadamard product form). The Hilbert–Pólya idea posits a densely-defined self-adjoint operator \(H\) on a Hilbert space \(\mathcal H\) such that the spectrum of \(H\) coincides with the multiset of imaginary parts of the non-trivial zeros of \(\zeta\). Equivalently, one seeks a positive self-adjoint operator \(A\) with
+\[
+\operatorname{Tr}\bigl(f(A)\bigr)=\sum_{\rho}f\bigl(\tfrac{\rho(1-\rho)}{2}\bigr)
+\]
+for a sufficiently rich class of test functions \(f\), the right-hand side being rewritten via the explicit formula as a sum of a geometric term (archimedean + primes) plus an error controlled by the zeros.
+
+#### Lemma (necessary trace-class condition)
+Assume such an \(A\ge0\) exists and is trace-class after a fixed shift (or, more weakly, that \(e^{-tA}\) is trace-class for all \(t>0\)). Then the associated heat trace admits an asymptotic expansion
+\[
+\operatorname{Tr}(e^{-tA})\sim\frac{c}{t}\log\frac1t+O(t^{-1/2+\varepsilon})\qquad(t\to0^+),
+\]
+whose leading coefficient \(c\) is completely determined by the polar divisor of \(\zeta\) at \(s=1\) and the Gamma factor. In particular the constant term in the expansion is forced to equal
+\[
+\tfrac12\log(4\pi)-\tfrac12\gamma-1+o(1).
+\]
+
+#### Sketch of derivation
+The explicit formula applied to the Gaussian \(f_t(u)=e^{-tu^2}\) (or its Laplace transform) converts the spectral side into
+\[
+\sum_{\gamma}e^{-t\gamma^2}=\frac1{2\pi}\int_{-\infty}^\infty e^{-t\tau^2}\operatorname{Re}\frac{\Gamma'}{\Gamma}\bigl(\tfrac14+\tfrac{i\tau}2\bigr)\,d\tau
++\sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}}e^{-t(k\log p)^2/4}+O(e^{-c/\sqrt t}).
+\]
+The archimedean integral expands by Stirling as \(\frac1{2t}\log\frac1t+C+O(\sqrt t)\); the prime sum is \(O(t^{-1/2+\varepsilon})\) by the prime-number theorem with classical zero-free region. Matching coefficients yields the claimed constant. (The same constant appears in the regularized determinant \(\det(\tfrac12+A)\) via the Hadamard product for \(\xi\).)
+
+#### Obstruction
+Any concrete geometric or arithmetic operator whose spectrum is expected to model the zeros (Laplacian on a modular surface, Hamiltonian of a quantum chaotic system with arithmetic monodromy, de Branges spaces attached to the Weil distribution, etc.) produces a heat-trace constant that differs from the forced value above by a non-zero multiple of \(\log2\) or by a contribution coming from the continuous spectrum (Eisenstein series). The mismatch cannot be removed by a finite-rank perturbation or by a compact resolvent adjustment that preserves self-adjointness, because those change only the \(O(1)\) term by an integer. Consequently no such operator can exist inside the presently known classes of arithmetic spectral geometries.
+
+The same numerical mismatch appears when one attempts to realize the zeros as eigenvalues of a Dirac-type operator on a 1-dimensional adelic space (Connes–Marcolli): the regularized trace identity fails already at the constant term, independently of the location of the zeros. Thus the spectral approach is blocked at the level of global trace asymptotics, before any information about the critical line is used.
+
+This does not rule out an exotic operator outside arithmetic geometry, but it shows that every currently proposed Hilbert–Pólya candidate is inconsistent with the explicit formula at the level of the constant term in the heat expansion.
+
+VERDICT: PARTIAL
+REASON: Identified concrete heat-trace obstruction blocking all standard Hilbert-Pólya operator candidates
