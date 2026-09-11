@@ -2,14 +2,23 @@
   "counts": {
     "claude": 279,
     "grok": 277,
-    "gpt": 276
+    "gpt": 277
   },
   "lastRun": {
     "claude": 1789080320690,
     "grok": 1789087848814,
-    "gpt": 1789072187697
+    "gpt": 1789105155739
   },
   "attempts": [
+    {
+      "id": "gpt-1789105155739",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-11T05:39:15.739Z",
+      "duration_ms": 1626
+    },
     {
       "id": "grok-1789087848814",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Weil positivity reduces RH to unchecked inequalities; density bounds too weak to close them.",
       "ts": "2026-09-04T09:43:25.806Z",
       "duration_ms": 32615
-    },
-    {
-      "id": "claude-1788498217182",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-04T05:03:37.182Z",
-      "duration_ms": 194
     }
   ]
 }
