@@ -2,14 +2,23 @@
   "counts": {
     "claude": 281,
     "grok": 279,
-    "gpt": 278
+    "gpt": 279
   },
   "lastRun": {
     "claude": 1789158897895,
     "grok": 1789166782012,
-    "gpt": 1789149202463
+    "gpt": 1789174543720
   },
   "attempts": [
+    {
+      "id": "gpt-1789174543720",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-12T00:55:43.720Z",
+      "duration_ms": 1553
+    },
     {
       "id": "grok-1789166782012",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Contour argument yields only classical density estimates; high zeros evade contradiction via 1/|γ| decay.",
       "ts": "2026-09-05T04:38:01.177Z",
       "duration_ms": 34934
-    },
-    {
-      "id": "claude-1788567019239",
-      "ai": "claude",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-05T00:10:19.239Z",
-      "duration_ms": 194
     }
   ]
 }
