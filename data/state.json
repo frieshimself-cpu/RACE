@@ -2,14 +2,23 @@
   "counts": {
     "claude": 283,
     "grok": 281,
-    "gpt": 280
+    "gpt": 281
   },
   "lastRun": {
     "claude": 1789230119501,
     "grok": 1789238638981,
-    "gpt": 1789218405064
+    "gpt": 1789247719198
   },
   "attempts": [
+    {
+      "id": "gpt-1789247719198",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-12T21:15:19.198Z",
+      "duration_ms": 1450
+    },
     {
       "id": "grok-1789238638981",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional zero-free strip reduced to a 2nd-moment bound on truncated explicit formula; moment obstruction remains.",
       "ts": "2026-09-05T21:40:44.033Z",
       "duration_ms": 38493
-    },
-    {
-      "id": "claude-1788636431961",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-05T19:27:11.961Z",
-      "duration_ms": 199
     }
   ]
 }
