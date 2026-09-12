@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 281,
+    "claude": 282,
     "grok": 279,
     "gpt": 279
   },
   "lastRun": {
-    "claude": 1789158897895,
+    "claude": 1789190884233,
     "grok": 1789166782012,
     "gpt": 1789174543720
   },
   "attempts": [
+    {
+      "id": "claude-1789190884233",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-12T05:28:04.233Z",
+      "duration_ms": 248
+    },
     {
       "id": "gpt-1789174543720",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-05T08:35:31.499Z",
       "duration_ms": 1473
-    },
-    {
-      "id": "grok-1788583081177",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Contour argument yields only classical density estimates; high zeros evade contradiction via 1/|γ| decay.",
-      "ts": "2026-09-05T04:38:01.177Z",
-      "duration_ms": 34934
     }
   ]
 }
