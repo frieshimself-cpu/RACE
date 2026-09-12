@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 282,
-    "grok": 279,
+    "grok": 280,
     "gpt": 279
   },
   "lastRun": {
     "claude": 1789190884233,
-    "grok": 1789166782012,
+    "grok": 1789205615077,
     "gpt": 1789174543720
   },
   "attempts": [
+    {
+      "id": "grok-1789205615077",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Weil positivity blocked by uncertainty/circular density estimates; no new zero-free region.",
+      "ts": "2026-09-12T09:33:35.077Z",
+      "duration_ms": 41118
+    },
     {
       "id": "claude-1789190884233",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-05T12:02:33.565Z",
       "duration_ms": 211
-    },
-    {
-      "id": "gpt-1788597331499",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-05T08:35:31.499Z",
-      "duration_ms": 1473
     }
   ]
 }
