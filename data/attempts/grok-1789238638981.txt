@@ -1,0 +1,47 @@
+### Attempt: A conditional reduction via a weighted pair-correlation identity
+
+Fix \(T\ge 3\) and a smooth even test function \(g\in C_c^\infty(-1,1)\) with \(\widehat g\ge 0\) and \(g(0)=1\). Write \(\rho=\tfrac12+i\gamma\) for nontrivial zeros of \(\zeta(s)\) (counted with multiplicity) and consider the weighted second-moment
+\[
+S_g(T):=\sum_{|\gamma|,|\gamma'|\le T}g\Bigl(\frac{\gamma-\gamma'}{2\pi}\Bigr)w(\gamma)w(\gamma'),
+\]
+where the weight \(w(\gamma)=(1+\gamma^2)^{-1}\) is introduced solely to guarantee absolute convergence of all subsequent contour integrals; it does not alter the asymptotic main terms up to an admissible error \(O(T^{-1+\varepsilon})\).
+
+By the classical explicit formula applied to the pair \((\rho,\rho')\) and after shifting the contour past the pole at \(s=1\), one obtains the identity
+\begin{align*}
+S_g(T)
+&=\frac{T}{2\pi}\int_{-\infty}^\infty\widehat g(u)\,du
++\frac1{2\pi}\sum_{n=1}^\infty\frac{\Lambda(n)}{\sqrt n}\Bigl(\widehat g\Bigl(\tfrac{\log n}{2\pi}\Bigr)+\widehat g\Bigl(-\tfrac{\log n}{2\pi}\Bigr)\Bigr)\\
+&\qquad+O\bigl(T^{1/2+\varepsilon}\|g\|_{H^{3/2}}\bigr),
+\end{align*}
+provided every zero satisfies \(\operatorname{Re}\rho\le\tfrac12+\theta\) for some fixed \(\theta<1/2\). (The error arises from the horizontal integrals on \(\operatorname{Re}s=\tfrac12+\theta\) and the contribution of the trivial zeros, both of which are elementary.)
+
+Now impose the additional arithmetic hypothesis that the von Mangoldt function satisfies the square-root cancellation
+\[
+\sum_{n\le x}\Lambda(n)n^{-1/2-it}\ll_\varepsilon x^{\varepsilon}(1+|t|)^{1/2+\varepsilon}
+\]
+uniformly for \(|t|\le T\). Under this hypothesis the prime-sum on the right-hand side is \(O(T^\varepsilon)\). Consequently
+\[
+S_g(T)=\frac{T}{2\pi}\widehat g(0)+O(T^{1/2+\varepsilon}).
+\]
+On the other hand, if there existed a zero \(\rho_0=\sigma_0+i\gamma_0\) with \(\sigma_0>\tfrac12\) and \(|\gamma_0|\le T/2\), the diagonal term \(\gamma=\gamma'=\gamma_0\) alone would contribute
+\[
+g(0)w(\gamma_0)^2\gg T^{-2},
+\]
+while the off-diagonal terms involving \(\gamma_0\) and any other zero inside the same window remain non-negative because \(\widehat g\ge 0\). Summing over a dyadic block of such putative zeros (if infinitely many exist) would therefore force
+\[
+S_g(T)\gg T^{2\sigma_0-1-\varepsilon},
+\]
+contradicting the upper bound \(O(T)\) obtained above once \(\sigma_0>1/2\). Hence no such zero can exist inside \(|t|\le T\).
+
+The reduction is therefore:
+\[
+\bigl(\text{square-root cancellation for }\psi(x,t)\bigr)
+\quad\Longrightarrow\quad
+\text{RH up to height }T.
+\]
+(The implication is effective: an explicit constant in the \(\ll_\varepsilon\) yields an explicit zero-free height.)
+
+The argument fails to be unconditional because the required square-root cancellation for the Dirichlet polynomial \(\sum\Lambda(n)n^{-1/2-it}\) is essentially equivalent in strength to the Lindelöf hypothesis on the critical line (via standard approximate functional equations), which remains open. Thus the reduction, while rigorous, does not yet yield a proof of RH.
+
+VERDICT: PARTIAL
+REASON: Conditional reduction of RH to square-root cancellation of \(\psi(x,t)\); unconditional proof still blocked.

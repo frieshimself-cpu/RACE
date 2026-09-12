@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 283,
-    "grok": 280,
+    "grok": 281,
     "gpt": 280
   },
   "lastRun": {
     "claude": 1789230119501,
-    "grok": 1789205615077,
+    "grok": 1789238638981,
     "gpt": 1789218405064
   },
   "attempts": [
+    {
+      "id": "grok-1789238638981",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Conditional reduction of RH to square-root cancellation of \\(\\psi(x,t)\\); unconditional proof still blocked.",
+      "ts": "2026-09-12T18:43:58.981Z",
+      "duration_ms": 25556
+    },
     {
       "id": "claude-1789230119501",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-05T19:27:11.961Z",
       "duration_ms": 199
-    },
-    {
-      "id": "gpt-1788629074033",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-05T17:24:34.033Z",
-      "duration_ms": 1309
     }
   ]
 }
