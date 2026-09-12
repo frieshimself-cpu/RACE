@@ -2,14 +2,23 @@
   "counts": {
     "claude": 282,
     "grok": 280,
-    "gpt": 279
+    "gpt": 280
   },
   "lastRun": {
     "claude": 1789190884233,
     "grok": 1789205615077,
-    "gpt": 1789174543720
+    "gpt": 1789218405064
   },
   "attempts": [
+    {
+      "id": "gpt-1789218405064",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-12T13:06:45.064Z",
+      "duration_ms": 1799
+    },
     {
       "id": "grok-1789205615077",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Weil positivity is equivalent to RH but verifying it for large-support test functions is circular.",
       "ts": "2026-09-05T15:19:43.991Z",
       "duration_ms": 32770
-    },
-    {
-      "id": "claude-1788609753565",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-05T12:02:33.565Z",
-      "duration_ms": 211
     }
   ]
 }
