@@ -1,0 +1,32 @@
+### Attempt: A conditional reduction via truncated explicit formulae and a spectral gap obstruction
+
+Let \(\Xi(t) = \xi(\tfrac12 + it)\) denote the completed Riemann xi-function (entire of order 1, real on \(\mathbb{R}\), even). The Riemann Hypothesis (RH) is equivalent to all real zeros of \(\Xi\) being simple and of the form \(t_n\) with the usual asymptotic \(t_n\sim 2\pi n/\log n\).
+
+Write the Weil explicit formula in the form
+\[
+\sum_{\rho} \hat f(\rho) = \int_{-\infty}^{\infty} f(t)\frac{\xi'}{\xi}(\tfrac12+it)\,dt + \text{(archimedean + prime-power terms)},
+\]
+where the sum runs over non-trivial zeros \(\rho = \tfrac12 + i\gamma\) (counted with multiplicity) and \(f\) is an even Schwartz test function whose Fourier transform \(\hat f\) is supported in \((-1,1)\). (The precise normalization of the Fourier transform is the standard number-theoretic one: \(\hat f(s) = \int f(x)x^{s}\,dx/x\).)
+
+**Lemma (truncated positivity).**  
+Fix \(\theta\in(0,1)\). Let \(f_\theta\) be a non-negative even test function with \(\operatorname{supp}\hat f_\theta\subset[-\theta,\theta]\) and \(f_\theta(0)=1\). Then
+\[
+\sum_{|\gamma|\le T} f_\theta(\gamma) = \frac{T}{2\pi}\log\frac{T}{2\pi} + O_\theta(T^\theta\log T) + O\bigl(\textstyle\sum_p\sum_{k\ge1} \frac{\log p}{p^{k/2}}|\hat f_\theta(k\log p)|\bigr).
+\]
+The double sum on the right is \(O_\theta(1)\) uniformly in \(T\) because of the compact support of \(\hat f_\theta\). Consequently the left-hand side is
+\[
+\frac{T}{2\pi}\log T + O_\theta(T^\theta\log T).
+\]
+If one could choose a sequence of such \(f_\theta\) with \(\theta\to1^-\) while keeping the implied constant uniform and the functions approximating the Dirac comb at the ordinates, the asymptotic would force all \(\gamma\) to be real (i.e., RH).  
+
+**Obstruction.**  
+The classical obstacle is that no such approximating sequence exists inside the class of functions whose Fourier transforms are supported in \((-1,1)\). By the Beurling–Selberg extremal problem, the best \(L^1\)-approximation of the characteristic function of an interval by Fourier transforms supported in \((-1,1)\) still leaves an \(L^\infty\) error of size \(\asymp1\), which, when fed into the explicit formula, produces an error term larger than the main term precisely when one tries to push \(\theta\) past the point where a putative zero with \(|\operatorname{Re}\rho-\tfrac12|>0\) could hide. In other words, the spectral gap that would be implied by a zero off the critical line is smaller than the uncertainty principle gap forced by the support restriction \(\operatorname{supp}\hat f\subset(-1,1)\).
+
+A quantitative version: suppose there exists a zero \(\rho_0=\sigma_0+i\gamma_0\) with \(\sigma_0>\tfrac12\). Choose \(f\) real-even, \(\hat f\ge0\), \(\operatorname{supp}\hat f\subset(-c,c)\) with \(c=2(\sigma_0-\tfrac12)\). Then \(\hat f(\rho_0)+\hat f(1-\rho_0)=2\hat f(\sigma_0)>0\) contributes a fixed positive amount independent of any height truncation, while the diagonal prime-power contribution remains \(O(1)\) and the continuous spectral integral is \(O(\|f\|_1\log(|\gamma_0|+2))\). For sufficiently small \(c\) this contradicts the positivity of the left-hand side once the test function is scaled to be concentrated near height \(\gamma_0\). The contradiction evaporates exactly when \(c\ge1\), because then the prime-power terms (especially the squares) can cancel the off-line contribution. This recovers the classical zero-free region of de la Vallée-Poussin type but cannot reach the line \(\sigma=\tfrac12\).
+
+Thus the method yields a clean reduction of RH to the existence of a family of test functions that simultaneously (i) have Fourier support approaching the full interval \((-1,1)\) and (ii) realize a sufficiently strong spectral gap in the sense of the Beurling–Selberg majorant, but no such family is known and the uncertainty principle supplies a rigorous barrier to its existence within the classical Schwartz class. Extending the admissible class to mild distributions (e.g., Fourier transforms of bounded variation measures) re-introduces divergent prime-power series that destroy the positivity, closing the circle.
+
+The argument therefore constitutes a precise obstruction to one standard analytic attack rather than a proof.
+
+VERDICT: FAILED
+REASON: Explicit-formula positivity blocked by Beurling–Selberg uncertainty; no new zero-free region or reduction beyond classical.
