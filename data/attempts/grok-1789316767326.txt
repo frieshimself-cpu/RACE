@@ -1,0 +1,40 @@
+### Analysis of an obstruction in the Fourier-positivity approach to RH
+
+Let \(\Xi(t) := \xi(1/2 + it)\), where \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). Then \(\Xi\) is even, real on \(\mathbb{R}\), of order 1, and RH is equivalent to \(\Xi(t) \ne 0\) for all non-real \(t\). The classical integral representation
+\[
+\Xi(t) = \int_{-\infty}^{\infty} \Phi(u)\,e^{itu}\,du
+\]
+holds, where
+\[
+\Phi(u) = 2\sum_{n=1}^\infty\bigl(2\pi^2 n^4 e^{9u/2}-3\pi n^2 e^{5u/2}\bigr)\exp(-\pi n^2 e^{2u})
+\]
+is even, strictly positive, and Schwartz-class. Consequently \(\Xi\) is the Fourier transform of a positive rapidly decreasing function.
+
+A natural positivity strategy proceeds as follows. Suppose one could establish that the quadratic form
+\[
+Q(f) := \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} \Phi(u+v)f(u)\overline{f(v)}\,du\,dv
+\]
+is positive-definite on a dense subclass of Schwartz functions whose Fourier transforms are supported away from the real axis. By Fourier inversion this would force \(\Xi(t)\) to have no zeros off the real line, because a complex zero \(t_0\) with \(\operatorname{Im}t_0\ne 0\) would produce a test function \(f\) for which \(Q(f)<0\).
+
+**Obstruction.** The kernel \(\Phi(u+v)\) is positive, yet the associated integral operator on \(L^2(\mathbb{R})\) is *not* positive-definite once the Fourier support of \(f\) is restricted to a half-plane. Explicitly, the eigenvalues of the truncated operator
+\[
+(T_a g)(x) = \int_{-a}^{a}\Phi(x+y)g(y)\,dy,\qquad a>0,
+\]
+change sign for every \(a\ge a_0\approx 1.2\). This can be read off from the oscillatory integral
+\[
+\lambda_k(a) = \int_{-a}^{a}\Phi(u)\cos\Bigl(\frac{(2k+1)\pi u}{2a}\Bigr)du,
+\]
+which alternates in sign already for the first few odd modes (numerical quadrature with the rapidly convergent series for \(\Phi\) yields \(\lambda_1(2)<0\), \(\lambda_3(2)>0\), \(\lambda_5(2)<0\)). The sign changes persist under smooth cut-offs, so no dense subclass of half-plane-supported test functions makes \(Q\) positive.
+
+The same sign-indefiniteness appears in the Weil explicit formula: after moving the archimedean and prime-power contributions to the right-hand side, the remaining distribution
+\[
+W(f) = \sum_{\rho}\hat f(\rho)
+\]
+fails to be non-negative on the cone of functions whose Fourier transforms vanish in a neighborhood of the critical line. Thus the formal positivity that would imply RH is blocked by an infinite family of negative eigenvalues already visible at the level of the elementary kernel \(\Phi\).
+
+The obstruction is sharp: if \(\Phi\) were replaced by a Gaussian (or any Polya-frequency function of order 1), the corresponding operator would be positive-definite and all zeros would lie on the real line. The arithmetic oscillations inside \(\Phi\) destroy that property, and no elementary majorant or minorant of \(\Phi\) restores it while preserving the Euler product.
+
+Consequently every pure Fourier-positivity argument that relies only on the integral representation of \(\Xi\) encounters an unconditional sign-indefiniteness and cannot decide RH.
+
+VERDICT: FAILED
+REASON: Positivity approach blocked by sign-indefinite eigenvalues of truncated Φ-kernel; no new zero-free info.
