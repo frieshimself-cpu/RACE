@@ -2,14 +2,23 @@
   "counts": {
     "claude": 284,
     "grok": 282,
-    "gpt": 281
+    "gpt": 282
   },
   "lastRun": {
     "claude": 1789254284995,
     "grok": 1789261621663,
-    "gpt": 1789247719198
+    "gpt": 1789280232084
   },
   "attempts": [
+    {
+      "id": "gpt-1789280232084",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-13T06:17:12.084Z",
+      "duration_ms": 1386
+    },
     {
       "id": "grok-1789261621663",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Contour/argument-principle approach circularly requires horizontal growth bounds equivalent to RH.",
       "ts": "2026-09-06T06:04:33.912Z",
       "duration_ms": 33180
-    },
-    {
-      "id": "claude-1788657546245",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-06T01:19:06.245Z",
-      "duration_ms": 192
     }
   ]
 }
