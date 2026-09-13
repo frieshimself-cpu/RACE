@@ -1,0 +1,40 @@
+## Attempt: Obstruction in a contour-integral positivity approach to RH
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) is entire of order 1, and RH is equivalent to all zeros of \(\xi\) lying on the critical line \(\operatorname{Re}s=\frac12\).
+
+Write \(s=\frac12+z\). Then \(\Xi(z):=\xi(\frac12+z)\) is even, entire, and real on the real and imaginary axes. The Hadamard product (normalized) reads
+\[
+\Xi(z)=\Xi(0)\prod_{\rho}\Bigl(1-\frac{z^2}{\rho^2}\Bigr),
+\]
+the product running over zeros \(\rho\) in the first quadrant (counted with multiplicity). RH is equivalent to every such \(\rho\) being purely imaginary.
+
+### Proposed criterion
+Fix \(T>0\) large and consider the rectangular contour \(C_T\) with vertices \(\pm A\pm iT\) where \(A=A(T)\to\infty\) slowly (e.g., \(A=\log T\)). Define the quadratic functional
+\[
+Q_T(f)=\frac1{2\pi i}\int_{C_T}\frac{\Xi'}{\Xi}(z)\,f(z)\overline{f(-\bar z)}\,dz
+\]
+for entire functions \(f\) of exponential type with suitable decay on vertical lines. Expanding via the logarithmic derivative of the Hadamard product yields
+\[
+Q_T(f)=\sum_{|\operatorname{Im}\rho|<T} |f(\rho)|^2 + O\bigl(e^{-cA}\|f\|^2\bigr)
+\]
+plus an explicit archimedean contribution coming from the Gamma factor (which is positive-definite on the critical line by the known Stirling asymptotics of \(\psi(s)=\Gamma'/\Gamma\)).
+
+If one could pass to the limit \(T\to\infty\) and choose a dense family of test functions \(f\) whose Fourier transforms are supported in \((-1,1)\), the archimedean term remains non-negative while the sum of residues would force every \(\rho\) onto the imaginary axis—exactly Weil’s positivity criterion in contour form.
+
+### Where the argument collapses
+The obstruction is uniform control of the horizontal integrals
+\[
+I_{\pm}(T)=\int_{-A}^{A}\frac{\Xi'}{\Xi}(x\pm iT)\,f(x\pm iT)\overline{f(-x\pm iT)}\,dx.
+\]
+By the functional equation and the convex bound \(\zeta(\sigma+it)\ll |t|^{c(1-\sigma)^{3/2}\log|t|}\) one obtains
+\[
+\frac{\Xi'}{\Xi}(x+iT)=O\bigl(\log^2 T\bigr)
+\]
+only for \(|x|\le A\) with \(A=o(\log T/\log\log T)\). For any larger horizontal width the horizontal integrals are of size \(\asymp T^{\theta}\|f\|^2\) for some \(\theta>0\) coming from the possible existence of a zero with real part \(>1/2\). Closing the estimate therefore requires a zero-free region stronger than what is already known; inserting the classical zero-free region of Vinogradov–Korobov merely recovers a density estimate already inferior to Huxley’s.  
+
+Thus the contour form of positivity is circular: the horizontal contributions can be shown non-negative only after RH (or a quasi-RH of comparable strength) has already been assumed. No new zero-free region, nor any reduction of the full RH to a finite check, follows.
+
+(The same circularity appears, mutatis mutandis, when the contour is replaced by a smoothed vertical Folner sequence or by Li’s coefficients \(\lambda_n\); the archimedean positivity is unconditional, but the error terms again hide possible off-line zeros.)
+
+VERDICT: FAILED
+REASON: Contour positivity reduces to Weil but horizontal integrals are circular without a stronger zero-free region

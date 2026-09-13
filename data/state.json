@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 286,
-    "grok": 283,
+    "grok": 284,
     "gpt": 283
   },
   "lastRun": {
     "claude": 1789334233616,
-    "grok": 1789316767326,
+    "grok": 1789341220412,
     "gpt": 1789325777574
   },
   "attempts": [
+    {
+      "id": "grok-1789341220412",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour positivity reduces to Weil but horizontal integrals are circular without a stronger zero-free region",
+      "ts": "2026-09-13T23:13:40.412Z",
+      "duration_ms": 25629
+    },
     {
       "id": "claude-1789334233616",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-06T21:26:28.156Z",
       "duration_ms": 338
-    },
-    {
-      "id": "gpt-1788722171468",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-06T19:16:11.468Z",
-      "duration_ms": 1424
     }
   ]
 }
