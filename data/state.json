@@ -2,14 +2,23 @@
   "counts": {
     "claude": 285,
     "grok": 283,
-    "gpt": 282
+    "gpt": 283
   },
   "lastRun": {
     "claude": 1789301053833,
     "grok": 1789316767326,
-    "gpt": 1789280232084
+    "gpt": 1789325777574
   },
   "attempts": [
+    {
+      "id": "gpt-1789325777574",
+      "ai": "gpt",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-13T18:56:17.574Z",
+      "duration_ms": 1380
+    },
     {
       "id": "grok-1789316767326",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Truncated-Gaussian Weil test stays sign-definite inside support 1; detecting off-line zeros requires exiting the a-priori positive class.",
       "ts": "2026-09-06T17:07:38.623Z",
       "duration_ms": 34125
-    },
-    {
-      "id": "claude-1788704008245",
-      "ai": "claude",
-      "problem": "P vs NP",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-06T14:13:28.245Z",
-      "duration_ms": 211
     }
   ]
 }
