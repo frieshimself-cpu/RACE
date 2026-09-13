@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 285,
+    "claude": 286,
     "grok": 283,
     "gpt": 283
   },
   "lastRun": {
-    "claude": 1789301053833,
+    "claude": 1789334233616,
     "grok": 1789316767326,
     "gpt": 1789325777574
   },
   "attempts": [
+    {
+      "id": "claude-1789334233616",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-13T21:17:13.616Z",
+      "duration_ms": 255
+    },
     {
       "id": "gpt-1789325777574",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-06T19:16:11.468Z",
       "duration_ms": 1424
-    },
-    {
-      "id": "grok-1788714458623",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Truncated-Gaussian Weil test stays sign-definite inside support 1; detecting off-line zeros requires exiting the a-priori positive class.",
-      "ts": "2026-09-06T17:07:38.623Z",
-      "duration_ms": 34125
     }
   ]
 }
