@@ -1,0 +1,49 @@
+## Attempt: Obstruction in the Weil Positivity Approach via a Truncated Explicit Formula
+
+Let \(\Xi(t)=\xi(1/2+it)\) be the completed Riemann xi-function on the critical line (entire, real for real \(t\), order 1). The Riemann Hypothesis is equivalent to all zeros of \(\Xi\) being real. Weil’s criterion states that RH holds if and only if
+\[
+\sum_{\rho}f(\rho)\ge0
+\]
+for every admissible test function \(f\) of the form \(f(s)=\int_{-\infty}^{\infty}g(t)e^{(s-1/2)t}\,dt\) where \(g\in C_c^{\infty}(\mathbb{R})\) is even, non-negative, and not identically zero (the sum running over non-trivial zeros \(\rho\) counted with multiplicity). Equivalently, after Fourier transform, the quadratic form
+\[
+W(g):=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\overline{g(x)}g(y)\,K(x-y)\,dx\,dy
+\]
+must be non-negative, where the Weil kernel \(K\) is determined by the explicit formula:
+\[
+K(u)=\frac12\bigl(|u|e^{-|u|/2}-\bigl(e^{-|u|/2}+e^{-3|u|/2}\bigr)\bigr)-\sum_{n=2}^{\infty}\frac{\Lambda(n)}{\sqrt{n}}\Bigl(e^{-|u|\log n/2}\Bigr)+\delta\text{-terms from the archimedean factor}.
+\]
+(The precise archimedean contribution is \(\frac12\bigl(\psi(1/4+iu/4\pi)+\psi(1/4-iu/4\pi)\bigr)\) with \(\psi=\Gamma'/\Gamma\), but only its singularity structure matters below.)
+
+### Truncation and a concrete counter-example candidate
+Fix a large cutoff \(T>0\) and replace \(K\) by the truncated kernel
+\[
+K_T(u)=\sum_{|\Im\rho|\le T}\frac{e^{i(\Im\rho)u}}{|\rho'(1/2)|}\qquad\bigl(\text{formal; rigorously via the smoothed explicit formula}\bigr).
+\]
+More precisely, let \(\phi_\varepsilon\) be a standard mollifier supported in \([-\varepsilon,\varepsilon]\) and set
+\[
+W_T(g)=\sum_{|\gamma|\le T} \widehat{g}(\gamma)\overline{\widehat{g}(\gamma)}+\text{error from the prime sum truncated at }e^{T},
+\]
+where \(\gamma=\Im\rho\). The error incurred by discarding zeros with \(|\gamma|>T\) and primes \(n>e^{T}\) is \(O\bigl(\|g\|_{H^1}e^{-cT}\bigr)\) for an absolute \(c>0\) (standard estimates on the zero-density and the prime-number theorem with classical zero-free region).
+
+### Local negativity near a putative multiple zero off the line
+Suppose, for contradiction inside a finite window, that there exists a zero \(\rho_0=\sigma_0+i\gamma_0\) with \(\sigma_0>1/2\) and \(|\gamma_0|\le T/2\). (No such zero is known, but the argument is conditional on the existence of an off-line zero and exhibits the obstruction that prevents the positivity method from closing.) Choose a test function whose Fourier transform is concentrated at scale \(1/\delta\) about \(\pm\gamma_0\), with \(\delta=(\sigma_0-1/2)/2>0\):
+\[
+g_{\delta}(x)=e^{-x^2\delta^2/2}\cos(\gamma_0 x)\cdot\eta(x/R),
+\]
+where \(\eta\) is a fixed smooth cutoff equal to 1 on \([-1,1]\) and \(R=1/\delta\). Then \(\widehat{g}_\delta\) has mass \(\asymp\delta^{-1}\) near \(\pm\gamma_0\) and the contribution of \(\rho_0\) (and its conjugate) to \(W(g_\delta)\) is
+\[
+\sim C\cdot\delta^{-1}\cdot\bigl(e^{(\sigma_0-1/2)R}-e^{-(\sigma_0-1/2)R}\bigr)<0
+\]
+for the phase that realises the hyperbolic cosine growth off the critical line. All other zeros with \(|\gamma-\gamma_0|\ge\delta\) contribute \(O(1)\) after integration by parts against the rapid decay of \(\widehat{g}_\delta\), while the truncated prime sum contributes
+\[
+O\Bigl(\sum_{n\le e^{T}}\frac{\Lambda(n)}{\sqrt{n}}|\widehat{g}_\delta(\log n)|\Bigr)=O\bigl(\delta^{-1/2}\bigr)
+\]
+by the prime-number theorem. Choosing \(\delta\) small enough relative to the gap to the nearest critical-line zero (or to the next ordinate) makes the negative term dominate, so \(W_T(g_\delta)<0\).
+
+### Why the argument does not yield a proof (the obstruction)
+The construction shows that *if* an off-line zero exists inside the window, then a compactly supported test function already witnesses failure of Weil positivity for the truncated form \(W_T\). Passing to the limit \(T\to\infty\) requires uniform control on the tail of the explicit formula uniformly in the concentration parameter \(\delta\). That tail is governed by the same zero-density estimates one would need to prove a zero-free region in the first place; the constants deteriorate exactly when \(\sigma_0\to1/2^+\). Consequently the method is circular: positivity of the full Weil form can be verified only after one already knows there are no off-line zeros (or after one has a stronger density theorem that itself implies RH in the limit). Numerical checks of \(W(g)\) for low-frequency \(g\) succeed to high precision precisely because all known zeros lie on the line; they supply no inductive step that pushes the zero-free region further left.
+
+Thus the Weil criterion, while equivalent to RH, does not by itself furnish an effective bootstrap. Any successful positivity proof must replace the truncated kernel \(K_T\) by a kernel whose negative part is cancelled by an independent arithmetic or spectral identity that does not presuppose the location of the zeros.
+
+VERDICT: FAILED
+REASON: Weil positivity truncation yields only a circular obstruction, no new zero-free region or lemma.
