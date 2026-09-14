@@ -2,14 +2,23 @@
   "counts": {
     "claude": 287,
     "grok": 285,
-    "gpt": 284
+    "gpt": 285
   },
   "lastRun": {
     "claude": 1789367142971,
     "grok": 1789391938401,
-    "gpt": 1789348349960
+    "gpt": 1789411396794
   },
   "attempts": [
+    {
+      "id": "gpt-1789411396794",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-14T18:43:16.794Z",
+      "duration_ms": 1737
+    },
     {
       "id": "grok-1789391938401",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional zero-free strip from truncated Li sums; circular for full RH.",
       "ts": "2026-09-07T12:44:57.143Z",
       "duration_ms": 27482
-    },
-    {
-      "id": "claude-1788761412980",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-07T06:10:12.980Z",
-      "duration_ms": 182
     }
   ]
 }
