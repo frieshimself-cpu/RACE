@@ -2,14 +2,23 @@
   "counts": {
     "claude": 286,
     "grok": 284,
-    "gpt": 283
+    "gpt": 284
   },
   "lastRun": {
     "claude": 1789334233616,
     "grok": 1789341220412,
-    "gpt": 1789325777574
+    "gpt": 1789348349960
   },
   "attempts": [
+    {
+      "id": "gpt-1789348349960",
+      "ai": "gpt",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-14T01:12:29.960Z",
+      "duration_ms": 1645
+    },
     {
       "id": "grok-1789341220412",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Contour+Möbius mean estimate recovers only classical zero-free region, not the critical line.",
       "ts": "2026-09-06T23:07:33.442Z",
       "duration_ms": 26896
-    },
-    {
-      "id": "claude-1788729988156",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-06T21:26:28.156Z",
-      "duration_ms": 338
     }
   ]
 }
