@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 287,
+    "claude": 288,
     "grok": 285,
     "gpt": 285
   },
   "lastRun": {
-    "claude": 1789367142971,
+    "claude": 1789424251840,
     "grok": 1789391938401,
     "gpt": 1789411396794
   },
   "attempts": [
+    {
+      "id": "claude-1789424251840",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-14T22:17:31.840Z",
+      "duration_ms": 321
+    },
     {
       "id": "gpt-1789411396794",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-07T18:07:57.715Z",
       "duration_ms": 1390
-    },
-    {
-      "id": "grok-1788785097143",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Conditional zero-free strip from truncated Li sums; circular for full RH.",
-      "ts": "2026-09-07T12:44:57.143Z",
-      "duration_ms": 27482
     }
   ]
 }
