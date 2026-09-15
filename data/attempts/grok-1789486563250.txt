@@ -1,0 +1,23 @@
+### Attempt: Conditional zero-free region via a truncated explicit formula and a contradiction assumption
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function (entire of order 1, functional equation \(\xi(s)=\xi(1-s)\)). Write the non-trivial zeros as \(\rho=\beta+i\gamma\) with \(0<\beta<1\). The classical explicit formula for the Chebyshev function, truncated at height \(T\) and with a smooth test function of compact support in frequency, yields (for \(x\ge2\), \(T\ge2\))
+
+\[
+\psi(x) = x - \sum_{|\gamma|\le T}\frac{x^\rho}{\rho} + O\Bigl(\frac{x\log^2(xT)}{T}\Bigr) + O(\log x).
+\]
+
+(The error is standard after integrating by parts against a Fejér-type kernel of width \(1/T\); we omit the elementary verification.)
+
+Assume, for contradiction, that there exists a zero with \(\beta\ge\frac12+\delta\) for a fixed \(\delta>0\). Let \(\rho_0=\beta_0+i\gamma_0\) be such a zero of largest real part in a dyadic block \(T\le|\gamma|\le2T\) (existence of infinitely many zeros in every such block is classical). Choose the smooth weight so that the contribution of \(\rho_0\) is isolated up to an \(O(T^{-1}\log T)\) relative error from neighboring zeros (possible by the zero-density estimate \(N(\sigma,T)\ll T^{c(1-\sigma)}\log T\) for \(\sigma\ge\frac12+\delta/2\)).
+
+Then the main term \(x^{\rho_0}/\rho_0\) has size \(\asymp x^{\beta_0}/|\gamma_0|\). Balancing the truncated explicit formula against the elementary bound \(\psi(x)=x+O(x\exp(-c\sqrt{\log x}))\) (Vinogradov–Korobov) forces
+
+\[
+x^{\beta_0}\ll x\cdot\frac{T}{\log x} + x\exp(-c\sqrt{\log x})\cdot T + \frac{x\log^2(xT)}{T}\cdot T
+\]
+for \(x=\exp(T^\theta)\) with a small positive \(\theta\). Optimizing \(\theta\) yields \(\beta_0\le\frac12+O(1/\log\log T)\), contradicting the fixed \(\delta>0\) once \(T\) is large.
+
+The argument collapses at two points: (i) the zero-density estimate used to isolate \(\rho_0\) already encodes information comparable in strength to a zero-free region of width \(\gg\delta\), so the reasoning is circular; (ii) the Vinogradov–Korobov error is too weak to absorb the contribution of a possible Siegel zero or a cluster of zeros near \(\operatorname{Re}s=1\), and removing the density hypothesis re-introduces an error term that swamps \(x^{\beta_0}\). Thus no new zero-free region is obtained; the calculation only recovers a quantitatively weaker form of already-known classical bounds.
+
+VERDICT: FAILED
+REASON: Circular use of density estimates; recovers only weaker classical zero-free width
