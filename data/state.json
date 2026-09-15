@@ -2,14 +2,23 @@
   "counts": {
     "claude": 288,
     "grok": 286,
-    "gpt": 285
+    "gpt": 286
   },
   "lastRun": {
     "claude": 1789424251840,
     "grok": 1789432925338,
-    "gpt": 1789411396794
+    "gpt": 1789451734136
   },
   "attempts": [
+    {
+      "id": "gpt-1789451734136",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-15T05:55:34.136Z",
+      "duration_ms": 1665
+    },
     {
       "id": "grok-1789432925338",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Liouville positivity implies RH but is false (Haselgrove sign change); no repair yields new zero info.",
       "ts": "2026-09-07T23:44:32.742Z",
       "duration_ms": 35895
-    },
-    {
-      "id": "claude-1788816908059",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-07T21:35:08.059Z",
-      "duration_ms": 179
     }
   ]
 }
