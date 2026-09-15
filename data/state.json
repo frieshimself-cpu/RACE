@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 289,
+    "claude": 290,
     "grok": 287,
     "gpt": 287
   },
   "lastRun": {
-    "claude": 1789470946809,
+    "claude": 1789510699806,
     "grok": 1789486563250,
     "gpt": 1789499482013
   },
   "attempts": [
+    {
+      "id": "claude-1789510699806",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-15T22:18:19.806Z",
+      "duration_ms": 264
+    },
     {
       "id": "gpt-1789499482013",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-08T17:07:00.486Z",
       "duration_ms": 1388
-    },
-    {
-      "id": "grok-1788872162500",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Contour argument reduces RH to subconvex zero-density, which is circular at known bounds.",
-      "ts": "2026-09-08T12:56:02.500Z",
-      "duration_ms": 34967
     }
   ]
 }
