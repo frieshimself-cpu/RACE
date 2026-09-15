@@ -1,0 +1,24 @@
+### Attempt: Obstruction in a positivity-based approach via the Weil explicit formula
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function, entire of order 1, with functional equation \(\xi(s)=\xi(1-s)\). The Riemann Hypothesis (RH) is equivalent to all non-trivial zeros lying on the critical line \(\operatorname{Re}s=\frac12\).
+
+Weil’s explicit formula relates a test function \(g\) (even, Schwartz-class, Fourier transform \(\hat g\) supported in \((-1,1)\)) to a sum over zeros:
+\[
+\sum_{\rho}g\bigl(\tfrac{\rho-\tfrac12}{i}\bigr)
+=\hat g(0)+\hat g(1)-\sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}}g(k\log p)
++\text{(archimedean \(\Gamma\)-contribution)}.
+\]
+(The precise normalization of the Fourier transform is immaterial for the argument below.) If one could exhibit a non-zero \(g\ge0\) whose Fourier transform makes the prime-power sum strictly dominated by the archimedean and constant terms whenever a zero with \(\operatorname{Re}\rho\neq\frac12\) is present, positivity would force all zeros onto the line.
+
+**Lemma (local obstruction).** Suppose there exists a zero \(\rho_0=\sigma_0+it_0\) with \(\sigma_0>\frac12\). Then, for every admissible \(g\) whose Fourier transform is supported in a sufficiently small neighborhood of the origin, the contribution of the pair \(\{\rho_0,1-\rho_0\}\) is
+\[
+2\operatorname{Re}g\bigl(\tfrac{\rho_0-\tfrac12}{i}\bigr)=2e^{(\sigma_0-\tfrac12)u} \operatorname{Re}\bigl(e^{it_0 u}\hat g\text{-phase}\bigr)
+\]
+(after a contour shift that isolates the exponential growth). Because \(\sigma_0-\frac12>0\), this term grows exponentially in the dual variable \(u\). No choice of non-negative \(g\) with \(\operatorname{supp}\hat g\subset(-\delta,\delta)\) for small \(\delta>0\) can cancel the growth while keeping the prime-power side (which is \(O(e^{c\delta|u|})\) by the prime-number theorem) under control: the archimedean \(\Gamma\)-factor supplies only polynomial decay in vertical strips, insufficient to restore positivity uniformly.
+
+**Consequence.** Any global positivity argument that relies on compactly supported Fourier transforms (the only class for which the explicit formula is known unconditionally without RH) is blocked by the possible existence of a single off-line zero: the exponential inflation cannot be absorbed. Extending the support of \(\hat g\) beyond length 1 re-introduces the full prime-power sum without an a-priori sign, returning the problem to an equivalent form of RH (the non-negativity of a certain quadratic form on the zeros). Thus the method yields no new zero-free region beyond the classical zero-free region already obtained by de la Vallée-Poussin methods.
+
+The obstruction is sharp: if one assumes a zero-free strip of width \(\eta>0\), the same test functions recover the corresponding hybrid explicit formula with an error \(O(e^{-\eta|u|})\), but the implication is one-directional and does not produce an unconditional improvement.
+
+VERDICT: FAILED
+REASON: Positivity via Weil formula blocked by exponential growth from any off-line zero; no new zero-free region.
