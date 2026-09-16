@@ -1,0 +1,27 @@
+**Attempt: Spectral gap obstruction under uncontrolled RG flow to confinement**
+
+Assume a candidate continuum pure Yang–Mills theory for compact simple \(G\) on \(\mathbb{R}^4\) that satisfies the Osterwalder–Schrader axioms (reflection positivity, Euclidean invariance, temperedness, clustering at infinity). Let \(\mathcal{O}\) range over a generating set of local gauge-invariant composite fields (e.g., renormalized \(F_{\mu\nu}^a F^{a\mu\nu}\) and higher-dimension Wilson polynomials). The connected two-point functions admit Källén–Lehmann representations
+\[
+G_{\mathcal{O}}(x)=\int_{[0,\infty)}\!d\rho_{\mathcal{O}}(m^2)\,\Delta_{m^2}(x),
+\]
+where \(\Delta_{m^2}\) is the Euclidean massive scalar propagator. A mass gap \(\Delta>0\) is equivalent to
+\[
+\operatorname{supp}\rho_{\mathcal{O}}\subset[\Delta^2,\infty)\qquad\text{for every such \(\mathcal{O}\)}.
+\]
+(The vacuum is unique by clustering, so there is no \(m=0\) contribution from Goldstone modes; the only possible zero-mass states would be glueball continua or free photons, both ruled out by a uniform gap.)
+
+On the lattice (Wilson action, spacing \(a>0\), bare coupling \(\beta=2N/g_0^2\)) the strong-coupling cluster expansion yields exponential decay
+\[
+|G_{\mathcal{O}}^{\mathrm{lat}}(x)|\le C_{\mathcal{O}}\,e^{-m(\beta)|x|/a},\qquad m(\beta)\ge c\log(1/\beta)>0
+\]
+uniformly in volume, for all \(\beta\le\beta_*\). The continuum limit, however, requires \(\beta\to\infty\) along a renormalization-group trajectory that holds a physical scale (e.g., the string tension \(\sigma\)) fixed while \(a\to0\). Along this trajectory the effective coupling \(g(\mu)\) runs from the asymptotically free UV fixed point into the confining regime at \(\mu\sim\Lambda_{\mathrm{YM}}\).
+
+No a-priori bound presently prevents the spectral measure \(\rho_{\mathcal{O}}\) from developing support arbitrarily close to zero during the flow. In particular:
+- the lattice gap \(m(\beta)/a\) may vanish as \(\beta\to\infty\) faster than any multiple of the dynamically generated scale;
+- reflection positivity alone does not upgrade the lattice cluster expansion into a uniform continuum gap, because the expansion constants deteriorate exponentially with \(\beta\);
+- comparison arguments that embed a continuum theory into a strongly coupled lattice theory at scale \(\Lambda_{\mathrm{YM}}\) circularly assume the very existence of a positive mass gap that keeps the embedding map bounded in the OS Hilbert space.
+
+Thus the existence of a continuum limit satisfying the OS axioms does not automatically imply a mass gap; an additional uniform lower bound on the gap along the RG trajectory is required and is not supplied by any currently rigorous method (constructive cluster expansions, rigorous renormalization-group maps, or random-surface representations). The reduction of the Millennium problem to “control of the spectral support under the asymptotically free flow” therefore remains incomplete.
+
+VERDICT: FAILED
+REASON: Only identifies known RG obstruction; supplies no new bound or construction
