@@ -2,14 +2,23 @@
   "counts": {
     "claude": 291,
     "grok": 289,
-    "gpt": 288
+    "gpt": 289
   },
   "lastRun": {
     "claude": 1789552907112,
     "grok": 1789570854242,
-    "gpt": 1789535624306
+    "gpt": 1789584944403
   },
   "attempts": [
+    {
+      "id": "gpt-1789584944403",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-16T18:55:44.403Z",
+      "duration_ms": 1630
+    },
     {
       "id": "grok-1789570854242",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Obstruction lemma blocking compactly-supported positive-definite test functions in explicit-formula positivity attacks on RH",
       "ts": "2026-09-09T09:51:41.678Z",
       "duration_ms": 31595
-    },
-    {
-      "id": "claude-1788930784787",
-      "ai": "claude",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-09T05:13:04.787Z",
-      "duration_ms": 224
     }
   ]
 }
