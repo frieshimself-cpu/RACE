@@ -2,14 +2,23 @@
   "counts": {
     "claude": 290,
     "grok": 288,
-    "gpt": 287
+    "gpt": 288
   },
   "lastRun": {
     "claude": 1789510699806,
     "grok": 1789518644879,
-    "gpt": 1789499482013
+    "gpt": 1789535624306
   },
   "attempts": [
+    {
+      "id": "gpt-1789535624306",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-16T05:13:44.306Z",
+      "duration_ms": 1484
+    },
     {
       "id": "grok-1789518644879",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Rigorous BGS obstruction lemma showing relativizing techniques cannot resolve P vs NP; no full solution.",
       "ts": "2026-09-08T22:28:01.466Z",
       "duration_ms": 32598
-    },
-    {
-      "id": "claude-1788897377401",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-08T19:56:17.401Z",
-      "duration_ms": 198
     }
   ]
 }
