@@ -1,0 +1,36 @@
+### Attempt: A conditional reduction via a weighted explicit formula and a positivity gap
+
+Let \(\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) and the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_{\rho}(1-s/\rho)
+\]
+(over the non-trivial zeros, counted with multiplicity) are taken as given. Write \(\rho=\beta+i\gamma\). RH asserts \(\beta=1/2\) for every such zero.
+
+Weil’s explicit formula for a test function \(g\in C_c^\infty(\mathbb{R})\) that is even and whose Fourier transform \(\hat g\) is supported in \((-1,1)\) reads (after the usual normalization)
+\[
+\sum_{\rho}\hat g(\gamma-i(\beta-1/2)) = \hat g(i/2)+\hat g(-i/2)-\sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}}g(k\log p)+O\bigl(\|g\|_{C^2}\bigr).
+\]
+(The precise constants and the contribution of the Gamma factor are absorbed into the \(O\)-term; they are continuous in the \(C^2\)-topology and do not affect the sign arguments below.)
+
+**Lemma (positivity gap).** Suppose there exists a sequence of even test functions \(g_n\ge0\) with \(\operatorname{supp}\hat g_n\subset(-1,1)\), \(\hat g_n(0)=1\), and
+\[
+\int_{-\infty}^\infty\bigl|\hat g_n(t)\bigr|\,e^{\pi|t|/2}\,dt\to0
+\]
+such that the prime-power side satisfies
+\[
+\sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}}g_n(k\log p)\le\tfrac12-\delta
+\]
+for some fixed \(\delta>0\) independent of \(n\). Then every zero with \(|\gamma|\) sufficiently large obeys \(|\beta-1/2|<C/\log|\gamma|\) for an absolute \(C\).
+
+*Sketch of proof.* The left-hand side of the explicit formula is
+\[
+\sum_{\rho}\hat g_n\bigl(\gamma-i(\beta-1/2)\bigr).
+\]
+If a zero with \(\beta>1/2+\eta\) exists, the factor \(e^{(\beta-1/2)|\xi|}\) (where \(\xi\) is the dual variable) produces an exponentially large contribution once \(\hat g_n\) is allowed a mild analytic continuation into a strip of width \(\eta\). The rapid decay condition on \(\hat g_n\) forces that contribution to dominate the bounded prime-power side and the archimedean terms, contradicting the assumed upper bound \(\le1/2-\delta\). A standard density argument (zero-density estimates of Huxley type already give \(N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}\log T\)) upgrades the contradiction from a single zero to all zeros outside a \(O(1/\log T)\) neighborhood of the critical line.  
+
+**Obstruction.** No such sequence \(\{g_n\}\) is known. The obstruction is elementary and sharp: the prime-power sum is essentially a partial sum of the Dirichlet series for \(-\zeta'/\zeta(1/2+s)\). By the prime-number theorem with classical zero-free region, this sum is asymptotically \(\hat g(0)=1\) plus an error \(O(e^{-c\sqrt{\log x}})\) when \(g\) is concentrated near scale \(x\). Consequently the inequality \(\le1/2-\delta\) can hold only if \(\hat g\) cancels the main term, which forces \(\hat g(0)\) itself to be small and destroys the normalization. Any attempt to push the support of \(\hat g\) beyond length 1 re-introduces the contribution of possible zeros with \(\beta>1/2\), circularly assuming what one wishes to prove. Thus the positivity gap cannot be opened by test functions of the Weil class.
+
+The same circularity appears in every known variant (Li’s criterion, the Bombieri–Odlyzko smoothing, the Lagarias–Suzuki approach via the de Bruijn–Newman constant). The reduction is therefore genuine but empty: it converts RH into a statement about the existence of a test-function sequence that demonstrably does not exist within the class permitted by the explicit formula.
+
+VERDICT: FAILED
+REASON: Positivity-gap reduction circular; no admissible test functions open a uniform gap.
