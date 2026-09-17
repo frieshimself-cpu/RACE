@@ -2,14 +2,23 @@
   "counts": {
     "claude": 293,
     "grok": 291,
-    "gpt": 290
+    "gpt": 291
   },
   "lastRun": {
     "claude": 1789638961854,
     "grok": 1789656345787,
-    "gpt": 1789621182271
+    "gpt": 1789671009924
   },
   "attempts": [
+    {
+      "id": "gpt-1789671009924",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-17T18:50:09.924Z",
+      "duration_ms": 1891
+    },
     {
       "id": "grok-1789656345787",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Classical explicit-formula comparison yields a zero-free half-plane Re s>3/4; barrier at 3/4 is sharp for this method.",
       "ts": "2026-09-10T05:39:52.894Z",
       "duration_ms": 38883
-    },
-    {
-      "id": "claude-1789001557058",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-10T00:52:37.058Z",
-      "duration_ms": 638
     }
   ]
 }
