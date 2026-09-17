@@ -1,0 +1,24 @@
+### Attempt: A conditional reduction via truncated explicit formulae and a failed positivity closure
+
+Let \(\Xi(t) = \xi(1/2 + it)\) denote the Riemann \(\xi\)-function in the usual normalization (entire of order 1, real on the real line, and with zeros precisely the non-trivial zeros of \(\zeta\) shifted by \(1/2\)). The classical explicit formula of Weil type asserts that for a sufficiently nice even test function \(g\) (Schwartz, compactly supported Fourier transform \(\hat g\)),
+\[
+\sum_{\rho} \hat g(\gamma) = \hat g(0)\frac{\xi'}{\xi}(1/2) + \int_{-\infty}^{\infty} \frac{\Xi'}{\Xi}(t)\,g(t)\,dt + \text{(archimedean and prime-power terms)},
+\]
+where the sum runs over imaginary parts \(\gamma\) of zeros \(\rho = 1/2 + i\gamma\) (counted with multiplicity), and the remaining terms admit completely explicit expressions in terms of the von Mangoldt function and the Gamma factor.
+
+**Lemma (conditional positivity reduction).** Suppose there exists a sequence of even non-negative test functions \(g_n\) with \(\hat g_n\ge 0\), \(\operatorname{supp}\hat g_n\subset[-T_n,T_n]\), \(T_n\to\infty\), such that
+\[
+\int_{-\infty}^{\infty}\frac{\Xi'}{\Xi}(t)\,g_n(t)\,dt + A(g_n) \ge c\cdot g_n(0)
+\]
+for an absolute \(c>0\) independent of \(n\), where \(A(g_n)\) collects the explicitly known archimedean and prime-power contributions. Then every zero satisfies \(\operatorname{Re}\rho=1/2\).
+
+**Sketch of proof of the lemma.** If a zero \(\rho_0=\sigma_0+i\gamma_0\) with \(\sigma_0>1/2\) existed, the functional equation forces a twin at \(1-\rho_0\). Inserting a carefully scaled and translated bump \(g_n\) concentrated near \(\gamma_0\) (still keeping \(\hat g_n\ge 0\)) makes the left-hand side of the explicit formula acquire a contribution \(\asymp\hat g_n(i(\sigma_0-1/2))\) which grows exponentially in the imaginary shift, while the right-hand side remains \(O(g_n(0)\log T_n)\) by the known zero-density estimates and the explicit size of \(A(g_n)\). For large \(n\) this contradicts the assumed positivity lower bound. The same argument rules out zeros with \(\sigma_0<1/2\). Hence all zeros lie on the critical line.
+
+**Where the argument collapses.** The required sequence \(g_n\) is not known to exist. The obstacle is the sign-indefinite character of the prime-power sum
+\[
+\sum_{n\le x}\frac{\Lambda(n)}{\sqrt n}\bigl(\hat g(\log n)+\hat g(-\log n)\bigr)
+\]
+appearing inside \(A(g)\). While the archimedean term is negative and of size \(\sim g(0)\log\log T\), the oscillatory prime sum can cancel it for every choice of non-negative \(g\) whose Fourier transform is supported in a fixed multiple of the zero gap scale. Existing constructions (Beurling–Selberg majorants, Gaussian pairs, optimal Odlyzko–Schönhage mollifiers) produce only an error term \(o(g(0)\log T)\) rather than a strict positive multiple of \(g(0)\). Closing the gap would require a new uniform lower bound on a hybrid Euler product over short intervals—precisely a statement of strength comparable to RH itself. Thus the reduction, while formally correct, is non-effective and does not yield a proof.
+
+VERDICT: FAILED
+REASON: Positivity reduction via explicit formulae is circular; needed test-function lower bound is equivalent to RH.

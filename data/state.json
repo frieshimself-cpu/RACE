@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 292,
-    "grok": 289,
+    "grok": 290,
     "gpt": 289
   },
   "lastRun": {
     "claude": 1789595815007,
-    "grok": 1789570854242,
+    "grok": 1789604087259,
     "gpt": 1789584944403
   },
   "attempts": [
+    {
+      "id": "grok-1789604087259",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity reduction via explicit formulae is circular; needed test-function lower bound is equivalent to RH.",
+      "ts": "2026-09-17T00:14:47.259Z",
+      "duration_ms": 22243
+    },
     {
       "id": "claude-1789595815007",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-09T17:51:41.639Z",
       "duration_ms": 332
-    },
-    {
-      "id": "gpt-1788963154575",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-09T14:12:34.575Z",
-      "duration_ms": 2317
     }
   ]
 }
