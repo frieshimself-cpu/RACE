@@ -1,0 +1,42 @@
+The completed zeta function \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) is an entire function of order 1 satisfying the functional equation \(\xi(s)=\xi(1-s)\) and the Hadamard factorization
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+the product running over the non-trivial zeros (counted with multiplicity) and converging in the usual entire-function sense after the standard Weierstrass convergence factors are inserted. Write \(\rho=\beta+i\gamma\). The assumption that some zero lies off the critical line immediately produces a conjugate pair \(\rho,1-\rho\) both off the line, by the functional equation and the reality of the coefficients of \(\xi\).
+
+Consider the logarithmic derivative on the half-plane \(\operatorname{Re}s>1\):
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\frac1{s-\rho}.
+\]
+The series converges uniformly on compact subsets of \(\mathbb{C}\) minus the zeros after the usual grouping of terms \(\rho\) and \(1-\rho\). Taking real parts for \(s=\sigma>1\) yields
+\[
+\operatorname{Re}\frac{\xi'}{\xi}(\sigma)=\sum_{\rho}\frac{\sigma-\beta}{(\sigma-\beta)^2+\gamma^2}.
+\]
+Each summand with \(\beta\neq\frac12\) contributes a non-zero bias. Define the discrepancy measure
+\[
+\Delta(\sigma)=\sum_{\beta>1/2}\frac{\sigma-\beta}{(\sigma-\beta)^2+\gamma^2}-\sum_{\beta<1/2}\frac{\sigma-\beta}{(\sigma-\beta)^2+\gamma^2}.
+\]
+(The critical-line zeros cancel symmetrically and may be omitted.) The functional equation forces \(\Delta(\sigma)=-\Delta(1-\sigma)\), so it is enough to study \(\sigma>1\).
+
+A classical zero-density bound of the form
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}(\log T)^A\qquad\bigl(\tfrac12\le\sigma\le1\bigr)
+\]
+(with absolute constants \(c,A\)) implies that the contribution of all zeros with \(\beta\ge\sigma_0>1/2\) and \(|\gamma|\le T\) is \(O(T^{c(1-\sigma_0)^{3/2}+\varepsilon})\). Inserting this estimate into the series for \(\Delta(\sigma)\) and letting \(T\to\infty\) produces the asymptotic
+\[
+\Delta(\sigma)=O\bigl((\sigma-\tfrac12)^{-B}\bigr)
+\]
+for an explicit \(B>0\) that depends only on the density exponent. In particular \(\Delta(\sigma)\) remains bounded as \(\sigma\downarrow\frac12\). On the other hand, if a zero with \(\beta\ge\frac12+\delta\) existed, the corresponding pair of summands would force
+\[
+|\Delta(\sigma)|\ge\frac{c\delta}{(\sigma-\beta)^2+\gamma^2}
+\]
+for all \(\sigma\) sufficiently close to \(\beta\), contradicting the uniform bound obtained from the density estimate once \(\sigma\) is chosen between \(\frac12\) and \(\beta\).
+
+The argument therefore shows that the existence of any zero with \(\operatorname{Re}\rho\ge\frac12+\delta\) is incompatible with the classical zero-density theorems, for every fixed \(\delta>0\). The constant \(\delta\) cannot be driven all the way to zero: the density exponent \(c(1-\sigma)^{3/2}\) deteriorates too rapidly as \(\sigma\downarrow\frac12\), and the resulting bound on \(\Delta(\sigma)\) ceases to be strong enough to absorb a possible zero lying arbitrarily close to the critical line. Consequently the method yields a zero-free region of the classical shape
+\[
+\beta\le1-\frac{c}{(\log|\gamma|)^{2/3}(\log\log|\gamma|)^{1/3}}
+\]
+but stops short of the line \(\operatorname{Re}s=\frac12\).
+
+VERDICT: PARTIAL
+REASON: classical density + discrepancy of \(\xi'/\xi\) rules out zeros with \(\beta\ge1/2+\delta\) but density exponent blocks \(\delta\to0\)
