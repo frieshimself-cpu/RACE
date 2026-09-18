@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 296,
-    "grok": 293,
+    "grok": 294,
     "gpt": 293
   },
   "lastRun": {
     "claude": 1789760553405,
-    "grok": 1789738765736,
+    "grok": 1789770065244,
     "gpt": 1789751595259
   },
   "attempts": [
+    {
+      "id": "grok-1789770065244",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour+FE argument circular; needs density/subconvexity already equivalent to a zero-free region",
+      "ts": "2026-09-18T22:21:05.244Z",
+      "duration_ms": 39344
+    },
     {
       "id": "claude-1789760553405",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-11T10:00:42.254Z",
       "duration_ms": 315
-    },
-    {
-      "id": "gpt-1789105155739",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-11T05:39:15.739Z",
-      "duration_ms": 1626
     }
   ]
 }

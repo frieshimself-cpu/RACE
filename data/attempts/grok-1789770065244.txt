@@ -1,0 +1,50 @@
+### Attempt: A contour-shift obstruction for a zero-free half-plane via the completed zeta function
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function. It is entire of order 1, satisfies the functional equation \(\xi(s)=\xi(1-s)\), and the non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\). Write \(\rho=\beta+i\gamma\) for a generic zero (so \(\xi(\rho)=0\)). The classical zero-free region of de la Vallée-Poussin is of the shape
+\[
+\beta\le 1-\frac{c}{\log(|\gamma|+2)}
+\]
+for an absolute \(c>0\). We examine whether a stronger half-plane \(\beta\le 1-\delta\) (\(\delta>0\) fixed) can be forced by a pure contour-shift argument that uses only the functional equation, the Hadamard product, and crude convexity bounds; we show that the argument collapses at a precise analytic obstruction.
+
+#### Setup
+Assume for contradiction that there exists a sequence of zeros \(\rho_n=\beta_n+i\gamma_n\) with \(\beta_n\to 1^-\) and \(|\gamma_n|\to\infty\). (If no such sequence exists then a fixed half-plane \(\operatorname{Re}s\le 1-\delta\) is already zero-free for large \(|t|\), which is the desired conclusion up to a finite check.) The Hadamard factorization gives
+\[
+\xi(s)=e^{A+Bs}\prod_\rho\Bigl(1-\frac{s}{\rho}\Bigr)e^{s/\rho},
+\]
+where the product converges in the usual Weierstrass sense and \(B=-\sum\operatorname{Re}(1/\rho)\). Taking logarithmic derivatives yields the explicit formula
+\[
+\frac{\xi'}{\xi}(s)=\sum_\rho\Bigl(\frac1{s-\rho}+\frac1{\rho}\Bigr)+B.
+\]
+On the critical line the functional equation forces \(\operatorname{Re}(\xi'/\xi(1/2+it))=0\). We shift a rectangular contour \(C_T\) with vertices \(1+\delta\pm iT\), \(-\delta\pm iT\) (\(T=|\gamma_n|+1/2\) not equal to any ordinate) and compare the integrals of \(\xi'/\xi\).
+
+#### Contour integral and residue count
+By the argument principle,
+\[
+\frac1{2\pi i}\int_{C_T}\frac{\xi'}{\xi}(s)\,ds=N(T),
+\]
+the number of zeros inside \(C_T\) (counted with multiplicity). The horizontal integrals are \(O(\log T)\) by the convexity bound \(\xi(\sigma+it)\ll_\varepsilon(|t|+2)^{A(1-\sigma)+\varepsilon}\) uniformly for \(\sigma\in[-\delta,1+\delta]\) (which follows from the functional equation and the Phragmén–Lindelöf principle applied to the strip). The vertical integral on \(\operatorname{Re}s=1+\delta\) is likewise \(O(\log T)\) because \(\zeta\) has an Euler product there and \(\xi'/\xi\) admits the absolutely convergent Dirichlet series representation
+\[
+\frac{\xi'}{\xi}(s)=-\frac12\log\pi+\frac12\frac{\Gamma'}{\Gamma}(s/2)+\sum_{n=2}^\infty\frac{\Lambda(n)}{n^s}.
+\]
+Thus the main contribution must come from the left vertical side \(\operatorname{Re}s=-\delta\). The functional equation converts
+\[
+\frac{\xi'}{\xi}(-\delta+it)=-\frac{\xi'}{\xi}(1+\delta-it)
+\]
+up to an elementary gamma-factor whose logarithmic derivative is
+\[
+\frac12\log(|t|/2)+O(1/|t|)
+\]
+by Stirling. Consequently the left-side integral equals the right-side integral plus an explicit main term \(\asymp T\log T\), which is already accounted for by the known asymptotic \(N(T)=\frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}+O(\log T)\). No contradiction arises: the zeros near \(\operatorname{Re}s=1\) (if any) contribute only \(O(\log T)\) to the total count, which is absorbed in the error term.
+
+#### Where the obstruction appears
+To extract a zero-free half-plane one would need a stricter lower bound on \(|\xi'/\xi|\) on the line \(\operatorname{Re}s=1+\delta\), strong enough to force the horizontal integrals or the discrepancy in the vertical integrals to exceed the admissible \(O(\log T)\). Any such bound, however, requires either
+- a zero-density estimate \(N(\sigma,T)\ll T^{c(1-\sigma)}\) with \(c<1\), or
+- a subconvexity bound for \(\zeta\) in the strip that improves on convexity by a fixed power of \(|t|\),
+both of which are known to be essentially equivalent in strength to a zero-free region of the same quality (via standard Tauberian or Vinogradov–Korobov techniques). In other words, the contour-shift closes only after one already possesses a non-trivial zero-density or subconvexity input; the functional equation and Hadamard product alone are insufficient to open a fixed gap \(\delta>0\).
+
+The same circularity appears if one tries to use the Guinand–Weil explicit formula with a test function supported near height \(T\): the contribution of a putative zero with \(\beta>1-\delta\) is cancelled, to leading order, by the gamma-factor contribution on the reflected side, again leaving an error that cannot be shown smaller than the main term without additional arithmetic input.
+
+Thus the pure complex-analytic contour argument cannot produce a uniform half-plane free of zeros; any progress beyond the classical de la Vallée-Poussin region requires genuinely new arithmetic or spectral information.
+
+VERDICT: FAILED
+REASON: Contour+FE argument circular; needs density/subconvexity already equivalent to a zero-free region
