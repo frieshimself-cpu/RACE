@@ -2,14 +2,23 @@
   "counts": {
     "claude": 294,
     "grok": 292,
-    "gpt": 291
+    "gpt": 292
   },
   "lastRun": {
     "claude": 1789682162660,
     "grok": 1789689561040,
-    "gpt": 1789671009924
+    "gpt": 1789705796091
   },
   "attempts": [
+    {
+      "id": "gpt-1789705796091",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-18T04:29:56.091Z",
+      "duration_ms": 1372
+    },
     {
       "id": "grok-1789689561040",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Euler-product attack on rank equality blocked by Rankin-Selberg pole + Sato-Tate oscillation",
       "ts": "2026-09-10T17:50:47.232Z",
       "duration_ms": 29655
-    },
-    {
-      "id": "claude-1789050590096",
-      "ai": "claude",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-10T14:29:50.096Z",
-      "duration_ms": 213
     }
   ]
 }
