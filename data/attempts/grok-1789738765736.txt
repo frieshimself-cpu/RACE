@@ -1,0 +1,44 @@
+### Attempt: A conditional zero-free region via a truncated Dirichlet series and explicit formula mismatch
+
+Let \(\rho = \beta + i\gamma\) denote a nontrivial zero of \(\zeta(s)\) with \(\beta \ge 1/2\). Write the completed xi-function
+\[
+\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)
+\]
+and recall the Hadamard product
+\[
+\xi(s) = \xi(0)\prod_\rho\bigl(1-s/\rho\bigr).
+\]
+Taking logarithmic derivatives yields the explicit formula
+\[
+-\frac{\xi'}{\xi}(s) = \sum_\rho\frac1{s-\rho}.
+\]
+Restrict attention to the vertical line \(\operatorname{Re}s = 1+\delta\) with fixed \(\delta>0\) small and \(|t|\ge T_0\) large. On this line the Dirichlet series for \(-\zeta'/\zeta\) converges absolutely:
+\[
+-\frac{\zeta'}{\zeta}(1+\delta+it) = \sum_{n=1}^\infty\frac{\Lambda(n)}{n^{1+\delta}}n^{-it}.
+\]
+Truncating at \(N = \exp(c|t|)\) (with \(c\) to be chosen) produces an error
+\[
+R_N(t) \ll \sum_{n>N}\frac{\Lambda(n)}{n^{1+\delta}} \ll N^{-\delta}\log N
+\]
+by the prime-number theorem with classical zero-free region. The contribution of the Gamma factor and the polar terms is \(O(\log|t|)\). Consequently
+\[
+\sum_\rho\frac1{1+\delta+it-\rho} = \sum_{n\le N}\frac{\Lambda(n)}{n^{1+\delta}}n^{-it} + O\bigl(N^{-\delta}\log N + \log|t|\bigr).
+\]
+Suppose, for contradiction, that a zero \(\rho_0 = \beta_0 + i\gamma_0\) exists with \(\beta_0 > 1/2 + \eta\) for some fixed \(\eta>0\) and \(|\gamma_0|\) arbitrarily large. Isolate the single term \(1/(1+\delta+it-\rho_0)\) by choosing \(t=\gamma_0\) and estimating the remainder of the sum over zeros via the known density \(N(T) = (T/2\pi)\log(T/2\pi)-T/2\pi+O(\log T)\). The resulting main term is then
+\[
+\frac1{1+\delta-\beta_0} + O\biggl(\sum_{|\gamma-\gamma_0|\ge1}\frac1{|\gamma-\gamma_0|}\biggr) = \frac1{1+\delta-\beta_0} + O\bigl((\log|\gamma_0|)^2\bigr).
+\]
+The right-hand side (the truncated Dirichlet polynomial) has modulus at most
+\[
+\sum_{n\le N}n^{-1-\delta} \le \zeta(1+\delta) \ll \delta^{-1}.
+\]
+Choosing \(\delta = \eta/2\) forces
+\[
+\frac1{1+\eta/2-\beta_0} \le C\eta^{-1} + O\bigl((\log|\gamma_0|)^2\bigr).
+\]
+If \(\beta_0 \ge 1-\eta/4\) the left side exceeds any fixed multiple of \(\eta^{-1}\) once \(|\gamma_0|\) is large, a contradiction. Thus no zeros can lie in the region \(\operatorname{Re}s\ge 1-\eta/4\) for large height.  
+
+The argument recovers only a classical-type zero-free region of width \(O(1/\log\log|t|)\) after optimizing the truncation and the density estimate; it does not reach the critical line. The obstruction is the crude \(L^1\) bound on the Dirichlet polynomial, which cannot detect possible cancellation that would be needed to cancel a pole-like term arising from a zero with \(\beta\) close to \(1/2\). Improving the bound requires square-root cancellation in short Dirichlet polynomials on the 1-line, equivalent to a form of the Lindelöf hypothesis already known to be of comparable strength to RH itself. Hence the reduction yields no new unconditional progress toward RH.
+
+VERDICT: FAILED
+REASON: Recovers only classical zero-free width; Dirichlet poly bound too weak to force critical-line zeros.
