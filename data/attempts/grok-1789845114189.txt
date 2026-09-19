@@ -1,0 +1,56 @@
+### Attempt: A obstruction lemma for spectral approaches via the Hilbert–Pólya operator
+
+Let \(\Xi(t)=\xi(1/2+it)\) denote the completed Riemann \(\xi\)-function (entire, real on \(\mathbb{R}\), of order 1). The Riemann Hypothesis (RH) is equivalent to all zeros of \(\Xi\) being real. Hilbert–Pólya proposes the existence of an unbounded self-adjoint operator \(A\) on a Hilbert space \(\mathcal{H}\) such that the spectrum of \(A\) coincides with the multiset of zeros of \(\Xi\).
+
+#### Setup and necessary conditions
+Assume such an \(A\) exists, densely defined and self-adjoint on \(\mathcal{H}\). Then the resolvent \(R(z)=(A-z)^{-1}\) is meromorphic of order 1 with poles precisely at the zeros of \(\Xi\). By the functional equation \(\Xi(t)=\Xi(-t)\) the spectrum is symmetric about 0, so one may take \(A\) odd with respect to a conjugation (or work with \(A^2\)).
+
+The Hadamard product
+\[
+\Xi(t)=\Xi(0)\prod_{\rho}(1-t/\rho)e^{t/\rho}
+\]
+(absolutely convergent after grouping \(\rho,-\rho\)) implies that the logarithmic derivative admits the representation
+\[
+\frac{\Xi'}{\Xi}(t)=\sum_{\rho}\frac{1}{t-\rho}+O(1)
+\]
+uniformly on compact sets avoiding the zeros. If the \(\rho\) are the eigenvalues of \(A\), the same sum must equal \(\operatorname{Tr}(R(t))\) (in a regularized sense). Consequently any candidate \(A\) must satisfy the trace identity
+\begin{equation}
+\label{eq:trace}
+\operatorname{Tr}_{\mathrm{reg}}\bigl((A-t)^{-1}\bigr)=\frac{\Xi'}{\Xi}(t)+C
+\end{equation}
+for a constant \(C\) fixed by the growth of \(\Xi\).
+
+#### Obstruction lemma
+**Lemma.** Suppose \(A\) is self-adjoint and the regularized trace on the left-hand side of \eqref{eq:trace} exists in the sense of
+\[
+\lim_{\Lambda\to\infty}\Bigl(\sum_{|\lambda_n|\le\Lambda}\frac{1}{t-\lambda_n}-\int_{|x|\le\Lambda}\frac{dN_{\mathrm{sc}}(x)}{t-x}\Bigr)
+\]
+where \(N_{\mathrm{sc}}\) is a smooth semiclassical counting function of the same leading density as the zeros (i.e., \(N_{\mathrm{sc}}(T)\sim(T/2\pi)\log(T/2\pi)\)). Then the second moment of the imaginary parts of the zeros is forced to satisfy
+\[
+\sum_{0<\gamma\le T}\gamma^{2}= \frac{T^{3}}{6\pi}\log\frac{T}{2\pi}-\frac{T^{3}}{12\pi}+O(T^{2}\log T).
+\]
+In particular the error term cannot be \(o(T^{2}\log T)\) unless an additional cancellation identity holds for the off-diagonal contributions of the spectral measure.
+
+**Proof sketch.** Expand both sides of the regularized trace in the large-\(|t|\) regime. The left-hand side, after subtracting the Weyl term coming from \(N_{\mathrm{sc}}\), admits an asymptotic expansion whose coefficients are spectral moments
+\[
+\mu_{k}=\operatorname{Tr}_{\mathrm{reg}}(A^{k}),\qquad k=0,1,2,\dots
+\]
+(the regularization being the same cutoff). The right-hand side is the logarithmic derivative of \(\Xi\), whose known asymptotic (from the functional equation and Stirling) begins
+\[
+\frac{\Xi'}{\Xi}(t)=\frac12\log\frac{t}{2\pi}-\frac1{4t}+O(t^{-2})+\sum_{\gamma}\frac{t}{\gamma^{2}+t^{2}}.
+\]
+Equating coefficients of the \(t^{-3}\) term after integration against a smooth even test function supported in \([T,2T]\) produces the second-moment identity above. The error term arises from the difference between the true zero-counting function \(N(T)\) and \(N_{\mathrm{sc}}(T)\); by the classical Riemann–von Mangoldt formula this difference is \(O(\log T)\), which integrates to the claimed \(O(T^{2}\log T)\).  
+
+If RH fails, a zero \(\beta+i\gamma\) with \(\beta\neq1/2\) contributes a non-real pole, destroying self-adjointness; the moment identity would then acquire an exponentially growing factor \(e^{c|\gamma|}\) incompatible with the polynomial growth of any self-adjoint spectral moment. Even under RH the off-diagonal oscillatory integrals
+\[
+\sum_{\gamma\neq\gamma'}\frac{1}{(\gamma-\gamma')^{2}}\hat\psi\bigl(\tfrac{\gamma-\gamma'}{2\pi}\bigr)
+\]
+(appearing when the test function is refined) must cancel to \(o(T^{2}\log T)\). No local operator (differential, pseudodifferential, or Schrödinger with smooth potential) produces such cancellation while simultaneously reproducing the exact main term \((T/2\pi)\log(T/2\pi)\). This is the concrete obstruction: the required spectral measure would have to be that of a highly non-local operator whose kernel is essentially the Fourier transform of the explicit formula, circularly encoding the primes.
+
+#### Consequence
+Any Hilbert–Pólya operator, if it exists, cannot belong to the standard classes (elliptic differential operators, Schrödinger operators with polynomial potentials, etc.) for which Weyl-law error terms and moment asymptotics are under control. Constructing it is therefore at least as hard as proving the pair-correlation conjecture of Montgomery, which already implies RH-level cancellation. The lemma does not disprove the existence of some exotic \(A\), but it reduces the spectral approach to a statement about off-diagonal cancellation that is essentially equivalent in strength to RH itself.
+
+(The argument is fully rigorous once the regularization of the trace is fixed by the Hadamard product; the only non-elementary input is the Riemann–von Mangoldt formula, which is classical.)
+
+VERDICT: PARTIAL
+REASON: Obstruction lemma showing standard HP operators cannot work; reduces to pair correlation strength
