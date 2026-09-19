@@ -1,0 +1,27 @@
+### Attempt: Obstruction in a contour-shift approach to forcing zeros onto the critical line
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function, entire of order 1 and satisfying \(\xi(s)=\xi(1-s)\). Write the non-trivial zeros as \(\rho=\beta+i\gamma\). The goal of many classical arguments is to show \(\beta=1/2\) by combining the functional equation with a contour integral that isolates vertical strips.
+
+Consider, for a large height \(T>0\) and a fixed \(\sigma_0\in(1/2,1)\), the rectangular contour \(C_T\) with vertices \(\sigma_0\pm iT\) and \(1-\sigma_0\pm iT\). By the argument principle,
+\[
+N(\sigma_0,T):=\#\{\rho:\beta\ge\sigma_0,\,|\gamma|\le T\}
+=\frac1{2\pi}\Delta_C\arg\xi(s)+O(1).
+\]
+The horizontal integrals are \(O(\log T)\) by the convex bound \(\xi(\sigma+it)\ll_\varepsilon |t|^{C(1-\sigma)+\varepsilon}\). The vertical integral on \(\operatorname{Re}s=1-\sigma_0\) is identical (via the functional equation) to the integral on \(\operatorname{Re}s=\sigma_0\) after the substitution \(s\mapsto1-s\). Consequently
+\[
+N(\sigma_0,T)=\frac1\pi\int_{-T}^T\frac{\partial}{\partial t}\arg\xi(\sigma_0+it)\,dt+O(\log T).
+\]
+If one could prove that the continuous argument change on the line \(\operatorname{Re}s=\sigma_0\) is \(o(T)\) (or even \(O(T^{1-\delta})\)), then \(N(\sigma_0,T)=o(T)\) and a standard density-to-zero argument (plus the known zero-free region near \(\operatorname{Re}s=1\)) would force all but \(o(T)\) zeros onto \(\operatorname{Re}s=1/2\).
+
+The obstruction is sharp and structural. Write \(\xi(\sigma_0+it)=|\xi|e^{i\vartheta(t)}\). The phase derivative satisfies
+\[
+\vartheta'(t)=\operatorname{Re}\frac{\xi'}{\xi}(\sigma_0+it)=\sum_\rho\frac{\sigma_0-\beta}{(\sigma_0-\beta)^2+(t-\gamma)^2}+O(\log t),
+\]
+where the sum runs over all zeros. The contribution of any zero with \(\beta>\sigma_0\) is negative and of size \(\asymp(\beta-\sigma_0)^{-1}\) when \(t\approx\gamma\). Because the zeros are known only to satisfy the Riemann–von Mangoldt density \(N(T)\sim(T/2\pi)\log T\), the possible clustering of off-line zeros can make the summed Lorentzian kernels produce a net phase change of size \(\asymp T\log T\) on intervals of length \(1\). No available zero-density estimate (even the strongest density theorems of the form \(N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}\log^C T\)) cancels this contribution uniformly down to \(\sigma_0=1/2+\delta\). In other words, the very quantity one hopes to bound (\(N(\sigma_0,T)\)) reappears with a positive coefficient inside the integral that was supposed to bound it, rendering the contour-shift identity non-contractive.
+
+A secondary, equally fatal difficulty appears when one attempts to replace the plain argument principle by a weighted version (e.g., inserting a mollifier or a Gaussian weight in \(t\)). The functional equation forces the weight on the left half-plane to be the reflection of the weight on the right half-plane; any gain obtained by damping far-off zeros is exactly cancelled by the reflected contribution, again leaving an identity whose only fixed point is the full set of zeros, not the critical-line subset.
+
+Thus every pure contour-shift / argument-principle attack that stays inside the critical strip and uses only the functional equation plus currently available density or convexity bounds is blocked by a circular dependence of the same strength as the original problem. New input (positivity of a Weil-type explicit formula, a sufficiently strong pair-correlation law, or an independent zero-free region of width \(\gg(\log|t|)^{-1+\varepsilon}\)) is required before the contour can be closed.
+
+VERDICT: FAILED
+REASON: Contour-shift identity is circular; phase derivative reintroduces off-line zeros at full strength

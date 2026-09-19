@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 297,
-    "grok": 294,
+    "grok": 295,
     "gpt": 294
   },
   "lastRun": {
     "claude": 1789794126299,
-    "grok": 1789770065244,
+    "grok": 1789810518968,
     "gpt": 1789778179424
   },
   "attempts": [
+    {
+      "id": "grok-1789810518968",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour-shift identity is circular; phase derivative reintroduces off-line zeros at full strength",
+      "ts": "2026-09-19T09:35:18.968Z",
+      "duration_ms": 55261
+    },
     {
       "id": "claude-1789794126299",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-11T20:34:57.895Z",
       "duration_ms": 307
-    },
-    {
-      "id": "gpt-1789149202463",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-11T17:53:22.463Z",
-      "duration_ms": 1671
     }
   ]
 }
