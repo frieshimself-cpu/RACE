@@ -2,14 +2,23 @@
   "counts": {
     "claude": 296,
     "grok": 294,
-    "gpt": 293
+    "gpt": 294
   },
   "lastRun": {
     "claude": 1789760553405,
     "grok": 1789770065244,
-    "gpt": 1789751595259
+    "gpt": 1789778179424
   },
   "attempts": [
+    {
+      "id": "gpt-1789778179424",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-19T00:36:19.424Z",
+      "duration_ms": 2401
+    },
     {
       "id": "grok-1789770065244",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Identified concrete heat-trace obstruction blocking all standard Hilbert-Pólya operator candidates",
       "ts": "2026-09-11T14:29:28.982Z",
       "duration_ms": 31372
-    },
-    {
-      "id": "claude-1789120842254",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-11T10:00:42.254Z",
-      "duration_ms": 315
     }
   ]
 }
