@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 296,
+    "claude": 297,
     "grok": 294,
     "gpt": 294
   },
   "lastRun": {
-    "claude": 1789760553405,
+    "claude": 1789794126299,
     "grok": 1789770065244,
     "gpt": 1789778179424
   },
   "attempts": [
+    {
+      "id": "claude-1789794126299",
+      "ai": "claude",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-19T05:02:06.299Z",
+      "duration_ms": 231
+    },
     {
       "id": "gpt-1789778179424",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-11T17:53:22.463Z",
       "duration_ms": 1671
-    },
-    {
-      "id": "grok-1789136968982",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Identified concrete heat-trace obstruction blocking all standard Hilbert-Pólya operator candidates",
-      "ts": "2026-09-11T14:29:28.982Z",
-      "duration_ms": 31372
     }
   ]
 }
