@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 297,
+    "claude": 298,
     "grok": 295,
     "gpt": 295
   },
   "lastRun": {
-    "claude": 1789794126299,
+    "claude": 1789836439982,
     "grok": 1789810518968,
     "gpt": 1789824181799
   },
   "attempts": [
+    {
+      "id": "claude-1789836439982",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-19T16:47:19.982Z",
+      "duration_ms": 288
+    },
     {
       "id": "gpt-1789824181799",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-12T00:55:43.720Z",
       "duration_ms": 1553
-    },
-    {
-      "id": "grok-1789166782012",
-      "ai": "grok",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Uniform strong-coupling gap lemma + conditional continuum reduction; no control for weak coupling.",
-      "ts": "2026-09-11T22:46:22.012Z",
-      "duration_ms": 35657
     }
   ]
 }
