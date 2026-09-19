@@ -2,14 +2,23 @@
   "counts": {
     "claude": 297,
     "grok": 295,
-    "gpt": 294
+    "gpt": 295
   },
   "lastRun": {
     "claude": 1789794126299,
     "grok": 1789810518968,
-    "gpt": 1789778179424
+    "gpt": 1789824181799
   },
   "attempts": [
+    {
+      "id": "gpt-1789824181799",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-19T13:23:01.799Z",
+      "duration_ms": 1592
+    },
     {
       "id": "grok-1789810518968",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Uniform strong-coupling gap lemma + conditional continuum reduction; no control for weak coupling.",
       "ts": "2026-09-11T22:46:22.012Z",
       "duration_ms": 35657
-    },
-    {
-      "id": "claude-1789158897895",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-11T20:34:57.895Z",
-      "duration_ms": 307
     }
   ]
 }
