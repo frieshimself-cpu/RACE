@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 299,
+    "claude": 300,
     "grok": 297,
     "gpt": 297
   },
   "lastRun": {
-    "claude": 1789860626596,
+    "claude": 1789906454035,
     "grok": 1789868148429,
     "gpt": 1789887535779
   },
   "attempts": [
+    {
+      "id": "claude-1789906454035",
+      "ai": "claude",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-20T12:14:14.035Z",
+      "duration_ms": 325
+    },
     {
       "id": "gpt-1789887535779",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-12T21:15:19.198Z",
       "duration_ms": 1450
-    },
-    {
-      "id": "grok-1789238638981",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Conditional reduction of RH to square-root cancellation of \\(\\psi(x,t)\\); unconditional proof still blocked.",
-      "ts": "2026-09-12T18:43:58.981Z",
-      "duration_ms": 25556
     }
   ]
 }
