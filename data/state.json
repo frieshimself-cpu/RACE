@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 300,
+    "claude": 301,
     "grok": 298,
     "gpt": 298
   },
   "lastRun": {
-    "claude": 1789906454035,
+    "claude": 1789938728096,
     "grok": 1789920877131,
     "gpt": 1789930320591
   },
   "attempts": [
+    {
+      "id": "claude-1789938728096",
+      "ai": "claude",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-20T21:12:08.096Z",
+      "duration_ms": 306
+    },
     {
       "id": "gpt-1789930320591",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-13T06:17:12.084Z",
       "duration_ms": 1386
-    },
-    {
-      "id": "grok-1789261621663",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Explicit-formula positivity blocked by Beurling–Selberg uncertainty; no new zero-free region or reduction beyond classical.",
-      "ts": "2026-09-13T01:07:01.663Z",
-      "duration_ms": 29931
     }
   ]
 }
