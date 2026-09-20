@@ -1,0 +1,28 @@
+### Attempt: Obstruction to a residue-theoretic attack on primitive Hodge classes of hypersurfaces
+
+Let \(X\subset\mathbb{P}^{n+1}\) be a smooth hypersurface of degree \(d\geq n+2\) (so that the primitive cohomology is nontrivial). Write \(H^{n}_{\mathrm{prim}}(X,\mathbb{Q})\) for the primitive part with respect to the hyperplane class. A Hodge class \(\alpha\in\operatorname{Hdg}^{n}(X)\) that is primitive lies in
+\[
+F^{\lceil n/2\rceil}H^{n}_{\mathrm{prim}}(X,\mathbb{C})\cap H^{n}_{\mathrm{prim}}(X,\mathbb{Q}).
+\]
+Griffiths’ residue calculus realises the Hodge filtration on the primitive cohomology via
+\[
+F^{n-q}H^{n}_{\mathrm{prim}}(X)\simeq\frac{R^{qd-n-2}_{f}}{J(f)\cap R^{qd-n-2}},
+\]
+where \(f\) is a defining equation, \(R=\mathbb{C}[x_0,\dots,x_{n+1}]\), and \(J(f)\) is the Jacobian ideal. Thus \(\alpha\) corresponds to a homogeneous polynomial \(P_\alpha\) of degree \(qd-n-2\) that is annihilated by the Jacobian ideal in the appropriate graded piece and that is rational (after clearing denominators) with respect to a \(\mathbb{Q}\)-structure coming from a defining equation with rational coefficients.
+
+Suppose one attempts to produce an algebraic cycle whose class is \(\alpha\) by exhibiting \(P_\alpha\) as a sum of residues of rational differential forms with poles along a union of hypersurfaces of lower degree that cut out a codimension-\(\lceil n/2\rceil\) subvariety. The only available algebraic operations that preserve the rational structure and the Hodge filtration are:
+- multiplication by elements of the Jacobian ring (which stays inside the same filtration step),
+- the Gauss–Manin connection (which lowers filtration by exactly 1 and produces periods, not cycles).
+
+Neither operation yields a \(\mathbb{Q}\)-cycle class. More precisely, the residue map
+\[
+\operatorname{Res}:H^{n+1}(\mathbb{P}^{n+1}\setminus X)\to H^{n}_{\mathrm{prim}}(X)
+\]
+is surjective onto the primitive cohomology, yet its restriction to the subspace of classes of algebraic cycles supported on a divisor complementary to \(X\) lands only in the span of the hyperplane class (by the theorem of the fixed part / monodromy-invariant cycles). Consequently every nontrivial primitive Hodge class lies outside the image of algebraic residues.
+
+The same obstruction persists after base change to any finitely generated field of definition and after passage to the absolute Hodge closure: the Galois action on the coefficients of \(P_\alpha\) need not preserve any algebraic cycle that could have produced those coefficients. Hence the residue calculus, while giving a complete description of the Hodge filtration, supplies no algebraic cycle representing a general primitive Hodge class.
+
+This rules out any direct “explicit residue” proof for hypersurfaces of sufficiently high degree—the case to which many reduction arguments attempt to consign the Hodge conjecture.
+
+VERDICT: FAILED
+REASON: Residue calculus describes filtration but cannot produce algebraic cycles for primitive classes
