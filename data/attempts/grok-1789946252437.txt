@@ -1,0 +1,31 @@
+### Attempt: Obstruction analysis for an explicit-formula contradiction argument
+
+Let \(\psi(x)=\sum_{n\le x}\Lambda(n)\) and recall the truncated explicit formula (von Mangoldt): for \(x>1\) not a prime power and \(T\ge2\),
+\[
+\psi(x)=x-\sum_{|\gamma|\le T}\frac{x^\rho}{\rho}+O\Bigl(\frac{x\log^2(xT)}{T}+\log x\Bigr),
+\]
+where the sum runs over non-trivial zeros \(\rho=\beta+i\gamma\) of \(\zeta(s)\) (counted with multiplicity). Suppose, for a contradiction with RH, that there exists at least one zero with \(\beta_0>1/2\). Write \(E(x):=\psi(x)-x\). The contribution of that single zero is a term of size \(\asymp x^{\beta_0}/|\gamma_0|\).  
+
+If one could establish an unconditional upper bound of the shape
+\[
+|E(x)|\ll x^{1/2}(\log x)^A
+\]
+for some fixed \(A\), then choosing \(x=\exp(c|\gamma_0|)\) large enough relative to \(T=|\gamma_0|\) would make the oscillatory term dominate the error, yielding an immediate contradiction. The same idea extends to a finite number of off-line zeros by a Dirichlet-kernel argument isolating their frequencies.
+
+**Where the argument fails rigorously.**  
+No such bound on \(E(x)\) is known. The strongest classical zero-free region (Vinogradov–Korobov) only guarantees
+\[
+\beta\le1-c(\log|\gamma|)^{-2/3}(\log\log|\gamma|)^{-1/3},
+\]
+which, via the explicit formula in the reverse direction, produces merely
+\[
+E(x)\ll x\exp\bigl(-c(\log x)^{3/5}(\log\log x)^{-1/5}\bigr).
+\]
+This error is larger than \(x^\beta\) for every \(\beta\) permitted by the zero-free region; hence no contradiction arises. Improving the zero-free region all the way to \(\beta\le1/2+\varepsilon\) is essentially equivalent in strength to RH itself (by standard convexity and density theorems), so the contour-shift / explicit-formula method is circular: the prime-side information required to rule out zeros with \(\beta>1/2\) is available only after those zeros have already been excluded.
+
+A quantitative version of the obstruction is as follows. Let \(N(\sigma,T)\) be the number of zeros with \(\beta\ge\sigma\) and \(0<\gamma\le T\). Ingham’s density estimate \(N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}\log T}\) (or any density hypothesis of the form \(N(\sigma,T)\ll T^{a(1-\sigma)}\)) converts an assumed bound \(E(x)\ll x^{\theta}\) into a zero-free region \(\sigma\ge\theta+\varepsilon\), but never forces \(\theta=1/2\) without an independent input of strength RH. Thus every pure explicit-formula contradiction strategy is blocked by the same density–error-term barrier.
+
+(The barrier can be sidestepped only by injecting orthogonal information—e.g., a GUE pair-correlation hypothesis strong enough to control the off-diagonal terms in the second moment of \(E(x)\), or a sufficiently sharp mollified moment of \(\zeta\) on the critical line—that is not supplied by the explicit formula alone.)
+
+VERDICT: FAILED
+REASON: Explicit-formula contradiction blocked by circular dependence on zero-free/density bounds equivalent to RH
