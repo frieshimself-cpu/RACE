@@ -1,0 +1,51 @@
+### Attempt: Obstruction to an elementary Möbius-function proof of RH via Dirichlet series cancellation
+
+Let \(M(x)=\sum_{n\le x}\mu(n)\). It is classical that RH is equivalent to
+\[
+M(x)=O_\varepsilon(x^{1/2+\varepsilon})\qquad(\forall\varepsilon>0).
+\]
+We examine whether a purely elementary cancellation argument on the Dirichlet series for \(1/\zeta(s)\) can force this bound (or even the weaker \(M(x)=o(x)\)), and isolate a precise analytic obstruction.
+
+#### Setup
+Write
+\[
+\frac1{\zeta(s)}=\sum_{n=1}^\infty\frac{\mu(n)}{n^s},\qquad\operatorname{Re}s>1.
+\]
+Partial summation gives, for \(\sigma>1\),
+\[
+\int_1^\infty M(x)x^{-s-1}\,dx=\frac1{s\zeta(s)}.
+\]
+Suppose one attempts to obtain cancellation in \(M(x)\) by contour integration of the right-hand side against a smooth weight, shifting leftward past \(\operatorname{Re}s=1\). The only poles that can appear after the shift are the zeros of \(\zeta\). If every non-trivial zero satisfies \(\operatorname{Re}\rho=1/2\), the resulting contour integral is \(O(x^{1/2+\varepsilon})\) after standard convexivity estimates on \(\zeta\) and a truncated Perron formula. The converse direction (RH \(\Rightarrow\) the \(O\)-bound) is equally standard.
+
+#### Elementary obstruction
+An “elementary” proof would have to produce the same cancellation without ever invoking the analytic continuation of \(\zeta\) or the location of its zeros. Concretely, one would need a combinatorial identity or sieve inequality that forces
+\[
+\Bigl|\sum_{n\le x}\mu(n)f(n)\Bigr|\ll x^{1/2+\varepsilon}\|f\|
+\]
+for a sufficiently rich class of test functions \(f\) (e.g., characteristic functions of intervals, or smooth approximations thereto).  
+
+Consider the simplest candidate: the pure Möbius inversion identity
+\[
+\sum_{d\mid n}\mu(d)=\mathbf{1}_{n=1}.
+\]
+Summing up to \(x\) and applying the hyperbola method yields only
+\[
+M(x)=\sum_{n\le x}\mu(n)=O\bigl(x\exp(-c\sqrt{\log x})\bigr)
+\]
+(the classical elementary zero-free region bound), which is far weaker than \(x^{1/2+\varepsilon}\). Any attempt to improve the exponent by inserting a smooth weight \(\phi\) supported on \([1,x]\) and expanding
+\[
+\sum_n\mu(n)\phi(n)=\sum_{k}\Bigl(\sum_{d\mid k}\mu(d)\Bigr)\widehat\phi(k)
+\]
+merely recovers the same identity; the diagonal term is 1 and the off-diagonal terms are controlled solely by the divisor bound, again giving only a power-saving of size \(x^{1-\delta}\) for an absolute \(\delta>0\) that cannot be pushed to \(1/2\).
+
+#### Precise gap
+The obstruction is spectral. The Dirichlet series \(1/\zeta(s)\) possesses an Euler product, but the partial sums of its coefficients are governed by the zeros via the explicit formula
+\[
+M(x)=-\sum_{|\operatorname{Im}\rho|\le T}\frac{x^\rho}{\rho\zeta'(\rho)}+O\bigl(x(\log x)^2/T\bigr)+O(1).
+\]
+Any elementary majorant that ignores the locations of the \(\rho\) can at best reproduce the convexivity bound \(\zeta(1/2+it)\ll |t|^{1/6+\varepsilon}\) (or the weaker elementary zero-free region), both of which translate into an error term larger than \(x^{1/2+\varepsilon}\). Closing the gap to the critical line therefore requires an input that is at least as strong as a zero-density estimate or a mean-value theorem for \(\zeta\) on vertical lines—precisely the analytic information one hoped to avoid.
+
+Thus no purely combinatorial cancellation on the Möbius function, short of an identity that secretly encodes the functional equation, can prove RH.
+
+VERDICT: FAILED
+REASON: Elementary Möbius cancellation only recovers weak zero-free regions; spectral input from zeros is indispensable.
