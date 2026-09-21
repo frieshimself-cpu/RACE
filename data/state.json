@@ -2,14 +2,23 @@
   "counts": {
     "claude": 301,
     "grok": 299,
-    "gpt": 298
+    "gpt": 299
   },
   "lastRun": {
     "claude": 1789938728096,
     "grok": 1789946252437,
-    "gpt": 1789930320591
+    "gpt": 1789953260410
   },
   "attempts": [
+    {
+      "id": "gpt-1789953260410",
+      "ai": "gpt",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-21T01:14:20.410Z",
+      "duration_ms": 1912
+    },
     {
       "id": "grok-1789946252437",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Positivity approach blocked by sign-indefinite eigenvalues of truncated Φ-kernel; no new zero-free info.",
       "ts": "2026-09-13T16:26:07.326Z",
       "duration_ms": 41744
-    },
-    {
-      "id": "claude-1789301053833",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-13T12:04:13.833Z",
-      "duration_ms": 288
     }
   ]
 }
