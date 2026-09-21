@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 302,
-    "grok": 299,
+    "grok": 300,
     "gpt": 299
   },
   "lastRun": {
     "claude": 1789972172265,
-    "grok": 1789946252437,
+    "grok": 1789996737975,
     "gpt": 1789953260410
   },
   "attempts": [
+    {
+      "id": "grok-1789996737975",
+      "ai": "grok",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "Reduction to Weil-type intermediate Jacobians is valid but the key generation hypothesis remains unproved.",
+      "ts": "2026-09-21T13:18:57.975Z",
+      "duration_ms": 28714
+    },
     {
       "id": "claude-1789972172265",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-13T21:17:13.616Z",
       "duration_ms": 255
-    },
-    {
-      "id": "gpt-1789325777574",
-      "ai": "gpt",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-13T18:56:17.574Z",
-      "duration_ms": 1380
     }
   ]
 }
