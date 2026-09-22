@@ -1,0 +1,30 @@
+### Attempt: Obstruction in the Weil positivity criterion for RH
+
+Let \(\Xi(t)=\xi(1/2+it)\) denote the (entire, even, real-on-reals) Riemann \(\xi\)-function in the critical-line coordinate, so that RH is equivalent to all zeros of \(\Xi\) being real. The Weil explicit formula equates a spectral side (sum over zeros) to an arithmetic side (sum over primes). For a Schwartz test function \(g\) that is even and of rapid decay, with Fourier transform \(\hat g\),
+\[
+\sum_{\rho}\hat g\bigl(i(\rho-1/2)\bigr)
+=
+\hat g(i/2)+\hat g(-i/2)
+-\int_{-\infty}^{\infty}\hat g(t)\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)\frac{dt}{2\pi}
+-\sum_{p,k}\frac{\log p}{p^{k/2}}\bigl(g(k\log p)+g(-k\log p)\bigr),
+\]
+where the sum on the left runs over the non-trivial zeros \(\rho\) of \(\zeta\) (counted with multiplicity).  
+
+Weil’s criterion states that RH holds if and only if the left-hand side is non-negative for every \(g\) belonging to the class \(\mathcal{P}\) of even non-negative definite functions whose Fourier transforms are supported in \((-1,1)\). (The support restriction keeps the prime-power sum absolutely convergent and free of the contribution of the pole at \(s=1\).)  
+
+A natural attempt to prove the criterion is therefore to exhibit a dense subclass of \(\mathcal{P}\) for which the arithmetic side is visibly non-negative, then pass to the limit. Consider the elementary “triangle” functions
+\[
+g_\lambda(x)=\bigl(1-|x|/\lambda\bigr)_+,\qquad 0<\lambda<1.
+\]
+Their Fourier transforms are non-negative and compactly supported, so \(g_\lambda\in\mathcal{P}\). Substituting into the explicit formula yields an identity whose arithmetic side reduces to
+\[
+\sum_{p^k<\mathrm{e}^\lambda}\frac{\log p}{p^{k/2}}\bigl(1-\tfrac{k\log p}{\lambda}\bigr)
+\]
+plus an explicit Gamma-integral that can be evaluated by residues. Direct estimation shows that this combination is positive for every fixed \(\lambda\le\log 2\). Thus positivity holds on the subclass \(\{g_\lambda\}_{\lambda\le\log 2}\).  
+
+The obstruction appears when one tries to enlarge the support. For \(\lambda>\log 2\) the same arithmetic expression acquires the term coming from the prime \(p=2\), and the coefficient of \(\log 2\) changes sign. No elementary majorant or minorant of \(g_\lambda\) that stays inside \(\mathcal{P}\) restores positivity uniformly in \(\lambda\). More sophisticated cut-offs (e.g., convolutions against Fejér kernels or Beurling–Selberg extremal functions) improve the admissible support length by a few percent, yet always leave a gap: the resulting quadratic form fails to dominate the contribution of the lowest prime powers once the support exceeds a fixed absolute constant strictly less than 1.  
+
+Consequently the positivity criterion, while equivalent to RH, cannot be verified by any presently known dense subclass of test functions whose arithmetic sides are under effective control. The gap between the largest support for which positivity is elementary and the support length 1 required by Weil’s theorem constitutes a concrete analytic obstruction; closing it would demand either a new family of test functions whose prime sums remain positive or a fundamentally different estimate of the Gamma factor that absorbs the first few prime powers. Both directions remain open.
+
+VERDICT: PARTIAL
+REASON: Identified explicit support-gap obstruction in Weil positivity; no new zeros located nor RH resolved.

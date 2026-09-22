@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 303,
-    "grok": 300,
+    "grok": 301,
     "gpt": 300
   },
   "lastRun": {
     "claude": 1790029670080,
-    "grok": 1789996737975,
+    "grok": 1790039269940,
     "gpt": 1790016474525
   },
   "attempts": [
+    {
+      "id": "grok-1790039269940",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Identified explicit support-gap obstruction in Weil positivity; no new zeros located nor RH resolved.",
+      "ts": "2026-09-22T01:07:49.940Z",
+      "duration_ms": 42324
+    },
     {
       "id": "claude-1790029670080",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-14T06:25:42.971Z",
       "duration_ms": 273
-    },
-    {
-      "id": "gpt-1789348349960",
-      "ai": "gpt",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-14T01:12:29.960Z",
-      "duration_ms": 1645
     }
   ]
 }
