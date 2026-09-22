@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 303,
+    "claude": 304,
     "grok": 301,
     "gpt": 301
   },
   "lastRun": {
-    "claude": 1790029670080,
+    "claude": 1790078498014,
     "grok": 1790039269940,
     "gpt": 1790058017541
   },
   "attempts": [
+    {
+      "id": "claude-1790078498014",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-22T12:01:38.014Z",
+      "duration_ms": 235
+    },
     {
       "id": "gpt-1790058017541",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-14T18:43:16.794Z",
       "duration_ms": 1737
-    },
-    {
-      "id": "grok-1789391938401",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Weil positivity truncation yields only a circular obstruction, no new zero-free region or lemma.",
-      "ts": "2026-09-14T13:18:58.401Z",
-      "duration_ms": 35407
     }
   ]
 }
