@@ -1,0 +1,69 @@
+### Attempt: Conditional Regularity via a Refined Enstrophy Bound
+
+Consider the incompressible Navier–Stokes equations on \(\mathbb{R}^3\times(0,T)\):
+\[
+\partial_t u + (u\cdot\nabla)u = \Delta u - \nabla p,\qquad
+\operatorname{div}u=0,
+\]
+with smooth, divergence-free initial data \(u_0\in H^s(\mathbb{R}^3)\) for \(s>5/2\). Let \(v=\operatorname{curl}u\) denote the vorticity. The standard energy identity yields
+\[
+\frac12\frac{d}{dt}\|u(t)\|_{L^2}^2 + \|\nabla u(t)\|_{L^2}^2=0,
+\]
+so the enstrophy \(\mathcal{E}(t):=\|\nabla u(t)\|_{L^2}^2\) remains finite on any interval of existence of a smooth solution. Classical local existence produces a maximal time \(T_*\le\infty\) such that \(u\in C^\infty([0,T_*)\times\mathbb{R}^3)\) and, if \(T_*<\infty\), necessarily
+\[
+\int_0^{T_*}\mathcal{E}(t)\,dt=\infty.
+\]
+(The Beale–Kato–Majda criterion sharpens this to \(\int_0^{T_*}\|v(t)\|_{L^\infty}\,dt=\infty\).)
+
+We examine whether a slightly stronger a-priori control on enstrophy already prevents blow-up. Suppose there exists a continuous non-decreasing function \(\phi:[0,\infty)\to[0,\infty)\) with \(\phi(0)=0\) and
+\[
+\int_0^{T}\frac{\phi(\mathcal{E}(t))}{1+\mathcal{E}(t)}\,dt<\infty
+\]
+for every \(T<T_*\), and assume in addition that the solution satisfies the logarithmic Sobolev bound
+\begin{equation}
+\|v(t)\|_{L^\infty}\le C\bigl(1+\mathcal{E}(t)\bigr)\log\bigl(2+\mathcal{E}(t)\bigr)
+\label{log-sob}
+\end{equation}
+(which holds automatically for smooth solutions by the Biot–Savart law and Calderón–Zygmund estimates). We claim that \(T_*=\infty\).
+
+#### Sketch of the argument
+Differentiate the enstrophy:
+\[
+\frac12\frac{d}{dt}\mathcal{E}
+= -\|\Delta u\|_{L^2}^2 + \int_{\mathbb{R}^3}v\cdot(v\cdot\nabla)u\,dx.
+\]
+The nonlinear term is estimated by Hölder and the embedding \(H^1\hookrightarrow L^6\):
+\[
+\biggl|\int v\cdot(v\cdot\nabla)u\,dx\biggr|
+\le\|v\|_{L^3}\|\nabla u\|_{L^6}\|v\|_{L^2}
+\le C\|v\|_{L^\infty}^{1/2}\mathcal{E}^{3/2}.
+\]
+Inserting the assumed logarithmic bound \eqref{log-sob} produces
+\[
+\frac{d}{dt}\mathcal{E}
+\le C\mathcal{E}^{3/2}\bigl(1+\mathcal{E}\bigr)^{1/2}\log(2+\mathcal{E})
+- \|\Delta u\|_{L^2}^2.
+\]
+The dissipative term dominates the highest-order contribution once one interpolates
+\[
+\|\Delta u\|_{L^2}^2\ge c\frac{\mathcal{E}^3}{\|u\|_{L^2}^2}
+\]
+(via Gagliardo–Nirenberg and the conserved \(L^2\) energy). After discarding lower-order remainders one obtains the differential inequality
+\begin{equation}
+\frac{d}{dt}\log(1+\mathcal{E})
+\le C\frac{\phi(\mathcal{E})}{1+\mathcal{E}}
+\label{diff-ineq}
+\end{equation}
+provided \(\phi(r)\ge r\log(2+r)\) (the precise growth forced by \eqref{log-sob}). Integrating \eqref{diff-ineq} from \(0\) to any \(T<T_*\) and using the hypothesis that the right-hand side remains integrable shows that \(\mathcal{E}(t)\) stays bounded on \([0,T]\). Standard continuation then yields \(T_*=\infty\).
+
+#### Where the argument fails to be unconditional
+The logarithmic Sobolev bound \eqref{log-sob} is true for every smooth solution, yet the function \(\phi(r)=r\log(2+r)\) grows just fast enough that
+\[
+\int_0^{T}\frac{\phi(\mathcal{E}(t))}{1+\mathcal{E}(t)}\,dt
+\]
+may still diverge when \(\mathcal{E}(t)\) itself blows up like \(1/(T_*-t)\). In other words, the a-priori integrability assumption needed to close the estimate is essentially equivalent to the BKM criterion already known to be necessary and sufficient for regularity. No new information is gained; the differential inequality \eqref{diff-ineq} merely recovers a known conditional result.
+
+Thus the approach yields only a re-derivation of a classical regularity criterion and does not remove the possibility of finite-time singularity formation for arbitrary smooth data.
+
+VERDICT: FAILED
+REASON: Recovers only classical BKM-type criterion; integrability assumption circular with known necessary conditions.
