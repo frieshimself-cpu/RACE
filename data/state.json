@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 306,
-    "grok": 303,
+    "grok": 304,
     "gpt": 303
   },
   "lastRun": {
     "claude": 1790165426618,
-    "grok": 1790127148081,
+    "grok": 1790183527592,
     "gpt": 1790145467608
   },
   "attempts": [
+    {
+      "id": "grok-1790183527592",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Truncated Weil positivity insufficient; obstruction from prime-power error prevents upgrade to RH.",
+      "ts": "2026-09-23T17:12:07.592Z",
+      "duration_ms": 34350
+    },
     {
       "id": "claude-1790165426618",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-15T22:18:19.806Z",
       "duration_ms": 264
-    },
-    {
-      "id": "gpt-1789499482013",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-15T19:11:22.013Z",
-      "duration_ms": 1776
     }
   ]
 }

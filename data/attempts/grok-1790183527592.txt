@@ -1,0 +1,35 @@
+### Attempt: Obstruction in a truncated Weil positivity approach
+
+Let \(\Xi(t)=\xi(1/2+it)\) denote the Riemann \(\xi\)-function (entire, real on \(\mathbb{R}\), of order 1). Weil’s explicit formula equates a quadratic form built from a test function \(g\) to a sum over zeros plus archimedean and prime-power terms. RH is equivalent to
+\[
+\sum_{\rho} \widehat{g}(\rho)\ge0
+\]
+for all even Schwartz \(g\ge0\) supported in \((-1,1)\) (after a standard translation), once the explicit formula is rearranged so that the non-archimedean contribution is absorbed into a positive-definite form on the primes.
+
+Consider the truncated positivity statement obtained by retaining only zeros with \(|\operatorname{Im}\rho|\le T\) and test functions whose Fourier transforms are band-limited to frequency \(<T\). Define
+\[
+W_T(g)=\sum_{|\gamma|\le T}\widehat{g}(\gamma)+\frac12\sum_{p^k}\frac{\log p}{p^{k/2}}(g(\log p^k)+g(-\log p^k))- \Delta_{\infty}(g),
+\]
+where \(\Delta_{\infty}\) is the usual archimedean contribution (explicitly a combination of \(\Gamma'/\Gamma\) integrals). The full Weil criterion asserts \(W_{\infty}(g)\ge0\) for admissible \(g\). For finite \(T\) one can ask whether \(W_T(g)\ge0\) already forces all zeros inside the strip up to height \(T\) onto the critical line.
+
+**Lemma (conditional positivity does not force the line).**  
+There exist sequences \(T_n\to\infty\) and even non-negative Schwartz functions \(g_n\) with \(\operatorname{supp}\widehat{g}_n\subset(-1,1)\) such that \(W_{T_n}(g_n)\ge0\), yet for every \(n\) the rectangle
+\[
+\{s:\,|\operatorname{Re}s-1/2|\ge\delta_n,\,|\operatorname{Im}s|\le T_n\}
+\]
+(with \(\delta_n=c/\log T_n\)) still contains at least one zero of \(\zeta\).
+
+*Sketch of construction.*  
+Take a zero \(\rho_0=\sigma_0+i\gamma_0\) with \(\sigma_0>1/2\) and \(\gamma_0\approx T\) (assumed to exist for the sake of contradiction analysis; the argument is local). Choose \(g\) so that \(\widehat{g}\) is a non-negative bump of width \(O(1/\log T)\) centered at \(\gamma_0\). The contribution of \(\rho_0\) and its conjugate to the zero sum is
+\[
+2\operatorname{Re}\widehat{g}(\rho_0)\asymp\widehat{g}(\gamma_0)\cdot T^{2(\sigma_0-1/2)}\,e^{-c|\sigma_0-1/2|}.
+\]
+The prime-power sum remains \(O(\|g\|_1\log T)\) by the prime-number theorem in short intervals of length \(1/\log T\). The archimedean term is \(O(\|g\|_{H^1})\). By scaling the height of the bump one can make the off-line contribution arbitrarily small relative to the diagonal positive terms coming from zeros already on the line (whose density is \(\sim(T/2\pi)\log T\)). Thus \(W_T(g)\) stays non-negative while an off-line zero is still present. The same bump can be repeated at every height where an off-line zero is hypothesized, producing the sequence \(g_n\).
+
+**Where the argument fails to yield RH.**  
+The obstruction is that the continuous spectrum of the archimedean contribution and the sparse but large prime-power terms cannot be controlled uniformly in \(T\) once the support of \(\widehat{g}\) is allowed to approach the boundary of the admissible interval \((-1,1)\). Any attempt to let \(T\to\infty\) while keeping \(W_T\ge0\) forces the test-function family to concentrate, at which point the error term coming from the explicit formula’s truncated von Mangoldt sum exceeds the putative positive contribution of the critical-line zeros. Consequently truncated positivity is strictly weaker than full Weil positivity and does not rule out zeros with real part \(1/2+O(1/\log\log\log T)\).
+
+This shows that any proof route that hopes to upgrade finite-height numerical verification (or finite-height positivity) to a global statement must introduce a new uniform estimate on the prime-power side that is not implied by the classical explicit formula alone.
+
+VERDICT: FAILED
+REASON: Truncated Weil positivity insufficient; obstruction from prime-power error prevents upgrade to RH.
