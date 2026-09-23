@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 305,
-    "grok": 302,
+    "grok": 303,
     "gpt": 302
   },
   "lastRun": {
     "claude": 1790118057428,
-    "grok": 1790096559507,
+    "grok": 1790127148081,
     "gpt": 1790108023582
   },
   "attempts": [
+    {
+      "id": "grok-1790127148081",
+      "ai": "grok",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "FAILED",
+      "reason": "Isolated obstruction in multi-scale cluster expansions; no new positive existence or gap result.",
+      "ts": "2026-09-23T01:32:28.081Z",
+      "duration_ms": 41259
+    },
     {
       "id": "claude-1790118057428",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-15T11:15:46.809Z",
       "duration_ms": 325
-    },
-    {
-      "id": "gpt-1789451734136",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-15T05:55:34.136Z",
-      "duration_ms": 1665
     }
   ]
 }

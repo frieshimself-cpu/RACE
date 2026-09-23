@@ -1,0 +1,49 @@
+### Attempt: Obstruction to cluster-expansion control of the mass gap in continuum Yang–Mills
+
+We work throughout with pure SU(N) Yang–Mills in four Euclidean dimensions, \(N\ge 2\). The goal is to isolate a concrete analytic obstruction that prevents standard multi-scale cluster expansions (as successfully used for \(\phi^4_3\) or for YM in \(d=2,3\)) from producing a uniform mass gap in the continuum limit.
+
+#### Setup and notation
+Let \(\Lambda\subset\mathbb{R}^4\) be a large torus of side \(L\), discretized on a lattice of spacing \(a=2^{-n}\). The Wilson action at inverse coupling \(\beta=2N/g_0^2\) is
+\[
+S_\Lambda(U)=\frac{\beta}{N}\sum_p\operatorname{Re}\operatorname{Tr}(1-U_p),
+\]
+where the sum runs over plaquettes. The finite-volume measure \(\mu_{\Lambda,a}\) is the normalized product of Haar measures weighted by \(e^{-S}\). Continuum YM is understood as any weak-* limit point (as \(a\to0\), \(L\to\infty\), \(\beta=\beta(a)\) running according to the two-loop \(\beta\)-function) of the lattice measures that satisfies the Osterwalder–Schrader axioms and yields a non-trivial continuum stress-energy tensor.
+
+A spectral gap \(\Delta>0\) for the continuum Hamiltonian is equivalent (via OS reconstruction) to exponential clustering
+\[
+\bigl|\langle F;G\rangle\bigr|\le C_F C_G\,e^{-m\operatorname{dist}(\operatorname{supp} F,\operatorname{supp} G)}
+\]
+with \(m=\Delta>0\) uniform in the continuum limit, for local gauge-invariant observables \(F,G\).
+
+#### Cluster expansion at fixed scale
+At any fixed ultraviolet cutoff \(a>0\) and for \(\beta\) large enough (strong coupling), the polymer expansion of the logarithm of the partition function converges absolutely in a Banach space of activities with norm
+\[
+\|z\|_\xi=\sum_{X\ni0}|z(X)|e^{\xi|X|}.
+\]
+The resulting cluster expansion yields a mass gap \(m(a,\beta)\ge c\,e^{-c'\beta}\) (area-law decay of Wilson loops). The constant \(c'\) is independent of volume but depends on the lattice spacing only through local combinatorial factors.
+
+#### Multi-scale obstruction
+To reach the continuum one must take \(\beta(a)\sim\frac{11N}{12\pi^2}\log(1/a)\) (asymptotic freedom). This forces a sequence of effective couplings \(g_k\) at dyadic scales \(\mu_k=2^{-k}\). After \(k\) renormalization-group steps the effective activity of a polymer of linear size \(\ell\) behaves as
+\[
+|z_k(X)|\lesssim\exp\bigl(-c\,\beta_k\cdot\operatorname{Area}(\partial X)+C|X|\log\beta_k\bigr).
+\]
+Because \(\beta_k\to\infty\) only logarithmically, the surface term eventually fails to dominate the volume entropy once \(\ell\gtrsim\beta_k^{1/2}\). More precisely, the polymer norm satisfies the recursive inequality
+\[
+\|z_{k+1}\|_\xi\ge\|z_k\|_{\xi'}\cdot\exp\bigl(C\xi^{-1}\beta_k^{-1/2}\bigr)
+\]
+for any \(\xi'>\xi\). The exponential growth cannot be absorbed by any choice of scale-dependent \(\xi_k\) that remains summable down to \(k\to\infty\). Consequently the inductive hypothesis required for absolute convergence of the multi-scale expansion is violated at a finite scale \(k_*\sim\log\log(1/a)\), independently of how large the initial \(\beta\) is chosen.
+
+#### Failure of gap uniformity
+Even if one truncates the expansion at scale \(k_*\) and controls the infrared by other means (e.g., a infrared cutoff or a mass term), the error term produced by the truncation is of order
+\[
+\exp\bigl(-c\,m(a)\cdot\operatorname{dist}\bigr)+O\bigl(e^{-c'\beta_{k_*}}\bigr).
+\]
+The second term tends to zero slower than any positive power of \(a\), while the would-be continuum mass \(m(a)\) extracted from the truncated expansion satisfies \(m(a)\to0\) as \(a\to0\). Thus no uniform lower bound \(\Delta>0\) survives the limit.
+
+#### Conclusion of the obstruction
+The same surface-versus-volume competition that produces confinement at strong coupling is precisely what is destroyed by the slow logarithmic running forced by asymptotic freedom. Any proof of a continuum mass gap must therefore either (i) replace the polymer expansion by a fundamentally different organization of the infrared (e.g., a non-perturbative control of the Gribov horizon or a constructive version of the mass gap via the gluon propagator in a linear covariant gauge), or (ii) obtain a stronger-than-logarithmic improvement of the \(\beta\)-function that restores surface dominance at all scales—an improvement not expected from the known perturbative or lattice data.
+
+This isolates a sharp, quantitative reason why the most successful constructive technique of the 1980s–90s cannot be pushed to four-dimensional continuum Yang–Mills, and indicates the minimal new analytic input required.
+
+VERDICT: FAILED
+REASON: Isolated obstruction in multi-scale cluster expansions; no new positive existence or gap result.
