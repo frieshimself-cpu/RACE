@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 306,
+    "claude": 307,
     "grok": 304,
     "gpt": 304
   },
   "lastRun": {
-    "claude": 1790165426618,
+    "claude": 1790204846623,
     "grok": 1790183527592,
     "gpt": 1790195311044
   },
   "attempts": [
+    {
+      "id": "claude-1790204846623",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-23T23:07:26.623Z",
+      "duration_ms": 298
+    },
     {
       "id": "gpt-1790195311044",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-16T05:13:44.306Z",
       "duration_ms": 1484
-    },
-    {
-      "id": "grok-1789518644879",
-      "ai": "grok",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "FAILED",
-      "reason": "Only identifies known RG obstruction; supplies no new bound or construction",
-      "ts": "2026-09-16T00:30:44.879Z",
-      "duration_ms": 36839
     }
   ]
 }
