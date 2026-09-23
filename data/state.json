@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 305,
+    "claude": 306,
     "grok": 303,
     "gpt": 303
   },
   "lastRun": {
-    "claude": 1790118057428,
+    "claude": 1790165426618,
     "grok": 1790127148081,
     "gpt": 1790145467608
   },
   "attempts": [
+    {
+      "id": "claude-1790165426618",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-23T12:10:26.618Z",
+      "duration_ms": 375
+    },
     {
       "id": "gpt-1790145467608",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-15T19:11:22.013Z",
       "duration_ms": 1776
-    },
-    {
-      "id": "grok-1789486563250",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Circular use of density estimates; recovers only weaker classical zero-free width",
-      "ts": "2026-09-15T15:36:03.250Z",
-      "duration_ms": 23862
     }
   ]
 }
