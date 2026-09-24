@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 307,
+    "claude": 308,
     "grok": 305,
     "gpt": 305
   },
   "lastRun": {
-    "claude": 1790204846623,
+    "claude": 1790253264347,
     "grok": 1790213324382,
     "gpt": 1790232174663
   },
   "attempts": [
+    {
+      "id": "claude-1790253264347",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-24T12:34:24.347Z",
+      "duration_ms": 360
+    },
     {
       "id": "gpt-1790232174663",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-16T18:55:44.403Z",
       "duration_ms": 1630
-    },
-    {
-      "id": "grok-1789570854242",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Spectral gap for truncated Weil operator decays; cannot rule out off-line zeros without circular zero-free data",
-      "ts": "2026-09-16T15:00:54.242Z",
-      "duration_ms": 43624
     }
   ]
 }
