@@ -1,0 +1,59 @@
+### Attempt: Obstruction in a contour-shift approach to zero-free half-planes via the completed xi-function
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function. It is entire of order 1, satisfies the functional equation \(\xi(s)=\xi(1-s)\), and the non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\). Write \(s=\sigma+it\). The Riemann Hypothesis (RH) is equivalent to all zeros of \(\xi\) lying on the critical line \(\sigma=1/2\).
+
+A classical contour-integral strategy attempts to force a zero-free region \(\sigma>1/2+\delta\) (any fixed \(\delta>0\)) by shifting a rectangular contour for a suitable Mellin or Fourier transform of \(\log|\xi|\) and absorbing the horizontal sides by convexity bounds. We exhibit a concrete obstruction that prevents the argument from closing for any \(\delta>0\).
+
+#### Setup
+Fix \(T>2\) large and \(\delta\in(0,1/4)\). Let \(R_T\) be the rectangle with vertices
+\[
+\frac12+\delta\pm iT,\qquad 2\pm iT.
+\]
+Consider the integral
+\[
+I(T,\delta):=\frac1{2\pi i}\int_{\partial R_T}\frac{\xi'}{\xi}(s)\,ds.
+\]
+By the argument principle, \(I(T,\delta)\) equals the number \(N(T,\delta)\) of zeros of \(\xi\) (counted with multiplicity) inside \(R_T\). The vertical side at \(\operatorname{Re}s=2\) contributes
+\[
+\frac1{2\pi}\int_{-T}^{T}\frac{\xi'}{\xi}(2+it)\,dt=O(\log T)
+\]
+by the Euler product (absolutely convergent) and standard estimates on \(\Gamma'/\Gamma\). The horizontal sides are estimated via the convexity bound
+\[
+|\xi(\sigma+it)|\ll_\varepsilon |t|^{C(1-\sigma)+\varepsilon}\qquad\bigl(\tfrac12\le\sigma\le 2,\ |t|\ge2\bigr)
+\]
+(which follows from the functional equation and the Phragmén–Lindelöf principle). Differentiating under the integral or using the Borel–Carathéodory lemma yields
+\[
+\Bigl|\int_{\text{horiz.}}\frac{\xi'}{\xi}(s)\,ds\Bigr|\ll_\varepsilon T^{C\delta+\varepsilon}\log T.
+\]
+If one could show that the left vertical integral (at \(\sigma=1/2+\delta\)) is \(o(T)\) or at least \(O(T^{1-\eta})\) for some \(\eta>0\), then \(N(T,\delta)=o(T)\) as \(T\to\infty\). Combined with the classical zero-density estimate \(N(T)=(\,T/2\pi)\log(T/2\pi)-T/2\pi+O(\log T)\) this would force all but \(o(T)\) zeros into the strip \(1/2\le\sigma\le1/2+\delta\), and letting \(\delta\to0\) would yield RH after a standard density argument.
+
+#### The obstruction
+The left vertical integral is
+\[
+\frac1{2\pi}\int_{-T}^{T}\operatorname{Re}\frac{\xi'}{\xi}\bigl(\tfrac12+\delta+it\bigr)\,dt.
+\]
+By the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_\rho\bigl(1-s/\rho\bigr)
+\]
+(the product running over the non-trivial zeros) one has the representation
+\[
+\operatorname{Re}\frac{\xi'}{\xi}(s)=\sum_\rho\operatorname{Re}\frac1{s-\rho}.
+\]
+For a zero \(\rho=\beta+i\gamma\) with \(\beta\ge1/2+\delta\) the term \(\operatorname{Re}(s-\rho)^{-1}\) is positive and of size \(\asymp(\beta-\tfrac12-\delta)/((\beta-\tfrac12-\delta)^2+(t-\gamma)^2)\). Summing over a putative positive-density set of such zeros (permitted by all known zero-density theorems when \(\delta\) is fixed) produces a lower bound
+\[
+\int_{-T}^{T}\operatorname{Re}\frac{\xi'}{\xi}\bigl(\tfrac12+\delta+it\bigr)\,dt\gg_\delta T\log T
+\]
+on a positive-measure set of heights \(T\). Consequently the contour integral \(I(T,\delta)\) cannot be shown to be \(o(T)\); the horizontal-side error \(T^{C\delta}\) is absorbed only if \(\delta\) itself tends to zero with \(T\), at which point the argument collapses to the classical zero-free region of width \(c/\log(|t|+2)\) already obtained by Vinogradov–Korobov methods.
+
+The same obstruction appears if one replaces \(\xi'/\xi\) by a smoothed weight (e.g., a Gaussian or a Fejér kernel): the contribution of any zero off the line remains of definite sign and of size comparable to the main term, so the contour shift cannot eradicate a fixed-width half-plane of zeros.
+
+#### What the obstruction shows
+Any pure contour-shift argument that relies only on the functional equation, the Hadamard product, and convexity (or even subconvexity of Weyl type) is blocked by the possible accumulation of zeros with real part bounded away from \(1/2\). Progress therefore requires either
+- a new a-priori repulsion estimate that forces zeros to be spaced at least \(\gg(\log|t|)^{-1}\) apart in the \(t\)-aspect while simultaneously controlling their real parts, or
+- an input stronger than convexity (e.g., a Lindelöf-on-average statement in short intervals on vertical lines \(\sigma=1/2+\delta\)) that cancels the positive contribution of off-line zeros.
+
+Both routes lie beyond current technology; the contour method alone cannot cross the barrier.
+
+VERDICT: FAILED
+REASON: Contour-shift blocked by positive contribution of off-line zeros; recovers only classical zero-free width.
