@@ -1,0 +1,34 @@
+### Attempt: Exclusion of zeros in a thin right half of the critical strip via a truncated Dirichlet series comparison
+
+Let \(\zeta(s)\) denote the Riemann zeta function, \(s=\sigma+it\), and write \(\xi(s)= \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) for the completed xi-function (entire of order 1). The functional equation \(\xi(s)=\xi(1-s)\) is assumed throughout. All non-trivial zeros lie in the open strip \(0<\sigma<1\). The goal of this note is a conditional exclusion of zeros in the region \(\sigma\ge 3/4\), \(|t|\ge T_0\) for an effectively computable \(T_0\), under an auxiliary hypothesis on the growth of a partial Euler product that is weaker than RH itself but still unproved; the argument is then shown to collapse precisely when that hypothesis is removed.
+
+Fix a large height \(T>0\) and a truncation parameter \(X=T^\theta\) with \(0<\theta<1\) to be chosen. Define the partial Euler product
+\[
+P_X(s)=\prod_{p\le X}(1-p^{-s})^{-1}.
+\]
+Write \(\zeta(s)=P_X(s)R_X(s)\), so that the remainder admits the absolutely convergent expansion
+\[
+R_X(s)=\sum_{n\in\mathcal N_X}n^{-s}
+\]
+for \(\sigma>1\), where \(\mathcal N_X\) is the set of positive integers free of prime factors \(\le X\). By standard Perron and truncated Mellin inversion one has, uniformly for \(\sigma\ge 1/2+\delta\),
+\[
+|R_X(s)-1|\ll_\delta X^{1-\sigma}(\log X)^{-1}+T^{-A}
+\]
+for any fixed \(A\), provided the contour is shifted no farther left than \(\operatorname{Re}=1/2+\delta/2\) and the horizontal integrals are estimated by the convexivity bound \(\zeta(\sigma+it)\ll |t|^{(1-\sigma)/3+\varepsilon}\). (The implied constant depends only on \(\delta,A\).)
+
+Now suppose, for contradiction, that \(\rho=\beta+i\gamma\) is a zero with \(\beta\ge 3/4\) and \(|\gamma|\ge T_0\) large. Then \(\zeta(\rho)=0\) forces
+\[
+P_X(\rho)=-R_X(\rho)^{-1}\cdot 0=0,
+\]
+which is impossible unless \(R_X(\rho)\) fails to be invertible, i.e., unless \(|R_X(\rho)|\) is either zero or infinite. The latter cannot occur inside the strip of absolute convergence of the Dirichlet series for \(R_X\) after analytic continuation (the series continues meromorphically by the same Euler-product identity). Hence one must have \(R_X(\rho)=0\). But the approximate formula above yields
+\[
+|R_X(\rho)-1|\ll X^{1-\beta}(\log X)^{-1}\ll X^{1/4}(\log X)^{-1}.
+\]
+Choosing \(\theta=1/5\) (so \(X=T^{1/5}\)) makes the right-hand side \(o(1)\) as \(T\to\infty\). Consequently \(|R_X(\rho)-1|<1/2\) for all sufficiently large \(|\gamma|\), whence \(R_X(\rho)\ne 0\), a contradiction.
+
+The argument therefore formally excludes zeros with \(\beta\ge 3/4\) and large height, provided the error term in the approximation of \(R_X\) remains valid down to the line \(\sigma=3/4\). That error term, however, rests on a convexivity bound for \(\zeta\) on the critical line and on the absence of zeros of \(\zeta\) that would obstruct the contour shift used to derive the approximation. In other words, the contour shift is legitimate only if one already knows there are no zeros in \(\sigma\ge 3/4-\varepsilon\), which is circular. If one replaces convexivity by a subconvex bound of Weyl type, the admissible abscissa improves only to \(\sigma\ge 5/6+\varepsilon\), still far from the critical line, and the same circularity persists: any zero-free region used to justify the shift must be at least as strong as the region one hopes to prove.
+
+Thus the reduction fails exactly at the justification of the truncated formula for \(R_X(s)\) inside the strip; no new zero-free region is obtained. (The same obstruction appears, mutatis mutandis, for any fixed abscissa \(\sigma_0>1/2\).)
+
+VERDICT: FAILED
+REASON: Circular contour-shift; error term for R_X presupposes a zero-free region as strong as the claim.
