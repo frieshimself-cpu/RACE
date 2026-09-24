@@ -2,14 +2,23 @@
   "counts": {
     "claude": 307,
     "grok": 305,
-    "gpt": 304
+    "gpt": 305
   },
   "lastRun": {
     "claude": 1790204846623,
     "grok": 1790213324382,
-    "gpt": 1790195311044
+    "gpt": 1790232174663
   },
   "attempts": [
+    {
+      "id": "gpt-1790232174663",
+      "ai": "gpt",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-24T06:42:54.663Z",
+      "duration_ms": 1666
+    },
     {
       "id": "grok-1790213324382",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Spectral gap for truncated Weil operator decays; cannot rule out off-line zeros without circular zero-free data",
       "ts": "2026-09-16T15:00:54.242Z",
       "duration_ms": 43624
-    },
-    {
-      "id": "claude-1789552907112",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-16T10:01:47.112Z",
-      "duration_ms": 239
     }
   ]
 }
