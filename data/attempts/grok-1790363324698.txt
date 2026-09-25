@@ -1,0 +1,58 @@
+### Attempt: A conditional zero-density reduction via a truncated explicit formula and a positivity obstruction
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed zeta function (entire of order 1). Write the non-trivial zeros as \(\rho=\beta+i\gamma\) with \(\beta\in(0,1)\). The Riemann Hypothesis is equivalent to \(\beta=1/2\) for all such zeros. We work throughout with the classical explicit formula in the form
+\[
+\psi_0(x)=x-\sum_{|\gamma|\le T}\frac{x^\rho}{\rho}-\frac{\zeta'}{\zeta}(0)-\frac12\log(1-x^{-2})+R(x,T),
+\]
+where \(\psi_0\) is the Chebyshev function averaged at jumps, the sum runs over zeros with \(|\Im\rho|\le T\), and the remainder satisfies
+\[
+|R(x,T)|\ll\frac{x\log^2(xT)}{T}+\log x
+\]
+uniformly for \(x\ge2\) and \(T\ge2\) (Titchmarsh, Ch. III).
+
+Fix a smooth non-negative test function \(\phi\in C_c^\infty((1,\infty))\) whose Mellin transform
+\[
+\hat\phi(s)=\int_1^\infty\phi(x)x^{s-1}\,dx
+\]
+is entire of rapid decay in vertical strips. Multiplying the explicit formula by \(\phi(x)/x\) and integrating yields the identity
+\[
+\int_1^\infty\psi_0(x)\frac{\phi(x)}{x}\,dx=\hat\phi(1)-\sum_\rho\hat\phi(\rho)+O\bigl(T^{-1}\|\phi\|_{1,2}\bigr),
+\]
+where the implied constant is absolute and \(\|\phi\|_{1,2}\) controls the \(L^1\) norms of \(\phi\) and \(\phi''\). The left-hand side is non-negative whenever \(\phi\ge0\), because \(\psi_0(x)\ge0\) for all \(x\ge1\) (elementary from the definition of \(\psi_0\)).
+
+Suppose, for a contradiction inside a vertical window of height \(H\), that a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0\ge1/2+\delta\) (\(\delta>0\) fixed) exists and that the zero density in the rectangle
+\[
+\mathcal{R}=\{s:\operatorname{Re}s\ge1/2+\delta/2,\;|\Im s-\gamma_0|\le H\}
+\]
+satisfies
+\[
+N(\mathcal{R})\le c(\delta)H\log H
+\]
+with a sufficiently small absolute constant \(c(\delta)>0\). Choose the scale \(T=|\gamma_0|+H\) and construct \(\phi=\phi_{\gamma_0,H}\) by taking a fixed non-negative bump \(\phi_0\) supported in \([e,e^2]\) and modulating:
+\[
+\phi(x)=\phi_0(x)x^{-\beta_0}\cos(\gamma_0\log x)\cdot\eta_H(\log x),
+\]
+where \(\eta_H\) is a smooth cutoff of width \(H^{-1}\) about the origin in the logarithmic variable. Then
+\[
+\hat\phi(\rho_0)\asymp H^{-1}\qquad\text{while}\qquad\bigl|\hat\phi(\rho)\bigr|\ll_\delta(1+|\gamma-\gamma_0|)^{-A}
+\]
+for every other zero, any \(A>0\), by repeated integration by parts. The contribution of all zeros outside \(\mathcal{R}\) is therefore \(O_\delta(H^{-2})\) after choosing \(A\) large. The contribution of the (few) zeros inside \(\mathcal{R}\) other than \(\rho_0\) is at most
+\[
+O\bigl(c(\delta)\log H\cdot H^{-1}\bigr)
+\]
+by the same decay. The main term \(\hat\phi(1)\) is \(O(H^{-1})\) by the support of \(\phi\). Consequently the integrated explicit formula becomes
+\[
+0\le\int\psi_0\frac{\phi}{x}\,dx=\hat\phi(\rho_0)+O_\delta\bigl(c(\delta)H^{-1}\log H+H^{-2}\bigr).
+\]
+For \(c(\delta)\) smaller than an absolute positive constant depending only on \(\delta\) and on the fixed bump \(\phi_0\), the right-hand side is strictly positive for large \(H\), which is consistent, not contradictory.
+
+The obstruction is therefore quantitative: the argument produces a contradiction only if one already possesses a zero-density estimate stronger than the classical Huxley–Ingham bound
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}\log^{O(1)}T\qquad(\sigma\ge1/2).
+\]
+In the critical range \(\sigma=1/2+\delta\) the classical exponent remains larger than 1, so the constant \(c(\delta)\) cannot be driven below the threshold required by the size of \(\hat\phi(\rho_0)\). Inserting any currently known density estimate leaves an error term that swamps the main term \(\hat\phi(\rho_0)\). Thus the positivity of the weighted Chebyshev integral does not force \(\beta_0=1/2\).
+
+The same circularity appears if one replaces the single modulated bump by a short Dirichlet polynomial or by a mollified second-moment weight: the off-diagonal contribution of nearby zeros is controlled only after a density hypothesis already close to RH. Hence the method yields no new zero-free region and no unconditional improvement on the classical density theorems.
+
+VERDICT: FAILED
+REASON: Positivity+explicit formula needs stronger density than known; circular, no new zero-free region.
