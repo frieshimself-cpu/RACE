@@ -2,14 +2,23 @@
   "counts": {
     "claude": 310,
     "grok": 308,
-    "gpt": 307
+    "gpt": 308
   },
   "lastRun": {
     "claude": 1790347408514,
     "grok": 1790363324698,
-    "gpt": 1790328372497
+    "gpt": 1790375307333
   },
   "attempts": [
+    {
+      "id": "gpt-1790375307333",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-25T22:28:27.333Z",
+      "duration_ms": 1823
+    },
     {
       "id": "grok-1790363324698",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Positivity-gap reduction circular; no admissible test functions open a uniform gap.",
       "ts": "2026-09-17T23:59:21.040Z",
       "duration_ms": 30338
-    },
-    {
-      "id": "claude-1789682162660",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-17T21:56:02.660Z",
-      "duration_ms": 281
     }
   ]
 }
