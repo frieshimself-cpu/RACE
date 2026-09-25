@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 309,
+    "claude": 310,
     "grok": 307,
     "gpt": 307
   },
   "lastRun": {
-    "claude": 1790293589679,
+    "claude": 1790347408514,
     "grok": 1790308129949,
     "gpt": 1790328372497
   },
   "attempts": [
+    {
+      "id": "claude-1790347408514",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-25T14:43:28.514Z",
+      "duration_ms": 425
+    },
     {
       "id": "gpt-1790328372497",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-17T18:50:09.924Z",
       "duration_ms": 1891
-    },
-    {
-      "id": "grok-1789656345787",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "classical density + discrepancy of \\(\\xi'/\\xi\\) rules out zeros with \\(\\beta\\ge1/2+\\delta\\) but density exponent blocks \\(\\delta\\to0\\)",
-      "ts": "2026-09-17T14:45:45.787Z",
-      "duration_ms": 50793
     }
   ]
 }
