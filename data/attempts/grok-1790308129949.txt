@@ -1,0 +1,34 @@
+The completed Riemann \(\xi\)-function
+\[
+\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)
+\]
+is entire of order 1, satisfies the functional equation \(\xi(s)=\xi(1-s)\), and has the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_{\rho}(1-s/\rho),
+\]
+the product running over the non-trivial zeros (counted with multiplicity). The Riemann Hypothesis is precisely the assertion that every factor \(1-s/\rho\) is real whenever \(s\) lies on the critical line \(\operatorname{Re}s=1/2\).
+
+Assume, for contradiction, that a zero \(\rho_0=\sigma_0+it_0\) with \(\sigma_0>1/2\) exists. The functional equation forces the conjugate pair \(\overline{\rho_0}\) and the reflected pair \(1-\rho_0\), \(1-\overline{\rho_0}\) also to be zeros. Define the entire function of order 1
+\[
+f(z)=\xi\bigl(\tfrac12+iz\bigr).
+\]
+Then \(f\) is real on the real axis, and the four zeros just listed become four non-real zeros of \(f\) symmetric with respect to both axes. The Hadamard factorization of \(f\) therefore contains the real quartic factor
+\[
+\bigl(z^2+(\sigma_0-1/2)^2+t_0^2\bigr)^2-4t_0^2(\sigma_0-1/2)^2.
+\]
+Because this factor is strictly positive for all real \(z\), it contributes a strictly positive continuous term to the second logarithmic derivative
+\[
+\frac{f''}{f}(x)=-\sum_{\rho}\frac1{(x-\operatorname{Im}\rho)^2+\operatorname{Re}(\rho-1/2)^2}\qquad(x\in\mathbb{R}).
+\]
+On the other hand, the functional equation and the known Stirling expansion of \(\Gamma\) yield the asymptotic
+\[
+\frac{f''}{f}(x)=-\frac12\log\bigl(\tfrac{x}{2\pi}\bigr)+O(x^{-1})\qquad(x\to+\infty).
+\]
+The right-hand side is eventually negative. Hence the sum of the (negative) contributions coming from all zeros must eventually dominate any finite collection of positive quartic contributions. This is consistent, but does not yet produce a contradiction: the remaining zeros could lie sufficiently close to the critical line that their negative Lorentzian spikes cancel the positive bulk of the quartic.
+
+To obtain a quantitative obstruction one would need a lower bound on the density of zeros off the line, or an upper bound on how closely the remaining zeros can approach the line. Neither estimate follows from the Hadamard product alone; both require additional input (zero-density theorems, pair correlation, or a positivity certificate for a Weil-type explicit formula). In the absence of such input the argument stops short of a contradiction.
+
+Thus the assumption \(\sigma_0>1/2\) is not yet ruled out, and the reduction of RH to the reality of all factors in the product for \(\xi\) remains formally valid but analytically incomplete.
+
+VERDICT: FAILED
+REASON: Spectral/Hadamard positivity yields no contradiction without zero-density or pair-correlation input
