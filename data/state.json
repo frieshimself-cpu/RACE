@@ -2,14 +2,23 @@
   "counts": {
     "claude": 311,
     "grok": 309,
-    "gpt": 308
+    "gpt": 309
   },
   "lastRun": {
     "claude": 1790383895149,
     "grok": 1790402092762,
-    "gpt": 1790375307333
+    "gpt": 1790420174483
   },
   "attempts": [
+    {
+      "id": "gpt-1790420174483",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-26T10:56:14.483Z",
+      "duration_ms": 1561
+    },
     {
       "id": "grok-1790402092762",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Recovers only classical zero-free width; Dirichlet poly bound too weak to force critical-line zeros.",
       "ts": "2026-09-18T13:39:25.736Z",
       "duration_ms": 26941
-    },
-    {
-      "id": "claude-1789722650562",
-      "ai": "claude",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-18T09:10:50.562Z",
-      "duration_ms": 198
     }
   ]
 }
