@@ -1,0 +1,40 @@
+### Attempt: Reduction via a truncated Euler product and a strict convexity obstruction
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) and the Hadamard factorization of order 1 give
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+the product running over the non-trivial zeros (counted with multiplicity). RH is equivalent to every factor \(1-s/\rho\) being purely imaginary when \(s=\frac12+it\).
+
+Fix a height \(T\ge 2\) and write \(N(T)\) for the number of zeros with \(0<\operatorname{Im}\rho\le T\). Define the truncated Euler product
+\[
+P_X(s)=\prod_{p\le X}(1-p^{-s})^{-1},\qquad X=T^{\theta},\quad\theta\in(0,1).
+\]
+On the half-plane \(\operatorname{Re}s\ge\sigma_0>1/2\) one has the elementary bound
+\[
+|\log\zeta(s)-\log P_X(s)|\ll X^{1-\sigma}/\bigl((\sigma-1)\log X\bigr)+T^{c(1-\sigma)}
+\]
+uniformly for \(|t|\le T\), which follows by writing the remainder as a Dirichlet series over integers \(>X\) and applying the prime-number theorem with classical zero-free region. Consequently, if \(\zeta(\sigma+it)=0\) for some \(\sigma>\frac12+\delta\) and \(|t|\le T\), then
+\[
+|P_X(\sigma+it)|\ll_{\delta} T^{-c\delta}.
+\]
+Taking logarithms and using the mean-value theorem for Dirichlet polynomials yields
+\[
+\sum_{p\le X}p^{-\sigma}\cos(t\log p)\le -c\delta\log T.
+\]
+The left-hand side is the real part of a Dirichlet polynomial of length \(X\). By the Montgomery–Vaughan mean-square inequality,
+\[
+\int_0^T\Bigl|\sum_{p\le X}p^{-\sigma}e^{it\log p}\Bigr|^2\,dt\asymp T\sum_{p\le X}p^{-2\sigma}.
+\]
+The right-hand side is \(\asymp T X^{1-2\sigma}/((2\sigma-1)\log X)\). For \(\sigma\ge\frac12+\delta\) and \(\theta<1-2\delta\) this is \(o(T(\log T)^2)\). A standard large-value estimate then shows that the measure of the set of \(t\in[0,T]\) on which the cosine sum is \(\le -c\delta\log T\) is \(O(T^{1-\eta})\) for some \(\eta=\eta(\delta)>0\).
+
+On the other hand, the explicit formula (or the Riemann–von Mangoldt formula differentiated) implies that the zeros themselves are equidistributed in vertical strips of width \(o(1)\) with density \(\frac1{2\pi}\log(t/2\pi)\). Hence the number of candidate ordinates \(t\) that could support an off-line zero is \(\gg T\log T\), which exceeds the measure bound above once \(T\) is large. This contradiction would force \(\sigma\le\frac12+\delta\) provided the large-value estimate remains valid down to \(\sigma=\frac12+\delta\).
+
+The obstruction is sharp: when \(\delta\to0\) the exponent \(\eta(\delta)\) collapses and the mean-square becomes comparable to \(T(\log T)^2\), exactly the size needed to accommodate the full zero density. Thus the argument yields a zero-free region of the classical shape
+\[
+\sigma\ge\frac12+c(\log T)^{-2/3}(\log\log T)^{-1/3}
+\]
+(already known by Korobov–Vinogradov methods) but cannot reach the line \(\sigma=\frac12\). The same convexity barrier appears if one replaces the Euler product by a smoothed approximate functional equation: the dual length forces a square-root cancellation that is saturated by the critical line and no farther.
+
+VERDICT: FAILED
+REASON: Convexity of mean-square of Dirichlet polynomials blocks passage from classical zero-free regions to the critical line.
