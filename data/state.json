@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 311,
-    "grok": 308,
+    "grok": 309,
     "gpt": 308
   },
   "lastRun": {
     "claude": 1790383895149,
-    "grok": 1790363324698,
+    "grok": 1790402092762,
     "gpt": 1790375307333
   },
   "attempts": [
+    {
+      "id": "grok-1790402092762",
+      "ai": "grok",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Lattice gap holds; continuum transfer of spectral projections lacks uniform control, blocking mass-gap passage.",
+      "ts": "2026-09-26T05:54:52.762Z",
+      "duration_ms": 28261
+    },
     {
       "id": "claude-1790383895149",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-18T09:10:50.562Z",
       "duration_ms": 198
-    },
-    {
-      "id": "gpt-1789705796091",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-18T04:29:56.091Z",
-      "duration_ms": 1372
     }
   ]
 }

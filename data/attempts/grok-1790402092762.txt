@@ -1,0 +1,37 @@
+### Partial result: Uniform exponential clustering on finite-volume lattice YM does not automatically transfer to a continuum mass gap without a uniform continuum limit of the transfer operator spectrum
+
+Let \(G\) be a compact simple Lie group. Consider the Wilson lattice Yang–Mills action on a finite toroidal lattice \(\Lambda_a = (a\mathbb{Z}/L\mathbb{Z})^4\) with spacing \(a>0\) and side length \(L=Na\),
+\[
+S_\Lambda(U)=\frac{1}{g_0^2}\sum_{p\subset\Lambda}\operatorname{Re}\operatorname{Tr}(1-U_p),
+\]
+where \(U_p\) is the plaquette holonomy. The associated Gibbs measure \(\mu_{\Lambda,g_0}\) is well-defined and reflection-positive with respect to the hyperplane \(x_0=0\).
+
+**Lemma (lattice spectral gap).**  
+For every fixed \(a>0\) and every \(g_0>0\) sufficiently small (depending on \(a\)), the transfer operator \(T_a\) acting on the physical Hilbert space \(\mathcal{H}_a\) (obtained by OS reconstruction from the half-lattice) satisfies
+\[
+\operatorname{spec}(T_a)\subset\{1\}\cup[0,e^{-m(a)a}],
+\]
+where the lattice mass \(m(a)\) obeys \(m(a)\ge c\,g_0^{2/3}a^{-1}\) for an absolute constant \(c>0\) (the standard strong-coupling cluster expansion, or the more refined results of Osterwalder–Seiler and of Magnen–Sénéor–Rivasseau, give at least \(m(a)\ge c'>0\) independent of volume once \(g_0\) is large). In particular the finite-volume theory has a uniform spectral gap above the vacuum.
+
+**Claim (obstruction to direct continuum passage).**  
+Suppose one has a sequence \(a_n\to0\), \(g_0(a_n)\) tuned so that a continuum limit of the Schwinger functions exists in the sense of tempered distributions on \(\mathbb{R}^4\) and satisfies the OS axioms. Even if
+\[
+\liminf_{n\to\infty}m(a_n)\ge\Delta>0,
+\]
+it does **not** follow that the continuum Hamiltonian \(H\) (the generator of the reconstructed continuum transfer semigroup) has a gap \(\Delta\). The missing ingredient is uniformity of the projection onto the vacuum sector with respect to the continuum topology.
+
+**Reasoning.**  
+Write \(P_a\) for the spectral projection of \(T_a\) onto the eigenvalue \(1\) (the vacuum). OS reconstruction produces a continuum Hilbert space \(\mathcal{H}\) as an inductive limit of the \(\mathcal{H}_{a_n}\) only after the Schwinger functions have been shown to converge. The continuum transfer operator \(T=e^{-tH}\) is obtained as a strong limit of the lattice operators only on a core of local observables whose lattice approximants remain uniformly bounded in the continuum norm.  
+
+If the vacuum projections \(P_{a_n}\) fail to converge strongly (or even weakly) to the continuum vacuum projection \(P\), a sequence of lattice states \(\psi_n\) with
+\[
+\langle\psi_n,(1-P_{a_n})\psi_n\rangle\le e^{-c/a_n},\qquad\|\psi_n\|_{\mathcal{H}_{a_n}}=1
+\]
+may converge to a continuum vector \(\psi\in\mathcal{H}\) that is orthogonal to the vacuum yet satisfies \(\langle\psi,H\psi\rangle=0\). Such a vector would fill the putative gap.  
+
+No existing construction of the continuum limit (Balaban’s renormalization-group block-spin analysis, the work of Magnen–Rivasseau, or the more recent constructive attempts via stochastic quantization) supplies a uniform bound on \(\|P_a-P\|\) in a topology strong enough to prevent this leakage. The best available estimates control only the connected correlation functions of local field strengths \(F_{\mu\nu}\); they do not control the spectral projections of the global transfer operator uniformly down to \(a=0\).
+
+Thus the lattice mass gap, while true, remains an incomplete bridge to the continuum mass gap. Closing the gap requires a new a-priori estimate on the continuum limit of the vacuum projector—precisely the step that has resisted all rigorous approaches for four decades.
+
+VERDICT: PARTIAL
+REASON: Lattice gap holds; continuum transfer of spectral projections lacks uniform control, blocking mass-gap passage.
