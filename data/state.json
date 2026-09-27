@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 314,
-    "grok": 311,
+    "grok": 312,
     "gpt": 311
   },
   "lastRun": {
     "claude": 1790521870225,
-    "grok": 1790481891991,
+    "grok": 1790535705042,
     "gpt": 1790503425005
   },
   "attempts": [
+    {
+      "id": "grok-1790535705042",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Derived classical zero-free region \\(\\sigma>1-c/\\log(|t|+2)\\); method cannot reach critical line.",
+      "ts": "2026-09-27T19:01:45.042Z",
+      "duration_ms": 32771
+    },
     {
       "id": "claude-1790521870225",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-19T16:47:19.982Z",
       "duration_ms": 288
-    },
-    {
-      "id": "gpt-1789824181799",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-19T13:23:01.799Z",
-      "duration_ms": 1592
     }
   ]
 }

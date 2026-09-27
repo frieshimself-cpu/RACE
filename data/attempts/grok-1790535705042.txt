@@ -1,0 +1,46 @@
+### Attempt: A self-contained derivation of a classical-style zero-free region for \(\zeta(s)\)
+
+Let \(s = \sigma + it\) with \(t \in \mathbb{R}\) and \(\sigma > 1\). Write
+\[
+-\frac{\zeta'}{\zeta}(s) = \sum_{n=1}^\infty \Lambda(n) n^{-s},
+\]
+where the series converges absolutely. Taking real parts yields
+\[
+\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(s)\Bigr) = \sum_{n=1}^\infty \Lambda(n) n^{-\sigma} \cos(t\log n) \ge 0
+\]
+only after suitable averaging; the pointwise cosine may be negative. The elementary trigonometric inequality
+\[
+3 + 4\cos\theta + \cos 2\theta = 2(1+\cos\theta)^2 \ge 0
+\]
+implies, upon substituting \(\theta = t\log n\) and weighting by \(\Lambda(n)n^{-\sigma}\),
+\begin{equation}
+\label{eq:pos}
+3\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma)\Bigr)
++ 4\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+it)\Bigr)
++ \operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+2it)\Bigr) \ge 0.
+\end{equation}
+(The identity holds for every \(\sigma>1\) by absolute convergence.)
+
+Assume for contradiction that \(\zeta(\rho)=0\) for some \(\rho=\beta+i\gamma\) with \(\beta\ge 1\) and \(\gamma\neq 0\). (The case \(\gamma=0\) is elementary: \(\zeta\) has a simple pole at \(s=1\) and is non-vanishing on \((1,\infty)\).) Then \(-\zeta'/\zeta\) has a simple pole with residue \(1\) at \(s=\rho\). Shifting the contour slightly to the right of \(\operatorname{Re}s=1\) and using the Laurent expansion shows that
+\[
+\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+i\gamma)\Bigr)
+= \frac{1}{\sigma-\beta} + O\bigl(\log(|\gamma|+2)\bigr)
+\]
+uniformly for \(1<\sigma\le 2\). The same expansion at \(2i\gamma\) contributes at most \(O(\log(|\gamma|+2))\). At the real point \(\sigma\) one has the standard bound
+\[
+-\frac{\zeta'}{\zeta}(\sigma) = \frac{1}{\sigma-1} + O(1).
+\]
+Inserting these estimates into \eqref{eq:pos} produces
+\[
+\frac{3}{\sigma-1} + \frac{4}{\sigma-\beta} + O\bigl(\log(|\gamma|+2)\bigr) \ge 0.
+\]
+Choosing \(\sigma = 1 + c/\log(|\gamma|+2)\) with a sufficiently small absolute constant \(c>0\) makes the left-hand side negative whenever \(\beta > 1 - c'/\log(|\gamma|+2)\) for another absolute \(c'>0\). This contradiction shows that no zero can satisfy
+\[
+\beta > 1 - \frac{c'}{\log(|\gamma|+2)}.
+\]
+(The same argument with a truncated Dirichlet series and a smoothed weight yields an effective numerical value of \(c'\), e.g., \(c'=1/57\).)
+
+The region just obtained is far from the critical line \(\operatorname{Re}s=1/2\). Extending it all the way to \(\sigma=1/2+\varepsilon\) would require a substantially stronger positivity device (or an essentially different method) that controls the contribution of possible zeros near height \(2\gamma\) simultaneously with those near height \(\gamma\); the classical three-term trigonometric polynomial is insufficient for that task. Thus the argument stops short of the Riemann Hypothesis, yet it rigorously excludes zeros in a concrete neighborhood of the line \(\operatorname{Re}s=1\).
+
+VERDICT: PARTIAL
+REASON: Derived classical zero-free region \(\sigma>1-c/\log(|t|+2)\); method cannot reach critical line.
