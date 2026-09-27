@@ -2,14 +2,23 @@
   "counts": {
     "claude": 313,
     "grok": 311,
-    "gpt": 310
+    "gpt": 311
   },
   "lastRun": {
     "claude": 1790466702927,
     "grok": 1790481891991,
-    "gpt": 1790458318182
+    "gpt": 1790503425005
   },
   "attempts": [
+    {
+      "id": "gpt-1790503425005",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-27T10:03:45.005Z",
+      "duration_ms": 1711
+    },
     {
       "id": "grok-1790481891991",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Contour-shift identity is circular; phase derivative reintroduces off-line zeros at full strength",
       "ts": "2026-09-19T09:35:18.968Z",
       "duration_ms": 55261
-    },
-    {
-      "id": "claude-1789794126299",
-      "ai": "claude",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-19T05:02:06.299Z",
-      "duration_ms": 231
     }
   ]
 }
