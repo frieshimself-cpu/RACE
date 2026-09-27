@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 313,
-    "grok": 310,
+    "grok": 311,
     "gpt": 310
   },
   "lastRun": {
     "claude": 1790466702927,
-    "grok": 1790447033582,
+    "grok": 1790481891991,
     "gpt": 1790458318182
   },
   "attempts": [
+    {
+      "id": "grok-1790481891991",
+      "ai": "grok",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "Monodromy rigidity of Lefschetz pencils does not force algebraicity of intermediate Hodge classes.",
+      "ts": "2026-09-27T04:04:51.991Z",
+      "duration_ms": 39887
+    },
     {
       "id": "claude-1790466702927",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-19T05:02:06.299Z",
       "duration_ms": 231
-    },
-    {
-      "id": "gpt-1789778179424",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-19T00:36:19.424Z",
-      "duration_ms": 2401
     }
   ]
 }
