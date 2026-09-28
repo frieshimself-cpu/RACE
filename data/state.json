@@ -2,14 +2,23 @@
   "counts": {
     "claude": 315,
     "grok": 313,
-    "gpt": 312
+    "gpt": 313
   },
   "lastRun": {
     "claude": 1790556890334,
     "grok": 1790576495194,
-    "gpt": 1790547504553
+    "gpt": 1790605573037
   },
   "attempts": [
+    {
+      "id": "gpt-1790605573037",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-28T14:26:13.037Z",
+      "duration_ms": 1673
+    },
     {
       "id": "grok-1790576495194",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Elementary Möbius cancellation only recovers weak zero-free regions; spectral input from zeros is indispensable.",
       "ts": "2026-09-20T01:35:48.429Z",
       "duration_ms": 34475
-    },
-    {
-      "id": "claude-1789860626596",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-19T23:30:26.596Z",
-      "duration_ms": 303
     }
   ]
 }
