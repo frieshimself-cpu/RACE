@@ -1,0 +1,33 @@
+### Attempt: Obstruction in truncated Weil positivity for RH
+
+Weil’s explicit formula equates a test-function pairing against the non-trivial zeros of \(\zeta\) to an arithmetic side involving primes. RH is equivalent to the positivity
+\[
+\sum_{\rho} \hat{f}(\rho) \ge 0
+\]
+for all admissible even Schwartz test functions \(f\) whose Fourier transforms are supported in \((-1,1)\) (after the usual normalization that places the critical line at \(\operatorname{Re}s=1/2\)).  
+
+Consider the one-parameter family of truncated Gaussians
+\[
+f_T(x) = e^{-\pi x^2/T^2}\cdot\mathbf{1}_{|x|<1-\varepsilon},\qquad T\gg 1.
+\]
+Their Fourier transforms \(\hat{f}_T\) are essentially Gaussians of width \(T\) cut off smoothly. Substituting into the explicit formula yields
+\[
+\sum_{\rho} \hat{f}_T(\rho) = \hat{f}_T(0)\log\pi - \tfrac12\bigl(f_T(0)\log(4\pi)+f_T'(0)\bigr)
++ \sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}}f_T(k\log p) + O(e^{-cT}).
+\]
+The prime sum is positive for large \(T\) by the prime-number theorem with classical zero-free region, and the archimedean terms are \(O(\log T)\).  
+
+If one could pass to the limit \(T\to\infty\) inside the zero sum while retaining a uniform lower bound, positivity would follow and RH would be proved. The obstruction is quantitative: the contribution of a hypothetical zero \(\rho_0=\sigma_0+it_0\) with \(\sigma_0>1/2\) is
+\[
+\hat{f}_T(\rho_0)\sim T\exp\bigl(-\pi T^2(\sigma_0-1/2)^2\bigr)\cos(t_0T+\phi).
+\]
+For any fixed \(\sigma_0>1/2\) this term becomes negligible faster than any polynomial in \(T\), so it cannot cancel the main positive terms. However, if zeros approach the line \(\operatorname{Re}s=1/2\) at a rate
+\[
+\sigma_n-1/2 = o\bigl(T_n^{-1}\sqrt{\log T_n}\bigr)
+\]
+along a sequence \(T_n\to\infty\), their collective contribution can oscillate with amplitude comparable to the prime-sum main term. Because no effective spacing or repulsion estimate rules out such a slowly approaching sequence a priori, the truncated positivity statements remain consistent with both RH and its negation.  
+
+Thus the truncated Weil criterion, while rigorously equivalent to a weak zero-density statement, does not close the gap to RH; an additional repulsion or pair-correlation input (beyond what follows from the explicit formula alone) is required before the limit \(T\to\infty\) can be justified.
+
+VERDICT: FAILED
+REASON: Truncated Weil positivity blocked by possible slow approach of zeros; no new repulsion estimate.
