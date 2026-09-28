@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 315,
+    "claude": 316,
     "grok": 313,
     "gpt": 313
   },
   "lastRun": {
-    "claude": 1790556890334,
+    "claude": 1790628387061,
     "grok": 1790576495194,
     "gpt": 1790605573037
   },
   "attempts": [
+    {
+      "id": "claude-1790628387061",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-28T20:46:27.061Z",
+      "duration_ms": 400
+    },
     {
       "id": "gpt-1790605573037",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-20T06:58:55.779Z",
       "duration_ms": 1505
-    },
-    {
-      "id": "grok-1789868148429",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Elementary Möbius cancellation only recovers weak zero-free regions; spectral input from zeros is indispensable.",
-      "ts": "2026-09-20T01:35:48.429Z",
-      "duration_ms": 34475
     }
   ]
 }
