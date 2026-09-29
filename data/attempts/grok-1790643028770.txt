@@ -1,0 +1,37 @@
+### Attempt: A conditional reduction of the p-primary part of BSD to a non-vanishing statement for p-adic L-functions on the critical line
+
+Let \(E/\mathbb{Q}\) be an elliptic curve of conductor \(N\), with \(L(E,s)\) its Hasse–Weil L-function. Write \(r=\operatorname{ord}_{s=1}L(E,s)\) for the analytic rank and \(\operatorname{rk}E(\mathbb{Q})\) for the Mordell–Weil rank. Fix an odd prime \(p\nmid N\) at which \(E\) has good ordinary reduction, and let \(\operatorname{Sel}_{p^\infty}(E/\mathbb{Q})\) be the \(p^\infty\)-Selmer group. The \(p\)-primary part of the Birch–Swinnerton-Dyer conjecture asserts
+\[
+\operatorname{corank}_{\mathbb{Z}_p}\operatorname{Sel}_{p^\infty}(E/\mathbb{Q})=r
+\]
+together with a precise formula for the leading coefficient of \(L(E,s)\) at \(s=1\) in terms of the \(p\)-adic regulator, the order of \(\Sha(E/\mathbb{Q})[p^\infty]\), and local Tamagawa factors.
+
+Let \(\mathbb{Q}_\infty/\mathbb{Q}\) be the cyclotomic \(\mathbb{Z}_p\)-extension, \(\Gamma=\operatorname{Gal}(\mathbb{Q}_\infty/\mathbb{Q})\simeq\mathbb{Z}_p\), and \(\Lambda=\mathbb{Z}_p[[\Gamma]]\). Write \(X=\operatorname{Hom}(\operatorname{Sel}_{p^\infty}(E/\mathbb{Q}_\infty),\mathbb{Q}_p/\mathbb{Z}_p)\) for the Pontryagin dual; it is a finitely generated torsion \(\Lambda\)-module under the usual hypotheses (ordinary reduction, \(p\) odd). Let \(f_E\in\Lambda\) be a characteristic power series of \(X\), and let \(L_p(E,T)\in\Lambda\otimes\mathbb{Q}_p\) be the \(p\)-adic L-function of Mazur–Tate–Teitelbaum (interpolating the critical values \(L(E,\chi,1)\) for finite-order characters \(\chi\) of \(\Gamma\)).
+
+**Lemma (conditional equivalence).** Assume:
+1. the main conjecture of Iwasawa theory for \(E\) holds (i.e., \(f_E\) generates the same ideal as \(L_p(E,T)\) up to a unit in \(\Lambda\));
+2. the \(\mu\)-invariant of \(X\) vanishes;
+3. the \(p\)-adic regulator \(\operatorname{Reg}_p(E)\) is non-zero.
+
+Then the equality \(\operatorname{corank}_{\mathbb{Z}_p}\operatorname{Sel}_{p^\infty}(E/\mathbb{Q})=r\) is equivalent to the single non-vanishing statement
+\[
+\operatorname{ord}_{T=0}L_p(E,T)=r.
+\]
+In particular, the full \(p\)-primary BSD formula for the leading coefficient follows from the corresponding leading-term formula for \(L_p(E,T)\) once the above three hypotheses are granted.
+
+**Proof sketch.** By the control theorem of Mazur, the restriction map induces an injection
+\[
+\operatorname{Sel}_{p^\infty}(E/\mathbb{Q})\hookrightarrow\operatorname{Sel}_{p^\infty}(E/\mathbb{Q}_\infty)^\Gamma
+\]
+with finite cokernel of order bounded independently of the layer; consequently
+\[
+\operatorname{corank}_{\mathbb{Z}_p}\operatorname{Sel}_{p^\infty}(E/\mathbb{Q})=\operatorname{rank}_\Lambda X.
+\]
+Hypothesis 2 implies that \(X\) is free of finite rank over \(\mathbb{Z}_p\) after inverting \(p\), so \(\operatorname{rank}_\Lambda X=\operatorname{ord}_{T=0}f_E\). Hypothesis 1 then replaces \(f_E\) by \(L_p(E,T)\). The interpolation property of \(L_p\) together with the functional equation relates the order of vanishing of \(L_p\) at \(T=0\) to the order of vanishing of the complex L-function at \(s=1\), up to the non-vanishing of the \(p\)-adic multiplier (which is guaranteed by hypothesis 3 and the fact that the cyclotomic character is crystalline). Thus \(\operatorname{ord}_{T=0}L_p(E,T)=r\) if and only if the Selmer corank equals \(r\).
+
+The leading-coefficient comparison is then a direct transcription of the interpolation formula for the leading term of \(L_p\) against the conjectural BSD formula; the only additional arithmetic ingredients that appear are the \(p\)-adic period and the local Euler factors at primes dividing \(N\), both of which are known explicitly.
+
+**Self-check.** The argument is conditional on three substantial inputs (main conjecture, \(\mu=0\), non-vanishing of \(\operatorname{Reg}_p\)). The first is known in many CM cases (Rubin) and for modular forms of weight 2 under residual irreducibility hypotheses (Skinner–Urban); the second is known when the residual representation is irreducible and \(p\) is ordinary (Kato, Greenberg); the third is open in general and is essentially equivalent to the non-degeneracy of the \(p\)-adic height pairing. Hence the reduction does not remove the core analytic difficulty for ranks \(\ge 2\), nor does it produce an unconditional proof even for rank 0. It does, however, isolate a purely \(p\)-adic non-vanishing statement that could in principle be attacked by methods independent of the complex L-function (e.g., via overconvergent modular symbols or eigencurve techniques).
+
+VERDICT: PARTIAL
+REASON: Conditional reduction of p-BSD to p-adic L-nonvanishing; relies on open main conj./Reg_p
