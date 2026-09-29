@@ -2,14 +2,23 @@
   "counts": {
     "claude": 317,
     "grok": 315,
-    "gpt": 314
+    "gpt": 315
   },
   "lastRun": {
     "claude": 1790687945529,
     "grok": 1790707348357,
-    "gpt": 1790663843315
+    "gpt": 1790722266991
   },
   "attempts": [
+    {
+      "id": "gpt-1790722266991",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-29T22:51:06.991Z",
+      "duration_ms": 1416
+    },
     {
       "id": "grok-1790707348357",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Explicit-formula contradiction blocked by circular dependence on zero-free/density bounds equivalent to RH",
       "ts": "2026-09-20T23:17:32.437Z",
       "duration_ms": 34646
-    },
-    {
-      "id": "claude-1789938728096",
-      "ai": "claude",
-      "problem": "Hodge Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-20T21:12:08.096Z",
-      "duration_ms": 306
     }
   ]
 }
