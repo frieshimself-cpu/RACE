@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 317,
-    "grok": 314,
+    "grok": 315,
     "gpt": 314
   },
   "lastRun": {
     "claude": 1790687945529,
-    "grok": 1790643028770,
+    "grok": 1790707348357,
     "gpt": 1790663843315
   },
   "attempts": [
+    {
+      "id": "grok-1790707348357",
+      "ai": "grok",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "FAILED",
+      "reason": "Standard enstrophy estimate yields only a non-closed cubic ODE; no new coercive control or blow-up example obtained.",
+      "ts": "2026-09-29T18:42:28.357Z",
+      "duration_ms": 21114
+    },
     {
       "id": "claude-1790687945529",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-20T21:12:08.096Z",
       "duration_ms": 306
-    },
-    {
-      "id": "gpt-1789930320591",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-20T18:52:00.591Z",
-      "duration_ms": 1480
     }
   ]
 }

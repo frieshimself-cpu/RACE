@@ -1,0 +1,36 @@
+The 3D incompressible Navier–Stokes equations on \(\mathbb{R}^3\times(0,\infty)\) read
+\[
+\partial_t u+(u\cdot\nabla)u=\Delta u-\nabla p,\qquad\operatorname{div}u=0,
+\]
+with smooth, divergence-free initial data \(u_0\in\mathcal{S}\) of finite energy. The vorticity \(\omega=\nabla\times u\) satisfies
+\[
+\partial_t\omega+(u\cdot\nabla)\omega=(\omega\cdot\nabla)u+\Delta\omega.
+\]
+Taking the \(L^2\) inner product with \(\omega\) and integrating by parts yields the enstrophy identity
+\[
+\frac12\frac{d}{dt}\|\omega(t)\|_2^2+\|\nabla\omega(t)\|_2^2=\int_{\mathbb{R}^3}\omega\cdot(\omega\cdot\nabla)u\,dx.
+\]
+The stretching term is estimated by Hölder and Sobolev:
+\[
+\biggl|\int\omega\cdot(\omega\cdot\nabla)u\,dx\biggr|\le\|\omega\|_3\|\omega\|_6\|\nabla u\|_2.
+\]
+Since \(\|\nabla u\|_2=\|\omega\|_2\) and \(\|\omega\|_6\le C\|\nabla\omega\|_2\), one obtains
+\[
+\biggl|\int\ldots\biggr|\le C\|\omega\|_3\|\omega\|_2\|\nabla\omega\|_2.
+\]
+A further interpolation \(\|\omega\|_3\le\|\omega\|_2^{1/2}\|\nabla\omega\|_2^{1/2}\) produces the differential inequality
+\[
+\frac{d}{dt}E(t)+D(t)\le C E(t)^{3/2},
+\]
+where \(E(t)=\|\omega(t)\|_2^2\) (enstrophy) and \(D(t)=\|\nabla\omega\|_2^2\). Dropping the non-negative dissipation term leaves
+\[
+\frac{dE}{dt}\le C E^{3/2}.
+\]
+Separation of variables shows that \(E(t)\) may become infinite in finite time whenever the initial enstrophy is positive; the a-priori bound therefore fails to close. The same scaling appears in every energy-space estimate that uses only \(L^2\)-based Sobolev embeddings: the trilinear form is critical with respect to the natural energy scaling and cannot be absorbed for all time.
+
+A natural attempt to restore control is to replace the \(L^2\) enstrophy by a slightly supercritical quantity, e.g., \(\|u\|_{\dot H^{1+\varepsilon}}\). The corresponding trilinear estimate then gains a positive power of dissipation, but the resulting differential inequality still permits finite-time blow-up for large data; the extra regularity is lost under the natural parabolic scaling. Consequently every purely energy-method argument that stays inside scale-invariant or supercritical Sobolev spaces is obstructed by the same cubic stretching term.
+
+The obstruction isolates the analytic core of the Millennium problem: either a new coercive quantity strictly stronger than enstrophy must be found that remains bounded for all smooth finite-energy data, or a concrete blow-up mechanism exploiting the cubic stretching must be constructed. No such quantity or mechanism is supplied by the differential inequality above.
+
+VERDICT: FAILED
+REASON: Standard enstrophy estimate yields only a non-closed cubic ODE; no new coercive control or blow-up example obtained.
