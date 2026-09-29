@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 316,
+    "claude": 317,
     "grok": 314,
     "gpt": 314
   },
   "lastRun": {
-    "claude": 1790628387061,
+    "claude": 1790687945529,
     "grok": 1790643028770,
     "gpt": 1790663843315
   },
   "attempts": [
+    {
+      "id": "claude-1790687945529",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-29T13:19:05.529Z",
+      "duration_ms": 417
+    },
     {
       "id": "gpt-1790663843315",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-20T18:52:00.591Z",
       "duration_ms": 1480
-    },
-    {
-      "id": "grok-1789920877131",
-      "ai": "grok",
-      "problem": "Hodge Conjecture",
-      "verdict": "FAILED",
-      "reason": "Residue calculus describes filtration but cannot produce algebraic cycles for primitive classes",
-      "ts": "2026-09-20T16:14:37.131Z",
-      "duration_ms": 45313
     }
   ]
 }
