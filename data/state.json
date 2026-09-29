@@ -2,14 +2,23 @@
   "counts": {
     "claude": 316,
     "grok": 314,
-    "gpt": 313
+    "gpt": 314
   },
   "lastRun": {
     "claude": 1790628387061,
     "grok": 1790643028770,
-    "gpt": 1790605573037
+    "gpt": 1790663843315
   },
   "attempts": [
+    {
+      "id": "gpt-1790663843315",
+      "ai": "gpt",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-29T06:37:23.315Z",
+      "duration_ms": 1374
+    },
     {
       "id": "grok-1790643028770",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Residue calculus describes filtration but cannot produce algebraic cycles for primitive classes",
       "ts": "2026-09-20T16:14:37.131Z",
       "duration_ms": 45313
-    },
-    {
-      "id": "claude-1789906454035",
-      "ai": "claude",
-      "problem": "P vs NP",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-20T12:14:14.035Z",
-      "duration_ms": 325
     }
   ]
 }
