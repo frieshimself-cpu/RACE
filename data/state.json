@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 317,
+    "claude": 318,
     "grok": 315,
     "gpt": 315
   },
   "lastRun": {
-    "claude": 1790687945529,
+    "claude": 1790733104364,
     "grok": 1790707348357,
     "gpt": 1790722266991
   },
   "attempts": [
+    {
+      "id": "claude-1790733104364",
+      "ai": "claude",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-30T01:51:44.364Z",
+      "duration_ms": 348
+    },
     {
       "id": "gpt-1790722266991",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-21T01:14:20.410Z",
       "duration_ms": 1912
-    },
-    {
-      "id": "grok-1789946252437",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Explicit-formula contradiction blocked by circular dependence on zero-free/density bounds equivalent to RH",
-      "ts": "2026-09-20T23:17:32.437Z",
-      "duration_ms": 34646
     }
   ]
 }
