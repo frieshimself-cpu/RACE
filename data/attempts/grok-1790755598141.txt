@@ -1,0 +1,26 @@
+### Attempt: Structural obstruction in effective use of Weil’s positivity criterion
+
+Weil’s explicit formula equates a sum over the non-trivial zeros of \(\zeta\) to an arithmetic side involving primes and an archimedean contribution. After the usual normalization (completed \(\xi\)-function, Mellin transform conventions), one obtains, for a suitable even test function \(g\in C_c^\infty(\mathbb{R})\) whose Fourier transform \(\hat g\) is positive-definite in the appropriate sense,
+\[
+\sum_{\rho}\hat g(\rho-\tfrac12)=\hat g(\tfrac12)+\hat g(-\tfrac12)
+-\sum_p\sum_{m\ge1}\frac{\log p}{p^{m/2}}\bigl(g(m\log p)+g(-m\log p)\bigr)
+-\frac1{2\pi}\int_{-\infty}^\infty\frac{\Gamma'}{\Gamma}\bigl(\tfrac14+\tfrac{it}2\bigr)\hat g(t)\,dt.
+\]
+(The precise constants and the contribution of the trivial zeros/poles are immaterial for the sign argument below.) Weil’s criterion asserts that RH is equivalent to the non-negativity of the left-hand side for every such \(g\) with \(\operatorname{supp} g\subset(-R,R)\) for arbitrarily large \(R\), or equivalently that the quadratic form defined by the right-hand side is positive semi-definite on that class.
+
+**Claim.** Any attempt to deduce the full RH from this identity by restricting to a nested family of test functions with expanding but finite support necessarily re-introduces an error term whose control is of strength comparable to a quasi-Riemann hypothesis (or to a zero-density estimate already known to be insufficient for RH). Consequently the criterion, while equivalent, supplies no effective reduction that bypasses the classical difficulties.
+
+**Argument.** Fix \(\delta>0\) and suppose one wishes only to rule out zeros in the half-plane \(\operatorname{Re}s\ge\tfrac12+\delta\). It is enough to produce a sequence \(g_R\) with \(\operatorname{supp}g_R\subset(-R,R)\), \(R\to\infty\), such that the right-hand side remains non-negative while \(\hat g_R\) concentrates on the vertical strip \(\lvert\operatorname{Im}s\rvert\le T(R)\) with \(T(R)\to\infty\) and stays bounded below by a positive constant on \(\operatorname{Re}s\ge\tfrac12+\delta\). Standard constructions (smoothed characteristic functions of \([-R+\varepsilon,R-\varepsilon]\), or Gaussians truncated by a fixed smooth cut-off) achieve the concentration, yet the prime-power sum then contains the tail
+\[
+\sum_{p^m>e^{R/2}}\frac{\log p}{p^{m/2}}|g_R(m\log p)|.
+\]
+Under the sole assumption of the prime-number theorem with classical error term \(O(x\exp(-c\sqrt{\log x}))\), this tail is \(O(R^{-N})\) for any \(N\) only when \(R\) is bounded; once \(R\to\infty\) the best available bound on \(\psi(x)-x\) leaves an error of size \(\asymp\exp(-c\sqrt R)\) that swamps the main-term positivity coming from the \(\Gamma\)-factor (which is \(O(1)\) after normalization).  
+
+If one invokes a stronger zero-free region \(\sigma\ge1-c/\log^\nu(|t|+2)\) to improve the prime-sum estimate, the same region already excludes zeros with \(\operatorname{Re}s\ge\tfrac12+\delta\) for large \(|t|\), rendering the positivity argument superfluous. Likewise, any appeal to a density estimate \(N(\sigma,T)\ll T^{a(1-\sigma)^b}(\log T)^C\) with the best known exponents still permits a positive-density set of zeros off the line inside the range where \(\hat g_R\) is non-negligible; the resulting negative contribution cannot be absorbed without a further improvement of the density exponent that is known to be equivalent, via standard convexity arguments, to a subconvexity bound for \(\zeta\) on the critical line of strength beyond the Weyl exponent—again an open problem of difficulty comparable to RH itself.
+
+Thus every concrete approximating family \(g_R\) either (i) keeps \(R\) bounded, yielding only a zero-free strip of fixed width, or (ii) lets \(R\to\infty\) and re-imports an arithmetic hypothesis already strong enough to imply the desired conclusion by classical methods. The equivalence furnished by Weil’s criterion is therefore non-effective: it converts RH into a family of inequalities that cannot be verified unconditionally for the full range of test functions without circular input.
+
+(The same obstruction appears, mutatis mutandis, for Li’s criterion via the generating function that relates the Li coefficients to a limiting case of the Weil form; the power-sum moments again require uniform control on large zeros that is not supplied by known zero-density technology.)
+
+VERDICT: FAILED
+REASON: Weil positivity equivalent to RH but finite-support approximations reintroduce quasi-RH-strength errors; no new leverage.
