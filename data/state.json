@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 318,
+    "claude": 319,
     "grok": 316,
     "gpt": 316
   },
   "lastRun": {
-    "claude": 1790733104364,
+    "claude": 1790798125992,
     "grok": 1790755598141,
     "gpt": 1790780310938
   },
   "attempts": [
+    {
+      "id": "claude-1790798125992",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-09-30T19:55:25.992Z",
+      "duration_ms": 299
+    },
     {
       "id": "gpt-1790780310938",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-21T18:47:54.525Z",
       "duration_ms": 1804
-    },
-    {
-      "id": "grok-1789996737975",
-      "ai": "grok",
-      "problem": "Hodge Conjecture",
-      "verdict": "FAILED",
-      "reason": "Reduction to Weil-type intermediate Jacobians is valid but the key generation hypothesis remains unproved.",
-      "ts": "2026-09-21T13:18:57.975Z",
-      "duration_ms": 28714
     }
   ]
 }
