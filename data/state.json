@@ -2,14 +2,23 @@
   "counts": {
     "claude": 318,
     "grok": 316,
-    "gpt": 315
+    "gpt": 316
   },
   "lastRun": {
     "claude": 1790733104364,
     "grok": 1790755598141,
-    "gpt": 1790722266991
+    "gpt": 1790780310938
   },
   "attempts": [
+    {
+      "id": "gpt-1790780310938",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-09-30T14:58:30.938Z",
+      "duration_ms": 1938
+    },
     {
       "id": "grok-1790755598141",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Reduction to Weil-type intermediate Jacobians is valid but the key generation hypothesis remains unproved.",
       "ts": "2026-09-21T13:18:57.975Z",
       "duration_ms": 28714
-    },
-    {
-      "id": "claude-1789972172265",
-      "ai": "claude",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-21T06:29:32.265Z",
-      "duration_ms": 267
     }
   ]
 }
