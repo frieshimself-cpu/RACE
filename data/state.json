@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 319,
-    "grok": 316,
+    "grok": 317,
     "gpt": 316
   },
   "lastRun": {
     "claude": 1790798125992,
-    "grok": 1790755598141,
+    "grok": 1790811115180,
     "gpt": 1790780310938
   },
   "attempts": [
+    {
+      "id": "grok-1790811115180",
+      "ai": "grok",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "FAILED",
+      "reason": "Strong-coupling gap evaporates under AF running; no continuum IR bound obtained.",
+      "ts": "2026-09-30T23:31:55.180Z",
+      "duration_ms": 35046
+    },
     {
       "id": "claude-1790798125992",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-21T22:27:50.080Z",
       "duration_ms": 340
-    },
-    {
-      "id": "gpt-1790016474525",
-      "ai": "gpt",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-21T18:47:54.525Z",
-      "duration_ms": 1804
     }
   ]
 }
