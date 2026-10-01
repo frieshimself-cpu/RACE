@@ -1,0 +1,64 @@
+### Attempt: Obstruction in a Mellin-transform approach to the Mertens bound
+
+Let \(M(x)=\sum_{n\le x}\mu(n)\). It is classical that RH is equivalent to
+\[
+M(x)=O(x^{1/2+\varepsilon})\qquad\text{for every }\varepsilon>0.
+\]
+We examine a natural attempt to obtain this bound from the Dirichlet series
+\[
+\frac{1}{\zeta(s)}=\sum_{n=1}^\infty\frac{\mu(n)}{n^s}=\int_1^\infty M(x)x^{-s}\,d\log x
+\]
+(valid for \(\operatorname{Re}s>1\)) by shifting a Mellin contour and applying a convexity bound, and isolate the precise analytic obstruction that prevents the argument from reaching the critical line.
+
+#### Setup
+Fix \(\varepsilon>0\) and \(T\ge2\). Write
+\[
+M(x)=\frac1{2\pi i}\int_{c-iT}^{c+iT}\frac{x^s}{s\zeta(s)}\,ds+R(x,T,c),
+\]
+where \(c=1+\varepsilon\) and the remainder \(R\) arises from the horizontal sides and the truncated Perron formula; standard estimates give
+\[
+|R(x,T,c)|\ll\frac{x^c}{T}+\frac{x\log x}{T}
+\]
+uniformly for \(x\ge2\). The goal is to move the vertical contour leftward to \(\operatorname{Re}s=1/2+\varepsilon\).
+
+#### Contour shift
+Let \(\sigma_0=1/2+\varepsilon\). On the new line the integrand is \(x^s/(s\zeta(s))\). If one assumes only the convexity bound
+\[
+|\zeta(\sigma+it)|^{-1}\ll_\varepsilon(|t|+1)^{(1-\sigma)/2+\varepsilon},\qquad\sigma\ge\sigma_0,
+\]
+(which follows from the functional equation and Phragmén–Lindelöf), the vertical integral is
+\[
+\ll_\varepsilon x^{\sigma_0}T^\varepsilon\int_1^T\frac{dt}{t\cdot t^{(1-\sigma_0)/2}}\ll x^{1/2+\varepsilon}T^{1/4+\varepsilon}.
+\]
+Choosing \(T=x^{1/2}\) makes this \(O(x^{3/4+\varepsilon})\), which is worse than the trivial bound \(M(x)=O(x)\) and far from \(O(x^{1/2+\varepsilon})\).
+
+#### Location of the obstruction
+The loss of a full power \(x^{1/4}\) originates in two places simultaneously:
+1. the factor \(1/|s|\) contributes only a logarithmic integral, but
+2. the convexity exponent \((1-\sigma)/2\) evaluated at \(\sigma=1/2+\varepsilon\) is essentially \(1/4\), and no cancellation between the oscillatory factor \(x^{it}\) and the zeros of \(\zeta\) is available a priori.
+
+Any attempt to improve the exponent requires a subconvex bound
+\[
+|\zeta(1/2+\varepsilon+it)|^{-1}\ll_\varepsilon(|t|+1)^{\mu+\varepsilon}
+\]
+with \(\mu<1/4\). The best currently available Weyl-type subconvexity still yields \(\mu=1/6+\varepsilon'\) (or slightly better with current technology), which after optimisation of \(T\) produces only
+\[
+M(x)=O(x^{7/12+\varepsilon}).
+\]
+This is the classical Ingham–Rankin range; it does not reach the critical exponent \(1/2\).
+
+#### Why further contour shifting fails
+If one tries to push past \(\sigma=1/2+\varepsilon\) into the region where a zero \(\rho=\beta+i\gamma\) with \(\beta>1/2\) might lie, the residue
+\[
+\operatorname{Res}_{s=\rho}\frac{x^s}{s\zeta(s)}=\frac{x^\rho}{\rho\zeta'(\rho)}
+\]
+appears. Its size is \(\asymp x^\beta/|\gamma|\). Summing over all such zeros (even under a density hypothesis \(N(\sigma,T)\ll T^{c(1-\sigma)}\)) produces a term that is \(\gg x^{\beta-\delta}\) for any \(\delta>0\), which destroys any hope of an \(O(x^{1/2+\varepsilon})\) bound unless no such zeros exist—the circularity that the method was intended to break.
+
+#### Conclusion of the analysis
+The Mellin-contour method with presently known growth estimates on \(1/\zeta\) is intrinsically limited to exponents strictly larger than \(1/2\). Closing the gap to RH requires either
+- a zero-free region of width \(\gg1/\log\log t\) (or better) all the way down to height \(T=x^{1/2+\delta}\), or
+- square-root cancellation in the explicit formula for \(M(x)\) coming from the horizontal distribution of ordinates,
+neither of which follows from convexity or classical zero-density estimates alone. This isolates a concrete analytic barrier rather than a mere technical gap.
+
+VERDICT: FAILED
+REASON: Contour method blocked by convexity; only recovers weak M(x) bounds, circular on zeros.

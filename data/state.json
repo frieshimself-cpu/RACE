@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 320,
-    "grok": 317,
+    "grok": 318,
     "gpt": 317
   },
   "lastRun": {
     "claude": 1790846665958,
-    "grok": 1790811115180,
+    "grok": 1790872864447,
     "gpt": 1790821411238
   },
   "attempts": [
+    {
+      "id": "grok-1790872864447",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour method blocked by convexity; only recovers weak M(x) bounds, circular on zeros.",
+      "ts": "2026-10-01T16:41:04.447Z",
+      "duration_ms": 36255
+    },
     {
       "id": "claude-1790846665958",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-22T12:01:38.014Z",
       "duration_ms": 235
-    },
-    {
-      "id": "gpt-1790058017541",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-22T06:20:17.541Z",
-      "duration_ms": 1779
     }
   ]
 }
