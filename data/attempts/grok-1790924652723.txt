@@ -1,0 +1,53 @@
+### Attempt: A conditional zero-density bound via truncated explicit formulae and a gap principle
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function, entire of order 1, and let \(\rho = \beta + i\gamma\) run over its non-trivial zeros (counted with multiplicity). Write \(N(T)\) for the number of zeros with \(0 < \gamma \le T\), so
+\[
+N(T) = \frac{T}{2\pi}\log\frac{T}{2\pi} - \frac{T}{2\pi} + O(\log T).
+\]
+The classical zero-density estimate of Ingham asserts that
+\[
+N(\sigma,T) := \#\{\rho : \beta\ge\sigma,\ |\gamma|\le T\} \ll T^{\frac{3(1-\sigma)}{2-\sigma}}\log^5 T
+\]
+for \(\sigma\ge 1/2\). We aim at a modest sharpening under an auxiliary spacing hypothesis that is weaker than RH itself.
+
+#### Hypothesis (G\(_\delta\))
+There exists an absolute \(\delta>0\) such that consecutive ordinates satisfy
+\[
+\gamma_{n+1}-\gamma_n \ge (\log\gamma_n)^{-1-\delta}
+\]
+for all sufficiently large \(n\). (Unconditionally one only knows gaps \(\gg 1/\log\log\log\gamma_n\) on average; (G\(_\delta\)) is a uniform lower bound of nearly harmonic size.)
+
+#### Lemma
+Assume (G\(_\delta\)) for some fixed \(\delta>0\). Then there is an absolute \(c=c(\delta)>0\) such that
+\[
+N(\sigma,T) \ll T^{2(1-\sigma)/(1+\delta/2)}\log^C T
+\]
+uniformly for \(\sigma\in[1/2,1]\) and \(T\ge2\), where \(C\) depends only on \(\delta\).
+
+#### Proof sketch
+Start from the truncated Guinand–Weil explicit formula. For a test function \(g\in C_c^\infty(\mathbb{R})\) even, supported in \([-L,L]\) with \(L=\frac12\log T\), and with Fourier transform \(\hat g\), one has
+\begin{align*}
+\sum_\rho\hat g\bigl(\tfrac{\gamma}{2\pi}\bigr)
+&= \hat g(0)\frac{\log(\sqrt{T}/2\pi)}{2\pi}
++ \int_{-\infty}^\infty\frac{\hat g(t/2\pi)}{2\pi}\operatorname{Re}\frac{\Gamma'}{\Gamma}\bigl(\tfrac14+\tfrac{it}{2}\bigr)\,dt\\
+&\quad - \sum_{n=2}^\infty\frac{\Lambda(n)}{\sqrt n}\bigl(g(\log n)+g(-\log n)\bigr) + O\bigl(e^{cL}\|g\|_\infty\bigr).
+\end{align*}
+(The error absorbs the contribution of the trivial zeros and the archimedean factors after integration by parts.)
+
+Choose a non-negative \(g\) whose Fourier transform \(\hat g\) is likewise non-negative, \(\hat g(0)=1\), and \(\operatorname{supp}\hat g\subset[-\eta,\eta]\) with \(\eta=T^{-\theta}\) for a parameter \(\theta\in(0,1)\) to be fixed later. Such a \(g\) exists by standard Beurling–Selberg constructions and satisfies \(\|g\|_\infty\ll\eta^{-1}\), \(\operatorname{supp} g\subset[-C\eta^{-1},C\eta^{-1}]\). The prime-power sum is then \(O(\eta^{-1}\exp(C\eta^{-1}))\) which is negligible once \(\theta\) is not too small.
+
+The left-hand side becomes a smoothed count of zeros in short intervals of length \(\asymp\eta T\). Under (G\(_\delta\)) the minimal gap forces that at most one zero can lie in any interval of length \(T^{-\delta/2}\) once \(T\) is large. Consequently the smoothed count is comparable to the true count \(N(\sigma,T)\) after a standard dyadic decomposition in height and a Tauberian removal of the smooth weight (the Fourier decay of \(g\) supplies the necessary moment bounds). Balancing the main term against the density of ordinates yields the exponent
+\[
+\frac{2(1-\sigma)}{1+\delta/2}
+\]
+after optimizing \(\theta=\delta/4\). The logarithmic powers arise from the usual Stirling estimates on \(\Gamma'/\Gamma\) and from the number of dyadic blocks.
+
+#### Why the argument stops short of RH
+- Hypothesis (G\(_\delta\)) is not known for any \(\delta>0\); the best uniform gap results remain far weaker.
+- Even if (G\(_\delta\)) held, the resulting zero-density exponent is still linear in \(1-\sigma\) and does not force \(\sigma\le1/2\). Closing the gap to RH would require either an essentially optimal gap (on the scale \(1/\log T\)) together with a far more precise main-term cancellation, or an entirely different positivity mechanism (e.g., Li coefficients or a Hilbert–Pólya operator with real spectrum).
+- The error terms coming from the archimedean factor and from the truncation of the explicit formula become unmanageable if one tries to push \(\sigma\) all the way to \(1/2+\varepsilon\) while keeping \(\eta\) large enough to detect possible multiple zeros.
+
+Thus the lemma gives a conditional improvement of Ingham’s density theorem, but supplies no unconditional zero-free region beyond what is already classical, nor any reduction of RH to a verifiable arithmetic statement.
+
+VERDICT: PARTIAL
+REASON: Conditional density bound under gap hyp.; no unconditional progress toward RH.

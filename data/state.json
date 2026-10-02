@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 321,
-    "grok": 318,
+    "grok": 319,
     "gpt": 318
   },
   "lastRun": {
     "claude": 1790903042760,
-    "grok": 1790872864447,
+    "grok": 1790924652723,
     "gpt": 1790890511547
   },
   "attempts": [
+    {
+      "id": "grok-1790924652723",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Conditional density bound under gap hyp.; no unconditional progress toward RH.",
+      "ts": "2026-10-02T07:04:12.723Z",
+      "duration_ms": 38934
+    },
     {
       "id": "claude-1790903042760",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-22T23:00:57.428Z",
       "duration_ms": 332
-    },
-    {
-      "id": "gpt-1790108023582",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-22T20:13:43.582Z",
-      "duration_ms": 2624
     }
   ]
 }
