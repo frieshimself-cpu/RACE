@@ -1,0 +1,36 @@
+The incompressible Navier–Stokes system on \(\mathbb{R}^3\times(0,T)\) reads
+\[
+\partial_t u+(u\cdot\nabla)u=\Delta u-\nabla p,\qquad\operatorname{div}u=0,
+\]
+with smooth, divergence-free initial data \(u_0\in H^s(\mathbb{R}^3)\), \(s\ge3\). The associated enstrophy
+\[
+E(t)=\tfrac12\int|\nabla u|^2\,dx
+\]
+satisfies, after integration by parts and use of the divergence-free condition,
+\[
+\frac{dE}{dt}+\|\Delta u\|_{L^2}^2=\int\partial_i u_j\cdot\partial_j u_k\cdot\partial_k u_i\,dx.
+\]
+The trilinear form on the right is controlled by the Sobolev embedding \(H^1\hookrightarrow L^6\) only up to
+\[
+\biggl|\int\partial_i u_j\cdot\partial_j u_k\cdot\partial_k u_i\,dx\biggr|\le C\|\nabla u\|_{L^2}^{1/2}\|\nabla u\|_{L^6}^{3/2}.
+\]
+Interpolating \(\|\nabla u\|_{L^6}\) between \(L^2\) and \(H^1\) then yields the differential inequality
+\[
+\frac{dE}{dt}+\|\Delta u\|_2^2\le C E^{3/2}.
+\]
+Gronwall-type integration produces a lower bound on the possible blow-up time of the form
+\[
+T_*\ge\frac{c}{\|u_0\|_{H^1}},
+\]
+but supplies no uniform-in-time bound on \(E(t)\) when the initial enstrophy is large. The same cubic obstruction appears in every higher Sobolev energy estimate: the nonlinear term always generates a factor one derivative higher than can be absorbed by the viscous dissipation. Consequently the standard energy method closes globally only for data small in \(\dot H^{1/2}\), and cannot decide the large-data question.
+
+A natural attempt to close the gap is to replace the \(L^2\)-based enstrophy by a scale-invariant quantity such as
+\[
+\sup_{t\in[0,T)}\|u(t)\|_{\mathrm{BMO}^{-1}}.
+\]
+The Koch–Tataru theory already shows that a small bound in this space yields global regularity; the difficulty is to prove that the same quantity remains finite for arbitrary smooth data. No a-priori estimate of this type is known, and the cubic structure identified above reappears (after Littlewood–Paley decomposition) as a logarithmic divergence that cannot be removed by the available maximal-function bounds.
+
+Thus the classical energy cascade produces a genuine obstruction rather than a mere technical gap: any successful large-data argument must introduce a new cancellation or a new controlling quantity that is invisible to the \(L^2\)-based hierarchy.
+
+VERDICT: FAILED
+REASON: Energy-method obstruction identified; no new controlling quantity or cancellation found.
