@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 324,
-    "grok": 321,
+    "grok": 322,
     "gpt": 321
   },
   "lastRun": {
     "claude": 1791058267122,
-    "grok": 1791034168358,
+    "grok": 1791068922944,
     "gpt": 1791048960722
   },
   "attempts": [
+    {
+      "id": "grok-1791068922944",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Explicit-formula/Turán approach saturates at Korobov width; no new zero-free or positivity lemma.",
+      "ts": "2026-10-03T23:08:42.944Z",
+      "duration_ms": 32928
+    },
     {
       "id": "claude-1791058267122",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-24T12:34:24.347Z",
       "duration_ms": 360
-    },
-    {
-      "id": "gpt-1790232174663",
-      "ai": "gpt",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-24T06:42:54.663Z",
-      "duration_ms": 1666
     }
   ]
 }
