@@ -1,0 +1,45 @@
+### Attempt: Obstruction to extending classical zero-free regions past the classical barrier via truncated Dirichlet polynomials
+
+Let \(\zeta(s)\) denote the Riemann zeta function, \(s=\sigma+it\). Write the partial Euler product / Dirichlet polynomial
+\[
+P_X(s)=\sum_{n\le X}n^{-s},\qquad
+\log\zeta(s)=\sum_{n=2}^\infty\Lambda(n)n^{-s}/n\log n
+\]
+(for \(\sigma>1\)). A classical route to a zero-free region proceeds by showing that if \(\zeta(\sigma_0+it_0)=0\) with \(\sigma_0\) close to 1, then a short Dirichlet polynomial \(P_X(\sigma_0+it_0)\) cannot be too small while \(P_X\) remains large on a nearby point with larger real part (by the prime-number theorem in short intervals or by a pure positivity argument on \(\operatorname{Re}-\zeta'/\zeta\)).
+
+**Lemma (quantitative obstruction).**  
+Fix \(A\ge 1\) and \(T\ge 3\). Suppose there exists a zero \(\rho_0=\beta+i\gamma\) with
+\[
+\beta\ge 1-\frac{c}{(\log|\gamma|)^A},\qquad |\gamma|\le T.
+\]
+Then, for every \(X=T^{O(1)}\), the truncated polynomial satisfies
+\[
+\bigl|P_X(\beta+i\gamma)\bigr|\ll\exp\bigl(-c'(\log T)^{1-A}\bigr)
+\]
+while, on the vertical segment \(\operatorname{Re}s=1+\delta\) with \(\delta=(\log T)^{-A}\),
+\[
+\inf_{|t-\gamma|\le(\log T)^{-B}}|P_X(1+\delta+it)|\gg(\log\log T)^{-O(1)}
+\]
+for any fixed \(B\). Consequently the harmonic measure (or a simple three-circles / Borel–Carathéodory comparison) of the rectangle
+\[
+R=\bigl\{s:1-c(\log T)^{-A}\le\operatorname{Re}s\le 1+\delta,\ |t-\gamma|\le(\log T)^{-B}\bigr\}
+\]
+cannot force \(\zeta\) to be zero-free inside \(R\) once \(A>1\); the necessary lower bound on \(|P_X|\) on the right edge is destroyed by the possible clustering of zeros permitted by the Riemann–von Mangoldt formula \(N(T)=\frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}+O(\log T)\).
+
+**Proof sketch and failure point.**  
+Assume \(\zeta(\rho_0)=0\). The logarithmic derivative admits the representation
+\[
+-\frac{\zeta'}{\zeta}(s)=\sum_{|n|\le X}\frac{\Lambda(n)}{n^s}+O\bigl(X^{1-\sigma}\log(2+|t|)\bigr)+O\bigl(\tfrac{\log(|t|+2)}{\sigma-1}\bigr)
+\]
+uniformly for \(\sigma\ge\beta\). Integrating against a smooth non-negative mollifier supported on an interval of length \((\log T)^{-B}\) about \(\gamma\) yields
+\[
+\int\operatorname{Re}\bigl(-\zeta'/\zeta(1+\delta+it)\bigr)w(t)\,dt\gg\log\log T
+\]
+by the prime-number theorem (or by the elementary bound \(\sum_{n\le Y}\Lambda(n)/n\ge\log Y-O(1)\)). On the other hand the same integral, moved leftward to the line \(\operatorname{Re}s=\beta\), collapses to \(O(1)\) precisely when a zero sits at \(\rho_0\), because the contribution of that zero is cancelled by the residue and the remaining zeros contribute at most \(O(\log T)\) by the density estimate. The resulting contradiction is sharp only for \(A\le 1\); for \(A>1\) the error term \(X^{1-\beta}\) becomes larger than the main term once \(X\) is forced to be smaller than \(\exp((\log T)^{A-\varepsilon})\) by zero-density theorems. Thus the comparison fails and no wider classical zero-free region of the shape \(1-c(\log|t|)^{-A}\) (\(A>1\)) can be obtained by Dirichlet-polynomial methods alone.
+
+(The same obstruction appears, after Fourier transform, in the failure of the pure Weil positivity criterion when the test function is restricted to have support shorter than \((\log T)^{-1}\).)
+
+This shows that any genuine enlargement of the zero-free region beyond the Vinogradov–Korobov width must introduce cancellation that is invisible to truncated Euler products—e.g., via deeper correlations among the \(\Lambda(n)\) or via the functional equation on the critical strip itself.
+
+VERDICT: PARTIAL
+REASON: Obstruction lemma: Dirichlet-polynomial methods cannot push zero-free regions past A=1; needs new cancellation.
