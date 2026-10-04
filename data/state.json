@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 325,
+    "claude": 326,
     "grok": 323,
     "gpt": 323
   },
   "lastRun": {
-    "claude": 1791105900232,
+    "claude": 1791150876624,
     "grok": 1791125903709,
     "gpt": 1791138920670
   },
   "attempts": [
+    {
+      "id": "claude-1791150876624",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-10-04T21:54:36.624Z",
+      "duration_ms": 297
+    },
     {
       "id": "gpt-1791138920670",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-25T09:26:12.497Z",
       "duration_ms": 2842
-    },
-    {
-      "id": "grok-1790308129949",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Spectral/Hadamard positivity yields no contradiction without zero-density or pair-correlation input",
-      "ts": "2026-09-25T03:48:49.949Z",
-      "duration_ms": 31159
     }
   ]
 }
