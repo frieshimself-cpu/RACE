@@ -1,0 +1,44 @@
+### Attempt: A conditional reduction via truncated explicit formulae and a barrier for “random-sign” cancellation
+
+Let \(\Xi(t)=\xi(1/2+it)\) be the completed Riemann xi-function (entire, real on the real line, of order 1). Write the non-trivial zeros as \(\rho=1/2+i\gamma\) (we do not assume RH). The classical Weil–Guinand explicit formula, truncated at height \(T\) and smoothed by a fixed non-negative even Schwartz test function \(g\) whose Fourier transform \(\hat g\) is supported in \([-1+\delta,1-\delta]\), reads
+\[
+\sum_{|\gamma|\le T}g(\gamma)=\frac1{2\pi}\int_{-T}^{T}g(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)\,dt
++\sum_{n\ge1}\frac{\Lambda(n)}{\sqrt n}\hat g\Bigl(\frac{\log n}{2\pi}\Bigr)+O\bigl(e^{-cT}\bigr).
+\]
+(The precise error depends only on the decay of \(g\) and is immaterial below.)
+
+Define the truncated Mertens-type sum
+\[
+M_g(x)=\sum_{n\le x}\frac{\mu(n)}{n}\hat g\Bigl(\frac{\log(x/n)}{2\pi}\Bigr).
+\]
+A standard contour shift of the Dirichlet series for \(1/\zeta(s)\) against \(\hat g\) shows that the left-hand side of the explicit formula is
+\[
+\frac{x^{1/2}}{2\pi}\int\hat g(u)x^{iu}\,du+O\bigl(x^{\theta+\varepsilon}\bigr)
+\]
+if and only if every zero satisfies \(\operatorname{Re}\rho\le\theta\). Consequently RH is equivalent to the square-root cancellation
+\[
+M_g(x)=O_\varepsilon(x^\varepsilon)\qquad\text{for every admissible }g.
+\]
+
+Now suppose one attempts to obtain the required cancellation by modelling \(\mu(n)\) as a sequence of independent random signs \(\varepsilon_n=\pm1\) (the classical “random Möbius” heuristic). Under that model the variance computation
+\[
+\mathbb{E}|M_g(x)|^2=\sum_{n\le x}\frac1{n^2}\hat g\Bigl(\frac{\log(x/n)}{2\pi}\Bigr)^2\sim c_g\log x
+\]
+yields, by Kolmogorov’s three-series theorem and Borel–Cantelli, the almost-sure bound
+\[
+M_g(x)=O\bigl((\log x)^{1/2+\varepsilon}\bigr)\qquad\text{a.s.}
+\]
+which is far stronger than needed for RH. The obstruction is deterministic and lies in the support restriction on \(\hat g\).
+
+Because \(\operatorname{supp}\hat g\subset[-1+\delta,1-\delta]\), the Fourier inversion that recovers \(\mu\) from \(M_g\) is incomplete: the high-frequency part of the Liouville/Möbius function (frequencies \(\ge1-\delta\)) is invisible to every admissible test function. More precisely, the orthogonal complement (in \(\ell^2(1/n)\)) of the span of the family \(\{\hat g(\log(x/\cdot))\}_x\) contains the functions
+\[
+n\mapsto\mu(n)n^{it}\mathbf{1}_{|\log n|\ge(1-\delta)\log x},
+\]
+which may carry a secondary main term of size \(x^{\sigma-1/2}\) whenever a zero with \(\operatorname{Re}\rho=\sigma>1/2\) exists. Thus the random-sign model, while correctly predicting the size of the visible spectrum, cannot rule out a conspiracy supported on the invisible spectrum. Any proof that tries to upgrade the \(L^2\) bound on \(M_g\) to a uniform bound must therefore supply an independent estimate on that complementary spectrum; no such estimate is known that does not already assume a zero-free strip.
+
+The same support barrier appears in every approach that relies on a fixed compactly supported smoother (Soundararajan’s resonance method, the recent GUE-pair-correlation arguments, etc.). Extending the support of \(\hat g\) beyond length 1 re-introduces the prime-power terms with coefficients \(\Lambda(n)/\sqrt n\), whose size is again governed by the same zeros one is trying to locate. This circularity is rigorous: the explicit formula realises an isometry (up to the archimedean Gamma factor) between the zero-side and the prime-side; any test function that sees all zeros must see all primes, and vice versa.
+
+Hence the random-sign heuristic, although suggestive, cannot be turned into a proof of RH without a new ingredient that controls the complementary high-frequency Möbius sums—an ingredient that is essentially equivalent in strength to a zero-free region.
+
+VERDICT: FAILED
+REASON: Support barrier on test functions blocks random-sign cancellation from implying RH; no new zero-free region obtained.
