@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 326,
+    "claude": 327,
     "grok": 324,
     "gpt": 324
   },
   "lastRun": {
-    "claude": 1791150876624,
+    "claude": 1791212106475,
     "grok": 1791160122746,
     "gpt": 1791180684277
   },
   "attempts": [
+    {
+      "id": "claude-1791212106475",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-10-05T14:55:06.475Z",
+      "duration_ms": 337
+    },
     {
       "id": "gpt-1791180684277",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-25T22:28:27.333Z",
       "duration_ms": 1823
-    },
-    {
-      "id": "grok-1790363324698",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity+explicit formula needs stronger density than known; circular, no new zero-free region.",
-      "ts": "2026-09-25T19:08:44.698Z",
-      "duration_ms": 25063
     }
   ]
 }
