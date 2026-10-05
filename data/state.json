@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 327,
-    "grok": 324,
+    "grok": 325,
     "gpt": 324
   },
   "lastRun": {
     "claude": 1791212106475,
-    "grok": 1791160122746,
+    "grok": 1791237066966,
     "gpt": 1791180684277
   },
   "attempts": [
+    {
+      "id": "grok-1791237066966",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Reduction of RH to remainder size in explicit formula; obstruction is circular use of density estimates",
+      "ts": "2026-10-05T21:51:06.966Z",
+      "duration_ms": 37239
+    },
     {
       "id": "claude-1791212106475",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-26T00:51:35.149Z",
       "duration_ms": 345
-    },
-    {
-      "id": "gpt-1790375307333",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-25T22:28:27.333Z",
-      "duration_ms": 1823
     }
   ]
 }

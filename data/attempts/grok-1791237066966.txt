@@ -1,0 +1,49 @@
+### Attempt: A reduction via a sharpened explicit formula remainder, and the obstruction
+
+Let \(\psi(x) = \sum_{n\le x}\Lambda(n)\) be the Chebyshev function. Write the classical explicit formula in the form
+\[
+\psi(x) = x - \sum_{|\Im\rho|\le T}\frac{x^\rho}{\rho} - \frac{\zeta'}{\zeta}(0) - \tfrac12\log(1-x^{-2}) + R(x,T),
+\]
+where the sum runs over non-trivial zeros \(\rho=\beta+i\gamma\) of \(\zeta\) (counted with multiplicity) and the remainder satisfies the standard bound
+\[
+|R(x,T)|\ll\frac{x\log^2(xT)}{T}+\log x
+\]
+uniformly for \(x\ge2\) and \(T\ge2\) (Titchmarsh, Chapter 12).  
+
+Assume, for contradiction with RH, that there exists a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>1/2\). Fix a large parameter \(X>2\) and choose the truncation height
+\[
+T=X^{\beta_0-1/2}(\log X)^3.
+\]
+(The precise power of the logarithm is immaterial; any positive power works.) Isolate the contribution of \(\rho_0\) (and its conjugate) inside the explicit formula evaluated at \(x=X\):
+\[
+\biggl|\frac{X^{\rho_0}}{\rho_0}+\frac{X^{\overline{\rho_0}}}{\overline{\rho_0}}\biggr|
+\ge c_{\rho_0}X^{\beta_0},
+\]
+where \(c_{\rho_0}=2|\rho_0|^{-1}\cos(\gamma_0\log X-\arg\rho_0)\) can be made \(\ge|\rho_0|^{-1}\) by a harmless shift of \(X\) inside a short interval of length \(O(1/|\gamma_0|)\) (possible by the density estimate \(N(T+1)-N(T)=O(\log T)\)).  
+
+All remaining zeros with \(|\gamma|\le T\) contribute at most
+\[
+\sum_{\substack{|\gamma|\le T\\\rho\neq\rho_0,\overline{\rho_0}}}\frac{X^\beta}{|\rho|}\ll X^{1/2}T\log T + X^{\beta_0-\delta}T\log T
+\]
+for some fixed \(\delta>0\) coming from a classical zero-density estimate \(N(\sigma,T)\ll T^{c(1-\sigma)}\log^C T\) (Ingham). The remainder \(R(X,T)\) is
+\[
+O\bigl(X^{1-(\beta_0-1/2)}(\log X)^{-1}+ \log X\bigr)=o(X^{\beta_0}).
+\]
+Collecting terms therefore yields
+\[
+|\psi(X)-X|\ge\bigl(c'_{\rho_0}-o(1)\bigr)X^{\beta_0}
+\]
+for a positive constant \(c'_{\rho_0}\).  
+
+On the other hand, the prime-number theorem with classical zero-free region \(\sigma\ge1-c/\log(|t|+2)\) already supplies
+\[
+\psi(X)=X+O\bigl(X\exp(-c'\sqrt{\log X})\bigr).
+\]
+The right-hand side is \(o(X^{\beta_0})\) whenever \(\beta_0>1/2\), a contradiction for large \(X\).
+
+Thus any zero off the critical line would force an oscillatory discrepancy in \(\psi(X)-X\) larger than what the classical zero-free region permits.  
+
+**Obstruction to a full proof.** The argument is circular for the purpose of proving RH: the zero-density estimates and the classical zero-free region used to bound the remainder and the other zeros are themselves consequences of methods that stop short of the line \(\sigma=1/2\). Replacing those inputs by any weaker density theorem that still allows a zero with \(\beta_0>1/2\) restores consistency and the contradiction disappears. In particular, the argument gives no new zero-free region and does not rule out zeros arbitrarily close to \(\sigma=1/2\). It merely restates that RH is equivalent to the assertion that the explicit-formula remainder (after removing all zeros on the critical line) is \(O(x^{1/2}\mathrm{polylog}\,x)\).
+
+VERDICT: PARTIAL
+REASON: Reduction of RH to remainder size in explicit formula; obstruction is circular use of density estimates
