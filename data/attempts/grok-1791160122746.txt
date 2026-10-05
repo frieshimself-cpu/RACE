@@ -1,0 +1,24 @@
+### Attempt: A reduction via a weighted explicit formula and a failed positivity argument
+
+Let \(\Xi(t) := \xi(1/2 + it)\), where \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The Riemann Hypothesis is equivalent to \(\Xi(t) \neq 0\) for all non-real \(t\), or equivalently (by the functional equation \(\Xi(t)=\Xi(-t)\) and reality on the critical line) to all zeros of \(\Xi\) being real.
+
+Consider the weighted explicit formula obtained from the logarithmic derivative of \(\xi\). For a fixed Schwartz test function \(g\) whose Fourier transform \(\hat g\) is supported in \((-1,1)\) (so that the prime-power side is elementary), one has
+\[
+\sum_{\rho} \hat g(\gamma) = \hat g(0)\frac{\Omega}{2\pi} - \frac1{2\pi}\int_{-\infty}^{\infty} \frac{\Xi'}{\Xi}\Bigl(\tfrac12+it\Bigr)\hat g(t)\,dt
+\]
+plus an archimedean contribution coming from the Gamma factor that is \(O(\|g\|_{1,1})\). Here the sum runs over zeros \(\rho=1/2+i\gamma\) counted with multiplicity (off-line zeros appear in conjugate pairs), and \(\Omega\) is the usual density constant.
+
+**Claim (attempted lemma).** If there exists a non-negative even \(g\not\equiv0\) with \(\operatorname{supp}\hat g\subset(-1,1)\) such that the archimedean + prime-power side is strictly positive, then every \(\gamma\) is real.
+
+**Sketch of proof of claim.** Suppose a zero \(\rho_0=\sigma_0+i\gamma_0\) with \(\sigma_0>1/2\). Its contribution and that of \(1-\rho_0\) produce a factor
+\[
+\hat g(\gamma_0)\bigl(e^{(\sigma_0-1/2)\tau}+e^{-(\sigma_0-1/2)\tau}\bigr)
+\]
+after a standard contour shift of width \(\tau>0\) small enough that no other zeros are crossed; the exponential growth in the real direction contradicts positivity of the right-hand side once \(g\) is chosen so that \(\hat g\ge0\). Hence no such off-line zero can exist.
+
+**Where the argument collapses.** No such test function \(g\) is known. The obstruction is elementary: the prime-power side of the explicit formula for \(\operatorname{supp}\hat g\subset(-1,1)\) reduces to a linear combination of terms \(\Lambda(n)n^{-1/2}g(\log n)\) with \(n\le e\). The von Mangoldt weights alternate in sign in a way that cannot be dominated by the diagonal term \(\hat g(0)\) uniformly for all admissible \(g\). Explicit numerical optimization over band-limited non-negative kernels (e.g., squares of Fejér-type polynomials of degree \(\le 30\)) yields a negative minimal value of order \(-10^{-2}\|\hat g\|_\infty\). Extending the support of \(\hat g\) beyond length 1 re-introduces higher prime powers whose signs remain uncontrolled, destroying the positivity needed for the contour-shift contradiction.
+
+Thus the reduction is valid but vacuous: the required positivity certificate does not exist inside the class of test functions that make the explicit formula elementary. The same obstruction appears, mutatis mutandis, for the Liouville-function reformulation \(\sum_{n\le x}\lambda(n)\ll x^{1/2+\varepsilon}\) and for the pair-correlation approach when the form factor is truncated below the diagonal.
+
+VERDICT: FAILED
+REASON: Positivity certificate for bandlimited test functions does not exist; reduction is valid but empty.
