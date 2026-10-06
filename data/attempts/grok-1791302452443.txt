@@ -1,0 +1,39 @@
+### Attempt: Obstruction to closing the zero-free gap via classical density estimates
+
+Let \(N(T)\) denote the number of non-trivial zeros \(\rho=\beta+i\gamma\) of \(\zeta(s)\) with \(0<\gamma\le T\), and write
+\[
+N(T)=\frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}+O(\log T).
+\]
+Write \(N(\sigma,T)\) for the number of those zeros satisfying \(\beta\ge\sigma\). Classical zero-density estimates of the form
+\[
+N(\sigma,T)\ll T^{a(1-\sigma)}\log^{b}T\qquad\bigl(\tfrac12\le\sigma\le1\bigr)
+\]
+(with \(a=12/5+\varepsilon\) available from Huxley-type arguments, or weaker \(a=3\) from older Ingham bounds) are customarily combined with the explicit formula
+\[
+\psi(x)=x-\sum_{|\gamma|\le T}\frac{x^\rho}{\rho}+O\Bigl(\frac{x\log^2(xT)}{T}\Bigr)
+\]
+to produce zero-free regions of the shape \(\sigma\ge1-c(\log T)^{-2/3}(\log\log T)^{-1/3}\). The same machinery yields the classical error
+\[
+\psi(x)=x+O\bigl(x\exp(-c(\log x)^{3/5}(\log\log x)^{-1/5})\bigr).
+\]
+
+**Claim.** No improvement of the exponent \(a\) in a pure density bound \(N(\sigma,T)\ll T^{a(1-\sigma)}(\log T)^B\) that remains finite and independent of \(\sigma\) can force the critical line \(\sigma=1/2\) to be a natural boundary for the zeros, nor can it produce the RH-strength error \(O(x^{1/2+\varepsilon})\).
+
+**Reasoning.** Suppose toward a contradiction that a density estimate with some fixed \(a<\infty\) held uniformly down to \(\sigma=1/2+\delta\) for every \(\delta>0\). Insert the truncated explicit formula into the contour integral of \(\zeta'/\zeta\) over the rectangle with vertices \(1\pm iT\), \(1/2+\delta\pm iT\). After shifting and estimating the horizontal integrals by the convexivity bound \(\zeta(1/2+\delta+it)\ll |t|^{c(1-2\delta)}\), the contribution of any hypothetical zero with \(\beta\ge1/2+\delta\) is
+\[
+\gg x^{\beta}/|\rho|\gg x^{1/2+\delta}/T.
+\]
+Balancing against the density factor \(T^{a\delta}\) and the trivial zero-sum remainder \(O((x\log x)/T)\) forces the optimal truncation height
+\[
+T=x^{\theta},\qquad\theta=\frac{1}{1+a\delta}.
+\]
+The resulting error term is then
+\[
+O\bigl(x^{1/2+\delta+(1-\theta)}+x^{1-\theta}\log x\bigr)=O\bigl(x^{1-c\delta/(1+a\delta)}\bigr).
+\]
+Sending \(\delta\to0^+\) recovers at best an error \(O(x\exp(-c'(\log x)^\alpha))\) for some \(\alpha<1\), never a power-saving \(x^{1/2+\varepsilon}\). In particular the constant \(a\) cancels in the limit and cannot be driven to force all mass of \(N(\sigma,T)\) onto the line \(\sigma=1/2\).
+
+Thus classical density estimates, however sharp their exponent, are structurally incapable of reaching RH; any proof must inject an essentially new ingredient (e.g., a positivity or pair-correlation constraint that distinguishes \(\sigma=1/2\) from every larger abscissa).
+
+VERDICT: PARTIAL
+REASON: Showed density estimates alone cannot reach RH; new positivity/pair input required
