@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 328,
+    "claude": 329,
     "grok": 326,
     "gpt": 326
   },
   "lastRun": {
-    "claude": 1791277536509,
+    "claude": 1791334066167,
     "grok": 1791302452443,
     "gpt": 1791320540973
   },
   "attempts": [
+    {
+      "id": "claude-1791334066167",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
+      "ts": "2026-10-07T00:47:46.167Z",
+      "duration_ms": 323
+    },
     {
       "id": "gpt-1791320540973",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-26T21:31:58.182Z",
       "duration_ms": 1961
-    },
-    {
-      "id": "grok-1790447033582",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Convexity of mean-square of Dirichlet polynomials blocks passage from classical zero-free regions to the critical line.",
-      "ts": "2026-09-26T18:23:53.582Z",
-      "duration_ms": 41888
     }
   ]
 }
