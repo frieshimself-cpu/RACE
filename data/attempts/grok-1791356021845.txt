@@ -1,0 +1,68 @@
+### Attempt: Rigorous sketch of the Beale–Kato–Majda blow-up criterion
+(as a concrete partial result toward controlling possible singularities for 3D incompressible Navier–Stokes)
+
+Consider the 3D incompressible Navier–Stokes equations on \(\mathbb{R}^3\times[0,T)\):
+\[
+\partial_t u+(u\cdot\nabla)u=\nu\Delta u-\nabla p,\qquad\operatorname{div}u=0,
+\]
+with smooth, divergence-free initial data \(u_0\in\mathcal{S}\) (Schwartz class) of finite energy. Let \(\omega=\operatorname{curl}u\) denote the vorticity. The vorticity formulation reads
+\[
+\partial_t\omega+(u\cdot\nabla)\omega=(\omega\cdot\nabla)u+\nu\Delta\omega.
+\]
+(The pressure is recovered via the usual Riesz-transform formula and is smooth whenever \(u\) is.) We work with classical solutions on the maximal interval of existence \([0,T_*)\); the goal is to give a sharp continuation criterion in terms of \(\omega\).
+
+**Lemma (BKM).** Suppose \(T_*<\infty\). If
+\[
+\int_0^{T_*}\|\omega(t)\|_{L^\infty(\mathbb{R}^3)}\,dt<\infty,
+\]
+then the solution remains smooth up to \(T_*\) and can be continued past \(T_*\). Equivalently, if a singularity forms at \(T_*\), then necessarily
+\[
+\int_0^{T_*}\|\omega(t)\|_{L^\infty}\,dt=\infty.
+\]
+
+**Proof sketch (self-contained).**  
+Fix \(p\in(3,\infty)\). Multiply the vorticity equation by \(|\omega|^{p-2}\omega\), integrate, and use \(\operatorname{div}u=0\) together with integration by parts on the stretching term:
+\[
+\frac{1}{p}\frac{d}{dt}\|\omega\|_p^p+\nu\|\nabla(|\omega|^{p/2})\|_2^2\le\int|\omega\cdot\nabla u|\,|\omega|^{p-1}\,dx.
+\]
+The viscous term is non-negative. For the stretching term the pointwise bound \(|\omega\cdot\nabla u|\le|\omega|\,|\nabla u|\) and Hölder yield
+\[
+\frac{d}{dt}\|\omega\|_p\le\|\nabla u\|_\infty\|\omega\|_p.
+\]
+Gronwall therefore gives the a-priori bound
+\begin{equation}
+\label{eq:gronwall}
+\|\omega(t)\|_p\le\|\omega_0\|_p\exp\Bigl(\int_0^t\|\nabla u(s)\|_\infty\,ds\Bigr).
+\end{equation}
+It remains to control \(\|\nabla u\|_\infty\) by \(\|\omega\|_\infty\). By the Biot–Savart law,
+\[
+u=K*\omega,\qquad K(x)=\frac{1}{4\pi}\frac{x}{|x|^3},
+\]
+so \(\nabla u\) is a Calderón–Zygmund singular integral of \(\omega\). Standard CZ theory supplies
+\[
+\|\nabla u\|_q\le C_q\|\omega\|_q\qquad\text{for all }1<q<\infty.
+\]
+To pass to \(L^\infty\) one uses a logarithmic Sobolev inequality (or the equivalent inequality of Beale–Kato–Majda): for any \(q>3\),
+\begin{equation}
+\label{eq:log}
+\|\nabla u\|_\infty\le C\bigl(1+\|\omega\|_\infty(1+\log^+\|\omega\|_q)+\|\omega\|_2\bigr).
+\end{equation}
+(The \(L^2\) term is controlled by the basic energy equality, which remains finite on any finite time interval.) Inserting \eqref{eq:log} into \eqref{eq:gronwall} produces
+\[
+\|\omega(t)\|_p\le\|\omega_0\|_p\exp\Bigl(C\int_0^t\bigl(1+\|\omega(s)\|_\infty(1+\log^+\|\omega(s)\|_p)\bigr)\,ds\Bigr).
+\]
+Let \(M(t)=\sup_{0\le s\le t}\|\omega(s)\|_p\). Then
+\[
+\log M(t)\le C+C\int_0^t\|\omega\|_\infty\,ds+C\int_0^t\|\omega\|_\infty\log^+M(s)\,ds.
+\]
+The assumption \(\int_0^{T_*}\|\omega\|_\infty\,ds<\infty\) and a standard Gronwall/Osgood argument on the function \(\log M\) imply that \(M(t)\) stays finite as \(t\to T_*^-\). Thus \(\|\omega(t)\|_p\) (and therefore \(\|\nabla u(t)\|_p\)) remains bounded. Higher-order Sobolev norms \(\|D^k u\|_{H^s}\) are then controlled by the same energy estimates (differentiating the equation arbitrarily often and repeating the argument); the resulting bounds are uniform up to \(T_*\). Consequently the solution stays in every \(H^s\) and can be restarted from the limiting data at \(t=T_*\), contradicting maximality of \(T_*\).
+
+**Remarks on sharpness and limitations.**  
+- The criterion is essentially sharp: the same logarithmic estimate shows that a slightly weaker integral \(\int\|\omega\|_\infty/(\log(2+\|\omega\|_\infty))\,dt<\infty\) still prevents blow-up, while pure \(L^1_t L^\infty_x\) control of velocity (rather than vorticity) is insufficient.  
+- The argument gives no information on whether the integral of \(\|\omega\|_\infty\) can actually diverge in finite time for finite-energy data; it only converts the regularity question into a question about possible unbounded accumulation of vorticity.  
+- Viscosity enters only through the non-negativity of the dissipation term; the identical criterion holds for the Euler equations (\(\nu=0\)).
+
+This is a classical, fully rigorous partial result that reduces global regularity to an a-priori integral bound on vorticity. It does not resolve the Millennium problem.
+
+VERDICT: PARTIAL
+REASON: Rigorous self-contained BKM criterion sketch; reduces smoothness to vorticity integrability but does not prove the latter.

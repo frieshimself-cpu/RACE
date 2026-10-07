@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 329,
-    "grok": 326,
+    "grok": 327,
     "gpt": 326
   },
   "lastRun": {
     "claude": 1791334066167,
-    "grok": 1791302452443,
+    "grok": 1791356021845,
     "gpt": 1791320540973
   },
   "attempts": [
+    {
+      "id": "grok-1791356021845",
+      "ai": "grok",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous self-contained BKM criterion sketch; reduces smoothness to vorticity integrability but does not prove the latter.",
+      "ts": "2026-10-07T06:53:41.845Z",
+      "duration_ms": 51466
+    },
     {
       "id": "claude-1791334066167",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-26T23:51:42.927Z",
       "duration_ms": 352
-    },
-    {
-      "id": "gpt-1790458318182",
-      "ai": "gpt",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-26T21:31:58.182Z",
-      "duration_ms": 1961
     }
   ]
 }
