@@ -2,14 +2,23 @@
   "counts": {
     "claude": 329,
     "grok": 327,
-    "gpt": 326
+    "gpt": 327
   },
   "lastRun": {
     "claude": 1791334066167,
     "grok": 1791356021845,
-    "gpt": 1791320540973
+    "gpt": 1791382514033
   },
   "attempts": [
+    {
+      "id": "gpt-1791382514033",
+      "ai": "gpt",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-07T14:15:14.033Z",
+      "duration_ms": 1641
+    },
     {
       "id": "grok-1791356021845",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Monodromy rigidity of Lefschetz pencils does not force algebraicity of intermediate Hodge classes.",
       "ts": "2026-09-27T04:04:51.991Z",
       "duration_ms": 39887
-    },
-    {
-      "id": "claude-1790466702927",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-26T23:51:42.927Z",
-      "duration_ms": 352
     }
   ]
 }
