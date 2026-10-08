@@ -1,0 +1,39 @@
+### Attempt: Obstruction to a spectral proof via the Weil explicit formula
+
+Let \(\zeta(s)\) be the Riemann zeta function, and write the non-trivial zeros as \(\rho = \beta + i\gamma\) with \(\beta\in(0,1)\). The (completed) Weil explicit formula equates a spectral side built from the zeros to an arithmetic side built from primes: for a suitable even test function \(g\) whose Fourier transform \(\hat g\) is compactly supported in \((-1,1)\),
+\[
+\sum_{\rho} \hat g(\gamma) = \hat g\Bigl(\tfrac{i}{2}\Bigr)+\hat g\Bigl(-\tfrac{i}{2}\Bigr)
+- \sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}}\bigl(g(k\log p)+g(-k\log p)\bigr)
++ \text{(archimedean Gamma contribution)}.
+\]
+(The precise normalization of the Mellin/Fourier transform is immaterial for the argument below.)
+
+A natural strategy toward RH is to interpret the left-hand side as the trace of a putative self-adjoint operator \(H\) (Hilbert–Pólya) whose spectrum is exactly \(\{\gamma\}\), so that positivity of the quadratic form associated with \(H\) would force all \(\beta=1/2\). Concretely, one seeks a positive-definite kernel \(K(x,y)\) on \(L^2(\mathbb{R}_+)\) (or on a suitable adelic space) such that
+\[
+\sum_{\rho}\hat g(\gamma)=\operatorname{Tr}\bigl(g(H)\bigr)=\iint K(x,y)g(\log(x/y))\,dx\,dy
+\]
+and the arithmetic side is recovered as the “diagonal” contribution of the primes.
+
+**Obstruction.**  
+Suppose such a kernel exists and is positive-definite. Then the quadratic form
+\[
+Q(g):=\sum_{\rho}\hat g(\gamma)
+\]
+must be non-negative for every admissible \(g\ge0\). Choose a sequence of non-negative test functions \(g_n\) whose Fourier transforms \(\hat g_n\) approximate the characteristic function of a short interval \([T,T+H]\) with \(H=T^{\theta}\), \(\theta<1\). The left-hand side of the explicit formula then becomes essentially the number of ordinates \(\gamma\) in that interval, while the prime-sum side is bounded by
+\[
+O\Bigl(\frac{T}{\log T}\cdot\frac{H}{T}+\operatorname{err}(H,T)\Bigr)
+\]
+via standard zero-density or prime-number estimates in short intervals. Positivity of \(Q(g_n)\) would therefore imply a lower bound
+\[
+N(T+H)-N(T)\gg H
+\]
+uniformly for \(H=T^{\theta}\) with any \(\theta>0\).  
+
+However, the best unconditional zero-density estimates (e.g., Huxley’s \(N(\sigma,T)\ll T^{12(1-\sigma)/5+\varepsilon}\)) only guarantee such a lower bound when \(\theta\ge7/12+\varepsilon\). For smaller \(\theta\) the arithmetic side can become negative relative to the archimedean contribution before the zeros are forced onto the critical line, because a hypothetical zero with \(\beta>1/2\) contributes a factor \(T^{\beta-1/2}\) that can cancel the main term for sufficiently short intervals. Thus the positivity demanded by a spectral interpretation is not visible from the explicit formula at the scales where a zero off the line would first become detectable.
+
+In other words: any kernel that reproduces the explicit formula automatically incorporates the possibility of off-line zeros into its “continuous spectrum” or into non-local terms that destroy positive-definiteness. Closing the gap requires an independent proof that those non-local terms cannot cancel the diagonal, which is essentially equivalent in strength to RH itself (via the classical equivalence between RH and the Lindelöf hypothesis on average).  
+
+Hence the spectral approach, while formally elegant, reduces to a restatement of the same cancellation problem that the explicit formula already encodes, and supplies no new leverage.
+
+VERDICT: FAILED
+REASON: Spectral positivity from Weil formula blocked by zero-density gap; no new cancellation.
