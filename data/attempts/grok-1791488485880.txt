@@ -1,0 +1,35 @@
+The Riemann \(\xi\)-function
+\[
+\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)
+\]
+is entire of order 1 and satisfies the functional equation \(\xi(s)=\xi(1-s)\).  Write \(s=\sigma+it\).  The Hadamard product (normalized so that the zeros are simple or counted with multiplicity) reads
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+the product running over the non-trivial zeros.  Taking the logarithmic derivative yields the absolutely convergent expansion
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\frac1{s-\rho}.
+\]
+Restrict to the critical line \(\sigma=1/2\) and set \(s=1/2+it\) with \(t>0\) large.  The functional equation forces the zeros to be symmetric under \(\rho\mapsto 1-\rho\), so they appear in pairs \(\beta+i\gamma\) and \(1-\beta+i\gamma\) (or on the line itself).  Consequently
+\[
+\operatorname{Re}\frac{\xi'}{\xi}\Bigl(\tfrac12+it\Bigr)
+=\sum_{\gamma}\frac{\tfrac12-\beta}{(\tfrac12-\beta)^2+(t-\gamma)^2}.
+\]
+If every zero satisfied \(\beta=1/2\), the right-hand side would vanish identically.  Conversely, a single zero with \(\beta>1/2\) produces a strictly negative local contribution that cannot be cancelled by the remaining terms for \(t\) sufficiently close to \(\gamma\), because the denominators are minimized precisely when \(t=\gamma\) and the numerator of that term is negative.  Thus RH is equivalent to the identity
+\[
+\operatorname{Re}\frac{\xi'}{\xi}\Bigl(\tfrac12+it\Bigr)=0\qquad\text{for all }t\in\mathbb{R}.
+\]
+
+A natural attempt to prove the identity proceeds by contour integration of \(\xi'/\xi\) against a positive approximate identity.  Let \(\phi_\varepsilon(u)=\varepsilon^{-1}\phi(u/\varepsilon)\) be a standard mollifier supported on \([-\,1,1]\) with \(\int\phi=1\) and \(\phi\ge0\).  Then
+\[
+\int_{-\infty}^\infty\operatorname{Re}\frac{\xi'}{\xi}\Bigl(\tfrac12+it\Bigr)\phi_\varepsilon(t-t_0)\,dt
+=\sum_{\rho}\operatorname{Re}\int\frac{\phi_\varepsilon(t-t_0)}{\tfrac12+it-\rho}\,dt.
+\]
+Each integral on the right is the convolution of a positive kernel against a Cauchy density centred at \(\operatorname{Im}\rho\).  If one could show that the left-hand side tends to zero as \(\varepsilon\to0\) uniformly in \(t_0\), RH would follow.  The obstacle is that the only available growth control on \(\xi'/\xi\) on the critical line is the convex bound
+\[
+\Bigl|\frac{\xi'}{\xi}\bigl(\tfrac12+it\bigr)\Bigr|\ll_\delta |t|^{1/2+\delta},
+\]
+which is far too weak to justify passage to the limit inside the sum; the partial sums of the series of Cauchy kernels diverge like \(\log|t|\) and the error term cannot be absorbed.  Strengthening the convex bound to an \(L^1\)-average small enough for the mollification argument requires, circularly, a zero-density estimate that already implies a zero-free region wider than any region presently known.  Hence the contour-mollifier method reduces RH to a statement of essentially the same strength as RH itself and yields no new information.
+
+VERDICT: FAILED
+REASON: Mollifier argument on critical line circularly requires zero-density bounds already equivalent to RH

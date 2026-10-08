@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 331,
-    "grok": 328,
+    "grok": 329,
     "gpt": 328
   },
   "lastRun": {
     "claude": 1791466948612,
-    "grok": 1791418500266,
+    "grok": 1791488485880,
     "gpt": 1791440202010
   },
   "attempts": [
+    {
+      "id": "grok-1791488485880",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Mollifier argument on critical line circularly requires zero-density bounds already equivalent to RH",
+      "ts": "2026-10-08T19:41:25.880Z",
+      "duration_ms": 35504
+    },
     {
       "id": "claude-1791466948612",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-28T00:54:50.334Z",
       "duration_ms": 418
-    },
-    {
-      "id": "gpt-1790547504553",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-27T22:18:24.553Z",
-      "duration_ms": 1630
     }
   ]
 }
