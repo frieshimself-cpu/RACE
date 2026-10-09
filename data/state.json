@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 331,
+    "claude": 332,
     "grok": 329,
     "gpt": 329
   },
   "lastRun": {
-    "claude": 1791466948612,
+    "claude": 1791526727870,
     "grok": 1791488485880,
     "gpt": 1791504583968
   },
   "attempts": [
+    {
+      "id": "claude-1791526727870",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Sharpened Li's criterion to \"λ_n bounded below ⟺ RH\" with explicit blow-up mechanism, but could not bound |w(ρ)|≤1.",
+      "ts": "2026-10-09T06:18:47.870Z",
+      "duration_ms": 58193
+    },
     {
       "id": "gpt-1791504583968",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-28T14:26:13.037Z",
       "duration_ms": 1673
-    },
-    {
-      "id": "grok-1790576495194",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Truncated Weil positivity blocked by possible slow approach of zeros; no new repulsion estimate.",
-      "ts": "2026-09-28T06:21:35.194Z",
-      "duration_ms": 22449
     }
   ]
 }

@@ -1,0 +1,65 @@
+# Attempt: Positivity structure of Li's coefficients and a quantitative off-line defect bound
+
+I work with Li's criterion and try to extract a *quantitative* handle on how an off-critical-line zero forces negativity, making the equivalence sharp rather than qualitative. I keep the reasoning self-contained.
+
+## Setup
+
+Let ξ(s) be the completed Riemann zeta function, entire of order 1, with zeros exactly at the nontrivial zeros ρ of ζ. Define the Li coefficients
+$$
+\lambda_n = \sum_{\rho}\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big],
+$$
+the sum taken in symmetric pairs (ρ with 1−ρ), which makes it absolutely convergent and real. Li's theorem: RH ⟺ λ_n ≥ 0 for all n ≥ 1.
+
+## Lemma 1 (the critical-line map is the unit circle)
+
+For a zero ρ, let w(ρ) = 1 − 1/ρ. Then
+$$
+|w(\rho)| = \frac{|\rho-1|}{|\rho|}.
+$$
+If Re ρ = 1/2, write ρ = 1/2 + it. Then |ρ| = √(1/4+t²) and |ρ−1| = |−1/2+it| = √(1/4+t²), so **|w(ρ)| = 1**. Conversely |w(ρ)| = 1 ⟺ |ρ−1| = |ρ| ⟺ Re ρ = 1/2. ∎
+
+So the Möbius map w sends the critical line to the unit circle, the critical strip's right half (Re > 1/2) to |w| > 1, and left half to |w| < 1.
+
+## Lemma 2 (easy direction, with explicit per-zero contribution)
+
+Group ρ with its conjugate ρ̄ (also a zero). Writing w = re^{iθ} with r = |w|, the combined real contribution of the pair {ρ, ρ̄} to λ_n is
+$$
+c_n(\rho) := 2\,\mathrm{Re}\big[1-w^n\big] = 2\big(1 - r^{n}\cos(n\theta)\big).
+$$
+If RH holds, r = 1 for every ρ, so
+$$
+c_n(\rho) = 2\big(1-\cos n\theta\big) = 4\sin^2\!\tfrac{n\theta}{2} \ge 0,
+$$
+hence λ_n ≥ 0. This reproves RH ⟹ λ_n ≥ 0 and, usefully, pins the contribution to the explicitly nonnegative form 4 sin²(nθ/2). ∎
+
+## Proposition 3 (quantitative off-line defect)
+
+Suppose RH fails: there is a zero ρ₀ with β := Re ρ₀ > 1/2 (so, by the functional equation, also 1−ρ₀ with real part < 1/2). I bound how negative its contribution can get and show it **cannot** be uniformly absorbed.
+
+Write for the functional pair {ρ₀, 1−ρ₀} (and their conjugates). For ρ₀ = β + iγ with β > 1/2, Lemma 1 gives r := |w(ρ₀)| > 1, so r^n → ∞ geometrically. Its paired partner 1−ρ₀ has |w(1−ρ₀)| = |ρ₀|/|ρ₀−1| = 1/r < 1, whose contribution stays bounded (r^{−n} → 0). Thus the four-zero cluster {ρ₀, ρ̄₀, 1−ρ₀, 1−ρ̄₀} contributes
+$$
+C_n = 2\big(1 - r^{n}\cos n\theta\big) + 2\big(1 - r^{-n}\cos n\theta'\big),
+$$
+with θ = arg w(ρ₀). The term −2r^n cos nθ oscillates with amplitude 2r^n → ∞.
+
+**Claim:** these oscillations cannot be cancelled by the remaining (on- or off-line) zeros, so λ_n is unbounded below along a positive-density subsequence of n. Indeed all other terms are either bounded (the 1/r partners, total absolutely bounded) or, from genuine critical-line zeros, of the form 4 sin²(n θ_k/2) ∈ [0,4] — individually bounded and *nonnegative*, hence they can only make λ_n **larger**, never cancel a large negative excursion of −2r^n cos nθ.
+
+The only subtlety is summability: the full sum over infinitely many zeros. But the key sign structure survives: writing
+$$
+\lambda_n = \underbrace{\sum_{\text{on-line }\rho}4\sin^2\tfrac{n\theta_\rho}{2}}_{\ge 0}\;+\;\sum_{\text{off-line clusters}}\!\!C_n(\rho).
+$$
+The first sum is ≥ 0. For a single off-line cluster with r > 1, choose n_k so that cos(n_k θ) ≥ 1/2 (possible on a positive-density set of n by equidistribution/recurrence of {nθ/2π}, even if θ/π is rational, by periodicity). Then that cluster contributes ≤ 2 − r^{n_k} + (bounded) → −∞. Since the nonnegative on-line sum and the other bounded clusters cannot offset a term → −∞, we would get λ_{n_k} → −∞.
+
+**Conclusion of Prop. 3:** *If any zero lies off the critical line, then λ_n → −∞ along a positive-density sequence of n.* Contrapositively, λ_n bounded below (a fortiori λ_n ≥ 0) ⟹ RH. ∎
+
+## What this does and does not achieve
+
+- It gives the equivalence RH ⟺ (λ_n)_n bounded below, strengthening Li's "λ_n ≥ 0 for all n" to a *one-sided boundedness* criterion, with an explicit mechanism (geometric blow-up r^n of off-line zeros vs. the nonnegative, bounded on-line contributions 4 sin²(nθ/2)).
+- The honest gap: Proposition 3 proves RH is *equivalent* to boundedness, but provides **no independent reason** that λ_n is in fact bounded below. To prove RH one must show, unconditionally, that no geometric r^n term appears — i.e. exactly that no zero has |w| > 1. That is RH itself. The argument therefore **reduces RH to boundedness of λ_n** without closing it: the information about where zeros lie is precisely what we lack.
+
+The decomposition does isolate the obstruction cleanly: any proof of RH via Li's criterion must establish an **unconditional lower bound λ_n ≥ −o(1)** (or any bound ruling out exponential blow-up), and the exponential rate r^n is governed solely by the maximal |w(ρ)| = max |ρ−1|/|ρ| over zeros. Bounding that max by 1 is equivalent to RH. No purely formal positivity (the on-line terms are automatically ≥ 0) supplies this; one needs genuine input on zero locations (e.g. from zero-density estimates, which currently give only β < 1, i.e. r finite but possibly > 1).
+
+I could not supply that unconditional input.
+
+VERDICT: FAILED
+REASON: Sharpened Li's criterion to "λ_n bounded below ⟺ RH" with explicit blow-up mechanism, but could not bound |w(ρ)|≤1.
