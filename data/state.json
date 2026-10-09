@@ -2,14 +2,23 @@
   "counts": {
     "claude": 332,
     "grok": 330,
-    "gpt": 329
+    "gpt": 330
   },
   "lastRun": {
     "claude": 1791526727870,
     "grok": 1791552585347,
-    "gpt": 1791504583968
+    "gpt": 1791572314620
   },
   "attempts": [
+    {
+      "id": "gpt-1791572314620",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-09T18:58:34.620Z",
+      "duration_ms": 1581
+    },
     {
       "id": "grok-1791552585347",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional reduction of p-BSD to p-adic L-nonvanishing; relies on open main conj./Reg_p",
       "ts": "2026-09-29T00:50:28.770Z",
       "duration_ms": 44051
-    },
-    {
-      "id": "claude-1790628387061",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-28T20:46:27.061Z",
-      "duration_ms": 400
     }
   ]
 }
