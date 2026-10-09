@@ -1,0 +1,146 @@
+## Attempt: the geometry of the Li coefficients and a sharp reformulation
+
+I work with Li's criterion and isolate the exact geometric content of RH inside it, then
+analyze precisely where an unconditional positivity proof breaks.
+
+### Setup
+
+Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order $1$, with
+$\xi(s)=\xi(1-s)$ and zeros exactly the nontrivial zeros $\rho$ of $\zeta$. The Li
+coefficients are
+$$
+\lambda_n=\frac{1}{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi(s)\Big]_{s=1},
+\qquad n\ge 1 .
+$$
+Using the Hadamard product $\xi(s)=\xi(0)\prod_\rho(1-s/\rho)$ (zeros paired
+$\rho\leftrightarrow 1-\rho$ to ensure convergence) one gets the standard identity
+$$
+\boxed{\;\lambda_n=\sum_{\rho}\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big]\;}
+\tag{1}
+$$
+the sum taken symmetrically over paired zeros. Li's theorem: **RH $\iff$ $\lambda_n\ge 0$
+for all $n\ge1$.**
+
+### The exact geometric observation
+
+Set, for a zero $\rho$,
+$$
+w_\rho := 1-\frac1\rho=\frac{\rho-1}{\rho}.
+$$
+
+**Lemma 1.** $|w_\rho|=1 \iff \operatorname{Re}\rho=\tfrac12$. Moreover $|w_\rho|<1\iff \operatorname{Re}\rho>\tfrac12$ and $|w_\rho|>1\iff\operatorname{Re}\rho<\tfrac12$.
+
+*Proof.* $|w_\rho|=\dfrac{|\rho-1|}{|\rho|}$, and $|\rho-1|=|\rho|$ exactly when $\rho$ is
+equidistant from $0$ and $1$, i.e. lies on the perpendicular bisector $\operatorname{Re}\rho=\tfrac12$.
+If $\operatorname{Re}\rho>\tfrac12$ then $\rho$ is closer to $1$, so $|\rho-1|<|\rho|$, giving
+$|w_\rho|<1$; symmetrically for the other side. $\qquad\blacksquare$
+
+So RH is *exactly* the statement that the map $\rho\mapsto w_\rho$ (a Möbius map sending
+the critical line to the unit circle, $0,1$ to $\infty,0$) carries **every** zero onto the
+unit circle. Writing a critical zero $\rho=\tfrac12+i\gamma$,
+$$
+w_\rho=\frac{-\tfrac12+i\gamma}{\tfrac12+i\gamma}=e^{i\theta_\gamma},\qquad
+\theta_\gamma=\pi-2\arctan(2\gamma).
+$$
+
+**Corollary (RH $\Rightarrow$ positivity, clean form).** Under RH, pairing $\rho=\tfrac12+i\gamma$
+with $\bar\rho=\tfrac12-i\gamma$ (so $w_{\bar\rho}=\overline{w_\rho}=e^{-i\theta_\gamma}$),
+$$
+\big[1-w_\rho^n\big]+\big[1-w_{\bar\rho}^n\big]
+=2\big(1-\cos n\theta_\gamma\big)\ge 0 .
+$$
+Summing (1) over such pairs gives $\lambda_n\ge0$. The nonnegativity is *termwise* and comes
+purely from $|w_\rho|=1$. $\blacksquare$
+
+This makes transparent **why** RH forces positivity: each zero contributes a point on the
+unit circle, and $1-\operatorname{Re}(e^{in\theta})\ge 0$ always.
+
+### Where an unconditional proof must do work
+
+For the converse / an unconditional attack one must show $\lambda_n\ge0$ *without* knowing
+$|w_\rho|=1$. Group a hypothetical off-line zero quadruple
+$\{\rho,\bar\rho,1-\rho,1-\bar\rho\}$ with $\rho=\beta+i\gamma$, $\beta>\tfrac12$. Note the
+functional equation forces $1-\rho$ to also be a zero, and
+$$
+w_{1-\rho}=1-\frac1{1-\rho}=\frac{-\rho}{1-\rho}=\frac{1}{\,w_\rho-1\,}\cdot(\dots)
+$$
+more usefully: $w_{1-\rho}=\dfrac{-\rho}{1-\rho}$, while $w_\rho=\dfrac{\rho-1}{\rho}$, so
+$$
+w_\rho\cdot w_{1-\rho}=\frac{(\rho-1)(-\rho)}{\rho(1-\rho)}=1 .
+$$
+
+**Lemma 2.** For a functional-equation pair, $w_\rho\,w_{1-\rho}=1$; thus the two moduli are
+reciprocal, $|w_{1-\rho}|=1/|w_\rho|$, and the two arguments are equal:
+$\arg w_{1-\rho}=\arg w_\rho \pmod{2\pi}$ (since their product is the positive real $1$ only
+if arguments cancel — more precisely $\arg w_\rho+\arg w_{1-\rho}\equiv0$).
+
+Let me recompute the argument relation carefully. $w_\rho w_{1-\rho}=1$ forces
+$\arg w_\rho+\arg w_{1-\rho}\equiv 0\pmod{2\pi}$ and $|w_\rho|\,|w_{1-\rho}|=1$. Write
+$w_\rho=re^{i\phi}$, $r>1$ (since $\beta>\tfrac12$). Then $w_{1-\rho}=r^{-1}e^{-i\phi}$.
+Including complex conjugates, the four zeros give the contribution to (1):
+$$
+S_n:=4-\big(r^ne^{in\phi}+r^ne^{-in\phi}+r^{-n}e^{in\phi}+r^{-n}e^{-in\phi}\big)
+=4-2\big(r^n+r^{-n}\big)\cos n\phi .
+$$
+
+**This is the crux.** $r^n+r^{-n}\ge 2$ with equality iff $r=1$ (iff $\beta=\tfrac12$). So an
+off-line quadruple contributes
+$$
+S_n=4-2(r^n+r^{-n})\cos n\phi,
+$$
+which is **negative for those $n$ with $\cos n\phi$ close to $1$** (it can be as small as
+$4-2(r^n+r^{-n})<0$ once $r^n>$ roughly $3$). Thus a single off-line quadruple produces
+infinitely many $n$ with large *negative* contributions $\sim -2r^n$, growing geometrically.
+
+**Consequence (a genuine, if known, quantitative statement).** If $\zeta$ had a zero with
+$\beta>\tfrac12$, i.e. $r=|w_\rho|>1$, then along the subsequence $n_k$ for which
+$\{n_k\phi/2\pi\}$ is small (which has positive density by Weyl/Dirichlet, since such $n$
+exist with $\cos n\phi\ge\tfrac12$ for a positive proportion of $n$), that quadruple alone
+contributes $\le 4-(r^{n_k}+r^{-n_k})\to-\infty$. For $\lambda_{n_k}\ge0$ to survive, the
+*on-line* zeros (each contributing the bounded quantity $2(1-\cos n\theta)\in[0,4]$) must
+compensate a term growing like $r^{n_k}$.
+
+Here is the precise obstruction, stated as a clean sub-problem equivalent to RH:
+
+> **Reformulation.** RH holds $\iff$ for every $n$,
+> $$\sum_{\beta_\rho>1/2}\big(|w_\rho|^n+|w_\rho|^{-n}\big)\cos(n\arg w_\rho)\;\le\;
+> \tfrac12\,\#\{\text{on-line pairs}\}\cdot(\text{bounded})\; +\;\dots$$
+> i.e. the (geometrically growing) off-line contribution never outweighs the (bounded) on-line
+> contribution.
+
+Because the on-line contributions are uniformly bounded per zero while an off-line
+contribution grows like $r^n$, **any** off-line zero makes $\lambda_n<0$ for suitable large
+$n$ — *provided* its negative excursions are not cancelled by other off-line zeros. That
+proviso is the whole difficulty: zeros come in symmetric families and their arguments
+$\phi$ could in principle conspire so that for the bad $n$ of one quadruple, another quadruple
+with larger modulus contributes a positive $-2(r')^n\cos n\phi'>0$ (when $\cos n\phi'<0$).
+
+So the real analytic content RH hides inside Li positivity is:
+
+**Open sub-lemma (unproven here).** One cannot have a configuration of off-critical zeros
+whose geometric-weight phases $\{\phi_\rho\}$ simultaneously cancel the negative excursions
+for *all* $n$. Equivalently: the trigonometric sum
+$\sum_\rho (r_\rho^n+r_\rho^{-n})\cos n\phi_\rho$ with at least one $r_\rho>1$ cannot stay
+bounded above by the on-line total for all $n$.
+
+### Assessment
+
+What I have rigorously established that is genuinely clarifying:
+- Lemma 1: RH $\iff$ *every* $w_\rho$ lies on the unit circle (exact Möbius geometry).
+- Lemma 2: the functional-equation pairing forces reciprocal moduli $r,\,1/r$ and opposite
+  arguments, giving the exact quadruple contribution $S_n=4-2(r^n+r^{-n})\cos n\phi$.
+- A clean proof that off-line zeros inject **geometrically growing** oscillatory terms into
+  $\lambda_n$, so positivity can only fail-safe through *inter-quadruple phase cancellation*.
+
+What is **not** proved: that such cancellation is impossible. This is exactly the hard core,
+equivalent to RH, and I have no unconditional handle on the joint distribution of the phases
+$\phi_\rho=\arg w_\rho$ of hypothetical off-line zeros. The growth asymmetry ($r^n$ vs.
+bounded) is suggestive but a single pair of off-line quadruples with $r'>r$ and
+anti-correlated phases defeats any naive sign argument, so no contradiction follows.
+
+I did not close the gap. The contribution is a sharpened, self-contained geometric
+dissection of where Li positivity encodes RH, reducing it to a non-cancellation statement
+for an explicit geometric-exponential trigonometric sum.
+
+VERDICT: FAILED
+REASON: Gave exact Möbius geometry of Li coefficients, reducing RH to a non-cancellation of growing phase sums; gap unclosed.
