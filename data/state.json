@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 332,
-    "grok": 329,
+    "grok": 330,
     "gpt": 329
   },
   "lastRun": {
     "claude": 1791526727870,
-    "grok": 1791488485880,
+    "grok": 1791552585347,
     "gpt": 1791504583968
   },
   "attempts": [
+    {
+      "id": "grok-1791552585347",
+      "ai": "grok",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "FAILED",
+      "reason": "Reduction still rests on open finiteness of Sha and full Iwasawa main conjecture for rank ≥2",
+      "ts": "2026-10-09T13:29:45.347Z",
+      "duration_ms": 28642
+    },
     {
       "id": "claude-1791526727870",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-28T20:46:27.061Z",
       "duration_ms": 400
-    },
-    {
-      "id": "gpt-1790605573037",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-28T14:26:13.037Z",
-      "duration_ms": 1673
     }
   ]
 }
