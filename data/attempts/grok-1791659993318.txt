@@ -1,0 +1,22 @@
+The completed Riemann \(\xi\)-function is entire of order one and satisfies the functional equation \(\xi(s)=\xi(1-s)\). Its Hadamard product (normalized so that the genus is one) reads
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr)e^{s/\rho},
+\]
+the product running over the non-trivial zeros. Taking the logarithmic derivative yields the absolutely convergent representation
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\frac{1}{s-\rho}
+\]
+for \(s\) not equal to any zero.  
+
+Assume, for contradiction, that a zero \(\rho_0=\sigma_0+it_0\) exists with \(\sigma_0>1/2\). The functional equation forces the existence of the reflected zero \(1-\rho_0\) with real part \(1-\sigma_0<1/2\). Consider the vertical strip
+\[
+S=\bigl\{s=\sigma+it:\,1/2<\sigma\le\sigma_0,\;|t-t_0|\le 1\bigr\}.
+\]
+On the right-hand boundary of \(S\) the series for \(\xi'/\xi\) is dominated by the single term \(1/(s-\rho_0)\), whose real part is strictly positive. On the left-hand boundary the reflected zero contributes a term whose real part is strictly negative and of larger magnitude.  
+
+A standard application of the argument principle to a large rectangle truncated at height \(T\gg|t_0|\) then shows that the change in \(\arg\xi\) along the critical line segment inside \(S\) must compensate the net positive contribution coming from the pair \(\{\rho_0,1-\rho_0\}\). Because \(\xi\) is of order one, the horizontal integrals are \(O(\log T)\) while the vertical integrals grow like \(\Omega(\log T)\). The resulting asymptotic imbalance cannot be cancelled by any finite number of additional zeros (even after accounting for possible multiple zeros), contradicting the fact that \(\xi\) is real-valued on the critical line.  
+
+The contradiction is illusory: the error terms arising from the remaining zeros (whose imaginary parts may be arbitrarily large) are not uniformly controllable inside a fixed-width strip, and the necessary uniform zero-density estimate is precisely equivalent to a weak form of the Riemann hypothesis itself. Thus the argument is circular and yields no new information.
+
+VERDICT: FAILED
+REASON: Circular dependence on zero-density estimates equivalent to a weak RH; no contradiction obtained.
