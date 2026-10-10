@@ -2,14 +2,23 @@
   "counts": {
     "claude": 334,
     "grok": 332,
-    "gpt": 331
+    "gpt": 332
   },
   "lastRun": {
     "claude": 1791645176332,
     "grok": 1791659993318,
-    "gpt": 1791622678291
+    "gpt": 1791672152014
   },
   "attempts": [
+    {
+      "id": "gpt-1791672152014",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-10T22:42:32.014Z",
+      "duration_ms": 1663
+    },
     {
       "id": "grok-1791659993318",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Weil positivity equivalent to RH but finite-support approximations reintroduce quasi-RH-strength errors; no new leverage.",
       "ts": "2026-09-30T08:06:38.141Z",
       "duration_ms": 62083
-    },
-    {
-      "id": "claude-1790733104364",
-      "ai": "claude",
-      "problem": "P vs NP",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-30T01:51:44.364Z",
-      "duration_ms": 348
     }
   ]
 }
