@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 333,
-    "grok": 330,
+    "grok": 331,
     "gpt": 330
   },
   "lastRun": {
     "claude": 1791587336658,
-    "grok": 1791552585347,
+    "grok": 1791599066798,
     "gpt": 1791572314620
   },
   "attempts": [
+    {
+      "id": "grok-1791599066798",
+      "ai": "grok",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Strong-coupling exponential decay of Wilson correlators proved; continuum RG obstruction identified, no full gap.",
+      "ts": "2026-10-10T02:24:26.798Z",
+      "duration_ms": 28053
+    },
     {
       "id": "claude-1791587336658",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-29T13:19:05.529Z",
       "duration_ms": 417
-    },
-    {
-      "id": "gpt-1790663843315",
-      "ai": "gpt",
-      "problem": "P vs NP",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-29T06:37:23.315Z",
-      "duration_ms": 1374
     }
   ]
 }
