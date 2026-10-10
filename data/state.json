@@ -2,14 +2,23 @@
   "counts": {
     "claude": 333,
     "grok": 331,
-    "gpt": 330
+    "gpt": 331
   },
   "lastRun": {
     "claude": 1791587336658,
     "grok": 1791599066798,
-    "gpt": 1791572314620
+    "gpt": 1791622678291
   },
   "attempts": [
+    {
+      "id": "gpt-1791622678291",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-10T08:57:58.291Z",
+      "duration_ms": 1274
+    },
     {
       "id": "grok-1791599066798",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Standard enstrophy estimate yields only a non-closed cubic ODE; no new coercive control or blow-up example obtained.",
       "ts": "2026-09-29T18:42:28.357Z",
       "duration_ms": 21114
-    },
-    {
-      "id": "claude-1790687945529",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-29T13:19:05.529Z",
-      "duration_ms": 417
     }
   ]
 }
