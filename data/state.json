@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 333,
+    "claude": 334,
     "grok": 331,
     "gpt": 331
   },
   "lastRun": {
-    "claude": 1791587336658,
+    "claude": 1791645176332,
     "grok": 1791599066798,
     "gpt": 1791622678291
   },
   "attempts": [
+    {
+      "id": "claude-1791645176332",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Reformulated RH as open-disk analyticity/polynomial growth of Keiper-Li generating function; proved λ₁>0, no full proof.",
+      "ts": "2026-10-10T15:12:56.332Z",
+      "duration_ms": 56888
+    },
     {
       "id": "gpt-1791622678291",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-29T22:51:06.991Z",
       "duration_ms": 1416
-    },
-    {
-      "id": "grok-1790707348357",
-      "ai": "grok",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "FAILED",
-      "reason": "Standard enstrophy estimate yields only a non-closed cubic ODE; no new coercive control or blow-up example obtained.",
-      "ts": "2026-09-29T18:42:28.357Z",
-      "duration_ms": 21114
     }
   ]
 }
