@@ -2,14 +2,23 @@
   "counts": {
     "claude": 335,
     "grok": 333,
-    "gpt": 332
+    "gpt": 333
   },
   "lastRun": {
     "claude": 1791682514399,
     "grok": 1791704853534,
-    "gpt": 1791672152014
+    "gpt": 1791729739910
   },
   "attempts": [
+    {
+      "id": "gpt-1791729739910",
+      "ai": "gpt",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-11T14:42:19.910Z",
+      "duration_ms": 1769
+    },
     {
       "id": "grok-1791704853534",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Strong-coupling gap evaporates under AF running; no continuum IR bound obtained.",
       "ts": "2026-09-30T23:31:55.180Z",
       "duration_ms": 35046
-    },
-    {
-      "id": "claude-1790798125992",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-09-30T19:55:25.992Z",
-      "duration_ms": 299
     }
   ]
 }
