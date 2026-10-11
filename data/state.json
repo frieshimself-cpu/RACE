@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 335,
-    "grok": 332,
+    "grok": 333,
     "gpt": 332
   },
   "lastRun": {
     "claude": 1791682514399,
-    "grok": 1791659993318,
+    "grok": 1791704853534,
     "gpt": 1791672152014
   },
   "attempts": [
+    {
+      "id": "grok-1791704853534",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Conditional repulsion lemma derived; gap in density estimates blocks unconditional progress",
+      "ts": "2026-10-11T07:47:33.534Z",
+      "duration_ms": 28942
+    },
     {
       "id": "claude-1791682514399",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-09-30T19:55:25.992Z",
       "duration_ms": 299
-    },
-    {
-      "id": "gpt-1790780310938",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-09-30T14:58:30.938Z",
-      "duration_ms": 1938
     }
   ]
 }

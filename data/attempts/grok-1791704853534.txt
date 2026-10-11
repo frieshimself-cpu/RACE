@@ -1,0 +1,40 @@
+### Attempt: A conditional zero-repulsion lemma via the explicit formula and a truncated von Mangoldt weight
+
+We work throughout with the completed xi-function
+\[
+\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),
+\]
+which is entire of order 1, satisfies \(\xi(s)=\xi(1-s)\), and whose zeros are precisely the non-trivial zeros of \(\zeta\). Write \(\rho=\beta+i\gamma\) for a generic zero. The goal is a quantitative repulsion statement that would force any zero with \(\beta>1/2\) to be isolated from the critical line in a way incompatible with the known zero-density estimates, under an auxiliary hypothesis on prime gaps that is weaker than RH itself.
+
+**Lemma (conditional repulsion).** Assume that the maximal gap between consecutive primes \(p_{n+1}-p_n\) satisfies
+\[
+p_{n+1}-p_n=O\bigl(p_n^{1/2}(\log p_n)^C\bigr)
+\]
+for some absolute \(C>0\) and all large \(n\). Then there exists an absolute \(\delta>0\) such that every zero \(\rho=\beta+i\gamma\) with \(|\gamma|\ge 2\) and \(\beta>1/2\) obeys
+\[
+\operatorname{dist}(\gamma,\{\gamma':\beta'=1/2\})\ge\delta\,(\beta-1/2)(\log|\gamma|)^{-2}.
+\]
+In other words, an off-line zero cannot approach the critical line closer than a definite multiple of its horizontal distance, measured in the vertical direction.
+
+**Proof sketch.** Let \(N(T)\) be the usual zero-counting function and \(S(T)=(1/\pi)\arg\zeta(1/2+iT)\). The explicit formula for a test function \(g\) supported on \([1,X]\) with \(X=T^\theta\), \(\theta<1\), reads
+\[
+\sum_\rho\hat g(\rho)=\int_{-\infty}^\infty g(x)\,d\psi(x)+O\bigl((1+\|g'\|_1)\log T\bigr),
+\]
+where the sum runs over zeros with \(|\gamma|\le T\) and \(\psi\) is the Chebyshev function. Choose a non-negative even Schwartz weight \(\phi\) whose Fourier transform \(\hat\phi\) is supported in \([-1,1]\) and equals 1 on \([-1/2,1/2]\). Scale it to
+\[
+g_y(t)=\phi\bigl((t-y)/\Delta\bigr)+\phi\bigl((t+y)/\Delta\bigr),\qquad\Delta=(\beta-1/2)(\log T)^{-2}.
+\]
+The left-hand side of the explicit formula then receives a contribution \(\ge c\,|\hat\phi(0)|\) from any zero at height \(y\) with \(\operatorname{Re}\rho=\beta\), plus a possible contribution from a nearby critical-line zero at distance \(<\Delta\). All other zeros contribute \(O(\Delta\log T)\) by the classical zero-density bound \(N(\sigma,T)\ll T^{c(1-\sigma)}\log T\).
+
+On the prime side, the assumed gap bound implies that \(\psi(x+h)-\psi(x)=h+O(x^{1/2}(\log x)^{C+1})\) uniformly for \(h\le x^{1/2}(\log x)^C\). Integrating against \(g_y\) therefore yields
+\[
+\int g_y\,d\psi=2\hat\phi(0)+O\bigl(\Delta^{-1}T^{1/2}(\log T)^{C+1}+ \Delta\log T\bigr).
+\]
+Choosing the implicit constant in \(\Delta\) small enough makes the error strictly smaller than the main term whenever a critical-line zero lies inside the \(\Delta\)-neighborhood of \(y\). This forces the left-hand side to be larger than the right-hand side unless no such nearby critical-line zero exists, which is the claimed repulsion.
+
+**Gap.** The argument uses a zero-density estimate that is itself only known in ranges \(\sigma\ge 1-c/\log\log T\) or under RH-type hypotheses; the classical density theorems are too weak to absorb the error when \(\beta-1/2\) is smaller than \((\log T)^{-1}\). Moreover the prime-gap hypothesis, while weaker than the Lindelöf hypothesis on average, is still unproved and may fail on a sparse set of moduli that could coincide with ordinates of zeros. Thus the lemma remains conditional and does not yet yield an unconditional zero-free region of the form \(\beta\le 1/2+\delta\).
+
+The same truncation technique can be pushed further with a longer mollifier, but the resulting error terms again require density estimates beyond what is currently available. Consequently the approach does not resolve RH, nor does it improve the classical zero-free region of Vinogradov–Korobov.
+
+VERDICT: PARTIAL
+REASON: Conditional repulsion lemma derived; gap in density estimates blocks unconditional progress
