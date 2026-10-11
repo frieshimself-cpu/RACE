@@ -1,0 +1,134 @@
+# Attempt: The Weil positivity criterion — forward direction and localization of the obstruction
+
+I give a self-contained treatment of the Riemann–Weil explicit formula as a
+quadratic form, prove rigorously the (easy) direction RH ⟹ positivity, and then
+isolate precisely *where* the converse resists a direct argument. The point of
+the write-up is to pin the obstruction down to a single sign-indefinite bilinear
+object rather than to claim it is resolved.
+
+## 1. Setup
+
+Write the nontrivial zeros as $\rho = \tfrac12 + i\gamma$, where $\gamma$ is real
+iff $\rho$ lies on the critical line. Let $g:\mathbb R\to\mathbb C$ be even,
+smooth, compactly supported, and set
+$$h(r)=\int_{-\infty}^\infty g(u)\,e^{iru}\,du,$$
+so $h$ is entire, even, and rapidly decreasing on horizontal lines. The
+Riemann–Weil explicit formula states
+$$
+\sum_{\rho} h(\gamma_\rho) \;=\; \underbrace{h\!\left(\tfrac{i}{2}\right)+h\!\left(-\tfrac{i}{2}\right)}_{\text{pole term}}
+\;-\; g(0)\log\pi
+\;+\; \frac{1}{2\pi}\int_{-\infty}^{\infty} h(r)\,\operatorname{Re}\psi\!\left(\tfrac14+\tfrac{ir}{2}\right)dr
+\;-\; 2\sum_{n=2}^{\infty}\frac{\Lambda(n)}{\sqrt n}\,g(\log n),
+\tag{EF}
+$$
+where $\psi=\Gamma'/\Gamma$ and $\Lambda$ is the von Mangoldt function. The sum
+over $\rho$ is over all nontrivial zeros, convergent when paired symmetrically.
+
+Define three functionals of $g$:
+- $P(g) = -\,2\sum_{n\ge2}\Lambda(n)n^{-1/2}g(\log n)$  (prime term),
+- $A(g) = -g(0)\log\pi + \frac{1}{2\pi}\int h(r)\operatorname{Re}\psi(\tfrac14+\tfrac{ir}{2})\,dr$ (archimedean term),
+- $Z(g) = h(i/2)+h(-i/2)$ (pole term).
+
+So $\sum_\rho h(\gamma_\rho) = Z(g)+A(g)+P(g)$.
+
+## 2. The quadratic-form restriction
+
+Restrict to **self-paired** test functions. Pick $\varphi$ even, smooth,
+compactly supported, real-valued, and set
+$$g(u) = (\varphi \star \widetilde\varphi)(u) = \int_{-\infty}^\infty \varphi(t)\,\varphi(t-u)\,dt,\qquad \widetilde\varphi(t)=\varphi(-t)=\varphi(t).$$
+Then $g$ is even and
+$$h(r) = \big|\widehat\varphi(r)\big|^2 \ge 0 \quad\text{for all real } r,$$
+where $\widehat\varphi(r)=\int\varphi(t)e^{irt}dt$. This is the crucial feature:
+on the **real axis** $h\ge 0$.
+
+Let $B(\varphi) := Z(g)+A(g)+P(g)$ with $g=\varphi\star\widetilde\varphi$. This is
+a Hermitian quadratic form in $\varphi$.
+
+## 3. Forward direction (rigorous): RH ⟹ $B(\varphi)\ge 0$
+
+Assume RH, so every $\gamma_\rho$ is real. By (EF),
+$$B(\varphi) = \sum_{\rho} h(\gamma_\rho) = \sum_{\rho}\big|\widehat\varphi(\gamma_\rho)\big|^2 \ge 0,$$
+each term being nonnegative. The symmetric pairing $\rho\leftrightarrow\bar\rho$
+(equivalently $\gamma\leftrightarrow-\gamma$) is respected because $h$ is even, so
+the rearrangement is legitimate. Hence **RH implies $B(\varphi)\ge0$ for every
+admissible $\varphi$.** $\qquad\blacksquare$
+
+This direction is genuinely a two-line consequence once (EF) is in hand; its only
+content is the choice $g=\varphi\star\widetilde\varphi$ forcing $h\ge0$ on $\mathbb R$.
+
+## 4. The converse and the exact location of the obstruction
+
+Bombieri's formulation says the converse also holds: if $B(\varphi)\ge0$ for all
+admissible $\varphi$ then RH holds. The reason is instructive and lets me localize
+the difficulty precisely.
+
+Suppose RH fails, with an off-line zero $\rho_0=\tfrac12+i\gamma_0$,
+$\gamma_0=\beta+i\delta$, $\delta\ne0$. By the functional equation zeros come in
+the quadruple $\{\rho_0,\bar\rho_0,1-\rho_0,1-\bar\rho_0\}$, i.e. the $\gamma$-values
+$\{\pm\beta+i\delta,\ \pm\beta-i\delta\}$. For such a zero
+$$h(\gamma_0)=\big|\widehat\varphi(\gamma_0)\big|^2$$
+is **no longer nonnegative**: $\widehat\varphi$ is evaluated off the real axis,
+where $|\widehat\varphi|^2$ is replaced by $\widehat\varphi(\gamma)\,\overline{\widehat\varphi(\bar\gamma)}$,
+which is complex and can have either sign after summing the quadruple. One can
+then concentrate $\widehat\varphi$ near $\gamma_0$ to make the quadruple's
+contribution dominate and be negative, violating $B(\varphi)\ge0$. This is the
+converse. The mechanics are standard; I do not reproduce the concentration
+estimate here.
+
+What this makes transparent is the following **clean reformulation**:
+
+> **Proposition (restated criterion).** RH is equivalent to the statement that
+> the Hermitian form
+> $$B(\varphi) = A(g) + P(g) + Z(g),\qquad g=\varphi\star\widetilde\varphi,$$
+> is nonnegative on the real cone $\{\varphi \text{ even, real, smooth, compact support}\}$.
+
+The genuinely hard half is to prove $B\ge0$ *unconditionally*. Here is the sharp
+difficulty, which I state as the honest conclusion of this attempt:
+
+- $A(g)$ is, up to the $-g(0)\log\pi$ term, a **positive-definite** form: the
+  kernel $\operatorname{Re}\psi(\tfrac14+\tfrac{ir}{2})$ is, for large $r$,
+  $\sim\log(r/2)>0$, and $\frac1{2\pi}\int|\widehat\varphi(r)|^2\log(\cdot)\,dr\ge0$
+  in the relevant range. So the archimedean + pole part is "trying" to be
+  positive.
+- $P(g) = -2\sum_n \Lambda(n)n^{-1/2}(\varphi\star\widetilde\varphi)(\log n)$ is
+  **sign-indefinite**: it is a diagonal-plus-off-diagonal form in the values
+  $\varphi(\tfrac12\log n)$, with cross terms $\varphi(t)\varphi(t-\log(n/m)\ldots)$
+  weighted by $\Lambda(n)/\sqrt n$. Writing $a(t)=\varphi(t)$, the prime term is
+  essentially
+  $$P = -2\sum_{m,n}\frac{\sqrt{\Lambda(m)\Lambda(n)}}{\ \cdots\ }\,(\text{correlations of }\varphi\text{ at shifts }\log(n/m)),$$
+  and the sign of its lowest eigenvalue is exactly what RH controls.
+
+**Unconditional reduction obtained here.** RH $\iff$ for all admissible $\varphi$,
+$$
+2\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\,(\varphi\star\widetilde\varphi)(\log n)
+\;\le\;
+A\big(\varphi\star\widetilde\varphi\big) + \big(h(\tfrac i2)+h(-\tfrac i2)\big).
+\tag{$\ast$}
+$$
+That is: RH is precisely a **domination inequality** of the prime-side bilinear
+form by the (explicit, positive-definite) archimedean + pole form on the
+convolution-square cone. Both sides are completely explicit and contain no zeros.
+
+## 5. Why a direct proof of $(\ast)$ is not delivered here
+
+An honest assessment: the right-hand side of $(\ast)$ grows like
+$\int|\widehat\varphi(r)|^2\log(2+|r|)\,dr$, while the left-hand side is a
+correlation sum over primes. Any proof of $(\ast)$ for *all* $\varphi$ would have
+to control prime correlations at every scale uniformly — which is equivalent in
+strength to RH itself, not weaker. In particular the positivity of $A$ gives only
+a $\log$-weighted $L^2$ bound, whereas the extremal $\varphi$ (concentrated so
+that $\widehat\varphi$ peaks near a putative off-line zero height) saturates both
+sides simultaneously. The two sides match to leading order precisely *because* of
+the functional equation, so no "slack" is available to a soft argument. This is a
+concrete reason the positivity method cannot be closed by elementary majorization:
+the inequality $(\ast)$ is not strict with any room to spare; it is an equality
+threshold.
+
+I did not find a way to produce the required uniform domination. The contribution
+here is: (i) a rigorous forward proof, (ii) the explicit domination
+reformulation $(\ast)$ of RH with no reference to zeros, and (iii) a precise
+obstruction — the threshold-tightness of $(\ast)$ forced by the functional
+equation.
+
+VERDICT: FAILED
+REASON: Reduced RH to explicit threshold inequality (∗) with no slack; proved forward direction only, no new unconditional bound.

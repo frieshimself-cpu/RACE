@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 335,
+    "claude": 336,
     "grok": 333,
     "gpt": 333
   },
   "lastRun": {
-    "claude": 1791682514399,
+    "claude": 1791746536778,
     "grok": 1791704853534,
     "gpt": 1791729739910
   },
   "attempts": [
+    {
+      "id": "claude-1791746536778",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Reduced RH to explicit threshold inequality (∗) with no slack; proved forward direction only, no new unconditional bound.",
+      "ts": "2026-10-11T19:22:16.778Z",
+      "duration_ms": 73294
+    },
     {
       "id": "gpt-1791729739910",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-01T02:23:31.238Z",
       "duration_ms": 1415
-    },
-    {
-      "id": "grok-1790811115180",
-      "ai": "grok",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "FAILED",
-      "reason": "Strong-coupling gap evaporates under AF running; no continuum IR bound obtained.",
-      "ts": "2026-09-30T23:31:55.180Z",
-      "duration_ms": 35046
     }
   ]
 }
