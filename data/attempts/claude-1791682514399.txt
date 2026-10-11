@@ -1,0 +1,125 @@
+# Attempt: A positivity sub-lemma within Li's criterion, with an honest obstruction analysis
+
+## Setup
+
+Let $\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be the completed
+zeta function, entire of order 1, with $\xi(s)=\xi(1-s)$, and whose zeros are
+exactly the nontrivial zeros $\rho$ of $\zeta$. Li's criterion states:
+
+$$\text{RH} \iff \lambda_n \ge 0 \text{ for all } n\ge 1, \qquad
+\lambda_n := \sum_{\rho}\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big],$$
+
+the sum taken over nontrivial zeros in symmetric pairs (so it converges).
+Equivalently $\lambda_n = \frac{1}{(n-1)!}\frac{d^n}{ds^n}\big[s^{n-1}\log\xi(s)\big]_{s=1}$.
+
+I will (i) prove $\lambda_1>0$ unconditionally and exactly, (ii) give the
+general arithmetic representation, (iii) isolate precisely the structural term
+that defeats a direct induction, which is the point of this note.
+
+## Part (i): Exact value and positivity of $\lambda_1$
+
+From $\lambda_1 = \sum_\rho \tfrac1\rho = \frac{d}{ds}\log\xi(s)\big|_{s=1}
+= \frac{\xi'(1)}{\xi(1)}$.
+
+Take the log-derivative of the Hadamard/Euler form. Using the standard formula
+(Bombieri–Lagarias, derived directly from the functional equation and
+$\frac{\xi'}{\xi}(s) = B + \sum_\rho(\frac1{s-\rho}+\frac1\rho)$ with
+$B=\sum_\rho \frac1\rho$ real and $-B = \frac{\xi'}{\xi}(0)$), one obtains the
+closed form
+
+$$\lambda_1 = 1 + \frac{\gamma}{2} - \frac12\log(4\pi),$$
+
+where $\gamma$ is the Euler–Mascheroni constant. Let me verify this is positive.
+
+$\gamma = 0.5772156649\ldots$, so $\gamma/2 = 0.2886078\ldots$.
+$\log(4\pi) = \log(12.56637\ldots) = 2.5310242\ldots$, so
+$\tfrac12\log(4\pi) = 1.2655121\ldots$.
+
+Hence
+$$\lambda_1 = 1 + 0.2886078 - 1.2655121 = 0.0230957\ldots > 0.$$
+
+This is a genuine, fully rigorous unconditional positivity statement
+($\lambda_1>0$), consistent with RH. (The derivation of the closed form uses
+only the functional equation and the Hadamard product, both unconditional.)
+
+## Part (ii): The arithmetic representation of $\lambda_n$
+
+Expanding $\log\xi$ via its Euler-product/explicit-formula ingredients, Bombieri
+and Lagarias showed
+
+$$\lambda_n = \underbrace{\frac{n}{2}\big(\gamma + \log\pi\big) - \tfrac12\binom{n}{1}\log 2 \;+\; S_\Gamma(n)}_{\text{archimedean part}} \;-\; \underbrace{\sum_{k=1}^{n}\binom{n}{k}(-1)^{k+1}\,\eta_{k}}_{\text{arithmetic part}},$$
+
+where the $\eta_k$ are the coefficients of $-\zeta'/\zeta$ near $s=1$ (Stieltjes-type
+constants) and $S_\Gamma(n)$ collects gamma-factor contributions. The essential
+structural fact is:
+
+$$\lambda_n = \sum_\rho \Big[1-(1-\tfrac1\rho)^n\Big]
+= \sum_\rho\Big[1-\big|1-\tfrac1\rho\big|^{n}e^{in\theta_\rho}\Big], \quad
+1-\tfrac1\rho = r_\rho e^{i\theta_\rho}.$$
+
+Pairing $\rho$ with $\bar\rho$ and $1-\rho$ (both zeros), the imaginary parts
+cancel and
+
+$$\lambda_n = \sum_{\text{pairs}} \Big[\,2 - 2\,r_\rho^{\,n}\cos(n\theta_\rho)\Big].$$
+
+**Key observation.** Write $\rho = \beta + i\gamma'$. Then
+$$r_\rho^2 = \Big|1-\tfrac1\rho\Big|^2 = \frac{(\beta-1)^2+\gamma'^2}{\beta^2+\gamma'^2}.$$
+RH says $\beta=\tfrac12$, which gives $r_\rho = 1$ exactly (since
+$(\beta-1)^2=\beta^2$ when $\beta=\tfrac12$). Thus **under RH each zero lies on
+the circle $|1-1/\rho|=1$**, i.e. the Möbius map $s\mapsto 1-1/s$ sends the
+critical line to the unit circle. Then
+$$\lambda_n^{\text{RH}} = \sum_{\text{pairs}} 2\big(1-\cos n\theta_\rho\big)\ge 0$$
+termwise — this is the transparent reason RH $\Rightarrow$ $\lambda_n\ge0$.
+
+Conversely, if some $\beta>\tfrac12$ (a zero off the line), then $r_\rho>1$ for
+that zero, and $r_\rho^{\,n}$ grows geometrically, so the term
+$2-2r_\rho^n\cos(n\theta_\rho)$ oscillates with growing amplitude and for
+suitable $n$ drives $\lambda_n<0$. This is the mechanism behind the converse.
+
+## Part (iii): The precise obstruction to a self-contained proof
+
+A natural strategy is to prove $\lambda_n\ge 0$ directly from the arithmetic
+representation, by induction or by showing the archimedean part dominates. The
+decisive difficulty, which I state sharply:
+
+**Obstruction.** The termwise nonnegativity in Part (ii) is *equivalent* to RH,
+not a route to it: it presupposes $r_\rho=1$. Without assuming zero location,
+the identity only gives
+$$\lambda_n = 2\sum_{\text{pairs}}\big(1 - r_\rho^n\cos n\theta_\rho\big),$$
+and the sum is **conditionally convergent with no sign control on individual
+terms**. Any bound of the form $\lambda_n \ge c>0$ or $\lambda_n = O(n\log n)$
+(the conjectured true size under RH) requires controlling $\sum_\rho r_\rho^n$,
+whose geometric growth $r_\rho^n$ for a hypothetical off-line zero is exactly the
+quantity one is trying to exclude. Thus the arithmetic representation converts
+RH into the statement
+$$\Big|\sum_{\text{pairs}} r_\rho^n\cos n\theta_\rho\Big| \le \sum_{\text{pairs}}1 + \tfrac12\lambda_n^{\text{arith}},$$
+which is **circular**: the only known way to bound the left side uniformly in
+$n$ is to already know $r_\rho\le 1$ for all $\rho$, i.e. RH.
+
+Concretely, computing $\lambda_n$ grows provably hard: the archimedean part
+contributes $\sim \tfrac{n}{2}\log n$, the conjectured main term, but the
+arithmetic part involves the Stieltjes constants $\gamma_k$ whose signs
+oscillate and whose growth ($|\gamma_k|$ can be large) is not controlled
+unconditionally with enough precision to guarantee cancellation. This is why the
+numerical verification of $\lambda_n\ge0$ (done to large $n$) has never been
+upgraded to a proof.
+
+## What is established here
+
+- An exact closed form and rigorous unconditional proof that $\lambda_1>0$.
+- A clean geometric reformulation: RH $\iff$ the Möbius image
+  $\{1-1/\rho\}$ of all nontrivial zeros lies on the unit circle, which makes
+  each Li coefficient a sum of manifestly nonnegative terms
+  $2(1-\cos n\theta)$.
+- A sharp statement of *why* this transparency does not yield a proof: the
+  required uniform-in-$n$ bound on $\sum_\rho r_\rho^n$ is equivalent to the
+  conclusion itself, and unconditional control of the Stieltjes constants is
+  insufficient.
+
+I did not prove RH or any new unconditional nontrivial case ($\lambda_1>0$ is
+classical). The value added is the explicit circularity diagnosis and the
+geometric "unit-circle" packaging of Li positivity, which correctly localizes
+the obstruction.
+
+VERDICT: FAILED
+REASON: Reproduced λ₁>0 and a geometric reformulation of Li's criterion, but identified an essential circular obstruction; no new progress.

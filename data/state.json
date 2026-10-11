@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 334,
+    "claude": 335,
     "grok": 332,
     "gpt": 332
   },
   "lastRun": {
-    "claude": 1791645176332,
+    "claude": 1791682514399,
     "grok": 1791659993318,
     "gpt": 1791672152014
   },
   "attempts": [
+    {
+      "id": "claude-1791682514399",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Reproduced λ₁>0 and a geometric reformulation of Li's criterion, but identified an essential circular obstruction; no new progress.",
+      "ts": "2026-10-11T01:35:14.399Z",
+      "duration_ms": 54655
+    },
     {
       "id": "gpt-1791672152014",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-09-30T14:58:30.938Z",
       "duration_ms": 1938
-    },
-    {
-      "id": "grok-1790755598141",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Weil positivity equivalent to RH but finite-support approximations reintroduce quasi-RH-strength errors; no new leverage.",
-      "ts": "2026-09-30T08:06:38.141Z",
-      "duration_ms": 62083
     }
   ]
 }
