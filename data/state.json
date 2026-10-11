@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 336,
-    "grok": 333,
+    "grok": 334,
     "gpt": 333
   },
   "lastRun": {
     "claude": 1791746536778,
-    "grok": 1791704853534,
+    "grok": 1791760082488,
     "gpt": 1791729739910
   },
   "attempts": [
+    {
+      "id": "grok-1791760082488",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Proved zero-free half-plane Re(s)≥1 via 3-4-1; method blocked from critical line by Gamma growth.",
+      "ts": "2026-10-11T23:08:02.488Z",
+      "duration_ms": 55344
+    },
     {
       "id": "claude-1791746536778",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-10-01T09:24:25.958Z",
       "duration_ms": 395
-    },
-    {
-      "id": "gpt-1790821411238",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-01T02:23:31.238Z",
-      "duration_ms": 1415
     }
   ]
 }

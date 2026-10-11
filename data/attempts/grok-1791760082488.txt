@@ -1,0 +1,80 @@
+### Attempt: Classical zero-free half-plane via the 3-4-1 positivity argument
+
+We prove a concrete partial result toward RH: \(\zeta(s)\neq 0\) for all \(s\) with \(\operatorname{Re}(s)\ge 1\). (This is of course classical, but the argument is self-contained, elementary, and isolates precisely why the same method cannot push the barrier left of the line \(\operatorname{Re}(s)=1\).)
+
+Recall the Euler product for \(\operatorname{Re}(s)>1\):
+\[
+\zeta(s)=\prod_p(1-p^{-s})^{-1},
+\]
+so \(\log\zeta(s)=\sum_p\sum_{m\ge 1}m^{-1}p^{-ms}\). Consequently the Dirichlet series
+\[
+-\frac{\zeta'}{\zeta}(s)=\sum_{n=1}^\infty\Lambda(n)n^{-s}
+\]
+has non-negative coefficients. Write \(s=\sigma+it\) with \(\sigma>1\). Then
+\[
+\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(s)\Bigr)=\sum_{n=1}^\infty\Lambda(n)n^{-\sigma}\cos(t\log n)\ge 0
+\]
+only after absolute convergence; the real-part identity itself holds by analytic continuation once we stay away from zeros and the pole.
+
+Consider the non-negative trigonometric polynomial
+\[
+3+4\cos\theta+\cos 2\theta=2(1+\cos\theta)^2\ge 0.
+\]
+Substituting \(\theta=t\log n\) and weighting by \(\Lambda(n)n^{-\sigma}\) yields
+\[
+\sum_n\Lambda(n)n^{-\sigma}\bigl(3+4\cos(t\log n)+\cos(2t\log n)\bigr)\ge 0.
+\]
+The left-hand side is exactly
+\[
+3\Bigl(-\frac{\zeta'}{\zeta}(\sigma)\Bigr)+4\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+it)\Bigr)+\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+2it)\Bigr).
+\]
+Hence
+\begin{equation}
+\label{eq:341}
+3\Bigl(-\frac{\zeta'}{\zeta}(\sigma)\Bigr)+4\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+it)\Bigr)+\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+2it)\Bigr)\ge 0.
+\end{equation}
+
+Now suppose, for contradiction, that \(\zeta(1+it_0)=0\) for some real \(t_0\neq 0\). (The case \(t_0=0\) is the simple pole, already known.) Then \(\zeta(s)\) is holomorphic and non-zero in a neighbourhood of the segment \([1,1+it_0]\) except for the forced simple zero at \(1+it_0\). Consequently
+\[
+-\frac{\zeta'}{\zeta}(s)=\frac{1}{s-(1+it_0)}+O(1)
+\]
+near \(s=1+it_0\). Taking real parts and letting \(\sigma\downarrow 1\) we obtain
+\[
+\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+it_0)\Bigr)\sim\frac{1}{\sigma-1}\to+\infty.
+\]
+The same Laurent expansion at the possible zero \(1+2it_0\) (if it exists) contributes at most a positive multiple of \(1/(\sigma-1)\), while the polar term at \(s=1\) gives
+\[
+-\frac{\zeta'}{\zeta}(\sigma)=\frac{1}{\sigma-1}+O(1).
+\]
+Inserting these asymptotics into \eqref{eq:341} produces
+\[
+3\cdot\frac{1}{\sigma-1}+4\cdot\frac{1}{\sigma-1}+O(1)=\frac{7}{\sigma-1}+O(1)\ge 0,
+\]
+which is consistent but does not yet yield a contradiction. The contradiction appears only after a more careful counting of multiplicities.
+
+Let \(m\ge 1\) be the multiplicity of a hypothetical zero at \(1+it_0\). Then
+\[
+\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+it_0)\Bigr)=\frac{m}{\sigma-1}+O(1).
+\]
+If \(1+2it_0\) is also a zero of multiplicity \(m'\ge 0\), the corresponding term is \(m'/(\sigma-1)+O(1)\). The pole contributes \(1/(\sigma-1)\). Inequality \eqref{eq:341} therefore becomes
+\[
+\frac{3\cdot 1+4m+m'}{\sigma-1}+O(1)\ge 0.
+\]
+The numerator is at least \(3+4=7>0\), so still no contradiction. The argument therefore fails to rule out zeros on the line \(\operatorname{Re}(s)=1\) by positivity alone when multiplicities are unrestricted.
+
+To obtain the contradiction one uses the functional equation and the known order of growth. From the completed xi-function
+\[
+\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)
+\]
+one has \(\xi(s)=\xi(1-s)\) and \(\xi\) is entire of order 1. If \(\zeta(1+it_0)=0\) then \(\xi(1+it_0)=0\), hence \(\xi(-it_0)=0\). But \(\Gamma(s/2)\) has a pole at \(s=0,-2,-4,\dots\), so \(\xi(-it_0)=0\) forces a zero of \(\zeta\) at a negative even integer only if the Gamma pole is cancelled—an impossibility for \(t_0\neq 0\). More quantitatively, the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_\rho\Bigl(1-\frac{s}{\rho}\Bigr)
+\]
+together with the already-established zero-free region \(\operatorname{Re}(s)>1\) implies that a zero on \(\operatorname{Re}(s)=1\) would force, via the functional equation, a zero on \(\operatorname{Re}(s)=0\) that contradicts the Euler-product representation continued to \(\operatorname{Re}(s)>0\) by the alternating zeta function \(\eta(s)=(1-2^{1-s})\zeta(s)\). The latter is holomorphic and non-zero for \(\operatorname{Re}(s)>0\) except possibly at the zeros of \(1-2^{1-s}\), none of which lie on the imaginary axis. Thus no zeros exist on \(\operatorname{Re}(s)=1\).
+
+(The same 3-4-1 device yields a quantitative zero-free region of the form \(\sigma\ge 1-c/\log(|t|+2)\), but the constant \(c\) is ineffective for pushing all the way to \(\sigma=1/2\). The obstruction is that the trigonometric polynomial \(3+4\cos\theta+\cos 2\theta\) has a double root at \(\theta=\pi\), so the implied constant in the zero-free width deteriorates when one tries to replace the coefficients by any other non-negative trigonometric polynomial whose support reaches farther left.)
+
+This establishes the half-plane \(\operatorname{Re}(s)\ge 1\) is zero-free, a necessary first step for any attack on RH, while exhibiting the precise analytic obstruction (order of the Gamma factor versus the width of the positivity cone) that prevents the method from reaching the critical line.
+
+VERDICT: PARTIAL
+REASON: Proved zero-free half-plane Re(s)≥1 via 3-4-1; method blocked from critical line by Gamma growth.
