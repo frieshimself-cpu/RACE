@@ -1,0 +1,28 @@
+## Attempt: A conditional reduction via truncated explicit formulae and a gap in positivity
+
+Let \(\Xi(t) = \xi(1/2 + it)\) with the usual completed zeta \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The Riemann Hypothesis is equivalent to all real zeros of \(\Xi\) being simple (or at least real). Write the Hadamard product
+\[
+\xi(s) = \xi(0)\prod_{\rho}(1-s/\rho),
+\]
+so that on the critical line
+\[
+-\frac{\Xi'(t)}{\Xi(t)} = \sum_{\gamma}\frac{1}{t-\gamma}
+\]
+(principal value, zeros \(\rho = 1/2 + i\gamma\)).
+
+Weil’s explicit formula equates a test-function pairing of the zeros against an arithmetic side involving primes:
+\[
+\sum_{\gamma} h(\gamma) = 2h(i/2) - \sum_{p^k}\frac{\log p}{p^{k/2}} \bigl(\hat h(\log p^k) + \hat h(-\log p^k)\bigr) + \text{archimedean terms},
+\]
+for even Schwartz \(h\) whose Fourier transform \(\hat h\) is supported in \((-R,R)\).
+
+**Lemma (attempted).** Suppose there exists a sequence of non-negative even test functions \(h_n\) with \(\hat h_n\ge 0\), \(\operatorname{supp}\hat h_n\subset(-R_n,R_n)\), \(R_n\to\infty\), normalized so that \(h_n(0)=1\), and such that the arithmetic side remains strictly positive for all large \(n\). Then all \(\gamma\) are real.
+
+**Sketch.** If a zero \(\rho=\sigma+i\gamma\) with \(\sigma\neq 1/2\) existed, the contribution \(\operatorname{Re}h(\gamma-i(\sigma-1/2))\) could be made negative for a suitably chosen positive-definite \(h\) concentrated near that height (by taking \(R\) large and using the rapid decay of \(\hat h\)), contradicting positivity of the right-hand side once the prime sum is controlled by the known prime-number theorem with classical zero-free region. The archimedean \(\Gamma\)-factor is positive for the usual Gaussian-smoothed cutoffs. Hence no such off-line zero can exist.
+
+**Where the argument fails.** The obstruction is uniform control of the prime sum when \(R_n\to\infty\). For any fixed zero-free region of the form \(\sigma\ge 1-c/\log(|t|+2)\), the error in the truncated explicit formula grows like \(\exp(C R_n)\) times a power of the height; the positivity margin coming from the diagonal prime terms \(\sum p^{-k/2}\log p\cdot\hat h(\log p^k)\) is only of size roughly \(R_n^{-1/2}\) after normalization. No choice of \(h_n\) (Gaussians, Fejér-type kernels, or band-limited bumps) closes the gap: the exponential growth of the possible contribution from a hypothetical zero with \(\operatorname{Re}\rho>1/2\) is not dominated by the arithmetic main term once \(R\) exceeds the width of the classical zero-free region. Strengthening the zero-free region enough to close the estimate is circular—it is essentially equivalent to a weak form of RH itself.
+
+Thus the reduction is valid only conditionally on a zero-free region wider than any region presently known by classical methods (Vinogradov–Korobov or later refinements). The lemma therefore yields no unconditional progress.
+
+VERDICT: FAILED
+REASON: Positivity reduction via explicit formulae is circular; needs stronger zero-free region than known.
