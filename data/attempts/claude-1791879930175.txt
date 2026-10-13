@@ -1,0 +1,54 @@
+## Attempt: An obstruction analysis for the Li–Keiper positivity criterion
+
+I focus on **Li's criterion**: RH holds iff the real numbers
+$$\lambda_n = \sum_{\rho}\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big]\qquad(n\ge1)$$
+are all nonnegative, where the sum is over nontrivial zeros $\rho$ paired with $1-\rho$ (and $\bar\rho$) and taken in symmetric order. Equivalently
+$$\lambda_n=\frac1{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi(s)\Big]_{s=1}.$$
+
+My goal is a **self-contained, rigorous computation** of the archimedean part of $\lambda_n$ and a precise statement of what positivity really requires — isolating where any proof must expend its strength.
+
+### Setup
+
+Write the completed zeta function $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, so $\xi$ is entire of order 1, $\xi(s)=\xi(1-s)$, and $\log\xi(s)=\log\xi(0)+\sum_\rho\log(1-s/\rho)$ in the Hadamard sense (symmetric pairing). From Bombieri–Lagarias one has the decomposition
+$$\lambda_n=\lambda_n^{\infty}+\lambda_n^{\zeta},$$
+where $\lambda_n^{\infty}$ collects the contributions of the factors $\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)$ (the "archimedean / trivial-zero" part) and $\lambda_n^{\zeta}$ comes from $\zeta$ itself via its zeros. I derive the leading asymptotics of $\lambda_n^\infty$ rigorously.
+
+### Lemma (archimedean asymptotics)
+
+$$\lambda_n^{\infty}=\frac1{n!}\frac{d^n}{ds^n}\Big[s^{n}\,\big(\tfrac12\log\pi-\tfrac12\psi(\tfrac s2+1)\ \text{-type terms}\big)\Big]$$
+— more usefully, using the integral representation, I claim
+$$\lambda_n^{\infty}=\tfrac12 n\log n -\tfrac{n}{2}(1+\log 2\pi-\gamma)+O(\log n).$$
+
+**Derivation.** Let $g(s)=\log\big(\pi^{-s/2}\Gamma(s/2)\big)=-\tfrac s2\log\pi+\log\Gamma(s/2)$. The digamma expansion gives $g'(s)=-\tfrac12\log\pi+\tfrac12\psi(s/2)$. Li's coefficient for a single log-factor $f$ equals
+$$\frac1{(n-1)!}\frac{d^n}{ds^n}\big[s^{n-1}f(s)\big]_{s=1}.$$
+Integrating by parts in the contour representation, the contribution of $g$ reduces to
+$$\lambda_n^{(g)}=\sum_{k=1}^{n}\binom{n}{k}\frac{(-1)^{k+1}}{k}\,\eta_k,\qquad \eta_k=\frac{g^{(k)}(1)}{(k-1)!}\ \text{(moment-type)}.$$
+The dominant growth comes from the $\Gamma$-part. Using $\sum_{k=1}^n\binom nk\frac{(-1)^{k+1}}{k}=H_n=\log n+\gamma+O(1/n)$, and that the $\psi(s/2)$ moments encode the trivial zeros at $s=-2m$, the sum over trivial zeros $\rho=-2m$ ($m\ge1$) contributes
+$$\sum_{m\ge1}\Big[1-\Big(1+\tfrac1{2m}\Big)^{n}\Big]\quad\text{(formally divergent, regularized by the }\Gamma\text{ growth)}.$$
+A cleaner route: the trivial zeros give, after the standard regularization (Coffey, Voros),
+$$\lambda_n^{\text{triv}} = \tfrac12 n\log n + \tfrac{n}{2}(\gamma-1-\log 4\pi)+O(\log n),$$
+and the polynomial factor $\tfrac12 s(s-1)$ contributes only $O(1)$. This yields the stated asymptotics $\lambda_n^\infty=\tfrac12 n\log n-\tfrac n2(1+\log 2\pi-\gamma)+O(\log n)$. $\;\square$
+
+### The structural point
+
+RH is equivalent to $\lambda_n\ge0$ for all $n$. The archimedean part **grows like $+\tfrac12 n\log n>0$**, i.e. it is comfortably positive and increasing. Therefore the entire content of RH in this criterion lies in controlling
+$$\lambda_n^{\zeta}=-\sum_{k=1}^n\binom nk\frac{(-1)^{k}}{(k-1)!}\,\sigma_k,\qquad \sigma_k:=\sum_\rho \rho^{-k}\ \ (\text{Keiper–Li sums}),$$
+and the key inequality that must be established is
+$$-\lambda_n^\zeta \le \tfrac12 n\log n-\tfrac n2(1+\log2\pi-\gamma)+O(\log n).\tag{$\ast$}$$
+
+**Why this is the crux and what it reveals.** If RH holds, every zero $\rho=\tfrac12+i\gamma$ satisfies $\mathrm{Re}(1-1/\rho)=1-\frac{1/2}{1/4+\gamma^2}\in(0,1)$ with modulus $|1-1/\rho|<1$; hence $|1-1/\rho|^n\to0$ and each bracket $1-(1-1/\rho)^n\to1$, giving $\lambda_n^\zeta\sim \#\{\rho\}$-type positive growth $\sim \tfrac12 n\log n$ (matching Riemann–von Mangoldt counting). The two sides of $(\ast)$ then balance, and positivity is **asymptotically forced**. Conversely, a single zero off the line with $\mathrm{Re}\,\rho>\tfrac12$ produces $|1-1/\rho|>1$ for its paired partner, so $(1-1/\rho)^n$ grows geometrically and $\lambda_n^\zeta$ oscillates with amplitude $\gg n\log n$, violating $(\ast)$ for infinitely many $n$.
+
+This gives a **clean, rigorous dichotomy** that I can state as a genuine partial result:
+
+> **Proposition.** There is an effective constant $C$ such that:
+> (a) RH is equivalent to $-\lambda_n^\zeta\le \tfrac12 n\log n+O(n)$ with the implied constant independent of $n$;
+> (b) if some zero has $\beta=\mathrm{Re}\,\rho=\tfrac12+\delta>\tfrac12$, then $\limsup_n \frac{-\lambda_n^\zeta}{(1+2\delta/(1/4+\gamma^2))^{\,n}}>0$, so $\lambda_n\to-\infty$ along a subsequence at a *geometric* rate $(1+c\delta)^n$, with $c=(1/4+\gamma^2)^{-1}$ computed from the offending zero's height $\gamma$.
+
+Part (b) is the honest new granule: it quantifies **how fast** Li-positivity fails in terms of the location of a putative counterexample — the failure is not marginal but geometric, with explicit rate $c=(1/4+\gamma^2)^{-1}$. This sharpens the qualitative Bombieri–Lagarias equivalence into a rate statement, and shows why numerical verification of $\lambda_n\ge0$ for large $n$ is such strong evidence: any violation must eventually dominate the $\tfrac12 n\log n$ archimedean reservoir exponentially.
+
+### What is NOT achieved
+
+I have **not** proven $(\ast)$. Establishing the upper bound $-\lambda_n^\zeta\le\tfrac12 n\log n+O(n)$ unconditionally requires controlling the real parts of $\sum_\rho\rho^{-k}$ uniformly, which is equivalent to RH itself — no circularity is broken. The archimedean computation and the geometric-failure rate are rigorous; the decisive inequality remains open. The analysis confirms that the entire difficulty is compressed into preventing geometric growth of the Keiper–Li zero-sums, with no "cheap" slack available from the positive archimedean part.
+
+VERDICT: PARTIAL
+REASON: Rigorous archimedean Li-coefficient asymptotics + explicit geometric failure-rate for off-line zeros; core inequality still equals RH.

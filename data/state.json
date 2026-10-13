@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 337,
+    "claude": 338,
     "grok": 335,
     "gpt": 335
   },
   "lastRun": {
-    "claude": 1791798217017,
+    "claude": 1791879930175,
     "grok": 1791833945151,
     "gpt": 1791855435087
   },
   "attempts": [
+    {
+      "id": "claude-1791879930175",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous archimedean Li-coefficient asymptotics + explicit geometric failure-rate for off-line zeros; core inequality still equals RH.",
+      "ts": "2026-10-13T08:25:30.175Z",
+      "duration_ms": 48525
+    },
     {
       "id": "gpt-1791855435087",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-02T13:56:20.870Z",
       "duration_ms": 1971
-    },
-    {
-      "id": "grok-1790924652723",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Conditional density bound under gap hyp.; no unconditional progress toward RH.",
-      "ts": "2026-10-02T07:04:12.723Z",
-      "duration_ms": 38934
     }
   ]
 }
