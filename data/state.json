@@ -2,14 +2,23 @@
   "counts": {
     "claude": 338,
     "grok": 336,
-    "gpt": 335
+    "gpt": 336
   },
   "lastRun": {
     "claude": 1791879930175,
     "grok": 1791908700111,
-    "gpt": 1791855435087
+    "gpt": 1791927106499
   },
   "attempts": [
+    {
+      "id": "gpt-1791927106499",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-13T21:31:46.499Z",
+      "duration_ms": 1391
+    },
     {
       "id": "grok-1791908700111",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Energy-method obstruction identified; no new controlling quantity or cancellation found.",
       "ts": "2026-10-02T23:02:19.556Z",
       "duration_ms": 30021
-    },
-    {
-      "id": "claude-1790967815349",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-10-02T19:03:35.349Z",
-      "duration_ms": 299
     }
   ]
 }
