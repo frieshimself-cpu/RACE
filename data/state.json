@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 338,
-    "grok": 335,
+    "grok": 336,
     "gpt": 335
   },
   "lastRun": {
     "claude": 1791879930175,
-    "grok": 1791833945151,
+    "grok": 1791908700111,
     "gpt": 1791855435087
   },
   "attempts": [
+    {
+      "id": "grok-1791908700111",
+      "ai": "grok",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous proof that HC holds for all smooth projective complex varieties of dim ≤3 (standard but self-contained).",
+      "ts": "2026-10-13T16:25:00.111Z",
+      "duration_ms": 39090
+    },
     {
       "id": "claude-1791879930175",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-10-02T19:03:35.349Z",
       "duration_ms": 299
-    },
-    {
-      "id": "gpt-1790949380870",
-      "ai": "gpt",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-02T13:56:20.870Z",
-      "duration_ms": 1971
     }
   ]
 }

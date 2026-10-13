@@ -1,0 +1,47 @@
+### Partial result: The Hodge conjecture holds in dimension \(\leq 3\)
+
+Let \(X\) be a smooth complex projective variety of dimension \(n\leq 3\). Write \(H^{k}(X,\mathbb{Q})\) for singular cohomology with rational coefficients, and let
+\[
+\operatorname{Hdg}^{p}(X):=H^{2p}(X,\mathbb{Q})\cap H^{p,p}(X)
+\]
+be the space of rational Hodge classes of type \((p,p)\). The cycle class map
+\[
+\operatorname{cl}:\operatorname{CH}^{p}(X)_{\mathbb{Q}}\to\operatorname{Hdg}^{p}(X)
+\]
+is known to be surjective when \(p=0\) or \(p=n\) (points and the fundamental class). It remains to treat the intermediate degrees. We use the Lefschetz theorem on \((1,1)\)-classes, the hard Lefschetz theorem, and the Lefschetz hyperplane theorem.
+
+#### Case \(n=1\)
+Only \(p=0,1\) arise; both are immediate.
+
+#### Case \(n=2\)
+The only nontrivial group is \(\operatorname{Hdg}^{1}(X)\). By the Lefschetz theorem on \((1,1)\)-classes every class in
+\[
+H^{2}(X,\mathbb{Q})\cap H^{1,1}(X)
+\]
+is the class of a divisor, so \(\operatorname{cl}\) is surjective.
+
+#### Case \(n=3\)
+The groups \(\operatorname{Hdg}^{0}\) and \(\operatorname{Hdg}^{3}\) are trivial as above. For \(\operatorname{Hdg}^{1}(X)\) the Lefschetz \((1,1)\)-theorem again gives surjectivity of \(\operatorname{cl}\). It remains to treat \(\operatorname{Hdg}^{2}(X)\).
+
+Hard Lefschetz supplies an isomorphism
+\[
+L:H^{2}(X,\mathbb{Q})\xrightarrow{\sim}H^{4}(X,\mathbb{Q}),\qquad\alpha\mapsto\alpha\cup\omega,
+\]
+where \(\omega=c_{1}(\mathcal{O}_{X}(1))\) is the class of a hyperplane section. This isomorphism is of pure Hodge type: it sends \(H^{p,q}\) onto \(H^{p+1,q+1}\). In particular it restricts to an isomorphism of rational Hodge structures
+\[
+L:\operatorname{Hdg}^{1}(X)\xrightarrow{\sim}\operatorname{Hdg}^{2}(X).
+\]
+Any class \(\beta\in\operatorname{Hdg}^{2}(X)\) may therefore be written \(\beta=L(\alpha)\) for a unique \(\alpha\in\operatorname{Hdg}^{1}(X)\). By the already-established case \(p=1\), \(\alpha=\operatorname{cl}(D)\) for some divisor \(D\). Then
+\[
+\beta=\operatorname{cl}(D\cdot H),
+\]
+where \(H\) is a hyperplane section; the intersection product \(D\cdot H\) is an algebraic 1-cycle (codimension 2). Hence \(\operatorname{cl}\) is surjective on \(\operatorname{Hdg}^{2}(X)\).
+
+(The same argument with Poincaré duality shows that the dual statement for homology classes holds equally.)
+
+Thus the Hodge conjecture is true for every smooth complex projective variety of dimension at most 3.
+
+(Note that the argument uses projectivity in an essential way via the existence of an ample class \(\omega\) that realises hard Lefschetz; it does not extend to arbitrary Kähler threefolds.)
+
+VERDICT: PARTIAL
+REASON: Rigorous proof that HC holds for all smooth projective complex varieties of dim ≤3 (standard but self-contained).
