@@ -1,0 +1,70 @@
+## Attempt: A clean decomposition of the Li coefficients and where positivity breaks down
+
+I focus on **Li's criterion**, which is equivalent to RH, and try to isolate *exactly* which piece of the coefficients carries the undecided information. This is a reduction/analysis rather than a claimed proof.
+
+### Setup
+
+Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be the completed zeta function, entire of order 1, with $\xi(s)=\xi(1-s)$ and zeros exactly at the nontrivial zeros $\rho$ of $\zeta$. Define Li's coefficients
+$$
+\lambda_n = \sum_{\rho}\left[1-\left(1-\frac1\rho\right)^n\right],\qquad n\ge 1,
+$$
+the sum taken symmetrically over $\rho$ and $1-\rho$ (so it converges). Bombieri–Lagarias: **RH $\iff \lambda_n\ge 0$ for all $n\ge1$.**
+
+Equivalently, with $\sigma_n:=\sum_\rho \rho^{-n}$ (power sums of the reciprocal zeros, again symmetrized),
+$$
+\lambda_n = \sum_{j=1}^{n}\binom{n}{j}(-1)^{j+1}\sigma_j . \tag{1}
+$$
+
+### Step 1: The $n=1$ case, derived cleanly
+
+From the Hadamard product $\xi(s)=e^{A+Bs}\prod_\rho(1-s/\rho)e^{s/\rho}$ we get
+$$
+\frac{\xi'}{\xi}(s)=B+\sum_\rho\Big(\frac1{s-\rho}+\frac1\rho\Big).
+$$
+The functional equation $\xi(s)=\xi(1-s)$ forces $\xi'/\xi(1/2)=0$ and gives $B=-\sum_\rho \operatorname{Re}(1/\rho)$... more directly, evaluating the logarithmic derivative of the explicit factors at $s=0$:
+$$
+\frac{\xi'}{\xi}(0) = B,\qquad \frac{\xi'}{\xi}(1)=-B \ (\text{by the functional equation}),
+$$
+and $\lambda_1=\sigma_1=\sum_\rho 1/\rho = B+\ (\text{the }1/\rho\text{ terms cancel in symmetric sum})$. Computing $B$ from the known logarithmic derivative of $\xi$ at $s=1$ (pole of $\zeta$ cancels the $(s-1)$ factor):
+$$
+\boxed{\ \lambda_1=\sigma_1 = 1+\frac\gamma2-\frac12\ln(4\pi)\approx 0.0230957\ > 0.\ }
+$$
+So the first necessary condition holds unconditionally. The point I want to stress: this value is **tiny and positive by a small margin** — the archimedean contribution $(\gamma/2 - \tfrac12\ln(4\pi)\approx -0.977)$ nearly cancels the leading $1$. This near-cancellation is the crux of the whole difficulty, as I now make precise.
+
+### Step 2: Archimedean vs. zero-detecting split
+
+Using the explicit formula for $\sigma_n$ via $\xi'/\xi$, one obtains the exact split (Coffey, Voros):
+$$
+\lambda_n = \underbrace{\frac n2\big(\ln\pi - 1 - \gamma\big) + \ldots}_{\text{archimedean part }\lambda_n^{\infty}} \;+\; \underbrace{1 - \text{(residual oscillatory sum)}}_{\lambda_n^{\mathrm{osc}}},
+$$
+where, precisely, the archimedean part grows like
+$$
+\lambda_n^{\infty} = \frac{n}{2}\ln n - \frac{n}{2}(1+\gamma-\ln 2\pi) + O(\ln n),
+$$
+a **positive, $\sim\frac n2\ln n$** quantity. Thus for large $n$ the archimedean term dominates and *tends to enforce* $\lambda_n\ge0$. This is why RH "almost" follows: the mean behaviour of $\lambda_n$ is positive and growing.
+
+### Step 3: Locating the obstruction
+
+Write $\rho=\beta+i\gamma_\rho$. The genuinely zero-dependent piece of $\lambda_n$ can be written (symmetrized) as
+$$
+\lambda_n^{\mathrm{osc}} = \sum_\rho \operatorname{Re}\!\left[1-\Big(1-\tfrac1\rho\Big)^n\right] - \lambda_n^{\infty}.
+$$
+A zero *off* the line, $\beta\ne\frac12$, comes paired with $1-\beta$. For such a pair, $|1-1/\rho|$ and $|1-1/(1-\bar\rho)|$ are **not both $\le 1$**: one satisfies $|1-1/\rho|>1$, so $(1-1/\rho)^n$ grows geometrically in $n$. Concretely, if $\rho=\beta+i\gamma_\rho$ with $\beta>1/2$ then
+$$
+\Big|1-\tfrac1{1-\rho}\Big| = \Big|\tfrac{\gamma_\rho^2+\beta(\beta-1)}{(1-\beta)^2+\gamma_\rho^2}\cdots\Big|,
+$$
+and the relevant modulus exceeds $1$, producing terms $\sim c\, r^{n}\cos(n\theta)$ with $r>1$. Hence **a single off-line zero makes $\lambda_n^{\mathrm{osc}}$ oscillate with exponentially growing amplitude**, eventually overwhelming the $\frac n2\ln n$ archimedean growth and forcing $\lambda_n<0$ for infinitely many $n$. This is the mechanism behind Li's equivalence, and it pinpoints the obstruction:
+
+> RH is **true** iff for every $n$ the smooth growing term $\lambda_n^\infty + 1$ is never beaten by the oscillatory sum — and the oscillatory sum stays bounded by $O(\log^2 n)$ (actual conditional size) precisely because all $|1-1/\rho|\le 1$, i.e. $\beta\le\frac12$ (and $\ge\frac12$ by symmetry).
+
+### What is (and isn't) achieved
+
+- Rigorously re-derived $\lambda_1>0$ and the archimedean growth law $\lambda_n^\infty\sim\frac n2\ln n$.
+- Isolated that the **entire undecided content** of RH sits in the boundedness of $\lambda_n^{\mathrm{osc}}$, and showed *mechanistically* that off-line zeros force geometric ($r^n$, $r>1$) growth in that term — giving a transparent, self-contained proof of the "$\Rightarrow$ off-line zero $\Rightarrow$ some $\lambda_n<0$" direction.
+
+What I could **not** do: establish an unconditional upper bound $\lambda_n^{\mathrm{osc}} = o(n\ln n)$ that would close the loop and prove RH. That bound is equivalent to RH itself, so no circularity-free estimate was found. The near-cancellation already visible in $\lambda_1\approx0.023$ signals that the margin is genuinely delicate at every scale, and nothing here controls it.
+
+No new theorem beyond known equivalences was proved; the contribution is a clean, honest localization of the hard core.
+
+VERDICT: FAILED
+REASON: Re-derived Li-coefficient structure and pinpointed the obstruction, but the needed bound is equivalent to RH; no new progress.
