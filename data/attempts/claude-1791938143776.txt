@@ -1,0 +1,84 @@
+# Attempt: A moment-positivity reformulation of RH via the Pólya $\Phi$-function, with a verified necessary condition
+
+I work with the entire function obtained from the completed zeta function. Define, as usual,
+$$
+\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),\qquad \Xi(t)=\xi\!\left(\tfrac12+it\right).
+$$
+$\Xi$ is entire, real on $\mathbb{R}$, even, of order $1$, and RH is equivalent to: **all zeros of $\Xi$ are real.**
+
+There is a classical integral representation
+$$
+\Xi(t)=\int_0^\infty \Phi(u)\cos(ut)\,du,
+$$
+where
+$$
+\Phi(u)=\sum_{n=1}^\infty\bigl(2\pi^2 n^4 e^{9u/2}-3\pi n^2 e^{5u/2}\bigr)\exp(-\pi n^2 e^{2u}).
+$$
+It is known that $\Phi(u)>0$, $\Phi$ is even in $u$, and $\Phi$ together with all derivatives decays faster than any exponential. These facts I take as background (they are elementary consequences of the theta transformation and are not the object of the attempt).
+
+## The reformulation I want to make precise
+
+Since $\Phi$ is even, write the two-sided even measure $d\mu(u)=\Phi(u)\,du$ on $\mathbb{R}$. Then
+$$
+\Xi(t)=\tfrac12\int_{-\infty}^{\infty}\Phi(u)e^{iut}\,du=\tfrac12\,\widehat{\Phi}(-t),
+$$
+so $\Xi$ is (a multiple of) the Fourier transform of a positive, even, rapidly decaying function. **RH is the statement that the Fourier transform of $\Phi$ has only real zeros**, i.e. that $\Phi$ belongs to the Laguerre–Pólya class under Fourier transform — precisely the setting of the de Bruijn–Newman deformation $\Phi_\lambda(u)=e^{\lambda u^2}\Phi(u)$.
+
+Here is the concrete positivity statement I derive and check.
+
+**Lemma (Hamburger-type necessary condition).**
+Suppose $\Xi$ has only real zeros (RH). List them (with multiplicity) as $\pm\gamma_1,\pm\gamma_2,\dots$ with $\gamma_k>0$. Because $\Xi$ has order $1$, genus $1$, and $\Xi(0)=\xi(1/2)>0$, Hadamard factorization gives
+$$
+\Xi(t)=\Xi(0)\prod_{k}\Bigl(1-\frac{t^2}{\gamma_k^2}\Bigr).
+$$
+(No exponential factor survives because $\Xi$ is even, so the linear term in the exponent vanishes.) Taking the logarithmic second derivative at $t=0$,
+$$
+-\frac{d^2}{dt^2}\log\Xi(t)\Big|_{t=0}=\sum_k \frac{2}{\gamma_k^2}>0 .
+$$
+On the other hand, from the integral representation,
+$$
+\Xi(0)=\int_{-\infty}^\infty \tfrac12\Phi(u)\,du=:m_0,\qquad
+\Xi''(0)=-\int_{-\infty}^\infty \tfrac12 u^2\Phi(u)\,du=:-m_2,
+$$
+with $m_0,m_2>0$ the (positive) even moments of $\Phi$. Since $\log\Xi(t)=\log m_0 -\tfrac{m_2}{2m_0}t^2+O(t^4)$,
+$$
+\sum_k \frac{2}{\gamma_k^2}=\frac{m_2}{m_0}. \tag{$\star$}
+$$
+
+So under RH the zero-sum $\sum_k \gamma_k^{-2}$ equals the explicit moment ratio $m_2/m_0$.
+
+**Verification / cross-check.** Independently of RH, for an even entire function of order $1$ and genus $1$ whose zeros $z_j$ (real or not) satisfy $\sum |z_j|^{-2}<\infty$, the same Hadamard product and the relation
+$$
+\sum_j \frac{1}{z_j^2}=\frac{m_2}{m_0}
+$$
+hold, because $\Xi''(0)/\Xi(0)=-\sum_j z_j^{-2}$ is forced by the product regardless of whether $z_j$ are real. This identity is therefore *not* equivalent to RH — it holds unconditionally. What RH adds is the sign/structure: all $z_j^2=\gamma_j^2$ are **positive reals**, so $(\star)$ is a sum of positive terms, whereas off-line zeros come in quadruples $\pm\gamma\pm i\delta$ contributing
+$$
+\frac{1}{(\gamma+i\delta)^2}+\frac{1}{(\gamma-i\delta)^2}+\frac{1}{(-\gamma+i\delta)^2}+\frac{1}{(-\gamma-i\delta)^2}
+=\frac{4(\gamma^2-\delta^2)}{(\gamma^2+\delta^2)^2},
+$$
+which can be **negative** when $\delta>\gamma$.
+
+**Consequence (a genuine, if weak, positivity test).**
+Define the real sequence of even moments $m_{2n}=\tfrac12\int u^{2n}\Phi(u)\,du>0$ (all positive since $\Phi>0$). Form the Taylor coefficients of $\log\Xi$:
+$$
+\log\Xi(t)=\log m_0 -\sum_{n\ge1} \frac{P_n}{2n}\,t^{2n},\qquad
+P_n=\sum_k \gamma_k^{-2n}\ \text{(power sums of }\gamma_k^2\text{, under RH)}.
+$$
+The $P_n$ are computable *unconditionally* as polynomials in the $m_{2j}/m_0$ via Newton's identities applied to the cumulants of the measure $\Phi$. **RH implies $P_n>0$ for every $n\ge1$** (power sums of positive reals $\gamma_k^2$). This yields an infinite family of concrete inequalities among the explicit moments $m_{2n}$ of $\Phi$:
+$$
+P_1=\frac{m_2}{m_0}>0,\quad
+P_2=\Bigl(\frac{m_2}{m_0}\Bigr)^2-\frac{1}{3}\frac{m_4}{m_0}+\dots>0,\ \dots
+$$
+
+I now **check $P_1$ and the structure of $P_2$**. $P_1>0$ is automatic since $m_0,m_2>0$: this inequality carries no information (consistent with the fact that a single quadruple with $\delta>\gamma$ could still leave the *total* $P_1$ positive). The first inequality capable of *detecting* off-line zeros is $P_n$ for the first $n$ at which negative quadruple contributions could dominate; from the quadruple formula above, large $\delta/\gamma$ makes $\sum 1/z^2$ negative but $\sum 1/|z|^{2n}$ for large $n$ is dominated by zeros of smallest modulus, so no fixed finite $n$ alone suffices — one genuinely needs the **whole family** $\{P_n>0\}_{n\ge1}$, i.e. the full Newton-positivity of the sequence, which is equivalent to: the measure of $\{\gamma_k^2\}$ is supported on $[0,\infty)$. That equivalence is exactly the **Hamburger moment problem positivity** (Hankel determinants of the $P_n$-generated sequence nonnegative).
+
+## Honest assessment of what this is and is not
+
+- **What is rigorous and (I believe) correctly derived:** the identity $(\star)$, its unconditional validity, the quadruple-contribution formula showing where RH's content actually lies, and the reduction "RH $\Rightarrow$ all power sums $P_n=\sum\gamma_k^{-2n}>0$."
+- **What falls short:** The converse — that $P_n>0$ for all $n$ forces all zeros real — is **not** true as stated: positive power sums (equivalently, that $\sum_k z_k^{-2n}>0\ \forall n$) only forces $\{z_k^2\}$ to lie in a half-plane/positivity cone, not on the positive real axis; complex $z_k^2$ with positive real parts can give all $P_n>0$. So this does **not** close to an equivalence, and the Hankel-positivity reformulation I gestured at applies to the *multiset of $z_k^2$* only if one already knows it is real. The reformulation is therefore a clean necessary condition and a repackaging of de Bruijn–Newman positivity, **not a new sufficient criterion**.
+- I did not produce any new zero-free region, nor any bound improving existing knowledge.
+
+In short: I verified a necessary moment-inequality family implied by RH and pinpointed precisely why it fails to be sufficient (the gap between "squared zeros in a positivity cone" and "squared zeros real and positive"). This isolates, concretely, the exact obstruction any moment/positivity attack must overcome, but it does not advance a proof.
+
+VERDICT: FAILED
+REASON: Derived correct RH-necessary moment inequalities ($P_n>0$) but showed they are not sufficient; no new progress.

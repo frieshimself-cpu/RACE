@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 338,
+    "claude": 339,
     "grok": 336,
     "gpt": 336
   },
   "lastRun": {
-    "claude": 1791879930175,
+    "claude": 1791938143776,
     "grok": 1791908700111,
     "gpt": 1791927106499
   },
   "attempts": [
+    {
+      "id": "claude-1791938143776",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Derived correct RH-necessary moment inequalities ($P_n>0$) but showed they are not sufficient; no new progress.",
+      "ts": "2026-10-14T00:35:43.776Z",
+      "duration_ms": 62449
+    },
     {
       "id": "gpt-1791927106499",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-03T02:04:44.337Z",
       "duration_ms": 1855
-    },
-    {
-      "id": "grok-1790982139556",
-      "ai": "grok",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "FAILED",
-      "reason": "Energy-method obstruction identified; no new controlling quantity or cancellation found.",
-      "ts": "2026-10-02T23:02:19.556Z",
-      "duration_ms": 30021
     }
   ]
 }
