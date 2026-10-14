@@ -1,0 +1,30 @@
+### Attempt: Failure analysis of a positivity approach via the Weil explicit formula
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The completed function satisfies \(\xi(s)=\xi(1-s)\) and is entire of order 1. The Riemann Hypothesis (RH) is equivalent to all zeros of \(\xi\) lying on the critical line \(\operatorname{Re}s=1/2\).
+
+The Weil explicit formula equates a sum over zeros to an arithmetic side. For a suitable even test function \(g\) (Schwartz class, Fourier transform \(\hat g\) supported in \((-1,1)\), say) one has
+\[
+\sum_{\rho} \hat g\bigl(\tfrac{\rho-1/2}{i}\bigr)
+=
+\hat g\bigl(\tfrac{-i}{2}\bigr)+\hat g\bigl(\tfrac{i}{2}\bigr)
+-\frac1{2\pi}\int_{-\infty}^{\infty}\frac{\Gamma'}{\Gamma}\bigl(\tfrac14+\tfrac{it}2\bigr)\hat g(t)\,dt
++\sum_{n=2}^{\infty}\frac{\Lambda(n)}{\sqrt n}\bigl(g(\log n)+g(-\log n)\bigr),
+\]
+where the sum runs over the non-trivial zeros \(\rho\) of \(\zeta\) (counted with multiplicity).
+
+A classical strategy toward RH is to choose \(g\ge0\) with \(\hat g\ge0\) so that the left-hand side is a weighted sum of \(\hat g((\rho-1/2)/i)\). If one could arrange that every term \(\hat g((\rho-1/2)/i)\) is strictly positive whenever \(\operatorname{Re}\rho\neq1/2\), while the right-hand side remains non-negative, a contradiction would follow unless no such \(\rho\) exist. (This is the spirit of Weil’s positivity criterion and of many subsequent refinements.)
+
+**Where the argument collapses.**  
+Suppose \(\rho_0=\sigma_0+it_0\) with \(\sigma_0>1/2\). Functional equation symmetry forces the four points \(\rho_0\), \(\overline{\rho_0}\), \(1-\rho_0\), \(1-\overline{\rho_0}\) to be zeros. For a radial test function the contributions of these four zeros to the left-hand side are
+\[
+2\operatorname{Re}\hat g\bigl(\tfrac{\sigma_0-1/2+it_0}{i}\bigr)
++2\operatorname{Re}\hat g\bigl(\tfrac{1/2-\sigma_0+it_0}{i}\bigr).
+\]
+Because \(\hat g\) is the Fourier transform of a positive function it is positive-definite, yet it is *not* necessarily positive at the two complex frequencies \((\sigma_0-1/2)/i\) and \((1/2-\sigma_0)/i\). One can construct (by standard Paley–Wiener arguments) admissible \(g\) for which the sum of those four contributions is *negative* while the arithmetic side stays positive. Consequently the total left-hand side can remain non-negative even in the presence of off-line zeros; no contradiction arises.
+
+Moreover, the contribution of any finite set of off-line zeros can be absorbed into the \(O(\log T)\) error of the Riemann–von Mangoldt formula, so density-zero exceptions are invisible to any fixed test-function family. Thus the positivity method, while equivalent to RH when the class of test functions is enlarged sufficiently (Li’s criterion, etc.), cannot rule out zeros off the line by any concrete, explicitly constructible \(g\) of the classical Weil type.
+
+The obstruction is therefore structural: positivity of the explicit formula controls only a weighted average of the zeros and does not force each individual zero onto the critical line.
+
+VERDICT: FAILED
+REASON: Positivity via Weil formula cannot exclude density-zero off-line zeros; test-function contributions need not be positive.
