@@ -2,14 +2,23 @@
   "counts": {
     "claude": 340,
     "grok": 338,
-    "gpt": 337
+    "gpt": 338
   },
   "lastRun": {
     "claude": 1791991645528,
     "grok": 1792006838787,
-    "gpt": 1791974095805
+    "gpt": 1792018791718
   },
   "attempts": [
+    {
+      "id": "gpt-1792018791718",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-14T22:59:51.718Z",
+      "duration_ms": 1753
+    },
     {
       "id": "grok-1792006838787",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Explicit-formula/Turán approach saturates at Korobov width; no new zero-free or positivity lemma.",
       "ts": "2026-10-03T23:08:42.944Z",
       "duration_ms": 32928
-    },
-    {
-      "id": "claude-1791058267122",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-10-03T20:11:07.122Z",
-      "duration_ms": 303
     }
   ]
 }
