@@ -1,0 +1,45 @@
+### Attempt: A conditional reduction via smoothed explicit formulae and a failed closure under square-root cancellation
+
+Let \(\Xi(t) = \xi(\tfrac12 + it)\) denote the completed Riemann \(\xi\)-function restricted to the critical line (entire, real for real \(t\), and of order 1). The Riemann Hypothesis (RH) is equivalent to all zeros of \(\Xi\) being real. Write the Hadamard product
+\[
+\Xi(t) = \Xi(0)\prod_{\rho}(1 - t/\gamma_\rho)e^{t/\gamma_\rho},
+\]
+where the product runs over the imaginary parts of the non-trivial zeros (counted with multiplicity) and is understood in the usual Weierstrass sense. Taking the logarithmic derivative yields the explicit formula
+\[
+\frac{\Xi'}{\Xi}(t) = \sum_{\gamma}\frac{1}{t-\gamma} + O\bigl(\tfrac{\log(|t|+2)}{1+|t|}\bigr).
+\]
+(The error absorbs the contribution of the trivial zeros and the archimedean Gamma factors after Stirling.)
+
+Now introduce a non-negative even Schwartz test function \(\phi\) whose Fourier transform \(\hat\phi\) is supported in \((-1,1)\). Form the smoothed sum
+\[
+S(\phi,T) := \sum_{\gamma}\phi\bigl(\tfrac{\gamma}{T}\bigr).
+\]
+By the explicit formula and Fourier inversion one obtains, after a standard contour shift,
+\[
+S(\phi,T) = \frac{T}{2\pi}\hat\phi(0)\log\frac{T}{2\pi} + \frac{T}{2\pi}\int_{-\infty}^{\infty}\hat\phi(u)\operatorname{Re}\frac{\Gamma'}{\Gamma}\bigl(\tfrac14+\tfrac{iTu}{2}\bigr)\,du
+\]
+\[
+-\sum_{n=2}^{\infty}\frac{\Lambda(n)}{\sqrt n}\hat\phi\bigl(\tfrac{\log n}{2\pi T}\bigr) + O\bigl(T^{1/2+\varepsilon}\|\phi\|_{H^{1}}\bigr),
+\]
+where the error arises from the horizontal integrals on the contours \(\operatorname{Im}s=\pm T^{1+\varepsilon}\) (using the convexivity bound \(\zeta(\sigma+it)\ll |t|^{(1-\sigma)/3+\varepsilon}\)).
+
+Under the additional hypothesis that the non-trivial zeros satisfy the square-root cancellation estimate
+\[
+\sum_{|\gamma|\le T}e^{i\gamma x}\ll_{\varepsilon}T^{1/2+\varepsilon}(1+|x|)^{1/2}
+\]
+uniformly for \(|x|\le\log T\) (a weak form of the pair-correlation conjecture of Montgomery, known to be implied by RH itself via the Guinand–Weil explicit formula), the oscillatory sum on the right-hand side may be integrated by parts against \(\hat\phi\). The resulting main term is then
+\[
+S(\phi,T)=\frac{T}{2\pi}\hat\phi(0)\log\frac{T}{2\pi}+O\bigl(T^{1/2+\varepsilon}\bigr).
+\]
+Because \(\phi\ge0\) and \(\hat\phi\) has compact support inside the unit interval, a standard Tauberian argument (Ingham’s theorem for Dirichlet series with positive coefficients) would recover a zero-free region of the form
+\[
+\beta\le\tfrac12+O\bigl((\log|\gamma|)^{-1+\delta}\bigr)
+\]
+for every zero \(\rho=\beta+i\gamma\), which is already stronger than the classical zero-free regions and, after a standard bootstrap with the density estimates of Huxley, would force all zeros onto the critical line.
+
+**Obstruction.** The square-root cancellation hypothesis used above is not known unconditionally; the best available bound on the exponential sum over zeros is of size \(T\exp(-c(\log T)^{1/3}/(\log\log T)^{1/3})\) (coming from the Vinogradov–Korobov zero-free region via the explicit formula). Substituting this weaker bound re-introduces an error term of size \(T\exp(-c'(\log T)^{a})\) that is larger than the main term’s secondary contributions and destroys the Tauberian implication. Moreover, the same estimate is essentially equivalent (via the Guinand–Weil formula) to a quasi-RH statement, so the argument is circular: one cannot close the reduction without already assuming a form of RH strong enough to imply the desired conclusion.
+
+Thus the reduction yields only a conditional implication “weak pair correlation \(\Rightarrow\) RH”, which is already classical, and supplies no new unconditional information about the location of zeros.
+
+VERDICT: FAILED
+REASON: Circular reliance on unproved square-root cancellation; no unconditional zero-free gain.
