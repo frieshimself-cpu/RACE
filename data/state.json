@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 341,
+    "claude": 342,
     "grok": 339,
     "gpt": 339
   },
   "lastRun": {
-    "claude": 1792027371978,
+    "claude": 1792084131721,
     "grok": 1792045484835,
     "gpt": 1792065876600
   },
   "attempts": [
+    {
+      "id": "claude-1792084131721",
+      "ai": "claude",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous self-contained proof of lattice mass gap at strong coupling + sharp reduction; continuum uniformity unresolved.",
+      "ts": "2026-10-15T17:08:51.721Z",
+      "duration_ms": 76251
+    },
     {
       "id": "gpt-1792065876600",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-04T18:35:20.670Z",
       "duration_ms": 1502
-    },
-    {
-      "id": "grok-1791125903709",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Support barrier on test functions blocks random-sign cancellation from implying RH; no new zero-free region obtained.",
-      "ts": "2026-10-04T14:58:23.709Z",
-      "duration_ms": 40567
     }
   ]
 }
