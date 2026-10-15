@@ -1,0 +1,52 @@
+### Attempt: Obstruction to a Contour-Shift Proof of Zero-Free Regions Beyond the Classical Barrier
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function, entire of order 1, satisfying \(\xi(s)=\xi(1-s)\) and having the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_{\rho}(1-s/\rho)
+\]
+(over the non-trivial zeros, counted with multiplicity). Write \(\rho=\beta+i\gamma\). The classical zero-free region
+\[
+\beta\le 1-\frac{c}{\log(|\gamma|+2)}
+\]
+(for an absolute \(c>0\)) follows from a standard 3-4-1 contour argument on \(\operatorname{Re}(-\zeta'/\zeta)\) combined with the Euler product for \(\operatorname{Re}s>1\). The goal of the present note is to isolate a precise analytic obstruction that prevents any direct enlargement of this contour argument from reaching the critical line \(\beta=1/2\).
+
+#### Setup of the would-be contour argument
+Fix \(T\ge 2\) large and a vertical segment \(L=\{ \sigma+it:\, \sigma=\sigma_0(T),\, |t|\le T\}\) with \(1/2<\sigma_0(T)<1\). Let \(N(\sigma_0,T)\) be the number of zeros (with multiplicity) satisfying \(\beta\ge\sigma_0\) and \(|\gamma|\le T\). By the argument principle,
+\[
+N(\sigma_0,T)=\frac1{2\pi}\Delta_L\arg\xi(s)+O\bigl(\log T\bigr),
+\]
+the error arising from the horizontal sides (standard convexivity bounds on \(\xi\)). Equivalently, after logarithmic differentiation,
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\frac1{s-\rho}.
+\]
+On the line \(\operatorname{Re}s=\sigma_0\) one therefore wishes to show that the left-hand side cannot change argument by more than \(o(T\log T)\) unless \(N(\sigma_0,T)=0\).
+
+A natural attempt is to compare \(\xi'/\xi\) with its Euler-product counterpart on \(\operatorname{Re}s>1\):
+\[
+-\frac{\zeta'}{\zeta}(s)=\sum_{n=2}^\infty\frac{\Lambda(n)}{n^s},\qquad\operatorname{Re}s>1.
+\]
+Shifting a rectangular contour leftward from \(\operatorname{Re}s=1+\delta\) to \(\operatorname{Re}s=\sigma_0\) produces
+\[
+\sum_{n\le x}\frac{\Lambda(n)}{n^{s}}=\frac{\xi'}{\xi}(s)+O\bigl(x^{1-\sigma_0}\log x\bigr)+R(s),
+\]
+where the remainder \(R(s)\) collects residues at the zeros crossed plus the contribution of the Gamma factor. If one could obtain a uniform lower bound
+\[
+\biggl|\sum_{n\le x}\frac{\Lambda(n)}{n^{\sigma_0+it}}\biggr|\ge c\frac{\log T}{\sigma_0-1/2}
+\]
+for some positive proportion of heights \(t\in[T,2T]\), a contradiction with the known upper bound \(|\xi'/\xi(\sigma_0+it)|\ll\log^2 T\) (convexivity) would follow whenever \(\sigma_0-1/2\) is bounded away from zero, forcing \(N(\sigma_0,T)=0\).
+
+#### The obstruction
+The required lower bound on the Dirichlet polynomial fails for a structural reason already visible in the explicit formula. The truncated explicit formula (Weil) reads, for \(x>1\) and \(1/2<\sigma_0\le 1\),
+\begin{align*}
+\sum_{n\le x}\frac{\Lambda(n)}{n^{\sigma_0+it}}
+&=\frac{x^{1-\sigma_0-it}}{1-\sigma_0-it}-\sum_{|\gamma|\le T}\frac{x^{\rho-\sigma_0-it}}{\rho-\sigma_0-it}\\
+&\qquad+O\bigl(x^{-\sigma_0}\log(xT)+T^{-1}x^{1-\sigma_0}\log x\bigr).
+\end{align*}
+The diagonal term \(x^{1-\sigma_0-it}/(1-\sigma_0-it)\) is of size \(\asymp x^{1-\sigma_0}/|t|\). Each zero contribution is of size \(\asymp x^{\beta-\sigma_0}/|\gamma-t|\). When a zero with \(\beta>\sigma_0\) lies near height \(t\), its contribution can cancel the diagonal term to any desired accuracy by choosing the fractional part of \((\beta-\sigma_0)\log x/(2\pi)\) appropriately (Dirichlet approximation). Because the zeros are expected (and known on average) to have gaps of size \(2\pi/\log T\), such near-cancellations occur for a positive-density set of ordinates \(t\). Consequently the Dirichlet polynomial is \(o(x^{1-\sigma_0}/\log T)\) on a positive-density set, destroying the uniform lower bound needed to contradict the convexivity estimate for \(\xi'/\xi\).
+
+The same cancellation mechanism persists even if one inserts a smooth weight or replaces the sharp cut-off \(x\) by a longer average: the spectral side of the explicit formula still contains terms \(x^{\rho}\) whose real parts \(\beta-\sigma_0>0\) dominate the diagonal whenever a zero sits to the right of \(\sigma_0\). No choice of test function supported in a fixed multiple of \(1/\log T\) can suppress all of them simultaneously while retaining a usable main term.
+
+Thus every contour-shift argument that relies on comparing a Dirichlet polynomial against \(\xi'/\xi\) on a line \(\sigma_0>1/2\) is blocked by possible (and, under the assumption that RH fails, actual) cancellations coming from the zeros themselves. This is the precise reason the classical zero-free region cannot be enlarged to a fixed strip \(\beta\le 1-\delta\) by contour integration alone; any successful proof of RH must introduce an essentially new positivity, mollification, or dynamical ingredient that controls the horizontal distribution of zeros independently of the explicit formula.
+
+VERDICT: FAILED
+REASON: Contour obstruction identified but yields no new zero-free region or reduction toward RH.

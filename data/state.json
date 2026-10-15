@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 341,
-    "grok": 338,
+    "grok": 339,
     "gpt": 338
   },
   "lastRun": {
     "claude": 1792027371978,
-    "grok": 1792006838787,
+    "grok": 1792045484835,
     "gpt": 1792018791718
   },
   "attempts": [
+    {
+      "id": "grok-1792045484835",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour obstruction identified but yields no new zero-free region or reduction toward RH.",
+      "ts": "2026-10-15T06:24:44.835Z",
+      "duration_ms": 40928
+    },
     {
       "id": "claude-1792027371978",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-10-04T09:25:00.232Z",
       "duration_ms": 269
-    },
-    {
-      "id": "gpt-1791081821438",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-04T02:43:41.438Z",
-      "duration_ms": 1500
     }
   ]
 }
