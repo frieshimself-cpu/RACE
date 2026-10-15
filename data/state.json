@@ -2,14 +2,23 @@
   "counts": {
     "claude": 342,
     "grok": 340,
-    "gpt": 339
+    "gpt": 340
   },
   "lastRun": {
     "claude": 1792084131721,
     "grok": 1792095774048,
-    "gpt": 1792065876600
+    "gpt": 1792106198520
   },
   "attempts": [
+    {
+      "id": "gpt-1792106198520",
+      "ai": "gpt",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-15T23:16:38.520Z",
+      "duration_ms": 1258
+    },
     {
       "id": "grok-1792095774048",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Positivity certificate for bandlimited test functions does not exist; reduction is valid but empty.",
       "ts": "2026-10-05T00:28:42.746Z",
       "duration_ms": 32766
-    },
-    {
-      "id": "claude-1791150876624",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-10-04T21:54:36.624Z",
-      "duration_ms": 297
     }
   ]
 }
