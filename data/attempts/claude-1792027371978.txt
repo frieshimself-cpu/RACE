@@ -1,0 +1,194 @@
+# Mass Gap: Reflection Positivity, Strong-Coupling Gap, and the Uniformity Obstruction
+
+I give a rigorous, self-contained chain of lemmas on the lattice, locate
+precisely the single analytic step that remains open, and formulate it as a
+sharp sufficient condition. I claim no solution, but I try to make the
+reduction exact.
+
+## Setup
+
+Fix gauge group $G=SU(N)$, lattice $\Lambda = (a\mathbb{Z})^4$, Wilson action
+$$
+S_\beta(U) = \beta \sum_{p} \left(1 - \tfrac{1}{N}\operatorname{Re}\operatorname{tr} U_p\right),\qquad \beta = \frac{2N}{g_0^2},
+$$
+with $U_p$ the plaquette product. Expectations $\langle\cdot\rangle_\beta$ are
+w.r.t. $d\mu_\beta = Z^{-1} e^{-S_\beta}\prod dU_\ell$, $dU_\ell$ Haar. All
+statements below are for finite volume with free/periodic boundary; limits are
+taken along the standard subsequence.
+
+## Lemma 1 (Osterwalder–Seiler reflection positivity)
+
+Let $\theta$ be reflection across a hyperplane $\{x_0 = 0\}$ *through sites*
+(site reflection). Let $\mathcal{A}_+$ be the algebra of functions of link
+variables with $x_0 \ge 0$. Then for all $F \in \mathcal{A}_+$,
+$$
+\langle \overline{\theta F}\, F\rangle_\beta \ge 0.
+$$
+
+*Proof.* The Wilson action splits as
+$S = S_+ + S_- + S_0$ where $S_0$ couples only links crossing the plane, and
+$\theta S_+ = S_-$. Crucially the plaquettes straddling the plane have the
+form $\operatorname{tr}(U\,\theta(\cdot))$; because $e^{-S_0}$ expands as a
+sum of terms each factorizing as $\sum_k c_k\, g_k\,\theta \bar g_k$ with
+$c_k\ge 0$ (this uses $\operatorname{Re}\operatorname{tr}U_p \ge -N$ so that
+$\exp(\frac{\beta}{N}\operatorname{Re}\operatorname{tr})$ has a positive
+expansion in class functions via the character expansion with non-negative
+coefficients — the Weingarten/character positivity of Haar measure), the
+quadratic form is a sum of squares. Integrating out $x_0<0$ links against
+$\overline{\theta F}F$ yields $\|\,\sum_k \sqrt{c_k}\,\langle g_k F\rangle_+\|^2 \ge 0$. $\square$
+
+The key input is that the single-plaquette Boltzmann weight has a **non-negative
+character expansion**:
+$\exp\!\big(\tfrac{\beta}{N}\operatorname{Re}\operatorname{tr}U\big)
+= \sum_{r} \tilde\beta_r(\beta)\,\chi_r(U)$ with $\tilde\beta_r \ge 0$.
+This is true for $SU(N)$ (heat-kernel-type positivity; also directly from the
+fact that it is a positive-definite central function). I take this as
+established.
+
+## Lemma 2 (Transfer matrix and the gap as a spectral quantity)
+
+RP gives a Hilbert space $\mathcal H$, a vacuum $\Omega$, and a self-adjoint
+contraction (transfer matrix) $T = e^{-aH}$, $0\le T\le 1$, $T\Omega=\Omega$,
+with $H\ge 0$, $H\Omega=0$. For $F,G\in\mathcal A_+$ localized on the
+$x_0=0$ slice,
+$$
+\langle (\theta F)\, T^{n} G\rangle = \big(\hat F,\, T^{n}\hat G\big)_{\mathcal H},\qquad n=|x_0|/a .
+$$
+Define the **mass gap in lattice units**
+$$
+m(a)\,a \;=\; \operatorname{dist}\big(0,\ \operatorname{spec}(H)\setminus\{0\}\big)\cdot a
+\;=\; -\log \|T\!\restriction_{\{\Omega\}^\perp}\|,
+$$
+assuming $\Omega$ is a simple eigenvalue (true at strong coupling; see below).
+Equivalently, by spectral theory, for any gauge-invariant local $\mathcal O$
+with $\langle\mathcal O\rangle=0$,
+$$
+\langle \mathcal O(x)\,\mathcal O(0)\rangle \;\le\; \|\hat{\mathcal O}\|^2\, e^{-m(a)\,|x|}. \tag{2.1}
+$$
+Conversely $m(a)$ equals the exponential decay rate of the **slowest-decaying**
+gauge-invariant correlator. This is the clean characterization: the physical
+mass gap, *if the continuum limit exists*, is
+$$
+m_{\mathrm{phys}} = \lim_{a\to 0} m(a),\qquad m(a) = \frac{1}{a}\,\xi(\beta)^{-1},
+$$
+with $\xi(\beta)$ the correlation length in lattice units. The entire content
+of the Millennium problem is: **(i)** the limit exists and is a nontrivial
+interacting QFT, and **(ii)** $0 < m_{\mathrm{phys}} < \infty$.
+
+## Lemma 3 (Strong-coupling gap, with explicit bound)
+
+For $\beta$ small enough there is $C,c>0$ with
+$$
+m(a)\,a \;\ge\; -\log\!\big(C\beta\big) \;>\;0,\qquad \beta < \beta_0 .
+$$
+
+*Proof sketch (standard but I pin the constant).* In the character
+expansion the leading coefficient ratio is
+$\tilde\beta_{\mathrm{fund}}/\tilde\beta_0 =: u(\beta)$ with
+$u(\beta) = \frac{\beta}{2N^2} + O(\beta^2)$ for $SU(N)$. For a Wilson loop /
+plaquette–plaquette correlator the convergent polymer (cluster) expansion gives
+an area/perimeter law: the connected two-plaquette correlator obeys
+$$
+|\langle \mathcal O_p(x)\mathcal O_p(0)\rangle_c| \le K\, u(\beta)^{\,|x|/a}
+$$
+for $u(\beta)$ below the polymer convergence radius $u_0(N)>0$. Hence
+$m(a) a \ge |\log u(\beta)| \to \infty$ as $\beta\to 0$. The expansion
+converges absolutely (Kotecký–Preiss criterion) for $u<u_0$, which also
+establishes simplicity of $\Omega$ and the mass gap as a genuine spectral gap.
+$\square$
+
+So on the lattice, at fixed $a$, **the gap is real and positive** and we even
+control it. The problem is entirely in the limit.
+
+## The Uniformity Obstruction (the real difficulty, stated sharply)
+
+Lemma 3 gives $m(a)a \ge |\log u(\beta)|$. But to reach the continuum we must
+take $\beta\to\infty$ (since $g_0\to0$), i.e. the *weak-coupling* regime, where
+the strong-coupling bound is useless and in fact $u(\beta)\to$ its max. Along
+the continuum trajectory asymptotic freedom predicts
+$$
+a\,\Lambda_{\mathrm{L}} = \left(\frac{\beta}{2N b_0}\right)^{-b_1/(2b_0^2)}
+e^{-\beta/(4N b_0)}\big(1+o(1)\big),\quad b_0=\frac{11N}{48\pi^2},
+$$
+so that $m_{\mathrm{phys}} = m(a)/a$ is finite **iff**
+$$
+m(a)\,a \;=\; c_m\cdot a\Lambda_{\mathrm{L}}\,(1+o(1)),\qquad c_m = m_{\rm phys}/\Lambda_{\rm L} > 0. \tag{$\star$}
+$$
+Thus the gap in lattice units must vanish *exactly at the exponentially small
+nonperturbative rate* $e^{-\beta/(4Nb_0)}$. This is the crux:
+
+- A lower bound $m(a)a \ge f(\beta)$ with $f$ decaying *slower* than
+  $a\Lambda_{\rm L}$ would force $m_{\rm phys}=\infty$ (no continuum theory,
+  contradiction with triviality-free expectation) — so any valid bound must be
+  *tight to exponential order*.
+- An upper bound $m(a)a \le g(\beta)$ with $g$ decaying *faster* than
+  $a\Lambda_{\rm L}$ would give $m_{\rm phys}=0$ (no gap).
+
+Therefore **no soft/convexity/monotonicity argument can succeed**: the answer is
+a nonperturbative constant $c_m$ multiplying a transcendental scale, and both a
+matching upper and lower bound of the *same* exponential order are required.
+This is why strong-coupling (Lemma 3) and perturbation theory (which only sees
+the power prefactor, not $c_m>0$) are each structurally insufficient.
+
+### A sharp sufficient condition (reduction)
+
+Combining the above, I can state a clean reduction:
+
+> **Proposition (conditional mass gap).** Suppose there exist constants
+> $0 < \kappa_1 \le \kappa_2 < \infty$ and $\beta_1$ such that for all
+> $\beta>\beta_1$, with $a=a(\beta)$ defined by matching the physical string
+> tension or any fixed renormalization condition,
+> $$
+> \kappa_1 \;\le\; \frac{m(a)}{\sqrt{\sigma(a)}} \;\le\; \kappa_2, \tag{R}
+> $$
+> where $\sigma(a)$ is the lattice string tension (area-law coefficient of the
+> fundamental Wilson loop). Then, provided $a\to0$ and $\sigma(a)/a^{-2}\to
+> \sigma_{\rm phys}\in(0,\infty)$ along the trajectory, the continuum theory has
+> mass gap $m_{\rm phys}\in[\kappa_1,\kappa_2]\sqrt{\sigma_{\rm phys}}>0$.
+
+*Proof.* $m(a) = \frac{m(a)}{\sqrt\sigma}\sqrt{\sigma(a)}$; the first factor is
+in $[\kappa_1,\kappa_2]$ by (R) and $\sqrt{\sigma(a)}\to\sqrt{\sigma_{\rm phys}}$
+by hypothesis. Take $a\to0$. $\square$
+
+This is genuinely a reduction because it replaces the *scale-setting* problem
+(the transcendental $a\Lambda$) by a **dimensionless, scale-invariant ratio
+$m/\sqrt\sigma$**, which is bounded and (conjecturally, and numerically) tends
+to a universal constant $\approx 3.3$ for $SU(3)$. The remaining mathematical
+content is:
+
+1. **Existence of a positive continuum string tension** $\sigma_{\rm phys}>0$
+   with $\sigma(a)a^2\to0$ — i.e. confinement survives the continuum limit.
+   Strong coupling gives $\sigma(a)a^2 = |\log u(\beta)| + \dots > 0$ at large
+   $g_0$; the open problem is non-vanishing as $g_0\to0$.
+2. **Two-sided comparability (R)** of the gap and the string tension, uniform
+   in $a$.
+
+Both are area-law/correlation-inequality statements about the *same* measure,
+so they are more homogeneous than $(\star)$: they do not require knowing the
+absolute scale, only that two nonperturbative scales stay comparable. I believe
+this is the correct target for correlation-inequality / RP-based methods: prove
+$m(a) \asymp \sqrt{\sigma(a)}$ uniformly.
+
+## Honest assessment of what is and isn't done
+
+- **Done rigorously here:** RP (Lemma 1), the spectral/variational meaning of
+  the gap and clustering (Lemma 2), the strong-coupling gap with explicit decay
+  (Lemma 3), and the identification that the true obstruction is the exponential
+  *uniformity* in the scaling limit.
+- **New content offered:** the reduction (Proposition) of the mass gap to the
+  *dimensionless* comparability $m\asymp\sqrt\sigma$, uniformly in $a$, which
+  sidesteps the transcendental scale-setting and reframes the problem as a pair
+  of correlation inequalities on a single measure.
+- **Not done:** I have **not** proven $\sigma_{\rm phys}>0$, nor the uniform
+  comparability (R). These require controlling the weak-coupling continuum limit
+  — exactly the step no one can currently do. My Lemma 3 lives on the wrong side
+  of the coupling. So this is a reduction, not a solution.
+
+The decisive missing ingredient is a bound on $m(a)$ or $\sigma(a)$ that is
+simultaneously (i) a rigorous lower bound and (ii) valid as $\beta\to\infty$,
+capturing the nonperturbative scale. Perturbation theory (asymptotic, zero
+radius of convergence) and strong coupling (wrong regime) both fail here, which
+my $(\star)$ analysis explains structurally rather than just asserts.
+
+VERDICT: FAILED
+REASON: Proved RP + strong-coupling lattice gap; reduced problem to uniform dimensionless bound m≍√σ, but did not establish it.

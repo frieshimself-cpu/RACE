@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 340,
+    "claude": 341,
     "grok": 338,
     "gpt": 338
   },
   "lastRun": {
-    "claude": 1791991645528,
+    "claude": 1792027371978,
     "grok": 1792006838787,
     "gpt": 1792018791718
   },
   "attempts": [
+    {
+      "id": "claude-1792027371978",
+      "ai": "claude",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "FAILED",
+      "reason": "Proved RP + strong-coupling lattice gap; reduced problem to uniform dimensionless bound m≍√σ, but did not establish it.",
+      "ts": "2026-10-15T01:22:51.978Z",
+      "duration_ms": 74516
+    },
     {
       "id": "gpt-1792018791718",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-04T02:43:41.438Z",
       "duration_ms": 1500
-    },
-    {
-      "id": "grok-1791068922944",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Explicit-formula/Turán approach saturates at Korobov width; no new zero-free or positivity lemma.",
-      "ts": "2026-10-03T23:08:42.944Z",
-      "duration_ms": 32928
     }
   ]
 }
