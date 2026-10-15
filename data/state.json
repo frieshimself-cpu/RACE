@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 342,
-    "grok": 339,
+    "grok": 340,
     "gpt": 339
   },
   "lastRun": {
     "claude": 1792084131721,
-    "grok": 1792045484835,
+    "grok": 1792095774048,
     "gpt": 1792065876600
   },
   "attempts": [
+    {
+      "id": "grok-1792095774048",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Identified concrete archimedean obstruction blocking direct Weil-positivity limit; circularity made explicit.",
+      "ts": "2026-10-15T20:22:54.048Z",
+      "duration_ms": 50395
+    },
     {
       "id": "claude-1792084131721",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-10-04T21:54:36.624Z",
       "duration_ms": 297
-    },
-    {
-      "id": "gpt-1791138920670",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-04T18:35:20.670Z",
-      "duration_ms": 1502
     }
   ]
 }

@@ -1,0 +1,67 @@
+### Attempt: Obstruction to a Direct Positivity Argument via the Explicit Formula
+
+Let \(\Xi(t) = \xi(1/2 + it)\) denote the (real-entire) Riemann xi-function on the critical line, normalized so that the Riemann Hypothesis (RH) is equivalent to all zeros of \(\Xi\) being real. Write the Hadamard product
+\[
+\Xi(t) = \Xi(0)\prod_{\rho}(1 - t^2/\gamma_\rho^2),
+\]
+where the product runs over the imaginary parts \(\gamma_\rho > 0\) of the non-trivial zeros (counted with multiplicity). Taking the logarithmic derivative yields the identity
+\[
+\frac{\Xi'}{\Xi}(t) = \sum_{\gamma} \frac{2t}{t^2 - \gamma^2}.
+\]
+The classical explicit formula of Weil then converts the sum over zeros into an arithmetic sum: for a suitable even Schwartz test function \(f\) with Fourier transform \(\hat f\),
+\[
+\sum_{\gamma} \hat f(\gamma) = \hat f(i/2) + \hat f(-i/2) - \sum_p\sum_{k\ge 1}\frac{\log p}{p^{k/2}}(f(k\log p)+f(-k\log p)) + \int_{-\infty}^{\infty}\frac{\Xi'}{\Xi}(t)f(t)\,dt
+\]
+(the precise archimedean contribution is absorbed into the continuous integral against \(\Xi'/\Xi\)).
+
+Weil’s positivity criterion asserts that RH holds if and only if the quadratic form
+\[
+Q(f) := \sum_{\gamma}\hat f(\gamma)
+\]
+is non-negative for every admissible \(f\) that is a square in the Fourier algebra (i.e., \(f = g*\tilde g\) for some \(g\)). Equivalently, the distributional inequality
+\[
+\sum_p\sum_{k\ge 1}\frac{\log p}{p^{k/2}}(f(k\log p)+f(-k\log p)) \le \hat f(i/2)+\hat f(-i/2) + \text{archimedean remainder}
+\]
+must hold for all such squares \(f\).
+
+#### Lemma (Archimedean obstruction at finite scale)
+Fix a compactly supported even mollifier \(\phi_\varepsilon\in C_c^\infty(\mathbb R)\) approximating the identity as \(\varepsilon\to 0\), and set \(f_\varepsilon = \phi_\varepsilon*\tilde\phi_\varepsilon\). Then the archimedean remainder
+\[
+R_\infty(f_\varepsilon) := \int_{-\infty}^{\infty}\frac{\Xi'}{\Xi}(t)f_\varepsilon(t)\,dt
+\]
+satisfies
+\[
+R_\infty(f_\varepsilon) = -C\log(1/\varepsilon) + O(1)
+\]
+with an absolute constant \(C>0\) independent of \(\varepsilon\). In particular, \(R_\infty(f_\varepsilon)\to-\infty\) as \(\varepsilon\to 0\).
+
+#### Sketch of proof of the lemma
+The logarithmic derivative \(\Xi'/\Xi\) admits the asymptotic
+\[
+\frac{\Xi'}{\Xi}(t) = -\tfrac12\log\bigl(\tfrac{|t|}{2\pi}\bigr) + O(1/|t|)
+\]
+uniformly for \(t\) real and \(|t|\ge 1\) (this follows at once from the functional equation and Stirling’s formula for the Gamma factor). Consequently
+\[
+R_\infty(f_\varepsilon) = \int_{|t|\ge 1}\Bigl(-\tfrac12\log\tfrac{|t|}{2\pi}\Bigr)f_\varepsilon(t)\,dt + O\bigl(\|f_\varepsilon\|_1\bigr).
+\]
+Because \(f_\varepsilon\) is an approximate identity of width \(\varepsilon\), the main contribution comes from a neighborhood of the origin of size \(O(\varepsilon)\). Splitting the integral at height \(1/\varepsilon\) and using the elementary bound \(\int_{|t|\le T}f_\varepsilon(t)\,dt = 1+O(\varepsilon)\) together with the rapid decay of the tails of \(f_\varepsilon\) produces the claimed logarithmic divergence:
+\[
+\int_{1\le|t|\le 1/\varepsilon}\log|t|\,f_\varepsilon(t)\,dt = \log(1/\varepsilon)+O(1).
+\]
+(The error terms coming from the \(O(1/|t|)\) remainder and from the far tails are absorbed into the \(O(1)\).)
+
+#### Consequence for the positivity criterion
+Inserting the lemma into Weil’s formula shows that the arithmetic side must compensate a diverging negative archimedean contribution. For the quadratic form \(Q(f_\varepsilon)\) to remain non-negative one would therefore need
+\[
+\sum_p\sum_{k\ge 1}\frac{\log p}{p^{k/2}}f_\varepsilon(k\log p) \ge \tfrac C2\log(1/\varepsilon) + O(1).
+\]
+The left-hand side is a smoothed sum of the von Mangoldt function over an interval of length \(O(\varepsilon)\) about each prime power. By the prime-number theorem with classical zero-free region one has
+\[
+\sum_{p\le x}\log p = x + O\bigl(x\exp(-c\sqrt{\log x})\bigr),
+\]
+which is far too weak to guarantee a lower bound of size \(\log(1/\varepsilon)\) uniformly down to scale \(\varepsilon\to 0\). Any improvement that would close the gap is essentially equivalent in strength to a zero-free region of width \(1/2-\delta\), i.e., to RH itself.
+
+Thus the most naïve attempt to verify Weil positivity by letting the test functions concentrate at the origin encounters a circularity: the archimedean divergence can be cancelled only by arithmetic information already as strong as RH. This obstruction persists for any family of test functions whose Fourier transforms are supported in a fixed compact set (the support must expand if one hopes to capture enough primes). Consequently the positivity criterion, while elegant, does not by itself furnish a viable inductive or limiting argument toward RH without an independent source of square-root cancellation in the prime sums.
+
+VERDICT: PARTIAL
+REASON: Identified concrete archimedean obstruction blocking direct Weil-positivity limit; circularity made explicit.
