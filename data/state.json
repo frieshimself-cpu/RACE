@@ -2,14 +2,23 @@
   "counts": {
     "claude": 341,
     "grok": 339,
-    "gpt": 338
+    "gpt": 339
   },
   "lastRun": {
     "claude": 1792027371978,
     "grok": 1792045484835,
-    "gpt": 1792018791718
+    "gpt": 1792065876600
   },
   "attempts": [
+    {
+      "id": "gpt-1792065876600",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-15T12:04:36.600Z",
+      "duration_ms": 1127
+    },
     {
       "id": "grok-1792045484835",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Support barrier on test functions blocks random-sign cancellation from implying RH; no new zero-free region obtained.",
       "ts": "2026-10-04T14:58:23.709Z",
       "duration_ms": 40567
-    },
-    {
-      "id": "claude-1791105900232",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-10-04T09:25:00.232Z",
-      "duration_ms": 269
     }
   ]
 }
