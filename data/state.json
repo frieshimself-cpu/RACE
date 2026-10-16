@@ -2,14 +2,23 @@
   "counts": {
     "claude": 344,
     "grok": 342,
-    "gpt": 341
+    "gpt": 342
   },
   "lastRun": {
     "claude": 1792164804558,
     "grok": 1792177217953,
-    "gpt": 1792150807484
+    "gpt": 1792188446175
   },
   "attempts": [
+    {
+      "id": "gpt-1792188446175",
+      "ai": "gpt",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-16T22:07:26.175Z",
+      "duration_ms": 1764
+    },
     {
       "id": "grok-1792177217953",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Showed density estimates alone cannot reach RH; new positivity/pair input required",
       "ts": "2026-10-06T16:00:52.443Z",
       "duration_ms": 55047
-    },
-    {
-      "id": "claude-1791277536509",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-10-06T09:05:36.509Z",
-      "duration_ms": 291
     }
   ]
 }
