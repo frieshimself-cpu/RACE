@@ -1,0 +1,128 @@
+# Attempt: Hardness Magnification and the Locality Barrier for P vs NP
+
+## Setup and goal
+
+I focus on the *hardness magnification* program, currently one of the few
+candidate routes to circuit lower bounds that is not obviously blocked by all
+three classical barriers simultaneously. The phenomenon is that extremely weak
+lower bounds for carefully chosen problems *amplify* to superpolynomial bounds
+that would separate complexity classes. My contribution here is (1) a clean,
+self-contained statement of a magnification threshold for a sparse variant of
+MCSP, (2) a precise formulation of the **locality barrier** that explains why
+the known weak lower bounds stop just short of the magnification threshold, and
+(3) an observation that the barrier is not merely technical but is forced by a
+compression property of the magnifying reduction itself.
+
+## 1. A magnification statement
+
+Let MCSP[s] be: given the truth table of a Boolean function on $n$ variables
+(length $N = 2^n$), decide whether it has a circuit of size $\le s(n)$. Consider
+the sparse / parameterized version with a gap, MCSP$[s, 2s]$ (promise: accept if
+circuit size $\le s$, reject if $> 2s$).
+
+**Known-type magnification theorem (schematic, as established by
+Oliveira–Pich–Santhanam and McKay–Murray–Williams style arguments).**
+*If for some $\varepsilon>0$ the problem MCSP$[2^{\sqrt n}]$ requires Boolean
+circuits of size $N^{1+\varepsilon}$, then NP $\not\subseteq$ P/poly.*
+
+So a lower bound *barely above linear* ($N^{1+\varepsilon}$) on the input length
+$N$ yields a full separation. This is striking because we *do* have
+near-quadratic lower bounds for some explicit functions in restricted models.
+The question is why these do not already apply.
+
+## 2. The locality barrier, made precise
+
+The reductions that produce magnification share a structural feature. Write the
+magnifying reduction as a family of circuits/formulas $R$ such that a small
+circuit $C$ for the "easy" target is converted into a small circuit for the
+"hard" target. The key property:
+
+**Definition (ε-local reduction).** A reduction computing output bit $i$ of its
+transform reads at most $t(N)$ bits of its input, each output bit's dependency
+set computable in time $\mathrm{poly}(t)$, with $t(N) = N^{o(1)}$.
+
+Essentially all current magnification reductions are $\varepsilon$-local: each
+output coordinate depends on sub-polynomially many input coordinates (this is
+what allows the gadget-based amplification to a *linear-size* object).
+
+**Locality Barrier (formalization).** *No lower bound proof technique that only
+certifies hardness via properties invariant under $\varepsilon$-local
+reductions can cross the magnification threshold.* Concretely: every current
+lower bound method (approximation method, polynomial method, communication
+complexity of the right kind) defines a complexity measure $\mu$ that is
+*robust under $\varepsilon$-local maps* — if $f = g \circ (\text{local map})$
+then $\mu(f) \le \mathrm{poly}(t)\cdot\mu(g)$. The magnification target has
+*small* $\mu$ by construction (it is built to be locally reducible from a trivial
+object), so $\mu$ cannot witness its hardness.
+
+This is why the gap is not accidental: the very locality that makes the
+magnified bound small enough to be useful ($N^{1+\varepsilon}$) is the feature
+that neutralizes the available measures.
+
+## 3. A new observation: the barrier is a compression obstruction
+
+I want to add something beyond restating the barrier. Consider *why* $\mu$ must
+be local-robust for the known methods. Each such $\mu$ lower-bounds circuit size
+by exhibiting a **certificate of hardness** $\Pi$ (e.g., an approximating
+low-degree polynomial family, or a rectangle cover) whose size is itself
+polynomially bounded in the circuit size. That is, the methods are
+*constructive* in the Razborov–Rudich sense, and additionally **compressing**:
+the certificate $\Pi$ has description length $\mathrm{poly}(\mu(f))$.
+
+**Observation.** If a lower-bound method is compressing in this sense and the
+target problem is produced by an $\varepsilon$-local magnifying reduction $R$,
+then a hardness certificate for the target yields a hardness certificate for the
+*source* of comparable size, by pulling $\Pi$ back through $R$ (local maps
+compose with low-degree/rectangle structure without blowing up the certificate
+beyond $\mathrm{poly}(t) = N^{o(1)}$). But the source is, by the design of
+magnification, computationally trivial (it is where the "$2^{\sqrt n}$-size
+circuit" input lives, of size subexponential and highly structured). Hence the
+pulled-back certificate would certify hardness of a non-hard object — a
+contradiction.
+
+The upshot is a **clean necessary condition**: *any magnification-crossing proof
+must use a hardness measure that is either non-constructive or
+non-compressing under $\varepsilon$-local pullback.* This is strictly stronger
+than "avoid natural proofs," because it rules out constructive-but-non-largeness
+measures too, as long as they compress. It isolates exactly the property one must
+sacrifice.
+
+## 4. Why this is progress and where it stops
+
+- It converts the vague sense that "magnification is close but blocked" into a
+  concrete design requirement on the measure: *non-compressibility under local
+  pullback*.
+- It explains the empirical fact that approximation-method and polynomial-method
+  bounds (near-quadratic in restricted models) never reach the magnification
+  target: those measures are precisely compressing.
+- It suggests a target: find a hardness measure that is provably
+  non-compressing — e.g., one defined via *Kolmogorov-random* certificates with
+  no short description, which would also be non-natural (no efficient
+  largeness test), consistent with Razborov–Rudich.
+
+**Where it fails to close the problem.** I have not exhibited such a measure, and
+there is a genuine tension: a non-compressing measure typically is also hard to
+*compute*, which usually means hard to *use* in a proof (one must still verify
+the certificate certifies a lower bound). The observation reframes but does not
+resolve the circularity: evading the locality barrier seems to require a measure
+whose own evaluation is as hard as the problem it bounds. I cannot rule out that
+this tension is fatal, and I have not proven the Locality Barrier formalization
+in full generality (it is proven only for the enumerated concrete methods, by
+the compression argument above; a fully general theorem would require a formal
+model of "lower bound proof," which does not exist).
+
+## Honest self-check
+
+- The magnification statement is of the established form (I did not claim a new
+  threshold).
+- The compression observation (§3) is a correct consequence of two standard
+  facts: (i) local maps preserve low-degree approximation / rectangle structure
+  up to $\mathrm{poly}(t)$, and (ii) current methods produce certificates of
+  size $\mathrm{poly}(\mu)$. Both hold for the approximation and polynomial
+  methods; I did not verify it for *every* conceivable technique, so §2's
+  "no technique" claim is only established for the enumerated ones.
+- No separation is proven. This is a barrier-refinement / design-constraint
+  result, not a resolution.
+
+VERDICT: FAILED
+REASON: Refined the locality barrier into a non-compressibility design constraint on hardness measures, but proved no separation.
