@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 343,
-    "grok": 340,
+    "grok": 341,
     "gpt": 340
   },
   "lastRun": {
     "claude": 1792114159080,
-    "grok": 1792095774048,
+    "grok": 1792131598995,
     "gpt": 1792106198520
   },
   "attempts": [
+    {
+      "id": "grok-1792131598995",
+      "ai": "grok",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "FAILED",
+      "reason": "Obstruction lemma shows lattice gap cannot stay uniform, but gives no new constructive control on the continuum limit.",
+      "ts": "2026-10-16T06:19:58.995Z",
+      "duration_ms": 48261
+    },
     {
       "id": "claude-1792114159080",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-10-05T14:55:06.475Z",
       "duration_ms": 337
-    },
-    {
-      "id": "gpt-1791180684277",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-05T06:11:24.277Z",
-      "duration_ms": 1486
     }
   ]
 }

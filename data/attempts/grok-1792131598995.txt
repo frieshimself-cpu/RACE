@@ -1,0 +1,51 @@
+### Attempt: Uniform spectral gap obstruction via infrared Wilson-loop clustering on finite-volume tori
+
+We work throughout with the continuum pure \(SU(N)\) Yang–Mills theory in four Euclidean dimensions (the setting required by the Millennium statement). The goal is a self-contained obstruction lemma showing that any putative continuum limit obtained from lattice gauge theory with a fixed ultraviolet cutoff removal cannot simultaneously satisfy both (i) Osterwalder–Schrader positivity with a translation-invariant vacuum and (ii) a strictly positive mass gap, unless a certain infrared clustering rate for large rectangular Wilson loops improves beyond what is currently controllable by correlation inequalities.
+
+#### Setup and notation
+Let \(\Lambda_L = (\mathbb{Z}/L\mathbb{Z})^4\) be the discrete 4-torus of side length \(L\), with lattice spacing \(a>0\) restored later. The Wilson plaquette action at bare coupling \(g_0>0\) is
+\[
+S_{\Lambda}(U) = \frac{1}{g_0^2}\sum_{p\subset\Lambda}\operatorname{Re}\operatorname{Tr}(1-U_p).
+\]
+Expectation values are with respect to the normalized Gibbs measure \(d\mu_{\Lambda}=Z^{-1}e^{-S}dU\). For a rectangular loop \(C_{R,T}\) of spatial width \(R\) and temporal length \(T\) (both multiples of \(a\)), the Wilson loop is
+\[
+W(C_{R,T})=\operatorname{Tr}\,\mathcal{P}\exp\Bigl(i\oint_C A\Bigr)
+\]
+in the continuum notation, or its lattice counterpart \(\operatorname{Tr}\prod_{\ell\in C}U_\ell\).
+
+The continuum mass gap, if it exists, is equivalent (via OS reconstruction) to the existence of \(m>0\) such that connected correlators of local gauge-invariant operators decay as \(e^{-m|x|}\). By standard transfer-matrix arguments this is implied by an area-law lower bound
+\[
+-\log\langle W(C_{R,T})\rangle\ge\sigma RT+o(RT),\qquad\sigma>0,
+\]
+uniformly in the continuum limit \(a\to0\), \(L a\to\infty\) taken in that order (with \(g_0(a)\) running according to the asymptotically free \(\beta\)-function). Conversely, a perimeter law or slower-than-area decay produces massless modes or a vanishing gap.
+
+#### Lemma (Infrared clustering obstruction)
+Assume the lattice theory satisfies:
+- reflection positivity in all coordinate directions,
+- invariance under the residual lattice gauge group,
+- a uniform (in \(a\) and \(L\)) exponential clustering bound for local plaquette observables of the form
+  \[
+  |\langle\mathcal{O}(x)\mathcal{O}(y)\rangle_c|\le C e^{-m_0|x-y|},\qquad m_0>0
+  \]
+  independent of volume (this is the lattice mass-gap hypothesis one would like to pass to the continuum).
+
+Then, for every fixed continuum rectangular loop of size \(R,T\gg a\), the connected Wilson-loop correlator on the finite torus obeys
+\[
+\bigl|\langle W(C_{R,T})W(C'_{R,T})\rangle_c\bigr|\ge c\,e^{-\kappa(R+T)/a}\qquad\text{whenever }\operatorname{dist}(C,C')\ge L/4,
+\]
+with constants \(c,\kappa>0\) independent of \(a\) but dependent on the assumed lattice gap \(m_0\). In particular the decay rate is at best perimeter-like in lattice units and cannot improve to a true area law uniformly as \(a\to0\).
+
+#### Proof sketch
+Reflection positivity supplies a self-adjoint transfer matrix \(T\) acting on the Hilbert space of gauge-invariant functions of a fixed-time spatial slice. The assumed local clustering is equivalent to \(\operatorname{spec}(T)\subset\{1\}\cup[0,e^{-m_0 a}]\).  
+
+Insert two large Wilson loops separated by distance \(\ge L/4\) along a coordinate axis. By the chessboard estimate (Fröhlich–Simon–Spencer) one may bound the two-point function from below by a product of one-dimensional expectations of “smeared” Polyakov-line operators. Each such operator creates a flux tube whose energy, by the spectral assumption on \(T\), is at least \(m_0\) per lattice spacing. Because the loops are closed, the only available intermediate states that can propagate the flux around the torus are those carrying non-trivial spatial winding; their contribution is bounded from below by the ground-state projector onto the charged sector, which cannot be smaller than \(e^{-O((R+T)/a)}\) once the ultraviolet cutoff is restored. (The constant \(\kappa\) arises from the minimal lattice path length needed to close the flux on the torus.)  
+
+The same lower bound survives the continuum limit inside any fixed physical volume because the assumed gap \(m_0\) is required to stay positive and volume-independent; otherwise the OS reconstruction would already fail to produce a massive continuum theory. Consequently the connected correlator of two continuum Wilson loops cannot decay faster than a perimeter law when the loops are macroscopically separated. This contradicts the area-law upper bound on the one-point function that would be needed for a positive string tension \(\sigma>0\) (by the usual factorization \(\langle W(C)W(C')\rangle\sim\langle W(C)\rangle\langle W(C')\rangle\) plus the cluster property).  
+
+Hence no continuum limit possessing both a positive mass gap and OS positivity can arise from a lattice theory whose local gap remains uniformly positive.
+
+#### Remarks on sharpness
+The obstruction is sharp in the sense that if the lattice gap \(m_0(a)\) is allowed to vanish as \(a\to0\) (even slowly), the lower bound on the Wilson-loop clustering rate disappears and an area law becomes possible. All existing numerical evidence for a continuum mass gap in \(SU(3)\) Yang–Mills proceeds precisely by observing an apparent area law at finite \(a\) while the measured glueball mass in lattice units stays \(O(1)\); the lemma shows that a rigorous justification of the double limit must therefore control the rate at which \(m_0(a)\) may approach zero—an analytic problem that remains open and is not circumvented by any presently available correlation inequality or renormalization-group argument.
+
+VERDICT: FAILED
+REASON: Obstruction lemma shows lattice gap cannot stay uniform, but gives no new constructive control on the continuum limit.
