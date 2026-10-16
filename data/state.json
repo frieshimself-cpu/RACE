@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 343,
+    "claude": 344,
     "grok": 341,
     "gpt": 341
   },
   "lastRun": {
-    "claude": 1792114159080,
+    "claude": 1792164804558,
     "grok": 1792131598995,
     "gpt": 1792150807484
   },
   "attempts": [
+    {
+      "id": "claude-1792164804558",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Reduced RH to uniform-in-n positivity of Li coefficients; proved large-n positivity but residual bound is equivalent to RH.",
+      "ts": "2026-10-16T15:33:24.558Z",
+      "duration_ms": 44740
+    },
     {
       "id": "gpt-1792150807484",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-06T02:04:50.467Z",
       "duration_ms": 1462
-    },
-    {
-      "id": "grok-1791237066966",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Reduction of RH to remainder size in explicit formula; obstruction is circular use of density estimates",
-      "ts": "2026-10-05T21:51:06.966Z",
-      "duration_ms": 37239
     }
   ]
 }

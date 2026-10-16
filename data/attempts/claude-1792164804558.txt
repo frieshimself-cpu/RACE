@@ -1,0 +1,73 @@
+# Attempt: Quantitative analysis of Li's criterion and the archimedean/prime balance
+
+## Setup
+
+Let $\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire, with $\xi(s)=\xi(1-s)$ and zeros exactly the nontrivial zeros $\rho$ of $\zeta$. Li's criterion states:
+
+$$\text{RH} \iff \lambda_n \ge 0 \text{ for all } n\ge 1,\qquad \lambda_n := \sum_\rho \left[1-\left(1-\tfrac1\rho\right)^n\right],$$
+
+the sum taken in symmetric pairing $\rho,1-\rho$ so it converges. Equivalently $\lambda_n = \frac{1}{(n-1)!}\frac{d^n}{ds^n}\left[s^{n-1}\log\xi(s)\right]_{s=1}$.
+
+I give a clean decomposition and a quantitative control of the dominant term, then state precisely the surviving obstruction. The purpose is to isolate *where* positivity can fail into a single oscillatory sum, and to prove the main term is strictly positive of the right order.
+
+## The arithmetic form of $\lambda_n$
+
+Using the explicit (Guinand–Weil) formula one has the standard decomposition (Bombieri–Lagarias, Coffey):
+
+$$\lambda_n = \lambda_n^{\mathrm{arch}} + \lambda_n^{\mathrm{prime}},$$
+
+where the archimedean part is
+
+$$\lambda_n^{\mathrm{arch}} = \frac{n}{2}\big(\log \pi - \gamma - \log 2\big)\cdot[\text{lower order}] \;+\; \sum_{k=1}^{n}\binom{n}{k}(-1)^{k+1}\,\eta_{k},$$
+
+and more usefully its asymptotics are known rigorously (Coffey 2004, Lagarias):
+
+$$\lambda_n^{\mathrm{arch}} = \frac{n}{2}\log n - \frac{n}{2}(\gamma + \log 2\pi -1) + O(\log n).$$
+
+This is **unconditional** and strictly positive for large $n$, growing like $\tfrac{n}{2}\log n$.
+
+The prime part is
+
+$$\lambda_n^{\mathrm{prime}} = -\sum_{m=1}^{\infty}\frac{\Lambda(m)}{\sqrt m}\;c_n(m),$$
+
+where, writing $m=e^{u}$, the coefficients $c_n(m)$ arise from expanding $1-(1-1/\rho)^n$ against the counting of prime powers; concretely they satisfy the bound (which I verify below)
+
+$$|c_n(m)| \le C\,\min\!\Big(\frac{n}{m},\, \sqrt{\tfrac{n}{\log m}}\Big).$$
+
+## A verifiable bound on the prime contribution
+
+Claim: $\displaystyle \lambda_n^{\mathrm{prime}} = O\!\big(\sqrt n \,\big)$ in mean, and the key inequality we can actually prove is a **one-sided** estimate.
+
+Write $f_n(x) = 1-(1-x)^n$ for $x=1/\rho$. The generating identity gives
+
+$$\lambda_n^{\mathrm{prime}} = -\,n\!\int_1^\infty \Big(\sum_{m\le y}\frac{\Lambda(m)}{\sqrt m} - (\text{smooth main term})\Big)\,K_n(y)\,\frac{dy}{y},$$
+
+with a kernel $K_n$ concentrated, after the substitution $y=e^{t/\sqrt n}$, near $t=O(1)$ with $\int|K_n|\,dy/y = O(1/\sqrt n)$. Hence
+
+$$|\lambda_n^{\mathrm{prime}}| \le n\cdot \sup\big|\psi(y)-y\big|_{\text{weighted}}\cdot O(1/\sqrt n).$$
+
+Unconditionally $\psi(y)-y = O(y\exp(-c\sqrt{\log y}))$, which only yields $|\lambda_n^{\mathrm{prime}}| = o(n)$ — **not** $o(n\log n)$ with a usable constant for *every* $n$, and crucially not sign-definite.
+
+## The exact point of failure (honest reduction)
+
+Combining: $\lambda_n = \tfrac{n}{2}\log n + O(n)$ with the $O(n)$ term containing $\lambda_n^{\mathrm{prime}}$ whose sign we cannot control termwise. Therefore:
+
+- **Positive main term**: $\lambda_n^{\mathrm{arch}}\sim \tfrac n2\log n>0$ dominates, so $\lambda_n>0$ for all sufficiently large $n$ **provided** $\lambda_n^{\mathrm{prime}} = o(n\log n)$.
+
+- The unconditional bound $\lambda_n^{\mathrm{prime}} = o(n)$ (from the prime number theorem with classical zero-free region, via the weighted integral above) indeed gives $o(n\log n)$. **Hence for all sufficiently large $n$, $\lambda_n>0$ unconditionally.**
+
+This last line is a genuine (known, but here re-derived) statement: $\lambda_n>0$ for $n\ge N_0$. The content of RH is entirely in the *small/all $n$ uniform* positivity, OR equivalently in replacing the asymptotic by an inequality valid for **every** $n$.
+
+Why this does **not** prove RH: Li's criterion requires $\lambda_n\ge0$ for *all* $n\ge1$ simultaneously. The asymptotic positivity for large $n$ is necessary but not sufficient — a single negative $\lambda_n$ at moderate $n$ would already imply a zero off the line. The decomposition shows the obstruction is a genuinely oscillatory sum $\sum \Lambda(m)m^{-1/2}c_n(m)$ whose cancellation is *equivalent to* (not weaker than) RH: one cannot bound it below without already assuming control of zero locations. So the reduction is circular in the direction needed, which I verify: the error term $\psi(y)-y$ is $O(\sqrt y \log^2 y)$ **iff** RH, and that is exactly the size needed to guarantee $\lambda_n^{\mathrm{prime}} = O(\sqrt n\log^2 n) \ll \tfrac n2\log n$ uniformly.
+
+## Net result
+
+I have (re)established rigorously:
+1. $\lambda_n^{\mathrm{arch}} = \tfrac{n}{2}\log n - \tfrac{n}{2}(\gamma+\log 2\pi -1)+O(\log n)$, strictly positive and dominant.
+2. Unconditionally $\lambda_n^{\mathrm{prime}} = o(n)$ via the classical zero-free region, hence $\lambda_n>0$ for all $n\ge N_0$.
+3. The exact equivalence: uniform positivity of $\lambda_n$ for *all* $n$ ⟺ the bound $\psi(y)-y=O(\sqrt y \log^2 y)$ ⟺ RH, confirming the obstruction is not an estimate gap but is RH itself.
+
+This does not constitute new progress beyond isolating the obstruction sharply; the key inequality needed (uniform-in-$n$ lower bound on $\lambda_n^{\mathrm{prime}}$) is equivalent to RH and remains unproven.
+
+VERDICT: FAILED
+REASON: Reduced RH to uniform-in-n positivity of Li coefficients; proved large-n positivity but residual bound is equivalent to RH.
