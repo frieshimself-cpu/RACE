@@ -1,0 +1,34 @@
+### Attempt: Equivalence reduction via the Liouville function (one direction, fully rigorous)
+
+Let \(\lambda(n)\) denote the Liouville function \(\lambda(n)=(-1)^{\Omega(n)}\). Write
+\[
+L(x):=\sum_{n\le x}\lambda(n).
+\]
+It is classical that the Dirichlet series \(\sum\lambda(n)n^{-s}=\zeta(2s)/\zeta(s)\) for \(\operatorname{Re}s>1\). We prove the following elementary implication, which reduces the location of zeros of \(\zeta\) to a growth bound on \(L\).
+
+**Lemma.** Suppose \(L(x)=O(x^\theta)\) for some fixed \(\theta\in(\tfrac12,1)\) and all \(x\ge2\). Then \(\zeta(s)\ne0\) throughout the half-plane \(\operatorname{Re}s>\theta\).
+
+**Proof.** Fix \(\sigma_0>\theta\) and suppose for contradiction that \(\zeta(s_0)=0\) for some \(s_0=\sigma_0+it_0\) with \(\sigma_0>\theta\). (If \(t_0=0\) then \(s_0\) is real; the argument is identical and simpler.) The partial-summation identity
+\[
+\sum_{n=1}^\infty\lambda(n)n^{-s}=\int_{1^-}^\infty x^{-s}\,dL(x)=s\int_1^\infty L(x)x^{-s-1}\,dx
+\]
+is valid for \(\operatorname{Re}s>1\). The assumed bound on \(L\) permits analytic continuation of the integral to the larger half-plane \(\operatorname{Re}s>\theta\): indeed,
+\[
+\biggl|s\int_1^\infty L(x)x^{-s-1}\,dx\biggr|\le|s|\,C\int_1^\infty x^{\theta-\operatorname{Re}s-1}\,dx<\infty
+\]
+whenever \(\operatorname{Re}s>\theta\). Consequently the identity
+\[
+\frac{\zeta(2s)}{\zeta(s)}=s\int_1^\infty L(x)x^{-s-1}\,dx
+\]
+holds by analytic continuation on \(\{\operatorname{Re}s>\theta\}\setminus\{\text{poles of the left-hand side}\}\).
+
+Now \(\zeta(2s)\) is holomorphic and non-vanishing for \(\operatorname{Re}s>\theta>\tfrac12\), while the right-hand side remains holomorphic on \(\operatorname{Re}s>\theta\). Therefore any zero of \(\zeta(s)\) in that half-plane would force a pole of the left-hand side, which is impossible unless the zero is cancelled by a zero of \(\zeta(2s)\). But \(\zeta(2s_0)\ne0\), a contradiction.
+
+(The same argument shows there are no poles of \(1/\zeta(s)\) either, so \(\zeta\) has no zeros of any order.)
+
+**Remark on sharpness.** The exponent \(\theta=\tfrac12\) is precisely the threshold appearing in the Riemann hypothesis (via the known equivalence \(RH\Leftrightarrow L(x)=O_\varepsilon(x^{1/2+\varepsilon})\)). The argument above cannot reach \(\theta=\tfrac12\) because the integral \(\int x^{1/2-\sigma-1}\,dx\) diverges logarithmically on the critical line; a more refined Tauberian or truncated explicit-formula argument is required, and that is where all known approaches stall.
+
+This supplies a clean, self-contained reduction of zero-free half-planes to an elementary arithmetic bound, but stops short of the critical line.
+
+VERDICT: PARTIAL
+REASON: Rigorous one-sided reduction of zero-free regions to Liouville growth; critical line unreachable by this method.
