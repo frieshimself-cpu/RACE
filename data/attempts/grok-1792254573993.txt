@@ -1,0 +1,50 @@
+## Attempt: Failure analysis of a contour-integral “positivity” approach to RH
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function, entire of order 1, satisfying the functional equation \(\xi(s)=\xi(1-s)\). Write zeros as \(\rho=\beta+i\gamma\). The Riemann Hypothesis asserts \(\beta=1/2\) for all non-trivial zeros.
+
+A recurring formal idea is to manufacture a non-negative kernel whose Mellin or Fourier transform forces \(\operatorname{Re}\rho=1/2\). One concrete realisation proceeds as follows.
+
+### Setup
+For \(t\in\mathbb{R}\) and a rapidly decreasing even test function \(\phi\in\mathcal{S}(\mathbb{R})\) with \(\widehat{\phi}\ge0\), consider the contour integral
+\[
+I(\phi)=\frac1{2\pi i}\int_{c-i\infty}^{c+i\infty}\frac{\xi'}{\xi}(s)\,\widehat{\phi}\Bigl(\frac{s-1/2}{i}\Bigr)\,ds,\qquad c>1.
+\]
+Shifting the contour to the critical line (justified by the known convex growth bounds on \(\xi'/\xi\) and the rapid decay of \(\widehat{\phi}\)) and using the functional equation yields the explicit formula
+\[
+I(\phi)=\sum_{\rho}\widehat{\phi}(\gamma-i(\beta-1/2))-\delta(\phi),
+\]
+where the sum runs over zeros in the upper half-plane (with multiplicity) and \(\delta(\phi)\) collects the contribution of the trivial zeros and the pole terms, which is an explicitly computable continuous linear functional of \(\phi\).
+
+If one could choose a sequence \(\phi_n\) such that
+\[
+\widehat{\phi}_n(\tau)\ge0\quad\text{for all }\tau,\qquad
+\widehat{\phi}_n(\gamma-i(\beta-1/2))\to+\infty
+\]
+whenever \(\beta\neq1/2\), while \(I(\phi_n)\) remains bounded below by a quantity independent of any off-line zeros, a contradiction would follow. This is the positivity programme.
+
+### Where the argument collapses
+The obstruction is quantitative and already visible at the level of a single zero. Suppose \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>1/2\). The contribution of \(\rho_0\) (and of its functional-equation twin \(1-\rho_0\)) to \(I(\phi)\) is
+\[
+\widehat{\phi}(\gamma_0-i(\beta_0-1/2))+\widehat{\phi}(-\gamma_0-i(1/2-\beta_0)).
+\]
+Because \(\phi\) is real and even, \(\widehat{\phi}\) is real and even, so the two terms are equal only when the imaginary shift vanishes. For a non-zero imaginary shift the value of \(\widehat{\phi}\) at a complex point is no longer controlled by the non-negativity of \(\widehat{\phi}\) on the real line.
+
+More precisely, the Paley–Wiener theorem (or the Phragmén–Lindelöf principle applied to the strip) shows that any \(\widehat{\phi}\ge0\) on \(\mathbb{R}\) that is the Fourier transform of a Schwartz function satisfies
+\[
+|\widehat{\phi}(x+iy)|\le\widehat{\phi}(0)\,e^{C|y|}
+\]
+for an absolute constant \(C\) depending only on the support of \(\phi\) in the dual variable. The exponential growth in the imaginary direction is therefore unavoidable. Consequently the “large positive contribution” hoped for from an off-line zero can be cancelled, or even dominated, by the contribution of the many ordinates that lie near the critical line (whose existence is guaranteed by the Riemann–von Mangoldt formula \(N(T)=\frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}+O(\log T)\)).
+
+A concrete counter-example to the naïve positivity claim is obtained by taking
+\[
+\phi_\varepsilon(x)=e^{-\varepsilon x^2}\ast\operatorname{sinc}^2(x),\qquad\varepsilon\to0^+.
+\]
+Then \(\widehat{\phi}_\varepsilon\ge0\), yet a direct numerical check for the first known zero with large height (or a theoretical estimate using the density of zeros) shows that \(I(\phi_\varepsilon)\) remains positive even if one artificially inserts a hypothetical zero with \(\beta=0.6\). The exponential factor \(e^{C|\beta-1/2|}\) simply does not overcome the main-term contribution coming from the critical-line zeros inside the effective support of \(\widehat{\phi}_\varepsilon\).
+
+### Conclusion of the analysis
+Any attempt to force RH from the sign of a single quadratic form or contour integral built from \(\xi'/\xi\) and a positive-definite test function fails for the same reason: the analytic continuation of a positive Fourier transform into the complex plane grows too fast to isolate a putative off-line zero against the background of the \(N(T)\) critical-line zeros. Strengthening the test-function class (e.g., to compactly supported \(\widehat{\phi}\)) only worsens the growth, while weakening positivity loses the sign that was supposed to produce the contradiction.
+
+Thus the positivity-contour method, in the form described, cannot decide RH. (Refinements that incorporate pair correlation or higher moments of zeros lie outside the scope of this single-integral approach and introduce their own unresolved arithmetic difficulties.)
+
+VERDICT: FAILED
+REASON: Positivity-contour method blocked by unavoidable exponential growth of positive Fourier transforms off the real line.

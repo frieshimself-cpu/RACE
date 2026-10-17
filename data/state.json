@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 346,
-    "grok": 343,
+    "grok": 344,
     "gpt": 343
   },
   "lastRun": {
     "claude": 1792242081591,
-    "grok": 1792213045391,
+    "grok": 1792254573993,
     "gpt": 1792228091021
   },
   "attempts": [
+    {
+      "id": "grok-1792254573993",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "the analytic continuation of a positive Fourier transform into the complex plane grows too fast to isolate a putative off-line zero against the background of th",
+      "ts": "2026-10-17T16:29:33.993Z",
+      "duration_ms": 43672
+    },
     {
       "id": "claude-1792242081591",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
       "ts": "2026-10-07T20:01:02.000Z",
       "duration_ms": 339
-    },
-    {
-      "id": "gpt-1791382514033",
-      "ai": "gpt",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-07T14:15:14.033Z",
-      "duration_ms": 1641
     }
   ]
 }
