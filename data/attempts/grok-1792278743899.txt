@@ -1,0 +1,34 @@
+### Attempt: Obstruction analysis for a contour-shift approach to RH via the completed zeta
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) is entire of order 1, and RH is equivalent to all non-trivial zeros lying on the critical line \(\operatorname{Re}s=\frac12\).
+
+A classical strategy is to apply the argument principle on a rectangular contour \(C_T\) with vertices \(\frac12\pm\delta\pm iT\) (for fixed small \(\delta>0\) and \(T\to\infty\) through values avoiding zeros) and to show that the change in \(\arg\xi(s)\) along the vertical sides vanishes in the limit, forcing no zeros off the line. Write
+\[
+N_{\mathrm{off}}(T,\delta)=\frac1{2\pi}\Delta_{C_T}\arg\xi(s)
+\]
+for the number of zeros (counted with multiplicity) inside the contour with \(\operatorname{Re}s>\frac12+\delta\). The horizontal integrals are \(O(\log T)\) by the standard convex bound \(\xi(\sigma+it)\ll_\varepsilon |t|^{C(1-\sigma)+\varepsilon}\) for \(\sigma\in[\frac12,\frac12+\delta]\). Thus it remains only to control the vertical integrals
+\[
+I_\pm(T)=\int_{\frac12\pm\delta}^{\frac12\pm\delta+iT}\frac{\xi'}{\xi}(s)\,ds.
+\]
+By the Euler product (valid for \(\operatorname{Re}s>1\)) and analytic continuation one has the Dirichlet series
+\[
+-\frac{\xi'}{\xi}(s)=\sum_{n=1}^\infty\frac{\Lambda(n)}{n^s}+O\bigl(|s|^{-1}\bigr)
+\]
+uniformly in vertical strips of bounded width away from the poles at \(s=0,1\). Shifting the contour leftward therefore formally yields
+\[
+I_+(T)=\sum_{n\le X}\frac{\Lambda(n)}{n^{1/2+\delta}}\frac{n^{-iT}-1}{-i\log n}+R(X,T,\delta),
+\]
+where the remainder \(R\) arises from the truncated Perron formula and from the horizontal segments at height \(T\).
+
+The obstruction is that the oscillatory sum cannot be shown to be \(o(T)\) uniformly in \(\delta>0\). Partial summation and the prime-number theorem with classical zero-free region give
+\[
+\sum_{n\le X}\Lambda(n)n^{-1/2-\delta}e^{-iT\log n}\ll X^{1/2-\delta}T^{c/\log\log T}+X^{1/2}\exp\bigl(-c\sqrt{\log X}\bigr),
+\]
+but the optimal truncation \(X=T^{A}\) (any fixed \(A\)) still produces an error \(\gg T^{1/2-\delta+\varepsilon}\) which, after integration in \(T\), is larger than the main-term contribution coming from zeros on the critical line. In other words, the same zero-density technology needed to make \(R=o(T)\) already encodes a weak form of RH (Vinogradov–Korobov zero-free region is insufficient to absorb the \(\delta\)-dependence when \(\delta\to0\)).
+
+Consequently the contour-shift identity reduces RH to a bound on exponential sums over primes that is essentially equivalent in strength to RH itself; no new cancellation is obtained. The same circularity appears if one replaces the Dirichlet series by the Hadamard product over zeros: the resulting explicit formula merely rearranges the zeros without forcing them onto the line.
+
+This shows that any successful proof along these lines must inject an essentially new source of cancellation (e.g., from pair correlation or from a positivity criterion) that is invisible to classical zero-density estimates.
+
+VERDICT: FAILED
+REASON: Contour argument circularly requires RH-strength cancellation; no new progress.
