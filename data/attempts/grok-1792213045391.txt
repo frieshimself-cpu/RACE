@@ -1,0 +1,52 @@
+### Attempt: A conditional regularity criterion via controlled vortex stretching in the enstrophy cascade
+
+Consider the 3D incompressible Navier–Stokes equations on \(\mathbb{R}^3\times[0,T)\),
+\[
+\partial_t u+(u\cdot\nabla)u=\nu\Delta u-\nabla p,\qquad\operatorname{div}u=0,
+\]
+with smooth, divergence-free initial data \(u_0\in H^s(\mathbb{R}^3)\) for \(s\ge3\) of finite energy. Let \(\omega=\operatorname{curl}u\). The vorticity form is
+\[
+\partial_t\omega+(u\cdot\nabla)\omega=(\omega\cdot\nabla)u+\nu\Delta\omega.
+\]
+The only term capable of producing a finite-time singularity is the vortex-stretching term \(S:=\omega\cdot\nabla u\). By the Biot–Savart law,
+\[
+\nabla u=T(\omega),\qquad T\text{ a Calderón–Zygmund operator},
+\]
+so \(\|S\|_{L^2}\le C\|\omega\|_{L^\infty}\|\omega\|_{L^2}\) (after integration by parts and the divergence-free condition). Consequently the enstrophy \(\mathcal{E}(t)=\frac12\|\omega(t)\|_{L^2}^2\) satisfies the differential inequality
+\[
+\frac{d\mathcal{E}}{dt}+\nu\|\nabla\omega\|_{L^2}^2\le C\|\omega\|_{L^\infty}\mathcal{E}.
+\]
+Beale–Kato–Majda already converts an \(L^1_tL^\infty_x\) bound on \(\omega\) into global regularity. We seek a weaker, scale-invariant substitute that still closes the estimate.
+
+**Proposed lemma.** Suppose there exists a measurable function \(\lambda(t)\ge0\) such that
+\[
+\bigl|(\omega\cdot\nabla)u(x,t)\bigr|\le\lambda(t)\,|\omega(x,t)|\,|\nabla u(x,t)|^{1/2}
+\]
+almost everywhere and
+\[
+\int_0^T\lambda(t)^2\,dt<\infty.
+\]
+Then \(\mathcal{E}(t)\) remains finite on \([0,T]\) and the solution stays smooth up to time \(T\).
+
+**Proof sketch.** Insert the assumed pointwise bound into the enstrophy identity:
+\[
+\frac{d\mathcal{E}}{dt}+\nu\|\nabla\omega\|_2^2\le\int\lambda(t)\,|\omega|\,|\nabla u|^{1/2}\,|\omega|\,dx.
+\]
+Cauchy–Schwarz followed by the elementary interpolation \(\|\nabla u\|_2\le C\|\omega\|_2\) (which follows from the Biot–Savart representation and Plancherel) yields
+\[
+\frac{d\mathcal{E}}{dt}+\nu\|\nabla\omega\|_2^2\le C\lambda(t)\,\mathcal{E}^{3/4}\|\nabla\omega\|_2^{1/2}.
+\]
+Young’s inequality with conjugate exponents \(4\) and \(4/3\) absorbs the gradient term on the left-hand side:
+\[
+\frac{d\mathcal{E}}{dt}\le C_\nu\lambda(t)^2\mathcal{E}.
+\]
+Gronwall’s lemma then gives
+\[
+\mathcal{E}(t)\le\mathcal{E}(0)\exp\Bigl(C_\nu\int_0^t\lambda(s)^2\,ds\Bigr)<\infty
+\]
+on the whole interval of existence of \(\lambda\). Standard bootstrap (energy inequality \(\Rightarrow\) higher Sobolev bounds via the already-controlled enstrophy) upgrades the \(L^2\) bound on \(\omega\) to an \(H^s\) bound, preventing blow-up.
+
+**Gap check.** The pointwise structural assumption on \(S\) is not implied by the Navier–Stokes dynamics alone. While the stretching term is always orthogonal to \(\omega\) in a geometric sense (\(\omega\cdot S=0\) when the velocity gradient is replaced by its symmetric part), the factor \(|\nabla u|^{1/2}\) cannot be justified by any known Calderón–Zygmund or maximal-function estimate without already assuming an \(L^\infty\) bound on \(\omega\) or on the direction field \(\xi=\omega/|\omega|\). In the self-similar or approximately self-similar blow-up ansätze that remain consistent with all known a-priori estimates, one typically finds \(|S|\sim|\omega|\,|\nabla u|\), which is one full derivative worse than the hypothesized bound. Thus the lemma, while correct under its hypothesis, does not apply to arbitrary finite-energy data and does not remove the possibility of singularity formation. The reduction therefore fails to resolve the Millennium problem.
+
+VERDICT: FAILED
+REASON: Conditional lemma correct but hypothesis on stretching not implied by NS; no new unconditional control.
