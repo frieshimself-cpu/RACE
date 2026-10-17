@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 344,
+    "claude": 345,
     "grok": 342,
     "gpt": 342
   },
   "lastRun": {
-    "claude": 1792164804558,
+    "claude": 1792197242234,
     "grok": 1792177217953,
     "gpt": 1792188446175
   },
   "attempts": [
+    {
+      "id": "claude-1792197242234",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Clean exact derivation of Li-coefficient geometry (|1−1/ρ|=1 ⟺ RH; reciprocal-pair identity) but no new unconditional progress.",
+      "ts": "2026-10-17T00:34:02.234Z",
+      "duration_ms": 76792
+    },
     {
       "id": "gpt-1792188446175",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-06T21:02:20.973Z",
       "duration_ms": 2625
-    },
-    {
-      "id": "grok-1791302452443",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Showed density estimates alone cannot reach RH; new positivity/pair input required",
-      "ts": "2026-10-06T16:00:52.443Z",
-      "duration_ms": 55047
     }
   ]
 }

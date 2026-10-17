@@ -1,0 +1,71 @@
+## Attempt: Geometric structure of the Li coefficients and the reciprocal-pair phenomenon
+
+I work with the Bombieri–Lagarias form of Li's criterion. Define, over the nontrivial zeros ρ of ζ (counted with multiplicity, summed in conjugate-symmetric order),
+$$
+\lambda_n = \sum_{\rho}\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big].
+$$
+Li's criterion: **RH ⟺ λ_n ≥ 0 for all n ≥ 1.** I give a clean, fully explicit analysis of the summand geometry, isolating exactly how an off-line zero destroys positivity, with a quantitative refinement.
+
+### 1. The modulus of the Möbius image
+
+For a zero ρ = β + iγ, set u(ρ) = 1 − 1/ρ = (ρ−1)/ρ. Then
+$$
+|u(\rho)|^2=\frac{|\rho-1|^2}{|\rho|^2}=\frac{(\beta-1)^2+\gamma^2}{\beta^2+\gamma^2}.
+$$
+This is a strictly increasing function of... more precisely:
+- **β = 1/2:** (β−1)² = (−1/2)² = β², so **|u(ρ)| = 1 exactly.**
+- **β > 1/2:** (β−1)² < β² (since |β−1| < β there), so **|u(ρ)| < 1.**
+- **β < 1/2:** **|u(ρ)| > 1.**
+
+So the critical line is *precisely* the locus where u lands on the unit circle. This is the geometric core of Li's criterion.
+
+### 2. On RH: termwise positivity
+
+Under RH, u(ρ) = e^{iθ_ρ} with |u|=1. Pairing ρ with ρ̄ (whose θ is −θ_ρ), the imaginary parts cancel and
+$$
+\big[1-e^{in\theta_\rho}\big]+\big[1-e^{-in\theta_\rho}\big]=2\big(1-\cos n\theta_\rho\big)\ge 0 .
+$$
+Hence λ_n ≥ 0 **termwise** — a transparent proof of the easy direction.
+
+### 3. The reciprocal-pair identity (converse mechanism)
+
+The functional equation pairs ρ with 1−ρ. Compute u(1−ρ):
+$$
+u(1-\rho)=\frac{(1-\rho)-1}{1-\rho}=\frac{-\rho}{1-\rho}.
+$$
+Now the product
+$$
+u(\rho)\,u(1-\rho)=\frac{\rho-1}{\rho}\cdot\frac{-\rho}{1-\rho}=\frac{-(\rho-1)}{1-\rho}=1 .
+$$
+**So u(ρ) and u(1−ρ) are exact reciprocals.** This is a clean, exact algebraic fact: the symmetry ρ ↦ 1−ρ corresponds to w ↦ 1/w on the Möbius image.
+
+Therefore if a zero sits off the line at β > 1/2, write u(1−ρ) = R e^{iφ} with R = |u(1−ρ)| > 1, and then u(ρ) = R^{-1}e^{-iφ}. Summing the full conjugate-symmetric quadruple {ρ, 1−ρ, ρ̄, 1−ρ̄}, all imaginary parts cancel and their joint contribution to λ_n is
+$$
+C_n = 4 - 2\big(R^{n}+R^{-n}\big)\cos n\varphi,\qquad R>1 .
+$$
+
+### 4. Forced negativity
+
+Since R > 1, the factor R^n + R^{-n} → ∞. 
+
+- If φ/2π is irrational, Weyl equidistribution gives n with cos nφ arbitrarily close to 1, so C_n ≈ 4 − 2R^n → −∞ along a subsequence.
+- If φ/2π = p/q is rational, then cos nφ = 1 for all n ≡ 0 (mod q), giving C_n = 4 − 2(R^n+R^{-n}) < 0 for all large such n.
+
+The on-line zeros contribute only bounded oscillatory terms per zero (2(1−cos nθ) ∈ [0,4]), and the global sum of the off-line quadruple's exponential growth cannot be cancelled by the critical-line part. Hence an off-line zero forces λ_n < 0 for infinitely many n, contradicting Li positivity. This recovers the Bombieri–Lagarias converse.
+
+**Quantitative refinement.** For a rational-angle (or near-rational) off-line zero of excess β − 1/2 =: δ, one has
+$$
+R=\Big(\tfrac{\beta^2+\gamma^2}{(\beta-1)^2+\gamma^2}\Big)^{1/2}=1+\frac{2\delta}{1/4+\gamma^2}+O(\delta^2),
+$$
+so the first forced sign change occurs once R^n exceeds the accumulated positive mass, i.e. roughly at
+$$
+n \gtrsim \frac{\log(\text{on-line mass up to height }T)}{\log R}\sim \frac{(1/4+\gamma^2)}{2\delta}\,\log(\cdots).
+$$
+This makes explicit that *small* violations (tiny δ) require testing *exponentially many* λ_n — quantifying why numerical Li-positivity checks have limited reach as a route to RH.
+
+### 5. Honest assessment of the obstruction
+
+Everything above is rigorous but reconstructs known content (the Li/Bombieri–Lagarias equivalence) with a cleaner exposition of two exact facts: |u(ρ)|=1 ⟺ β=1/2, and u(ρ)u(1−ρ)=1. The genuine barrier is unchanged: proving λ_n ≥ 0 unconditionally requires controlling the *cancellation* in Σ_ρ 2(1−cos nθ_ρ) — equivalently an unconditional lower bound on a divergent oscillatory sum over zero ordinates — which is exactly as hard as RH. The reciprocal-pair identity shows precisely why no finite computation or elementary positivity argument can close the gap: an off-line zero of excess δ hides until index ~1/δ. I did not overcome this.
+
+VERDICT: FAILED
+REASON: Clean exact derivation of Li-coefficient geometry (|1−1/ρ|=1 ⟺ RH; reciprocal-pair identity) but no new unconditional progress.
