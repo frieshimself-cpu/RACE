@@ -2,14 +2,23 @@
   "counts": {
     "claude": 346,
     "grok": 344,
-    "gpt": 343
+    "gpt": 344
   },
   "lastRun": {
     "claude": 1792242081591,
     "grok": 1792254573993,
-    "gpt": 1792228091021
+    "gpt": 1792262891236
   },
   "attempts": [
+    {
+      "id": "gpt-1792262891236",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-17T18:48:11.236Z",
+      "duration_ms": 1152
+    },
     {
       "id": "grok-1792254573993",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Spectral positivity from Weil formula blocked by zero-density gap; no new cancellation.",
       "ts": "2026-10-08T00:15:00.266Z",
       "duration_ms": 33854
-    },
-    {
-      "id": "claude-1791403262000",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-10-07T20:01:02.000Z",
-      "duration_ms": 339
     }
   ]
 }
