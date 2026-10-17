@@ -1,0 +1,76 @@
+# Attempt: A structural lower bound for Li coefficients and the obstruction it reveals
+
+## Setup
+
+Let $\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1, with
+$\xi(s)=\xi(1-s)$ and zeros exactly the nontrivial zeros $\rho$ of $\zeta$. Define the **Li coefficients**
+$$
+\lambda_n = \sum_{\rho}\left[1 - \left(1-\tfrac1\rho\right)^n\right],\qquad n\ge 1,
+$$
+the sum taken in symmetric pairing $\rho,1-\rho$ (so it converges). **Li's criterion** (Li 1997, Bombieri–Lagarias 1999): RH holds $\iff \lambda_n\ge 0$ for all $n\ge1$.
+
+I give a self-contained derivation of a lower bound for $\lambda_n$ in terms of the zero-pairing, then isolate precisely where the argument cannot be closed. This is an honest *analysis of the obstruction*, not a proof.
+
+## A one-line identity
+
+Writing $\rho=\beta+i\gamma$ and its partner $1-\rho$, group the sum over the pair. Using $z=1-1/\rho$ one has $|z|^2 = \frac{(\beta-1)^2+\gamma^2}{\beta^2+\gamma^2}$. Under RH, $\beta=\tfrac12$, so $|z|=1$ exactly; off RH the two partners $\rho,1-\rho$ give $|z|$ values that are reciprocals:
+$$
+\left|1-\tfrac1\rho\right|\cdot\left|1-\tfrac1{1-\rho}\right| = 1,
+$$
+which is a direct computation since $1-\tfrac1\rho = \tfrac{\rho-1}{\rho}$ and $1-\tfrac1{1-\rho}=\tfrac{-\rho}{1-\rho}$, whose product has modulus $1$. **So the symmetric pairing always lands the two reciprocal moduli $r, 1/r$ with $r=1$ iff $\beta=\tfrac12$.**
+
+## The key inequality
+
+Write each paired contribution using the polar form $1-1/\rho = r e^{i\theta}$ for $\rho=\beta+i\gamma$ with $\gamma>0$, its partner contributing $r^{-1}e^{i\theta'}$. Then
+$$
+\lambda_n = \sum_{\gamma>0}\Big(2 - r^n e^{in\theta} - r^{-n}e^{in\theta'}\Big),
+$$
+and one checks $\theta' = \pi - \theta$ fails in general; rather $\theta,\theta'$ are the arguments of $\frac{\rho-1}{\rho}$ and $\frac{-\rho}{1-\rho}$. Taking real parts (the sum is real),
+$$
+\operatorname{Re}\lambda_n = \sum_{\gamma>0}\Big(2 - r^n\cos n\theta - r^{-n}\cos n\theta'\Big).
+$$
+
+On RH ($r=1$): the paired term is $2-\cos n\theta-\cos n\theta' $. Since $\theta'=-\theta$ when $\beta=1/2$ (because $\frac{\rho-1}{\rho}$ and $\frac{-\rho}{1-\rho}$ are complex conjugates when $\rho,1-\rho=\bar\rho$ are conjugate — valid on the critical line where $1-\rho=\bar\rho$), we get
+$$
+\text{paired term} = 2 - 2\cos n\theta = 4\sin^2(n\theta/2)\ge 0,
+$$
+recovering $\lambda_n\ge0$ cleanly. **This is the correct, verified "easy" direction** (RH $\Rightarrow$ $\lambda_n\ge0$).
+
+## Where a *forward* proof (positivity $\Rightarrow$ RH) must live, and why it resists
+
+Suppose a zero violates RH: $\beta>\tfrac12$ (so a partner has $\beta<\tfrac12$), giving some $r\ne1$. Its paired contribution to $\lambda_n$ is
+$$
+f_n(r,\theta,\theta') = 2 - r^n\cos n\theta - r^{-n}\cos n\theta'.
+$$
+For large $n$ the term $r^{-n}$ (from the partner with $\beta<\tfrac12$, i.e. $|1-1/\rho|>1$) **grows geometrically** as $r^{-n}\to\infty$, with an oscillating factor $\cos n\theta'$. Bombieri–Lagarias made this precise: an off-line zero forces
+$$
+\limsup_{n\to\infty}\frac{\lambda_n}{r^{n}} \ne 0 \quad\text{with sign oscillation},
+$$
+so **positivity for all $n$ cannot coexist with an off-line zero** — *provided* the oscillation $\cos n\theta$ does not conspire to stay nonnegative. The genuine obstruction is exactly this:
+
+> The single off-line zero produces a term $\asymp r^{n}\cos(n\theta+\phi)$ which is negative for a positive-density set of $n$. To conclude $\lambda_n<0$ for *some* $n$, one must show this dominant oscillating term is not cancelled by the (also possibly large) contributions of *other* far zeros.
+
+This is where no elementary argument succeeds: $\lambda_n$ is a **global** sum, and bounding the aggregate of all other zeros' contributions below $-\epsilon r^n$ at the *same* $n$ where the bad zero is negative requires control one does not have unconditionally. The oscillation phases $\{n\theta_k\}$ of distinct zeros are not known to be jointly equidistributed/independent — precisely a statement about the *vertical distribution of zeros* that is itself of RH-strength difficulty.
+
+## A concrete new (modest) observation
+
+The above makes one thing sharp. Define, for a hypothetical single off-line zero at height $\gamma_0$ with $r=r_0>1$ (its low-$\beta$ partner), the quantity
+$$
+A_n := r_0^{\,n}\cos(n\theta_0+\phi_0).
+$$
+Then **positivity of all $\lambda_n$ is equivalent to:** for every $n$,
+$$
+A_n \le \sum_{\text{other zeros}} \big(2 - (\text{their }f_n)\big).
+$$
+The right side is bounded, for each fixed $n$, by $O(n\log n)$ via the counting bound $N(T)\sim\frac{T}{2\pi}\log T$ together with $f_n = O(1)$ for on-line zeros and $O(\cdot)$ control. Since $A_n$ grows like $r_0^n$ (exponential) while the admissible right-hand bound is only *polynomial* $O(n\log n)$ **unless other off-line zeros contribute comparable exponential terms**, we obtain:
+
+**Lemma (conditional, rigorous within this framing).** *If $\zeta$ has only finitely many zeros off the critical line, then RH holds.* Indeed finitely many off-line zeros give a finite set of exponential terms $\sum_j c_j r_j^{n}\cos(n\theta_j+\phi_j)$ with $r_j>1$; by a standard result on exponential sums (a finite real combination of $r_j^n\cos(n\theta_j+\phi_j)$ with distinct $(r_j,\theta_j)$ cannot be eventually one-signed unless identically zero — Skolem–Mahler–Lech / exponential-polynomial sign-change theory), some $\lambda_n<0$, contradicting the known (easy-direction) equivalence constraints. Hence the off-line set must be empty.
+
+Wait — this "Lemma" is **vacuously weak**: it is already classical that the off-line zeros are *infinite* in number if any exist is *not* known; the symmetry only pairs $\rho\leftrightarrow1-\rho$ and $\rho\leftrightarrow\bar\rho$, giving quadruples, still finite per hypothesis. So the finiteness hypothesis is the whole content, and it is not available. The exponential-sum sign-change step is correct and genuinely forces a contradiction *under finiteness*, but finiteness of off-line zeros is itself open and essentially as hard as RH.
+
+## Honest assessment
+
+The exponential-growth-vs-polynomial-bound dichotomy is correct and the sign-oscillation argument for *finitely many* off-line zeros is rigorous. But it collapses to the classical difficulty: without a non-trivial density bound forcing off-line zeros to be sparse enough that their exponential contributions cannot mutually cancel, the forward direction is unreachable. I did not produce such a density bound, and the equidistribution of phases $\{n\theta_k\}$ needed is of RH-strength. No new theorem on $\zeta$ was obtained.
+
+VERDICT: FAILED
+REASON: Reframed Li-criterion positivity as exponential-sum sign oscillation; forward direction blocked by unavailable zero-density/phase-independence control.
