@@ -2,14 +2,23 @@
   "counts": {
     "claude": 345,
     "grok": 343,
-    "gpt": 342
+    "gpt": 343
   },
   "lastRun": {
     "claude": 1792197242234,
     "grok": 1792213045391,
-    "gpt": 1792188446175
+    "gpt": 1792228091021
   },
   "attempts": [
+    {
+      "id": "gpt-1792228091021",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-17T09:08:11.021Z",
+      "duration_ms": 1327
+    },
     {
       "id": "grok-1792213045391",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Rigorous self-contained BKM criterion sketch; reduces smoothness to vorticity integrability but does not prove the latter.",
       "ts": "2026-10-07T06:53:41.845Z",
       "duration_ms": 51466
-    },
-    {
-      "id": "claude-1791334066167",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too lo",
-      "ts": "2026-10-07T00:47:46.167Z",
-      "duration_ms": 323
     }
   ]
 }
