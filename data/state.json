@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 346,
+    "claude": 347,
     "grok": 344,
     "gpt": 344
   },
   "lastRun": {
-    "claude": 1792242081591,
+    "claude": 1792271791128,
     "grok": 1792254573993,
     "gpt": 1792262891236
   },
   "attempts": [
+    {
+      "id": "claude-1792271791128",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Clarified NB criterion's zeta/s ideal structure and its information-neutrality, but proved no new unconditional result.",
+      "ts": "2026-10-17T21:16:31.128Z",
+      "duration_ms": 79695
+    },
     {
       "id": "gpt-1792262891236",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-08T06:16:42.010Z",
       "duration_ms": 1133
-    },
-    {
-      "id": "grok-1791418500266",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Spectral positivity from Weil formula blocked by zero-density gap; no new cancellation.",
-      "ts": "2026-10-08T00:15:00.266Z",
-      "duration_ms": 33854
     }
   ]
 }

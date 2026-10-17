@@ -1,0 +1,153 @@
+# Attempt: Mellin-analytic structure of the Nyman–Beurling criterion and a precise obstruction
+
+I focus on the Nyman–Beurling (NB) reformulation of RH, give a self-contained and
+rigorously checked Mellin computation of the relevant transforms, and isolate
+*precisely* the analytic reason the criterion resists a direct constructive attack.
+This is an "analysis of why a known approach fails," which the rules permit.
+
+## 1. Setup
+
+Work in $H = L^2(0,1)$. For $0<\theta\le 1$ define
+$$
+\rho_\theta(x) \;=\; \Big\{\tfrac{\theta}{x}\Big\} \;-\; \theta\Big\{\tfrac1x\Big\},
+\qquad 0<x<1 .
+$$
+(The subtraction removes the pole at $s=1$ below; $\{\cdot\}$ is fractional part.)
+Let $\mathcal N = \overline{\operatorname{span}}\{\rho_\theta: 0<\theta\le 1\}\subset H$.
+
+**Theorem (Beurling 1955, Nyman).** RH holds iff $\mathbf 1\in\mathcal N$, i.e. iff the
+constant function $1$ lies in the closed span of the $\rho_\theta$.
+
+I will not reprove this equivalence; instead I make the mechanism explicit through
+Mellin transforms, which is where a would-be constructive proof must operate.
+
+## 2. A rigorous Mellin computation
+
+For $\tfrac12<\sigma<1$ and $x\in(0,1)$, functions in $H$ are handled via the Mellin
+transform on the line $\Re s = \sigma$. The key building block is, for $0<\Re s<1$,
+$$
+\int_0^1 \Big\{\tfrac1x\Big\}\, x^{s-1}\,dx
+\;\overset{u=1/x}{=}\; \int_1^\infty \{u\}\, u^{-s-1}\,du .
+$$
+Using the standard identity (valid for $\Re s>0$, $s\ne1$)
+$$
+\zeta(s) = \frac{s}{s-1} - s\int_1^\infty \{u\}\,u^{-s-1}\,du ,
+$$
+we get, for $0<\Re s<1$,
+$$
+\int_1^\infty \{u\}\,u^{-s-1}\,du \;=\; \frac{1}{s-1}-\frac{\zeta(s)}{s}.
+\tag{2.1}
+$$
+
+Now compute the Mellin transform of $\rho_\theta$. For the first term, with $u=\theta/x$,
+$$
+\int_0^1 \Big\{\tfrac{\theta}{x}\Big\}x^{s-1}dx
+= \theta^{s}\int_\theta^\infty \{u\}\,u^{-s-1}\,du .
+$$
+I split $\int_\theta^\infty=\int_\theta^1+\int_1^\infty$ when $\theta\le1$. On
+$(\theta,1)$ we have $u<1$ so $\{u\}=u$, giving
+$\int_\theta^1 u^{-s}du = \frac{1-\theta^{1-s}}{1-s}$ (for $\Re s<1$). Hence
+$$
+\int_0^1 \Big\{\tfrac{\theta}{x}\Big\}x^{s-1}dx
+= \theta^{s}\!\left(\frac{1-\theta^{1-s}}{1-s} + \frac{1}{s-1}-\frac{\zeta(s)}{s}\right)
+= \theta^{s}\!\left(\frac{-\theta^{1-s}}{1-s} - \frac{\zeta(s)}{s}\right)+\frac{\theta^s}{s-1}+\frac{\theta^s}{1-s}.
+$$
+The last two cancel, leaving
+$$
+\int_0^1 \Big\{\tfrac{\theta}{x}\Big\}x^{s-1}dx
+= \frac{-\theta}{1-s} - \theta^{s}\frac{\zeta(s)}{s}.
+\tag{2.2}
+$$
+For the second term, by (2.1),
+$$
+\theta\int_0^1\Big\{\tfrac1x\Big\}x^{s-1}dx
+= \theta\!\left(\frac{1}{s-1}-\frac{\zeta(s)}{s}\right)
+= \frac{-\theta}{1-s}-\theta\frac{\zeta(s)}{s}.
+\tag{2.3}
+$$
+Subtracting (2.3) from (2.2), the singular $-\theta/(1-s)$ terms **cancel**, and we
+obtain the clean formula
+$$
+\boxed{\;\widehat{\rho_\theta}(s):=\int_0^1\rho_\theta(x)\,x^{s-1}dx
+= -\,\frac{\zeta(s)}{s}\,\bigl(\theta^{s}-\theta\bigr),\qquad 0<\Re s<1.\;}
+\tag{2.4}
+$$
+
+This is the rigorous core: **every NB generator carries the common factor
+$\zeta(s)/s$**, modulated by the entire function $\theta^s-\theta$ of $\theta$.
+
+## 3. Where the obstruction lives
+
+Let $M$ denote the (unitary, up to normalization) Mellin transform mapping $H$ onto
+the Hardy-type space $\mathcal H$ of functions on the vertical line $\Re s=\tfrac12$
+(after the standard $x\mapsto$ line identification). By (2.4), every element of
+$M\mathcal N$ is of the form
+$$
+\frac{\zeta(s)}{s}\cdot g(s),\qquad g\in \overline{\operatorname{span}}\{\theta^s-\theta\}.
+$$
+The Mellin transform of $\mathbf 1$ (regularized) is $1/s$ up to the usual contour
+normalization. Thus:
+
+> **$\mathbf 1\in\mathcal N$ amounts to approximating the factor "$1$" in $1/s$ by
+> products $\frac{\zeta(s)}{s}g(s)$, i.e. approximating the constant $1$ by
+> $\zeta(s)\,g(s)$ in the relevant norm.**
+
+The functions $g$ span (a dense subset of) a shift-type subspace; the completeness
+problem becomes: *can $1/\zeta(s)$ be approximated, on $\Re s=\tfrac12$, by the
+available $g$'s?* This is exactly why RH enters: $1/\zeta$ is analytic in
+$\Re s>\tfrac12$ **iff** $\zeta$ is zero-free there. If $\zeta(\beta+i\gamma)=0$ with
+$\beta>\tfrac12$, then **every** approximant $\frac{\zeta(s)}{s}g(s)$ vanishes at
+$s=\beta+i\gamma$, while the target $1/s$ does not; the pointwise obstruction at the
+off-line zero yields a strictly positive lower bound on the approximation distance.
+
+This recovers, transparently, the NB theorem's hard direction and pinpoints the
+obstruction: the generators sit in the ideal $(\zeta(s)/s)\cdot(\cdot)$, so a zero of
+$\zeta$ to the right of the critical line is a *common zero* of the whole span that the
+target does not share.
+
+## 4. Why a constructive attack stalls (the honest negative result)
+
+A natural strategy is to exhibit explicit coefficients $c_k$ and nodes $\theta_k$ with
+$\|\mathbf 1-\sum c_k\rho_{\theta_k}\|\to 0$, thereby *proving* $\mathbf 1\in\mathcal N$
+unconditionally and hence RH. Formula (2.4) shows why this cannot be done "blindly":
+
+1. By (2.4) the Mellin image of any finite combination is
+   $\frac{\zeta(s)}{s}P(s)$ with $P(s)=\sum_k c_k(\theta_k^s-\theta_k)$ an exponential
+   polynomial. Approximating $1/s$ forces $P(s)\approx 1/\zeta(s)$ on the line.
+2. Controlling this approximation on $\Re s=\tfrac12$ requires quantitative control of
+   $1/\zeta$ there — i.e. lower bounds $|\zeta(\tfrac12+it)|\gg t^{-\epsilon}$ on average,
+   together with the vertical distribution of zeros. These are *equivalent in strength*
+   to statements about zeros, so the constructive route does not sidestep zero
+   information; it re-imports it.
+3. Concretely, the Báez-Duarte refinement replaces $\theta_k$ by $1/k$ and uses Möbius
+   coefficients $c_k=\mu(k)$; the resulting distance $d_N^2$ has the exact spectral
+   expansion (Báez-Duarte–Balazard–Landreau–Saias)
+   $$
+   d_N^2 \;\gtrsim\; \sum_{\rho}\frac{\big|P_N(\rho)\big|^2}{|\rho|^2\,|\zeta'(\rho)|^2(\ldots)},
+   $$
+   again a sum **over the zeros** $\rho$. Thus the Hilbert-space distance is governed by
+   precisely the object (the zero set) one wants to constrain.
+
+The conclusion of this analysis: the NB/Báez-Duarte program is a faithful *translation*
+of RH, not a reduction to easier data. Any genuine progress must inject new input about
+$|\zeta(\tfrac12+it)|$ or about zero spacing; the completeness formulation alone is
+information-neutral. Formula (2.4), derived cleanly above, makes this translation and
+its neutrality explicit.
+
+## 5. What is (modestly) new/useful here
+
+- A clean self-contained derivation of (2.4) with the singular $1/(1-s)$ terms shown to
+  cancel exactly — the computation that makes the "common factor $\zeta(s)/s$"
+  structure transparent.
+- A sharpened statement of the obstruction: the generators lie in the principal ideal
+  generated by $\zeta(s)/s$, so off-line zeros are *shared* zeros of the entire
+  approximating family, immediately giving the hard direction and a positive distance
+  lower bound.
+- An explicit argument that the constructive route is information-neutral: its error is
+  a sum over zeros, so it cannot yield RH without external zero/size input.
+
+I did not prove RH or a new unconditional zero-free region, so this is partial progress
+on *understanding the obstruction*, not on resolving it.
+
+VERDICT: FAILED
+REASON: Clarified NB criterion's zeta/s ideal structure and its information-neutrality, but proved no new unconditional result.
