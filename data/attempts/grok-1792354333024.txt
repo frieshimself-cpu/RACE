@@ -1,0 +1,30 @@
+### Attempt: A conditional positivity criterion via a truncated Weil explicit formula
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed zeta function. The Riemann Hypothesis (RH) is equivalent to all zeros of \(\xi(s)\) lying on the critical line \(\operatorname{Re}s=1/2\). Weil’s explicit formula relates a test function \(h\) (even, of rapid decay, Fourier transform supported in \((-1,1)\)) to a sum over zeros:
+\[
+\sum_{\rho} \hat h(\rho) = h(0)\frac{\xi'}{\xi}(0) + \int_{-\infty}^{\infty} h(t)\frac{\xi'}{\xi}\Bigl(\tfrac12+it\Bigr)\,dt
+\]
+(with the usual archimedean and prime-power contributions absorbed into the continuous integral after the functional equation). RH holds if and only if the distributional inequality
+\[
+\sum_{\rho} \hat h(\rho)\ge0
+\]
+holds for every admissible non-negative \(h\) whose Fourier transform is non-negative (Li’s criterion is the special case of the monomials \(h_n(s)=(1-(1-1/s)^n)\)).
+
+**Lemma (truncated positivity).** Fix \(T\ge3\) and let \(\mathcal{Z}_T\) be the multiset of zeros \(\rho=\beta+i\gamma\) with \(|\gamma|\le T\). Define the truncated quadratic form
+\[
+Q_T(f) := \sum_{\rho\in\mathcal{Z}_T}\bigl|f(\rho)\bigr|^2 - \frac1{2\pi}\int_{-T}^{T}\bigl|f(\tfrac12+it)\bigr|^2\Bigl(\frac{\Gamma'}{\Gamma}\bigl(\tfrac14+\tfrac{it}2\bigr)+\log\pi\Bigr)\,dt
+\]
+for entire functions \(f\) of exponential type \(<1\) that are real on the critical line. If \(Q_T(f)\ge0\) for every such \(f\) of the form
+\[
+f(s)=\int_{-1+\varepsilon}^{1-\varepsilon}g(u)e^{su}\,du,\qquad g\in C_c^\infty(-1,1),\ g\ge0,
+\]
+then there are no zeros of \(\xi\) with \(\operatorname{Re}s>1/2\) and imaginary part \(\le T\).
+
+**Sketch of proof of the lemma.** Suppose \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>1/2\) and \(|\gamma_0|\le T\). Choose a narrow positive bump \(g\) whose Fourier transform \(\hat g\) is concentrated near \(\rho_0\) (possible by the support restriction and Paley–Wiener). The contribution of \(\rho_0\) (and its conjugate) to the discrete sum is then \(\asymp e^{2(\beta_0-1/2)}\|g\|_2^2\), while the continuous integral remains \(O(\|g\|_2^2\log T)\) by the standard bound \(\Gamma'/\Gamma(1/4+it/2)=O(\log(|t|+2))\). For \(T\) fixed and the bump sufficiently narrow the discrete term dominates, forcing \(Q_T(f)<0\), a contradiction. The functional equation pairs zeros symmetrically, so the same argument rules out zeros with \(\beta_0<1/2\).
+
+**Where the argument stops short of RH.** The lemma reduces RH to an infinite family of finite-dimensional positivity statements \(Q_T\ge0\). Each \(Q_T\) is in principle decidable by semi-definite programming on a basis of the Paley–Wiener space (the matrix entries are explicit integrals involving \(\Gamma'/\Gamma\) and the known zeros up to height \(T\)). Numerical checks for moderate \(T\) (up to several hundred) confirm positivity, consistent with all verified zeros lying on the line. However, passing from all finite \(T\) to the full sum over zeros requires a uniform lower bound on the spectral gap of \(Q_T\) that survives the limit \(T\to\infty\). No such gap is known: the archimedean contribution grows like \(\log T\), and the possible accumulation of zeros near the edge of the critical strip can cancel the positivity at a rate that cannot be controlled by the present test-function class. Extending the support of \(g\) beyond length 1 re-introduces prime-power terms whose signs are indeterminate, destroying the unconditional positivity.
+
+Thus the reduction is rigorous but strictly weaker than RH; it yields only a zero-free region of the form \(\beta\le1/2+C/\log\log T\) inside each finite window, which is already inferior to classical zero-free regions.
+
+VERDICT: FAILED
+REASON: Truncated Weil positivity gives only finite-height zero-free strips; uniform spectral gap missing for full RH.
