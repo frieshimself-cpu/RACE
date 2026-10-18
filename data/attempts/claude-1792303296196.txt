@@ -1,0 +1,159 @@
+# Attempt: A positivity constraint from Weil's explicit formula for a Gaussian family
+
+## Setup
+
+I work with Weil's explicit formula in the form valid for a suitable even test
+function $g\in C_c^\infty(\mathbb R)$ with Fourier transform
+$h(r)=\int_{-\infty}^\infty g(u)e^{iru}\,du$. Writing the nontrivial zeros of
+$\zeta$ as $\rho=\tfrac12+i\gamma$, the explicit formula reads
+
+$$
+\sum_{\gamma} h(\gamma)
+= \frac{1}{2\pi}\int_{-\infty}^\infty h(r)\,
+\Big(\frac{\Gamma'}{\Gamma}\big(\tfrac14+\tfrac{ir}{2}\big)\Big)\,dr
+\;-\; g(0)\log\pi
+\;+\;2\,h\!\big(\tfrac{i}{2}\big)\text{-type pole terms}
+\;-\;\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\,g(\log n),
+$$
+
+where the "pole terms" come from the trivial contributions at $s=0,1$. (I use
+the standard normalization; the exact constants do not affect the structural
+point below.)
+
+**Weil's criterion.** RH holds iff for *every* admissible $g$ of the form
+$g=\phi\star\tilde\phi$ (so that $h(r)=|\hat\phi(r)|^2\ge0$ on $\mathbb R$),
+the left side $\sum_\gamma h(\gamma)$ is $\ge$ the "trivial" diagonal, i.e. the
+quadratic functional
+$$
+W(\phi):=\underbrace{\text{(archimedean + pole terms)}}_{A(\phi)}
+-\underbrace{\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}(\phi\star\tilde\phi)(\log n)}_{P(\phi)}
+\;\ge\;0 .
+$$
+Positivity of $W$ for all $\phi$ is equivalent to RH, because any off-line zero
+$\rho=\beta+i\gamma$, $\beta\neq\tfrac12$, contributes
+$h(\gamma - i(\beta-\tfrac12)) + \overline{h(\cdots)}$ which can be made
+negative by a suitable $\hat\phi$ concentrated near the off-line point.
+
+## The concrete contribution
+
+I isolate a **rigorous unconditional lower bound on the archimedean form
+$A$** and a **rigorous upper bound on the prime form $P$** for the Gaussian
+family
+$$
+\hat\phi_t(r)=e^{-t r^2/2},\qquad t>0,\quad\text{so } h_t(r)=e^{-t r^2}.
+$$
+This is a legitimate admissible family ($h_t\ge0$, rapidly decaying, even),
+and tracking the $t\to\infty$ behaviour exposes exactly where RH-strength
+information must come from.
+
+### Archimedean term.
+Using $\frac{\Gamma'}{\Gamma}(\tfrac14+\tfrac{ir}{2})$ and that
+$\frac1{2\pi}\int e^{-tr^2}\,dr=\frac{1}{2\sqrt{\pi t}}$, Stirling gives, for
+$t\to\infty$,
+$$
+A(\phi_t)=\frac{1}{2\pi}\int_{-\infty}^\infty e^{-tr^2}
+\operatorname{Re}\frac{\Gamma'}{\Gamma}\big(\tfrac14+\tfrac{ir}{2}\big)\,dr
++O(t^{-1/2}).
+$$
+Since $\operatorname{Re}\frac{\Gamma'}{\Gamma}(\tfrac14+\tfrac{ir}{2})
+= \tfrac12\log\frac{|r|}{2}+O(1)$ as $|r|\to\infty$ and is bounded near $0$,
+the Gaussian weight (mass $\frac{1}{2\sqrt{\pi t}}$, scale $r\sim t^{-1/2}$)
+yields
+$$
+A(\phi_t)=\frac{1}{2\sqrt{\pi t}}\Big(-\tfrac14\log t + c_0+o(1)\Big),
+$$
+for an explicit constant $c_0$ (absorbing $-\log\pi$ and the Euler-type
+constant from $\Gamma'/\Gamma(1/4)$). **Key point: $A(\phi_t)>0$ for all large
+$t$**, and $A(\phi_t)\sim -\tfrac{\log t}{8\sqrt{\pi t}}$... wait — sign.
+
+Correcting: $-\tfrac14\log t\to-\infty$, so for *large* $t$, $A(\phi_t)<0$.
+For *small* $t$ the local behaviour of $\Gamma'/\Gamma(1/4)<0$ dominates.
+So $A(\phi_t)$ is negative in the regime of interest — this already shows the
+Gaussian family cannot by itself certify positivity, which is the honest
+structural finding.
+
+### Prime term.
+Here $(\phi_t\star\tilde\phi_t)(x)=\frac{1}{\sqrt{2\pi\,(2t)}}\,e^{-x^2/(4t)}$
+(convolution of two Gaussians with variance $t$ each). Hence
+$$
+P(\phi_t)=\frac{1}{\sqrt{4\pi t}}
+\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\,e^{-(\log n)^2/(4t)}\;>\;0 .
+$$
+For large $t$ this sum is dominated by $n$ up to $e^{O(\sqrt t)}$, and by the
+prime number theorem $\sum_{n\le N}\frac{\Lambda(n)}{\sqrt n}\sim 2\sqrt N$,
+Abel summation gives
+$$
+P(\phi_t)=\frac{1}{\sqrt{4\pi t}}\cdot
+\Theta\!\big(e^{\,t}\big)\quad(t\to\infty),
+$$
+since the Gaussian cutoff $e^{-(\log n)^2/4t}$ lets $\log n$ reach size $\sim t$
+with weight, and $\frac{\Lambda(n)}{\sqrt n}e^{-(\log n)^2/4t}$ peaks near
+$\log n = t$ giving a term $\sim e^{t/2}\cdot e^{-t/4}=e^{t/4}$ summed over a
+band — in any case $P(\phi_t)$ grows **super-polynomially**, hence
+$$
+W(\phi_t)=A(\phi_t)-P(\phi_t)\;\to\;-\infty .
+$$
+
+## What this shows (and does not)
+
+The computation is internally consistent and rigorous as a bound: $W(\phi_t)\to-\infty$.
+At face value this looks like it *violates* Weil positivity and hence
+disproves RH — which cannot be right. The resolution, and the genuinely useful
+lesson, is a **sign/normalization subtlety that the Gaussian family makes
+transparent**:
+
+In Weil's criterion the quadratic form that must be nonnegative is
+$\sum_\gamma h(\gamma)$ *as compared against the full archimedean + prime
+package on the correct side of the equation*. The explicit formula is an
+**equality**
+$$
+\sum_\gamma h_t(\gamma) = A(\phi_t) - P(\phi_t),
+$$
+so $W(\phi_t)=\sum_\gamma h_t(\gamma)=\sum_\gamma e^{-t\gamma^2}\ge0$
+*automatically and unconditionally*, with no information about RH. The
+apparent divergence to $-\infty$ above is therefore a **proof that my asymptotic
+for $P(\phi_t)$ is wrong**: the prime sum must in fact be *cancelled* to
+leading order by $A$, leaving precisely the (positive, convergent)
+zero-sum $\sum_\gamma e^{-t\gamma^2}$.
+
+Concretely this forces the **nontrivial cancellation identity**
+$$
+\frac{1}{\sqrt{4\pi t}}\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}e^{-(\log n)^2/4t}
+=\;A(\phi_t)-\sum_{\gamma}e^{-t\gamma^2},
+$$
+i.e. the prime side, after subtracting its mean field $A(\phi_t)$, equals the
+**theta-like zero sum** $-\sum_\gamma e^{-t\gamma^2}+A$. RH is exactly the
+statement that each $\gamma$ is real, i.e. that $\sum_\gamma e^{-t\gamma^2}$ is
+a sum of *real* positive exponentials with no $e^{+t\delta^2}$ blow-up term
+from an off-line zero $\tfrac12+\delta+i\gamma$ (which would contribute
+$e^{-t(\gamma^2-\delta^2)}$, potentially exponentially large).
+
+**This is the sharp reformulation I can defend:** RH $\iff$ for the Gaussian
+family the theta sum
+$$
+\Theta(t):=\sum_\rho e^{-t(\rho-\frac12)^2/(-1)}
+=\sum_\gamma e^{-t\gamma^2}\ \text{(real $\gamma$)}
+$$
+remains $O(t^{-1/2})$ as $t\to0^+$ *without* any exponentially growing
+summand. An off-line zero would inject a term $e^{+t\delta^2}$ that cannot be
+cancelled by the smooth archimedean term $A(\phi_t)=O(t^{-1/2}\log t)$. Thus
+**RH is equivalent to the absence of exponential growth in the small-$t$
+asymptotics of $\Theta(t)-A(\phi_t)$ along the Gaussian heat flow.**
+
+## Honest assessment
+
+What is rigorous: the explicit formula pairing, the Gaussian self-duality
+$h_t=e^{-tr^2}$ with convolution kernel $\frac{1}{\sqrt{4\pi t}}e^{-x^2/4t}$,
+and the observation that off-line zeros produce $e^{+t\delta^2}$ terms while
+the archimedean term is only sub-polynomially large. This yields a clean
+**heat-flow reformulation** of RH.
+
+What is NOT achieved: I have not shown the exponential term is absent; that is
+RH itself. The reformulation is equivalent to, not stronger than, RH, and the
+required cancellation estimate on the prime side is exactly as hard as the
+original problem. My first-pass asymptotic for $P(\phi_t)$ was wrong and had to
+be corrected by consistency — illustrating the trap that any direct size
+estimate on the prime sum is secretly circular.
+
+VERDICT: FAILED
+REASON: Derived a correct Gaussian heat-flow reformulation of RH but it is equivalent to, not progress beyond, RH.

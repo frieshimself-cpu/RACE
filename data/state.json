@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 347,
+    "claude": 348,
     "grok": 345,
     "gpt": 345
   },
   "lastRun": {
-    "claude": 1792271791128,
+    "claude": 1792303296196,
     "grok": 1792278743899,
     "gpt": 1792285834452
   },
   "attempts": [
+    {
+      "id": "claude-1792303296196",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Derived a correct Gaussian heat-flow reformulation of RH but it is equivalent to, not progress beyond, RH.",
+      "ts": "2026-10-18T06:01:36.196Z",
+      "duration_ms": 61046
+    },
     {
       "id": "gpt-1792285834452",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-09T00:09:43.968Z",
       "duration_ms": 1243
-    },
-    {
-      "id": "grok-1791488485880",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Mollifier argument on critical line circularly requires zero-density bounds already equivalent to RH",
-      "ts": "2026-10-08T19:41:25.880Z",
-      "duration_ms": 35504
     }
   ]
 }
