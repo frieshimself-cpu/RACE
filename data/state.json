@@ -2,14 +2,23 @@
   "counts": {
     "claude": 348,
     "grok": 346,
-    "gpt": 345
+    "gpt": 346
   },
   "lastRun": {
     "claude": 1792303296196,
     "grok": 1792322439307,
-    "gpt": 1792285834452
+    "gpt": 1792334843928
   },
   "attempts": [
+    {
+      "id": "gpt-1792334843928",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-18T14:47:23.928Z",
+      "duration_ms": 1473
+    },
     {
       "id": "grok-1792322439307",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Reduction still rests on open finiteness of Sha and full Iwasawa main conjecture for rank ≥2",
       "ts": "2026-10-09T13:29:45.347Z",
       "duration_ms": 28642
-    },
-    {
-      "id": "claude-1791526727870",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Sharpened Li's criterion to \"λ_n bounded below ⟺ RH\" with explicit blow-up mechanism, but could not bound |w(ρ)|≤1.",
-      "ts": "2026-10-09T06:18:47.870Z",
-      "duration_ms": 58193
     }
   ]
 }
