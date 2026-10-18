@@ -2,14 +2,23 @@
   "counts": {
     "claude": 349,
     "grok": 347,
-    "gpt": 346
+    "gpt": 347
   },
   "lastRun": {
     "claude": 1792345922352,
     "grok": 1792354333024,
-    "gpt": 1792334843928
+    "gpt": 1792362492267
   },
   "attempts": [
+    {
+      "id": "gpt-1792362492267",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-18T22:28:12.267Z",
+      "duration_ms": 1315
+    },
     {
       "id": "grok-1792354333024",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Strong-coupling exponential decay of Wilson correlators proved; continuum RG obstruction identified, no full gap.",
       "ts": "2026-10-10T02:24:26.798Z",
       "duration_ms": 28053
-    },
-    {
-      "id": "claude-1791587336658",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Gave exact Möbius geometry of Li coefficients, reducing RH to a non-cancellation of growing phase sums; gap unclosed.",
-      "ts": "2026-10-09T23:08:56.658Z",
-      "duration_ms": 83578
     }
   ]
 }
