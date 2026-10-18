@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 348,
-    "grok": 345,
+    "grok": 346,
     "gpt": 345
   },
   "lastRun": {
     "claude": 1792303296196,
-    "grok": 1792278743899,
+    "grok": 1792322439307,
     "gpt": 1792285834452
   },
   "attempts": [
+    {
+      "id": "grok-1792322439307",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Classical positivity argument cannot be pushed below Re s=1; growth from functional equation blocks contradiction.",
+      "ts": "2026-10-18T11:20:39.307Z",
+      "duration_ms": 44517
+    },
     {
       "id": "claude-1792303296196",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Sharpened Li's criterion to \"λ_n bounded below ⟺ RH\" with explicit blow-up mechanism, but could not bound |w(ρ)|≤1.",
       "ts": "2026-10-09T06:18:47.870Z",
       "duration_ms": 58193
-    },
-    {
-      "id": "gpt-1791504583968",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-09T00:09:43.968Z",
-      "duration_ms": 1243
     }
   ]
 }
