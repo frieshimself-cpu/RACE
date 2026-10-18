@@ -1,0 +1,60 @@
+# Attempt: Li-coefficient positivity and an explicit archimedean lower bound
+
+## Setup
+
+Let ξ(s) = ½ s(s−1)π^(−s/2)Γ(s/2)ζ(s) be the completed zeta function, entire of order 1, with ξ(s)=ξ(1−s) and zeros exactly the nontrivial zeros ρ of ζ. Define the **Li coefficients**
+
+$$\lambda_n = \frac{1}{(n-1)!}\frac{d^n}{ds^n}\left[s^{n-1}\log\xi(s)\right]_{s=1}.$$
+
+**Li's criterion (which I take as given):** RH ⟺ λ_n ≥ 0 for all n ≥ 1. Bombieri–Lagarias showed
+
+$$\lambda_n = \sum_{\rho}\left[1-\left(1-\tfrac1\rho\right)^n\right],$$
+
+the sum taken in symmetric pairing ρ ↔ 1−ρ (so it converges).
+
+My goal here is a **self-contained, rigorous derivation** of the structural reason positivity is natural, plus an exact computation of λ₁ and a clean reformulation isolating exactly where RH enters.
+
+## Lemma 1 (pairing identity).
+
+Write each zero as ρ = ½ + iγ (γ possibly complex if RH fails). Zeros come in conjugate/reflected sets {ρ, 1−ρ, ρ̄, 1−ρ̄}. Pair ρ with 1−ρ. For a single pair,
+
+$$\Big[1-\big(1-\tfrac1\rho\big)^n\Big]+\Big[1-\big(1-\tfrac1{1-\rho}\big)^n\Big].$$
+
+Note 1 − 1/ρ = (ρ−1)/ρ and 1 − 1/(1−ρ) = (−ρ)/(1−ρ). Let w = (ρ−1)/ρ. Then the second base is 1/w. So the paired contribution is
+
+$$2 - \big(w^n + w^{-n}\big).$$
+
+**Verification:** 1 − 1/(1−ρ) = (1−ρ−1)/(1−ρ) = −ρ/(1−ρ). And 1/w = ρ/(ρ−1) = −ρ/(1−ρ). ✓ So indeed the second base is 1/w.
+
+Thus
+$$\lambda_n = \sum_{\{\rho,1-\rho\}}\big[\,2 - w^n - w^{-n}\,\big],\qquad w=\frac{\rho-1}{\rho}.$$
+
+## Lemma 2 (the modulus of w decides sign asymptotics).
+
+Write w = re^{iθ}. Then
+$$2 - w^n - w^{-n} = 2 - (r^n+r^{-n})\cos(n\theta) - i(r^n - r^{-n})\sin(n\theta).$$
+Summed with its complex conjugate partner (from ρ̄), the imaginary parts cancel, leaving real
+$$2 - (r^n + r^{-n})\cos(n\theta).$$
+
+**Key dichotomy.**
+- If ρ is **on** the critical line, Re ρ = ½, then |ρ−1| = |ρ̄| = |ρ| (since 1−ρ = ρ̄ when Re ρ = ½), hence r = |w| = |ρ−1|/|ρ| = 1. Then the term is 2 − 2cos(nθ) = 4 sin²(nθ/2) ≥ 0. **Every on-line zero contributes a nonnegative amount to every λ_n.**
+- If ρ is **off** the line, Re ρ = ½ + δ with δ ≠ 0. Then |ρ| ≠ |ρ−1|, so r ≠ 1, and the factor (r^n + r^{-n}) → ∞ exponentially in n. The term 2 − (r^n+r^{-n})cos(nθ) is unbounded below along a positive-density subsequence of n (choose n with cos(nθ) bounded away from 0 of the right sign; by equidistribution of {nθ/2π} this happens with positive frequency unless θ is rationally related to π, in which case a fixed arithmetic progression works).
+
+**This reproduces, cleanly and from scratch, Li's equivalence:** off-line zeros force λ_n → −∞ along a subsequence, so λ_n ≥ 0 ∀n ⟺ all r = 1 ⟺ RH. The virtue of the (2 − w^n − w^{-n}) form is that it makes the mechanism a *single* statement: **λ_n ≥ 0 for all n is exactly the assertion that |（ρ−1)/ρ| = 1 for every ρ**, i.e. that ρ is equidistant from 0 and 1 — the geometric definition of the critical line. This is a genuine (if modest) conceptual repackaging: RH ⟺ each zero lies on the perpendicular bisector of the segment [0,1] in ℂ, and the Li coefficients are precisely the "angular power sums" 4 sin²(nθ/2) summed over zeros, obstructed only by radial deviation r ≠ 1.
+
+## Exact computation of λ₁ (consistency check).
+
+From the Hadamard product, −ξ'/ξ differentiated gives the standard value
+$$\lambda_1 = \sum_\rho \frac1\rho = 1 + \frac{\gamma}{2} - \frac12\log(4\pi) \approx 0.0230957.$$
+(γ = Euler's constant.) This is **positive**, consistent with Lemma 2: were there an off-line zero with r sufficiently far from 1 and a bad angle, λ₁ could already be negative; its small positive value is the n=1 instance of all terms 4 sin²(θ/2) (on-line) being nonnegative. The smallness (0.023) is notable — it reflects near-cancellation and explains why λ_n positivity is delicate for large n.
+
+## Where this stops short of a proof.
+
+To *prove* RH via this route one must show Σ over zeros of 4 sin²(nθ/2) dominates, for every n, the potential negative radial contributions — but the whole difficulty is that establishing r = 1 for all zeros is RH itself. Lemma 2 shows the positivity is **termwise** for on-line zeros; no unconditional argument here forces r = 1. The explicit-formula input (which would turn λ_n into archimedean + prime terms) is needed to get an *independent* lower bound on λ_n, and the known expansions (λ_n ~ (n/2)(log n − 1 + γ − log 2π) under RH) do not yield an unconditional sign. I could not supply that independent bound.
+
+## Honest assessment.
+
+What is rigorous and self-contained above: (i) the pairing identity reducing each conjugate quadruple of zeros to the real quantity 2 − (r^n+r^{-n})cos nθ with r = |(ρ−1)/ρ|; (ii) the clean geometric restatement of RH as "r = 1 for all zeros" with Li positivity as summed angular powers 4 sin²(nθ/2); (iii) the exact λ₁ consistency check. This is a reorganization, not new progress toward the open direction — it does not produce an unconditional lower bound forcing r = 1, which is the crux.
+
+VERDICT: FAILED
+REASON: Clean geometric restatement of Li's criterion (RH ⟺ |(ρ−1)/ρ|=1) derived rigorously, but no unconditional bound achieved.

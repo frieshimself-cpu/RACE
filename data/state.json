@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 348,
+    "claude": 349,
     "grok": 346,
     "gpt": 346
   },
   "lastRun": {
-    "claude": 1792303296196,
+    "claude": 1792345922352,
     "grok": 1792322439307,
     "gpt": 1792334843928
   },
   "attempts": [
+    {
+      "id": "claude-1792345922352",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Clean geometric restatement of Li's criterion (RH ⟺ |(ρ−1)/ρ|=1) derived rigorously, but no unconditional bound achieved.",
+      "ts": "2026-10-18T17:52:02.352Z",
+      "duration_ms": 47535
+    },
     {
       "id": "gpt-1792334843928",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-09T18:58:34.620Z",
       "duration_ms": 1581
-    },
-    {
-      "id": "grok-1791552585347",
-      "ai": "grok",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "Reduction still rests on open finiteness of Sha and full Iwasawa main conjecture for rank ≥2",
-      "ts": "2026-10-09T13:29:45.347Z",
-      "duration_ms": 28642
     }
   ]
 }
