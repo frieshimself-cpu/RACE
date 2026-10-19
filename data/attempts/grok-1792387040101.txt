@@ -1,0 +1,22 @@
+### Attempt: Obstruction in a contour-integral approach to excluding zeros in \(\operatorname{Re}s>1/2\)
+
+Let \(\zeta(s)\) denote the Riemann zeta function, and write \(s=\sigma+it\). Let \(\Xi(t)=\xi(1/2+it)\) be the completed, real-valued entire function of order 1 associated to \(\zeta\) via the functional equation (so that the non-trivial zeros of \(\zeta\) are precisely the zeros of \(\Xi\)). The Riemann Hypothesis is equivalent to \(\Xi\) having only real zeros.
+
+Consider the rectangular contour \(C_T\) with vertices \(1/2\pm iT\), \(2\pm iT\), oriented positively, and apply the argument principle to \(\xi(s)\) (equivalently to \(\Xi\)) on a slightly smoothed version of this contour that avoids zeros. The change in argument along the vertical line \(\operatorname{Re}s=2\) is \(O(\log T)\) by the Euler product and standard estimates on \(\zeta'/\zeta\). The horizontal sides contribute \(O(\log T)\) by the functional equation and the convexivity bound \(\zeta(\sigma+it)\ll_\varepsilon |t|^{c(1-\sigma)^{3/2}+\varepsilon}\) (any fixed \(c>0\)). Thus
+\[
+N(C_T)= \frac1{2\pi}\Delta_{C_T}\arg\xi(s) = \frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}+O(\log T),
+\]
+which recovers the classical Riemann–von Mangoldt formula for the total number of zeros up to height \(T\). In particular the same count holds if the left vertical side is moved leftward to any fixed abscissa \(\sigma_0\in(1/2,1)\).
+
+To exclude zeros in the half-plane \(\sigma>1/2\), it would suffice to show that the change in argument of \(\xi\) along the critical line segment \([1/2-iT,1/2+iT]\) already saturates the main term above, forcing the contribution from any zeros with \(\sigma>1/2\) to vanish. Equivalently, one needs
+\[
+S(T):=\frac1\pi\arg\xi\bigl(\tfrac12+iT\bigr)=o(\log T)
+\]
+(or at least \(S(T)=O(\log T/\log\log T)\)) uniformly. (Here the argument is defined by continuous variation from the positive real axis, with the usual branch conventions at zeros.)
+
+Unconditionally one only has the weaker bound \(S(T)=O(\log T)\), which is of exactly the same order as the error term already present and is therefore useless for forcing the density of off-line zeros to be zero. The obstruction is sharp: the horizontal integrals and the convexivity bound cannot be improved enough, by any presently available method, to absorb an extra \(\log\log T\) factor, while the vertical integral at \(\operatorname{Re}s=2\) is already essentially optimal. Any attempt to replace the convexivity bound by a subconvex bound in the \(t\)-aspect merely improves the implied constant in the \(O(\log T)\) for \(S(T)\), never the order of magnitude. Likewise, inserting a zero-detecting mollifier (of length \(T^\theta\), \(\theta<1\)) into the argument integral produces a main-term gain only on average over short intervals of \(t\), not a uniform bound strong enough to kill the possibility of a positive-density set of zeros with \(\sigma\ge\sigma_0>1/2\).
+
+Thus the contour-integral approach recovers the classical zero-counting formula but cannot be closed to a proof of the Riemann Hypothesis without a fundamentally stronger estimate on the oscillation of \(\arg\xi(1/2+it)\) — an estimate that appears to require an input already comparable in strength to the Riemann Hypothesis itself (e.g., a quasi-RH zero-density estimate or a sufficiently strong mean-value bound on \(1/\zeta\)).
+
+VERDICT: FAILED
+REASON: Contour arg estimate recovers von Mangoldt but S(T)=O(log T) blocks exclusion of Re>1/2 zeros
