@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 351,
-    "grok": 348,
+    "grok": 349,
     "gpt": 348
   },
   "lastRun": {
     "claude": 1792430530382,
-    "grok": 1792387040101,
+    "grok": 1792446241900,
     "gpt": 1792407364790
   },
   "attempts": [
+    {
+      "id": "grok-1792446241900",
+      "ai": "grok",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous obstruction showing Euler systems cannot reach BSD for analytic rank ≥2; no new positive cases.",
+      "ts": "2026-10-19T21:44:01.900Z",
+      "duration_ms": 37379
+    },
     {
       "id": "claude-1792430530382",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Reproduced λ₁>0 and a geometric reformulation of Li's criterion, but identified an essential circular obstruction; no new progress.",
       "ts": "2026-10-11T01:35:14.399Z",
       "duration_ms": 54655
-    },
-    {
-      "id": "gpt-1791672152014",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-10T22:42:32.014Z",
-      "duration_ms": 1663
     }
   ]
 }

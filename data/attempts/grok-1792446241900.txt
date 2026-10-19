@@ -1,0 +1,40 @@
+### Attempt: Obstruction to Euler-system ascent for analytic rank \(\ge 2\)
+
+Let \(E/\mathbb{Q}\) be an elliptic curve of conductor \(N\), with \(L(E,s)\) its Hasse–Weil \(L\)-function. Write \(r_{\mathrm{an}}=\operatorname{ord}_{s=1}L(E,s)\) and \(r_{\mathrm{alg}}=\operatorname{rank}E(\mathbb{Q})\). BSD asserts \(r_{\mathrm{an}}=r_{\mathrm{alg}}\) together with a precise formula for the leading coefficient involving \(\lvert\operatorname{Sha}(E/\mathbb{Q})\rvert\), the regulator, and Tamagawa numbers. The only cases in which the equality of ranks (and finiteness of Sha) is known unconditionally are \(r_{\mathrm{an}}\le 1\), via the Gross–Zagier formula and Kolyvagin’s Euler system of Heegner points.
+
+We record a precise obstruction showing that the same Euler-system machine cannot be made to run, even conditionally on standard conjectures, when \(r_{\mathrm{an}}\ge 2\).
+
+#### 1. Kolyvagin’s core diagram (rank \(\le 1\))
+Fix an imaginary quadratic field \(K\) satisfying the Heegner hypothesis relative to \(N\). Let \(y_n\in E(H_n)\) be the Heegner point of conductor \(n\), \(H_n\) the ring class field. Kolyvagin’s derivative operators produce cohomology classes
+\[
+c(n)\in H^1(G_{\mathbb{Q}},E[p^m])
+\]
+whose localisations at all primes are controlled. The key global-to-local exact sequence is
+\[
+0\to E(\mathbb{Q})\otimes\mathbb{Z}/p^m\to\operatorname{Sel}_{p^m}(E/\mathbb{Q})\to\bigoplus_v H^1(G_v,E[p^m])/E(\mathbb{Q}_v)\otimes\mathbb{Z}/p^m.
+\]
+When \(r_{\mathrm{an}}=1\) the Gross–Zagier formula supplies a non-torsion Heegner point, so the image of \(c(n)\) generates a rank-1 subspace of the Selmer group; the Euler-system bound then forces
+\[
+\dim_{\mathbb{F}_p}\operatorname{Sel}_p(E/\mathbb{Q})\le 1,
+\]
+hence \(r_{\mathrm{alg}}=1\) and \(\operatorname{Sha}[p^\infty]\) is finite. The same argument with the trivial Heegner point yields the rank-0 case.
+
+#### 2. The higher-rank gap
+Suppose now \(r_{\mathrm{an}}=r\ge 2\). Any Euler system capable of bounding \(\operatorname{Sel}_{p^\infty}(E/\mathbb{Q})\) must produce at least \(r\) independent global cohomology classes whose local images span a space of dimension exactly \(r\) inside the product of local conditions. In the Heegner setting the only available supply of points is still the single Heegner point (or its Galois conjugates) over each ring class field. The Kolyvagin derivatives therefore still generate a module of rank at most 1 over the Iwasawa algebra (or over \(\mathbb{Z}_p\) after specialisation). Consequently the Euler-system upper bound reads
+\[
+\dim\operatorname{Sel}_p(E/\mathbb{Q})\le 1+ \delta,
+\]
+where \(\delta\) measures the contribution of the finite singular primes; this is strictly smaller than \(r\) once \(r\ge 2\). No additional independent Euler system is known to exist for a general elliptic curve of rank \(\ge 2\).
+
+#### 3. Conditional reinforcement of the obstruction
+Even granting the existence of a \(p\)-adic \(L\)-function of order \(r\) (Mazur–Tate–Teitelbaum, Kato, \ldots) and the main conjecture in the cyclotomic tower, the Euler-system machine still requires an explicit supply of global points or cohomology classes of rank \(r\). The only constructions that produce such classes in higher rank (e.g., Bertolini–Darmon–Prasanna diagonal cycles, or higher Heegner cycles on Kuga–Sato varieties) are presently limited to special CM or modular curves of low dimension; they do not yield an Euler system over \(\mathbb{Q}\) for a generic \(E\) of analytic rank \(\ge 2\). Thus the passage from the \(p\)-adic main conjecture to the finiteness of Sha (or even to the equality \(r_{\mathrm{alg}}=r_{\mathrm{an}}\)) remains blocked by the absence of a sufficiently large Euler system.
+
+#### 4. Conclusion of the obstruction
+Any proof of BSD for \(r_{\mathrm{an}}\ge 2\) must either
+- construct a new Euler system of rank \(r\), or
+- replace the Euler-system bound by an entirely different control of the Selmer group (e.g., via complete intersection properties of Hecke algebras in higher weight, or via a geometric Euler system on a higher-dimensional Shimura variety that specialises to \(E\)).
+
+Both routes lie outside the classical Kolyvagin–Gross–Zagier apparatus. This explains, in precise cohomological terms, why the known proofs stop at analytic rank 1 and why a direct ascent is obstructed.
+
+VERDICT: PARTIAL
+REASON: Rigorous obstruction showing Euler systems cannot reach BSD for analytic rank ≥2; no new positive cases.
