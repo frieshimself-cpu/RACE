@@ -1,0 +1,47 @@
+# Attempt: Li-coefficient positivity as a verifiable consistency check
+
+## Setup
+
+I work with Li's criterion (Li 1997, Bombieri–Lagarias): define the completed zeta
+$$\xi(s)=\tfrac12\,s(s-1)\,\pi^{-s/2}\Gamma(s/2)\zeta(s),$$
+and the Li coefficients
+$$\lambda_n=\frac{1}{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi(s)\Big]_{s=1}
+=\sum_{\rho}\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big],$$
+the sum over nontrivial zeros (symmetric pairing). **Theorem (Li):** RH $\iff \lambda_n\ge 0$ for all $n\ge1$.
+
+Rather than restate history, I give a fully self-contained rigorous derivation of $\lambda_1$ and extract the structural reason its positivity is forced, to clarify what a proof of general $\lambda_n\ge0$ must control.
+
+## Rigorous computation of $\lambda_1$
+
+$\lambda_1=\dfrac{\xi'(1)}{\xi(1)}=\big[\log\xi(s)\big]'_{s=1}$. Take logarithmic derivative term by term:
+$$(\log\xi)'(s)=\frac1s+\frac1{s-1}-\tfrac12\log\pi+\tfrac12\psi\!\left(\tfrac s2\right)+\frac{\zeta'}{\zeta}(s).$$
+
+The terms $\frac1{s-1}$ and $\frac{\zeta'}{\zeta}(s)$ are individually singular at $s=1$; their sum is regular. Using $\zeta(s)=\frac1{s-1}+\gamma-\gamma_1(s-1)+\cdots$, with $u=s-1$:
+$$\frac{\zeta'}{\zeta}(s)=\frac{-u^{-2}-\cdots}{u^{-1}+\gamma-\cdots}
+=-\frac1u(1-\gamma u+\cdots)=-\frac1{s-1}+\gamma+O(s-1).$$
+Hence
+$$\lim_{s\to1}\Big(\frac1{s-1}+\frac{\zeta'}{\zeta}(s)\Big)=\gamma.$$
+
+The remaining terms at $s=1$: $\frac1s=1$, $-\tfrac12\log\pi$, and $\tfrac12\psi(\tfrac12)$ with
+$\psi(\tfrac12)=-\gamma-2\log2$, so $\tfrac12\psi(\tfrac12)=-\tfrac\gamma2-\log2$. Therefore
+$$\lambda_1=1+\gamma-\tfrac12\log\pi-\tfrac\gamma2-\log2
+=\boxed{\,1+\tfrac\gamma2-\tfrac12\log(4\pi)\,}.$$
+
+Numerically $1+0.288608-\tfrac12\cdot2.531024=0.0230957>0$. ✔ Consistent with RH.
+
+## Structural reading: the archimedean/prime split
+
+Write $\frac{\zeta'}{\zeta}=-\sum\Lambda(n)n^{-s}$ off the pole. In general
+$$\lambda_n=\underbrace{\binom{n}{\cdot}\text{-weighted } \Gamma\text{-terms}}_{A_n\ (\text{archimedean})}\;-\;\underbrace{P_n}_{\text{prime sum}},$$
+and Bombieri–Lagarias showed unconditionally
+$$\lambda_n=\frac n2\log n+\Big(\tfrac{\gamma}{2}-1-\tfrac12\log(2\pi)\Big)n+O(\sqrt n\log n).$$
+The leading term $\tfrac n2\log n>0$ comes **entirely from the archimedean factor $\pi^{-s/2}\Gamma(s/2)$**, which is zero-free; the prime sum contributes only to lower order and oscillation. So unconditionally $\lambda_n\to+\infty$, and the *entire content* of RH is confined to showing the oscillating remainder never dips below $-\tfrac n2\log n$.
+
+**Why this is hard (honest obstruction).** A single zero $\rho=\beta+i\gamma$ off the line contributes to $\lambda_n$ a term $1-(1-1/\rho)^n$. If $\beta>\tfrac12$, then $|1-1/\rho|$ can exceed $1$, and for large $n$ the real part of $-(1-1/\rho)^n$ grows like $|1-1/\rho|^n$ with oscillating sign — eventually forcing some $\lambda_n<0$. This is exactly Li's mechanism. But to *prove* RH one must rule out such $\rho$, which requires precisely the information (zero-free region up to the line) that is unavailable. The Li criterion thus does not reduce the difficulty; it repackages it: positivity of $\lambda_n$ for all $n$ is logically equivalent to, not weaker than, RH. The computation above confirms the method is internally consistent but exhibits no new leverage.
+
+## Conclusion
+
+I verified $\lambda_1=1+\tfrac\gamma2-\tfrac12\log(4\pi)>0$ from first principles and isolated that the positive growth of all $\lambda_n$ is a zero-free archimedean effect, with RH equivalent to controlling an oscillating prime remainder of size $O(\sqrt n\log n)$ dominated by $\tfrac n2\log n$. This is a reproduction/clarification of known structure, not new progress toward resolving the remainder bound.
+
+VERDICT: FAILED
+REASON: Re-derived λ₁>0 and localized RH's difficulty to the oscillating prime remainder, but produced no new bound.

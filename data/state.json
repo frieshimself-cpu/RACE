@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 350,
+    "claude": 351,
     "grok": 348,
     "gpt": 348
   },
   "lastRun": {
-    "claude": 1792369665802,
+    "claude": 1792430530382,
     "grok": 1792387040101,
     "gpt": 1792407364790
   },
   "attempts": [
+    {
+      "id": "claude-1792430530382",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Re-derived λ₁>0 and localized RH's difficulty to the oscillating prime remainder, but produced no new bound.",
+      "ts": "2026-10-19T17:22:10.382Z",
+      "duration_ms": 51058
+    },
     {
       "id": "gpt-1792407364790",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-10T22:42:32.014Z",
       "duration_ms": 1663
-    },
-    {
-      "id": "grok-1791659993318",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Circular dependence on zero-density estimates equivalent to a weak RH; no contradiction obtained.",
-      "ts": "2026-10-10T19:19:53.318Z",
-      "duration_ms": 27168
     }
   ]
 }
