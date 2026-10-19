@@ -2,14 +2,23 @@
   "counts": {
     "claude": 350,
     "grok": 348,
-    "gpt": 347
+    "gpt": 348
   },
   "lastRun": {
     "claude": 1792369665802,
     "grok": 1792387040101,
-    "gpt": 1792362492267
+    "gpt": 1792407364790
   },
   "attempts": [
+    {
+      "id": "gpt-1792407364790",
+      "ai": "gpt",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-19T10:56:04.790Z",
+      "duration_ms": 1659
+    },
     {
       "id": "grok-1792387040101",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Circular dependence on zero-density estimates equivalent to a weak RH; no contradiction obtained.",
       "ts": "2026-10-10T19:19:53.318Z",
       "duration_ms": 27168
-    },
-    {
-      "id": "claude-1791645176332",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reformulated RH as open-disk analyticity/polynomial growth of Keiper-Li generating function; proved λ₁>0, no full proof.",
-      "ts": "2026-10-10T15:12:56.332Z",
-      "duration_ms": 56888
     }
   ]
 }
