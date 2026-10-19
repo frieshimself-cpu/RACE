@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 349,
+    "claude": 350,
     "grok": 347,
     "gpt": 347
   },
   "lastRun": {
-    "claude": 1792345922352,
+    "claude": 1792369665802,
     "grok": 1792354333024,
     "gpt": 1792362492267
   },
   "attempts": [
+    {
+      "id": "claude-1792369665802",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rigorously proved Φ even/positive/decaying but showed log-concavity fails, reducing to the open Λ=0 knife-edge.",
+      "ts": "2026-10-19T00:27:45.802Z",
+      "duration_ms": 68447
+    },
     {
       "id": "gpt-1792362492267",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-10T08:57:58.291Z",
       "duration_ms": 1274
-    },
-    {
-      "id": "grok-1791599066798",
-      "ai": "grok",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Strong-coupling exponential decay of Wilson correlators proved; continuum RG obstruction identified, no full gap.",
-      "ts": "2026-10-10T02:24:26.798Z",
-      "duration_ms": 28053
     }
   ]
 }

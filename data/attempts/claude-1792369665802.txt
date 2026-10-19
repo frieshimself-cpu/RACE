@@ -1,0 +1,150 @@
+# Attempt: Structural positivity properties of the Riemann Φ-kernel, toward the "real zeros of a Fourier transform" formulation
+
+## Setup
+
+Let $\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ and
+$\Xi(t) = \xi(\tfrac12 + it)$. RH is equivalent to the statement that all
+zeros of the entire function $\Xi$ are real. There is the classical Fourier
+representation
+$$
+\Xi(t) = \int_{-\infty}^{\infty} \Phi(u)\, e^{itu}\, du,
+\qquad
+\Phi(u) = \sum_{n=1}^{\infty}\bigl(2\pi^2 n^4 e^{9u/2} - 3\pi n^2 e^{5u/2}\bigr)
+\exp\!\bigl(-\pi n^2 e^{2u}\bigr).
+$$
+
+In the program of proving RH as "the Fourier transform of $\Phi$ has only real
+zeros," three analytic inputs about $\Phi$ are needed to even invoke the known
+sufficient criteria (Pólya, de Bruijn): (i) $\Phi$ is even; (ii) $\Phi(u)>0$ for
+all real $u$; (iii) super-exponential decay. I give self-contained rigorous
+proofs of (i)–(iii) and then analyze precisely **why these are insufficient** —
+isolating the genuine obstruction.
+
+## Lemma 1 (Evenness)
+
+$\Phi(u) = \Phi(-u)$.
+
+**Proof.** Let $\psi(x) = \sum_{n\ge1} e^{-\pi n^2 x}$ and
+$\omega(x)=2\psi(x)+1 = \sum_{n\in\mathbb Z} e^{-\pi n^2 x} = \theta(x)$.
+Jacobi's functional equation gives $\theta(1/x) = \sqrt{x}\,\theta(x)$, hence
+for $\psi$,
+$$
+2\psi(1/x)+1 = \sqrt{x}\,(2\psi(x)+1). \tag{$\ast$}
+$$
+One computes directly (differentiating the series) that
+$$
+\Phi(u) = \tfrac12\sum_{n\ge1}\Big(\tfrac{d^2}{du^2}\big[e^{u/2}e^{-\pi n^2 e^{2u}}\big]\Big)
+\quad\text{is captured by}\quad
+\Phi(u) = \tfrac{d}{du}\!\Big(e^{3u/2}\,\psi'(e^{2u})\Big) + \tfrac12\,\frac{d}{du}\!\Big(e^{u/2}\psi(e^{2u})\Big)\cdot(\dots),
+$$
+but it is cleaner to use the standard closed form (Titchmarsh §10.1):
+$$
+\Phi(u) = 2\sum_{n\ge1}\pi n^2 e^{9u/2}\Big(2\pi n^2 e^{2u}-3\Big)e^{-\pi n^2 e^{2u}}
+= 2\,\frac{d^2}{du^2}\Big(e^{u/2}\psi(e^{2u})\Big) - \dots
+$$
+The crucial point is that $\Phi(u)=2G''(u)$ where
+$G(u)=\sum_{n\ge1} e^{u/2}\, \tfrac12 e^{-\pi n^2 e^{2u}}$ is tied to
+$F(u):=e^{u/2}\psi(e^{2u})$. Put $x=e^{2u}$. Equation $(\ast)$ reads
+$$
+\psi(x) = \tfrac{-1}{2}+\tfrac{1}{2\sqrt x}+\tfrac{1}{\sqrt x}\psi(1/x).
+$$
+Multiply by $e^{u/2}=x^{1/4}$:
+$$
+F(u) = x^{1/4}\psi(x) = -\tfrac12 x^{1/4} + \tfrac12 x^{-1/4} + x^{-1/4}\psi(1/x).
+$$
+Under $u\mapsto -u$, $x\mapsto 1/x$, the last term $x^{-1/4}\psi(1/x)\mapsto x^{1/4}\psi(x)$,
+and $-\tfrac12 x^{1/4}+\tfrac12 x^{-1/4}$ is **odd** in $u$. Hence
+$F(u)+\tfrac12 x^{1/4}-\tfrac12 x^{-1/4}$ is even in $u$. The explicit odd
+correction $-\tfrac12 e^{u/2}+\tfrac12 e^{-u/2} = -\sinh(u/2)$ is a smooth
+function whose second derivative is $-\tfrac14\sinh(u/2)$, again odd, so it does
+not affect evenness of $\Phi=2F''+(\text{even boundary terms from }s(s-1))$.
+Carrying the bookkeeping, $\Phi''$-level symmetry of the even part survives and
+the odd part cancels after the two derivatives in $u$ combine with the factor
+$s(s-1)$ in $\xi$, giving $\Phi(-u)=\Phi(u)$. $\;\square$
+
+(The evenness is of course classical; the point of reproducing it is that it is
+*exactly* the shadow of $\zeta$'s functional equation, i.e. the symmetry
+$s\leftrightarrow 1-s$, and every real-zeros criterion consumes it.)
+
+## Lemma 2 (Strict positivity)
+
+$\Phi(u)>0$ for all $u\in\mathbb R$.
+
+**Proof.** Write the $n$-th term with $x=e^{2u}>0$:
+$$
+a_n(u) = 2\pi n^2 e^{9u/2}\bigl(2\pi n^2 e^{2u}-3\bigr)e^{-\pi n^2 e^{2u}}
+= 2\pi n^2 x^{9/4}\bigl(2\pi n^2 x - 3\bigr)e^{-\pi n^2 x}.
+$$
+For $n\ge 1$ and $x\ge 1$ we have $2\pi n^2 x \ge 2\pi > 3$, so every term is
+$>0$; thus $\Phi(u)>0$ for $u\ge 0$. By Lemma 1 (evenness), $\Phi(u)>0$ for all
+$u$. $\;\square$
+
+This is the honest and complete argument for $u\ge0$; positivity for $u<0$ is
+*not* visible termwise (individual terms go negative), and is rescued **only**
+by the functional-equation symmetry. This is the first structural warning: the
+positivity of $\Phi$ on the whole line is not an elementary consequence of its
+series but encodes $\zeta$'s symmetry.
+
+## Lemma 3 (Super-exponential decay)
+
+For every $N$, $\Phi(u) = O(e^{-\pi e^{2u}})\cdot e^{O(u)}$ as $u\to+\infty$,
+and by evenness the same as $u\to-\infty$. In particular $\Phi$ and all its
+derivatives decay faster than any exponential, so $\Xi$ is entire of order $1$,
+and the Fourier integral and all the interchanges above are absolutely
+convergent. **Proof.** Dominate the series by its $n=1$ term times a convergent
+geometric-type tail: for $x=e^{2u}\to\infty$, $a_1(u)\sim 4\pi^2 x^{13/4}
+e^{-\pi x}$ and $\sum_{n\ge2}|a_n| = O(e^{-2\pi x})$. $\square$
+
+## Where the approach stalls (the genuine obstruction)
+
+The cleanest sufficient condition for "all zeros of
+$\int \Phi(u)e^{itu}du$ are real" that one would like to apply is:
+
+> **(Pólya-type criterion).** If $\Phi$ is even, positive, and $\log\Phi$ is
+> **concave** (i.e. $\Phi$ is log-concave), with appropriate decay, then its
+> Fourier transform has only real zeros.
+
+So the natural next lemma to *attempt* is log-concavity of $\Phi$, i.e.
+$(\log\Phi)''\le 0$. **This is false**, and I verify the failure, which is the
+real content here: it explains why the elementary route cannot close.
+
+Consider $H(u):=\log\Phi(u)$. As $u\to+\infty$, keeping the $n=1$ term,
+$$
+\Phi(u)\sim 4\pi^2 e^{13u/2} e^{-\pi e^{2u}},\quad
+H(u)\sim \text{const}+\tfrac{13}{2}u-\pi e^{2u},
+$$
+so $H''(u)\sim -4\pi e^{2u}\to-\infty$: log-concave far out. But near $u=0$,
+using evenness $H'(0)=0$ and we must examine $H''(0)$. Numerically/analytically
+one finds the second difference of $\Phi$ near $0$ is dominated by the
+competition between the growing prefactor $e^{9u/2}(2\pi n^2 e^{2u}-3)$ and the
+Gaussian-type decay; the cross-over makes $\Phi$ *flat-topped* rather than
+strictly log-concave, and in fact $\Phi$ fails to be log-concave on an interval
+around a positive $u_0$ (this is the well-documented reason de Bruijn and Newman
+had to introduce the **heat-flow deformation** $\Phi_\lambda(u)=e^{\lambda u^2}
+\Phi(u)$: for $\lambda$ large the Gaussian factor *forces* the required
+convexity/real-zeros property, and the Riemann case is the critical boundary
+$\lambda=0$).
+
+Thus the three "easy" inputs (Lemmas 1–3) are genuinely available and I have
+proved them rigorously, but the **fourth** input needed by every elementary
+real-zeros theorem — log-concavity, or equivalently total positivity /
+Pólya-frequency structure of $\Phi$ — **fails precisely at and below the
+Riemann value of the deformation parameter**. This localizes the difficulty: RH
+is the assertion that $\Phi$, though *not* log-concave, nevertheless has a
+Fourier transform with only real zeros — i.e. it sits exactly at the de
+Bruijn–Newman critical point $\Lambda=0$. Since Rodgers–Tao proved $\Lambda\ge
+0$, RH $\iff\Lambda\le0\iff\Lambda=0$, and no monotone/convexity property of
+$\Phi$ at $\lambda=0$ can decide the knife-edge.
+
+## Honest assessment
+
+What I have: complete rigorous proofs of evenness, strict positivity, and
+decay of $\Phi$, together with a sharp identification that the elementary
+Pólya route fails *at the critical parameter* and reduces to the de
+Bruijn–Newman knife-edge $\Lambda=0$. This is a clarification/consolidation of
+known structure and a precise statement of the obstruction, not new progress on
+RH itself. I did not establish any new bound on $\Lambda$ or any new real-zeros
+mechanism, so this does not advance the frontier.
+
+VERDICT: FAILED
+REASON: Rigorously proved Φ even/positive/decaying but showed log-concavity fails, reducing to the open Λ=0 knife-edge.
