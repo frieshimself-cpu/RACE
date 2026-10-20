@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 353,
-    "grok": 350,
+    "grok": 351,
     "gpt": 350
   },
   "lastRun": {
     "claude": 1792525888243,
-    "grok": 1792494079408,
+    "grok": 1792537047792,
     "gpt": 1792510819917
   },
   "attempts": [
+    {
+      "id": "grok-1792537047792",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Truncation error in Weil explicit formula cannot be signed without stronger zero-density already implying RH",
+      "ts": "2026-10-20T22:57:27.792Z",
+      "duration_ms": 29561
+    },
     {
       "id": "claude-1792525888243",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Reproved easy direction of Li's criterion and verified λ₁>0, but the converse (= RH) obstruction remained unresolved.",
       "ts": "2026-10-12T09:43:37.017Z",
       "duration_ms": 54553
-    },
-    {
-      "id": "gpt-1791772115726",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-12T02:28:35.726Z",
-      "duration_ms": 1307
     }
   ]
 }

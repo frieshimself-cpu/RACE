@@ -1,0 +1,39 @@
+### Attempt: Failure mode of a spectral positivity approach via truncated explicit formulae
+
+Let \(\Xi(t)=\xi(1/2+it)\) denote the Riemann xi-function restricted to the critical line (entire of order 1, real for real \(t\), and \(\Xi(t)>0\) for all sufficiently large \(|t|\) would imply RH after accounting for the finitely many known zeros). Write the Hadamard product
+\[
+\Xi(t)=\Xi(0)\prod_{\rho}(1-t^2/\gamma^2),
+\]
+where the product runs over the imaginary parts \(\gamma>0\) of the non-trivial zeros (counted with multiplicity). Taking the logarithmic derivative twice yields the identity
+\[
+-\frac{\Xi''(t)}{\Xi(t)}=\sum_{\gamma}\frac{1}{(t-\gamma)^2}+\frac{1}{(t+\gamma)^2}.
+\]
+The right-hand side is formally a positive measure if and only if every \(\gamma\) is real, which is precisely RH. To turn this into an analytic criterion one truncates and regularizes.
+
+Fix a Schwartz test function \(f\in\mathcal{S}(\mathbb{R})\) that is even, non-negative, and whose Fourier transform \(\hat f\) is supported in \((-2\log T,2\log T)\) for a large cutoff \(T\). Weil’s explicit formula then reads
+\[
+\sum_{\gamma}\hat f(\gamma)=\frac{1}{2\pi}\int_{-\infty}^{\infty}\hat f(t)\,\Re\Bigl(\frac{\Gamma'}{\Gamma}\bigl(\tfrac14+\tfrac{it}{2}\bigr)\Bigr)dt
++\sum_{n\ge1}\frac{\Lambda(n)}{\sqrt n}\bigl(f(\log n)+f(-\log n)\bigr)-f(0)\log\pi,
+\]
+where the sum on the left is over all ordinates (again with multiplicity). The archimedean and prime-power terms on the right are \(O(T^{\varepsilon}\|f\|_{1,2})\) under standard bounds; the dominant contribution for large \(T\) comes from the zeros.
+
+Define the truncated quadratic form
+\[
+Q_T(f)=\sum_{|\gamma|\le T}\hat f(\gamma).
+\]
+If one could prove \(Q_T(f)\ge0\) for every admissible \(f\) and every \(T\), RH would follow by a standard density argument (the contribution of any complex zero \(\beta+i\gamma\) with \(\beta\neq1/2\) produces an exponentially growing oscillatory factor \(T^{2\beta-1}\) that eventually dominates and can be made negative by a suitable choice of \(f\)).
+
+**Obstruction.** The truncation error
+\[
+E_T(f)=\sum_{|\gamma|>T}\hat f(\gamma)
+\]
+cannot be controlled uniformly in the required class of test functions without already knowing a zero-free region wider than the classical zero-free region of de la Vallée-Poussin. More precisely, the best available density estimates (Ingham–Huxley type)
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}(\log T)^A
+\]
+still leave a residual sum of size \(\gg T^{\delta}\|f\|_\infty\) for an absolute \(\delta>0\) whenever \(\operatorname{supp}\hat f\subset(-2\log T,2\log T)\). This residual can change sign independently of the main term, so positivity of \(Q_T\) does not pass to the limit. Any attempt to absorb \(E_T\) by enlarging the support of \(\hat f\) immediately re-introduces the prime-power sum at a scale where the von Mangoldt weights are no longer dominated by the archimedean Gamma factor, destroying the hoped-for positivity.
+
+Consequently the spectral-positivity programme via truncated explicit formulae is blocked by a circular dependence on zero-density information that is itself implied by RH. No new unconditional lower bound on \(Q_T\) is obtained, and the approach yields no fresh zero-free region.
+
+VERDICT: FAILED
+REASON: Truncation error in Weil explicit formula cannot be signed without stronger zero-density already implying RH
