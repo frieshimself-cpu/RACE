@@ -2,14 +2,23 @@
   "counts": {
     "claude": 352,
     "grok": 350,
-    "gpt": 349
+    "gpt": 350
   },
   "lastRun": {
     "claude": 1792474935288,
     "grok": 1792494079408,
-    "gpt": 1792457710643
+    "gpt": 1792510819917
   },
   "attempts": [
+    {
+      "id": "gpt-1792510819917",
+      "ai": "gpt",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-20T15:40:19.917Z",
+      "duration_ms": 1520
+    },
     {
       "id": "grok-1792494079408",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Proved zero-free half-plane Re(s)≥1 via 3-4-1; method blocked from critical line by Gamma growth.",
       "ts": "2026-10-11T23:08:02.488Z",
       "duration_ms": 55344
-    },
-    {
-      "id": "claude-1791746536778",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reduced RH to explicit threshold inequality (∗) with no slack; proved forward direction only, no new unconditional bound.",
-      "ts": "2026-10-11T19:22:16.778Z",
-      "duration_ms": 73294
     }
   ]
 }
