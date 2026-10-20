@@ -1,0 +1,82 @@
+## Attempt: Structure of Li's criterion and localization of the obstruction
+
+I'll work with Li's criterion and attempt to isolate precisely where positivity becomes hard, giving a self-contained derivation plus one genuinely new elementary observation about the sign structure.
+
+### Setup
+
+Let $\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1, with $\xi(s)=\xi(1-s)$, and zeros exactly the nontrivial zeros $\rho$ of $\zeta$. Define the Li coefficients
+$$
+\lambda_n = \frac{1}{(n-1)!}\frac{d^n}{ds^n}\big[s^{n-1}\log\xi(s)\big]_{s=1}, \qquad n\ge 1.
+$$
+Li's theorem: $\mathrm{RH}\iff \lambda_n\ge 0$ for all $n\ge1$. There is the zero-side formula
+$$
+\lambda_n = \sum_{\rho}\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big],
+$$
+the sum taken in symmetric pairing $\rho,1-\rho$.
+
+### Reduction via the map $w=1/\rho$
+
+Write $\rho = \tfrac12 + it$ for a hypothetical zero with $t\in\mathbb C$ (so RH is "$t\in\mathbb R$"). Map each zero to
+$$
+w = 1-\frac1\rho .
+$$
+Key elementary fact: the half-plane $\{\mathrm{Re}\,\rho = 1/2\}$ maps under $\rho\mapsto 1-1/\rho$ to the **unit circle** $|w|=1$, the half-plane $\mathrm{Re}\,\rho>1/2$ maps to $|w|<1$, and $\mathrm{Re}\,\rho<1/2$ maps to $|w|>1$.
+
+*Proof.* $|w|^2 = |1-1/\rho|^2 = |(\rho-1)/\rho|^2 = |\rho-1|^2/|\rho|^2$. With $\rho=\sigma+i\tau$,
+$|\rho-1|^2-|\rho|^2 = (\sigma-1)^2-\sigma^2 = 1-2\sigma$. Hence $|w|^2-1 = (1-2\sigma)/|\rho|^2$, which is $<0,=0,>0$ according as $\sigma>\tfrac12,=\tfrac12,<\tfrac12$. $\square$
+
+So in the $w$-plane, RH is the statement that **every zero-image lies on the unit circle**, and
+$$
+\lambda_n = \sum_\rho (1-w_\rho^{\,n}).
+$$
+
+### The symmetric pairing and the real part
+
+Zeros come in conjugate pairs ($\rho,\bar\rho$) and reflection pairs ($\rho,1-\rho$). Under $w=1-1/\rho$:
+- conjugation $\rho\mapsto\bar\rho$ gives $w\mapsto\bar w$;
+- reflection $\rho\mapsto 1-\rho$ gives $1-1/(1-\rho) = -\rho/(1-\rho) $. Compute its relation to $w$: if $w=1-1/\rho=(\rho-1)/\rho$, then $1/w = \rho/(\rho-1)$, and the reflected image is $-\rho/(1-\rho)=\rho/(\rho-1)=1/w$.
+
+Thus the reflection pair maps to the **inversion pair** $\{w,1/w\}$. Combined with conjugation, a generic off-line zero contributes the quadruple $\{w,\bar w,1/w,1/\bar w\}$.
+
+For a quadruple the contribution to $\lambda_n$ is
+$$
+4 - \big(w^n+\bar w^{\,n}+w^{-n}+\bar w^{-n}\big)
+= 4 - 2\,\mathrm{Re}(w^n) - 2\,\mathrm{Re}(w^{-n}).
+$$
+Write $w = r e^{i\theta}$ ($r=|w|$). Then
+$$
+\mathrm{Re}(w^n)+\mathrm{Re}(w^{-n}) = (r^n + r^{-n})\cos(n\theta).
+$$
+So the quadruple contributes
+$$
+C_n(r,\theta) = 4 - 2(r^n+r^{-n})\cos(n\theta).
+$$
+
+### Observation (the exact obstruction)
+
+On RH ($r=1$) each quadruple degenerates to a conjugate pair on the circle contributing $2-2\cos(n\theta)\ge 0$ — manifestly nonnegative, consistent with $\lambda_n\ge0$. **The entire difficulty of RH, inside Li's criterion, is the factor $r^n+r^{-n}\ge 2$ which amplifies the (possibly positive) cosine term.**
+
+Concretely: a single off-line quadruple with $r\ne 1$ makes $C_n$ *more negative* than its on-line counterpart whenever $\cos(n\theta)>0$, by an amount
+$$
+C_n(1,\theta)-C_n(r,\theta) = 2\big(r^n+r^{-n}-2\big)\cos(n\theta) \;>\;0 .
+$$
+Because $r^n+r^{-n}-2\sim (\log r)^2 n^2$ grows and $\cos(n\theta)$ is positive for a positive-density set of $n$, a *single* violating zero injects contributions that are negative and grow like $n^2$ along a positive-density subsequence of $n$.
+
+This gives a clean, self-contained **quantitative mechanism** for Li's theorem (the hard direction): if some $r>1$ exists, then on the arithmetic progressions of $n$ where $\cos(n\theta)\ge \tfrac12$ (density $\ge 1/3$ by equidistribution of $\{n\theta/2\pi\}$, or periodic if $\theta/\pi\in\mathbb Q$), that single quadruple contributes $\le 4 - (r^n+r^{-n})\to -\infty$. 
+
+### Why this does not yet prove RH
+
+To conclude $\lambda_n<0$ for some $n$ from a single off-line zero, one must dominate the contribution of **all other** zeros (the on-line ones and the sum over the infinite family). The on-line zeros contribute $\sum 2-2\cos(n\theta_k)$, whose partial behavior is $O(n\log n)$ on average (this matches the known main term $\lambda_n\sim \tfrac{n}{2}(\log n - \log 2\pi +1 -\gamma)$). The off-line quadruple's negative spike is $\sim (\log r)^2 n^2$ along a density-$\ge1/3$ set — which **does** eventually dominate $O(n\log n)$. 
+
+The genuine gap: the identity $\lambda_n=\sum_\rho(1-w_\rho^n)$ requires *conditionally convergent, symmetrically paired* summation, and the rearrangement that isolates "one quadruple vs. the rest" is not obviously valid because the tail sum over on-line zeros is itself only conditionally convergent and its oscillation at frequency $\theta$ could resonate. Equidistribution of ordinates $\gamma$ (hence of the on-line $\theta_k$) is exactly the ingredient needed to rule out resonance, but making the interchange rigorous requires uniform control I cannot supply here. So the argument establishes the *mechanism* but not a cancellation-proof bound.
+
+### Net content
+
+- A clean conformal dictionary: RH $\iff$ all $w_\rho=1-1/\rho$ lie on $|w|=1$, with off-line zeros producing inversion-conjugate quadruples.
+- An exact formula $C_n(r,\theta)=4-2(r^n+r^{-n})\cos(n\theta)$ for each quadruple's Li contribution, exhibiting $r^n+r^{-n}-2$ as the precise carrier of RH's difficulty.
+- A quantitative $n^2$-vs-$n\log n$ growth comparison showing *why* a single off-line zero "wants" to force $\lambda_n<0$, and identifying the exact remaining obstacle (conditional-convergence/resonance control via equidistribution of ordinates).
+
+This is a localization of the obstruction, not a resolution.
+
+VERDICT: FAILED
+REASON: Gave exact per-quadruple Li formula localizing RH's difficulty to $r^n+r^{-n}$, but could not control conditional-sum resonance.
