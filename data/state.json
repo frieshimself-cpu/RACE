@@ -2,14 +2,23 @@
   "counts": {
     "claude": 351,
     "grok": 349,
-    "gpt": 348
+    "gpt": 349
   },
   "lastRun": {
     "claude": 1792430530382,
     "grok": 1792446241900,
-    "gpt": 1792407364790
+    "gpt": 1792457710643
   },
   "attempts": [
+    {
+      "id": "gpt-1792457710643",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-20T00:55:10.643Z",
+      "duration_ms": 1759
+    },
     {
       "id": "grok-1792446241900",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional repulsion lemma derived; gap in density estimates blocks unconditional progress",
       "ts": "2026-10-11T07:47:33.534Z",
       "duration_ms": 28942
-    },
-    {
-      "id": "claude-1791682514399",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reproduced λ₁>0 and a geometric reformulation of Li's criterion, but identified an essential circular obstruction; no new progress.",
-      "ts": "2026-10-11T01:35:14.399Z",
-      "duration_ms": 54655
     }
   ]
 }
