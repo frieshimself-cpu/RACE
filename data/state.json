@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 352,
+    "claude": 353,
     "grok": 350,
     "gpt": 350
   },
   "lastRun": {
-    "claude": 1792474935288,
+    "claude": 1792525888243,
     "grok": 1792494079408,
     "gpt": 1792510819917
   },
   "attempts": [
+    {
+      "id": "claude-1792525888243",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Reproved necessity of Li's criterion cleanly and localized the obstruction, but gave no new leverage on RH itself.",
+      "ts": "2026-10-20T19:51:28.243Z",
+      "duration_ms": 55269
+    },
     {
       "id": "gpt-1792510819917",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-12T02:28:35.726Z",
       "duration_ms": 1307
-    },
-    {
-      "id": "grok-1791760082488",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved zero-free half-plane Re(s)≥1 via 3-4-1; method blocked from critical line by Gamma growth.",
-      "ts": "2026-10-11T23:08:02.488Z",
-      "duration_ms": 55344
     }
   ]
 }

@@ -1,0 +1,87 @@
+# Attempt: A positivity reduction for RH via the completed zeta and a self-contained Li-coefficient estimate
+
+I'll give a rigorous, self-contained derivation of one concrete analytic criterion equivalent to RH (Li's criterion), present a clean proof of the *necessity* direction that is fully rigorous, and then analyze precisely where the *sufficiency* direction — and hence any proof of RH through this route — hits an irreducible obstruction. The point is to isolate exactly what positivity one would need and why standard inputs fall short.
+
+## Setup
+
+Let $\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be the completed zeta function. Recall the standard facts (not re-derived here, but used rigorously):
+- $\xi$ is entire of order 1, $\xi(s)=\xi(1-s)$, real on $\mathbb{R}$, nonzero outside $0\le \Re s\le 1$.
+- The zeros of $\xi$ are exactly the nontrivial zeros $\rho$ of $\zeta$, symmetric under $\rho\mapsto 1-\rho$ and $\rho\mapsto\bar\rho$.
+- Hadamard factorization: $\xi(s)=\xi(0)\prod_\rho\left(1-\tfrac{s}{\rho}\right)$, the product taken in symmetric pairs, with $\sum_\rho 1/|\rho|^2<\infty$ but $\sum 1/|\rho|$ divergent (so pairing is required).
+
+Define the **Li coefficients**
+$$
+\lambda_n = \sum_\rho\left[1-\left(1-\frac1\rho\right)^n\right],\qquad n\ge 1,
+$$
+summed over zeros in symmetric pairs so the sum converges.
+
+Equivalently (Li's identity), with $s=1/(1-z)$ mapping the unit disk $|z|<1$ to $\Re s>1/2$,
+$$
+\lambda_n = \frac{1}{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi(s)\Big]_{s=1}.
+$$
+
+## Lemma (necessity, fully rigorous)
+
+**Claim.** If RH holds, then $\lambda_n\ge 0$ for all $n\ge1$; in fact $\lambda_n>0$.
+
+**Proof.** Write each zero as $\rho=\tfrac12+i\gamma$ with $\gamma\in\mathbb{R}$ (RH assumption). Consider the Möbius image $w_\rho=1-\tfrac1\rho$. Compute
+$$
+|w_\rho|^2 = \left|\frac{\rho-1}{\rho}\right|^2 = \frac{|\rho-1|^2}{|\rho|^2}.
+$$
+With $\rho=\tfrac12+i\gamma$: $|\rho|^2=\tfrac14+\gamma^2$ and $|\rho-1|^2=|-\tfrac12+i\gamma|^2=\tfrac14+\gamma^2$. Hence $|w_\rho|=1$: **every** Möbius-transformed zero lies on the unit circle precisely when $\Re\rho=1/2$.
+
+Now pair $\rho=\tfrac12+i\gamma$ with $\bar\rho=\tfrac12-i\gamma$. Their images are $w,\bar w$ with $|w|=1$, i.e. $w=e^{i\theta}$. Then
+$$
+\left[1-w^n\right]+\left[1-\bar w^n\right] = 2 - (w^n+\bar w^n) = 2 - 2\cos(n\theta) = 2(1-\cos n\theta)\ge 0.
+$$
+For the (possible) self-paired case this is the same computation with $w=e^{i\theta}$ real-circle point. Summing over all conjugate pairs gives
+$$
+\lambda_n=\sum_{\text{pairs}} 2(1-\cos n\theta_\rho)\ge 0.
+$$
+Strict positivity: $1-\cos n\theta=0$ requires $\theta\in\frac{2\pi}{n}\mathbb{Z}$ for *every* zero simultaneously, impossible since the ordinates $\gamma$ are not commensurate in this way (e.g. $\gamma_1\approx14.13$ gives $\theta=2\arctan(2\gamma)$ an irrational multiple of $\pi$; and infinitely many distinct $\theta$ occur). Hence $\lambda_n>0$. $\qquad\blacksquare$
+
+This direction is clean and complete. The content that is genuinely *equivalent* to RH is the converse.
+
+## The converse and the exact obstruction
+
+**Li's theorem** states the converse also holds: $\lambda_n\ge0\ \forall n \Rightarrow$ RH. Let me reproduce the mechanism to localize the difficulty.
+
+For a single zero at $w=1-1/\rho$ with $|w|=r$, its conjugate-pair contribution to $\lambda_n$ is
+$$
+c_\rho(n) = 2\,\Re\big[1-w^n\big] = 2 - 2 r^n\cos(n\theta),\qquad w=re^{i\theta}.
+$$
+If $\Re\rho>1/2$, the computation above gives $|w|=\frac{|\rho-1|}{|\rho|}<1$, so $r<1$; if $\Re\rho<1/2$ then by the functional-equation symmetry there is a mirror zero with $r>1$. A zero off the line forces (for its mirror partner) $r>1$, and then
+$$
+c_\rho(n) = 2 - 2 r^n\cos(n\theta)
+$$
+has $r^n\to\infty$. Because $\cos(n\theta)$ is equidistributed (if $\theta/\pi\notin\mathbb{Q}$) or periodically returns near $1$ (if rational), there exist infinitely many $n$ with $\cos(n\theta)\ge \tfrac12$, giving $c_\rho(n)\le 2 - r^n\to-\infty$. A single off-line zero thus drives its own paired term to $-\infty$ along a subsequence.
+
+**The obstruction.** This does *not* immediately prove $\lambda_n<0$, because $\lambda_n$ is a sum over *all* zeros, and one must control whether the on-line zeros (contributing bounded $2(1-\cos n\theta)\in[0,4]$) plus the archimedean/trivial terms can *conspire to cancel* the single divergent negative term. Making the converse rigorous requires an asymptotic separation:
+$$
+\lambda_n = \underbrace{n\big(\tfrac12\log\pi - \tfrac{\gamma_{\!E}}2\big)+\dots}_{\text{smooth growth }\sim \tfrac n2\log n}\;+\;\underbrace{\text{oscillatory zero sum}}_{\text{$O(1)$ per on-line zero}}.
+$$
+The precise statement (Bombieri–Lagarias) is
+$$
+\lambda_n = \sum_\rho\Big(1-(1-\tfrac1\rho)^n\Big) = \frac n2\log n + c_1 n + O(\sqrt n\log n)
+$$
+*assuming RH*, while *without* RH an off-line zero of modulus-image $r>1$ contributes a term growing like $r^n$, which dominates the polynomial-times-log main term. Hence $\lambda_n$ would be eventually negative. This is the crux.
+
+**Why this does not yield a proof of RH.** To run the contrapositive *unconditionally*, one needs to show: the hypothetical cancellation of the $r^n$ term by the *collective* on-line contribution cannot occur. But:
+
+1. The sum over on-line zeros $\sum 2(1-\cos n\theta_\rho)$ is itself a sum of $\sim \frac{T\log T}{2\pi}$ terms up to height $T$, and $n$-dependence couples to arbitrarily high zeros. One cannot truncate at a fixed height, because $\lambda_n$ receives $\Theta(n\log n)$-sized contributions requiring zeros up to height $\sim n$.
+2. Thus "a single off-line zero forces $\lambda_n\to-\infty$" is circular as a path to a *contradiction from nonnegativity*: establishing nonnegativity of $\lambda_n$ for all $n$ is exactly as hard as RH itself. We have only shown **equivalence**, re-deriving the known criterion — not a new wedge.
+
+## Honest assessment of what (if anything) is new here
+
+The geometric observation that the Möbius map $\rho\mapsto 1-1/\rho$ sends the critical line *exactly* to the unit circle (because $|\tfrac12+i\gamma|=|\tfrac12-1+i\gamma|$ is the algebraic identity $\tfrac14+\gamma^2=\tfrac14+\gamma^2$) is the clean reason Li positivity "sees" the critical line as $|w|=1$. This makes the necessity proof transparent and gives a sharp quantitative handle: define
+$$
+D_n := \lambda_n - \sum_{\text{pairs}}2(1-\cos n\theta_\rho)\ \text{(RH value)} = \sum_{\rho:\,\Re\rho\neq1/2} 2\big(1 - r_\rho^n\cos n\theta_\rho - \text{(on-line surrogate)}\big).
+$$
+Any off-line zero injects a term that is *not* $O(1)$ but $\Theta(r^n)$ with $r\neq1$. The difficulty — unresolved here — is a **separation-of-scales / uniformity** problem: controlling the infinite oscillatory on-line sum uniformly in $n$ to rule out cancellation. No new input toward that control is produced in this attempt.
+
+## Conclusion
+
+I rigorously proved the necessity direction of Li's criterion with a transparent geometric mechanism (critical line $\leftrightarrow$ unit circle under $\rho\mapsto1-1/\rho$), and I pinpointed that the sufficiency direction — equivalently RH — reduces to a uniform-in-$n$ control of the oscillatory sum over on-line zeros preventing cancellation of a lone $r^n$ divergence. I did not supply that control, and I identify it as the genuine obstruction. This is a partial, correct contribution but not progress past the known equivalence.
+
+VERDICT: FAILED
+REASON: Reproved necessity of Li's criterion cleanly and localized the obstruction, but gave no new leverage on RH itself.
