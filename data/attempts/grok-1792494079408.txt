@@ -1,0 +1,66 @@
+## Attempt: A supercritical barrier via weighted enstrophy and a failed closure
+
+Consider the 3D incompressible Navier–Stokes equations on \(\mathbb{R}^3\times[0,T)\),
+\[
+\partial_t u + u\cdot\nabla u = \Delta u - \nabla p,\qquad \nabla\cdot u=0,
+\]
+with Schwartz initial data \(u_0\). Let \(\omega=\nabla\times u\) denote vorticity. The classical Beale–Kato–Majda criterion asserts that the solution remains smooth on \([0,T]\) provided
+\[
+\int_0^T\|\omega(t)\|_{L^\infty}\,dt<\infty.
+\]
+We attempt a quantitatively weaker integral condition that still forces regularity, by introducing a slowly growing weight on enstrophy and tracking the resulting ODE.
+
+### Setup
+Define the weighted enstrophy
+\[
+E_\phi(t):=\int_{\mathbb{R}^3}\phi(|x|)|\omega(x,t)|^2\,dx,
+\]
+where \(\phi:\mathbb{R}_+\to[1,\infty)\) is smooth, radially non-decreasing, \(\phi(r)=1\) for \(r\le 1\), and \(\phi(r)=\log\log(r+e^e)\) for \(r\ge e^e\) (so \(\phi\) grows slower than any positive power). Integration by parts against the vorticity equation
+\[
+\partial_t\omega + u\cdot\nabla\omega = \omega\cdot\nabla u + \Delta\omega
+\]
+yields the differential inequality
+\[
+\frac{d}{dt}E_\phi \le -2\int\phi|\nabla\omega|^2 + C\int\phi|\omega|^2|\nabla u| + R_\phi,
+\]
+where the remainder \(R_\phi\) arises from \([\Delta,\phi]\) and from transport of the weight:
+\[
+|R_\phi|\le C\|\nabla\phi\|_{L^\infty}E_\phi^{1/2}\|\omega\|_{H^1} + C\|\nabla\phi\|_{L^\infty}\|u\|_{L^\infty}E_\phi.
+\]
+Because \(\phi\) grows so slowly one has \(\|\nabla\phi\|_{L^\infty}\lesssim(\log\log R)^{-1}R^{-1}\) on balls of radius \(R\), and standard energy bounds on \(u\) make \(R_\phi\) absorbable into the dissipation for large \(R\) after a standard cutoff argument. The dangerous term is therefore only the stretching integral
+\[
+I:=\int\phi|\omega|^2|\nabla u|.
+\]
+
+### Attempted closure
+By the Biot–Savart law and Calderón–Zygmund theory,
+\[
+\|\nabla u\|_{L^\infty}\le C\bigl(1+\|\omega\|_{L^\infty}(1+\log^+\|\omega\|_{H^1})\bigr).
+\]
+Inserting this bound and applying a weighted Gagliardo–Nirenberg inequality
+\[
+\int\phi|\omega|^3\le C E_\phi^{1/2}\Bigl(\int\phi|\nabla\omega|^2\Bigr)^{1/2}\|\omega\|_{L^\infty}^{1/2}
+\]
+produces, after Young’s inequality,
+\[
+\frac{d}{dt}E_\phi + \int\phi|\nabla\omega|^2 \le C E_\phi\|\omega\|_{L^\infty}(1+\log^+ E_\phi) + C.
+\]
+If one assumes the integral condition
+\[
+\int_0^T\|\omega(t)\|_{L^\infty}(1+\log^+ E_\phi(t))\,dt <\infty,
+\]
+Gronwall immediately yields \(E_\phi(t)<\infty\) on \([0,T]\). A standard local-existence restart then extends the smooth solution past \(T\).
+
+### Where the argument collapses
+The logarithmically corrected BKM-type condition above is still supercritical. The natural scaling of NSE sends
+\[
+\omega_\lambda(x,t)=\lambda^2\omega(\lambda x,\lambda^2 t),\qquad E_\phi\sim\lambda\,E_{\phi_\lambda},
+\]
+so \(\log E_\phi\) is essentially invariant while \(\|\omega\|_{L^\infty}\) scales as \(\lambda^2\). Consequently the integrand \(\|\omega\|_{L^\infty}\log E_\phi\) scales like \(\lambda^2\), exactly as the classical BKM integrand; the ultra-slow weight \(\phi\) does not improve the scaling. In particular the condition does not follow from the a-priori bound on the energy \(\|u\|_{L^2}\) or even from the known Escauriaza–Seregin–Šverák \(L^\infty_t L^3_x\) criterion, because those quantities control only weaker (subcritical or critical) norms of \(\omega\).
+
+A second, independent obstruction appears when one tries to remove the \(\log E_\phi\) factor by a more refined commutator estimate (paradifferential expansion of \(\omega\cdot\nabla u\)). The worst resonant interactions live at frequencies comparable to \(\|\omega\|_{L^\infty}^{1/2}\), and the slow spatial weight \(\phi\) is invisible to those interactions; the same logarithmic divergence reappears.
+
+Thus the weighted-enstrophy ODE closes only under a hypothesis that is scaling-equivalent to the classical BKM criterion and does not enlarge the known regularity class.
+
+VERDICT: FAILED
+REASON: Weighted enstrophy ODE closes only under a scaling-equivalent BKM condition; no new regularity regime obtained.

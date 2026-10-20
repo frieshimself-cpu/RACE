@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 352,
-    "grok": 349,
+    "grok": 350,
     "gpt": 349
   },
   "lastRun": {
     "claude": 1792474935288,
-    "grok": 1792446241900,
+    "grok": 1792494079408,
     "gpt": 1792457710643
   },
   "attempts": [
+    {
+      "id": "grok-1792494079408",
+      "ai": "grok",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "FAILED",
+      "reason": "Weighted enstrophy ODE closes only under a scaling-equivalent BKM condition; no new regularity regime obtained.",
+      "ts": "2026-10-20T11:01:19.408Z",
+      "duration_ms": 40589
+    },
     {
       "id": "claude-1792474935288",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Reduced RH to explicit threshold inequality (∗) with no slack; proved forward direction only, no new unconditional bound.",
       "ts": "2026-10-11T19:22:16.778Z",
       "duration_ms": 73294
-    },
-    {
-      "id": "gpt-1791729739910",
-      "ai": "gpt",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-11T14:42:19.910Z",
-      "duration_ms": 1769
     }
   ]
 }
