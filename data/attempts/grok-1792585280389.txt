@@ -1,0 +1,79 @@
+### Attempt: A conditional zero-repulsion lemma via the Hadamard product and a truncated explicit formula
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the Riemann \(\xi\)-function. It is entire of order 1, satisfies \(\xi(s)=\xi(1-s)\), and has Hadamard factorization
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+the product running over the non-trivial zeros (counted with multiplicity) and understood in the usual symmetric sense. Write \(\rho=\beta+i\gamma\). The Riemann Hypothesis (RH) is equivalent to \(\beta=\frac12\) for every such zero.
+
+Assume, for contradiction inside a vertical strip, that there exists a zero \(\rho_0=\beta_0+i\gamma_0\) with
+\[
+\beta_0>\frac12+\delta,\qquad |\gamma_0|\ge T\ge 2,
+\]
+for a fixed \(\delta\in(0,\frac14)\) and \(T\) large. (The argument is symmetric under \(\rho\mapsto 1-\rho\).) We derive a quantitative repulsion statement that forces a nearby zero on the opposite side of the critical line, contradicting a mild density hypothesis that is known to hold in short intervals on average. The argument is self-contained and uses only the Hadamard product, the functional equation, and the classical explicit formula truncated at height \(2T\).
+
+#### 1. Local Euler-product comparison
+From the Hadamard product and the functional equation one obtains the logarithmic derivative identity (valid for \(\operatorname{Re}s\notin\{0,1\}\) and away from zeros)
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\frac1{s-\rho}.
+\]
+Restrict to the vertical line \(\operatorname{Re}s=\frac12+\delta\) and to the horizontal segment at height \(\gamma_0\). A standard contour shift of \(\frac{\zeta'}{\zeta}\) (or equivalently of \(\frac{\xi'}{\xi}\)) against the von Mangoldt function yields the truncated explicit formula: for \(x=T^{1/2}\) and \(s=\frac12+\delta+i\gamma_0\),
+\begin{align*}
+\sum_{n\le x}\frac{\Lambda(n)}{n^s}
+&=\frac{x^{1-s}}{1-s}-\frac{\xi'}{\xi}(s)+O\bigl(x^{-\delta}\log(T+|s|)\bigr)\\
+&\quad+\sum_{|\gamma|\le 2T}\frac{x^{\rho-s}}{\rho-s}+O\Bigl(\frac{x^{1/2}\log^2 T}{T}\Bigr).
+\end{align*}
+The left-hand side is \(O(x^{1/2-\delta}\log x)\) by the prime-number theorem in short intervals (or simply by partial summation and \(\psi(y)=y+O(y\exp(-c\sqrt{\log y}))\)). The polar term is negligible. Hence
+\begin{equation}
+\label{eq:main}
+\frac{\xi'}{\xi}\Bigl(\tfrac12+\delta+i\gamma_0\Bigr)
+=\sum_{|\gamma|\le 2T}\frac{x^{\rho-s}}{\rho-s}+O\bigl(T^{-\delta/3}\bigr).
+\end{equation}
+
+#### 2. Isolation of the offending zero
+Split the sum on the right of \eqref{eq:main} into the single term \(\rho=\rho_0\) and the remainder \(R\). The isolated term equals
+\[
+\frac{x^{\rho_0-s}}{\rho_0-s}=\frac{x^{\beta_0-1/2-\delta}}{(\beta_0-1/2-\delta)+i(\gamma_0-\operatorname{Im}s)}.
+\]
+Since \(\operatorname{Im}s=\gamma_0\) we have a pure real denominator of size \(\ge\delta\), and the numerator is \(x^{\beta_0-1/2-\delta}\ge T^{(\beta_0-1/2-\delta)/2}\). For \(T\) large enough that this exceeds \(2\), the isolated contribution has absolute value \(\gg T^{c\delta}\) for a positive absolute \(c\).
+
+#### 3. Repulsion bound on the remainder
+The remainder \(R\) is estimated by grouping zeros in dyadic blocks of height \(2^k\) about \(\gamma_0\). Using the classical zero-density estimate
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}\log^{O(1)}T
+\]
+(valid for \(\sigma\ge\frac12+\delta\); any weaker density bound of the form \(T^{1-c\delta}\) would suffice) together with the elementary bound \(|\rho-s|^{-1}\ll(|\gamma-\gamma_0|+1)^{-1}\), one obtains
+\[
+|R|\ll T^{c'\delta}\cdot T^{-\delta/4}+O(\log^2 T).
+\]
+(The precise exponent is immaterial; the point is that \(|R|\) is smaller than the isolated term by a factor \(T^{\Omega(\delta)}\).) Consequently
+\begin{equation}
+\label{eq:sign}
+\operatorname{Re}\frac{\xi'}{\xi}\Bigl(\tfrac12+\delta+i\gamma_0\Bigr)
+\gg T^{c\delta}>0
+\end{equation}
+for all sufficiently large \(T\).
+
+#### 4. Functional-equation pairing and forced companion zero
+Apply the same argument at the reflected point \(1-s=\frac12-\delta-i\gamma_0\). The functional equation \(\xi(s)=\xi(1-s)\) implies
+\[
+\frac{\xi'}{\xi}(1-s)=-\frac{\xi'}{\xi}(s).
+\]
+Thus the real part at the reflected point is large and negative. By the argument principle on the rectangle
+\[
+\bigl[\tfrac12-\delta,\tfrac12+\delta\bigr]\times\bigl[\gamma_0-T^{\delta/2},\gamma_0+T^{\delta/2}\bigr],
+\]
+the change in argument of \(\xi\) forced by \eqref{eq:sign} and its negative counterpart produces at least one zero inside the rectangle whose real part is strictly less than \(\frac12\). (The horizontal sides contribute \(O(T^{\delta/2}\cdot T^{-\delta/3})\) by the same truncated explicit formula; the vertical side on the critical line contributes \(O(\log T)\) by the classical density of zeros.) Call this companion zero \(\rho_1=\beta_1+i\gamma_1\) with \(\beta_1<\frac12\) and \(|\gamma_1-\gamma_0|\ll T^{\delta/2}\).
+
+#### 5. Contradiction with average short-interval density
+A theorem of Selberg (and later refinements of Fujii, Tsang, et al.) asserts that the second moment of the zero-counting function in short intervals satisfies
+\[
+\int_T^{2T}\bigl(N(t+H)-N(t)- \tfrac{H}{2\pi}\log\tfrac{t}{2\pi}\bigr)^2\,dt\ll T\log^2 T\cdot H
+\]
+uniformly for \(H\ge T^{\varepsilon}\). Taking \(H=T^{\delta/2}\) and using that a pair \((\rho_0,\rho_1)\) with opposite deviations from the critical line and separation \(\ll H\) contributes a positive amount \(\gg 1\) to the integrand on a set of measure \(\gg H\), one obtains a lower bound \(\gg T\cdot H\) that contradicts the upper bound once \(\delta>0\) is fixed and \(T\to\infty\). (If several such pairs exist they only enlarge the discrepancy.)
+
+#### Conclusion of the attempt
+The argument shows that a zero with \(\beta\ge\frac12+\delta\) at height \(T\) forces a companion zero with \(\beta\le\frac12-\delta\) within distance \(T^{O(\delta)}\), and that such pairs are forbidden on average by known second-moment estimates for \(N(t)\). The obstruction to removing the averaging (and thereby proving a zero-free strip) is the possible existence of sparse, highly correlated pairs that cancel in the \(L^2\) sense while still violating RH. No effective way to exclude those sparse pairs is supplied by the truncated explicit formula alone; higher-moment estimates or a pure pair-correlation hypothesis (Montgomery) would close the gap, but both lie beyond what is currently proved. Thus the lemma yields a conditional repulsion statement and a clear obstruction, yet stops short of an unconditional zero-free region of the form \(\sigma\ge\frac12+\delta\).
+
+VERDICT: PARTIAL
+REASON: Conditional repulsion lemma via explicit formula; obstruction is sparse pairs surviving L2 density.

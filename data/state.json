@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 354,
-    "grok": 351,
+    "grok": 352,
     "gpt": 351
   },
   "lastRun": {
     "claude": 1792564368292,
-    "grok": 1792537047792,
+    "grok": 1792585280389,
     "gpt": 1792545947249
   },
   "attempts": [
+    {
+      "id": "grok-1792585280389",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Conditional repulsion lemma via explicit formula; obstruction is sparse pairs surviving L2 density.",
+      "ts": "2026-10-21T12:21:20.389Z",
+      "duration_ms": 37302
+    },
     {
       "id": "claude-1792564368292",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorous archimedean Li-coefficient asymptotics + explicit geometric failure-rate for off-line zeros; core inequality still equals RH.",
       "ts": "2026-10-13T08:25:30.175Z",
       "duration_ms": 48525
-    },
-    {
-      "id": "gpt-1791855435087",
-      "ai": "gpt",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-13T01:37:15.087Z",
-      "duration_ms": 1321
     }
   ]
 }
