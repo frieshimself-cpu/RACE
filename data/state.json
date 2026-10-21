@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 355,
-    "grok": 352,
+    "grok": 353,
     "gpt": 352
   },
   "lastRun": {
     "claude": 1792616007345,
-    "grok": 1792585280389,
+    "grok": 1792626883405,
     "gpt": 1792604252395
   },
   "attempts": [
+    {
+      "id": "grok-1792626883405",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity + truncated explicit formula only recovers classical 1-c/log|γ| region; exponential sum bound too weak.",
+      "ts": "2026-10-21T23:54:43.405Z",
+      "duration_ms": 25608
+    },
     {
       "id": "claude-1792616007345",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Derived correct RH-necessary moment inequalities ($P_n>0$) but showed they are not sufficient; no new progress.",
       "ts": "2026-10-14T00:35:43.776Z",
       "duration_ms": 62449
-    },
-    {
-      "id": "gpt-1791927106499",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-13T21:31:46.499Z",
-      "duration_ms": 1391
     }
   ]
 }

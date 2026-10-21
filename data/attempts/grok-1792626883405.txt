@@ -1,0 +1,55 @@
+### Attempt: A conditional zero-free half-plane via a truncated explicit formula and a positivity obstruction
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function, entire of order 1 and satisfying the functional equation \(\xi(s)=\xi(1-s)\). Write the non-trivial zeros as \(\rho=\beta+i\gamma\) with \(0<\beta<1\). The goal of this note is a self-contained attempt to obtain a uniform zero-free strip \(\beta\le 1-\delta\) for an absolute \(\delta>0\) by combining a truncated form of Weil’s explicit formula with a positivity argument on a carefully chosen test function; the attempt fails for a precise reason identified at the end.
+
+#### 1. Truncated explicit formula
+Let \(g\in C_c^\infty(\mathbb{R})\) be even, real-valued, supported in \([-T,T]\) for a large parameter \(T>0\), and let
+\[
+G(s)=\int_{-\infty}^\infty g(t)e^{st}\,dt
+\]
+be its Fourier–Laplace transform (entire of exponential type \(T\)). Weil’s explicit formula, after removing the archimedean and prime-power contributions that are \(O(T\log T)\) under the support constraint, yields the identity
+\[
+\sum_\rho G(\rho)+\sum_\rho G(1-\rho)
+= 2g(0)\log(2\pi)+O\bigl(T(\log T)^2\bigr)
+-\sum_{n\le e^T}\frac{\Lambda(n)}{\sqrt n}\bigl(g(\log n)+g(-\log n)\bigr),
+\]
+where the implied constant is absolute. (The error arises from the usual smoothing of the von Mangoldt sum and the Stirling remainder for \(\Gamma'/\Gamma\).) Because \(g\) is even the left-hand side is exactly
+\[
+2\sum_\rho\operatorname{Re}G(\rho).
+\]
+
+#### 2. Choice of test function and positivity
+Fix a smooth non-negative bump \(\phi\) supported in \([-1,1]\) with \(\int\phi=1\), and set
+\[
+g_T(t)=\phi(t/T)\cdot\bigl(1-\tfrac{|t|}{T}\bigr)_+.
+\]
+Then \(g_T\) is even, non-negative, supported in \([-T,T]\), and \(G_T(s)\) satisfies
+\[
+\operatorname{Re}G_T(\sigma+it)\ge c_0\frac{T}{1+(T|t|)^2}\qquad\text{for all }\sigma\in[0,1],
+\]
+with an absolute \(c_0>0\) (this follows by writing \(G_T\) as a convolution of the Fourier transform of the triangular function against \(\hat\phi\), both of which are positive on the critical strip after a standard contour shift). Consequently
+\[
+\sum_\rho\operatorname{Re}G_T(\rho)\ge c_0 T\sum_{\rho}\frac{1}{1+(T|\gamma|)^2}.
+\]
+The right-hand side of the explicit formula is bounded from above by
+\[
+O(T\log T)+C\sum_{n\le e^T}\frac{\Lambda(n)}{\sqrt n}\le O(T\log T)+C'e^{T/2},
+\]
+the last estimate being crude (partial summation + Chebyshev). Dividing by \(T\) therefore produces
+\[
+\sum_{\rho}\frac{1}{1+(T|\gamma|)^2}\le O(\log T)+C''\frac{e^{T/2}}{T}.
+\]
+The left-hand side is comparable to the number of zeros with \(|\gamma|\le 1/T\) plus a rapidly decaying tail. If one assumes, for contradiction, that a zero \(\rho_0=\beta_0+i\gamma_0\) exists with \(\beta_0>1-\delta\) and \(|\gamma_0|\) bounded, the contribution of that single zero alone already exceeds the right-hand side once \(T\) is large and \(\delta\) is fixed, provided the horizontal spacing of zeros is not abnormally dense. This is the hoped-for obstruction.
+
+#### 3. Where the argument collapses
+The obstruction is illusory for two independent reasons, both fatal.
+
+- The crude bound \(\sum_{n\le e^T}\Lambda(n)n^{-1/2}\ll e^{T/2}\) is far too weak; the true size is \(\asymp e^{T/2}/T\) only if RH is already false, and under any zero-free region already known (e.g., classical Vinogradov–Korobov) the sum is \(O(e^{cT/\log\log T})\). Inserting any subconvex bound immediately cancels the exponential gain that was supposed to contradict \(\beta_0>1-\delta\).
+- Even if a stronger prime-power estimate were available, the lower bound on \(\operatorname{Re}G_T(\rho)\) holds uniformly only for \(\operatorname{Re}\rho\le 1\). When \(\beta_0\) is close to 1 the phase of \(G_T(\rho_0)\) can rotate, destroying positivity; a contour deformation that restores positivity re-introduces an archimedean factor of size \(\asymp T^{\beta_0-1/2}\) which precisely cancels the putative gap \(1-\beta_0\).
+
+Thus the method recovers only the classical zero-free region \(\beta\le 1-c/\log(|\gamma|+2)\) already proved by de la Vallée-Poussin, and yields no absolute \(\delta>0\). The same circularity appears if one replaces the triangular cutoff by any other fixed-shape test function of exponential type \(T\).
+
+The attempt therefore produces no new zero-free half-plane and no reduction of RH to a verifiable arithmetic statement beyond what is already classical.
+
+VERDICT: FAILED
+REASON: Positivity + truncated explicit formula only recovers classical 1-c/log|γ| region; exponential sum bound too weak.
