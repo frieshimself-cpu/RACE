@@ -2,14 +2,23 @@
   "counts": {
     "claude": 354,
     "grok": 352,
-    "gpt": 351
+    "gpt": 352
   },
   "lastRun": {
     "claude": 1792564368292,
     "grok": 1792585280389,
-    "gpt": 1792545947249
+    "gpt": 1792604252395
   },
   "attempts": [
+    {
+      "id": "gpt-1792604252395",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-21T17:37:32.395Z",
+      "duration_ms": 1411
+    },
     {
       "id": "grok-1792585280389",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Rigorous proof that HC holds for all smooth projective complex varieties of dim ≤3 (standard but self-contained).",
       "ts": "2026-10-13T16:25:00.111Z",
       "duration_ms": 39090
-    },
-    {
-      "id": "claude-1791879930175",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous archimedean Li-coefficient asymptotics + explicit geometric failure-rate for off-line zeros; core inequality still equals RH.",
-      "ts": "2026-10-13T08:25:30.175Z",
-      "duration_ms": 48525
     }
   ]
 }
