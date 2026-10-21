@@ -1,0 +1,100 @@
+## Attempt: An obstruction lemma for first-moment positivity criteria
+
+I analyze a natural class of "positivity" attacks on RH built from the convergent
+symmetric zero-sum of $\xi$, and prove rigorously that they **cannot** detect
+off-critical zeros. This is a concrete negative result: it isolates exactly why
+the simplest convergent zero-sums are blind to RH, which constrains what any
+working criterion must look like.
+
+### Setup
+
+Let the nontrivial zeros of $\zeta$ be $\rho = \beta + i\gamma$, $0<\beta<1$.
+By the functional equation they occur in quadruples $\{\rho,\ \bar\rho,\ 1-\rho,\ 1-\bar\rho\}$ (a conjugate pair on the line, a full quadruple off it). From the Hadamard factorization of $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ one has the classical absolutely convergent identity
+
+$$
+\sum_{\rho}\frac{1}{\rho(1-\rho)} \;=\; 2 + \gamma_{E} - \ln(4\pi)\;=\;0.0461914\ldots \tag{1}
+$$
+
+the sum being over all nontrivial zeros, grouped as $\rho$ and $1-\rho$ together so it converges absolutely (terms are $O(|\gamma|^{-2})$).
+
+### The key per-zero computation
+
+Write $\rho=\beta+i\gamma$. Then
+$$
+\rho(1-\rho) = \rho-\rho^2 = \big(\beta-\beta^2+\gamma^2\big) + i\,\gamma(1-2\beta).
+$$
+Hence
+$$
+\operatorname{Re}\frac{1}{\rho(1-\rho)}
+=\frac{\beta-\beta^2+\gamma^2}{|\rho(1-\rho)|^2}
+=\frac{\gamma^2+\beta(1-\beta)}{\big(\gamma^2+\beta(1-\beta)\big)^2+\gamma^2(1-2\beta)^2}. \tag{2}
+$$
+
+**Lemma 1.** For every nontrivial zero, $\operatorname{Re}\dfrac{1}{\rho(1-\rho)}>0$.
+
+*Proof.* Numerator $=\gamma^2+\beta(1-\beta)>0$ since $0<\beta<1$. Denominator is a modulus squared, positive. $\square$
+
+So positivity of (1) term-by-term holds *unconditionally* and carries no information about RH. This already shows the crude observation "the sum is positive" is vacuous.
+
+### The decisive monotonicity
+
+Now compare an off-line zero to its on-line shadow at the same height $\gamma$.
+Fix $\gamma$ and set $u=\beta(1-\beta)\in(0,\tfrac14]$, maximized at $\beta=\tfrac12$ where $u=\tfrac14$. From (2),
+
+$$
+f(u) \;:=\; \operatorname{Re}\frac{1}{\rho(1-\rho)}
+=\frac{\gamma^2+u}{(\gamma^2+u)^2+\gamma^2(1-4u)}
+=\frac{\gamma^2+u}{(\gamma^2+u)^2+\gamma^2 - 4u\gamma^2},
+$$
+using $(1-2\beta)^2 = 1-4u$.
+
+**Lemma 2 (anti-monotonicity).** For $\gamma^2 > \tfrac1{4}$ (true for all zeros, since $|\gamma|\ge 14.13$), $f$ is strictly increasing in $u$ on $(0,\tfrac14]$. Consequently, among all zeros at a fixed height $\gamma$, the contribution to (1) is **maximized** exactly when $\beta=\tfrac12$ and is **strictly smaller** for any off-line zero.
+
+*Proof.* Let $D(u)=(\gamma^2+u)^2+\gamma^2(1-4u)$ and $N(u)=\gamma^2+u$. Then
+$$
+f'(u)=\frac{N'D-ND'}{D^2},\qquad N'=1,\quad D'=2(\gamma^2+u)-4\gamma^2 = 2u-2\gamma^2.
+$$
+So
+$$
+N'D-ND' = D-(\gamma^2+u)(2u-2\gamma^2)
+= (\gamma^2+u)^2+\gamma^2(1-4u) - 2(\gamma^2+u)(u-\gamma^2).
+$$
+Expand with $a=\gamma^2$:
+$(a+u)^2 = a^2+2au+u^2$; $\;a(1-4u)=a-4au$; and $-2(a+u)(u-a)=-2(u^2-a^2)=-2u^2+2a^2$. Summing:
+$$
+a^2+2au+u^2 + a - 4au -2u^2 + 2a^2 = 3a^2 + a -2au - u^2
+= 3a^2 + a - 2au - u^2.
+$$
+For $0<u\le \tfrac14$ and $a=\gamma^2>\tfrac14$: $3a^2 > u^2$ (since $a>u$), and $a-2au=a(1-2u)>0$ because $u<\tfrac12$. Hence the numerator $>0$, so $f'(u)>0$. $\square$
+
+### Consequence: the obstruction
+
+**Proposition.** Any RH-criterion of the form "the real linear functional
+$\sum_\rho w(\gamma)\,\operatorname{Re}\frac{1}{\rho(1-\rho)} \ge 0$ with weights
+$w(\gamma)\ge 0$" is satisfied **regardless of whether RH holds**, and moreover a
+violation of RH can only *decrease* the sum. Therefore no inequality of this
+first-moment type can be equivalent to RH; a valid criterion must use a
+functional that is *decreasing* under the deformation $\beta\to\tfrac12$, i.e. it
+must be sensitive to $(2\beta-1)^2$ with the *opposite* sign to what (1)
+supplies.
+
+This explains structurally why working criteria (Li/Keiper coefficients,
+Weil's explicit-formula positivity) are genuinely *higher-order*: Li's
+$\lambda_n=\sum_\rho\big(1-(1-1/\rho)^n\big)$ encodes $\operatorname{Re}\,\rho^{-k}$
+for all $k\le n$, and its positivity fails precisely because high moments
+$\operatorname{Re}\,\rho^{-k}$ grow like $|\rho|^{-k}\cos(k\arg\rho)$ and can turn
+negative for off-line $\rho$ — the sign sensitivity that the single moment (1)
+provably lacks.
+
+### Honest assessment
+
+What is rigorous and (I believe) cleanly stated here: Lemmas 1–2 and the
+Proposition, including the explicit sign computation $3a^2+a-2au-u^2>0$. These
+correctly rule out an entire natural family of first-moment positivity attacks
+and pinpoint the required "anti-positivity" that any successful functional must
+exhibit. This is a real but modest structural constraint; it does **not** prove
+RH or any new zero-free region, and the higher-moment regime where the sign can
+flip is exactly where the actual difficulty survives untouched.
+
+VERDICT: PARTIAL
+REASON: Rigorously proved first-moment zero-sum positivity is unconditional and anti-monotone, ruling out that attack class.
