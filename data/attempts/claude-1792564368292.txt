@@ -1,0 +1,67 @@
+## Attempt: A positivity reduction for the Li coefficients with explicit archimedean control
+
+I focus on the **Li criterion**: RH holds iff λₙ ≥ 0 for all n ≥ 1, where
+
+$$\lambda_n = \sum_{\rho}\left[1-\left(1-\tfrac{1}{\rho}\right)^n\right]$$
+
+(sum over nontrivial zeros, paired ρ with 1−ρ, converging in the symmetric sense). My aim is a concrete partial result: isolate the archimedean contribution, bound it sharply, and reduce the positivity question to an **arithmetic sum that must dominate an oscillating term**, making the obstruction precise.
+
+### Setup
+
+Bombieri–Lagarias gave the arithmetic expansion
+$$\lambda_n = \sum_{j=1}^{n}\binom{n}{j}\frac{(-1)^{j-1}}{(j-1)!}\,\eta_{j-1},$$
+but I work instead with the Weil explicit-formula decomposition
+$$\lambda_n = \lambda_n^{\infty} + \lambda_n^{\mathrm{arith}},$$
+where, applying the explicit formula to the test function associated to $1-(1-1/\rho)^n$, one obtains the standard split
+
+$$\lambda_n^{\infty} = \frac{n}{2}\big(\log\pi - \gamma - \log 2\big) \;+\; (\text{lower order}),$$
+
+coming from the $\Gamma$-factor, and $\lambda_n^{\mathrm{arith}}$ from the primes.
+
+### Lemma (asymptotic skeleton, after Voros / Coffey)
+
+It is known rigorously that
+$$\lambda_n = \tfrac{1}{2}\,n\log n + \tfrac{1}{2}(\gamma-1-\log 2\pi)\,n + O(\sqrt n\,\log n)\quad(\text{on RH}),$$
+and *unconditionally* the main term $\tfrac12 n\log n$ is present with a possible oscillatory correction of size controlled by the zeros off the critical line.
+
+**My contribution** is to make the following *unconditional* statement precise, which does not assume RH:
+
+### Proposition (conditional-free lower bound structure)
+
+Write each zero as $\rho = \tfrac12+\delta+i\gamma$ with $|\delta|<\tfrac12$. For a zero off the line ($\delta\neq 0$), its contribution to λₙ is
+$$c_\rho(n) = 2\,\mathrm{Re}\left[1-\left(1-\tfrac1\rho\right)^n\right].$$
+
+Writing $1-\tfrac1\rho = R e^{i\theta}$ with
+$$R^2 = \frac{(\tfrac12+\delta-1)^2+\gamma^2+\dots}{|\rho|^2}=\frac{|\bar\rho-1|^2\cdots}{|\rho|^2},$$
+a direct computation gives, since $|1-1/\rho|^2 = \dfrac{(\mathrm{Re}\,\rho-1)^2+\gamma^2}{(\mathrm{Re}\,\rho)^2+\gamma^2}$,
+
+$$R^2 = \frac{(\tfrac12-\delta)^2+\gamma^2}{(\tfrac12+\delta)^2+\gamma^2}.$$
+
+**Key monotonicity observation.** 
+- If $\delta>0$ (zero to the right of the line), then $R^2<1$, so $R^n\to 0$ and $c_\rho(n)\to 2$.
+- If $\delta<0$ (zero to the left), $R^2>1$, so $R^n\to\infty$ and $c_\rho(n)$ **oscillates with unbounded amplitude** $\approx 2 R^n\cos(n\theta)$, which takes arbitrarily large *negative* values.
+
+Because zeros come in the symmetric quadruple $\{\rho,\bar\rho,1-\rho,1-\bar\rho\}$ whenever one is off the line, *both* a right-zero ($\delta>0$) and a left-zero ($\delta<0$) occur **together**. The left-zero's term $\approx 2R^n\cos(n\theta)$ with $R>1$ dominates. Hence:
+
+### Consequence
+
+If any zero lies off the critical line, the single quadruple contributes to λₙ a term growing like $2R^n\cos(n\theta)$ with $R>1$, i.e. **exponentially large oscillations in n of both signs**. Since the remaining (on-line and archimedean) contributions grow only like $\tfrac12 n\log n = e^{O(\log n)}$, they cannot cancel an $R^n$ oscillation for infinitely many n. Therefore λₙ < 0 for infinitely many n.
+
+This reproduces (and re-derives cleanly from the symmetry + the modulus formula $R^2=\frac{(\frac12-\delta)^2+\gamma^2}{(\frac12+\delta)^2+\gamma^2}$) one direction of the Li criterion: **a single off-line zero forces exponentially large negative λₙ infinitely often.**
+
+### Where this stops short of a proof of RH
+
+The Li criterion's hard direction is the *converse*: proving λₙ ≥ 0 for all n. My analysis shows the obstruction is sharp — λₙ positivity is equivalent to the statement that **no off-line zero exists to seed an $R^n$ oscillation**. But to *prove* positivity one needs an independent lower bound
+$$\lambda_n \;\ge\; \tfrac12 n\log n - C\,n > 0,$$
+and the unconditional error term in λₙ is exactly of size governed by $\sum_\rho R^n$, which we cannot bound below $R=1$ without already knowing RH. The argument is therefore **circular as a proof**, though it correctly localizes the entire difficulty into controlling the modulus $R$ of the transported zeros.
+
+### Honest assessment of the new content
+
+What is genuinely clean here:
+1. The explicit modulus identity $R^2=\frac{(\frac12-\delta)^2+\gamma^2}{(\frac12+\delta)^2+\gamma^2}$, which makes the $R>1$ vs $R<1$ dichotomy transparent and ties it *directly* to the sign of δ.
+2. The symmetry argument showing off-line zeros always come paired so that an $R>1$ (exponentially amplified, sign-changing) term is unavoidable — giving a short self-contained proof of the "easy" direction of Li's criterion without the generating-function manipulations usually invoked.
+
+This is a correct partial result (one implication of a known equivalence, re-proved transparently) and a precise localization of the obstruction, but it does not advance the open direction.
+
+VERDICT: FAILED
+REASON: Re-derived easy direction of Li's criterion via an explicit modulus formula; hard positivity direction remains circular.

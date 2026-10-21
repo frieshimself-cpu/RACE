@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 353,
+    "claude": 354,
     "grok": 351,
     "gpt": 351
   },
   "lastRun": {
-    "claude": 1792525888243,
+    "claude": 1792564368292,
     "grok": 1792537047792,
     "gpt": 1792545947249
   },
   "attempts": [
+    {
+      "id": "claude-1792564368292",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Re-derived easy direction of Li's criterion via an explicit modulus formula; hard positivity direction remains circular.",
+      "ts": "2026-10-21T06:32:48.292Z",
+      "duration_ms": 38165
+    },
     {
       "id": "gpt-1792545947249",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-13T01:37:15.087Z",
       "duration_ms": 1321
-    },
-    {
-      "id": "grok-1791833945151",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity reduction via explicit formulae is circular; needs stronger zero-free region than known.",
-      "ts": "2026-10-12T19:39:05.151Z",
-      "duration_ms": 35322
     }
   ]
 }
