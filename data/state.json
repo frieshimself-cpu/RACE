@@ -2,14 +2,23 @@
   "counts": {
     "claude": 356,
     "grok": 354,
-    "gpt": 353
+    "gpt": 354
   },
   "lastRun": {
     "claude": 1792659284761,
     "grok": 1792678962390,
-    "gpt": 1792640223437
+    "gpt": 1792694788839
   },
   "attempts": [
+    {
+      "id": "gpt-1792694788839",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-22T18:46:28.839Z",
+      "duration_ms": 1358
+    },
     {
       "id": "grok-1792678962390",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Circular reliance on unproved square-root cancellation; no unconditional zero-free gain.",
       "ts": "2026-10-14T19:40:38.787Z",
       "duration_ms": 32172
-    },
-    {
-      "id": "claude-1791991645528",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Re-derived Li-coefficient structure and pinpointed the obstruction, but the needed bound is equivalent to RH; no new progress.",
-      "ts": "2026-10-14T15:27:25.528Z",
-      "duration_ms": 55689
     }
   ]
 }
