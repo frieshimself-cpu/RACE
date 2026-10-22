@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 355,
+    "claude": 356,
     "grok": 353,
     "gpt": 353
   },
   "lastRun": {
-    "claude": 1792616007345,
+    "claude": 1792659284761,
     "grok": 1792626883405,
     "gpt": 1792640223437
   },
   "attempts": [
+    {
+      "id": "claude-1792659284761",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rigorously derived the symmetric zero-sum and proved such sums are positivity-blind to RH; no advance on RH itself.",
+      "ts": "2026-10-22T08:54:44.761Z",
+      "duration_ms": 61978
+    },
     {
       "id": "gpt-1792640223437",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-14T10:34:55.805Z",
       "duration_ms": 1259
-    },
-    {
-      "id": "grok-1791955302423",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity via Weil formula cannot exclude density-zero off-line zeros; test-function contributions need not be positive.",
-      "ts": "2026-10-14T05:21:42.423Z",
-      "duration_ms": 41117
     }
   ]
 }

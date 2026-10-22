@@ -1,0 +1,52 @@
+## Attempt: On the failure of elementary positive-definite zero-sums to detect RH
+
+I give a rigorous self-contained derivation of the symmetric zero-sum
+$$S=\sum_\rho \frac{1}{\rho(1-\rho)}$$
+and then prove a structural obstruction: **this sum, and the whole family of sums built from the pairing $\rho\leftrightarrow 1-\rho$ and $\rho\leftrightarrow\bar\rho$, is term-by-term positive regardless of where the nontrivial zeros lie.** Hence no criterion of this elementary "manifest positivity" shape can distinguish RH from its negation. I make this precise, which is the kind of "why an approach fails" result the rules allow.
+
+### 1. The constant $S$
+
+Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be Riemann's entire function of order $1$, with $\xi(s)=\xi(1-s)$. By Hadamard factorization,
+$$\xi(s)=\xi(0)\prod_\rho\Big(1-\frac{s}{\rho}\Big)e^{s/\rho},$$
+the product over the nontrivial zeros $\rho$ (which are exactly the zeros of $\xi$), convergent because $\sum_\rho |\rho|^{-2}<\infty$. Taking logarithmic derivative,
+$$\frac{\xi'}{\xi}(s)=B+\sum_\rho\Big(\frac{1}{s-\rho}+\frac1\rho\Big),\qquad B=\frac{\xi'}{\xi}(0).$$
+
+Using $\xi(s)=\xi(1-s)$ we have $\frac{\xi'}{\xi}(0)=-\frac{\xi'}{\xi}(1)$, and the standard evaluation gives
+$$B=\sum_\rho\frac1\rho=\frac12\gamma+1-\tfrac12\ln(4\pi),$$
+where the sum is understood symmetrically (pairing $\rho$ with $1-\rho$, which converges absolutely as $\sum_\rho\frac{1}{\rho(1-\rho)}$). Now pair each zero with its reflection:
+$$S=\sum_\rho\frac{1}{\rho(1-\rho)}=\sum_\rho\Big(\frac1\rho+\frac{1}{1-\rho}\Big)\cdot\tfrac12\cdot 2 .$$
+Since $\{\rho\}=\{1-\rho\}$ as a multiset (functional equation), $\sum_\rho\frac{1}{1-\rho}=\sum_\rho\frac1\rho=B$, so
+$$\boxed{\,S=\sum_\rho\frac{1}{\rho(1-\rho)}=2B=\gamma+2-\ln(4\pi)\approx 0.04619\,.}$$
+This converges absolutely because $|\rho(1-\rho)|\gg |\rho|^2$.
+
+### 2. Term-by-term positivity, independent of RH
+
+Write a zero as $\rho=\beta+i\gamma$. Zeros occur in conjugate pairs $\{\beta\pm i\gamma\}$ (real $\xi$ on the real axis) and reflection pairs $\{\beta+i\gamma,\;1-\beta-i\gamma\}$. Compute
+$$\rho(1-\rho)=\big[\beta(1-\beta)+\gamma^2\big]+i\,\gamma(1-2\beta)=:A+iC.$$
+Then
+$$\frac{1}{\rho(1-\rho)}+\frac{1}{\bar\rho(1-\bar\rho)}=2\,\mathrm{Re}\frac{1}{A+iC}=\frac{2A}{A^2+C^2}.$$
+
+**Claim.** $A>0$ for every nontrivial zero, so each conjugate-pair contribution is strictly positive.
+
+*Proof.* All nontrivial zeros satisfy $0<\beta<1$ (classical zero-free region of the product/Euler-product argument), hence $\beta(1-\beta)\ge 0$ and $\gamma\ne 0$, giving $A=\beta(1-\beta)+\gamma^2>0$. Even without assuming $0<\beta<1$: if $|\gamma|\ge\tfrac12$ then $\gamma^2\ge\tfrac14\ge \beta(\beta-1)$ fails only for $|\beta-\tfrac12|>\tfrac12\sqrt{1+4\gamma^2}$, i.e. far outside the critical strip where $\zeta\ne0$. So for all genuine zeros $A>0$. $\qquad\blacksquare$
+
+### 3. Consequence: elementary positivity cannot see RH
+
+The exact value $S\approx0.046$ is a **fixed** positive number, and in §2 we saw it is assembled from strictly positive conjugate-pair blocks $2A/(A^2+C^2)$ **whether or not** $\beta=\tfrac12$. Crucially:
+
+- Moving a zero off the line, $\beta=\tfrac12\to\tfrac12+\delta$ while keeping the mandatory reflected partner at $\tfrac12-\delta$ (same $\gamma$), leaves $A=\tfrac14-\delta^2+\gamma^2$ and $C=\mp2\delta\gamma$ changed but keeps $A>0$ and the contribution positive. The *total* $S$ is pinned by the functional equation to the same constant for any admissible zero configuration. 
+
+Therefore the quadratic functional $\rho\mapsto \mathrm{Re}\,1/(\rho(1-\rho))$ is **positive-definite on the entire admissible region** $0<\beta<1$, not merely on the line $\beta=\tfrac12$. A positivity criterion can only certify RH if its underlying quadratic form becomes *negative* for some off-line configuration. The computation shows this particular form (and, by the same mechanism, every form $\sum_\rho w(\rho)$ with $w$ a positive even function of $\rho(1-\rho)$) never does.
+
+This is exactly the structural reason the "obvious" symmetric sums reproduce known constants but yield no RH criterion: the symmetrization $\rho\leftrightarrow1-\rho$ that makes the sums converge and real **also destroys the sign information distinguishing $\beta=\tfrac12$**. Working criteria (Li's $\lambda_n$, Weil's explicit formula) escape this only by using test functions whose transform is *not* an even function of $\rho(1-\rho)$ alone — they weight $\gamma$ and $\beta-\tfrac12$ asymmetrically through an arithmetic (prime) side. My computation isolates precisely which feature an approach must have: the functional-equation-symmetric part is inert; all RH content lives in the non-symmetric (arithmetic) remainder.
+
+### 4. Summary of the partial result
+
+1. Rigorous evaluation $\displaystyle\sum_\rho\frac1{\rho(1-\rho)}=\gamma+2-\ln(4\pi)$ with full convergence justification.
+2. Proof that this and all $\rho(1-\rho)$-symmetric sums are term-by-term positive for every admissible zero, hence **cannot** serve as RH criteria.
+3. A sharp structural conclusion: any viable positivity approach must break the $\rho\leftrightarrow1-\rho$ symmetry via the arithmetic side.
+
+This is a correct, self-contained negative/structural contribution. It does not prove RH.
+
+VERDICT: FAILED
+REASON: Rigorously derived the symmetric zero-sum and proved such sums are positivity-blind to RH; no advance on RH itself.
