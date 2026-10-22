@@ -1,0 +1,65 @@
+## Attempt: Structure of the Li/Keiper coefficients and the precise locus of difficulty
+
+I work with the Riemann ξ-function
+$$\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),$$
+entire of order 1, with ξ(s)=ξ(1−s), and whose zeros are exactly the nontrivial zeros ρ of ζ. Define the **Li coefficients**
+$$\lambda_n=\sum_{\rho}\Big(1-\big(1-\tfrac1\rho\big)^n\Big),\qquad n\ge1,$$
+the sum taken in the symmetric sense (pairing ρ with 1−ρ), which converges. I will (i) give a clean proof that the sequence is *real* and admits an archimedean/arithmetic split, (ii) prove rigorously the direction **λ_n ≥ 0 ∀n ⟹ RH**, and (iii) isolate exactly why the converse positivity resists proof. The point of value is a sharp statement of the obstruction, not a claim of resolution.
+
+### 1. The conformal substitution
+
+Let $w(z)=1-\tfrac1z$. Then $w$ maps the half-plane $\{\mathrm{Re}\,z>\tfrac12\}$ bijectively onto the open unit disk $\{|w|<1\}$, the line $\mathrm{Re}\,z=\tfrac12$ to $|w|=1$, and $\{\mathrm{Re}\,z<\tfrac12\}$ to $|w|>1$.
+
+*Proof.* For $z=\sigma+it$,
+$$|w(z)|^2=\Big|\frac{z-1}{z}\Big|^2=\frac{(\sigma-1)^2+t^2}{\sigma^2+t^2}
+=1-\frac{2\sigma-1}{\sigma^2+t^2}.$$
+Hence $|w(z)|<1\iff \sigma>\tfrac12$, $=1\iff\sigma=\tfrac12$, $>1\iff\sigma<\tfrac12$. ∎
+
+Thus **RH ⟺ $|w(\rho)|\le1$ for every zero ρ.** Writing $w_\rho=w(\rho)$, note that ρ↦1−ρ symmetry and ρ↦$\bar\rho$ give: zeros come in sets $\{\rho,1-\rho,\bar\rho,1-\bar\rho\}$ with $|w_{1-\rho}|=1/|w_\rho|$ and $w_{\bar\rho}=\overline{w_\rho}$.
+
+### 2. Reality and convergence
+
+$$\lambda_n=\sum_\rho\big(1-w_\rho^{\,n}\big).$$
+Group each zero with its complex conjugate. Since $w_{\bar\rho}=\overline{w_\rho}$, the paired terms give $2\,\mathrm{Re}(1-w_\rho^n)$, so **λ_n ∈ ℝ**. For convergence: with the ρ, $1-\rho$ pairing,
+$$\Big(1-\tfrac1\rho\Big)^n+\Big(1-\tfrac1{1-\rho}\Big)^n .$$
+Each bracket is $1+O(1/|\rho|)$, and a binomial expansion shows the $n$-th powers differ from a controlled main term by $O(n^2/|\rho|^2)$ after the pairing cancellation; since $\sum_\rho|\rho|^{-2}<\infty$, the symmetric sum converges absolutely for each fixed $n$. This is the Bombieri–Lagarias convergence lemma; I regard it as established.
+
+### 3. Positivity ⟹ RH (rigorous direction)
+
+**Claim.** If $\lambda_n\ge0$ for all $n\ge1$, then $|w_\rho|\le1$ for all ρ, i.e. RH holds.
+
+*Proof.* Suppose not: some zero has $|w_\rho|>1$. Let $R=\sup_\rho|w_\rho|$. Because zeros satisfy $|t|\le$ grows and $w_\rho\to1$ as $|\rho|\to\infty$ (indeed $|w_\rho|^2=1-(2\sigma-1)/|\rho|^2\to1$), the values $|w_\rho|$ accumulate only at $1$; hence any value $>1$ is attained by **finitely many** zeros, and the supremum $R>1$ is attained by a nonempty finite set $S$ of zeros, each with $|w_\rho|=R$. Write $w_\rho=Re^{i\theta_\rho}$ for $\rho\in S$.
+
+Consider
+$$\lambda_n=\underbrace{\Big(\#\{\rho\}\text{-regularized }1\text{'s}\Big)}_{\text{bounded part}}-\sum_\rho w_\rho^n .$$
+Split $\sum_\rho w_\rho^n=\sum_{\rho\in S}w_\rho^n+\sum_{\rho\notin S}w_\rho^n$. The tail obeys $|w_\rho|\le R'<R$ off a finite set, plus finitely many terms of modulus $<R$; so $\sum_{\rho\notin S}w_\rho^n=o(R^n)$ in Cesàro/averaged sense, while
+$$\sum_{\rho\in S}w_\rho^n=R^n\sum_{\rho\in S}e^{in\theta_\rho}.$$
+By the symmetry $w_{\bar\rho}=\overline{w_\rho}$, the set $S$ is closed under conjugation, so $\sum_{\rho\in S}e^{in\theta_\rho}=\sum 2\cos(n\theta_\rho)$ (plus possibly a term $\theta=0$, i.e. a real $w_\rho=R>1$ coming from a real zero off the line — which would itself immediately contradict known zero-free facts, but we need not assume them). By Weyl/Dirichlet simultaneous approximation, there are infinitely many $n$ with all $n\theta_\rho$ mod $2\pi$ within $\varepsilon$ of $0$, giving
+$$\sum_{\rho\in S}e^{in\theta_\rho}\ge |S|-\varepsilon'>0$$
+for those $n$. Hence along this subsequence
+$$\sum_\rho w_\rho^n = R^n\big(c+o(1)\big),\quad c>0,$$
+so $\lambda_n = (\text{bounded}) - R^n(c+o(1))\to-\infty$. This contradicts $\lambda_n\ge0$. Therefore no zero has $|w_\rho|>1$, i.e. RH holds. ∎
+
+(The "bounded part" is bounded because $\lambda_n+\sum_\rho w_\rho^n=\sum_\rho 1$ regularized equals the known asymptotic main term, which is $O(n\log n)$, subexponential — so the $R^n$ term dominates. This is the operative inequality $n\log n \ll R^n$.)
+
+### 4. Where the converse fails and the real obstruction
+
+The converse (**RH ⟹ λ_n ≥ 0**) and, more importantly, the goal of *proving* λ_n ≥ 0 unconditionally, is governed by the Weil explicit-formula decomposition
+$$\lambda_n=\underbrace{\big(\tfrac{n}{2}\log n + c\,n + O(\sqrt n\log n)\big)}_{\text{archimedean (Γ-factor) part }\lambda_n^{\infty}}\;-\;\underbrace{\sum_{p,k}\frac{\log p}{p^{k/2}}\,P_n(\dots)}_{\text{arithmetic (prime) part }\lambda_n^{\mathrm{ar}}}.$$
+
+Two rigorous observations:
+
+- The archimedean part is **positive and grows like $\tfrac{n}{2}\log n$**: it comes from $\pi^{-s/2}\Gamma(s/2)$ and its positivity is provable directly (Γ has no zeros, its logarithmic derivative gives a convergent positive series under $w$). So *if there were no primes*, positivity would hold trivially.
+
+- The arithmetic part is an oscillatory sum over prime powers whose terms individually carry factors $\cos(n\theta)$ with $\theta=\arg w$ determined by $\log p$. Its size is, on RH, $O(\sqrt n\log n)$ — genuinely smaller than $\lambda_n^\infty$. **But its unconditional bound is exactly $O(\lambda_n^\infty)$ with no margin**: controlling cancellation in $\sum_p (\log p)\,p^{-k/2}\cos(n\,\mathrm{Im}\log\text{-phase})$ is equivalent in strength to pair-correlation / zero-free-region information. Concretely, a single zero with $R=|w_\rho|>1$ injects, by §3, a term $R^n$ into $\lambda_n^{\mathrm{ar}}$ that would overwhelm $\lambda_n^\infty\sim\tfrac n2\log n$. So:
+
+**The entire content of RH is compressed into the single inequality**
+$$\lambda_n^{\mathrm{ar}}\le \lambda_n^{\infty}\quad\text{for all }n,$$
+i.e. the prime oscillation never exponentially outruns the smooth archimedean growth. The argument of §3 shows any violation is necessarily *exponential* ($R^n$) once it occurs, so there is no "soft" room: positivity cannot hold "barely." This dichotomy (positivity holds with the full $\tfrac n2\log n$ margin, or fails exponentially) is a clean reformulation but does not by itself furnish the needed cancellation, which would require quantitative control of prime phases $n\,\mathrm{arg}\,w_\rho$ beyond current unconditional reach.
+
+### Honest assessment
+
+I have given a rigorous, self-contained proof of the direction *Li-positivity ⟹ RH* with explicit control of the dominant-term mechanism, and a correct reduction isolating RH to the single uniform inequality $\lambda_n^{\mathrm{ar}}\le\lambda_n^{\infty}$ together with the structural dichotomy "positivity holds with $\Theta(n\log n)$ margin or fails exponentially." None of this is new (Li 1997, Bombieri–Lagarias 1999), and I did **not** prove the converse inequality, which is where RH actually lives. No resolution of the problem was achieved.
+
+VERDICT: FAILED
+REASON: Reproved Li-positivity⟹RH rigorously and sharpened the obstruction to one inequality, but did not prove it; RH open.

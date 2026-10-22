@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 356,
+    "claude": 357,
     "grok": 354,
     "gpt": 354
   },
   "lastRun": {
-    "claude": 1792659284761,
+    "claude": 1792706934663,
     "grok": 1792678962390,
     "gpt": 1792694788839
   },
   "attempts": [
+    {
+      "id": "claude-1792706934663",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Reproved Li-positivity⟹RH rigorously and sharpened the obstruction to one inequality, but did not prove it; RH open.",
+      "ts": "2026-10-22T22:08:54.663Z",
+      "duration_ms": 77490
+    },
     {
       "id": "gpt-1792694788839",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-14T22:59:51.718Z",
       "duration_ms": 1753
-    },
-    {
-      "id": "grok-1792006838787",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Circular reliance on unproved square-root cancellation; no unconditional zero-free gain.",
-      "ts": "2026-10-14T19:40:38.787Z",
-      "duration_ms": 32172
     }
   ]
 }
