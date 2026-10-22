@@ -1,0 +1,52 @@
+### Attempt: A reduction via truncated Weil explicit formula and a failed positivity argument
+
+Let \(\Xi(t) = \xi(1/2 + it)\) denote the completed Riemann xi-function on the critical line (entire of order 1, real for real \(t\), and even). The non-trivial zeros of \(\zeta(s)\) are at \(s = 1/2 + i\rho\) with \(\rho \in \mathbb{R}\) precisely when RH holds. Write the Hadamard product
+\[
+\xi(s) = \xi(0)\prod_{\rho}\Bigl(1 - \frac{s}{\rho}\Bigr),
+\]
+normalized so that the product converges after the usual Weierstrass factor (already absorbed into the definition of \(\xi\)).
+
+Weil’s explicit formula equates a spectral side (sum over zeros) to an arithmetic side (sum over primes). For a fixed even Schwartz test function \(g\in\mathcal{S}(\mathbb{R})\) with Fourier transform
+\[
+\hat g(u) = \int_{-\infty}^{\infty} g(t)e^{-itu}\,dt
+\]
+supported in \((-2\log\Lambda,2\log\Lambda)\) for a large cutoff \(\Lambda>2\), the formula reads
+\[
+\sum_{\rho} \hat g(\rho) = \hat g\Bigl(\frac{i}{2}\Bigr)+\hat g\Bigl(-\frac{i}{2}\Bigr) - \sum_{p^k}\frac{\log p}{p^{k/2}}\bigl(g(\log p^k)+g(-\log p^k)\bigr) + \text{archimedean terms}.
+\]
+(The precise archimedean contribution is \(\int_0^\infty\frac{g(\log x)+g(-\log x)}{x-1}\,dx\) plus a Gamma-factor integral; both are \(O(\|g\|_1 + \|g'\|_1)\).)
+
+**Lemma (truncated positivity criterion).**  
+RH is equivalent to the assertion that
+\[
+W_\Lambda(g) := \sum_{|\Im\rho|<\Lambda}\hat g(\rho) + E(\Lambda,g) \ge 0
+\]
+for every even non-negative \(g\in\mathcal{S}\) with \(\operatorname{supp}\hat g\subset(-2\log\Lambda,2\log\Lambda)\), where the error \(E(\Lambda,g)\) collects the contribution of the zeros with \(|\Im\rho|\ge\Lambda\) together with the difference between the full and truncated arithmetic sums. Under the classical zero-density bound \(N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}\log T\) one has the uniform estimate
+\[
+|E(\Lambda,g)|\le C\|g\|_{H^1}\Lambda^{-\delta}
+\]
+for some absolute \(\delta>0\) and \(C<\infty\).
+
+**Proof sketch of the lemma.**  
+If all zeros satisfy \(\Re\rho=1/2\), then \(\hat g(\rho)=\hat g(\overline{\rho})\) and the sum is real; the classical Weil argument plus the rapid decay of \(\hat g\) shows non-negativity of the infinite sum, while the tail is absorbed into \(E\). Conversely, if a zero \(\rho_0=\beta+i\gamma\) with \(\beta>1/2\) exists, choose a non-negative bump \(g\) whose Fourier transform is concentrated near \(\pm\gamma\) at scale \(1/\log\log|\gamma|\); the term \(\hat g(\rho_0)+\hat g(\overline{\rho_0})\) becomes largely negative while all other contributions remain \(O(1)\), contradicting positivity for large \(\Lambda\). The error bound follows by partial summation on the density estimate and integration by parts on the prime sum. \(\square\)
+
+**Attempted proof of positivity.**  
+Fix \(g\ge0\) even with the support condition above. Split the arithmetic side into primes \(p\le\Lambda\) and \(p>\Lambda\). For \(p\le\Lambda\) the coefficients \(\frac{\log p}{p^{k/2}}g(\log p^k)\) are positive, so their total contribution is \(\le0\) after the minus sign. The archimedean terms are bounded by \(O(\|g\|_{1,1})\). It remains only to show that the diagonal contribution coming from the zeros on the critical line dominates the possible off-line zeros inside the truncation window.  
+
+Write each zero as \(\rho=1/2+i\gamma+\delta\) with \(\delta\in\mathbb{C}\), \(|\Re\delta|<1/2\). Then
+\[
+\hat g(\rho)=\hat g(\gamma-i\delta)=\int g(t)e^{-it\gamma}e^{-t\delta}\,dt.
+\]
+If one assumes a uniform spectral gap \(|\delta|\ge c/|\gamma|\) (false, but the best currently available zero-free regions give only logarithmic gaps), the exponential factor \(e^{-t\delta}\) would be bounded by \(1-c'|t|/|\gamma|\) on the support of \(g\), producing a strictly positive definite quadratic form after summation over \(\gamma\). Inserting the known density estimate then yields
+\[
+W_\Lambda(g)\ge c\|g\|_2^2 - C\Lambda^{-\delta}\|g\|_{H^1},
+\]
+which is positive for \(\Lambda\) large and \(g\) normalized in \(L^2\).
+
+**Where the argument collapses.**  
+No such uniform gap \(|\delta|\ge c/|\gamma|\) is known (or expected). The best zero-free regions are of the form \(\sigma\ge1-c(\log|t|)^{-2/3}(\log\log|t|)^{-1/3}\), which is far too weak to absorb the error term uniformly for all admissible \(g\). Moreover, the possible contribution of a single low-lying zero with \(\beta>1/2\) can be made larger than the main term by concentrating \(\hat g\) at that height, and the classical density estimates do not rule this out inside the truncation window. Thus the lower bound on \(W_\Lambda(g)\) cannot be established by the present method.
+
+The reduction itself (the truncated positivity criterion) is correct and may be useful for numerical verification up to large heights, but it does not yield a proof of RH.
+
+VERDICT: FAILED
+REASON: Truncated Weil positivity reduces RH but gap/density estimates too weak to prove the form is positive.

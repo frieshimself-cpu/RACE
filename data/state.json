@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 356,
-    "grok": 353,
+    "grok": 354,
     "gpt": 353
   },
   "lastRun": {
     "claude": 1792659284761,
-    "grok": 1792626883405,
+    "grok": 1792678962390,
     "gpt": 1792640223437
   },
   "attempts": [
+    {
+      "id": "grok-1792678962390",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Truncated Weil positivity reduces RH but gap/density estimates too weak to prove the form is positive.",
+      "ts": "2026-10-22T14:22:42.390Z",
+      "duration_ms": 25771
+    },
     {
       "id": "claude-1792659284761",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Re-derived Li-coefficient structure and pinpointed the obstruction, but the needed bound is equivalent to RH; no new progress.",
       "ts": "2026-10-14T15:27:25.528Z",
       "duration_ms": 55689
-    },
-    {
-      "id": "gpt-1791974095805",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-14T10:34:55.805Z",
-      "duration_ms": 1259
     }
   ]
 }
