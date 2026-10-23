@@ -1,0 +1,63 @@
+## Attempt: Structural stability of the class of varieties satisfying the Hodge Conjecture
+
+I isolate a precise structural question — *for which operations is the Hodge Conjecture (HC) preserved?* — and give fully rigorous proofs for products with projective space and for smooth blow-ups. These delimit where the genuine difficulty lives. I am explicit that the lemmas themselves are essentially known; the point is the clean closure statement and the sharp localization of the obstruction it yields.
+
+### Setup and conventions
+
+For smooth projective $X/\mathbb{C}$, let $B^p(X)\subseteq H^{2p}(X,\mathbb{Q})\cap H^{p,p}(X)$ be the space of rational Hodge classes, and $Z^p(X)\subseteq B^p(X)$ the subspace of classes of algebraic cycles. HC for $X$ asserts $Z^p(X)=B^p(X)$ for all $p$. Write **HC$(X)$** for this statement.
+
+Two facts I use:
+1. Algebraic cycle classes are Hodge classes, and the cycle map is compatible with proper pushforward, flat pullback, intersection product, and Künneth projections. In particular if a correspondence $\Gamma\in Z^*(X\times Y)$ is algebraic, then $\Gamma_*\colon H^*(X,\mathbb{Q})\to H^*(Y,\mathbb{Q})$ sends $Z^*(X)$ into $Z^*(Y)$ and $B^*(X)$ into $B^*(Y)$ (it is a morphism of Hodge structures up to Tate twist).
+2. The Lefschetz $(1,1)$ theorem: $Z^1(X)=B^1(X)$ (divisors realize all Hodge $(1,1)$ classes), via the exponential sequence $0\to\mathbb Z\to\mathcal O_X\to\mathcal O_X^*\to 0$ and $c_1\colon \mathrm{Pic}(X)\to H^2(X,\mathbb Z)$ with image $=\ker(H^2(X,\mathbb Z)\to H^2(X,\mathcal O_X))=H^{1,1}\cap H^2(X,\mathbb Z)$.
+
+### Lemma 1 (Stability under $\times\,\mathbb P^n$)
+
+$\mathrm{HC}(X)\iff \mathrm{HC}(X\times\mathbb P^n)$.
+
+**Proof.** Let $h=c_1(\mathcal O(1))\in Z^1(\mathbb P^n)$, an algebraic class, and $h^i$ its powers. By the projective bundle formula the exterior maps
+$$
+\Phi\colon \bigoplus_{i=0}^{n} H^{*-2i}(X,\mathbb{Q}) \xrightarrow{\ \sim\ } H^{*}(X\times\mathbb P^n,\mathbb{Q}),\qquad (\alpha_i)\mapsto \sum_i p_X^*\alpha_i \smile p_{\mathbb P^n}^* h^i ,
+$$
+is an isomorphism of graded $\mathbb{Q}$-Hodge structures, where $H^{*-2i}(X)$ carries its Hodge structure Tate-twisted by $(i)$ (since $h^i\in H^{i,i}$). Consequently $\Phi$ identifies
+$$
+B^p(X\times\mathbb P^n)\;=\;\bigoplus_{i=0}^{\min(p,n)} \Phi\big(B^{p-i}(X)\otimes h^i\big).
+$$
+
+*($\Rightarrow$)* If $\mathrm{HC}(X)$ holds, each $B^{p-i}(X)=Z^{p-i}(X)$, and $\Phi$ on $Z^{p-i}(X)\otimes h^i$ is realized by the algebraic correspondence "$\times\,\mathbb P^i$ in the $\mathbb P^n$ factor" (take $\zeta\mapsto \zeta\times L_i$, $L_i\subset\mathbb P^n$ a linear subspace, whose class is $h^{n-i}$... concretely $p_X^*\zeta\smile p_{\mathbb P^n}^*h^i$ is the class of $Z\times L_{n-i}$ for an algebraic cycle $Z$ representing $\zeta$). Hence every generator of $B^p(X\times\mathbb P^n)$ is algebraic.
+
+*($\Leftarrow$)* Conversely the Künneth component $\pi\colon H^{2p}(X\times\mathbb P^n)\to H^{2p}(X)$ picking out the $i=0$ summand is $\Gamma_*$ for the algebraic correspondence $X\times\{pt\}\subset X\times(X\times\mathbb P^n)$ composed with $p_X$; explicitly $\alpha\mapsto p_{X*}(\alpha\smile p_{\mathbb P^n}^*h^{n})$, intersecting with the algebraic class $h^n$ (a point) and pushing forward. This sends $Z^p(X\times\mathbb P^n)\to Z^p(X)$ and $B^p(X\times\mathbb P^n)\twoheadrightarrow B^p(X)$. Given $\beta\in B^p(X)$, lift to $\Phi(\beta\otimes 1)\in B^p(X\times\mathbb P^n)=Z^p$ by hypothesis, then $\pi$ returns $\beta\in Z^p(X)$. $\qquad\blacksquare$
+
+### Lemma 2 (Stability under smooth blow-up)
+
+Let $Z\subset X$ be a smooth closed subvariety of codimension $c\ge 2$, $\sigma\colon \widetilde X=\mathrm{Bl}_Z X\to X$, with exceptional divisor $E$, $\pi\colon E=\mathbb P(N_{Z/X})\to Z$. Then
+$$
+\mathrm{HC}(\widetilde X)\iff \big(\mathrm{HC}(X)\ \text{and}\ \mathrm{HC}(Z)\big).
+$$
+
+**Proof.** The blow-up formula gives an isomorphism of Hodge structures
+$$
+H^{*}(\widetilde X,\mathbb{Q})\;\cong\;H^{*}(X,\mathbb{Q})\ \oplus\ \bigoplus_{i=1}^{c-1} H^{*-2i}(Z,\mathbb{Q})(-i),
+$$
+where the first map is $\sigma^*$ and the $Z$-summands are $j_*\big(\xi^{\,i-1}\smile \pi^*(-)\big)$ with $j\colon E\hookrightarrow\widetilde X$, $\xi=c_1(\mathcal O_E(1))$. Every structure map here is induced by an algebraic correspondence: $\sigma^*$ by the graph of $\sigma$; its section $\sigma_*$ (with $\sigma_*\sigma^*=\mathrm{id}$) likewise; and $j_*,\ \pi^*,\ \smile\xi$ are pushforward/pullback along the algebraic maps $j,\pi$ and intersection with the algebraic divisor class $\xi\in Z^1(E)$. Taking Hodge $(p,p)$ parts,
+$$
+B^p(\widetilde X)\cong B^p(X)\oplus\bigoplus_{i=1}^{c-1}B^{p-i}(Z).
+$$
+
+*($\Leftarrow$)* If $\mathrm{HC}(X)$ and $\mathrm{HC}(Z)$ hold, each summand $B^{p}(X)=Z^p(X)$ and $B^{p-i}(Z)=Z^{p-i}(Z)$, and the identifying maps are algebraic correspondences, so they land in $Z^p(\widetilde X)$. As these span $B^p(\widetilde X)$, we get $\mathrm{HC}(\widetilde X)$.
+
+*($\Rightarrow$)* The projectors onto each summand are algebraic: $\sigma_*$ recovers the $X$-part (and $\sigma_*\colon Z^p(\widetilde X)\to Z^p(X)$ is surjective onto $B^p(X)$ since $\sigma_*\sigma^*=\mathrm{id}$, giving $B^p(X)\subseteq \sigma_*Z^p(\widetilde X)$); projection onto the $Z$-summands is given by $\mathbb{Q}$-linear combinations of $\pi_*\big(\xi^{j}\smile j^*(-)\big)$, all algebraic. Hence $\mathrm{HC}(\widetilde X)$ forces $Z^p(X)=B^p(X)$ and $Z^{p-i}(Z)=B^{p-i}(Z)$ for all $p,i$. $\qquad\blacksquare$
+
+### Consequence (sharp localization)
+
+Combining Lemmas 1–2 with the (standard) product and hyperplane-section Lefschetz facts, the class $\mathcal H=\{X:\mathrm{HC}(X)\}$ is closed under: disjoint unions, $\times\mathbb P^n$, and smooth blow-ups/blow-downs. Moreover $B^1=Z^1$ always, and by hard Lefschetz + Poincaré duality the **Lefschetz standard conjecture holds in degree $(1,1)$ and $(n-1,n-1)$**, so for any $X$:
+$$
+B^p(X)=Z^p(X)\quad\text{for }p\in\{0,1,n-1,n\},\qquad n=\dim X.
+$$
+Hence the first genuinely open instances occur for $B^2(X)$ with $\dim X\ge 4$ (codimension-$2$ cycles on fourfolds) — and Lemmas 1–2 show that padding such an $X$ by projective-space factors or blowing it up produces *no new content*: HC for the whole operated-on variety is equivalent to HC for the geometric core $X$ (and $Z$). This confirms that the obstruction is intrinsic to the sub-Hodge structures of coniveau $\ge 1$ not generated by divisor intersections, which these operations preserve verbatim.
+
+### Honest assessment
+
+The two lemmas are rigorous and self-contained but are reformulations of well-known blow-up/projective-bundle decompositions; they organize *where* HC is hard (codim $\ge 2$, not reducible by standard birational operations) without resolving any open case. No new algebraic cycle is constructed for an unknown Hodge class. This is a structural clarification, not progress on the hard core.
+
+VERDICT: FAILED
+REASON: Rigorously proved HC is stable under ×ℙⁿ and smooth blow-ups, localizing difficulty to codim≥2, but solved no open case.

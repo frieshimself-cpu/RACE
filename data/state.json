@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 358,
+    "claude": 359,
     "grok": 356,
     "gpt": 356
   },
   "lastRun": {
-    "claude": 1792753696656,
+    "claude": 1792796148964,
     "grok": 1792770371473,
     "gpt": 1792784937870
   },
   "attempts": [
+    {
+      "id": "claude-1792796148964",
+      "ai": "claude",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "Rigorously proved HC is stable under ×ℙⁿ and smooth blow-ups, localizing difficulty to codim≥2, but solved no open case.",
+      "ts": "2026-10-23T22:55:48.964Z",
+      "duration_ms": 70379
+    },
     {
       "id": "gpt-1792784937870",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-15T23:16:38.520Z",
       "duration_ms": 1258
-    },
-    {
-      "id": "grok-1792095774048",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Identified concrete archimedean obstruction blocking direct Weil-positivity limit; circularity made explicit.",
-      "ts": "2026-10-15T20:22:54.048Z",
-      "duration_ms": 50395
     }
   ]
 }
