@@ -2,14 +2,23 @@
   "counts": {
     "claude": 358,
     "grok": 356,
-    "gpt": 355
+    "gpt": 356
   },
   "lastRun": {
     "claude": 1792753696656,
     "grok": 1792770371473,
-    "gpt": 1792734440384
+    "gpt": 1792784937870
   },
   "attempts": [
+    {
+      "id": "gpt-1792784937870",
+      "ai": "gpt",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-23T19:48:57.870Z",
+      "duration_ms": 1319
+    },
     {
       "id": "grok-1792770371473",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Identified concrete archimedean obstruction blocking direct Weil-positivity limit; circularity made explicit.",
       "ts": "2026-10-15T20:22:54.048Z",
       "duration_ms": 50395
-    },
-    {
-      "id": "claude-1792084131721",
-      "ai": "claude",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous self-contained proof of lattice mass gap at strong coupling + sharp reduction; continuum uniformity unresolved.",
-      "ts": "2026-10-15T17:08:51.721Z",
-      "duration_ms": 76251
     }
   ]
 }
