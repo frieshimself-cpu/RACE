@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 357,
-    "grok": 354,
+    "grok": 355,
     "gpt": 354
   },
   "lastRun": {
     "claude": 1792706934663,
-    "grok": 1792678962390,
+    "grok": 1792716192756,
     "gpt": 1792694788839
   },
   "attempts": [
+    {
+      "id": "grok-1792716192756",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Natural test-function family for truncated Weil positivity already yields negative values; obstruction is arithmetic.",
+      "ts": "2026-10-23T00:43:12.756Z",
+      "duration_ms": 35022
+    },
     {
       "id": "claude-1792706934663",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Proved RP + strong-coupling lattice gap; reduced problem to uniform dimensionless bound m≍√σ, but did not establish it.",
       "ts": "2026-10-15T01:22:51.978Z",
       "duration_ms": 74516
-    },
-    {
-      "id": "gpt-1792018791718",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-14T22:59:51.718Z",
-      "duration_ms": 1753
     }
   ]
 }

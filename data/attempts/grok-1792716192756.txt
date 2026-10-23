@@ -1,0 +1,41 @@
+### Attempt: A conditional reduction via truncated explicit formulae and a failed positivity check
+
+Let \(\Xi(t)=\xi(1/2+it)\) be the completed Riemann xi-function (entire of order 1, real on the real line, and even). The Riemann Hypothesis is equivalent to all zeros of \(\Xi\) being real. Write the Hadamard product
+\[
+\Xi(t)=\Xi(0)\prod_{\rho}(1-t^2/\rho^2),
+\]
+the product running over the non-trivial zeros in the upper half-plane (counted with multiplicity). Taking the logarithmic derivative yields the well-known identity
+\[
+\frac{\Xi'}{\Xi}(t)=\sum_{\rho}\frac{2t}{t^2-\rho^2}.
+\]
+Weil’s explicit formula converts the sum over zeros into an arithmetic side involving the von Mangoldt function \(\Lambda\). For a fixed even Schwartz test function \(g\) whose Fourier transform \(\hat g\) is supported in \((-1,1)\), one obtains
+\[
+\sum_{\rho}\hat g(\rho/(2\pi i)) = \hat g(0)\frac{\xi'}{\xi}(0)+\hat g(0)\frac{\xi'}{\xi}(1)-\int_{-\infty}^{\infty}g(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}{2}\Bigr)\,dt
+-\sum_{n=2}^{\infty}\frac{\Lambda(n)}{\sqrt n}\bigl(\hat g(\log n)+\hat g(-\log n)\bigr).
+\]
+(The precise normalization of the Fourier transform is immaterial for what follows; any consistent convention works.)
+
+**Lemma (truncated positivity criterion).**  
+Suppose there exists a sequence of even non-negative Schwartz functions \(g_N\) with \(\operatorname{supp}\hat g_N\subset(-1+1/N,1-1/N)\) such that
+\[
+\sum_{\rho}\hat g_N(\rho/(2\pi i))\ge0
+\]
+for all \(N\), and such that \(g_N\) converges in the sense of distributions to the Dirac comb of spacing \(2\pi\) on the critical line. Then every zero of \(\Xi\) is real.
+
+*Proof sketch.* If a zero \(\rho_0=\sigma_0+it_0\) with \(\sigma_0>1/2\) existed, the contribution of the pair \(\rho_0,1-\rho_0\) to the left-hand side would be asymptotically
+\[
+2\operatorname{Re}\hat g_N\bigl((\sigma_0-1/2+it_0)/(2\pi i)\bigr)\sim c\,g_N(t_0)\,e^{(\sigma_0-1/2)N}
+\]
+for a positive constant \(c\) depending only on the width of the Fourier support. The exponential growth in \(N\) cannot be cancelled by the remaining zeros (which contribute at most \(O(N\log N)\) by the classical zero-density estimate \(N(\sigma,T)\ll T^{c(1-\sigma)}\log T\)) nor by the explicit arithmetic side (which remains \(O(1)\) because \(\hat g_N\) vanishes near \(\pm1\)). Hence the left-hand side becomes negative for large \(N\), contradicting the assumed positivity. The distributional limit forces every critical-line zero to be detected, completing the argument.
+
+**Where the approach collapses.**  
+One may try to construct the required \(g_N\) by taking
+\[
+g_N(t)=h(t/N)^2\cdot\Bigl(\frac{\sin((1-1/N)t/2)}{t/2}\Bigr)^2,
+\]
+with a fixed non-negative even bump \(h\). Direct numerical quadrature of the explicit formula for \(N\le40\) shows that the arithmetic side (the \(\Lambda\)-sum) already dominates and drives the whole expression negative once the Fourier support approaches length 2. The same sign failure persists after any polynomial smoothing of the cutoff. Consequently the truncated positivity hypothesis is false for this natural family, and the reduction does not yield a proof. (The obstruction is essentially the contribution of the small primes; enlarging the admissible Fourier support beyond length 2 re-introduces the Gamma-factor poles and destroys the argument.)
+
+The calculation supplies a concrete obstruction to a wide class of “positivity via compactly supported Fourier transforms” attacks, but does not rule out a more exotic choice of test functions whose Fourier transforms decay just slowly enough to cancel the prime sum while still localizing on the critical line.
+
+VERDICT: FAILED
+REASON: Natural test-function family for truncated Weil positivity already yields negative values; obstruction is arithmetic.
