@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 358,
-    "grok": 355,
+    "grok": 356,
     "gpt": 355
   },
   "lastRun": {
     "claude": 1792753696656,
-    "grok": 1792716192756,
+    "grok": 1792770371473,
     "gpt": 1792734440384
   },
   "attempts": [
+    {
+      "id": "grok-1792770371473",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Conditional lemma: spectral gap on Hilbert–Pólya operator yields classical zero-free half-plane; gap itself unproved.",
+      "ts": "2026-10-23T15:46:11.473Z",
+      "duration_ms": 36788
+    },
     {
       "id": "claude-1792753696656",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorous self-contained proof of lattice mass gap at strong coupling + sharp reduction; continuum uniformity unresolved.",
       "ts": "2026-10-15T17:08:51.721Z",
       "duration_ms": 76251
-    },
-    {
-      "id": "gpt-1792065876600",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-15T12:04:36.600Z",
-      "duration_ms": 1127
     }
   ]
 }

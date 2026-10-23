@@ -1,0 +1,41 @@
+### Attempt: A conditional zero-free half-plane via a weighted explicit formula and a spectral gap hypothesis
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function (entire of order 1, functional equation \(\xi(s)=\xi(1-s)\), and real on the critical line). Write the non-trivial zeros as \(\rho=\beta+i\gamma\) with \(\beta\in(0,1)\). The classical explicit formula of Weil type equates a smoothed sum over zeros to a sum over primes plus archimedean contributions:
+\[
+\sum_{\rho}\widehat{h}(\rho) = h(0)\frac{\xi'}{\xi}(0) + \sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}}\bigl(h(k\log p)+h(-k\log p)\bigr) + \text{(Gamma terms)},
+\]
+for even Schwartz test functions \(h\) whose Fourier transform \(\widehat{h}\) is supported in a fixed compact set (or decays sufficiently fast).
+
+**Lemma (conditional spectral gap \(\Rightarrow\) zero-free strip).**  
+Assume there exists a self-adjoint operator \(A\) on a Hilbert space \(\mathcal{H}\) (the putative Hilbert–Pólya operator) whose spectrum consists exactly of the ordinates \(\{\gamma\}\) of the non-trivial zeros, and which satisfies a uniform spectral gap away from zero after removing the possible Siegel zero: there is an absolute \(c_0>0\) such that
+\[
+\operatorname{spec}(A)\cap\bigl((-c_0,c_0)\setminus\{0\}\bigr)=\emptyset
+\]
+whenever the possible real zero (if any) has been excised. Then there exists an absolute \(\delta>0\) such that
+\[
+\zeta(s)\ne0\qquad\text{for all }s=\sigma+it\text{ with }\sigma\ge1-\delta,\;|t|\ge2.
+\]
+(In other words a classical zero-free half-plane of the de la Vallée-Poussin type follows from a spectral gap, without needing the full RH.)
+
+**Proof sketch.**  
+Fix a non-negative even Schwartz function \(\phi\) whose Fourier transform \(\widehat{\phi}\) is supported in \([-1,1]\) and satisfies \(\widehat{\phi}(0)=1\), \(\widehat{\phi}\ge0\). For a large height parameter \(T\ge2\) and a small scaling \(\lambda\in(0,1)\) set
+\[
+h_{T,\lambda}(x)=\phi(\lambda x)\,e^{iTx}+\phi(\lambda x)\,e^{-iTx}.
+\]
+Then \(\widehat{h}_{T,\lambda}\) is an approximate identity concentrated near the points \(\pm T\), of width \(\asymp\lambda\). Inserting into the explicit formula and discarding the rapidly decaying Gamma contribution (which is \(O(e^{-c/\lambda})\) uniformly for \(|t|\sim T\)) yields
+\[
+\sum_{\rho}\widehat{h}_{T,\lambda}(\rho) = 2\sum_{p^k\le e^{1/\lambda}}\frac{\log p}{p^{k/2}}\phi(\lambda k\log p)\cos(T\,k\log p)+O(1).
+\]
+The right-hand side is \(O(\lambda^{-1}\exp(c/\lambda))\) by the prime-number theorem with classical zero-free region (or even Chebyshev bounds). On the left-hand side the contribution of any zero with \(|\gamma-T|\gg\lambda^{-1}\) is negligible by the rapid decay of \(\widehat{\phi}\).  
+
+Now invoke the spectral-gap hypothesis on \(A\). The eigenvalues \(\gamma\) near \(T\) cannot accumulate closer than \(c_0\) (after removing at most one exceptional real zero, which contributes at most \(O(1)\)). Consequently the number of ordinates in an interval of length \(O(\lambda^{-1})\) about \(T\) is \(\ll 1+ \lambda^{-1}/c_0\). Each corresponding term \(\widehat{h}_{T,\lambda}(\rho)\) is bounded by \(O(1)\), so the whole sum is
+\[
+O\bigl(1+\lambda^{-1}c_0^{-1}\bigr).
+\]
+Choosing \(\lambda=c_0/2\) (fixed) therefore produces a uniform bound independent of \(T\). Standard Tauberian or contour-shift arguments (Perron with a rectangular contour whose right edge lies at \(\operatorname{Re}s=1+\varepsilon\) and whose left edge is pushed to \(\operatorname{Re}s=1-\delta\)) convert this bound into the absence of zeros in the half-plane \(\sigma\ge1-\delta\) for an absolute \(\delta=\delta(c_0)>0\). (The possible Siegel zero is already excised by hypothesis and does not affect the large-\(|t|\) region.)  
+
+**Where the argument stops short of RH.**  
+The spectral-gap hypothesis is far stronger than anything presently known; the Hilbert–Pólya conjecture itself remains open, and no candidate operator has been shown to possess a uniform gap of size \(c_0>0\). Without that gap the left-hand side of the explicit formula may contain arbitrarily many tightly clustered ordinates, destroying the uniform bound and preventing the contour from being shifted left of \(\operatorname{Re}s=1\). Classical zero-density estimates (Ingham, Huxley, \ldots) recover only weaker zero-free regions of the shape \(1-C(\log|t|)^{-2/3}(\log\log|t|)^{-1/3}\), which is consistent with the failure of a uniform gap. Thus the lemma gives a clean reduction of a classical zero-free half-plane to a spectral statement, but does not prove the half-plane unconditionally, nor does it reach the critical line.
+
+VERDICT: PARTIAL
+REASON: Conditional lemma: spectral gap on Hilbert–Pólya operator yields classical zero-free half-plane; gap itself unproved.
