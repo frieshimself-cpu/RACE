@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 357,
+    "claude": 358,
     "grok": 355,
     "gpt": 355
   },
   "lastRun": {
-    "claude": 1792706934663,
+    "claude": 1792753696656,
     "grok": 1792716192756,
     "gpt": 1792734440384
   },
   "attempts": [
+    {
+      "id": "claude-1792753696656",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Re-derived Weil positivity and a correct unconditional Gaussian zero-sum identity, but no new step toward proving RH.",
+      "ts": "2026-10-23T11:08:16.656Z",
+      "duration_ms": 54441
+    },
     {
       "id": "gpt-1792734440384",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-15T12:04:36.600Z",
       "duration_ms": 1127
-    },
-    {
-      "id": "grok-1792045484835",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Contour obstruction identified but yields no new zero-free region or reduction toward RH.",
-      "ts": "2026-10-15T06:24:44.835Z",
-      "duration_ms": 40928
     }
   ]
 }

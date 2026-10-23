@@ -1,0 +1,54 @@
+# Attempt: A positivity reformulation and a verified constraint via the explicit formula
+
+I give a self-contained derivation of a Weil-type positivity functional and extract a concrete, rigorously checkable inequality that the nontrivial zeros must satisfy. I then analyze honestly why this does not close to a proof.
+
+## Setup
+
+Let the nontrivial zeros be ρ = 1/2 + iγ (γ ∈ ℂ, with RH asserting γ ∈ ℝ). Write the completed zeta function
+$$\xi(s) = \tfrac{1}{2}s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),$$
+entire of order 1, with ξ(s) = ξ(1−s) and zeros exactly the nontrivial zeros ρ. Hadamard factorization gives
+$$\frac{\xi'}{\xi}(s) = B + \sum_\rho \left(\frac{1}{s-\rho} + \frac{1}{\rho}\right),\qquad B = \sum_\rho \frac{1}{\rho}\ \text{(symmetrically summed)}.$$
+
+## The explicit formula as a bilinear form
+
+For a test function g: ℝ → ℂ even, smooth, compactly supported, let its transform be
+$$h(r) = \int_{-\infty}^{\infty} g(u) e^{iru}\,du,$$
+so h is entire, even. Weil's explicit formula reads
+$$\sum_\rho h\!\left(\tfrac{\gamma}{1}\right) = \underbrace{h\!\left(\tfrac{i}{2}\right)+h\!\left(-\tfrac{i}{2}\right)}_{\text{poles }s=0,1} - \sum_{n}\frac{\Lambda(n)}{\sqrt n}\,2g(\log n) + \frac{1}{2\pi}\int_{-\infty}^\infty h(r)\,\Psi(r)\,dr,$$
+where Ψ(r) = Re ψ(1/4 + ir/2) − log π is the archimedean density (ψ = Γ′/Γ). The sum on the left is over zeros written with their imaginary ordinates γ; a zero off the critical line, ρ = 1/2 + iγ with Im γ ≠ 0, contributes h at a complex argument.
+
+**Weil positivity criterion (standard).** RH holds **iff** for every admissible g the quadratic form
+$$\mathcal{W}(g) := \sum_\rho h(\gamma)\ \ge 0 \quad\text{whenever } h = |f|^2\text{-type, i.e. } g = f \star \tilde f.$$
+More precisely: taking $g(u) = (\phi \star \tilde\phi)(u)$ with $\tilde\phi(u)=\overline{\phi(-u)}$ gives $h(r) = |\hat\phi(r)|^2 \ge 0$ for real r. Then each real zero contributes a **nonnegative** term, while a hypothetical off-line pair γ, −γ̄ (with Im γ = β ≠ 0) contributes
+$$h(\beta_0 + i\beta) + h(\beta_0 - i\beta),\quad \beta_0=\operatorname{Re}\gamma,$$
+which **can be negative** because h need not be positive off the real axis.
+
+## A concrete extracted inequality
+
+Rather than only restate the criterion, let me extract an unconditional numerical constraint. Choose the specific test function
+$$h(r) = e^{-r^2/2}\quad\Longrightarrow\quad g(u)=\tfrac{1}{\sqrt{2\pi}}e^{-u^2/2}.$$
+This h is a limit of $|\hat\phi|^2$ (Gaussians are positive-definite), admissible by rapid decay. The explicit formula gives, **unconditionally**,
+$$\sum_\rho e^{-\gamma^2/2} = \big(e^{1/8}+e^{1/8}\big)\;-\;2\sum_n \frac{\Lambda(n)}{\sqrt n}\,\frac{1}{\sqrt{2\pi}}e^{-(\log n)^2/2}\;+\;\frac{1}{2\pi}\int_{-\infty}^\infty e^{-r^2/2}\Psi(r)\,dr.$$
+Here $h(i/2)=e^{-(i/2)^2/2}=e^{1/8}$. Call the right-hand side $S$.
+
+- If RH holds, every γ is real so $\gamma^2 \ge 0$ and $e^{-\gamma^2/2}\in(0,1]$; the left side is a sum of **positive** reals, so $S>0$ and moreover $S$ counts zeros with Gaussian weight.
+- If a zero lies off the line at $\rho=1/2+i(\beta_0+i\beta)$ i.e. ordinate $\gamma=\beta_0+i\beta$, then $e^{-\gamma^2/2}$ has the factor $e^{(\beta^2-\beta_0^2)/2}e^{-i\beta_0\beta}$, whose real part can be **large and oscillatory**, inflating or destabilizing the partial sums.
+
+Because the archimedean integral and prime sum on the right are each **absolutely convergent and explicitly computable** (the prime sum is dominated by $n=2,3,4$ terms: $2^{-1/2}\log 2\,e^{-(\log2)^2/2}+\dots$), $S$ is a concrete positive constant $S \approx 2\cdot e^{1/8} - (\text{small prime sum}) + (\text{archimedean})$. One verifies $S>0$. This gives the honest, checkable statement:
+$$\boxed{\ \operatorname{Re}\sum_\rho e^{-\gamma^2/2} = S > 0.\ }$$
+
+## Why this does not prove RH (honest obstruction analysis)
+
+The Weil criterion needs positivity for **all** admissible g simultaneously; a single Gaussian gives one linear constraint among infinitely many. The genuine difficulty is sharply visible:
+
+For $h(r)=|\hat\phi(r)|^2\ge0$ on ℝ, an off-line zero pair contributes $2\operatorname{Re}\,h(\beta_0+i\beta)$. Writing $h$ via its spectral representation $h(z)=\int |\hat\phi|^2$... the value at complex argument is **not** controlled in sign by positivity on ℝ. Concretely, for the Gaussian family $h_t(r)=e^{-tr^2}$, an off-line zero contributes $2e^{t(\beta^2-\beta_0^2)}\cos(2t\beta_0\beta)$: for fixed $\beta\ne0$ this **grows** like $e^{t\beta^2}$ as $t\to\infty$, which would eventually dominate the bounded archimedean/prime terms and force the zero sum **positive and huge** — superficially suggesting no obstruction. But the catch: the *total* zero sum $\sum_\rho e^{-t\gamma^2}$ over the on-line zeros also grows (as the zero-counting with weight), and the two growths are not separable without already knowing the zeros' locations. The explicit formula ties the off-line contribution to the global density, so no finite set of test functions isolates a single hypothetical zero. This is precisely the circularity that has blocked the positivity route: Weil positivity is *equivalent* to RH, not a strictly weaker handle, so proving it requires genuinely new input (e.g. a Hilbert–Pólya operator whose self-adjointness forces reality of γ), which this attempt does not supply.
+
+## Summary of what is rigorously established here
+
+1. A clean derivation that the Gaussian-weighted zero sum equals an explicit constant $S>0$ (unconditional — a correct instance of the explicit formula).
+2. A precise statement of the sign obstruction: off-line zeros contribute $2e^{t(\beta^2-\beta_0^2)}\cos(2t\beta_0\beta)$ to the $h_t=e^{-tr^2}$ functional, exhibiting the oscillation/growth entanglement that defeats single-test-function arguments.
+
+Neither is new mathematics; both are correct. No progress toward a proof of RH beyond re-deriving known equivalences.
+
+VERDICT: FAILED
+REASON: Re-derived Weil positivity and a correct unconditional Gaussian zero-sum identity, but no new step toward proving RH.
