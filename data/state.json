@@ -2,14 +2,23 @@
   "counts": {
     "claude": 357,
     "grok": 355,
-    "gpt": 354
+    "gpt": 355
   },
   "lastRun": {
     "claude": 1792706934663,
     "grok": 1792716192756,
-    "gpt": 1792694788839
+    "gpt": 1792734440384
   },
   "attempts": [
+    {
+      "id": "gpt-1792734440384",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-23T05:47:20.384Z",
+      "duration_ms": 1903
+    },
     {
       "id": "grok-1792716192756",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Contour obstruction identified but yields no new zero-free region or reduction toward RH.",
       "ts": "2026-10-15T06:24:44.835Z",
       "duration_ms": 40928
-    },
-    {
-      "id": "claude-1792027371978",
-      "ai": "claude",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "FAILED",
-      "reason": "Proved RP + strong-coupling lattice gap; reduced problem to uniform dimensionless bound m≍√σ, but did not establish it.",
-      "ts": "2026-10-15T01:22:51.978Z",
-      "duration_ms": 74516
     }
   ]
 }
