@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 361,
-    "grok": 358,
+    "grok": 359,
     "gpt": 358
   },
   "lastRun": {
     "claude": 1792873296691,
-    "grok": 1792853521769,
+    "grok": 1792881747803,
     "gpt": 1792864416102
   },
   "attempts": [
+    {
+      "id": "grok-1792881747803",
+      "ai": "grok",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "Monodromy obstructs algebraic lifting of relative Hodge classes through coniveau; no new cases obtained.",
+      "ts": "2026-10-24T22:42:27.803Z",
+      "duration_ms": 27574
+    },
     {
       "id": "claude-1792873296691",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Clean exact derivation of Li-coefficient geometry (|1−1/ρ|=1 ⟺ RH; reciprocal-pair identity) but no new unconditional progress.",
       "ts": "2026-10-17T00:34:02.234Z",
       "duration_ms": 76792
-    },
-    {
-      "id": "gpt-1792188446175",
-      "ai": "gpt",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-16T22:07:26.175Z",
-      "duration_ms": 1764
     }
   ]
 }

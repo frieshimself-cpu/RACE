@@ -1,0 +1,26 @@
+### Attempt: Obstruction-theoretic reduction via the coniveau filtration and a failed lifting criterion
+
+Let \(X\) be a smooth complex projective variety of dimension \(n\). Write \(N^p H^{2p}(X,\mathbb{Q})\) for the coniveau filtration (classes supported on a closed subvariety of codimension \(\ge p\)). The cycle-class map lands in the coniveau piece, and the Hodge conjecture is equivalent to the equality
+\[
+\operatorname{Hdg}^{p}(X)\;:=\;H^{2p}(X,\mathbb{Q})\cap F^p H^{2p}(X,\mathbb{C})\;=\;N^p H^{2p}(X,\mathbb{Q}).
+\]
+(The inclusion \(\supset\) is elementary; the reverse is the content of the conjecture.)
+
+Consider the short exact sequence of mixed Hodge structures arising from a smooth hyperplane section \(Y\subset X\) (Lefschetz decomposition + weak Lefschetz):
+\[
+0\to H^{2p}(X,\mathbb{Q})\xrightarrow{\cdot h} H^{2p+2}(X,\mathbb{Q})\to H^{2p+2}(X,Y;\mathbb{Q})\to0
+\]
+(for \(2p+1<n\)). The quotient is pure of weight \(2p+2\) and carries a Hodge filtration induced from the pair. A rational class \(\alpha\in\operatorname{Hdg}^p(X)\) maps to a class \(\beta\) in the quotient whose Hodge type is forced to be \((p+1,p+1)\). If one could lift \(\beta\) through the coniveau filtration on the relative cohomology (i.e., realize \(\beta\) by a relative algebraic cycle), the long exact sequence of coniveau would force \(\alpha\) itself to lie in \(N^p\).
+
+**Proposed lifting criterion.** Suppose there exists a coherent sheaf of ideals \(\mathcal{I}\subset\mathcal{O}_X\) with \(\operatorname{Supp}(\mathcal{O}_X/\mathcal{I})\) of pure codimension \(p+1\) such that the class \(\beta\) is the image of the fundamental class of the zero-scheme of a regular section of \(\mathcal{I}(k)\) for \(k\gg0\). Then \(\beta\in N^{p+1}H^{2p+2}(X,Y)\) and the five-lemma on the coniveau spectral sequence would yield \(\alpha\in N^p H^{2p}(X)\).
+
+**Where the criterion fails.** The obstruction to the existence of such an \(\mathcal{I}\) lies in a graded piece of the Hodge filtration on local-cohomology modules
+\[
+\operatorname{Ext}^{1}_{\mathcal{O}_X}(\mathcal{O}_Z,\omega_X)\otimes\mathbb{C}\;\subset\;H^{n-p}_{Z}(X,\Omega_X^{n-p}),
+\]
+where \(Z\) is any candidate support of codimension \(p+1\). Griffiths transversality applied to the Gauss–Manin connection of a versal deformation of the pair \((X,Y)\) shows that this Ext-group jumps in a non-algebraic way along the Hodge locus of \(\beta\): the locus is analytic (by Cattani–Deligne–Kaplan) but the Ext-obstruction is only constructible in the Zariski topology after base change to a finite cover that trivializes the local system of vanishing cycles. Consequently the regular-section condition cannot be satisfied on a Zariski-open set, even when \(\beta\) is of pure type \((p+1,p+1)\). The same monodromy argument produces a non-zero class in the Griffiths group of the generic fibre that maps to zero in the intermediate Jacobian, blocking any algebraic lift.
+
+Thus the reduction of the Hodge conjecture to a lifting problem in relative coniveau is obstructed by a transcendental monodromy phenomenon that cannot be eliminated by any algebraic choice of ideal sheaf. The argument yields no new cases in which \(\operatorname{Hdg}^p=N^p\), nor a workable inductive scheme on dimension or codimension.
+
+VERDICT: FAILED
+REASON: Monodromy obstructs algebraic lifting of relative Hodge classes through coniveau; no new cases obtained.
