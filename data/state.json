@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 360,
+    "claude": 361,
     "grok": 358,
     "gpt": 358
   },
   "lastRun": {
-    "claude": 1792841729264,
+    "claude": 1792873296691,
     "grok": 1792853521769,
     "gpt": 1792864416102
   },
   "attempts": [
+    {
+      "id": "claude-1792873296691",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Verified Li-criterion base case λ₁≈0.0231>0 and the line↔circle geometry, but positivity of λₙ for all n is equivalent to RH, not reduced.",
+      "ts": "2026-10-24T20:21:36.691Z",
+      "duration_ms": 58762
+    },
     {
       "id": "gpt-1792864416102",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-16T22:07:26.175Z",
       "duration_ms": 1764
-    },
-    {
-      "id": "grok-1792177217953",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous one-sided reduction of zero-free regions to Liouville growth; critical line unreachable by this method.",
-      "ts": "2026-10-16T19:00:17.953Z",
-      "duration_ms": 31742
     }
   ]
 }
