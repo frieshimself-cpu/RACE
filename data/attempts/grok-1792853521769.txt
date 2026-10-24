@@ -1,0 +1,55 @@
+### Attempt: A conditional reduction via a weighted explicit formula and a failed positivity closure
+
+Let \(\Xi(t) = \xi(1/2 + it)\) denote the completed Riemann xi-function on the critical line (entire, real for real \(t\), even). Write the non-trivial zeros as \(\rho = 1/2 + i\gamma\) (counting multiplicity); RH is equivalent to all \(\gamma\in\mathbb{R}\).
+
+Consider the weighted Fourier transform of a compactly supported even test function \(g\in C_c^\infty(\mathbb{R})\) with \(\operatorname{supp} g\subset[-1+\delta,1-\delta]\) for fixed \(\delta>0\):
+\[
+G(s) := \int_{-\infty}^\infty g(t)\,e^{st}\,dt.
+\]
+The classical explicit formula (in the form of Weil) reads, after contour shift and use of the functional equation,
+\[
+\sum_{\rho} G(\rho) = G(0)+G(1) - \sum_p\sum_{k\ge 1}\frac{\log p}{p^{k/2}} \bigl(g(k\log p)+g(-k\log p)\bigr)
+\]
+plus an archimedean contribution coming from the Gamma factors that is \(O(\|g\|_1 + \|g'\|_1)\). Restricting to the critical line and writing \(G(1/2+it)=\hat g(t)\) (Fourier transform convention normalized so that the Plancherel identity is isometric up to \(2\pi\)), one obtains
+\[
+\sum_{\gamma} \hat g(\gamma) = \hat g(0) + O(1) - \sum_{n=1}^\infty \Lambda(n)n^{-1/2} g(\log n),
+\]
+where the \(O(1)\) absorbs the Gamma contribution for \(\|g\|_{C^1}\) bounded.
+
+**Lemma (conditional positivity closure).**  
+Suppose there exists a sequence of even non-negative \(g_N\in C_c^\infty(\mathbb{R})\) with \(\operatorname{supp} g_N\subset[-1+1/N,1-1/N]\), \(\hat g_N\ge 0\) everywhere, \(\hat g_N(0)=1\), and
+\[
+\sum_{n=1}^\infty \Lambda(n)n^{-1/2} g_N(\log n) \le 1 - c
+\]
+for some absolute \(c>0\) independent of \(N\). Then all zeros satisfy \(|\operatorname{Im}\rho|\ge c'\,N\) eventually, and letting \(N\to\infty\) forces every zero onto the critical line (hence RH).
+
+**Sketch of proof of the lemma.**  
+If a zero \(\rho_0=\sigma_0+i\gamma_0\) with \(\sigma_0\neq 1/2\) exists, the contribution of the pair \(\{\rho_0,1-\rho_0\}\) to the left-hand side is
+\[
+\hat g_N(\gamma_0 - i(\sigma_0-1/2)) + \hat g_N(\gamma_0 + i(\sigma_0-1/2)).
+\]
+Because \(\hat g_N\ge 0\) and is the Fourier transform of a function supported in an interval of length \(<2\), Paley–Wiener implies that \(\hat g_N\) extends to an entire function of exponential type \(<1\). On the horizontal strips the values grow at most like \(e^{|\operatorname{Im} z|}\). A standard saddle/phase estimate then shows that if \(|\sigma_0-1/2|\ge\varepsilon>0\), the pair contributes a term that is \(\gg e^{c\varepsilon N}\) larger than the diagonal contribution coming from critical-line zeros (the latter being controlled by the Weyl law \(\#\{\,|\gamma|\le T\,\}\asymp T\log T\)). The right-hand side of the explicit formula remains \(O(1)\) by the assumed bound on the prime sum. This contradiction forces \(\sigma_0=1/2\) once \(N\) is large. The height lower bound follows by the same comparison once the support of \(g_N\) is allowed to shrink.
+
+**Where the argument collapses.**  
+The obstruction is the simultaneous requirements \(\hat g_N\ge 0\) and
+\[
+\sum_n \Lambda(n)n^{-1/2} g_N(\log n)\le 1-c.
+\]
+By the prime-number theorem the weighted sum is asymptotic to
+\[
+\int_1^\infty x^{-1/2} g_N(\log x)\,dx = \hat g_N(i/2).
+\]
+Paley–Wiener plus non-negativity of \(\hat g_N\) and normalization \(\hat g_N(0)=1\) force, via the representation
+\[
+\hat g_N(z) = \int_{-a}^{a} (a-|t|)e^{izt}\,d\mu_N(t)
+\]
+(for a positive measure \(\mu_N\) of total mass 1), that
+\[
+\hat g_N(i/2)\ge e^{-C a}\ge e^{-C}
+\]
+with \(a=1-1/N\). Thus the prime sum is bounded from below by a positive constant independent of \(N\), and the gap \(c>0\) cannot be opened uniformly. Any attempt to enlarge the support of \(g_N\) beyond length 2 immediately destroys the exponential-type control needed to amplify off-line zeros. Smoothing or inserting a slowly varying amplitude does not remove the lower bound coming from the Laplace transform of a positive measure.
+
+Consequently the positivity-closure strategy yields only the classical zero-free region of width \(O(1/\log(|t|+2))\) (recoverable by taking \(g\) of fixed support and optimizing the constant), but supplies no pathway to the full critical-line statement.
+
+VERDICT: FAILED
+REASON: Positivity+Paley-Wiener forces prime-sum lower bound blocking uniform gap needed for off-line exclusion

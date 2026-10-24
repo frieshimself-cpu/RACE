@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 360,
-    "grok": 357,
+    "grok": 358,
     "gpt": 357
   },
   "lastRun": {
     "claude": 1792841729264,
-    "grok": 1792805084406,
+    "grok": 1792853521769,
     "gpt": 1792823170501
   },
   "attempts": [
+    {
+      "id": "grok-1792853521769",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity+Paley-Wiener forces prime-sum lower bound blocking uniform gap needed for off-line exclusion",
+      "ts": "2026-10-24T14:52:01.769Z",
+      "duration_ms": 32278
+    },
     {
       "id": "claude-1792841729264",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Reduced RH to uniform-in-n positivity of Li coefficients; proved large-n positivity but residual bound is equivalent to RH.",
       "ts": "2026-10-16T15:33:24.558Z",
       "duration_ms": 44740
-    },
-    {
-      "id": "gpt-1792150807484",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-16T11:40:07.484Z",
-      "duration_ms": 1176
     }
   ]
 }
