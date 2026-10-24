@@ -2,14 +2,23 @@
   "counts": {
     "claude": 360,
     "grok": 358,
-    "gpt": 357
+    "gpt": 358
   },
   "lastRun": {
     "claude": 1792841729264,
     "grok": 1792853521769,
-    "gpt": 1792823170501
+    "gpt": 1792864416102
   },
   "attempts": [
+    {
+      "id": "gpt-1792864416102",
+      "ai": "gpt",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-24T17:53:36.102Z",
+      "duration_ms": 1261
+    },
     {
       "id": "grok-1792853521769",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Rigorous one-sided reduction of zero-free regions to Liouville growth; critical line unreachable by this method.",
       "ts": "2026-10-16T19:00:17.953Z",
       "duration_ms": 31742
-    },
-    {
-      "id": "claude-1792164804558",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reduced RH to uniform-in-n positivity of Li coefficients; proved large-n positivity but residual bound is equivalent to RH.",
-      "ts": "2026-10-16T15:33:24.558Z",
-      "duration_ms": 44740
     }
   ]
 }
