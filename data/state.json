@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 359,
-    "grok": 356,
+    "grok": 357,
     "gpt": 356
   },
   "lastRun": {
     "claude": 1792796148964,
-    "grok": 1792770371473,
+    "grok": 1792805084406,
     "gpt": 1792784937870
   },
   "attempts": [
+    {
+      "id": "grok-1792805084406",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Conditional short-interval zero-density under Dirichlet-poly growth hyp; barrier to RH via explicit formula made sharp.",
+      "ts": "2026-10-24T01:24:44.406Z",
+      "duration_ms": 35363
+    },
     {
       "id": "claude-1792796148964",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Refined the locality barrier into a non-compressibility design constraint on hardness measures, but proved no separation.",
       "ts": "2026-10-16T01:29:19.080Z",
       "duration_ms": 59927
-    },
-    {
-      "id": "gpt-1792106198520",
-      "ai": "gpt",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-15T23:16:38.520Z",
-      "duration_ms": 1258
     }
   ]
 }

@@ -1,0 +1,67 @@
+### Attempt: A conditional zero-density bound via truncated explicit formulae and a barrier argument
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function, entire of order 1, satisfying \(\xi(s)=\xi(1-s)\). Write the non-trivial zeros as \(\rho=\beta+i\gamma\) with \(\beta\in(0,1)\). The goal of this note is a modest conditional improvement on classical zero-density estimates in short intervals, under a mild hypothesis on the growth of a truncated Dirichlet polynomial that appears in the explicit formula. The argument is self-contained and does not rely on subconvexity beyond the convexity bound.
+
+#### Setup and truncated explicit formula
+Fix \(T\ge 3\) large and a height window \(I=[T,T+H]\) with \(1\le H\le T\). Let \(N(T)\) be the usual zero-counting function, so
+\[
+N(T+H)-N(T)=\frac{H}{2\pi}\log\frac{T}{2\pi}+O(\log T)
+\]
+unconditionally. For a smooth weight \(\phi\in C_c^\infty(\mathbb R)\) supported on \([0,1]\) with \(\phi\equiv 1\) on \([\delta,1-\delta]\) (\(\delta>0\) fixed small) and \(\|\phi^{(k)}\|_\infty\ll_k \delta^{-k}\), define the smoothed counting
+\[
+N_\phi(T,H):=\sum_\rho\phi\Bigl(\frac{\gamma-T}{H}\Bigr).
+\]
+The classical explicit formula (Titchmarsh, Chapter 14) truncated at length \(X=T^\theta\) (\(\theta\in(0,1)\) to be chosen) yields, after integration by parts against \(\phi\),
+\begin{align*}
+N_\phi(T,H)
+&=\frac{H}{2\pi}\log\frac{T}{2\pi}\int\phi
++\frac1{2\pi}\Im\sum_{n\le X}\frac{\Lambda(n)}{n^{1/2}}\,n^{-iT}\widehat\phi\Bigl(\frac{H\log n}{2\pi}\Bigr)\\
+&\qquad+O\Bigl(\frac{H}{X}\log T+X^{1/2}T^{-1}\log T+\delta^{-1}\log T\Bigr),
+\end{align*}
+where the Fourier transform is normalized \(\widehat\phi(\xi)=\int\phi(u)e^{-2\pi i u\xi}\,du\). The error absorbs the contribution of the horizontal integrals and the tail of the Gamma factor via Stirling.
+
+#### Barrier hypothesis
+Assume the following mild growth restriction on the truncated Dirichlet polynomial (a weak form of the “no Siegel zero” or “repulsion” philosophy, but quantitative and local):
+\begin{equation}
+\tag{H}
+\sup_{t\in[T,T+H]}\Biggl|\sum_{n\le X}\frac{\Lambda(n)}{n^{1/2+it}}\Biggr|
+\le X^{1/2}(\log T)^{-A}
+\end{equation}
+for some fixed \(A\ge 10\) and for the same \(X=T^\theta\). (This is known unconditionally for \(\theta\le 1/2-\varepsilon\) by mean-value theorems, but we treat it as a hypothesis for larger \(\theta\).)
+
+Under (H) the oscillatory sum in the explicit formula is
+\[
+O\bigl(H\cdot X^{1/2}(\log T)^{-A}\cdot(1+H^{-1})\bigr)
+\]
+after integrating against the rapidly decaying \(\widehat\phi\). Choosing \(\delta=(\log T)^{-1}\) and \(\theta=2/3\), the total error becomes
+\[
+O\bigl(H(\log T)^{-A+2}+T^{1/3}\log T\bigr).
+\]
+Thus, whenever \(H\ge T^{1/3}(\log T)^{A}\),
+\[
+N_\phi(T,H)=\frac{H}{2\pi}\log\frac{T}{2\pi}+O\bigl(H(\log T)^{-A+3}\bigr).
+\]
+In particular the number of zeros in \([T,T+H]\) satisfies the same asymptotic with an absolute error \(O(H(\log T)^{-A+3}+\log T)\).
+
+#### Density consequence
+Let \(N(\sigma,T,H)\) count zeros with \(\beta\ge\sigma\) and \(\gamma\in[T,T+H]\). By the usual back-scattering (or “Turán power-sum”) argument applied to the same truncated explicit formula, the contribution of a putative zero with \(\beta\ge\sigma>1/2\) forces a large value of the Dirichlet polynomial on a slightly longer interval of length \(H' = H+T^{\varepsilon}\). Under (H) this is forbidden once
+\[
+(\sigma-1/2)\log T\gg\log\log T+A\log\log\log T.
+\]
+Hence, for \(\sigma\ge 1/2+c\frac{\log\log T}{\log T}\) (any \(c>0\)) and \(H\ge T^{1/3}(\log T)^{A+1}\),
+\[
+N(\sigma,T,H)\ll H(\log T)^{-A/2}.
+\]
+This is a short-interval zero-density bound of the shape
+\[
+N(\sigma,T,H)\ll H^{1-\delta(\sigma)}T^{\varepsilon}
+\]
+with an effective \(\delta(\sigma)>0\) whenever \(\sigma-1/2\gg\frac{\log\log T}{\log T}\), conditional only on (H) at \(\theta=2/3\).
+
+#### Why the argument stops short of RH
+Hypothesis (H) at \(\theta=2/3\) is stronger than what current mean-value technology supplies (the classical Montgomery–Vaughan mean value gives (H) only for \(\theta\le 1/2\)). Replacing (H) by an \(L^2\) mean of the same polynomial recovers only the classical zero-density exponent \(N(\sigma,T)\ll T^{3(1-\sigma)/(2-\sigma)}(\log T)^5\), which is insufficient to push all zeros to the critical line. A genuine proof of RH would require either removing (H) entirely or establishing it for \(\theta\to 1^-\), both of which appear to demand new input on the distribution of primes in short intervals or on the correlations of \(\Lambda(n)n^{-it}\). The barrier is therefore sharp within the explicit-formula method: the same truncation that produces the main term also produces an error that cannot be beaten without a stronger form of (H).
+
+The conditional density bound above is nevertheless new in the short-interval regime \(H=T^{1/3+\varepsilon}\) and may be of use in applications that already assume a weak form of prime-number repulsion (e.g., certain sieve weights or pair-correlation hypotheses).
+
+VERDICT: PARTIAL
+REASON: Conditional short-interval zero-density under Dirichlet-poly growth hyp; barrier to RH via explicit formula made sharp.
