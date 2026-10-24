@@ -1,0 +1,136 @@
+## Attempt: Structural analysis of Li's criterion and the arithmetic obstruction to positivity
+
+I focus on Li's criterion, derive its arithmetic form self-containedly, and
+isolate precisely *where* a potential proof of positivity must grapple with
+the prime-power sum — identifying the genuine obstruction rather than hiding it.
+
+### Setup
+
+Let $\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1,
+with $\xi(s)=\xi(1-s)$, and whose zeros are exactly the nontrivial zeros $\rho$
+of $\zeta$. Define the Li coefficients
+$$
+\lambda_n = \frac{1}{(n-1)!}\,\frac{d^n}{ds^n}\Big[s^{n-1}\log\xi(s)\Big]_{s=1},
+\qquad n\ge 1.
+$$
+
+**Li's theorem (I take as known).** RH $\iff \lambda_n\ge 0$ for all $n\ge1$,
+and the Hadamard product gives
+$$
+\lambda_n=\sum_{\rho}\Big[1-\Big(1-\tfrac1\rho\Big)^n\Big],
+$$
+the sum taken in the symmetric sense (pairing $\rho$ with $1-\rho$).
+
+### Lemma 1 (positivity of the per-zero contribution under RH)
+
+Write $\rho=\tfrac12+i\gamma$. Pairing $\rho$ and $\bar\rho=1-\rho$ (valid on RH),
+the combined contribution is
+$$
+c_n(\gamma)=2-\Big(1-\tfrac1\rho\Big)^n-\Big(1-\tfrac1{\bar\rho}\Big)^n
+=2\,\mathrm{Re}\Big[1-\big(1-\tfrac1\rho\big)^n\Big].
+$$
+On RH, $1/\rho = \overline{\rho}/|\rho|^2 = (\tfrac12 - i\gamma)/(\tfrac14+\gamma^2)$,
+so
+$$
+1-\tfrac1\rho = \frac{\tfrac14+\gamma^2-\tfrac12+i\gamma}{\tfrac14+\gamma^2}
+=\frac{(\gamma^2-\tfrac14)+i\gamma}{\gamma^2+\tfrac14}.
+$$
+Its modulus squared is
+$$
+\Big|1-\tfrac1\rho\Big|^2=\frac{(\gamma^2-\tfrac14)^2+\gamma^2}{(\gamma^2+\tfrac14)^2}
+=\frac{\gamma^4+\tfrac12\gamma^2+\tfrac1{16}}{(\gamma^2+\tfrac14)^2}
+=\frac{(\gamma^2+\tfrac14)^2}{(\gamma^2+\tfrac14)^2}=1.
+$$
+So **on RH every factor $1-1/\rho$ lies on the unit circle.** Writing
+$1-1/\rho=e^{i\theta_\rho}$, we get $c_n(\gamma)=2(1-\cos n\theta_\rho)\ge0$.
+
+Hence $\lambda_n=\sum_{\gamma>0} 2(1-\cos n\theta_\rho)\ge 0$ is **manifest** on RH.
+This re-derives the easy direction cleanly, and — the point worth flagging —
+shows the converse direction is a statement that the $\theta_\rho$ are *real*,
+i.e. that $|1-1/\rho|=1$ for all zeros.
+
+### Lemma 2 (the modulus condition is equivalent to RH, per zero)
+
+For a general zero $\rho=\beta+i\gamma$,
+$$
+\Big|1-\tfrac1\rho\Big|^2-1
+=\frac{|\rho-1|^2-|\rho|^2}{|\rho|^2}
+=\frac{(\beta-1)^2-\beta^2}{|\rho|^2}
+=\frac{1-2\beta}{|\rho|^2}.
+$$
+Thus $|1-1/\rho|<1\iff\beta>\tfrac12$, $=1\iff\beta=\tfrac12$, $>1\iff\beta<\tfrac12$.
+
+This gives a clean restatement: **RH $\iff$ for every nontrivial zero,
+$|1-1/\rho|=1$**, equivalently the Möbius image $w=1-1/\rho$ of the critical
+line is the unit circle (indeed $s\mapsto 1-1/s$ maps $\mathrm{Re}\,s=\tfrac12$
+to $|w|=1$). This is the geometric heart of why Li's criterion "sees" RH:
+positivity of $\lambda_n=\sum_\rho(1-w_\rho^n)$ for all $n$ forces each $w_\rho$
+onto the closed unit disk *and* its conjugate-pair reflection onto it too,
+which only the circle satisfies.
+
+### Where a proof must do real work (the obstruction)
+
+The arithmetic content of $\lambda_n$ (via the explicit formula, the standard
+expansion) is
+$$
+\lambda_n = \underbrace{\sum_{j=1}^{n}\binom{n}{j}(-1)^{j+1}
+\frac{1}{(j-1)!}\,\eta_{j-1}}_{\text{Stieltjes/field terms}}
+\;+\;\Big(1-\tfrac{\gamma_{\mathrm{E}}}{2}-\tfrac12\log 4\pi\Big)\text{-type constants},
+$$
+where the zero side equals an archimedean term plus
+$$
+-\sum_{m\ge1}\frac{\Lambda(m)}{\sqrt m}\,P_n\!\big(\tfrac{\log m}{?}\big)\cdots
+$$
+— i.e. $\lambda_n$ is a *difference* of a smoothly growing "trivial/archimedean"
+positive piece $\sim \tfrac n2\log n$ and an oscillatory prime-power piece.
+Bombieri–Lagarias showed $\lambda_n = \tfrac n2(\log n -1 +\gamma_E) + \text{error}$
+on RH; the positivity of the *main term* is unconditional and automatic.
+
+**The genuine obstruction**, made precise by Lemmas 1–2: the entire difficulty
+is compressed into showing the oscillatory prime-sum cannot overwhelm the main
+term for a single $n$. But a single off-line zero $\rho_0$ (with its reflection)
+contributes $2(1-\mathrm{Re}\,w_{\rho_0}^n)$ where $|w_{\rho_0}|\ne1$; since
+$|w_{\rho_0}|>1$ on the side $\beta<\tfrac12$, this term grows *geometrically*
+in $n$ and would eventually dominate and (through the conjugate pairing, where
+$|w|<1$ contributes boundedly while $|w|>1$ contributes $\to-\infty$ in real
+part along suitable $n$) drive some $\lambda_n<0$. 
+
+I can make this last step rigorous: suppose $\rho_0=\beta_0+i\gamma_0$ with
+$\beta_0<\tfrac12$ (if any off-line zero exists, by the functional equation its
+reflection has real part $>\tfrac12$ and conjugate too; take the one with
+$\beta<\tfrac12$). Then $w_0=1-1/\rho_0$ has $|w_0|=r>1$. Write $w_0=re^{i\phi}$.
+The pair $\{\rho_0,\overline{\rho_0}\}$ contributes
+$$
+c_n = 2 - 2 r^n\cos(n\phi).
+$$
+Along a subsequence $n_k$ with $\cos(n_k\phi)\ge \tfrac12$ (which exists by
+equidistribution of $n\phi \bmod 2\pi$ when $\phi/\pi$ irrational, or trivially
+if rational), $c_{n_k}\le 2 - r^{n_k}\to-\infty$. Meanwhile the remaining zeros
+and the main term grow only polynomially ($O(n\log n)$) and the convergence of
+$\sum_\rho$ is controlled by $\sum 1/|\rho|^2<\infty$. Hence $\lambda_{n_k}\to-\infty$,
+contradicting $\lambda_n\ge0$.
+
+This gives a **clean, self-contained proof of the hard direction of Li's
+criterion** (positivity $\Rightarrow$ RH), modulo the standard uniform control
+of the tail $\sum_{\rho\ne\rho_0}c_n(\rho)=O(n\log n)$, which is the one piece I
+have not fully bounded here (it requires the standard zero-density/convergence
+estimate that the geometric blow-up of a single off-line zero dominates the
+polynomial aggregate — true but needing the Hadamard bound $N(T)\sim\frac{T}{2\pi}\log T$).
+
+### Honest assessment
+
+- Lemmas 1–2 and the geometric reformulation ($\text{RH}\iff |1-1/\rho|=1\ \forall\rho$)
+  are rigorous and complete.
+- The hard-direction argument is correct in structure (a single off-line zero
+  forces geometric blow-up beating the polynomial main term) but I have **not**
+  rigorously bounded the aggregate tail uniformly in $n$, and more importantly
+  this only *reproves a known criterion*; it does not resolve the positivity of
+  $\lambda_n$ for all $n$, which is equivalent to RH itself.
+- No new progress toward actually proving $\lambda_n\ge0$ unconditionally is
+  achieved. The archimedean-vs-prime cancellation that would do so is untouched.
+
+I did not make genuine new progress on RH; I clarified and cleanly re-derived
+the geometry underlying Li's criterion.
+
+VERDICT: FAILED
+REASON: Cleanly re-derived geometry of Li's criterion (RH ⟺ |1−1/ρ|=1) but achieved no new unconditional positivity result.

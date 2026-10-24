@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 359,
+    "claude": 360,
     "grok": 357,
     "gpt": 357
   },
   "lastRun": {
-    "claude": 1792796148964,
+    "claude": 1792841729264,
     "grok": 1792805084406,
     "gpt": 1792823170501
   },
   "attempts": [
+    {
+      "id": "claude-1792841729264",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Cleanly re-derived geometry of Li's criterion (RH ⟺ |1−1/ρ|=1) but achieved no new unconditional positivity result.",
+      "ts": "2026-10-24T11:35:29.264Z",
+      "duration_ms": 55446
+    },
     {
       "id": "gpt-1792823170501",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-16T11:40:07.484Z",
       "duration_ms": 1176
-    },
-    {
-      "id": "grok-1792131598995",
-      "ai": "grok",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "FAILED",
-      "reason": "Obstruction lemma shows lattice gap cannot stay uniform, but gives no new constructive control on the continuum limit.",
-      "ts": "2026-10-16T06:19:58.995Z",
-      "duration_ms": 48261
     }
   ]
 }
