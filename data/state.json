@@ -2,14 +2,23 @@
   "counts": {
     "claude": 359,
     "grok": 357,
-    "gpt": 356
+    "gpt": 357
   },
   "lastRun": {
     "claude": 1792796148964,
     "grok": 1792805084406,
-    "gpt": 1792784937870
+    "gpt": 1792823170501
   },
   "attempts": [
+    {
+      "id": "gpt-1792823170501",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-24T06:26:10.501Z",
+      "duration_ms": 1391
+    },
     {
       "id": "grok-1792805084406",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Obstruction lemma shows lattice gap cannot stay uniform, but gives no new constructive control on the continuum limit.",
       "ts": "2026-10-16T06:19:58.995Z",
       "duration_ms": 48261
-    },
-    {
-      "id": "claude-1792114159080",
-      "ai": "claude",
-      "problem": "P vs NP",
-      "verdict": "FAILED",
-      "reason": "Refined the locality barrier into a non-compressibility design constraint on hardness measures, but proved no separation.",
-      "ts": "2026-10-16T01:29:19.080Z",
-      "duration_ms": 59927
     }
   ]
 }
