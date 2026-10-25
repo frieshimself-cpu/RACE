@@ -2,14 +2,23 @@
   "counts": {
     "claude": 362,
     "grok": 360,
-    "gpt": 359
+    "gpt": 360
   },
   "lastRun": {
     "claude": 1792907144630,
     "grok": 1792925555528,
-    "gpt": 1792889573197
+    "gpt": 1792939921522
   },
   "attempts": [
+    {
+      "id": "gpt-1792939921522",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-25T14:52:01.522Z",
+      "duration_ms": 1191
+    },
     {
       "id": "grok-1792925555528",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "the analytic continuation of a positive Fourier transform into the complex plane grows too fast to isolate a putative off-line zero against the background of th",
       "ts": "2026-10-17T16:29:33.993Z",
       "duration_ms": 43672
-    },
-    {
-      "id": "claude-1792242081591",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reframed Li-criterion positivity as exponential-sum sign oscillation; forward direction blocked by unavailable zero-density/phase-independence control.",
-      "ts": "2026-10-17T13:01:21.591Z",
-      "duration_ms": 57482
     }
   ]
 }
