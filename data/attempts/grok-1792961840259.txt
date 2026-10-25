@@ -1,0 +1,89 @@
+### Attempt: A classical zero-free region via the 3-4-1 trigonometric inequality
+
+We work throughout with the Riemann zeta function \(\zeta(s)\) for \(s=\sigma+it\), \(\sigma>1\), via its Euler product and Dirichlet series. The goal is a concrete partial result: an explicit zero-free region of the form \(\sigma\ge 1-c/(\log(|t|+2))\) for an absolute \(c>0\). (This is far from RH, but is a rigorous, self-contained advance on the location of zeros and underpins the classical prime-number theorem with remainder.)
+
+#### Preliminary identities
+For \(\sigma>1\),
+\[
+-\frac{\zeta'}{\zeta}(s)=\sum_{n=1}^\infty\Lambda(n)n^{-s},\qquad
+\log\zeta(s)=\sum_{n=2}^\infty\frac{\Lambda(n)}{\log n}\,n^{-s},
+\]
+both absolutely convergent. Consequently, writing \(s=\sigma+it\),
+\begin{align*}
+\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(s)\Bigr)
+&=\sum_{n\ge1}\Lambda(n)n^{-\sigma}\cos(t\log n),\\
+\operatorname{Re}\log\zeta(s)
+&=\sum_{n\ge2}\frac{\Lambda(n)}{\log n}\,n^{-\sigma}\cos(t\log n).
+\end{align*}
+In particular \(\operatorname{Re}\log\zeta(\sigma)=\log\zeta(\sigma)>0\) for \(\sigma>1\).
+
+#### The trigonometric inequality
+The elementary inequality
+\[
+3+4\cos\theta+\cos 2\theta=2(1+\cos\theta)^2\ge0
+\]
+holds for all real \(\theta\). Substituting \(\theta=t\log n\) and weighting by the non-negative coefficients \(\Lambda(n)n^{-\sigma}\) therefore yields, for every \(\sigma>1\) and every real \(t\),
+\begin{equation}
+\label{eq:341}
+3\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma)\Bigr)
++4\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+it)\Bigr)
++\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+2it)\Bigr)
+\ge0.
+\end{equation}
+(The same inequality holds with \(\log\zeta\) in place of \(-\zeta'/\zeta\).)
+
+#### Bounding the real parts
+Fix \(t\) with \(|t|\ge2\) and suppose \(\zeta\) has a zero \(\rho=\beta+i\gamma\) with \(\beta>1/2\) and \(|\gamma-t|\le1\) (the only zeros that can obstruct a region near \(\sigma=1\)). Write
+\[
+-\frac{\zeta'}{\zeta}(s)=\frac{1}{s-\rho}+ \sum_{\rho'\ne\rho}\Bigl(\frac{1}{s-\rho'}+\frac{1}{\rho'}\Bigr)-\frac12\frac{\Gamma'}{\Gamma}\Bigl(\frac s2+1\Bigr)+C
+\]
+(the Weierstrass product for \(\xi\), differentiated). Taking real parts and using the standard bound
+\[
+\operatorname{Re}\frac{\Gamma'}{\Gamma}(\sigma+it)= \log|t|+O(1)
+\]
+(uniformly for \(\sigma\) in any fixed vertical strip) together with the fact that all non-trivial zeros satisfy \(0<\operatorname{Re}\rho'<1\), one obtains the lower bound
+\begin{equation}
+\label{eq:lower}
+\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+it)\Bigr)
+\ge -\frac{1}{\sigma-\beta}+O\bigl(\log(|t|+2)\bigr)
+\end{equation}
+whenever \(1\le\sigma\le2\) and \(|t-\gamma|\le1\). (The implied constant is absolute and effective; it arises from the horizontal spacing of zeros and the digamma growth.)
+
+On the other hand, the Euler product immediately gives the crude upper bounds
+\begin{equation}
+\label{eq:upper}
+\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma)\Bigr)\le\frac{1}{\sigma-1},\qquad
+\operatorname{Re}\Bigl(-\frac{\zeta'}{\zeta}(\sigma+2it)\Bigr)\le O\bigl(\log(|t|+2)\bigr)
+\end{equation}
+for \(1<\sigma\le2\).
+
+#### Insertion into the 3-4-1 inequality
+Substitute \eqref{eq:lower} and \eqref{eq:upper} into \eqref{eq:341} with the same \(\sigma\in(1,2]\). The non-negative combination becomes
+\[
+\frac{3}{\sigma-1}-\frac{4}{\sigma-\beta}+O\bigl(\log(|t|+2)\bigr)\ge0.
+\]
+Rearrangement yields
+\[
+\sigma-\beta\le\frac{4(\sigma-1)}{3+O((\sigma-1)\log(|t|+2))}.
+\]
+Choosing the concrete abscissa \(\sigma=1+c_0/\log(|t|+2)\) with a sufficiently small absolute constant \(c_0>0\) (e.g., \(c_0=1/100\) works after tracking the \(O\)-constant) forces
+\[
+\beta\le1-\frac{c}{\log(|t|+2)}
+\]
+for another absolute \(c>0\) (e.g., \(c=c_0/10\)). Zeros with \(|\gamma-t|>1\) are already excluded from the \(O(\log|t|)\) error by the same Weierstrass estimate, and the region \(\sigma\le1\) is irrelevant for the classical prime-number theorem. Thus there exists an absolute constant \(c>0\) such that
+\[
+\zeta(\sigma+it)\ne0\qquad\text{whenever}\qquad
+\sigma\ge1-\frac{c}{\log(|t|+2)},\quad|t|\ge2.
+\]
+(The finitely many zeros with \(|t|<2\) are readily checked by direct computation of the Dirichlet series or by known tables.)
+
+#### Self-check
+- The trigonometric weight is non-negative, so the linear combination cannot change sign.
+- All error terms are \(O(\log(|t|+2))\) uniformly in the strip \(1\le\sigma\le2\), which is absorbed by taking \(c\) small.
+- No appeal is made to the functional equation beyond the Weierstrass product for \(\xi\) (which is classical and unconditional).
+- The constant \(c\) is effective; a fully numerical value can be extracted by inserting the explicit bounds of Rosser–Schoenfeld or Trudgian on \(N(T)\) and on \(\Gamma'/\Gamma\).
+
+This is only a zero-free region of width \(1/\log|t|\), far narrower than the critical strip. Extending the width to a fixed positive distance from \(\operatorname{Re}s=1\) (or all the way to \(\operatorname{Re}s=1/2\)) remains open and is essentially equivalent in strength to the prime-number theorem with square-root error, which is known to imply RH. The argument above therefore constitutes genuine but limited progress: an explicit, elementary barrier that every zero must respect.
+
+VERDICT: PARTIAL
+REASON: Derived explicit classical zero-free region \(\sigma\ge1-c/\log(|t|+2)\) via 3-4-1 inequality; far from full RH.

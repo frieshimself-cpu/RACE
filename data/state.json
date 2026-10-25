@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 363,
-    "grok": 360,
+    "grok": 361,
     "gpt": 360
   },
   "lastRun": {
     "claude": 1792951912727,
-    "grok": 1792925555528,
+    "grok": 1792961840259,
     "gpt": 1792939921522
   },
   "attempts": [
+    {
+      "id": "grok-1792961840259",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Derived explicit classical zero-free region \\(\\sigma\\ge1-c/\\log(|t|+2)\\) via 3-4-1 inequality; far from full RH.",
+      "ts": "2026-10-25T20:57:20.259Z",
+      "duration_ms": 39740
+    },
     {
       "id": "claude-1792951912727",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Clarified NB criterion's zeta/s ideal structure and its information-neutrality, but proved no new unconditional result.",
       "ts": "2026-10-17T21:16:31.128Z",
       "duration_ms": 79695
-    },
-    {
-      "id": "gpt-1792262891236",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-17T18:48:11.236Z",
-      "duration_ms": 1152
     }
   ]
 }
