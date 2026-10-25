@@ -1,0 +1,63 @@
+# Attempt: Reduction of the Hodge Conjecture to primitive middle-degree classes, with isolation of the obstruction
+
+## Setup and notation
+
+Let $X$ be smooth projective of complex dimension $n$. Write $h = c_1(\mathcal O_X(1)) \in H^2(X,\mathbb Q) \cap H^{1,1}$ for the class of a hyperplane section, and $L(\xi) = h \cup \xi$ the Lefschetz operator. Let $\mathrm{Hdg}^p(X) = H^{2p}(X,\mathbb Q)\cap H^{p,p}$ and let $\mathrm{Alg}^p(X)\subseteq \mathrm{Hdg}^p(X)$ be the image of the cycle class map. The Hodge Conjecture (HC) asserts $\mathrm{Alg}^p = \mathrm{Hdg}^p$ for all $p$.
+
+The point I want to record precisely is that **$L$ preserves algebraicity**, and to track exactly where this forces the problem down to a single irreducible core. I will then isolate what the reduction does *not* give.
+
+## Key observation: $L$ is algebraic
+
+$h$ is the class of an actual divisor (a hyperplane section $H$). For an algebraic cycle $Z$ of codimension $p$ in general position, $[Z]\cup h = [Z\cap H]$, the class of a codimension-$(p+1)$ cycle. Hence
+$$L(\mathrm{Alg}^p(X)) \subseteq \mathrm{Alg}^{p+1}(X),\qquad L^k(\mathrm{Alg}^p)\subseteq \mathrm{Alg}^{p+k}.$$
+This is elementary but is the engine of everything below.
+
+## Step 1: Degrees above the middle reduce to degrees below
+
+Let $2p > n$ and put $k = 2p-n > 0$. Hard Lefschetz gives an isomorphism of rational Hodge structures
+$$L^{k}: H^{2(n-p)}(X,\mathbb Q)\ \xrightarrow{\ \sim\ }\ H^{2p}(X,\mathbb Q).$$
+Given $\alpha\in \mathrm{Hdg}^p(X)$, let $\beta = (L^k)^{-1}\alpha$. Since $L^k$ is a morphism of Hodge structures that is an isomorphism, $\beta$ is of pure type $(n-p,n-p)$, i.e. $\beta\in\mathrm{Hdg}^{\,n-p}(X)$, and note $2(n-p) < n$. If HC holds for $\beta$, write $\beta=[W]$; then
+$$\alpha = L^k\beta = [W]\cup h^{k} = [W\cap H_1\cap\cdots\cap H_k]\in \mathrm{Alg}^p(X).$$
+Thus HC in codimension $p>n/2$ follows from HC in the strictly smaller codimension $n-p<n/2$. **It suffices to treat $2p\le n$.**
+
+## Step 2: The Lefschetz decomposition is a decomposition of Hodge structures
+
+For $2p\le n$ the primitive cohomology is $P^{2p}(X)=\ker\big(L^{\,n-2p+1}:H^{2p}\to H^{2(n-p)+2}\big)$, and the Lefschetz decomposition
+$$H^{2p}(X,\mathbb Q)=\bigoplus_{j\ge 0} L^{j}\,P^{2p-2j}(X)$$
+holds over $\mathbb Q$ and is compatible with Hodge structure, because $L$ is a morphism of Hodge structures and the kernels defining $P^\bullet$ are sub-Hodge-structures. Consequently, projecting a class onto its Lefschetz components is a rational, Hodge-type-preserving operation. Hence for $\alpha\in\mathrm{Hdg}^p(X)$:
+$$\alpha=\sum_{j\ge0} L^{j}\alpha_j,\qquad \alpha_j\in P^{2p-2j}(X)\cap H^{p-j,p-j}=:P\mathrm{Hdg}^{\,p-j}(X),$$
+with each $\alpha_j$ a **primitive Hodge class**.
+
+## Step 3: Equivalence with the primitive case
+
+- If every primitive Hodge class is algebraic, then each $\alpha_j=[W_j]$ and $\alpha=\sum_j [W_j]\cup h^{j}\in\mathrm{Alg}^p$ by Step 0. So HC holds.
+- Conversely primitive Hodge classes are a special case of Hodge classes.
+
+Combining with Step 1:
+
+> **Proposition.** The Hodge Conjecture for all smooth projective varieties is equivalent to the statement: *for every smooth projective $X$ and every $p$ with $2p\le\dim X$, every primitive Hodge class $\alpha\in P^{2p}(X)\cap H^{p,p}$ lies in $\mathrm{Alg}^p(X)$.*
+
+This is a correct, self-contained reduction. (It is classical folklore; I reproduce it to pin down the exact residual obstruction.)
+
+## Where this stops — the honest obstruction
+
+The reduction is purely *formal*: every tool used ($L$, hard Lefschetz, the primitive decomposition) is a morphism of Hodge structures and hence transports algebraicity along the already-algebraic class $h$. The reduction therefore **cannot** produce a single new algebraic cycle. It only shows that the entire difficulty is concentrated in the *primitive* part of the *middle-ish* cohomology, where:
+
+1. There is no analogue of the exponential sequence trick (which gives Lefschetz $(1,1)$ via $\mathrm{Pic}$) because for $p\ge 2$ there is no geometric moduli interpretation of $H^{p,p}$-classes as classes of line-bundle-like objects.
+2. Primitive classes carry a *polarized* Hodge structure with trivial $L$-action, so the one operator we know to be algebraic acts as zero on them — the reduction has exhausted its own input.
+
+In other words, the formal structure of Hodge theory is **exactly** strong enough to reduce HC to primitive middle classes and **exactly** too weak to go further: constructing a cycle out of a primitive Hodge class requires genuinely non-formal (analytic/arithmetic) input, e.g. the algebraicity of the Hodge locus or absolute-Hodge-type comparisons, neither of which the Lefschetz package supplies.
+
+A concrete consequence worth recording: any proposed proof of HC must at some point produce an algebraic cycle whose class is **primitive** and lies in $H^{p,p}$ with $p\ge 2$; by the above, no amount of intersecting with hyperplanes or applying $L^{-1}$ can manufacture such a cycle from lower-codimension data. This localizes the "irreducible hard core" of the conjecture.
+
+## Self-check
+
+- Step 0: $[Z]\cup h=[Z\cap H]$ requires transversality; achieved after moving $H$ in its linear system (Bertini), valid at the level of rational cohomology classes. ✓
+- Step 1: $L^k$ iso by hard Lefschetz; $(L^k)^{-1}$ is a morphism of HS since $L^k$ is and is bijective; type of $\beta$ computed from $L^k:H^{a,b}\to H^{a+k,b+k}$. With $\alpha$ of type $(p,p)$, $\beta$ has type $(p-k,p-k)=(n-p,n-p)$. ✓
+- Step 2: kernels of morphisms of HS are sub-HS; decomposition defined over $\mathbb Q$. ✓
+- Step 3: finite sum, each term algebraic. ✓
+
+No error found. No new cycle produced — hence no actual progress toward resolving the conjecture, only a sharpening of where it lives.
+
+VERDICT: FAILED
+REASON: Gave a correct (but essentially known) reduction of HC to primitive middle-degree classes; no new cycles, obstruction isolated not overcome.

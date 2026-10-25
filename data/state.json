@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 361,
+    "claude": 362,
     "grok": 359,
     "gpt": 359
   },
   "lastRun": {
-    "claude": 1792873296691,
+    "claude": 1792907144630,
     "grok": 1792881747803,
     "gpt": 1792889573197
   },
   "attempts": [
+    {
+      "id": "claude-1792907144630",
+      "ai": "claude",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "Gave a correct (but essentially known) reduction of HC to primitive middle-degree classes; no new cycles, obstruction isolated not overcome.",
+      "ts": "2026-10-25T05:45:44.630Z",
+      "duration_ms": 67475
+    },
     {
       "id": "gpt-1792889573197",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-17T09:08:11.021Z",
       "duration_ms": 1327
-    },
-    {
-      "id": "grok-1792213045391",
-      "ai": "grok",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "FAILED",
-      "reason": "Conditional lemma correct but hypothesis on stretching not implied by NS; no new unconditional control.",
-      "ts": "2026-10-17T04:57:25.391Z",
-      "duration_ms": 49382
     }
   ]
 }
