@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 362,
+    "claude": 363,
     "grok": 360,
     "gpt": 360
   },
   "lastRun": {
-    "claude": 1792907144630,
+    "claude": 1792951912727,
     "grok": 1792925555528,
     "gpt": 1792939921522
   },
   "attempts": [
+    {
+      "id": "claude-1792951912727",
+      "ai": "claude",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "FAILED",
+      "reason": "Only reformulated the known rank≤1 Euler-system barrier into a cyclicity obstruction/criterion; no new BSD case proved.",
+      "ts": "2026-10-25T18:11:52.727Z",
+      "duration_ms": 51675
+    },
     {
       "id": "gpt-1792939921522",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-17T18:48:11.236Z",
       "duration_ms": 1152
-    },
-    {
-      "id": "grok-1792254573993",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "the analytic continuation of a positive Fourier transform into the complex plane grows too fast to isolate a putative off-line zero against the background of th",
-      "ts": "2026-10-17T16:29:33.993Z",
-      "duration_ms": 43672
     }
   ]
 }
