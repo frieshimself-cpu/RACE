@@ -1,0 +1,61 @@
+### Attempt: Classical zero-free region on the line \(\operatorname{Re}(s)=1\)
+
+We prove a concrete partial result toward RH: the Riemann zeta function \(\zeta(s)\) has no zeros on the line \(\operatorname{Re}(s)=1\). (Combined with the known pole at \(s=1\) of residue 1 and the functional equation, this already yields the prime-number theorem; the full RH would push the zero-free half-plane leftward to \(\operatorname{Re}(s)>1/2\).)
+
+#### Setup and local Euler product
+For \(\sigma>1\) the Euler product
+\[
+\zeta(s)=\prod_p(1-p^{-s})^{-1}
+\]
+converges absolutely and \(\zeta(s)\neq0\). Taking logarithms,
+\[
+\log\zeta(s)=\sum_p\sum_{k\geq1}k^{-1}p^{-ks}.
+\]
+In particular the real part satisfies
+\[
+\operatorname{Re}\log\zeta(s)=\sum_p\sum_{k\geq1}k^{-1}p^{-k\sigma}\cos(kt\log p)\geq0
+\]
+whenever the series converges, but we need a quantitative non-vanishing statement on the boundary line \(\sigma=1\).
+
+#### Trigonometric inequality
+The elementary inequality
+\[
+3+4\cos\theta+\cos2\theta=2(1+\cos\theta)^2\geq0
+\]
+holds for all real \(\theta\). Consequently, for any real \(t\) and any \(\sigma>1\),
+\begin{align*}
+&3\log|\zeta(\sigma)|+4\log|\zeta(\sigma+it)|+\log|\zeta(\sigma+2it)|\\
+&\qquad=\operatorname{Re}\bigl(3\log\zeta(\sigma)+4\log\zeta(\sigma+it)+\log\zeta(\sigma+2it)\bigr)\\
+&\qquad=\sum_p\sum_{k\geq1}k^{-1}p^{-k\sigma}\bigl(3+4\cos(kt\log p)+\cos(2kt\log p)\bigr)\geq0.
+\end{align*}
+Exponentiating yields the key lower bound
+\[
+|\zeta(\sigma)|^3\,|\zeta(\sigma+it)|^4\,|\zeta(\sigma+2it)|\geq1\qquad(\sigma>1).
+\]
+
+#### Contradiction on the critical line \(\operatorname{Re}(s)=1\)
+Suppose there exists \(t_0\neq0\) such that \(\zeta(1+it_0)=0\). Since \(\zeta\) is holomorphic and non-zero in a neighbourhood of every point with real part \(>1\), and since \(\zeta\) admits an analytic continuation to \(\operatorname{Re}(s)\geq1\), \(s\neq1\), the zero at \(1+it_0\) is of finite order \(m\geq1\). Thus
+\[
+\zeta(\sigma+it_0)=O((\sigma-1)^m)\qquad(\sigma\downarrow1).
+\]
+The factor \(\zeta(\sigma)\) has a simple pole, so
+\[
+\zeta(\sigma)\sim\frac1{\sigma-1}.
+\]
+The remaining factor \(\zeta(\sigma+2it_0)\) remains bounded as \(\sigma\downarrow1\) (again by analytic continuation and the absence of a pole at \(1+2it_0\)). Inserting these estimates into the inequality above produces
+\[
+\bigl(C(\sigma-1)^{-1}\bigr)^3\cdot O((\sigma-1)^{4m})\cdot O(1)\geq1
+\]
+for a positive constant \(C\) and all \(\sigma>1\) sufficiently close to 1. The left-hand side tends to 0 when \(m\geq1\), a contradiction.
+
+Hence no such \(t_0\) exists: \(\zeta(1+it)\neq0\) for all real \(t\neq0\).
+
+#### Remarks on sharpness
+The same argument yields a thin zero-free region of the classical de la Vallée-Poussin type
+\[
+\sigma\geq1-\frac{c}{\log(|t|+2)}
+\]
+by replacing the pure trigonometric inequality with a smoothed version that absorbs a small negative contribution from a possible nearby zero; the constant \(c>0\) is effective. Extending the width of this region all the way to \(\sigma=1/2+\varepsilon\) is precisely RH and requires entirely different input (e.g., growth estimates on \(\zeta\) inside the critical strip that are still unavailable).
+
+VERDICT: PARTIAL
+REASON: Proved classical zero-free line Re(s)=1 via 3-4-1 trig inequality; known step, far from full RH.
