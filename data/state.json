@@ -2,14 +2,23 @@
   "counts": {
     "claude": 361,
     "grok": 359,
-    "gpt": 358
+    "gpt": 359
   },
   "lastRun": {
     "claude": 1792873296691,
     "grok": 1792881747803,
-    "gpt": 1792864416102
+    "gpt": 1792889573197
   },
   "attempts": [
+    {
+      "id": "gpt-1792889573197",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-25T00:52:53.197Z",
+      "duration_ms": 1021
+    },
     {
       "id": "grok-1792881747803",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional lemma correct but hypothesis on stretching not implied by NS; no new unconditional control.",
       "ts": "2026-10-17T04:57:25.391Z",
       "duration_ms": 49382
-    },
-    {
-      "id": "claude-1792197242234",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Clean exact derivation of Li-coefficient geometry (|1−1/ρ|=1 ⟺ RH; reciprocal-pair identity) but no new unconditional progress.",
-      "ts": "2026-10-17T00:34:02.234Z",
-      "duration_ms": 76792
     }
   ]
 }
