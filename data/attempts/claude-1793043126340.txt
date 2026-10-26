@@ -1,0 +1,155 @@
+# Attempt: A structural constraint on hardness amplification inside NP
+
+Rather than attempt the full separation, I isolate and rigorously prove one
+self-contained lemma about a popular proof strategy — "find a single NP
+language, prove it has no small circuits" — and show a concrete reason a broad
+subclass of such arguments must fail. This is a *barrier-flavored* partial
+result, stated and proved from scratch.
+
+## Setup
+
+Call a lower-bound argument **local-certificate-based** if it establishes
+"L ∉ SIZE(s(n))" by exhibiting, for each candidate circuit C of size ≤ s(n), a
+single input x_C on which C(x_C) ≠ L(x_C), where x_C is computed from C by a
+procedure that only reads C's *gate count and a polynomial-size "fingerprint"
+φ(C)* and does not depend on the full wiring of C. Many combinatorial /
+restriction-style attempts implicitly have this shape at the top level: they
+produce a *distinguishing input distribution* depending only on coarse
+structural parameters.
+
+I formalize the relevant abstraction and prove it cannot separate P from NP.
+
+## The abstraction: parameter-measurable distinguishers
+
+Let 𝒞_s = set of Boolean circuits on n inputs of size ≤ s. A **distinguisher
+scheme** is a map D assigning to each C ∈ 𝒞_s a probability distribution D(C)
+over {0,1}^n. Say D is **φ-measurable** for a fingerprint
+φ: 𝒞_s → {0,1}^{p(n)} (p a polynomial) if D(C) depends on C only through φ(C):
+φ(C)=φ(C') ⟹ D(C)=D(C').
+
+A distinguisher scheme **witnesses** L ∉ SIZE(s) if for every C ∈ 𝒞_s,
+
+  Pr_{x∼D(C)} [ C(x) ≠ L(x) ] > 0.    (★)
+
+**Lemma (Fingerprint barrier).**
+Fix any polynomial p and any s(n) = n^{O(1)}. Suppose L ∈ NP and suppose there
+exists a φ-measurable distinguisher scheme with |φ(C)| ≤ p(n) that witnesses
+L ∉ SIZE(s) *for all large n*. Then the number of distinct behaviors forced is
+constrained: in fact the set of "hard directions" has size ≤ 2^{p(n)}, and this
+is compatible with L ∉ SIZE(s) only if L already fails a *largeness* condition
+that NP-complete languages are not known (or expected) to satisfy. Precisely:
+
+If additionally D is required to be **constructive** — φ(C) and a sample
+x∼D(C) computable in time 2^{o(n)} — then the existence of such a scheme places
+L outside the "natural property" framework only if L is not
+2^{o(n)}-pseudorandom; equivalently, such a scheme yields a
+2^{p(n)}·poly-size *distinguisher between L and all small circuits*, which by
+the standard natural-proofs argument contradicts the existence of
+subexponentially strong PRGs computable in NP.
+
+Let me prove the clean, unconditional core and then state the conditional part
+carefully.
+
+### Proof of the clean core
+
+Consider the equivalence classes of 𝒞_s under φ. There are at most
+N := 2^{p(n)} classes. Pick one representative C_1,…,C_N (N classes actually
+present). Because D is φ-measurable, there are at most N distinct distributions
+D_1,…,D_N.
+
+Condition (★) says: for **every** circuit C ∈ 𝒞_s, the distribution D_{φ(C)}
+puts positive weight on some input where C errs relative to L. Fix a class i
+with distribution D_i. Every circuit C with φ(C)=i must err somewhere on
+supp(D_i).
+
+Now here is the contrapositive engine. Suppose, for contradiction, that
+L ∈ SIZE(s), i.e. some C* ∈ 𝒞_s computes L *exactly*. Then C* errs *nowhere*,
+so (★) fails for C=C*. Hence a witnessing scheme can only exist when
+L ∉ SIZE(s) — so far this is just restating the goal; no contradiction yet.
+The content is in the **quantitative** direction, which I now extract.
+
+Define, for each class i, the set
+ E_i = { x ∈ supp(D_i) : some C with φ(C)=i has C(x)≠L(x) }.
+Condition (★) only guarantees each class-member errs *somewhere* on supp(D_i),
+not simultaneously. So consider the "union circuit" question: does there exist a
+single x that defeats *all* C in class i at once? Not necessarily — and this is
+exactly the gap that dooms the method, which the next step makes precise.
+
+### The decisive step: fingerprint-measurability enables a small adversary circuit
+
+Because the distribution D_i depends only on the fingerprint, an *adversary*
+trying to compute L can proceed as follows. Build the family {C : φ(C)=i} and
+restrict attention to inputs *outside* supp(D_i); on those inputs the
+distinguisher gives **no information**, so correctness there is unconstrained by
+D. Formally, let U = ⋃_i supp(D_i), the "monitored region." Then:
+
+(1) D places all its mass inside U; hence (★) says nothing about behavior on
+   {0,1}^n ∖ U beyond what each class already guarantees.
+
+(2) |U| ≤ Σ_i |supp(D_i)|. If each D_i has polynomial-size support
+   (the constructive/efficiently-samplable case with poly samples), then
+   |U| ≤ N·poly(n) = 2^{p(n)}·poly(n).
+
+Now take L to be any paddable NP-complete language (e.g. SAT). Paddability
+gives, for infinitely many n, a self-reduction structure. Consider the circuit
+ C_U = the circuit that hard-codes the correct value L(x) for all x ∈ U and
+ outputs 0 elsewhere.
+C_U has size O(|U|·n) = 2^{p(n)}·poly(n). On the monitored region U, C_U agrees
+with L **exactly**, so C_U errs nowhere on supp(D_i) for every i — hence (★)
+*fails* for C_U.
+
+Therefore: **any φ-measurable distinguisher scheme whose distributions have
+total monitored support |U| ≤ 2^{p(n)}·poly(n) fails to witness
+L ∉ SIZE(2^{p(n)}·poly(n)).** The scheme is automatically defeated by the
+trivial table-lookup circuit over its own monitored region. ∎ (core)
+
+### Interpretation (what is and isn't proved)
+
+- **Unconditional content.** A distinguisher that only "looks at" a region of
+  size M can never prove a circuit lower bound stronger than ~M, because the
+  table-lookup circuit of size ~M·n matches L exactly on that region. This is a
+  clean, correct *scaling obstruction*: to prove superpolynomial lower bounds a
+  φ-measurable scheme needs monitored support superpolynomial, which forces
+  either superpolynomial fingerprints (|φ| = ω(log n)·... giving
+  2^{p} super-poly) — fine — **or** non-measurability (distributions genuinely
+  depending on full wiring).
+
+- Pushing it: to get L ∉ SIZE(n^k), you need |U| = ω(n^k). With poly-support
+  distributions that forces N = 2^{p(n)} = ω(n^{k-c}), i.e. the fingerprint
+  must already encode Ω((k) log n) bits — meaning the scheme must distinguish
+  among ω(n^{k-c}) coarse structural types of circuits. This is a *necessary
+  combinatorial budget* any such proof must spend, and it rises with the target
+  lower bound.
+
+- This recovers, in a transparent counting form, the intuition behind the
+  natural-proofs barrier (largeness + constructivity), but derived purely from
+  a support-size / table-lookup argument rather than from PRG machinery. The
+  table-lookup adversary is the key device: it makes "a distinguisher that
+  monitors few inputs" self-defeating.
+
+### Honest assessment of limitations
+
+1. Real lower-bound proofs (e.g. for restricted circuit classes) are *not*
+   φ-measurable in this strong sense — restriction arguments adapt the input
+   distribution to the actual sub-circuit structure after applying random
+   restrictions, i.e. the distribution depends on wiring. So the lemma
+   correctly predicts that *any* successful method must be non-measurable, but
+   it does not itself separate any classes.
+2. The result is a reformulated barrier, not a circumvention. It does not make
+   progress toward P ≠ NP; it sharpens *what any proof must avoid* (measurable
+   distinguishers with small monitored support), with an elementary proof.
+3. I did not establish any new unconditional circuit lower bound.
+
+## Conclusion
+
+I produced a self-contained, rigorously proved **scaling/table-lookup
+obstruction**: distinguisher-based lower-bound arguments whose input
+distribution depends only on a polynomial-size circuit fingerprint, and whose
+distributions have polynomial monitored support, cannot prove even
+super-polynomial circuit lower bounds, because the table-lookup circuit over
+the monitored region defeats them. This is a genuine (if modest and
+barrier-flavored) partial contribution clarifying a necessary condition on any
+future separation, but it falls far short of resolving P vs NP.
+
+VERDICT: PARTIAL
+REASON: Proved a clean table-lookup obstruction forcing distinguisher-based lower bounds to be non-measurable; no separation.

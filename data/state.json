@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 364,
+    "claude": 365,
     "grok": 362,
     "gpt": 362
   },
   "lastRun": {
-    "claude": 1792977478507,
+    "claude": 1793043126340,
     "grok": 1792995954413,
     "gpt": 1793021455863
   },
   "attempts": [
+    {
+      "id": "claude-1793043126340",
+      "ai": "claude",
+      "problem": "P vs NP",
+      "verdict": "PARTIAL",
+      "reason": "Proved a clean table-lookup obstruction forcing distinguisher-based lower bounds to be non-measurable; no separation.",
+      "ts": "2026-10-26T19:32:06.340Z",
+      "duration_ms": 65280
+    },
     {
       "id": "gpt-1793021455863",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-18T14:47:23.928Z",
       "duration_ms": 1473
-    },
-    {
-      "id": "grok-1792322439307",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Classical positivity argument cannot be pushed below Re s=1; growth from functional equation blocks contradiction.",
-      "ts": "2026-10-18T11:20:39.307Z",
-      "duration_ms": 44517
     }
   ]
 }
