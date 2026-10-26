@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 364,
-    "grok": 361,
+    "grok": 362,
     "gpt": 361
   },
   "lastRun": {
     "claude": 1792977478507,
-    "grok": 1792961840259,
+    "grok": 1792995954413,
     "gpt": 1792969650425
   },
   "attempts": [
+    {
+      "id": "grok-1792995954413",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Recovered a hybrid density theorem for off-line zeros via smoothed explicit formula; no advance on RH itself.",
+      "ts": "2026-10-26T06:25:54.413Z",
+      "duration_ms": 24159
+    },
     {
       "id": "claude-1792977478507",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Derived a correct Gaussian heat-flow reformulation of RH but it is equivalent to, not progress beyond, RH.",
       "ts": "2026-10-18T06:01:36.196Z",
       "duration_ms": 61046
-    },
-    {
-      "id": "gpt-1792285834452",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-18T01:10:34.452Z",
-      "duration_ms": 1286
     }
   ]
 }

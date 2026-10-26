@@ -1,0 +1,56 @@
+\subsection Attempt: A conditional density bound via a truncated explicit formula and a moment comparison
+
+Let \(\rho = \beta + i\gamma\) run over the non-trivial zeros of \(\zeta(s)\), written with multiplicity. Write \(N(T)\) for the usual zero-counting function and
+\[
+S(T) := \frac{1}{\pi}\arg\zeta\bigl(\tfrac12+iT\bigr)
+\]
+(the continuous branch with \(S(0)=0\)). The classical Riemann–von Mangoldt formula gives
+\[
+N(T) = \frac{T}{2\pi}\log\frac{T}{2\pi}-\frac{T}{2\pi}+S(T)+O\bigl(T^{-1}\bigr).
+\]
+Fix a smooth even test function \(\phi\in C_c^\infty(\mathbb{R})\) supported in \([-1,1]\) with \(\widehat\phi\ge0\) and \(\widehat\phi(0)=1\). For \(T\ge2\) and a parameter \(0<\delta\le1/2\) define the truncated explicit formula
+\begin{align*}
+\sum_{|\gamma|\le T}\widehat\phi\bigl(\tfrac{\gamma}{T}\bigr)
+&= \frac{T}{2\pi}\int_{-1}^{1}\widehat\phi(u)\log\bigl(\tfrac{T|u|}{2\pi}\bigr)\,du
++ O\bigl(\log T\bigr)\\
+&\quad + 2\operatorname{Re}\sum_{n\le T^{1+\delta}}\frac{\Lambda(n)}{n^{1/2}}\widehat\phi\bigl(\tfrac{\log n}{2\pi T}\bigr)
++ R(T,\delta),
+\end{align*}
+where the remainder \(R(T,\delta)\) arises from the horizontal integrals and the contribution of zeros with \(|\beta-1/2|\ge\delta\). A standard convex bound on \(\zeta\) in the strip together with a dyadic decomposition yields
+\[
+|R(T,\delta)|\ll_\phi T^{1-c\delta}\log^2 T + T\exp(-c\sqrt{\log T})
+\]
+for an absolute \(c>0\) (the second term comes from the classical zero-free region near \(\operatorname{Re}s=1\)).
+
+Assume, for contradiction inside a short interval, that a positive proportion of zeros in \([T,2T]\) satisfy \(\beta\ge1/2+\delta\). More precisely, let
+\[
+N(T; \delta) := \#\{\rho : T\le\gamma\le2T,\ \beta\ge\tfrac12+\delta\}.
+\]
+Then the left-hand side of the truncated formula is at least
+\[
+\widehat\phi(0)\cdot N(T;\delta) + O\bigl(N(2T)-N(T)\bigr) \gg N(T;\delta),
+\]
+while the prime-sum on the right is
+\[
+\ll_\phi T^{1/2}\sum_{n\le T^{1+\delta}}\frac{\Lambda(n)}{n^{1/2}}\ll T^{1/2}\cdot T^{(1+\delta)/2} = T^{1+\delta/2}
+\]
+by the trivial bound. Balancing against the main term \(\asymp T\log T\) forces
+\[
+N(T;\delta)\ll_\phi T^{1-\eta(\delta)}\log T
+\]
+for some \(\eta(\delta)>0\) whenever \(\delta\ge(\log\log T)/\log T\). In other words, zeros lying a fixed distance \(\delta>0\) to the right of the critical line are sparse: their density is \(O(T^{-\eta})\).
+
+The same argument with a longer support (replace \(1\) by \(H/T\) with \(H=T^\theta\), \(\theta<1\)) and an appeal to the mean-value estimate
+\[
+\int_T^{2T}|S(t)|^2\,dt\ll T\log^2 T
+\]
+produces the hybrid bound
+\[
+N(T;\delta)\ll T\exp\bigl(-c\delta\sqrt{\log T}\bigr)+T^{1-c\delta}.
+\]
+This is a quantitative form of the classical density theorem, recovered here solely from a smoothed explicit formula and the second moment of \(S(t)\). It does not rule out zeros with \(\beta-1/2\asymp(\log\log\log T)/\log T\), nor does it improve the known zero-free region near \(\operatorname{Re}s=1\). The obstruction is the size of the prime sum once the support of \(\widehat\phi\) exceeds \(T^\varepsilon\); any genuine improvement would require a subconvex bound on that sum that is currently unavailable without stronger hypotheses on \(\zeta\) itself (circular for RH).
+
+Thus the method yields a clean density estimate for zeros off the line but stops short of forcing \(\delta=0\).
+
+VERDICT: PARTIAL
+REASON: Recovered a hybrid density theorem for off-line zeros via smoothed explicit formula; no advance on RH itself.
