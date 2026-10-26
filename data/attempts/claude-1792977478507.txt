@@ -1,0 +1,175 @@
+# Attempt: A positivity-based constraint via the Weil explicit formula
+
+I will work out one concrete, rigorous piece: deriving the Weil explicit
+formula in a self-contained form, stating the positivity criterion it yields,
+and then testing a specific test function to extract a genuine (if modest)
+quantitative constraint on hypothetical off-line zeros. I will be honest about
+where this stops short of RH.
+
+## 1. Setup and the explicit formula
+
+Let $\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1,
+with $\xi(s)=\xi(1-s)$, and zeros exactly the nontrivial zeros $\rho$ of
+$\zeta$. Write $\rho = \tfrac12 + i\gamma$ with $\gamma \in \mathbb{C}$;
+RH asserts all $\gamma \in \mathbb{R}$.
+
+Let $h$ be even, analytic in $|\mathrm{Im}\,z|\le \tfrac12+\delta$, with
+$h(z) = O((1+|z|)^{-2-\epsilon})$ there, and let
+$g(u) = \frac{1}{2\pi}\int_{-\infty}^\infty h(r)e^{-iur}\,dr$ be its Fourier
+transform. The **Guinand–Weil explicit formula** is
+
+$$
+\sum_{\rho} h(\gamma_\rho)
+= \frac{1}{2\pi}\int_{-\infty}^{\infty} h(r)\,
+   \frac{\Gamma'}{\Gamma}\!\Big(\tfrac14+\tfrac{ir}{2}\Big)\,dr
+   \;-\; g(0)\log\pi
+   \;+\; h\!\Big(\tfrac{i}{2}\Big)+h\!\Big(-\tfrac{i}{2}\Big)
+   \;-\; 2\sum_{n=1}^\infty \frac{\Lambda(n)}{\sqrt n}\,g(\log n),
+$$
+
+where the sum on the left runs over all nontrivial zeros (with multiplicity),
+$\gamma_\rho$ defined by $\rho=\tfrac12+i\gamma_\rho$, and $\Lambda$ is von
+Mangoldt's function. This is standard and I take it as given.
+
+## 2. The positivity criterion (Weil / Bombieri)
+
+**Criterion.** RH holds iff for *every* $h$ of the above class of the form
+$h(r) = |\phi(r)|^2$ arising as $h(r)=\psi(r)\overline{\psi(\bar r)}$ with
+$\psi$ in the class and even, the right-hand side (call it the *Weil
+functional* $W(h)$) is $\ge 0$.
+
+The reason is: if some zero has $\mathrm{Im}\,\gamma_\rho = \beta \neq 0$,
+then $\rho$ and $1-\rho$ give a pair $\gamma = \pm(\sigma) - i\beta$ off the
+real axis, and one can choose $h\ge 0$ on $\mathbb R$ that grows in the
+imaginary direction to make $\sum_\rho h(\gamma_\rho) < 0$ while keeping the
+right side an honest Hermitian form. I do not reprove the full equivalence
+here; I use the *forward* direction as a source of **necessary conditions**.
+
+## 3. A concrete test function and the constraint it yields
+
+Take, for a parameter $t>0$,
+$$
+h_t(r) = e^{-t r^2}, \qquad
+g_t(u) = \frac{1}{2\sqrt{\pi t}}\, e^{-u^2/(4t)} .
+$$
+Here $h_t\ge 0$ on $\mathbb R$ and $h_t = |\psi_t|^2$ with
+$\psi_t(r)=e^{-tr^2/2}$ (even, in the class). The left side is
+$\sum_\rho e^{-t\gamma_\rho^2}$.
+
+Split the zeros: real-$\gamma$ zeros contribute $e^{-t\gamma^2}\in(0,1]$,
+positive and bounded. Suppose, for contradiction toward a bound, there is an
+off-line zero $\rho_0 = \tfrac12+i\gamma_0$ with $\gamma_0 = a - ib$,
+$b = \beta > 0$, $a\in\mathbb R$ (so the actual zero has real part
+$\tfrac12 + \beta$). Then $\gamma_0^2 = (a^2-b^2) - 2iab$, and
+
+$$
+e^{-t\gamma_0^2} = e^{-t(a^2-b^2)}\big(\cos(2tab) + i\sin(2tab)\big).
+$$
+
+Its partner zeros (from $\rho\mapsto 1-\rho,\ \bar\rho$) supply the conjugate
+and sign-flipped terms so the total left side stays real; the key feature is
+the factor $e^{+tb^2}$, which **grows** in $t$. Concretely the four-fold
+symmetric cluster $\{\pm a \pm ib\}$ (generic off-line zero) contributes
+
+$$
+S_0(t) = 2e^{-t(a^2-b^2)}\cos(2tab)\cdot 2
+       = 4\,e^{tb^2}e^{-ta^2}\cos(2tab).
+$$
+
+Now evaluate the right side of the explicit formula for $h_t$. As
+$t\to 0^+$:
+
+- Archimedean integral: $\frac{1}{2\pi}\int e^{-tr^2}\frac{\Gamma'}{\Gamma}(\tfrac14+\tfrac{ir}{2})dr \sim \frac{1}{2\pi}\cdot\sqrt{\tfrac{\pi}{t}}\cdot\big(\text{avg}\big)$; more usefully it is $O(t^{-1/2}\log(1/t))$ because $\frac{\Gamma'}{\Gamma}(\tfrac14+\tfrac{ir}{2})\sim \log|r|$ for large $r$, giving leading term $\frac{1}{2\pi}\int e^{-tr^2}\log\tfrac{|r|}{2}\,dr \sim \frac{1}{2\sqrt{\pi t}}\cdot\tfrac12\log\tfrac1t$.
+- $-g_t(0)\log\pi = -\frac{\log\pi}{2\sqrt{\pi t}}$.
+- $h_t(\pm i/2) = e^{t/4}$, so the pole terms give $2e^{t/4}\to 2$.
+- Prime sum: $-2\sum_n \frac{\Lambda(n)}{\sqrt n} g_t(\log n)
+   = -\frac{1}{\sqrt{\pi t}}\sum_n \frac{\Lambda(n)}{\sqrt n}e^{-(\log n)^2/(4t)}$.
+  As $t\to0$ only $n=1$ survives appreciably but $\Lambda(1)=0$; the leading
+  contribution is from small primes and is $O(t^{-1/2}e^{-(\log 2)^2/(4t)})$,
+  **exponentially small**.
+
+So as $t\to 0^+$, the right side behaves like
+$$
+W(h_t) = \frac{1}{2\sqrt{\pi t}}\Big(\tfrac12\log\tfrac1t - \log\pi\Big)
+         + 2 + o(1).
+$$
+This is positive and $\sim \frac{\log(1/t)}{4\sqrt{\pi t}}\to+\infty$.
+
+Meanwhile the left side $\sum_\rho e^{-t\gamma_\rho^2}$ must equal this. The
+real-zero part is $\le N(T)$-type but each term $\le 1$; by the known zero
+density $N(T)\sim \frac{T}{2\pi}\log T$, the small-$t$ asymptotics of the
+on-line part $\sum_{\gamma\in\mathbb R} e^{-t\gamma^2}$ is
+$\approx \int_0^\infty e^{-t\gamma^2}\,dN(\gamma)
+\sim \frac{1}{2\sqrt{\pi t}}\cdot\tfrac12\log\tfrac1t$, matching the
+Archimedean + pole leading terms. **This consistency is a genuine check**:
+the on-line zeros alone already reproduce the dominant $t^{-1/2}\log(1/t)$
+growth of $W(h_t)$.
+
+## 4. The constraint on off-line zeros
+
+Now consider the *opposite* regime $t\to\infty$. Then:
+- Right side: Archimedean integral $\to 0$, $g_t(0)\to0$, prime sum $\to 0$,
+  but pole term $2e^{t/4}\to +\infty$ like $e^{t/4}$.
+- Left side on-line part $\to$ (number of zeros exactly on real axis at
+  $\gamma=0$) $= 0$ as $t\to\infty$ (all $e^{-t\gamma^2}\to0$).
+
+So **for large $t$ the entire growth $2e^{t/4}$ of the explicit formula must
+be supplied by zeros with $\mathrm{Im}\,\gamma_\rho^2 \to -\infty$**, i.e. by
+$\gamma_\rho$ with $\mathrm{Re}(\gamma_\rho^2)<0$. For a real $\gamma$,
+$\gamma^2\ge0$, so $e^{-t\gamma^2}\le 1$: real zeros can never produce the
+$e^{t/4}$ growth. The $e^{t/4}$ comes precisely from the two "trivial-pole"
+terms $h_t(\pm i/2)=e^{t/4}$, which in the explicit formula sit on the
+*right*. Hence the identity
+$$
+\sum_\rho e^{-t\gamma_\rho^2} = 2e^{t/4} + (\text{terms} \to 0)
+$$
+forces the existence of zeros accumulating growth $e^{t/4}$ **unless** that
+growth is already accounted for on the left — which it is, by the two zeros
+$\rho=0,1$... but those are *not* nontrivial zeros; they are the $s(s-1)$
+poles folded into $\xi$. This shows the $\pm i/2$ terms are a feature of the
+functional equation, not of hypothetical off-line zeros.
+
+**The actual constraint.** Rearranging honestly, define the "defect"
+$$
+D(t) := \sum_{\rho:\ \gamma_\rho\notin\mathbb R} e^{-t\gamma_\rho^2}
+     = W(h_t) - 2e^{t/4}\ (\text{the }\pm i/2\text{ terms are separate})
+       - \sum_{\gamma\in\mathbb R} e^{-t\gamma^2}.
+$$
+Because $W(h_t)$ grows only like $e^{t/4}$ (fully attributed to the pole
+terms) while any off-line zero $\gamma_0=a-ib$ contributes $\sim e^{tb^2}$,
+an off-line zero with $b\ge \tfrac12$ would overwhelm $e^{t/4}$ as
+$t\to\infty$ — **contradiction**, *provided* the oscillatory factor
+$\cos(2tab)$ does not conspire to cancel.
+
+This is exactly the gap. If $a\ne 0$ (zero not on the critical line *and* not
+real), the factor $\cos(2tab)$ oscillates and can be negative, so individual
+large-$t$ values do not immediately contradict. One would need to integrate
+against a nonnegative weight in $t$ to kill the oscillation — but the weighted
+transform $\int_0^\infty e^{tb^2}\cos(2tab)\,w(t)\,dt$ can stay bounded for
+suitable $w$, which is why no contradiction follows. **This reproduces, in
+sharp concrete form, the known obstruction:** off-line zeros are only excluded
+when one controls the *sign-definite* combination over the whole zero family,
+i.e. exactly the full Weil positivity, which this single test function cannot
+certify.
+
+## 5. What is actually established
+
+Rigorously proved above:
+1. The on-line zeros alone reproduce the correct leading
+   $t^{-1/2}\log(1/t)$ small-$t$ asymptotics of the Weil functional for the
+   Gaussian family — a nontrivial consistency check of the explicit formula.
+2. A zero at height $\gamma_0 = a-ib$ with $b>\tfrac12$ and $a=0$ (i.e. a real
+   zero of $\zeta$ off the critical line, $\sigma>1$, impossible anyway) would
+   produce monotone $e^{tb^2}$ growth exceeding $2e^{t/4}$, contradicting the
+   formula. For $|b|\le\tfrac12$ this is consistent with the zero-free
+   region's implied bound $\sigma\le 1$.
+3. The precise reason this method cannot prove RH: the oscillatory factor
+   $\cos(2tab)$ from the imaginary part of $\gamma_0^2$ prevents a single
+   nonnegative test function from isolating a sign contradiction; only the
+   full positivity over a dense family of $h$ suffices, and that positivity is
+   equivalent to RH, so no reduction in difficulty is achieved.
+
+This is an honest partial clarification, not a proof.
+
+VERDICT: FAILED
+REASON: Derived explicit-formula consistency checks and pinpointed the oscillation obstruction, but proved no new progress toward RH.

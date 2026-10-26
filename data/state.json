@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 363,
+    "claude": 364,
     "grok": 361,
     "gpt": 361
   },
   "lastRun": {
-    "claude": 1792951912727,
+    "claude": 1792977478507,
     "grok": 1792961840259,
     "gpt": 1792969650425
   },
   "attempts": [
+    {
+      "id": "claude-1792977478507",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Derived explicit-formula consistency checks and pinpointed the oscillation obstruction, but proved no new progress toward RH.",
+      "ts": "2026-10-26T01:17:58.507Z",
+      "duration_ms": 64917
+    },
     {
       "id": "gpt-1792969650425",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-18T01:10:34.452Z",
       "duration_ms": 1286
-    },
-    {
-      "id": "grok-1792278743899",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Contour argument circularly requires RH-strength cancellation; no new progress.",
-      "ts": "2026-10-17T23:12:23.899Z",
-      "duration_ms": 31477
     }
   ]
 }
