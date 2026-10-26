@@ -1,0 +1,36 @@
+### Attempt: A conditional reduction via truncated explicit formulae and a putative positivity gap
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed zeta function (entire of order 1, functional equation \(\xi(s)=\xi(1-s)\)). Write the non-trivial zeros as \(\rho=\beta+i\gamma\) (with multiplicity). The classical explicit formula for the Chebyshev function \(\psi(x)=\sum_{n\le x}\Lambda(n)\) reads, for \(x>1\) not a prime power,
+\[
+\psi(x)=x-\sum_{\rho}\frac{x^{\rho}}{\rho}-\log(2\pi)-\frac12\log(1-x^{-2}),
+\]
+where the sum is understood in the sense of symmetric partial sums \(\lim_{T\to\infty}\sum_{|\gamma|\le T}\). 
+
+**Proposed lemma.** Fix \(\theta\in(1/2,1)\). Suppose there exists a zero with \(\beta\ge\theta\). Then there is an absolute constant \(c_\theta>0\) and a sequence \(x_k\to\infty\) such that
+\[
+\bigl|\psi(x_k)-x_k\bigr|\ge c_\theta\,x_k^\theta(\log x_k)^{-1}.
+\]
+(This is of course classical via Landau or Turán; the point is to obtain it from a truncated Weil-type positivity identity that might be improvable.)
+
+**Sketch.** Let \(\phi\in C_c^\infty((1,\infty))\) be a non-negative test function with \(\operatorname{supp}\phi\subset[e,e^2]\) and \(\int\phi>0\). Form the Weil functional
+\[
+W(\phi)=\sum_{\rho}\hat\phi(\rho)+\sum_{n=1}^\infty\frac{\Lambda(n)}{\sqrt n}\bigl(\phi(\log n)+\phi(-\log n)\bigr)+\text{archimedean terms},
+\]
+where \(\hat\phi(s)=\int_{-\infty}^\infty\phi(t)e^{(s-1/2)t}\,dt\). Weil’s criterion asserts that RH is equivalent to \(W(\phi)\ge0\) for all such \(\phi\). 
+
+Truncate the zero sum at height \(T\) and the prime sum at \(n\le X:=e^T\). The archimedean contribution is \(O(1+\|\phi''\|_1\log T)\) by Stirling. The tail of the zero sum is estimated by the classical density estimate \(N(T)=\frac{T}{2\pi}\log\frac{T}{2\pi}+O(\log T)\), giving an error \(O(T^{-1}\|\phi\|_1\cdot T\log T)=O(\|\phi\|_1\log T)\). 
+
+Assume a zero \(\rho_0=\beta+i\gamma_0\) with \(\beta\ge\theta>1/2\). Choose the scale of \(\phi\) so that \(\hat\phi\) is concentrated near \(\rho_0\) by taking a modulated bump
+\[
+\phi_\lambda(t)=\phi(t)\cdot\bigl(1+\cos(\gamma_0 t)\bigr)e^{(\beta-1/2)t},\qquad\lambda\to\infty
+\]
+(after a harmless rescaling of the support to sit near \(\log x\sim\lambda\)). Then \(\operatorname{Re}\hat\phi_\lambda(\rho_0)\ge c\|\phi\|_1\,e^{c'\lambda(\beta-1/2)}\) while all other zeros contribute a rapidly oscillating sum that is \(o(\text{same quantity})\) after averaging \(\lambda\) in a short interval (Riemann–Lebesgue + zero-density). The prime-power side remains non-negative up to an error \(O(X^{\theta-1/2-\delta})\) coming from the possible exceptional zero itself when it is inserted into the explicit formula. 
+
+Collecting terms yields \(W(\phi_\lambda)\le -c_\theta\lambda^{-1}x^{\beta-1/2}+O(\log\lambda)\). For large \(\lambda\) this is negative, contradicting Weil positivity if RH fails. Translating back via the explicit formula produces the asserted \(\Omega\)-result for \(\psi(x)-x\).
+
+**Where the argument collapses.** The modulation \(e^{(\beta-1/2)t}\) that amplifies the exceptional zero simultaneously amplifies the archimedean (Gamma) contribution by the same exponential factor; after the functional equation the dual archimedean terms produce a positive quantity of exactly the same order, cancelling the hoped-for negativity. Any attempt to cut off the archimedean contribution by making \(\operatorname{supp}\phi\) very small destroys the concentration of \(\hat\phi\) at \(\rho_0\). Contour-shifting the Mellin transform of \(\phi\) past \(\operatorname{Re}s=\theta\) re-introduces the same zero with a residue that restores positivity. Thus the reduction only recovers the already-known \(\Omega\)-theorems of Ingham–Huxley type and supplies no new zero-free region.
+
+(The same obstruction appears if one replaces \(\phi\) by a Beurling–Selberg majorant or by a Gaussian; the Gamma factor always balances the off-line zero to first order.)
+
+VERDICT: FAILED
+REASON: Archimedean cancellation kills the sign in the modulated Weil functional; no new zero-free info.
