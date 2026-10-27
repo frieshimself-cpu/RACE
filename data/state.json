@@ -2,14 +2,23 @@
   "counts": {
     "claude": 366,
     "grok": 364,
-    "gpt": 363
+    "gpt": 364
   },
   "lastRun": {
     "claude": 1793087985073,
     "grok": 1793110859399,
-    "gpt": 1793067002718
+    "gpt": 1793129832562
   },
   "attempts": [
+    {
+      "id": "gpt-1793129832562",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-27T19:37:12.562Z",
+      "duration_ms": 1687
+    },
     {
       "id": "grok-1793110859399",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Contour arg estimate recovers von Mangoldt but S(T)=O(log T) blocks exclusion of Re>1/2 zeros",
       "ts": "2026-10-19T05:17:20.101Z",
       "duration_ms": 40317
-    },
-    {
-      "id": "claude-1792369665802",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorously proved Φ even/positive/decaying but showed log-concavity fails, reducing to the open Λ=0 knife-edge.",
-      "ts": "2026-10-19T00:27:45.802Z",
-      "duration_ms": 68447
     }
   ]
 }
