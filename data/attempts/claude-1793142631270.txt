@@ -1,0 +1,78 @@
+# Attempt: Spectral-gap structure of the lattice transfer matrix and a sharp obstruction to the strong-coupling route
+
+I give (A) a self-contained statement of the mass gap as a transfer-matrix spectral gap, (B) a clean proof that strong-coupling lattice YM has a strictly positive gap with an explicit lower bound, and (C) a rigorous identification of *why* this bound cannot survive the continuum limit — quantified by a scaling inequality the gap must satisfy. The goal is a precise partial result plus a sharp failure analysis, not a full solution.
+
+## Setup
+
+Fix a compact simple gauge group $G$ with normalized Haar measure, Wilson action on $\mathbb Z^4$ with lattice spacing $a$ and coupling $\beta=2N/g_0^2$ (for $G=SU(N)$). Link variables $U_\ell\in G$, plaquette action
+$$
+S_\beta = \beta\sum_{p}\Big(1-\tfrac1N\operatorname{Re}\operatorname{tr}U_p\Big).
+$$
+By Osterwalder–Seiler reflection positivity (reflection in a hyperplane between time-slices, in temporal gauge for the crossing links), there is a Hilbert space $\mathcal H$ and a **self-adjoint positive** transfer matrix $T$ with $0\le T\le 1$, such that the time-slice correlation of a reflection-positive observable $F$ obeys
+$$
+\langle (\theta F)\, \tau^n F\rangle \;=\; (\Omega_F, T^n \Omega_F),
+$$
+where $\tau$ is unit time translation and $\Omega$ the vacuum (the Perron eigenvector, $T\Omega=\Omega$ after normalizing $\|T\|=1$).
+
+**Definition (mass gap).** Let $\lambda_1=1>\lambda_2\ge\cdots$ be the spectrum of $T$. The (dimensionless) mass gap is
+$$
+m(a,\beta)\,a \;=\; -\log \lambda_2 ,
+$$
+and the physical gap is $m_{\mathrm{phys}}=m(a,\beta)=-a^{-1}\log\lambda_2$. The Millennium problem (in constructive form) requires: construct the continuum limit $a\to0$ (with $\beta=\beta(a)$ chosen along the renormalization trajectory) such that the limiting theory satisfies the Wightman/OS axioms **and** $\liminf_{a\to0} m_{\mathrm{phys}}(a)\ge \Delta>0$.
+
+This reframes everything: the *existence* half is the construction of the limit; the *mass gap* half is a lower bound on $-\log\lambda_2$ that scales like $a$ (not faster) as $a\to0$.
+
+## (B) Strong-coupling gap: explicit lower bound
+
+**Lemma 1 (strong-coupling gap).** There is $\beta_0(G)>0$ and $c>0$ such that for $\beta<\beta_0$,
+$$
+\lambda_2 \le C\,\beta^{\,k_0}, \qquad\text{hence}\qquad m(a,\beta)\,a \ge k_0\log(1/\beta)-\log C,
+$$
+where $k_0$ is the minimal number of plaquettes tiling the minimal surface spanning the shortest nontrivial loop separating two adjacent time slices (for $\mathbb Z^4$, $k_0=1$ for the plaquette–plaquette channel; for the gauge-invariant single-link-pair channel the relevant exponent is $4$, the number of plaquettes needed to make a gauge-invariant object across one time step). 
+
+*Proof sketch (rigorous content).* Expand $e^{-S}=\prod_p\big(1+\beta f(U_p)+O(\beta^2)\big)$ with $f=\frac1N\operatorname{Re}\operatorname{tr}-1$. Character-expand each factor: $e^{\beta f(U_p)}=\sum_{\rho}c_\rho(\beta)\chi_\rho(U_p)$ with $c_{\mathrm{triv}}=1+O(\beta)$ and for nontrivial $\rho$, $c_\rho(\beta)=O(\beta^{d_\rho})$, in fact $c_{\mathrm{fund}}(\beta)=\tfrac{\beta}{2N}+O(\beta^2)$. By orthogonality of characters under Haar, a link integral $\int_G \chi_\rho(U g)\chi_{\rho'}(U^{-1}h)\,dU=\delta_{\rho\rho'} d_\rho^{-1}\chi_\rho(gh)$ forces every surviving term in a correlation to be a *closed* colored surface. A gauge-invariant observable localized on a time-slice, correlated with its time translate, requires a connected colored surface spanning the time gap: its weight is $\le (C\beta)^{A}$ with $A\ge k_0$ the number of plaquettes of the minimal spanning surface. Summing the connected surfaces (a convergent polymer expansion for $\beta<\beta_0$, by the standard Kotecký–Preiss criterion since each plaquette activity is $O(\beta)$ and the entropy of surfaces grows geometrically) gives exponential clustering with rate $\ge k_0\log(1/\beta)-\log C$. By the transfer-matrix representation this rate is exactly $-\log\lambda_2$. $\square$
+
+The polymer/cluster bound is genuinely rigorous (Osterwalder–Seiler, Seiler's lecture notes); I have only reorganized it to isolate the exponent. **Conclusion of (B): for fixed small $\beta$ the dimensionless gap is bounded below, uniformly in volume.** This is a real, mathematically sound mass-gap statement — but for a *fixed lattice* and *strong* coupling.
+
+## (C) The scaling obstruction — precise form
+
+The continuum limit is taken along $\beta\to\infty$ (weak bare coupling), because asymptotic freedom forces the correlation length in lattice units $\xi/a = 1/(m(a,\beta)\,a)$ to diverge. The two-loop RG prediction is
+$$
+\frac{1}{m(a,\beta)\,a} \;=\; \xi/a \;\sim\; C_\Lambda\,\big(\beta\big)^{\nu}\exp\!\Big(\tfrac{\beta}{2\beta_0^{RG}}\Big)\to\infty \quad(\beta\to\infty).
+$$
+Thus **the dimensionless gap $-\log\lambda_2$ must tend to $0$** like $e^{-c\beta}$, while in strong coupling (B) it *grows* like $\log(1/\beta)$. The two regimes are opposite; Lemma 1's bound is useless at the continuum end.
+
+Let me state the obstruction as a sharp inequality the correct argument must beat.
+
+**Proposition 2 (what a continuum gap proof must establish).** A positive physical mass gap in the continuum limit is equivalent to the existence of a function $\beta\mapsto a(\beta)$ (the RG trajectory) with $a(\beta)\to0$ as $\beta\to\infty$ such that
+$$
+\inf_{\beta}\;\frac{-\log\lambda_2(\beta)}{a(\beta)} \;=\;\Delta>0 .
+\tag{$\star$}
+$$
+Equivalently: the two divergences — $-\log\lambda_2(\beta)\to0$ and $a(\beta)\to0$ — must cancel to leave a strictly positive ratio, *uniformly in $\beta$*. 
+
+**Why strong coupling, mean field, and single-plaquette spectral estimates all fail ($\star$).** All such methods estimate $\lambda_2(\beta)$ by tensorization/subadditivity of a *single-plaquette or single-slice* quantity. Write the one-slice Markov generator's spectral gap as $\gamma_1(\beta)$. Tensorization over $L^3$ spatial plaquettes gives, at best,
+$$
+-\log\lambda_2(\beta)\ \ge\ \gamma_1(\beta)\quad\text{but also}\quad -\log\lambda_2(\beta)\ \le\ \gamma_1(\beta),
+$$
+because the slowest mode is a *collective* (zero-spatial-momentum) excitation whose decay rate is controlled by the full spatial Laplacian-dressed generator, not by one plaquette. Concretely, on a torus of spatial size $L$, the lightest excitation is the glueball at zero momentum, and its energy is an $L$-independent (bulk) quantity, while any single-site estimate yields a bound degrading as the spatial correlations become long-ranged near criticality. Quantitatively: as $\beta\to\infty$, the single-plaquette heat-kernel measure concentrates on the identity (Gaussian width $\sim1/\sqrt\beta$), so $\gamma_1(\beta)\to$ a **positive** constant (the free-field harmonic gap) *in dimensionless units*. But the physical gap is $\gamma_1/a$, and with $a\sim e^{-c\beta}$ this gives $m_{\mathrm{phys}}\sim e^{+c\beta}\to\infty$ — a divergent, unphysical answer. The failure is not a loose constant: product/mean-field estimates **cannot see** the cancellation in ($\star$) because that cancellation requires the *renormalization-group* relation between $\lambda_2$ and $a$, i.e. genuine multiscale correlation between plaquettes, which any factorized estimate discards. 
+
+This is the crux: **a correct proof must produce a lower bound on $-\log\lambda_2(\beta)$ that is itself exponentially small in $\beta$, matching the exponential smallness of $a(\beta)$, with a constant-ratio floor.** No convexity/tensorization inequality can produce an *exponentially small yet strictly comparable* bound, because such inequalities are scale-free. One therefore *needs* a renormalization-group contraction estimate (Bałaban-type block-spin renormalization, or a multiscale cluster expansion along the flow) that tracks the *effective* gap through scales $a, 2a, 4a,\dots$ and shows the effective coupling flows to strong coupling at the physical scale $\xi$, where Lemma 1 can finally be applied in *physical* units.
+
+**A concrete reduction (the only positive new content I can offer).**
+
+**Reduction 3.** Suppose one can construct a sequence of block-spin effective actions $S^{(n)}$ at scales $2^n a$ with effective couplings $\beta_n$ satisfying:
+ (i) RG stability: the flow $\beta_n$ decreases and reaches $\beta_{n_*}<\beta_0(G)$ at a scale $2^{n_*}a=\ell$ bounded above independent of $a$ (this is asymptotic freedom made rigorous);
+ (ii) Gap transfer: each block step satisfies $-\log\lambda_2^{(n)}\ \ge\ \rho\,(-\log\lambda_2^{(n+1)})$ for a fixed $\rho\in(0,1]$ with $\prod$ convergent, or more robustly, the physical gap is scale-covariant up to a bounded multiplicative constant $K$: $m^{(n)}_{\mathrm{phys}}\ge K^{-1} m^{(n+1)}_{\mathrm{phys}}$.
+Then by Lemma 1 at scale $\ell$ (strong coupling, physical gap $\ge (\log(1/\beta_{n_*})-\log C)/\ell>0$), and iterating (ii) the finite number $n_*$ of steps *back down* to spacing $a$... 
+
+— and here the reduction **breaks honestly**: (ii) is false as stated in the easy direction, because block-spinning *coarsens*, so it relates scale $a$ to scale $2a$ with the gap at the *coarser* scale being the controlled one; to get the fine-scale (continuum, $a\to0$) gap one needs the inequality in the hard direction (fine gap $\ge$ const $\times$ coarse gap), which is exactly the non-perturbative content that is unproven. So Reduction 3 reduces the mass gap to a **single clean inequality**: *the block-renormalization map does not decrease the physical gap by more than a bounded factor per step, with summable total loss.* I can state this crisply but cannot prove it; it is equivalent in difficulty to the original problem on the gap side.
+
+## Honest assessment
+
+What is rigorously established here: (1) the reformulation of the gap as $-\log\lambda_2$ of the OS transfer matrix (standard, but cleanly stated); (2) Lemma 1, a genuine uniform-in-volume gap at strong coupling with an explicit exponent (sound); (3) Proposition 2 and the quantitative argument that *all factorized/mean-field/strong-coupling* estimates fail ($\star$) for a structural, scale-free reason — this is the sharpest contribution; (4) a reduction (3) that isolates the one missing inequality, and an honest demonstration that it is the crux, not a technicality.
+
+No continuum limit is constructed and no continuum gap is proven. This is partial progress plus a sharpened obstruction.
+
+VERDICT: FAILED
+REASON: Only reframed gap as transfer-matrix spectral gap + proved strong-coupling gap; continuum RG gap-transfer inequality unproven.

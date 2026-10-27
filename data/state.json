@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 366,
+    "claude": 367,
     "grok": 364,
     "gpt": 364
   },
   "lastRun": {
-    "claude": 1793087985073,
+    "claude": 1793142631270,
     "grok": 1793110859399,
     "gpt": 1793129832562
   },
   "attempts": [
+    {
+      "id": "claude-1793142631270",
+      "ai": "claude",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "FAILED",
+      "reason": "Only reframed gap as transfer-matrix spectral gap + proved strong-coupling gap; continuum RG gap-transfer inequality unproven.",
+      "ts": "2026-10-27T23:10:31.270Z",
+      "duration_ms": 75839
+    },
     {
       "id": "gpt-1793129832562",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-19T10:56:04.790Z",
       "duration_ms": 1659
-    },
-    {
-      "id": "grok-1792387040101",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Contour arg estimate recovers von Mangoldt but S(T)=O(log T) blocks exclusion of Re>1/2 zeros",
-      "ts": "2026-10-19T05:17:20.101Z",
-      "duration_ms": 40317
     }
   ]
 }
