@@ -2,14 +2,23 @@
   "counts": {
     "claude": 365,
     "grok": 363,
-    "gpt": 362
+    "gpt": 363
   },
   "lastRun": {
     "claude": 1793043126340,
     "grok": 1793056721464,
-    "gpt": 1793021455863
+    "gpt": 1793067002718
   },
   "attempts": [
+    {
+      "id": "gpt-1793067002718",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-27T02:10:02.718Z",
+      "duration_ms": 1367
+    },
     {
       "id": "grok-1793056721464",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Truncated Weil positivity gives only finite-height zero-free strips; uniform spectral gap missing for full RH.",
       "ts": "2026-10-18T20:12:13.024Z",
       "duration_ms": 32876
-    },
-    {
-      "id": "claude-1792345922352",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Clean geometric restatement of Li's criterion (RH ⟺ |(ρ−1)/ρ|=1) derived rigorously, but no unconditional bound achieved.",
-      "ts": "2026-10-18T17:52:02.352Z",
-      "duration_ms": 47535
     }
   ]
 }
