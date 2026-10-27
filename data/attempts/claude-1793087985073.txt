@@ -1,0 +1,88 @@
+# Attempt: Functional-equation parity of the analytic rank, and the precise gap to BSD parity
+
+## Setup
+
+Let $E/\mathbb{Q}$ be an elliptic curve of conductor $N$, with modular $L$-function $L(E,s)$. By modularity (Wiles–Taylor–Breuil–Conrad–Diamond), $L(E,s)$ is entire and the completed $L$-function
+$$
+\Lambda(E,s) = N^{s/2}(2\pi)^{-s}\Gamma(s)\,L(E,s)
+$$
+satisfies the functional equation
+$$
+\Lambda(E,s) = w\,\Lambda(E,2-s), \qquad w \in \{+1,-1\},
+$$
+where $w$ is the global root number. Write $r_{\mathrm{an}} = \operatorname{ord}_{s=1}L(E,s)$ for the analytic rank. Since $\Gamma(s)$ is holomorphic and nonzero at $s=1$ and the archimedean factor $N^{s/2}(2\pi)^{-s}\Gamma(s)$ is nonvanishing and holomorphic in a neighborhood of $s=1$, we have $\operatorname{ord}_{s=1}\Lambda(E,s) = r_{\mathrm{an}}$.
+
+## Lemma (analytic parity)
+
+$$
+(-1)^{r_{\mathrm{an}}} = w.
+$$
+
+**Proof.** The center of symmetry is $s=1$. Put $f(s)=\Lambda(E,s)$ and expand around $s=1$: let $g(u)=f(1+u)$, so the functional equation $f(s)=w f(2-s)$ becomes
+$$
+g(u) = f(1+u) = w\,f(1-u) = w\,g(-u).
+$$
+Thus $g$ is an even function of $u$ if $w=+1$, and an odd function if $w=-1$ (where "even/odd" is in the strict sense $g(-u)=\pm g(u)$ as germs of holomorphic functions at $u=0$). Writing the Taylor expansion $g(u)=\sum_{k\ge0} c_k u^k$, the relation $c_k = w(-1)^k c_k$ holds for all $k$. Hence:
+
+- If $w=+1$: $c_k=0$ for all odd $k$. The least $k$ with $c_k\neq0$ (which exists since $\Lambda\not\equiv0$) is even, so $r_{\mathrm{an}}$ is even.
+- If $w=-1$: $c_k=0$ for all even $k$ (in particular $c_0=\Lambda(E,1)=0$). The least nonzero $c_k$ has odd index, so $r_{\mathrm{an}}$ is odd.
+
+In both cases $(-1)^{r_{\mathrm{an}}}=w$. $\qquad\blacksquare$
+
+This is a complete, rigorous argument; the only external input is modularity (for entirety and the functional equation at the correct center).
+
+## What BSD requires beyond this
+
+BSD asserts $r_{\mathrm{an}} = r_{\mathrm{alg}} := \operatorname{rank} E(\mathbb{Q})$. The Lemma gives one genuine *consistency constraint*:
+$$
+r_{\mathrm{an}} \equiv \tfrac{1-w}{2} \pmod 2.
+$$
+For BSD's **parity prediction** to hold we need in addition
+$$
+r_{\mathrm{alg}} \equiv \tfrac{1-w}{2} \pmod 2. \tag{$\ast$}
+$$
+Statement $(\ast)$ is **not** a formal consequence of the Lemma, and this is the crux I want to isolate honestly.
+
+### Precise location of the gap
+
+The algebraic side is controlled by the $p$-Selmer group $\mathrm{Sel}_p(E/\mathbb{Q})$, which sits in
+$$
+0 \to E(\mathbb{Q})\otimes \mathbb{Q}_p/\mathbb{Z}_p \to \mathrm{Sel}_{p^\infty}(E/\mathbb{Q}) \to \Sha(E/\mathbb{Q})[p^\infty]\to 0.
+$$
+Thus
+$$
+\operatorname{corank}_{\mathbb{Z}_p}\mathrm{Sel}_{p^\infty}(E/\mathbb{Q}) = r_{\mathrm{alg}} + \delta_p,\qquad \delta_p := \operatorname{corank}_{\mathbb{Z}_p}\Sha[p^\infty].
+$$
+The **$p$-parity theorem** (Nekovář; Dokchitser–Dokchitser) proves
+$$
+(-1)^{\operatorname{corank}\mathrm{Sel}_{p^\infty}} = w,
+$$
+*unconditionally*, by comparing the sign $w$ with the parity of Selmer ranks via Iwasawa theory / local root-number decompositions. Combining:
+$$
+(-1)^{r_{\mathrm{alg}}+\delta_p} = w = (-1)^{r_{\mathrm{an}}}.
+$$
+
+So the Lemma (analytic parity) together with the $p$-parity theorem yields:
+$$
+r_{\mathrm{alg}} \equiv r_{\mathrm{an}} + \delta_p \pmod 2 \quad\text{for every prime } p.
+$$
+
+**The entire obstruction to the full parity statement $(\ast)$ is therefore the possibility $\delta_p \not\equiv 0$, i.e. that $\Sha(E/\mathbb{Q})[p^\infty]$ has odd $\mathbb{Z}_p$-corank.** If $\Sha(E/\mathbb{Q})$ is finite (as BSD predicts), then $\delta_p=0$ for all $p$, and $(\ast)$ follows immediately from the two parity theorems. Conversely, the only scenario in which analytic parity could fail to match algebraic rank parity is an infinite $\Sha[p^\infty]$ of odd corank.
+
+### Consequence I want to record cleanly
+
+> **Proposition.** For every $E/\mathbb{Q}$ and every prime $p$, finiteness of $\Sha(E/\mathbb{Q})[p^\infty]$ implies the BSD parity prediction $r_{\mathrm{alg}}\equiv \frac{1-w}{2}\pmod 2$. In particular, the BSD parity conjecture is *strictly weaker* than and is implied by the $p$-part of the Shafarevich–Tate finiteness, uniformly in $p$.
+
+This is not new to experts, but the derivation above makes the logical dependency explicit and minimal: **the analytic functional-equation parity contributes exactly the "$w$" side, the Dokchitser $p$-parity theorem contributes the "$\mathrm{Sel}$" side, and the sole remaining input is the vanishing of $\delta_p$.** No Heegner-point or Euler-system machinery is needed for parity; those are needed only to pin down the actual rank (0 or 1) and leading-term, i.e. the non-parity content of BSD.
+
+## Honest assessment
+
+I have given a complete proof of analytic-rank parity and a clean reduction of the *parity* case of BSD to $\Sha[p^\infty]$-finiteness. I have **not** proven $(\ast)$ unconditionally, nor made progress on:
+- the rank equality $r_{\mathrm{an}}=r_{\mathrm{alg}}$ for ranks $\ge 2$;
+- the leading-coefficient (strong BSD) formula;
+- finiteness of $\Sha$ in general.
+
+The reduction is correct but relies on two deep known theorems (modularity, $p$-parity); its new content is organizational/pedagogical clarity about where the single remaining obstruction lives, not a resolution of it.
+
+VERDICT: FAILED
+REASON: Gave complete analytic-parity proof and clean reduction of BSD parity to Sha[p^∞]-finiteness, but no new unconditional progress.
