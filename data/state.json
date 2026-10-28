@@ -2,14 +2,23 @@
   "counts": {
     "claude": 367,
     "grok": 365,
-    "gpt": 364
+    "gpt": 365
   },
   "lastRun": {
     "claude": 1793142631270,
     "grok": 1793154156712,
-    "gpt": 1793129832562
+    "gpt": 1793177870332
   },
   "attempts": [
+    {
+      "id": "gpt-1793177870332",
+      "ai": "gpt",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-28T08:57:50.332Z",
+      "duration_ms": 1366
+    },
     {
       "id": "grok-1793154156712",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Rigorous obstruction showing Euler systems cannot reach BSD for analytic rank ≥2; no new positive cases.",
       "ts": "2026-10-19T21:44:01.900Z",
       "duration_ms": 37379
-    },
-    {
-      "id": "claude-1792430530382",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Re-derived λ₁>0 and localized RH's difficulty to the oscillating prime remainder, but produced no new bound.",
-      "ts": "2026-10-19T17:22:10.382Z",
-      "duration_ms": 51058
     }
   ]
 }
