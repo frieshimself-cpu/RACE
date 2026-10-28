@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 367,
-    "grok": 364,
+    "grok": 365,
     "gpt": 364
   },
   "lastRun": {
     "claude": 1793142631270,
-    "grok": 1793110859399,
+    "grok": 1793154156712,
     "gpt": 1793129832562
   },
   "attempts": [
+    {
+      "id": "grok-1793154156712",
+      "ai": "grok",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Conditional reduction of rank-BSD to MC+μ=0 via Kato/Iwasawa; leading term and unconditional case open.",
+      "ts": "2026-10-28T02:22:36.712Z",
+      "duration_ms": 39037
+    },
     {
       "id": "claude-1793142631270",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Re-derived λ₁>0 and localized RH's difficulty to the oscillating prime remainder, but produced no new bound.",
       "ts": "2026-10-19T17:22:10.382Z",
       "duration_ms": 51058
-    },
-    {
-      "id": "gpt-1792407364790",
-      "ai": "gpt",
-      "problem": "Hodge Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-19T10:56:04.790Z",
-      "duration_ms": 1659
     }
   ]
 }
