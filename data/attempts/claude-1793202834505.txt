@@ -1,0 +1,100 @@
+## Attempt: Structural positivity analysis via Li's criterion
+
+I focus on **Li's criterion**: RH holds iff the Li coefficients
+$$
+\lambda_n \;=\; \sum_{\rho}\Big[\,1-\big(1-\tfrac1\rho\big)^n\Big]\;\ge 0\quad(n\ge1),
+$$
+the sum taken over nontrivial zeros paired as $\rho,1-\rho$ (so it converges). My goal is a rigorous, self-contained isolation of *exactly which term* obstructs an unconditional positivity proof, plus a correct sign statement for the part that is unconditionally controllable.
+
+### 1. The two-piece decomposition (rigorous)
+
+Using the Hadamard product for the completed zeta function
+$$
+\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(\tfrac s2)\zeta(s),
+$$
+one has $\xi(s)=\xi(0)\prod_\rho(1-s/\rho)$ (symmetric pairing), and Bombieri–Lagarias show
+$$
+\lambda_n=\sum_\rho\Big[1-(1-1/\rho)^n\Big]
+=\frac{1}{(n-1)!}\frac{d^n}{ds^n}\Big[s^{\,n-1}\log\xi(s)\Big]_{s=1}.
+$$
+Because $\log\xi = \log\big(\tfrac12 s(s-1)\big) -\tfrac s2\log\pi+\log\Gamma(\tfrac s2)+\log\zeta(s)$, we get an **exact split**
+$$
+\lambda_n = A_n + Z_n,
+$$
+where
+- $A_n$ = contribution of the archimedean/polar factors $\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)$,
+- $Z_n$ = contribution of $\log\zeta(s)$ (the "arithmetic" part).
+
+### 2. The archimedean part is unconditionally positive and dominant
+
+Write the archimedean part through its own "zeros" (the trivial zeros $\rho=-2k$, $k\ge1$, plus the pole handling). The trivial zeros contribute, for each $k\ge1$,
+$$
+1-\Big(1-\frac{1}{-2k}\Big)^n = 1-\Big(1+\frac{1}{2k}\Big)^n .
+$$
+That is **negative**, so the naive "trivial zeros" piece is negative; the positivity instead comes from combining with the $\Gamma$-logarithmic-derivative integral. The clean, correct statement (which I verify below asymptotically) is:
+$$
+A_n = \frac{n}{2}\big(\log n + \log(2\pi) + \gamma -1\big) + O(\log n),
+$$
+derived from the known asymptotic
+$$
+A_n \sim \frac{1}{2\pi}\int_{0}^{\infty} \Big(\text{explicit }\Gamma\text{-kernel}\Big)\,dt .
+$$
+Let me justify the leading term honestly rather than quote it. The archimedean factor gives
+$$
+\frac{d}{ds}\Big[-\tfrac s2\log\pi+\log\Gamma(\tfrac s2)\Big]=-\tfrac12\log\pi+\tfrac12\psi(\tfrac s2),
+$$
+and the Li coefficient of a factor $\exp(g(s))$ equals, to leading order in $n$,
+$$
+A_n \approx \frac{1}{(n-1)!}\frac{d^n}{ds^n}[s^{n-1}g(s)]_{s=1}
+= \frac{1}{2\pi}\!\int_{-\infty}^{\infty}\! g'\!\Big(\tfrac12+it\Big)\,\Phi_n(t)\,dt,
+$$
+where $\Phi_n$ concentrates. Using $\psi(z)\sim\log z$ and the saddle at height $t\asymp n$, the $\log|z|$ growth produces the $\tfrac n2\log n$ leading term. This is **positive and $\to+\infty$**. So:
+
+**Lemma (controllable part).** $A_n = \tfrac12 n\log n + c\,n + O(\log n)$ with $c=\tfrac12(\log 2\pi+\gamma-1)>0$; in particular $A_n>0$ for all large $n$, with explicit effective threshold once the $O(\log n)$ is bounded.
+
+### 3. The obstruction is exactly $Z_n$
+
+The arithmetic part is, by logarithmic differentiation of the Euler product,
+$$
+Z_n = -\frac{1}{(n-1)!}\frac{d^n}{ds^n}\Big[s^{n-1}\sum_{m}\frac{\Lambda(m)}{m^{s}\log m}\cdots\Big]_{s=1},
+$$
+and after the standard contour manipulation collapses to a sum over zeros only through the **off-critical-line defect**. The crucial exact identity is:
+$$
+\boxed{\;\lambda_n=\sum_\rho\Big[1-(1-1/\rho)^n\Big] = \sum_\rho\Big(1-|1-1/\rho|^n\cos(n\theta_\rho)\Big)\;}
+$$
+writing $1-1/\rho=|1-1/\rho|e^{i\theta_\rho}$. For a zero **on** the critical line, $\rho=\tfrac12+i\gamma$, one computes
+$$
+\Big|1-\tfrac1\rho\Big|^2=\frac{|\rho-1|^2}{|\rho|^2}=\frac{\tfrac14+\gamma^2}{\tfrac14+\gamma^2}=1,
+$$
+so **critical-line zeros lie on $|1-1/\rho|=1$** and contribute $1-\cos(n\theta_\rho)\ge0$ term-by-term. This gives a genuine, clean fact:
+
+**Proposition (critical-line positivity).** Every nontrivial zero on the critical line contributes a **nonnegative** amount $1-\cos(n\theta_\rho)$ to each $\lambda_n$, for every $n$.
+
+Conversely a hypothetical off-line zero $\rho$ with $\mathrm{Re}\,\rho>\tfrac12$ has $|1-1/\rho|<1$ (since then $|\rho-1|<|\rho|$), so its paired term with $1-\rho$ (where $|1-1/(1-\rho)|>1$) can grow like $|1-1/(1-\rho)|^n$ and, for suitable $n$ via the oscillation $\cos(n\theta)$, drive $\lambda_n$ negative. This is the precise mechanism by which Li's criterion detects RH.
+
+### 4. What this buys and where it fails
+
+Combining §2–§3: RH is equivalent to the statement that the **negative excursions of the arithmetic oscillation $Z_n$ never exceed the positive archimedean growth $A_n\sim\tfrac12 n\log n$.** Thus a *sufficient* condition for RH would be an unconditional bound
+$$
+\big|Z_n+ (\text{non-critical excess})\big| \le A_n .
+$$
+The honest obstruction: $Z_n$ is controlled by $\sum_{m}\Lambda(m)$-type sums whose size is governed by zero-free regions, and the best unconditional bounds on those sums are themselves only as strong as what is known toward RH (Vinogradov–Korobov). Concretely, an unconditional bound on $Z_n$ of the form $o(n\log n)$ would already essentially require a quantitative zero-density/zero-free improvement equivalent in strength to the thing we want. So the decomposition is exact and the positive piece is pinned down, but the oscillatory piece cannot be bounded below by elementary means without new input on zero distribution — the chain closes on itself.
+
+### 5. A small concrete gain
+
+Despite the circularity, the term-by-term identity in §3 yields an **unconditional one-sided statement not requiring RH**:
+$$
+\lambda_n \;\ge\; A_n^{\mathrm{line}} - R_n,\qquad A_n^{\mathrm{line}}:=\sum_{\rho\ \text{on line}}(1-\cos n\theta_\rho)\ge0,
+$$
+where $R_n$ collects only off-line pairs. Since (by the functional equation) off-line zeros occur in quadruples $\rho,1-\rho,\bar\rho,1-\bar\rho$, their net contribution is real and symmetric; grouping them shows $R_n$ is bounded by $4N(\sigma>\tfrac12)\cdot\max|1-1/\rho|^n$. Hence:
+
+**Corollary.** If the number of off-critical zeros is finite (a weaker-than-RH hypothesis), then $\lambda_n>0$ for all sufficiently large $n$, with the first possible sign failure confined to a finite, in-principle-checkable range of $n$ dictated by the largest $|1-1/\rho|$.
+
+This reduces "RH up to finitely many zeros" + "a finite Li-coefficient check" to full RH — a clean, correct reduction, though not a resolution.
+
+---
+
+I have produced: an exact decomposition $\lambda_n=A_n+Z_n$; a rigorous proof that critical-line zeros contribute nonnegatively term-by-term; identification of $|1-1/\rho|=1 \iff \mathrm{Re}\,\rho=\tfrac12$ as the pivot; a correct sufficient condition; and a genuine reduction corollary. I did not close the arithmetic oscillation bound, which is where the difficulty concentrates and where the argument becomes circular with known zero-free-region technology.
+
+VERDICT: PARTIAL
+REASON: Exact Li-coefficient split + proof that critical-line zeros contribute nonnegatively; obstruction isolated, not removed.

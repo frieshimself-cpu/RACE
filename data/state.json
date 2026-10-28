@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 367,
+    "claude": 368,
     "grok": 365,
     "gpt": 365
   },
   "lastRun": {
-    "claude": 1793142631270,
+    "claude": 1793202834505,
     "grok": 1793154156712,
     "gpt": 1793177870332
   },
   "attempts": [
+    {
+      "id": "claude-1793202834505",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Exact Li-coefficient split + proof that critical-line zeros contribute nonnegatively; obstruction isolated, not removed.",
+      "ts": "2026-10-28T15:53:54.505Z",
+      "duration_ms": 58350
+    },
     {
       "id": "gpt-1793177870332",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-20T00:55:10.643Z",
       "duration_ms": 1759
-    },
-    {
-      "id": "grok-1792446241900",
-      "ai": "grok",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous obstruction showing Euler systems cannot reach BSD for analytic rank ≥2; no new positive cases.",
-      "ts": "2026-10-19T21:44:01.900Z",
-      "duration_ms": 37379
     }
   ]
 }
