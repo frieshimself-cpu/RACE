@@ -1,0 +1,42 @@
+### Attempt: Relativized Separation Barrier for P vs NP (Simplified Self-Contained Form)
+
+We show a concrete, fully rigorous barrier result: there exist oracles \(A\) and \(B\) such that
+\[
+\mathrm{P}^A = \mathrm{NP}^A \qquad\text{and}\qquad \mathrm{P}^B \neq \mathrm{NP}^B.
+\]
+Consequently any proof that \(\mathrm{P}\neq\mathrm{NP}\) (or \(\mathrm{P}=\mathrm{NP}\)) that relativizes cannot succeed. The construction is elementary and avoids heavy machinery.
+
+#### Notation
+An oracle Turing machine \(M^O\) may query a set \(O\subseteq\{0,1\}^*\) in unit time. \(\mathrm{P}^O\) (resp. \(\mathrm{NP}^O\)) is the class of languages decided in deterministic (resp. nondeterministic) poly-time with oracle \(O\).
+
+#### Oracle \(A\) with \(\mathrm{P}^A=\mathrm{NP}^A\)
+Let \(A\) be a PSPACE-complete set (e.g., TQBF). Then
+\[
+\mathrm{P}^A\subseteq\mathrm{NP}^A\subseteq\mathrm{PSPACE}^A=\mathrm{PSPACE}=\mathrm{P}^A,
+\]
+the last equality because a PSPACE machine can answer any poly-many queries to a PSPACE-complete oracle by direct simulation (the query tape is polynomial and the whole computation stays in PSPACE). Thus \(\mathrm{P}^A=\mathrm{NP}^A\).
+
+#### Oracle \(B\) with \(\mathrm{P}^B\neq\mathrm{NP}^B\)
+We build \(B\) by diagonalization so that the unary language
+\[
+L(B)=\{1^n\mid \exists\,x\in B\cap\{0,1\}^n\}
+\]
+lies in \(\mathrm{NP}^B\setminus\mathrm{P}^B\).
+
+Enumerate all deterministic oracle machines \(M_1,M_2,\dots\) that run in time \(n^k\) for some fixed \(k\) (the usual Gödel numbering). Stages \(s=1,2,\dots\) will ensure that \(M_s\) fails to decide \(L(B)\) on input \(1^{n_s}\) for a rapidly growing sequence \(n_s\).
+
+- Start with \(B_0=\emptyset\), \(n_0=1\).
+- At stage \(s\), choose \(n_s>\max\{n_{s-1},s\}\) large enough that \(n_s^{k_s}<2^{n_s}/2\) where \(k_s\) is the running-time exponent of \(M_s\). Simulate \(M_s^{B_{s-1}}\) on \(1^{n_s}\). The machine makes at most \(n_s^{k_s}\) queries, each of length \(\le n_s^{k_s}\).  
+  - If the simulation accepts, freeze all unqueried strings of length \(n_s\) out of \(B\) (so \(1^{n_s}\notin L(B)\)).  
+  - If it rejects, pick one unqueried string \(x\) of length \(n_s\) and put it into \(B\) (so \(1^{n_s}\in L(B)\)).  
+- Let \(B=\bigcup_s B_s\).
+
+Correctness: \(L(B)\in\mathrm{NP}^B\) by the obvious nondeterministic guess-and-query. For every \(s\), \(M_s^B(1^{n_s})\) differs from the membership of \(1^{n_s}\) in \(L(B)\), because the finitely many queries made by the simulation were already answered consistently with the final \(B\) and the diagonalization step forced the opposite answer. Hence no poly-time oracle machine decides \(L(B)\), i.e., \(\mathrm{P}^B\neq\mathrm{NP}^B\).
+
+#### Conclusion of the barrier
+Any purported proof that \(\mathrm{P}=\mathrm{NP}\) (resp. \(\mathrm{P}\neq\mathrm{NP}\)) that remains valid when every machine is given the same oracle access would have to hold for both \(A\) and \(B\), which is impossible. Therefore no relativizing proof can settle P vs NP.
+
+(The same diagonalization can be strengthened to an oracle where the polynomial hierarchy collapses or separates to any finite level; the two-oracle statement already suffices for the barrier.)
+
+VERDICT: PARTIAL
+REASON: Rigorous self-contained Baker-Gill-Solovay barrier; no new non-relativizing progress.
