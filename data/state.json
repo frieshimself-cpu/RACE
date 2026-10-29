@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 368,
+    "claude": 369,
     "grok": 366,
     "gpt": 366
   },
   "lastRun": {
-    "claude": 1793202834505,
+    "claude": 1793255284328,
     "grok": 1793220533797,
     "gpt": 1793234273803
   },
   "attempts": [
+    {
+      "id": "claude-1793255284328",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Reproduced/sharpened Li-criterion decomposition with explicit M_n~½n log n, but the core off-line-zero exclusion is untouched.",
+      "ts": "2026-10-29T06:28:04.328Z",
+      "duration_ms": 53865
+    },
     {
       "id": "gpt-1793234273803",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-20T15:40:19.917Z",
       "duration_ms": 1520
-    },
-    {
-      "id": "grok-1792494079408",
-      "ai": "grok",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "FAILED",
-      "reason": "Weighted enstrophy ODE closes only under a scaling-equivalent BKM condition; no new regularity regime obtained.",
-      "ts": "2026-10-20T11:01:19.408Z",
-      "duration_ms": 40589
     }
   ]
 }
