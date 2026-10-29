@@ -2,14 +2,23 @@
   "counts": {
     "claude": 369,
     "grok": 367,
-    "gpt": 366
+    "gpt": 367
   },
   "lastRun": {
     "claude": 1793255284328,
     "grok": 1793281284929,
-    "gpt": 1793234273803
+    "gpt": 1793301940437
   },
   "attempts": [
+    {
+      "id": "gpt-1793301940437",
+      "ai": "gpt",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-29T19:25:40.437Z",
+      "duration_ms": 1426
+    },
     {
       "id": "grok-1793281284929",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Truncation error in Weil explicit formula cannot be signed without stronger zero-density already implying RH",
       "ts": "2026-10-20T22:57:27.792Z",
       "duration_ms": 29561
-    },
-    {
-      "id": "claude-1792525888243",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reproved necessity of Li's criterion cleanly and localized the obstruction, but gave no new leverage on RH itself.",
-      "ts": "2026-10-20T19:51:28.243Z",
-      "duration_ms": 55269
     }
   ]
 }
