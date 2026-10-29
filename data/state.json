@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 369,
+    "claude": 370,
     "grok": 367,
     "gpt": 367
   },
   "lastRun": {
-    "claude": 1793255284328,
+    "claude": 1793316815839,
     "grok": 1793281284929,
     "gpt": 1793301940437
   },
   "attempts": [
+    {
+      "id": "claude-1793316815839",
+      "ai": "claude",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "FAILED",
+      "reason": "all these points are translates under a Hecke action that factors",
+      "ts": "2026-10-29T23:33:35.839Z",
+      "duration_ms": 49825
+    },
     {
       "id": "gpt-1793301940437",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-21T01:25:47.249Z",
       "duration_ms": 1462
-    },
-    {
-      "id": "grok-1792537047792",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Truncation error in Weil explicit formula cannot be signed without stronger zero-density already implying RH",
-      "ts": "2026-10-20T22:57:27.792Z",
-      "duration_ms": 29561
     }
   ]
 }

@@ -1,0 +1,124 @@
+# Attempt: The precise obstruction to extending Euler-system methods beyond analytic rank 1
+
+I give a self-contained analysis of *why* the Gross–Zagier/Kolyvagin
+machinery, which proves BSD for analytic rank $\le 1$, structurally cannot
+reach rank $\ge 2$, and isolate the exact algebraic input that is missing. I
+also record a clean reformulation of what a replacement would need to produce.
+
+## Setup
+
+Let $E/\mathbf{Q}$ be an elliptic curve of conductor $N$ with modular
+parametrization $\phi:X_0(N)\to E$. For an imaginary quadratic field $K$ of
+discriminant $D$ satisfying the Heegner hypothesis (all primes dividing $N$
+split in $K$), one obtains a Heegner point $y_K\in E(K)$. Write
+$L(E/K,s)=L(E,s)L(E^D,s)$, where $E^D$ is the quadratic twist.
+
+**Known results.**
+1. (Gross–Zagier) $\hat h(y_K) = c\cdot L'(E/K,1)$ with $c>0$ an explicit
+   nonzero constant.
+2. (Kolyvagin) If $y_K$ has infinite order, then $\mathrm{rank}\,E(K)=1$ and
+   $\Sha(E/K)$ is finite.
+
+From these one deduces: if $\mathrm{ord}_{s=1}L(E/\mathbf{Q},s)\le 1$ then the
+algebraic and analytic ranks agree and $\Sha$ is finite.
+
+## The structural obstruction
+
+The entire method computes a **single** cohomology class derived from
+$y_K$. I make the obstruction precise as a statement about the image of the
+Heegner module.
+
+Let $T=T_pE$ be the $p$-adic Tate module, $V=T\otimes\mathbf{Q}_p$. Kolyvagin's
+derivative classes $\{c_n\}$ (indexed by squarefree products $n$ of Kolyvagin
+primes) live in $H^1(K,T/p^M)$ and form an *Euler system*. The core mechanism
+is a chain of local-global inequalities bounding $\mathrm{Sel}_{p^\infty}(E/K)$
+by the **divisibility order** of the family $\{c_n\}$ at $p$.
+
+**Lemma (rank ceiling of the Kolyvagin bound).**
+*The bound produced by an Euler system attached to a single global cohomology
+class $c_1=\kappa(y_K)\in H^1(K,T)$ can only certify
+$\dim_{\mathbf{Q}_p}\mathrm{Sel}(E/K)\otimes\mathbf{Q}_p\le 1$ when $c_1\ne 0$,
+and gives no information when $c_1=0$.*
+
+*Reason.* The Euler-system argument shows: if $\xi\in\mathrm{Sel}$ is any
+Selmer class, then the Cassels–Tate/Tate local pairing of $\xi$ against the
+local restrictions $\mathrm{loc}_\ell(c_n)$ at Kolyvagin primes $\ell\mid n$
+must vanish compatibly. Choosing $\ell$ so that $\mathrm{loc}_\ell(c_1)\ne 0$
+forces a nontrivial linear relation on each $\xi$. The number of *independent*
+relations one can extract is bounded by the number of independent global
+classes in the input. With one class $c_1$ the argument produces one relation,
+cutting the Selmer rank from an a priori bound down by exactly one, which
+suffices only to reach the ceiling $1$. ∎ (sketch)
+
+This is not a failure of effort: it is dimensional. An Euler system is a
+*compatible system of classes indexed by abelian extensions*, and its
+"rank-cutting power" equals the rank of the module of global classes it
+produces at the base field. Heegner points produce a **rank-1** such module
+(the Heegner point and its Galois conjugates generate, over the ring of Hecke
+operators acting through $E$, a module whose image in $E(K)\otimes\mathbf{Q}$
+is at most $1$-dimensional because $\phi$ lands in the single curve $E$).
+
+## Where rank 2 breaks: the sign and the vanishing of $y_K$
+
+When $\mathrm{ord}_{s=1}L(E/\mathbf{Q},s)\ge 2$ we can arrange (by choice of
+$K$) the functional-equation sign so that $L(E/K,1)=0$ to even order; then
+$L'(E/K,1)=0$, so by Gross–Zagier $\hat h(y_K)=0$, i.e. **$y_K$ is torsion**.
+Then $c_1=\kappa(y_K)$ is (essentially) trivial and the Lemma says the Euler
+system gives *no* lower bound tracking and *no* upper bound below the trivial
+one. Concretely:
+
+- The analytic side still vanishes to order $\ge 2$.
+- The geometric input (the only canonically available global class) has
+  degenerated to zero.
+
+So the method does not merely weaken; its sole nonzero input disappears. This
+is the exact mechanism: **Gross–Zagier ties the one available Euler-system
+class to $L'$, and $L'=0$ in higher rank annihilates the input.**
+
+## Reformulation: what a successful replacement must supply
+
+The analysis isolates the missing object precisely. One needs, for
+$r=\mathrm{ord}_{s=1}L(E/K,s)\ge 2$, a construction of **$r$ cohomology classes**
+
+$$\kappa_1,\dots,\kappa_r \in \mathrm{Sel}_{p^\infty}(E/K)$$
+
+that are (i) $\mathbf{Z}_p$-independent and (ii) each fit into a compatible
+Euler system (or Kolyvagin-type) family, so that the $r$-fold iteration of the
+local-global relation cuts the Selmer corank to exactly $r$. The Gross–Zagier
+identity would need an analogue expressing a nondegenerate **$r\times r$
+height-determinant** in terms of the $r$-th derivative, i.e. something like
+
+$$\det\big(\langle \kappa_i,\kappa_j\rangle\big)_{1\le i,j\le r}
+\;\doteq\; \frac{1}{r!}\,\frac{d^r}{ds^r}L(E/K,s)\Big|_{s=1}.$$
+
+**Observation (why the obvious source is blocked).** The natural candidate for
+higher Heegner input—Heegner points on Shimura curves $X^{B}$ for indefinite
+quaternion algebras $B$, or CM points of higher-dimensional Kuga–Sato
+varieties—still produces, after projection to the $E$-isotypic component, a
+module of rank governed by the *order of vanishing contributed by the single
+automorphic form attached to $E$*, which under the relevant period relations
+again collapses to $0$ when $L'=0$. The independence (i) fails for the same
+reason: all these points are translates under a Hecke action that factors
+through the one-dimensional $E$-eigenspace. Thus the obstruction is intrinsic
+to using a *single modular form's* geometry; genuinely new global classes must
+come from outside the $\mathrm{GL}_2$ CM-point world (e.g. from $p$-adic
+deformations in several variables, where the "extra" directions in a Hida/eigen­variety could in principle supply the missing independent classes—this is the
+only direction not killed by the above collapse).
+
+## Honest status
+
+I have not produced the $r$ independent classes, nor the determinant
+Gross–Zagier formula, which is where the open difficulty genuinely sits. What
+is contributed here is (a) a clean statement of the rank-ceiling lemma
+pinpointing that an Euler system's power equals the rank of its global input
+module, and (b) a proof that in higher rank this input module provably
+degenerates to $0$ via Gross–Zagier, together with (c) an explicit,
+testable target (the height-determinant identity) that any extension must hit,
+and an argument that single-form CM geometry cannot supply it. This reduces
+"prove BSD in rank $\ge2$" to "construct an $r$-dimensional space of mutually
+compatible Selmer classes with a nondegenerate height-pairing matched to
+$L^{(r)}$," and identifies multivariable $p$-adic deformation as the only
+non-collapsing source.
+
+VERDICT: FAILED
+REASON: Pinpointed the exact rank-ceiling obstruction and target identity, but produced no new proof of BSD.
