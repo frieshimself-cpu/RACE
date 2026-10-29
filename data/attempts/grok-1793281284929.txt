@@ -1,0 +1,26 @@
+The Riemann \(\xi\)-function admits the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_{\rho}(1-s/\rho),
+\]
+the product running over the non-trivial zeros.  Shifting to the critical line via \(s=1/2+iz\) produces an entire function \(H(z)=\xi(1/2+iz)\) of order one whose zeros are precisely the imaginary parts of the non-trivial zeros of \(\zeta\).  The functional equation becomes \(H(z)=H(-z)\), so \(H\) is even.
+
+Suppose one attempts to realise \(H\) as the Fourier transform of a positive tempered measure \(\mu\) on \(\mathbb{R}\):
+\[
+H(z)=\int_{\mathbb{R}}e^{izt}\,d\mu(t).
+\]
+(The classical Polya–Hilbert programme asks for a self-adjoint operator whose spectral measure would supply precisely such a \(\mu\).)  Evenness of \(H\) forces \(\mu\) to be even.  If \(\mu\) could be shown positive, the zeros of \(H\) would be forced onto the real axis and RH would follow.
+
+To construct \(\mu\) one formally inverts the Fourier representation coming from the Mellin transform of the completed theta series that defines \(\xi\).  After an integration by parts the candidate density is
+\[
+d\mu(t)=\bigl(\tfrac12\vartheta''(e^{t/2})\,e^{t/4}+\tfrac12\vartheta(e^{t/2})\,e^{t/4}\bigr)dt,
+\]
+where \(\vartheta(x)=\sum_{n=-\infty}^\infty e^{-\pi n^2 x}\).  The Gaussian sum is positive and rapidly decreasing, yet the second derivative term changes sign.  Explicitly, the second logarithmic derivative of \(\vartheta\) satisfies
+\[
+\frac{\vartheta''}{\vartheta}(x)=-\pi\sum_{n\neq0}n^2\frac{e^{-\pi n^2 x}}{1+\sum_{m\neq0}e^{-\pi m^2 x}},
+\]
+which is negative for all \(x>0\).  Consequently the candidate density takes both positive and negative values on every interval of length greater than \(2\).  The signed measure that results cannot be replaced by its total-variation measure without destroying the identity \(H=\widehat{\mu}\).  Thus the positivity required by the spectral interpretation fails already at the level of the archimedean contribution, independently of any arithmetic information about the zeros.
+
+The same sign change appears in Weil’s explicit formula when the test function is chosen to be a Gaussian of large variance: the archimedean factor produces a negative contribution that cannot be absorbed by the sum over primes.  Hence every attempt to deduce RH from a positivity criterion that treats the Gamma factor as a black box is blocked by this elementary obstruction.
+
+VERDICT: FAILED
+REASON: Archimedean density changes sign; no positive measure realises \(\xi(1/2+iz)\) as a Fourier transform.

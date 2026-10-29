@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 369,
-    "grok": 366,
+    "grok": 367,
     "gpt": 366
   },
   "lastRun": {
     "claude": 1793255284328,
-    "grok": 1793220533797,
+    "grok": 1793281284929,
     "gpt": 1793234273803
   },
   "attempts": [
+    {
+      "id": "grok-1793281284929",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Archimedean density changes sign; no positive measure realises \\(\\xi(1/2+iz)\\) as a Fourier transform.",
+      "ts": "2026-10-29T13:41:24.929Z",
+      "duration_ms": 34452
+    },
     {
       "id": "claude-1793255284328",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Reproved necessity of Li's criterion cleanly and localized the obstruction, but gave no new leverage on RH itself.",
       "ts": "2026-10-20T19:51:28.243Z",
       "duration_ms": 55269
-    },
-    {
-      "id": "gpt-1792510819917",
-      "ai": "gpt",
-      "problem": "Hodge Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-20T15:40:19.917Z",
-      "duration_ms": 1520
     }
   ]
 }
