@@ -1,0 +1,34 @@
+### Attempt: Obstruction in a contour-shift approach to horizontal zero-free strips
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) and the Hadamard factorization of order 1 give
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\Bigl(\frac1{s-\rho}+\frac1{\rho}\Bigr),
+\]
+the sum running over the non-trivial zeros (counted with multiplicity). Fix \(T>2\) large and consider the rectangular contour \(C_T\) with vertices \(1+\delta\pm iT\) and \(-\delta\pm iT\) (\(\delta\in(0,1/2)\) fixed). The goal of many classical attacks is to show that a horizontal zero-free strip \(1/2<\operatorname{Re}s\le1-\eta\) is empty for some absolute \(\eta>0\) by estimating
+\[
+N(T;\sigma):=\#\{\rho:\,\operatorname{Re}\rho\ge\sigma,\,|\operatorname{Im}\rho|\le T\}
+\]
+via the change in \(\arg\xi(s)\) along the right vertical side and then shifting leftward.
+
+On the right side \(\operatorname{Re}s=1+\delta\) one has the absolutely convergent Dirichlet series for \(\zeta'/\zeta\), hence
+\[
+\Bigl|\frac{\xi'}{\xi}(1+\delta+it)\Bigr|\ll_{\delta}\log(|t|+2).
+\]
+The horizontal integrals are \(O(\log^2 T)\) by the convexivity bound \(\zeta(\sigma+it)\ll |t|^{(1-\sigma)/3+\varepsilon}\) (or any subconvex bound). If one could obtain a matching upper bound
+\[
+\Bigl|\frac{\xi'}{\xi}(\sigma+it)\Bigr|\ll\log(|t|+2)
+\]
+uniformly for \(\sigma\ge1/2+\eta\), the argument principle would force \(N(T;1/2+\eta)=o(T\log T)\), and a standard density theorem would then push all but \(o(T\log T)\) zeros onto the critical line. (A full zero-density estimate of the quality \(N(T;\sigma)\ll T^{c(1-\sigma)}\log^{O(1)}T\) with \(c<2\) already implies that almost all zeros lie on \(\operatorname{Re}s=1/2\).)
+
+The obstruction appears precisely when the contour is shifted across the critical strip. The same Hadamard product yields the identity
+\[
+\operatorname{Re}\frac{\xi'}{\xi}(\sigma+it)=\sum_{\rho}\frac{\sigma-\beta}{(\sigma-\beta)^2+(t-\gamma)^2},
+\]
+where \(\rho=\beta+i\gamma\). For \(\sigma>1/2\) the terms with \(\beta>1/2\) are positive, but any zero with \(\beta>1/2\) contributes a large positive spike of height \(\asymp1/(\beta-\sigma)\) when \(t\) passes near \(\gamma\). Without an a-priori bound preventing the existence of such zeros (or limiting their multiplicity and clustering), the right-hand side can be as large as \(\gg\log^2(|t|+2)\) on a positive-density set of heights \(t\). Consequently the variation of \(\arg\xi\) along a vertical line \(\operatorname{Re}s=\sigma>1/2\) cannot be shown to be \(O(\log T)\); the best unconditional bound remains \(O(\log^2 T)\), which is precisely the size already known from the Riemann–von Mangoldt formula and is too crude to exclude a positive proportion of zeros off the line.
+
+Thus every contour-shift argument that begins from the Hadamard product and attempts to improve the classical zero-free region \(\sigma\ge1-c/\log(|t|+2)\) by a fixed-width strip is circular: the only tool available to control \(\xi'/\xi\) off the critical line already presupposes a zero-density estimate strong enough to imply the desired conclusion. This circularity persists even if one inserts the best available hybrid subconvexity bounds or mollifiers; the spikes produced by hypothetical zeros with \(\beta\ge1/2+\eta\) dominate all other error terms.
+
+(The same obstruction appears, mutatis mutandis, when one tries to push the classical zero-free region of Vinogradov–Korobov to a wider region by pure complex-analytic means without new arithmetic input on prime gaps or Dirichlet \(L\)-functions.)
+
+VERDICT: FAILED
+REASON: Contour-shift via Hadamard product is circular; spikes from off-line zeros block any fixed-width zero-free strip.

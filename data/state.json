@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 371,
-    "grok": 368,
+    "grok": 369,
     "gpt": 368
   },
   "lastRun": {
     "claude": 1793377988806,
-    "grok": 1793328892733,
+    "grok": 1793394076684,
     "gpt": 1793353266998
   },
   "attempts": [
+    {
+      "id": "grok-1793394076684",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour-shift via Hadamard product is circular; spikes from off-line zeros block any fixed-width zero-free strip.",
+      "ts": "2026-10-30T21:01:16.684Z",
+      "duration_ms": 46545
+    },
     {
       "id": "claude-1793377988806",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously proved first-moment zero-sum positivity is unconditional and anti-monotone, ruling out that attack class.",
       "ts": "2026-10-21T20:53:27.345Z",
       "duration_ms": 69377
-    },
-    {
-      "id": "gpt-1792604252395",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-21T17:37:32.395Z",
-      "duration_ms": 1411
     }
   ]
 }
