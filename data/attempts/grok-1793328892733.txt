@@ -1,0 +1,31 @@
+### Attempt: Uniform spectral gap obstruction in the continuum limit of lattice Yang–Mills
+
+Let \(G\) be a compact simple Lie group. For lattice spacing \(a>0\) and inverse coupling \(\beta=1/g_0^2\), the Wilson measure \(\mu_{a,\beta}\) is defined on the space of \(G\)-valued link configurations on \(\mathbb{Z}^4_a\) by the density proportional to
+\[
+\exp\Bigl(-\beta\sum_p\bigl(1-\tfrac1{\dim R}\operatorname{Re}\operatorname{tr}U_p\bigr)\Bigr)
+\]
+with respect to Haar measure (sum over plaquettes \(p\)). Reflection positivity of \(\mu_{a,\beta}\) yields a transfer matrix \(T_{a,\beta}\) acting on a Hilbert space \(\mathcal{H}_a\) of gauge-invariant functionals of spatial links; the lattice Hamiltonian is \(H_a=-\frac1a\log T_{a,\beta}\) (after normalizing the vacuum eigenvalue to zero).
+
+It is classical that, for every fixed \(\beta<\infty\), the strong-coupling cluster expansion produces a uniform spectral gap:
+\[
+\operatorname{spec}(H_a)\subset\{0\}\cup[\Delta(\beta),\infty),\qquad\Delta(\beta)\ge c\,e^{-C\beta}>0.
+\]
+The continuum limit that would solve the Millennium problem requires a sequence \(\beta(a)\to\infty\) (dictated by asymptotic freedom) such that the rescaled measures converge, in the sense of Osterwalder–Schrader moments, to a non-trivial continuum theory whose reconstructed Hamiltonian \(H\) still satisfies \(\operatorname{spec}(H)\subset\{0\}\cup[\Delta,\infty)\) for some \(\Delta>0\) independent of all cut-offs.
+
+**Obstruction.**  
+Write \(m_a(\beta)\) for the mass gap of \(H_a\) in lattice units. Asymptotic freedom forces the continuum mass to be of order
+\[
+m_{\mathrm{phys}}=a^{-1}m_a(\beta(a))\sim\Lambda_{\mathrm{QCD}}\exp\Bigl(-\frac{1}{2b_0g_0^2}\Bigr).
+\]
+Any proof that \(m_{\mathrm{phys}}\) stays bounded away from zero must therefore control the exponential decay rate of plaquette–plaquette correlations uniformly down to distances of order \(a\exp(c\beta)\). Existing multi-scale cluster expansions (Balaban, Magnen–Sénéor–Rivasseau) remove the ultraviolet cut-off in finite volume and produce a finite renormalized free energy, yet they lose the infrared exponential decay once the volume exceeds the dynamically generated length \(\xi\sim a\exp(c\beta)\). The reason is that the polymer activities of the expansion contain non-perturbative contributions (center vortices, instanton-like configurations) whose entropy–energy balance is only known to produce area law for Wilson loops at strong coupling; the same balance has never been shown to survive the simultaneous limits \(a\to0\), \(\beta(a)\to\infty\), \(L\to\infty\).
+
+Consequently, the only rigorous spectral information that passes to the continuum is the existence of a vacuum and the Osterwalder–Schrader positivity; the gap itself is lost. Closing the gap would require a new a-priori bound on the decay of the two-point function of the field strength that is uniform in the ultraviolet cut-off and independent of volume—an estimate that is presently unavailable and that appears to demand a genuinely non-perturbative control of the center symmetry or of the dual superconductivity mechanism at arbitrarily weak bare coupling.
+
+This reduces the mass-gap half of the problem to the single analytic statement
+\[
+\sup_{a\le a_0}\;a^{-1}m_a(\beta(a))\ge\Delta_0>0
+\]
+for the specific running \(\beta(a)\) of asymptotic freedom, but supplies no proof of that statement.
+
+VERDICT: FAILED
+REASON: Identified continuum-limit gap obstruction but produced no new uniform estimate or existence proof

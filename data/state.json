@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 370,
-    "grok": 367,
+    "grok": 368,
     "gpt": 367
   },
   "lastRun": {
     "claude": 1793316815839,
-    "grok": 1793281284929,
+    "grok": 1793328892733,
     "gpt": 1793301940437
   },
   "attempts": [
+    {
+      "id": "grok-1793328892733",
+      "ai": "grok",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "FAILED",
+      "reason": "Identified continuum-limit gap obstruction but produced no new uniform estimate or existence proof",
+      "ts": "2026-10-30T02:54:52.733Z",
+      "duration_ms": 39037
+    },
     {
       "id": "claude-1793316815839",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Re-derived easy direction of Li's criterion via an explicit modulus formula; hard positivity direction remains circular.",
       "ts": "2026-10-21T06:32:48.292Z",
       "duration_ms": 38165
-    },
-    {
-      "id": "gpt-1792545947249",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-21T01:25:47.249Z",
-      "duration_ms": 1462
     }
   ]
 }
