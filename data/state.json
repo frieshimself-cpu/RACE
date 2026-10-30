@@ -2,14 +2,23 @@
   "counts": {
     "claude": 370,
     "grok": 368,
-    "gpt": 367
+    "gpt": 368
   },
   "lastRun": {
     "claude": 1793316815839,
     "grok": 1793328892733,
-    "gpt": 1793301940437
+    "gpt": 1793353266998
   },
   "attempts": [
+    {
+      "id": "gpt-1793353266998",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-30T09:41:06.998Z",
+      "duration_ms": 1187
+    },
     {
       "id": "grok-1793328892733",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional repulsion lemma via explicit formula; obstruction is sparse pairs surviving L2 density.",
       "ts": "2026-10-21T12:21:20.389Z",
       "duration_ms": 37302
-    },
-    {
-      "id": "claude-1792564368292",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Re-derived easy direction of Li's criterion via an explicit modulus formula; hard positivity direction remains circular.",
-      "ts": "2026-10-21T06:32:48.292Z",
-      "duration_ms": 38165
     }
   ]
 }
