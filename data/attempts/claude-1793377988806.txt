@@ -1,0 +1,79 @@
+# Attempt: The Li-coefficient positivity program — a rigorous computation of λ₁ and a sharp diagnosis of why it resists extension
+
+## Setup
+
+Let ξ(s) = ½ s(s−1) π^(−s/2) Γ(s/2) ζ(s) be the completed zeta function. It is entire of order 1, real on ℝ, satisfies ξ(s) = ξ(1−s), and its zeros are exactly the nontrivial zeros ρ of ζ. By Hadamard factorization,
+
+  ξ(s) = ξ(0) e^(Bs) ∏_ρ (1 − s/ρ) e^(s/ρ),  (1)
+
+with the product taken over zeros grouped in conjugate/reflection pairs so it converges.
+
+**Li's criterion.** Define
+  λ_n = (1/(n−1)!) · d^n/ds^n [ s^(n−1) log ξ(s) ] |_(s=1).
+Keiper–Li proved the identity
+  λ_n = Σ_ρ [ 1 − (1 − 1/ρ)^n ],  (2)
+(sum with the same symmetric pairing), and that **RH ⟺ λ_n ≥ 0 for all n ≥ 1.**
+
+The direction I can make fully rigorous below is the base case n = 1, together with a precise analysis of the structural obstruction for n ≥ 2.
+
+## Rigorous computation of λ₁
+
+From (2),
+  λ₁ = Σ_ρ [1 − (1 − 1/ρ)] = Σ_ρ 1/ρ,
+interpreted as lim_{T→∞} Σ_{|Im ρ|≤T} 1/ρ, which converges because zeros come in pairs ρ, 1−ρ (and conjugates), giving 1/ρ + 1/(1−ρ) = 1/(ρ(1−ρ)) = O(1/|ρ|²).
+
+Take the logarithmic derivative of (1):
+  ξ'(s)/ξ(s) = B + Σ_ρ ( 1/(s−ρ) + 1/ρ ).  (3)
+
+**Evaluate B.** Setting s = 0 in a symmetrized form: since ξ(s)=ξ(1−s), differentiating gives ξ'(s) = −ξ'(1−s), so ξ'(½)=0 and more usefully ξ'(0)/ξ(0) = −ξ'(1)/ξ(1). From (3) at s=0, ξ'(0)/ξ(0) = B. It is classical (and follows from ζ, Γ data) that
+  B = −Σ_ρ 1/ρ · (symmetrized) ... 
+let me instead compute Σ_ρ 1/ρ directly from the finite part of (3).
+
+Evaluate (3) at s = 1:
+  ξ'(1)/ξ(1) = B + Σ_ρ ( 1/(1−ρ) + 1/ρ ).
+By the pairing ρ ↔ 1−ρ, the set {1−ρ} equals the set {ρ}, so Σ_ρ 1/(1−ρ) = Σ_ρ 1/ρ. Hence
+  ξ'(1)/ξ(1) = B + 2 Σ_ρ 1/ρ.  (4)
+Also B = ξ'(0)/ξ(0) = −ξ'(1)/ξ(1) by the functional equation. Substituting into (4):
+  ξ'(1)/ξ(1) = −ξ'(1)/ξ(1) + 2 Σ_ρ 1/ρ
+  ⟹ Σ_ρ 1/ρ = ξ'(1)/ξ(1).  (5)
+
+So **λ₁ = ξ'(1)/ξ(1)**, a clean closed form.
+
+**Now compute ξ'(1)/ξ(1).** Write log ξ(s) = −log 2 + log s + log(s−1) − (s/2)log π + log Γ(s/2) + log ζ(s). Differentiate:
+  ξ'/ξ (s) = 1/s + 1/(s−1) − ½ log π + ½ ψ(s/2) + ζ'/ζ (s),
+where ψ = Γ'/Γ. The terms 1/(s−1) and ζ'/ζ(s) each have a simple pole at s=1 (ζ has a simple pole, so ζ'/ζ ~ −1/(s−1)); they cancel. Precisely, near s=1: ζ(s) = 1/(s−1) + γ + O(s−1), so ζ'/ζ(s) = −1/(s−1) + γ + O(s−1). Thus
+  [1/(s−1) + ζ'/ζ(s)] → γ as s→1.
+The remaining terms at s=1: 1/s = 1, −½ log π, ½ ψ(1/2) = ½(−γ − 2 log 2).
+
+Collecting:
+  λ₁ = ξ'(1)/ξ(1) = 1 + γ − ½ log π + ½(−γ − 2 log 2)
+     = 1 + γ − ½ log π − γ/2 − log 2
+     = 1 + γ/2 − ½ log π − log 2
+     = 1 + γ/2 − ½ log(4π).
+
+**Numerics.** γ/2 = 0.288607…, ½ log(4π) = ½ · log(12.566…) = ½ · 2.531024 = 1.265512.
+  λ₁ = 1 + 0.288607 − 1.265512 = **0.023095… > 0.**
+
+This verifies RH's necessary consequence at n = 1, unconditionally and from first principles. ∎
+
+## Sharp diagnosis of the obstruction for n ≥ 2
+
+Rewrite (2) using ρ, and separate the "archimedean/trivial" smooth part from the zero sum. Bombieri–Lagarias showed
+  λ_n = Σ_ρ [1 − (1 − 1/ρ)^n],
+and that under RH one gets the clean asymptotic
+  λ_n = (n/2) log n + (½(γ − 1 − log 2π)) n + O(√n log n).  (★)
+
+The crux: write 1 − 1/ρ with ρ = ½ + iγ_k (RH case). Then |1 − 1/ρ|² = 1 − 1/|ρ|² · (Re terms); one finds Re(1 − 1/ρ) governs whether (1−1/ρ)^n decays. On RH, |1 − 1/ρ| < 1 for every zero, so each summand → 1 and partial positivity is "stable." **Off RH**, a zero with Re ρ > ½ gives |1 − 1/ρ| > 1, so (1 − 1/ρ)^n grows geometrically and 1 − (1−1/ρ)^n → −∞ along that term, eventually forcing some λ_n < 0 — this is the mechanism of the criterion.
+
+The genuine barrier to *proving* λ_n ≥ 0 for all n is that (2) is an **oscillatory sum with massive cancellation**: the main term (n/2)log n in (★) is a *secondary* quantity dwarfed by individual summand magnitudes once Re ρ ≠ ½ is allowed hypothetically. Concretely:
+
+- Any proof of λ_n ≥ 0 "for free" (by writing λ_n as a manifest sum of squares or a positive-definite quadratic form) would have to encode the location Re ρ = ½ — but (1−1/ρ)^n expands via the binomial theorem into Σ_k C(n,k)(−1)^k Σ_ρ ρ^{−k}, i.e. into the **power sums σ_k = Σ_ρ ρ^{−k}** of inverse zeros. These σ_k are exactly the Stieltjes-type constants / are expressible through ζ-values and ultimately the *prime distribution*. So λ_n ≥ 0 is not a formal algebraic positivity; it is equivalent to a positivity statement about arithmetic data (the σ_k), with no evident sign structure.
+
+- The quantity that *would* make positivity automatic is a spectral realization: if {ρ} were eigenvalues of a self-adjoint operator H (Hilbert–Pólya), then 1 − 1/ρ would be values of a function of H and λ_n = Tr f_n(H) with f_n ≥ 0 manifest. **The Li criterion is therefore equivalent to the existence of such positivity, not a route around it.** My computation of λ₁ > 0 corresponds to the trace of a single manifestly positive functional (the n=1 case degenerates to Σ 1/ρ = ξ'(1)/ξ(1), a single ζ-value), which is why it is accessible; for n ≥ 2 the cancellation among σ_k re-encodes the full difficulty.
+
+## Honest assessment
+
+I have given a self-contained rigorous derivation of the closed form λ₁ = 1 + γ/2 − ½log(4π) > 0 and an explicit, correct account of why the positivity cannot be bootstrapped to n ≥ 2 without new input (a spectral/positive-definite structure on the zeros). This reproduces the base case rigorously and localizes the obstruction precisely, but it does not constitute new progress toward RH: the reduction to σ_k positivity is already the known hard core of the Li program.
+
+VERDICT: FAILED
+REASON: Rigorously computed λ₁>0 and pinpointed the Li-criterion obstruction, but produced no new progress toward RH.

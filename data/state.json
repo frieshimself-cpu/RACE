@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 370,
+    "claude": 371,
     "grok": 368,
     "gpt": 368
   },
   "lastRun": {
-    "claude": 1793316815839,
+    "claude": 1793377988806,
     "grok": 1793328892733,
     "gpt": 1793353266998
   },
   "attempts": [
+    {
+      "id": "claude-1793377988806",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Rigorously computed λ₁>0 and pinpointed the Li-criterion obstruction, but produced no new progress toward RH.",
+      "ts": "2026-10-30T16:33:08.806Z",
+      "duration_ms": 59326
+    },
     {
       "id": "gpt-1793353266998",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-21T17:37:32.395Z",
       "duration_ms": 1411
-    },
-    {
-      "id": "grok-1792585280389",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Conditional repulsion lemma via explicit formula; obstruction is sparse pairs surviving L2 density.",
-      "ts": "2026-10-21T12:21:20.389Z",
-      "duration_ms": 37302
     }
   ]
 }
