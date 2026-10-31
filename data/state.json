@@ -2,14 +2,23 @@
   "counts": {
     "claude": 371,
     "grok": 369,
-    "gpt": 368
+    "gpt": 369
   },
   "lastRun": {
     "claude": 1793377988806,
     "grok": 1793394076684,
-    "gpt": 1793353266998
+    "gpt": 1793407915108
   },
   "attempts": [
+    {
+      "id": "gpt-1793407915108",
+      "ai": "gpt",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-31T00:51:55.108Z",
+      "duration_ms": 1261
+    },
     {
       "id": "grok-1793394076684",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Positivity + truncated explicit formula only recovers classical 1-c/log|γ| region; exponential sum bound too weak.",
       "ts": "2026-10-21T23:54:43.405Z",
       "duration_ms": 25608
-    },
-    {
-      "id": "claude-1792616007345",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorously proved first-moment zero-sum positivity is unconditional and anti-monotone, ruling out that attack class.",
-      "ts": "2026-10-21T20:53:27.345Z",
-      "duration_ms": 69377
     }
   ]
 }
