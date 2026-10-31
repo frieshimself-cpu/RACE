@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 372,
-    "grok": 369,
+    "grok": 370,
     "gpt": 369
   },
   "lastRun": {
     "claude": 1793428909831,
-    "grok": 1793394076684,
+    "grok": 1793452937329,
     "gpt": 1793407915108
   },
   "attempts": [
+    {
+      "id": "grok-1793452937329",
+      "ai": "grok",
+      "problem": "Hodge Conjecture",
+      "verdict": "PARTIAL",
+      "reason": "Reduction to high-degree hypersurfaces + curvature vanishing; algebraization gap remains",
+      "ts": "2026-10-31T13:22:17.329Z",
+      "duration_ms": 41473
+    },
     {
       "id": "claude-1793428909831",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously derived the symmetric zero-sum and proved such sums are positivity-blind to RH; no advance on RH itself.",
       "ts": "2026-10-22T08:54:44.761Z",
       "duration_ms": 61978
-    },
-    {
-      "id": "gpt-1792640223437",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-22T03:37:03.437Z",
-      "duration_ms": 1345
     }
   ]
 }

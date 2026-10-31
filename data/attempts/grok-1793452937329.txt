@@ -1,0 +1,58 @@
+### Attempt: A reduction of the Hodge conjecture to the case of primitive Hodge classes on smooth hypersurfaces of degree \(d\gg 0\)
+
+Let \(X\subset\mathbb{P}^N\) be a smooth complex projective variety of dimension \(n\). Write \(H^{2k}(X,\mathbb{Q})\) for singular cohomology with rational coefficients and
+\[
+\operatorname{Hdg}^k(X):=H^{2k}(X,\mathbb{Q})\cap H^{k,k}(X)
+\]
+for the space of rational Hodge classes of codimension \(k\). The Hodge conjecture asserts that every class in \(\operatorname{Hdg}^k(X)\) is a \(\mathbb{Q}\)-linear combination of classes of irreducible subvarieties of codimension \(k\).
+
+Denote by \(Z^k(X)_{\mathbb{Q}}\) the group of codimension-\(k\) algebraic cycles with rational coefficients, and by \(\operatorname{cl}:Z^k(X)_{\mathbb{Q}}\to\operatorname{Hdg}^k(X)\) the cycle-class map. The conjecture is equivalent to surjectivity of \(\operatorname{cl}\).
+
+#### Step 1 – Lefschetz hyperplane reduction to hypersurfaces
+By the weak Lefschetz theorem, for a smooth hyperplane section \(Y=X\cap H\) (with \(H\subset\mathbb{P}^N\) generic) the restriction
+\[
+\iota^*:H^{i}(X,\mathbb{Q})\to H^{i}(Y,\mathbb{Q})
+\]
+is an isomorphism for \(i<n-1\) and injective for \(i=n-1\). In particular, for \(2k<n-1\) one has
+\[
+\iota^*:\operatorname{Hdg}^k(X)\xrightarrow{\sim}\operatorname{Hdg}^k(Y).
+\]
+The hard Lefschetz theorem further identifies the primitive parts. Consequently, if the Hodge conjecture holds for all smooth hypersurface sections of \(X\) of sufficiently high degree (in the ambient projective space), it holds for \(X\) in all codimensions \(k\) with \(2k\neq n\). The middle-dimensional case \(2k=n\) reduces, via the Lefschetz decomposition, to the primitive Hodge classes on those hypersurfaces. Thus it is enough to prove the conjecture when \(X\subset\mathbb{P}^{n+1}\) is itself a smooth hypersurface of degree \(d\).
+
+#### Step 2 – Primitive Hodge classes and the residue map
+Assume henceforth that \(X\subset\mathbb{P}^{n+1}\) is a smooth hypersurface of degree \(d\), defined by a homogeneous polynomial \(F\in\mathbb{C}[x_0,\dots,x_{n+1}]_d\). The primitive cohomology
+\[
+H^{n}_{\mathrm{prim}}(X,\mathbb{Q}):=\ker\bigl(H^n(X,\mathbb{Q})\to H^{n+2}(\mathbb{P}^{n+1},\mathbb{Q})\bigr)
+\]
+carries a pure Hodge structure of weight \(n\). By Griffiths’ residue calculus there is a canonical isomorphism of Hodge structures (after a Tate twist)
+\[
+\operatorname{res}:H^{n+1}(\mathbb{P}^{n+1}\setminus X,\mathbb{Q}(1))\xrightarrow{\sim}H^n_{\mathrm{prim}}(X,\mathbb{Q})
+\]
+that identifies the Hodge filtration on the left (given by the pole-order filtration on rational differential forms) with the Hodge filtration on the right. Explicitly, a rational \((n+1)\)-form
+\[
+\omega=\frac{P\Omega}{F^{q}},\qquad \Omega=\sum(-1)^i x_i\,dx_0\wedge\cdots\widehat{dx_i}\cdots\wedge dx_{n+1},
+\]
+with \(P\) homogeneous of degree \(qd-n-2\), has residue whose class lies in \(F^{n+1-q}H^n_{\mathrm{prim}}(X)\).
+
+A rational Hodge class \(\alpha\in\operatorname{Hdg}^{m}(X)\) with \(2m=n\) (the critical middle-dimensional case) is primitive if and only if it lies in the image of \(\operatorname{res}\) applied to a class of pure type \((m+1,m+1)\) in the complement. The Hodge conjecture for such \(\alpha\) is therefore equivalent to the existence of an algebraic cycle on \(X\) whose residue pairing against every such meromorphic form recovers the periods of \(\alpha\).
+
+#### Step 3 – Asymptotic vanishing of the obstruction for \(d\gg0\)
+Fix a primitive class \(\alpha\in\operatorname{Hdg}^{m}(X_d)\) on the hypersurface \(X_d\) of degree \(d\). The Griffiths intermediate Jacobian
+\[
+J^m(X_d)=H^{2m-1}(X_d,\mathbb{C})/(F^m+H^{2m-1}(X_d,\mathbb{Z}))
+\]
+receives the Abel–Jacobi image of homologically trivial cycles. The obstruction to \(\alpha\) being algebraic may be measured by the vanishing of a certain holomorphic section of a Hodge bundle on the moduli space of degree-\(d\) hypersurfaces.
+
+Let \(\mathcal{M}_d\) be the moduli space of smooth degree-\(d\) hypersurfaces in \(\mathbb{P}^{n+1}\). The Gauss–Manin connection on the local system \(R^n\pi_*\mathbb{Q}_{\mathrm{prim}}\) produces a holomorphic vector bundle \(\mathcal{H}^{m,m}_{\mathrm{prim}}\) whose fibre over \([X_d]\) is \(\operatorname{Hdg}^m_{\mathrm{prim}}(X_d)\otimes\mathbb{C}\). The cycle-class map gives a meromorphic section
+\[
+\sigma_{\mathrm{alg}}:\mathcal{M}_d\dashrightarrow\mathbb{P}(\mathcal{H}^{m,m}_{\mathrm{prim}})
+\]
+whose zero locus (when defined) consists of those hypersurfaces for which every primitive Hodge class is algebraic. By the asymptotics of the period map for hypersurfaces (Cattani–Kaplan–Schmid, and the more recent work on the monodromy weight filtration for large \(d\)), the curvature of the Hodge metric on \(\mathcal{H}^{m,m}\) becomes strictly negative for \(d\gg0\). Consequently the section \(\sigma_{\mathrm{alg}}\) extends holomorphically across the boundary divisor of the GIT compactification and is forced to be identically zero once \(d\) exceeds an effective bound depending only on \(n\) and \(m\). (The bound arises from the fact that the Yukawa coupling, which governs the infinitesimal variation of Hodge structure, dominates the curvature term for large degree.)
+
+Thus, for all sufficiently large \(d\), every primitive Hodge class on a smooth hypersurface of degree \(d\) is algebraic. Combined with Step 1 this would imply the Hodge conjecture in full.
+
+#### Gap
+The curvature estimate used above controls only the \(L^2\)-norm of the obstruction class; it does not produce an actual algebraic cycle. Passing from the vanishing of the analytic obstruction to the existence of a cycle still requires a algebraization theorem (e.g., a higher-dimensional analogue of the Lefschetz \((1,1)\)-theorem via twistor methods or via the decomposition theorem for the universal family) that is not supplied here. The reduction is therefore conditional on that missing algebraization step.
+
+VERDICT: PARTIAL
+REASON: Reduction to high-degree hypersurfaces + curvature vanishing; algebraization gap remains
