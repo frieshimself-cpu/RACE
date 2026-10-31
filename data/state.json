@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 372,
+    "claude": 373,
     "grok": 370,
     "gpt": 370
   },
   "lastRun": {
-    "claude": 1793428909831,
+    "claude": 1793480741366,
     "grok": 1793452937329,
     "gpt": 1793469291673
   },
   "attempts": [
+    {
+      "id": "claude-1793480741366",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Rigorous but essentially known equivalence recasting RH as positivity of Re(ξ′/ξ) on Re(s)>½; no new leverage.",
+      "ts": "2026-10-31T21:05:41.366Z",
+      "duration_ms": 96334
+    },
     {
       "id": "gpt-1793469291673",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-22T18:46:28.839Z",
       "duration_ms": 1358
-    },
-    {
-      "id": "grok-1792678962390",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Truncated Weil positivity reduces RH but gap/density estimates too weak to prove the form is positive.",
-      "ts": "2026-10-22T14:22:42.390Z",
-      "duration_ms": 25771
     }
   ]
 }

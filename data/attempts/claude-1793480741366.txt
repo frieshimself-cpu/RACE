@@ -1,0 +1,102 @@
+# A positivity reformulation of RH via Re(ξ′/ξ)
+
+## Setup
+
+Let ξ(s) = ½ s(s−1) π^(−s/2) Γ(s/2) ζ(s) be the completed zeta function. It is
+entire of order 1, satisfies the functional equation ξ(s) = ξ(1−s), and its
+zeros are exactly the nontrivial zeros ρ = β + iγ of ζ, all with 0 < β < 1,
+symmetric under ρ ↦ 1−ρ and ρ ↦ ρ̄.
+
+I prove the following clean equivalence and verify each step.
+
+**Theorem.** RH holds if and only if
+Re(ξ′/ξ(s)) > 0 for every s with Re(s) > ½.
+
+## Step 1: A symmetric sum representation
+
+By Hadamard factorization (ξ of order 1),
+ξ′/ξ(s) = B + Σ_ρ [1/(s−ρ) + 1/ρ],
+with B = ξ′/ξ(0) real and the sum taken over nontrivial zeros, convergent when
+ρ is paired with ρ̄.
+
+Differentiating ξ(s) = ξ(1−s) gives the identity
+**ξ′/ξ(s) = −ξ′/ξ(1−s).**
+
+Therefore we may symmetrize:
+ξ′/ξ(s) = ½[ξ′/ξ(s) − ξ′/ξ(1−s)]
+= ½ Σ_ρ [ (1/(s−ρ) + 1/ρ) − (1/(1−s−ρ) + 1/ρ) ]
+= ½ Σ_ρ [ 1/(s−ρ) − 1/(1−s−ρ) ].
+
+Note 1 − s − ρ = −(s − (1−ρ)), so −1/(1−s−ρ) = 1/(s − (1−ρ)). Hence
+
+  ξ′/ξ(s) = ½ Σ_ρ [ 1/(s−ρ) + 1/(s−(1−ρ)) ].   (∗)
+
+The constants B and 1/ρ have cancelled exactly. Because the zero multiset is
+invariant under ρ ↦ 1−ρ, formula (∗) equals the symmetric sum
+Σ_ρ 1/(s−ρ), and the paired terms
+½[1/(s−ρ) + 1/(s−1+ρ)] = ½ (2s−1)/[(s−ρ)(s−1+ρ)] = O(|γ|⁻²)
+as |γ| → ∞, so (∗) converges absolutely for fixed s not a zero.
+
+## Step 2: Taking real parts
+
+Writing σ = Re(s) and ρ = β + iγ, and using that the sum is over the
+symmetric set,
+  **Re ξ′/ξ(s) = Σ_ρ (σ − β)/|s − ρ|²,**   (∗∗)
+the sum again being the symmetric (pairing ρ with 1−ρ) convergent sum from (∗).
+
+## Step 3: RH ⟹ positivity
+
+Assume RH: every zero has β = ½. For σ > ½ each summand in (∗∗) is
+(σ − ½)/|s − ρ|² > 0, so Re ξ′/ξ(s) > 0. (The sum is a nonempty sum of
+strictly positive terms.)
+
+## Step 4: ¬RH ⟹ positivity fails
+
+Suppose a zero ρ₀ = β₀ + iγ₀ has β₀ ≠ ½. By the symmetry ρ ↦ 1−ρ we may
+assume β₀ > ½. Choose σ ∈ (½, β₀), possible since β₀ > ½, and consider
+s = σ + iγ₀ with σ → β₀⁻.
+
+In (∗∗):
+- the term for ρ₀ equals (σ − β₀)/|s − ρ₀|² = (σ − β₀)/(σ − β₀)² = 1/(σ − β₀)
+  → −∞ as σ → β₀⁻ (negative, since σ < β₀);
+- the partner term for 1 − ρ₀ (real part 1 − β₀ < ½) and the conjugate term
+  for ρ̄₀ = β₀ − iγ₀ stay bounded near s = ρ₀ (their denominators are bounded
+  away from 0, since γ₀ ≠ −γ₀ generically; if γ₀ = 0 is impossible as ζ has no
+  real zeros in the critical strip);
+- the remaining tail converges uniformly for σ in a neighborhood of β₀.
+
+Hence Re ξ′/ξ(s) → −∞, so in particular Re ξ′/ξ(s) < 0 for some s with
+Re(s) > ½. This contradicts the positivity condition.
+
+Combining Steps 3–4 proves the Theorem. ∎
+
+## Assessment of significance
+
+The identity (∗∗) is rigorous and the equivalence is correct. However I must be
+honest about what this is:
+
+1. The criterion merely **relocates** RH into the positivity of a harmonic-type
+   sum Σ(σ−β)/|s−ρ|². This positivity is *equivalent* to all β = ½, so no
+   information is gained — proving the positivity independently would require
+   exactly the zero-free knowledge we lack.
+
+2. The representation (∗) and the quantity Σ Re 1/(s−ρ) are classical
+   (they underlie the standard zero-counting and zero-free-region arguments of
+   Davenport/de la Vallée Poussin). So this is a clean reformulation, not new
+   mathematics.
+
+3. The potential value I see: (∗∗) shows RH is equivalent to the statement that
+   the signed measure Σ_ρ δ_ρ, viewed through the Poisson-type kernel
+   (σ−β)/|s−ρ|², never produces a negative value in the right half-strip. This
+   recasts RH as a *sign-definiteness* statement for a fixed explicit kernel.
+   An approach would be to find an auxiliary function whose growth forces
+   positivity — but I could not produce such a function within budget, and any
+   naive attempt (e.g. comparing to ζ′/ζ which carries the pole at s=1) fails
+   because the pole contributes +1/(s−1) of indefinite sign relative to the
+   zero sum.
+
+No step resolves RH. I produced a verified equivalent criterion and a precise
+diagnosis of why it does not advance the problem.
+
+VERDICT: PARTIAL
+REASON: Rigorous but essentially known equivalence recasting RH as positivity of Re(ξ′/ξ) on Re(s)>½; no new leverage.
