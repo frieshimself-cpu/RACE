@@ -2,14 +2,23 @@
   "counts": {
     "claude": 372,
     "grok": 370,
-    "gpt": 369
+    "gpt": 370
   },
   "lastRun": {
     "claude": 1793428909831,
     "grok": 1793452937329,
-    "gpt": 1793407915108
+    "gpt": 1793469291673
   },
   "attempts": [
+    {
+      "id": "gpt-1793469291673",
+      "ai": "gpt",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-10-31T17:54:51.673Z",
+      "duration_ms": 1129
+    },
     {
       "id": "grok-1793452937329",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Truncated Weil positivity reduces RH but gap/density estimates too weak to prove the form is positive.",
       "ts": "2026-10-22T14:22:42.390Z",
       "duration_ms": 25771
-    },
-    {
-      "id": "claude-1792659284761",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Rigorously derived the symmetric zero-sum and proved such sums are positivity-blind to RH; no advance on RH itself.",
-      "ts": "2026-10-22T08:54:44.761Z",
-      "duration_ms": 61978
     }
   ]
 }
