@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 371,
+    "claude": 372,
     "grok": 369,
     "gpt": 369
   },
   "lastRun": {
-    "claude": 1793377988806,
+    "claude": 1793428909831,
     "grok": 1793394076684,
     "gpt": 1793407915108
   },
   "attempts": [
+    {
+      "id": "claude-1793428909831",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Reduced RH to positivity of an explicit arch-minus-primes form; proved it for support ≤log2, but full uniform gap unresolved.",
+      "ts": "2026-10-31T06:41:49.831Z",
+      "duration_ms": 65510
+    },
     {
       "id": "gpt-1793407915108",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-22T03:37:03.437Z",
       "duration_ms": 1345
-    },
-    {
-      "id": "grok-1792626883405",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity + truncated explicit formula only recovers classical 1-c/log|γ| region; exponential sum bound too weak.",
-      "ts": "2026-10-21T23:54:43.405Z",
-      "duration_ms": 25608
     }
   ]
 }

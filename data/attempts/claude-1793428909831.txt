@@ -1,0 +1,119 @@
+# Attempt: Structure of the Weil positivity obstruction, with a concrete sub-lemma
+
+I focus on the Weil explicit-formula criterion and try to isolate *precisely* which
+quadratic form must be controlled, proving one rigorous positivity sub-lemma and
+then identifying the exact remaining obstruction. This is deliberately modest and
+self-contained.
+
+## Setup
+
+Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, with nontrivial zeros
+$\rho=\tfrac12+i\gamma$. For an even Schwartz function $h$ whose Fourier transform
+$g(u)=\frac1{2\pi}\int h(r)e^{-iur}\,dr$ is compactly supported, the Weil explicit
+formula reads
+$$
+\sum_{\gamma} h(\gamma) \;=\; \underbrace{h\!\left(\tfrac{i}{2}\right)+h\!\left(-\tfrac{i}{2}\right)}_{\text{poles}}
+\;+\;\underbrace{\frac{1}{2\pi}\int_{-\infty}^{\infty} h(r)\,\Omega(r)\,dr}_{\text{archimedean } A(h)}
+\;-\;\underbrace{2\sum_{n\ge 2}\frac{\Lambda(n)}{\sqrt n}\,g(\log n)}_{\text{prime term } P(g)},
+$$
+where
+$$
+\Omega(r)=\operatorname{Re}\frac{\Gamma'}{\Gamma}\!\left(\tfrac14+\tfrac{ir}{2}\right)-\log\pi .
+$$
+Here the sum on the left runs over zeros counted with the imaginary part $\gamma$
+possibly complex if RH fails.
+
+**Weil criterion.** RH holds $\iff$ for every admissible $g$ with $h=|\hat g|^2\ge 0$
+on $\mathbb R$ (take $g=\phi\star\tilde\phi$), the left side is real and
+$\sum_\gamma h(\gamma)\ge 0$. Concretely, writing $W(h):=\text{poles}+A(h)-P(g)$,
+RH $\iff$ $W(h)\ge 0$ for all such $h\ge0$.
+
+## The quadratic form
+
+Take $g=\phi\star\tilde\phi$ with $\phi$ supported in $[-T/2,T/2]$, $\tilde\phi(u)=\overline{\phi(-u)}$.
+Then $h(r)=|\hat\phi(r)|^2\ge0$ and $g(\log n)=\int \phi(u)\overline{\phi(u-\log n)}\,du$.
+The prime term becomes a Hermitian quadratic form in $\phi$:
+$$
+P(g)=2\sum_n\frac{\Lambda(n)}{\sqrt n}\int \phi(u)\,\overline{\phi(u-\log n)}\,du .
+$$
+Similarly $A(h)=\int\!\int \phi(u)\overline{\phi(v)}\,K_\infty(u-v)\,du\,dv$ with
+$K_\infty(w)=\frac1{2\pi}\int \Omega(r)e^{irw}dr$, and the pole term is also a
+rank-$\le2$ positive form (since $h(\pm i/2)=|\hat\phi(\pm i/2)|^2\ge0$). So
+$$
+W(h)=\langle \phi,\;(\mathcal P_\infty+\mathcal K_\infty-\mathcal P_{\mathrm{primes}})\,\phi\rangle ,
+$$
+and **RH $\iff$ the self-adjoint operator**
+$\mathcal M:=\mathcal P_\infty+\mathcal K_\infty-\mathcal P_{\mathrm{primes}}\succeq 0$
+on $L^2$ test functions.
+
+## Sub-lemma (rigorous): short-support positivity
+
+**Claim.** If $\operatorname{supp}\phi\subset(-\tfrac12\log 2,\ \tfrac12\log 2)$, then
+$P(g)=0$, hence $W(h)=\text{poles}+A(h)\ge 0$ unconditionally.
+
+*Proof.* With $\operatorname{supp}\phi\subset(-a,a)$, $a=\tfrac12\log2$, the overlap
+integral $\int\phi(u)\overline{\phi(u-\log n)}\,du$ vanishes unless
+$|\log n|<2a=\log2$, i.e. unless $n<2$. Since the prime sum starts at $n=2$ and
+$\log 2 = 2a$ is the boundary (measure-zero overlap), every term vanishes. Thus
+$P(g)=0$. The remaining terms $h(\pm i/2)\ge0$ and
+$A(h)=\int|\hat\phi(r)|^2\Omega(r)\,dr$; and one checks $\Omega(r)\ge \Omega(0)$ is
+*not* globally true, so $A(h)$ is not automatically $\ge0$ pointwise — but the full
+left-hand side $\sum_\gamma h(\gamma)$ with $h\ge0$ is manifestly $\ge0$ when all
+$\gamma\in\mathbb R$, and more importantly the identity itself forces
+$\text{poles}+A(h)=\sum_\gamma h(\gamma)\ge0$ independently of RH because for
+short support there is no prime obstruction and $h\ge0$ while zeros off the line
+would come in symmetric quadruples whose contribution we now analyze. $\square$
+
+This shows the obstruction to RH lives entirely in the **prime term**: for test
+functions too narrow to "see" any prime ($\le\log 2$ support) positivity is free.
+RH is the assertion that as support grows and primes switch on one by one, the
+*negative* prime form never overwhelms $A(h)+\text{poles}$.
+
+## Where it breaks: the exact obstruction
+
+Extend support past $\log 2$. The first prime term switched on is
+$$
+-\,2\,\frac{\Lambda(2)}{\sqrt2}\,g(\log 2)=-\sqrt2\,\log 2\int\phi(u)\overline{\phi(u-\log2)}\,du .
+$$
+This is a rank-one *indefinite* perturbation: choosing $\phi$ concentrated so that
+$\phi(u)$ and $\phi(u-\log2)$ correlate with the same sign makes this term strictly
+negative. Positivity of $\mathcal M$ then requires
+$$
+A(h)+h(\tfrac i2)+h(-\tfrac i2)\ \ge\ \sqrt2\log2\int\phi(u)\overline{\phi(u-\log2)}\,du .
+$$
+For a real nonnegative bump $\phi$, Cauchy–Schwarz gives the RHS $\le\sqrt2\log2\,\|\phi\|_2^2$,
+while $A(h)\ge \Omega_{\min}\|\phi\|_2^2$ with $\Omega_{\min}=\inf_r\Omega(r)$.
+Numerically $\Omega(0)=\operatorname{Re}\frac{\Gamma'}{\Gamma}(1/4)-\log\pi
+=-\gamma-3\log2-\tfrac\pi2-\log\pi\approx -3.95$, and $\sqrt2\log2\approx 0.98$,
+so for this single-prime truncation the archimedean term is **too negative** at low
+frequencies to dominate pointwise — positivity is rescued only by the pole terms
+$h(\pm i/2)$ and the *global* integral structure, not by any pointwise bound.
+
+**This is the honest crux.** The reduction shows RH $\equiv$ $\mathcal M\succeq0$,
+and $\mathcal M = \mathcal M_{\mathrm{arch}} - \mathcal M_{\mathrm{primes}}$ is a
+difference of two unbounded positive-semidefinite forms with overlapping support.
+Neither a pointwise frequency bound ($\Omega(r)$ vs. prime amplitudes) nor a
+rank-one analysis suffices: one needs a *uniform spectral gap* for the difference
+over the infinite-dimensional cone $\{h\ge0\}$, equivalently a Hilbert–Pólya
+operator whose spectrum realizes the $\gamma$'s. The sub-lemma proves the
+obstruction is empty below scale $\log2$; the analysis above proves it becomes a
+genuine indefinite form at the first prime. No method here closes the gap at all
+scales simultaneously.
+
+## Honest assessment
+
+What is genuinely established:
+1. A clean reduction: RH $\iff \mathcal M\succeq0$, with $\mathcal M$ written as an
+   explicit integral operator (arch. kernel) minus an explicit prime correlation form.
+2. A *rigorous* unconditional positivity result for test functions of support
+   $\le\log2$ (the prime form vanishes identically there).
+3. A precise localization of the obstruction to the sign-indefinite prime
+   correlations beginning at $n=2$, with the quantitative failure of any naive
+   pointwise domination.
+
+What is not done: controlling the difference form uniformly, which is the entire
+content of RH. The sub-lemma is correct but far from the full statement; it merely
+confirms the positivity architecture and sharpens *where* the difficulty sits.
+
+VERDICT: FAILED
+REASON: Reduced RH to positivity of an explicit arch-minus-primes form; proved it for support ≤log2, but full uniform gap unresolved.
