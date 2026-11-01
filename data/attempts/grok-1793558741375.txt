@@ -1,0 +1,80 @@
+### Attempt: Obstruction in a natural contour-shift approach to a zero-free strip
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function, entire of order 1, satisfying \(\xi(s)=\xi(1-s)\) and having the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_\rho\bigl(1-\tfrac s\rho\bigr)
+\]
+(convergent in the usual Weierstrass sense after grouping \(\rho\) with \(1-\rho\)). The Riemann Hypothesis (RH) is equivalent to all non-trivial zeros satisfying \(\operatorname{Re}\rho=\frac12\).
+
+A classical strategy is to obtain a contradiction from the assumption that a zero \(\rho_0=\beta+i\gamma\) with \(\beta>\frac12\) exists, by shifting a contour of the logarithmic derivative \(\xi'/\xi\) and estimating the resulting horizontal and vertical integrals. We make this strategy precise enough to isolate a concrete analytic obstruction, then show why the obstruction cannot be removed by the usual growth bounds alone.
+
+#### Setup and contour
+Fix \(T>|\gamma|+2\) large and \(\sigma_1=\beta+\delta\) with \(0<\delta<\beta-\frac12\). Let \(\mathcal C\) be the rectangle with vertices
+\[
+\tfrac12+\delta\pm iT,\qquad \sigma_1\pm iT,
+\]
+oriented positively. By the argument principle,
+\[
+\frac1{2\pi i}\int_{\mathcal C}\frac{\xi'}{\xi}(s)\,ds = N(\mathcal C),
+\]
+the number of zeros (counted with multiplicity) inside \(\mathcal C\). Under the standing assumption that \(\rho_0\) lies inside \(\mathcal C\) we have \(N(\mathcal C)\ge1\). The functional equation and the conjugation symmetry \(\overline{\xi(\bar s)}=\xi(s)\) allow us to restrict attention to the upper half-plane; the contribution of the lower half is identical.
+
+Write
+\[
+\int_{\mathcal C}=\int_{L_+}+\int_{H_T}+\int_{L_-}+\int_{H_{-T}},
+\]
+where \(L_+\) (resp. \(L_-\)) is the right (resp. left) vertical side and \(H_{\pm T}\) are the horizontal sides.
+
+#### Vertical integrals
+On the critical line \(\operatorname{Re}s=\frac12+\delta\) the classical zero-density estimates (e.g., Ingham–Huxley) give
+\[
+N\bigl(\tfrac12+\delta,T\bigr)\ll T^{c(1-\delta)}\log^C T
+\]
+for absolute constants \(c,C>0\). Consequently the integral over \(L_-\) is
+\[
+\biggl|\int_{L_-}\frac{\xi'}{\xi}\,ds\biggr|\ll T^{c(1-\delta)}\log^{C+1}T.
+\]
+On the far-right line \(L_+\) one has the elementary bound \(\xi'/\xi(s)=O(\log(|s|+2))\) uniformly for \(\operatorname{Re}s\ge\sigma_1\ge1+\frac\delta2\), so
+\[
+\biggl|\int_{L_+}\frac{\xi'}{\xi}\,ds\biggr|\ll T\log T.
+\]
+Both vertical contributions are therefore \(o(T)\) once \(\delta>0\) is fixed (the precise exponent is immaterial).
+
+#### Horizontal integrals — the obstruction
+The horizontal integrals are
+\[
+I(T)=\int_{1/2+\delta}^{\sigma_1}\frac{\xi'}{\xi}(\sigma+iT)\,d\sigma.
+\]
+By the functional equation the corresponding integral at \(-T\) is the complex conjugate, so it suffices to control \(I(T)\). The Phragmén–Lindelöf convexity bound yields
+\[
+\bigl|\xi(\sigma+iT)\bigr|\ll_\varepsilon T^{\mu(\sigma)+\varepsilon},\qquad
+\mu(\sigma)=\tfrac12\bigl(\tfrac12-\sigma\bigr)^+
+\]
+in the strip \(\frac12\le\sigma\le\sigma_1\). Taking logarithmic derivatives via Cauchy’s integral on a disk of radius \(1/\log T\) produces the pointwise bound
+\[
+\biggl|\frac{\xi'}{\xi}(\sigma+iT)\biggr|\ll\log^2 T
+\]
+almost everywhere on the horizontal segment; the exceptional set where a zero lies within distance \(1/\log T\) of the segment has measure \(O(N(T)/T)\) and contributes negligibly after integration. Thus
+\[
+|I(T)|\ll(\sigma_1-\tfrac12)\log^2 T.
+\]
+Collecting terms we obtain
+\[
+N(\mathcal C)=O\bigl(T^{c(1-\delta)}\log^{C+1}T\bigr)+O(T\log T)+O(\log^2 T).
+\]
+The right-hand side tends to infinity with \(T\), so no contradiction with \(N(\mathcal C)\ge1\) arises.
+
+#### Why the obstruction is structural
+The same contour argument applied to a model function
+\[
+f(s)=\prod_{n=1}^N\bigl(1-\tfrac s{\beta+i\gamma_n}\bigr)\bigl(1-\tfrac s{1-\beta-i\gamma_n}\bigr)
+\]
+with \(\gamma_n\) spaced like the ordinates of zeta zeros (i.e., \(\gamma_n\sim 2\pi n/\log n\)) reproduces exactly the same growth of horizontal integrals. In other words, the bound \(|f'/f|=O(\log^2 T)\) on horizontal lines is sharp for any function whose zeros are permitted to leave the critical line while still obeying the density theorems that follow from the approximate functional equation alone. Improving the horizontal estimate below \(O(\log^2 T)\) would require a subconvexity bound for \(\xi\) that already encodes a zero-free strip wider than \(\delta\), circularly assuming a weaker form of the conclusion one hopes to prove.
+
+A secondary obstruction appears if one tries to replace the rectangular contour by a smoothed contour (e.g., via a mollifier \(\phi_T(\sigma)\) of width \(1/\log T\)): the resulting error term is still of size \(\asymp\log T\) times the measure of the region where zeros may cluster near height \(T\), which again fails to cancel the assumed simple zero at \(\rho_0\).
+
+#### Conclusion of the attempt
+The contour-shift method, even after incorporating the best available zero-density and convexity estimates, produces only an upper bound for \(N(\mathcal C)\) that grows with \(T\). The growth is forced by the horizontal integrals and is saturated by model functions possessing off-line zeros. Consequently the method cannot rule out a zero with real part \(\beta>\frac12\). Any successful proof along related lines must introduce a new source of cancellation (for instance a positivity property of a Weil-type explicit formula that is unavailable from convexity alone) that is invisible to pure \(L^\infty\) bounds on \(\xi'/\xi\).
+
+VERDICT: FAILED
+REASON: Contour method yields only growing upper bound on N(C); horizontal integrals obstruct contradiction
