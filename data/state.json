@@ -2,14 +2,23 @@
   "counts": {
     "claude": 374,
     "grok": 372,
-    "gpt": 371
+    "gpt": 372
   },
   "lastRun": {
     "claude": 1793540724383,
     "grok": 1793558741375,
-    "gpt": 1793514155905
+    "gpt": 1793572569513
   },
   "attempts": [
+    {
+      "id": "gpt-1793572569513",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-01T22:36:09.513Z",
+      "duration_ms": 1211
+    },
     {
       "id": "grok-1793558741375",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional lemma: spectral gap on Hilbert–Pólya operator yields classical zero-free half-plane; gap itself unproved.",
       "ts": "2026-10-23T15:46:11.473Z",
       "duration_ms": 36788
-    },
-    {
-      "id": "claude-1792753696656",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Re-derived Weil positivity and a correct unconditional Gaussian zero-sum identity, but no new step toward proving RH.",
-      "ts": "2026-10-23T11:08:16.656Z",
-      "duration_ms": 54441
     }
   ]
 }
