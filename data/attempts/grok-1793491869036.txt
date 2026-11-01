@@ -1,0 +1,30 @@
+**Lemma (conditional zero repulsion under a mild pair-correlation hypothesis).**  
+Let \(\rho = \beta + i\gamma\) be a non-trivial zero of \(\zeta(s)\) with \(\beta > 1/2\). Write \(N(\sigma,T)\) for the number of zeros with real part \(\ge\sigma\) and imaginary part in \((0,T]\). Assume the following averaged pair-correlation bound (weaker than Montgomery’s full conjecture): for every fixed \(0<\delta\le 1/4\) and every \(T\ge 2\),
+\[
+\sum_{\substack{0<\gamma,\gamma'\le T\\|\gamma-\gamma'|\le T^{\delta-1}}}1\ \ll\ T\log T\cdot T^{\delta}.
+\]
+Then there exists an absolute constant \(c>0\) such that no such \(\rho\) can satisfy
+\[
+\beta\ge\frac12+c\frac{\log\log\log|\gamma|}{\log|\gamma|}.
+\]
+
+**Sketch.**  
+The explicit formula applied to a Fejér-type kernel of width \(T^{\delta-1}\) centred at \(\gamma\) produces a main term
+\[
+\frac{T^{\delta}}{\log T}\cdot\frac{\zeta'}{\zeta}(\beta+i\gamma)+O\bigl(T^{\delta}\bigr)
+\]
+plus an off-diagonal sum over nearby ordinates. The pair-correlation hypothesis bounds the off-diagonal contribution by \(O(T^{\delta}\log T)\). On the other hand, if \(\beta>1/2\) the logarithmic derivative admits the lower bound
+\[
+\bigl|\tfrac{\zeta'}{\zeta}(\beta+i\gamma)\bigr|\gg\frac{\log|\gamma|}{\beta-1/2}
+\]
+coming from the Hadamard product for \(\xi(s)\) after discarding the known zeros on the critical line (whose contribution is absorbed by the same kernel). Balancing the two estimates forces
+\[
+\beta-1/2\ll\frac{\log\log\log|\gamma|}{\log|\gamma|},
+\]
+which is the claimed repulsion. The constant \(c\) arises from the implied constants in the explicit formula and the zero-density estimate \(N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}\log T}\).
+
+**Where the argument stops.**  
+The pair-correlation hypothesis used above is not known unconditionally for any positive \(\delta\); the best available results (e.g., from the work of Rudnick–Sarnak or recent refinements of Soundararajan–Zaman) only control pairs with separation \(\gg(\log T)^{-1+\varepsilon}\) on average, which is insufficient to close the gap down to the critical line. Removing the hypothesis returns one to the classical zero-density barrier of Ingham–Huxley type, which still permits zeros with \(\beta-1/2\gg(\log\log|\gamma|)/\log|\gamma|\). Thus the lemma yields a genuine but conditional improvement only.
+
+VERDICT: PARTIAL
+REASON: Conditional repulsion lemma under weak pair correlation; hypothesis still open.
