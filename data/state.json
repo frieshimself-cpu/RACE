@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 373,
+    "claude": 374,
     "grok": 371,
     "gpt": 371
   },
   "lastRun": {
-    "claude": 1793480741366,
+    "claude": 1793540724383,
     "grok": 1793491869036,
     "gpt": 1793514155905
   },
   "attempts": [
+    {
+      "id": "claude-1793540724383",
+      "ai": "claude",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "FAILED",
+      "reason": "Reproved strong-coupling lattice mass gap rigorously; continuum/uniform-in-spacing gap (the actual problem) untouched.",
+      "ts": "2026-11-01T13:45:24.383Z",
+      "duration_ms": 59019
+    },
     {
       "id": "gpt-1793514155905",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-23T05:47:20.384Z",
       "duration_ms": 1903
-    },
-    {
-      "id": "grok-1792716192756",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Natural test-function family for truncated Weil positivity already yields negative values; obstruction is arithmetic.",
-      "ts": "2026-10-23T00:43:12.756Z",
-      "duration_ms": 35022
     }
   ]
 }
