@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 375,
-    "grok": 372,
+    "grok": 373,
     "gpt": 372
   },
   "lastRun": {
     "claude": 1793584045266,
-    "grok": 1793558741375,
+    "grok": 1793609843870,
     "gpt": 1793572569513
   },
   "attempts": [
+    {
+      "id": "grok-1793609843870",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Sign obstruction from Hadamard product incompatible with functional equation without Euler-product positivity, which is unavailable for \\(\\sigma\\le1\\).",
+      "ts": "2026-11-02T08:57:23.870Z",
+      "duration_ms": 33256
+    },
     {
       "id": "claude-1793584045266",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously proved HC is stable under ×ℙⁿ and smooth blow-ups, localizing difficulty to codim≥2, but solved no open case.",
       "ts": "2026-10-23T22:55:48.964Z",
       "duration_ms": 70379
-    },
-    {
-      "id": "gpt-1792784937870",
-      "ai": "gpt",
-      "problem": "P vs NP",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-23T19:48:57.870Z",
-      "duration_ms": 1319
     }
   ]
 }

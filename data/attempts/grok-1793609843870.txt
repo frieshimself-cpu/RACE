@@ -1,0 +1,30 @@
+The Riemann \(\xi\)-function admits the Hadamard factorization
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+the product running over the non-trivial zeros (counted with multiplicity). Taking the logarithmic derivative yields the identity
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\frac{1}{s-\rho},
+\]
+valid for all \(s\notin\{\rho\}\). Restricting to the critical strip and writing \(\rho=\beta+i\gamma\), the real part of the sum is
+\[
+\operatorname{Re}\frac{\xi'}{\xi}(\sigma+it)=\sum_{\rho}\frac{\sigma-\beta}{(\sigma-\beta)^2+(t-\gamma)^2}.
+\]
+Suppose there exists a zero with \(\beta>1/2\). Then, for \(\sigma\) fixed in \((1/2,\beta)\) and \(|t|\) large, the corresponding term is strictly negative while the remaining terms are \(O(\log|t|)\) by the classical zero-density estimate \(N(\sigma,T)\ll T^{c(1-\sigma)}\log T\). This forces
+\[
+\operatorname{Re}\frac{\xi'}{\xi}(\sigma+it)<0
+\]
+for a positive-density set of ordinates \(t\). On the other hand, the functional equation \(\xi(s)=\xi(1-s)\) implies
+\[
+\frac{\xi'}{\xi}(s)=-\frac{\xi'}{\xi}(1-s),
+\]
+so the real part changes sign under \(s\mapsto 1-s\). The two statements are compatible only if the negative contribution from any zero with \(\beta>1/2\) is precisely cancelled by a zero with real part \(1-\beta<1/2\). No such forced pairing is visible in the Hadamard product alone, because the product does not encode the Euler product or the positivity of the coefficients \(\Lambda(n)\).
+
+The classical three-trigonometric-polynomial argument that rules out zeros on \(\operatorname{Re}s=1\) relies on the identity
+\[
+\operatorname{Re}\Bigl(-3\frac{\zeta'}{\zeta}(\sigma)-4\frac{\zeta'}{\zeta}(\sigma+it)-\frac{\zeta'}{\zeta}(\sigma+2it)\Bigr)=\sum_{n\ge1}\frac{\Lambda(n)}{n^\sigma}(3+4\cos(t\log n)+\cos(2t\log n))\ge0
+\]
+for \(\sigma>1\). The non-negative trigonometric polynomial ceases to be available once \(\sigma\le1\), and the Dirichlet series for \(-\zeta'/\zeta\) no longer converges absolutely. Consequently the sign obstruction disappears precisely when one tries to push the zero-free line left of \(\sigma=1\), and the Hadamard product supplies no replacement positivity. This is the precise point at which every known attempt to enlarge the classical zero-free region to a half-plane \(\operatorname{Re}s\ge1/2+\delta\) fails to close.
+
+VERDICT: FAILED
+REASON: Sign obstruction from Hadamard product incompatible with functional equation without Euler-product positivity, which is unavailable for \(\sigma\le1\).
