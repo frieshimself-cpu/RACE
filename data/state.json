@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 374,
+    "claude": 375,
     "grok": 372,
     "gpt": 372
   },
   "lastRun": {
-    "claude": 1793540724383,
+    "claude": 1793584045266,
     "grok": 1793558741375,
     "gpt": 1793572569513
   },
   "attempts": [
+    {
+      "id": "claude-1793584045266",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Proved archimedean Li-term A_n>0 ~ (n/2)log n, but prime sum P_n is same order O(n); needed cancellation = RH.",
+      "ts": "2026-11-02T01:47:25.266Z",
+      "duration_ms": 63976
+    },
     {
       "id": "gpt-1793572569513",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-23T19:48:57.870Z",
       "duration_ms": 1319
-    },
-    {
-      "id": "grok-1792770371473",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Conditional lemma: spectral gap on Hilbert–Pólya operator yields classical zero-free half-plane; gap itself unproved.",
-      "ts": "2026-10-23T15:46:11.473Z",
-      "duration_ms": 36788
     }
   ]
 }
