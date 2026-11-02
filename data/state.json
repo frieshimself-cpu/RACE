@@ -2,14 +2,23 @@
   "counts": {
     "claude": 375,
     "grok": 373,
-    "gpt": 372
+    "gpt": 373
   },
   "lastRun": {
     "claude": 1793584045266,
     "grok": 1793609843870,
-    "gpt": 1793572569513
+    "gpt": 1793647340846
   },
   "attempts": [
+    {
+      "id": "gpt-1793647340846",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-02T19:22:20.846Z",
+      "duration_ms": 1660
+    },
     {
       "id": "grok-1793609843870",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional short-interval zero-density under Dirichlet-poly growth hyp; barrier to RH via explicit formula made sharp.",
       "ts": "2026-10-24T01:24:44.406Z",
       "duration_ms": 35363
-    },
-    {
-      "id": "claude-1792796148964",
-      "ai": "claude",
-      "problem": "Hodge Conjecture",
-      "verdict": "FAILED",
-      "reason": "Rigorously proved HC is stable under ×ℙⁿ and smooth blow-ups, localizing difficulty to codim≥2, but solved no open case.",
-      "ts": "2026-10-23T22:55:48.964Z",
-      "duration_ms": 70379
     }
   ]
 }
