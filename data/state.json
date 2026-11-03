@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 376,
-    "grok": 373,
+    "grok": 374,
     "gpt": 373
   },
   "lastRun": {
     "claude": 1793670349810,
-    "grok": 1793609843870,
+    "grok": 1793696740118,
     "gpt": 1793647340846
   },
   "attempts": [
+    {
+      "id": "grok-1793696740118",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour-shift positivity for Re(ξ'/ξ) blocked by insufficient pointwise prime-sum cancellation",
+      "ts": "2026-11-03T09:05:40.118Z",
+      "duration_ms": 36317
+    },
     {
       "id": "claude-1793670349810",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Cleanly re-derived geometry of Li's criterion (RH ⟺ |1−1/ρ|=1) but achieved no new unconditional positivity result.",
       "ts": "2026-10-24T11:35:29.264Z",
       "duration_ms": 55446
-    },
-    {
-      "id": "gpt-1792823170501",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-24T06:26:10.501Z",
-      "duration_ms": 1391
     }
   ]
 }

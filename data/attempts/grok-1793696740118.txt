@@ -1,0 +1,36 @@
+### Attempt: Obstruction to a Direct Positivity Proof of RH via the Completed Xi-Function
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) and the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr)
+\]
+(product over the non-trivial zeros, taken in conjugate pairs and with the usual convergence factor) are classical. Taking the logarithmic derivative yields the identity
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\frac1{s-\rho}.
+\]
+Evaluating on the critical line \(s=\frac12+it\) (\(t\in\mathbb{R}\)) and taking real parts produces
+\[
+\operatorname{Re}\frac{\xi'}{\xi}\Bigl(\tfrac12+it\Bigr)
+=\sum_{\rho}\frac{\sigma_{\rho}-\frac12}{(\sigma_{\rho}-\frac12)^2+(t-t_{\rho})^2},
+\]
+where \(\rho=\sigma_{\rho}+it_{\rho}\). The right-hand side is non-negative for all \(t\) if and only if every \(\sigma_{\rho}=\frac12\). Consequently RH is equivalent to the pointwise inequality
+\[
+\operatorname{Re}\frac{\xi'}{\xi}\Bigl(\tfrac12+it\Bigr)\ge0\qquad\forall t\in\mathbb{R}.
+\]
+
+A natural attempt to prove the inequality is to insert the Dirichlet series for \(-\zeta'/\zeta\) (valid for \(\operatorname{Re}s>1\)) into the expression for \(\xi'/\xi\), move the contour leftward, and exploit the rapid decay of the Gamma factor together with the known zero-free region \(\sigma\ge1-c/\log(|t|+2)\). After collecting the contribution of the trivial zeros and the polar terms at \(s=0,1\), one obtains an explicit formula whose continuous main term is essentially
+\[
+\tfrac12\log\frac{t}{2\pi}-\tfrac12\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+i\tfrac t2\Bigr)
+\]
+plus an absolutely convergent sum over primes of the form
+\[
+\sum_{n=2}^\infty\frac{\Lambda(n)}{\sqrt n}\,n^{-it}\,W\Bigl(\log n,t\Bigr),
+\]
+where the weight \(W\) arises from the horizontal integrals and is positive and rapidly decreasing in \(\log n\).
+
+If the oscillatory sum could be shown to be dominated by the main term for every \(t\), the desired positivity would follow. The obstruction is quantitative: the best available bounds on the prime-power sum (even under RH itself) are of size \(\asymp\sqrt t\,(\log t)^C\) on vertical segments of length 1, while the main term grows only like \(\log t\). The error therefore exceeds the main term infinitely often unless a massive cancellation, stronger than any known pair-correlation estimate, is assumed. In particular, the Montgomery pair-correlation conjecture supplies square-root cancellation on average but does not control the pointwise supremum needed here. Thus the contour-shift argument cannot close, and the positivity of \(\operatorname{Re}(\xi'/\xi)\) on the critical line remains inaccessible by this method.
+
+(The same obstruction appears, mutatis mutandis, when one tries to verify Li’s criterion \(\lambda_n\ge0\) by expressing the \(\lambda_n\) as moments of the same explicit formula.)
+
+VERDICT: FAILED
+REASON: Contour-shift positivity for Re(ξ'/ξ) blocked by insufficient pointwise prime-sum cancellation
