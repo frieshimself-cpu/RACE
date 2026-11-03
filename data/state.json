@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 376,
+    "claude": 377,
     "grok": 374,
     "gpt": 374
   },
   "lastRun": {
-    "claude": 1793670349810,
+    "claude": 1793744490476,
     "grok": 1793696740118,
     "gpt": 1793725716401
   },
   "attempts": [
+    {
+      "id": "claude-1793744490476",
+      "ai": "claude",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "Clarified/formalized why counting-style lower bounds are forced-large and pinpointed the negation obstruction, but proved no separation.",
+      "ts": "2026-11-03T22:21:30.476Z",
+      "duration_ms": 61944
+    },
     {
       "id": "gpt-1793725716401",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-24T17:53:36.102Z",
       "duration_ms": 1261
-    },
-    {
-      "id": "grok-1792853521769",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity+Paley-Wiener forces prime-sum lower bound blocking uniform gap needed for off-line exclusion",
-      "ts": "2026-10-24T14:52:01.769Z",
-      "duration_ms": 32278
     }
   ]
 }

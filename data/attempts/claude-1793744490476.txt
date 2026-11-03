@@ -1,0 +1,119 @@
+# Attempt: Why "local" circuit-size counting arguments cannot separate P from NP, with a precise formulation
+
+I'll give a self-contained analysis isolating a structural obstruction to a specific, natural family of proof strategies, and state it as a precise lemma rather than hand-waving about barriers.
+
+## Setup
+
+A common instinct for proving P ≠ NP: find a property Π of Boolean functions
+f : {0,1}ⁿ → {0,1} such that (i) SAT (or some NP-complete function) has Π, and
+(ii) no f with polynomial-size circuits has Π. I want to pin down *exactly* which
+closure conditions on Π force it into the Razborov–Rudich "natural proofs" trap,
+and then identify the one genuine escape hatch, making the escape hatch concrete
+enough to be a research target.
+
+## Lemma (sharpened largeness trigger)
+
+Let Π be a property of n-variable Boolean functions used as a lower-bound
+certificate: we prove "f ∉ P/poly" by exhibiting Π(f). Suppose the proof
+establishes the contrapositive in the form
+
+  (C) For every circuit C of size ≤ nᵏ, the function f_C it computes satisfies ¬Π(f_C).
+
+Call Π **monotone-under-restriction-free counting** if the only features of f_C
+used in deriving ¬Π(f_C) are (a) the number of inputs on which f_C = 1 and its
+values on a poly(n)-size sample of inputs, and (b) a union bound over
+subcircuits. Then Π is *large*: a uniformly random function satisfies Π with
+probability ≥ 1 − 2^{-poly(n)}.
+
+**Proof.** Features of type (a) are computable from f's truth table by reading
+poly(n) entries plus a Hamming-weight statistic. The derivation of ¬Π(f_C) in (C)
+never uses that f_C is *structured*; it uses only that small circuits produce
+functions whose sampled values and weight lie in a restricted set S of size
+2^{poly(n)} (at most one value per circuit, and there are ≤ 2^{O(nᵏ log n)}
+circuits). Hence ¬Π holds on at most |S| functions in this feature space, so Π
+holds on all but a 2^{poly(n)}/2^{2ⁿ} fraction of functions — overwhelmingly
+large. ∎
+
+The point of stating it this way: *largeness is not an extra assumption one has
+to check; it is forced the moment your argument's only handle on "small circuit"
+is a counting/union bound over circuits plus sampled values.* The structure of
+the target function f never enters (C) except to verify Π(f) separately.
+
+## Combining with pseudorandomness (the trap closes)
+
+If, in addition, Π is **constructive** — Π(f) decidable in time 2^{O(n)} = poly(size of truth table) — then by Razborov–Rudich such a Π contradicts the existence of
+exponentially hard pseudorandom function generators, which follow from the
+existence of one-way functions computable in P/poly. So any *constructive* proof
+of the above counting form would, as a byproduct, break all such PRGs. This is
+why the "find a density-type invariant separating random-looking from
+small-circuit functions" program is self-defeating: the invariant, being a large
+constructive property, is itself a statistical test that no secure PRF can pass,
+contradicting the hardness we expect inside P/poly.
+
+## The escape hatch, made concrete
+
+The lemma's hypothesis fails exactly when the proof uses a feature of f_C that is
+**not** of type (a): something that depends on the *global algebraic or
+combinatorial generative structure* of circuits, not merely their output
+statistics. Known successful lower bounds against restricted classes do precisely
+this:
+
+- **Razborov's monotone lower bound for CLIQUE** uses the *approximation method*:
+  it tracks, for each gate, a monotone approximator and charges "errors" against
+  specific sunflower-structured input distributions (positive = cliques,
+  negative = colorings). The certificate is **not large**: the relevant property
+  (closure under the clique/coloring test distributions) is satisfied by *very
+  few* functions, and it is tailored to monotonicity, which random functions lack.
+
+- **AC⁰ lower bounds** (switching lemma) likewise exploit that restrictions
+  *simplify small-depth circuits structurally*, not a global output count.
+
+So the one viable route for the general case must emulate these: a certificate
+that is **small** (violates largeness) by being tied to a structural invariant
+that P/poly circuits provably possess but SAT provably lacks, and where the
+invariant is read off the *circuit's construction*, not the function's truth
+table statistics.
+
+## A concrete formalization of the target invariant
+
+Here is a precise object worth attacking, which by construction evades the Lemma.
+For a circuit C of size s and depth d, define its **gate-elimination profile**
+P(C) ∈ ℕ^d: the multiset of sensitivities induced at each layer under a canonical
+random restriction leaving a single variable free per clique-block. Two features
+make this *non*-large:
+
+1. P(C) is defined on *circuits*, not functions — the same function has many
+   profiles, so "¬Π" cannot be a statement about f_C's truth table alone, voiding
+   hypothesis (a) of the Lemma.
+2. For a random function, no circuit witness exists, so Π is vacuously trivial;
+   the discriminating power lives entirely in the *existence of a bounded profile*,
+   which is a Σ-type (existential over circuits) rather than a density statement.
+
+The open technical content — and I was not able to close it — is to show
+**(Goal)**: every poly-size circuit admits a profile with ‖P(C)‖ bounded by
+poly(n), while *any* circuit computing CLIQUE-indicator on general (non-monotone)
+inputs is forced to a superpolynomial profile. The monotone case is Razborov; the
+obstruction to removing monotonicity is that negations let a circuit *cancel*
+sensitivity across layers, so the profile is no longer monotone-nonincreasing and
+the sunflower charging fails. I could not find a replacement charging scheme that
+survives cancellation; this is precisely where the approximation method has been
+stuck for decades, and the analysis above explains *why* the counting shortcut is
+unavailable: any fix must be structural, not statistical.
+
+## Honest assessment
+
+What I have contributed that is self-contained:
+1. A sharpened, proof-level statement (Lemma) showing largeness is *forced* by the
+   counting/union-bound structure, clarifying that one cannot "just avoid" the RR
+   largeness condition while keeping a counting argument.
+2. A precise identification of the escape hatch (circuit-generative, non-truth-table
+   invariants) and a concrete candidate invariant (gate-elimination profiles) that
+   provably evades the Lemma, together with the exact point (cancellation under
+   negation) where extending Razborov's method breaks.
+
+I did **not** prove the Goal, so this is not progress toward the separation itself
+beyond organizing the obstruction. The core difficulty — handling negation in the
+approximation method — remains open and I produced no new technique to overcome it.
+
+VERDICT: FAILED
+REASON: Clarified/formalized why counting-style lower bounds are forced-large and pinpointed the negation obstruction, but proved no separation.
