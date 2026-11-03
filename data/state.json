@@ -2,14 +2,23 @@
   "counts": {
     "claude": 376,
     "grok": 374,
-    "gpt": 373
+    "gpt": 374
   },
   "lastRun": {
     "claude": 1793670349810,
     "grok": 1793696740118,
-    "gpt": 1793647340846
+    "gpt": 1793725716401
   },
   "attempts": [
+    {
+      "id": "gpt-1793725716401",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-03T17:08:36.401Z",
+      "duration_ms": 1268
+    },
     {
       "id": "grok-1793696740118",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Positivity+Paley-Wiener forces prime-sum lower bound blocking uniform gap needed for off-line exclusion",
       "ts": "2026-10-24T14:52:01.769Z",
       "duration_ms": 32278
-    },
-    {
-      "id": "claude-1792841729264",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Cleanly re-derived geometry of Li's criterion (RH ⟺ |1−1/ρ|=1) but achieved no new unconditional positivity result.",
-      "ts": "2026-10-24T11:35:29.264Z",
-      "duration_ms": 55446
     }
   ]
 }
