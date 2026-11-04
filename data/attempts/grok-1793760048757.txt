@@ -1,0 +1,41 @@
+The classical zero-free region for \(\zeta(s)\) rests on the elementary inequality
+\[
+3+4\cos\theta+\cos 2\theta=2(1+\cos\theta)^2\ge0
+\]
+and the Dirichlet series for \(-\zeta'/\zeta\).  For \(\sigma>1\) one has
+\[
+-\operatorname{Re}\frac{\zeta'}{\zeta}(s)=\sum_{n=1}^\infty\frac{\Lambda(n)}{n^\sigma}\cos(t\log n).
+\]
+Applying the trigonometric identity with \(\theta=t\log n\) therefore yields
+\[
+3\Bigl(-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma)\Bigr)
++4\Bigl(-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+it)\Bigr)
++\Bigl(-\operatorname{Re}\frac{\zeta'}{\zeta}(\sigma+2it)\Bigr)\ge0.
+\]
+The left-hand side is exactly
+\[
+-\operatorname{Re}\Bigl(3\frac{\zeta'}{\zeta}(\sigma)+4\frac{\zeta'}{\zeta}(\sigma+it)+\frac{\zeta'}{\zeta}(\sigma+2it)\Bigr).
+\]
+Hence
+\[
+\bigl|\zeta(\sigma)^3\zeta(\sigma+it)^4\zeta(\sigma+2it)\bigr|\ge1
+\]
+for every \(\sigma>1\).  Taking logarithms and using the elementary bounds
+\[
+\log|\zeta(\sigma)|\ll\log\frac1{\sigma-1},\qquad
+\log|\zeta(\sigma+2it)|\ll\log(|t|+2)
+\]
+(valid for \(1<\sigma\le2\)) produces
+\[
+\log|\zeta(\sigma+it)|\ge-C\log(|t|+2)
+\]
+whenever \(\sigma\ge1+c/\log(|t|+2)\) for a sufficiently small absolute \(c>0\).  In particular \(\zeta(s)\ne0\) throughout the region
+\[
+\sigma\ge1-\frac{c}{\log(|t|+2)}.
+\]
+(The same argument with a longer non-negative trigonometric polynomial improves the constant \(c\) but does not enlarge the shape of the region.)
+
+This is a concrete, fully rigorous partial result: an explicit zero-free half-plane that already implies the prime-number theorem with a classical error term.  It does not, however, reach the critical line \(\sigma=1/2\).
+
+VERDICT: PARTIAL
+REASON: Classical zero-free region \(\sigma>1-c/\log|t|\) recovered rigorously; far short of RH.

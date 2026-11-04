@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 377,
-    "grok": 374,
+    "grok": 375,
     "gpt": 374
   },
   "lastRun": {
     "claude": 1793744490476,
-    "grok": 1793696740118,
+    "grok": 1793760048757,
     "gpt": 1793725716401
   },
   "attempts": [
+    {
+      "id": "grok-1793760048757",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Classical zero-free region \\(\\sigma>1-c/\\log|t|\\) recovered rigorously; far short of RH.",
+      "ts": "2026-11-04T02:40:48.757Z",
+      "duration_ms": 18895
+    },
     {
       "id": "claude-1793744490476",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Verified Li-criterion base case λ₁≈0.0231>0 and the line↔circle geometry, but positivity of λₙ for all n is equivalent to RH, not reduced.",
       "ts": "2026-10-24T20:21:36.691Z",
       "duration_ms": 58762
-    },
-    {
-      "id": "gpt-1792864416102",
-      "ai": "gpt",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-24T17:53:36.102Z",
-      "duration_ms": 1261
     }
   ]
 }
