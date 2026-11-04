@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 378,
-    "grok": 375,
+    "grok": 376,
     "gpt": 375
   },
   "lastRun": {
     "claude": 1793815979744,
-    "grok": 1793760048757,
+    "grok": 1793835912252,
     "gpt": 1793788362297
   },
   "attempts": [
+    {
+      "id": "grok-1793835912252",
+      "ai": "grok",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "Only restates BGS relativization barrier; no new separation or non-relativizing technique.",
+      "ts": "2026-11-04T23:45:12.252Z",
+      "duration_ms": 27678
+    },
     {
       "id": "claude-1793815979744",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Gave a correct (but essentially known) reduction of HC to primitive middle-degree classes; no new cycles, obstruction isolated not overcome.",
       "ts": "2026-10-25T05:45:44.630Z",
       "duration_ms": 67475
-    },
-    {
-      "id": "gpt-1792889573197",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-25T00:52:53.197Z",
-      "duration_ms": 1021
     }
   ]
 }

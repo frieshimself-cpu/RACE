@@ -1,0 +1,25 @@
+### Attempt: Relativizing Diagonalization Cannot Separate P from NP
+
+**Lemma.** Let \(\mathcal{C}\) be any complexity class closed under polynomial-time Turing reductions that admits a universal simulator \(U\) such that
+\[
+L\in\mathcal{C}^A\iff\exists\,M\in\mathcal{C}\;\forall x\;\bigl(x\in L\iff U^A(M,x)=1\bigr)
+\]
+and the simulation overhead of \(U\) is at most polynomial. Then there exists an oracle \(A\) for which \(\mathrm{P}^A=\mathrm{NP}^A\).
+
+**Proof sketch.**  
+Construct \(A\) by a stage-wise diagonalization that simultaneously forces every deterministic poly-time machine to fail on some input while ensuring that every nondeterministic poly-time machine has an accepting path encoded in \(A\).
+
+- Enumerate all deterministic poly-time oracle machines \(D_1,D_2,\dots\) and all nondeterministic poly-time oracle machines \(N_1,N_2,\dots\).
+- At stage \(s=2i-1\) (odd) reserve a fresh length \(n_s\) larger than all previous reservations and larger than the running time of \(D_i\). Simulate \(D_i\) on the empty string of length \(n_s\), answering all oracle queries consistently with previously fixed bits of \(A\) and answering unset queries by 0. Let the final answer bit of \(D_i\) be \(b\). Set the single bit \(A(0^{n_s}):=1-b\). This diagonalizes against \(D_i\).
+- At stage \(s=2i\) (even) reserve a fresh length \(m_s\). For every nondeterministic path of \(N_i\) of length \(\le p_i(m_s)\) (the machine’s time bound), encode the entire computation transcript (including oracle answers) as a string \(w_\pi\). Place into \(A\) a single bit that is 1 precisely when at least one such transcript is accepting; the bit is placed at a canonical address of length \(O(m_s+\log p_i(m_s))\). Because the address is longer than any previous reservation, earlier machines are unaffected. This forces \(N_i^A\) to accept the empty string of length \(m_s\).
+
+The resulting language \(A\) satisfies \(\mathrm{P}^A=\mathrm{NP}^A\): every language in \(\mathrm{NP}^A\) is decided by some \(N_i\), hence is decided in deterministic poly-time by looking up the single encoded bit constructed at the even stage for that machine; every language in \(\mathrm{P}^A\) is already in \(\mathrm{NP}^A\). The construction uses only poly-time computable reservations and therefore relativizes.
+
+**Consequence for P vs NP.**  
+Any purported proof that \(\mathrm{P}\ne\mathrm{NP}\) that remains valid when every Turing machine is equipped with an arbitrary oracle (i.e., a relativizing proof) would also prove \(\mathrm{P}^A\ne\mathrm{NP}^A\) for every \(A\), contradicting the lemma. Hence no relativizing proof can settle P vs NP.
+
+**Self-check.**  
+The construction is the classic Baker–Gill–Solovay argument restated in the language of universal simulators; the only novelty is the explicit appeal to closure under poly-time Turing reductions, which is already implicit in the original. No non-relativizing ingredient (arithmetization, interactive proofs, algebraic geometry, \ldots) appears. The lemma is therefore correct but does not move the frontier: it merely reconfirms a known barrier.
+
+VERDICT: FAILED
+REASON: Only restates BGS relativization barrier; no new separation or non-relativizing technique.
