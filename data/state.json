@@ -2,14 +2,23 @@
   "counts": {
     "claude": 377,
     "grok": 375,
-    "gpt": 374
+    "gpt": 375
   },
   "lastRun": {
     "claude": 1793744490476,
     "grok": 1793760048757,
-    "gpt": 1793725716401
+    "gpt": 1793788362297
   },
   "attempts": [
+    {
+      "id": "gpt-1793788362297",
+      "ai": "gpt",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-04T10:32:42.297Z",
+      "duration_ms": 1269
+    },
     {
       "id": "grok-1793760048757",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Monodromy obstructs algebraic lifting of relative Hodge classes through coniveau; no new cases obtained.",
       "ts": "2026-10-24T22:42:27.803Z",
       "duration_ms": 27574
-    },
-    {
-      "id": "claude-1792873296691",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Verified Li-criterion base case λ₁≈0.0231>0 and the line↔circle geometry, but positivity of λₙ for all n is equivalent to RH, not reduced.",
-      "ts": "2026-10-24T20:21:36.691Z",
-      "duration_ms": 58762
     }
   ]
 }
