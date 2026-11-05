@@ -2,14 +2,23 @@
   "counts": {
     "claude": 378,
     "grok": 376,
-    "gpt": 375
+    "gpt": 376
   },
   "lastRun": {
     "claude": 1793815979744,
     "grok": 1793835912252,
-    "gpt": 1793788362297
+    "gpt": 1793856607359
   },
   "attempts": [
+    {
+      "id": "gpt-1793856607359",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-05T05:30:07.359Z",
+      "duration_ms": 1110
+    },
     {
       "id": "grok-1793835912252",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Proved classical zero-free line Re(s)=1 via 3-4-1 trig inequality; known step, far from full RH.",
       "ts": "2026-10-25T10:52:35.528Z",
       "duration_ms": 37477
-    },
-    {
-      "id": "claude-1792907144630",
-      "ai": "claude",
-      "problem": "Hodge Conjecture",
-      "verdict": "FAILED",
-      "reason": "Gave a correct (but essentially known) reduction of HC to primitive middle-degree classes; no new cycles, obstruction isolated not overcome.",
-      "ts": "2026-10-25T05:45:44.630Z",
-      "duration_ms": 67475
     }
   ]
 }
