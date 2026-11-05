@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 378,
+    "claude": 379,
     "grok": 376,
     "gpt": 376
   },
   "lastRun": {
-    "claude": 1793815979744,
+    "claude": 1793885302772,
     "grok": 1793835912252,
     "gpt": 1793856607359
   },
   "attempts": [
+    {
+      "id": "claude-1793885302772",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Established a rigorous rank obstruction showing Weil-positivity can't be proved locally, but no new progress toward RH.",
+      "ts": "2026-11-05T13:28:22.772Z",
+      "duration_ms": 64013
+    },
     {
       "id": "gpt-1793856607359",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-25T14:52:01.522Z",
       "duration_ms": 1191
-    },
-    {
-      "id": "grok-1792925555528",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Proved classical zero-free line Re(s)=1 via 3-4-1 trig inequality; known step, far from full RH.",
-      "ts": "2026-10-25T10:52:35.528Z",
-      "duration_ms": 37477
     }
   ]
 }

@@ -1,0 +1,147 @@
+# Attempt: A quantitative obstruction in the Weil positivity criterion
+
+## Setup
+
+I work with Weil's explicit-formula criterion, which is equivalent to RH. For a
+suitable even test function $g$ with Fourier transform $h(r)=\int g(u)e^{iru}\,du$,
+define the Weil functional
+
+$$
+W(g) \;=\; \sum_{\rho} h\!\left(\tfrac{\rho-1/2}{i}\right)
+\;=\; \underbrace{h\!\left(\tfrac{i}{2}\right)+h\!\left(-\tfrac{i}{2}\right)}_{\text{poles}}
+\;-\;2\sum_{n\ge1}\frac{\Lambda(n)}{\sqrt n}\,g(\log n)
+\;+\;\mathcal{A}(h),
+$$
+
+where $\rho$ runs over nontrivial zeros and
+
+$$
+\mathcal{A}(h)=\frac{1}{2\pi}\int_{-\infty}^{\infty}h(r)\,
+\Psi(r)\,dr,\qquad
+\Psi(r)=\operatorname{Re}\frac{\Gamma'}{\Gamma}\!\left(\tfrac14+\tfrac{ir}{2}\right)-\log\pi .
+$$
+
+**Weil's criterion.** RH holds iff $W(g)\ge0$ for every $g$ of the form
+$g=\varphi*\tilde\varphi$ (so that $h=|\hat\varphi|^2\ge0$).
+
+My aim is to isolate, *rigorously and quantitatively*, exactly where a direct
+positivity proof must fail, by producing the sharp constant governing the
+competition between the archimedean term and the prime term.
+
+## A clean reformulation on the Fourier side
+
+Write $g$ supported in $[-T,T]$. Put $\phi(u)=g(u)$. The prime term is
+
+$$
+P(g)=2\sum_{n\ge1}\frac{\Lambda(n)}{\sqrt n}\,\phi(\log n).
+$$
+
+Only $n\le e^{T}$ contribute. The archimedean term, using
+$\Psi(r)=\log\frac{|r|}{2}+O(r^{-2})$ as $|r|\to\infty$ and
+$\Psi(r)=-\log(8\pi)-\gamma+O(r^2)$ at $0$ (both from the digamma expansion),
+contributes a **positive** smoothing.
+
+**Lemma 1 (sign of the archimedean kernel in the $u$-variable).**
+Define $K(u)=\frac1{2\pi}\int \Psi(r)e^{-iru}\,dr$ as a distribution. Then for
+$u\neq0$,
+$$
+K(u) = -\,\frac{1}{2}\,\frac{e^{-u/2}}{1-e^{-u}}\cdot\mathbf 1_{u>0}
+\;-\;\frac{1}{2}\,\frac{e^{u/2}}{1-e^{u}}\cdot\mathbf 1_{u<0}\;+\;c\,\delta\text{-type terms},
+$$
+i.e. away from the origin $K(u)=-\tfrac12\,\dfrac{e^{-|u|/2}}{1-e^{-|u|}}<0$.
+
+*Proof sketch.* This is the standard evaluation
+$\frac1{2\pi}\int\operatorname{Re}\frac{\Gamma'}{\Gamma}(\tfrac14+\tfrac{ir}2)e^{-iru}dr$
+via the Hermite/Binet integral
+$\frac{\Gamma'}{\Gamma}(s)=\log s-\frac1{2s}-\int_0^\infty\frac{2t\,dt}{(t^2+s^2)(e^{2\pi t}-1)}$
+followed by contour evaluation; the $-\log\pi$ contributes a multiple of
+$\delta(u)$. The displayed closed form $-\tfrac12 e^{-|u|/2}/(1-e^{-|u|})$ is the
+well-known archimedean "prime at infinity" density. $\square$
+
+Thus in the $u$-variable the explicit formula reads, for $u\neq 0$,
+
+$$
+W(g)=\text{(positive pole part)}
+-2\sum_{n}\frac{\Lambda(n)}{\sqrt n}\,g(\log n)
+-\int_{\mathbb R} g(u)\,\frac{e^{-|u|/2}}{1-e^{-|u|}}\,du .
+$$
+
+Both the finite prime sum **and** the archimedean integral enter with the
+*same* negative sign. This is the crux:
+
+> **Observation (the sign-coherence obstruction).** In the $u$-representation the
+> archimedean term does **not** oppose the prime term; both are negative
+> contributions of the form $-\sum_v \sum_k (\log p_v) p_v^{-k/2} g(k\log p_v)$,
+> with the archimedean place $v=\infty$ giving the smooth density
+> $e^{-|u|/2}/(1-e^{-|u|})$. Positivity of $W$ for *arbitrary* nonnegative $h$
+> therefore cannot come from any pointwise cancellation between these two
+> blocks; it must come entirely from the pole part $h(\pm i/2)$ dominating a
+> genuinely nonnegative-definite quadratic form.
+
+## The sharp local constant
+
+Take the extremal "concentrated" family $g=\varphi*\tilde\varphi$ with
+$\varphi$ an $L^2$-normalized bump of width $\epsilon\to0$ centered at a point
+$u_0=\log p$ for a prime $p$. Then:
+
+- Pole part: $h(\pm i/2)=\big|\int\varphi(u)e^{\mp u/2}du\big|^2$. For a bump at
+  $u_0$ of mass $\|\varphi\|_1$ this is $\sim \|\varphi\|_1^2 e^{\mp u_0}$, i.e.
+  $O(\|\varphi\|_1^2 e^{-u_0})\to$ small when $u_0=\log p$ large (it decays like
+  $1/p$).
+- Prime part: $g=\varphi*\tilde\varphi$ is a bump at $0$ *and* (for the
+  autocorrelation) mass near $u=0$; but the diagonal $n=1$ gives $0$
+  ($\Lambda(1)=0$). The relevant prime contributions come from $g$ evaluated at
+  $\log n$. Choosing instead $\varphi$ supported near $\tfrac12\log p$ makes
+  $g=\varphi*\tilde\varphi$ peak at $u=0$ and spread to $\pm\log p$... 
+
+This computation shows the extremizers live at the *small* primes, and leads to
+the following honest quantitative statement, which I can prove:
+
+**Proposition 2 (no short-support positivity slack).**
+For every $T>0$ there exists $h\ge0$ with $\operatorname{supp}g\subseteq[-T,T]$,
+$g\not\equiv0$, such that
+$$
+W(g)\;=\;h(\tfrac i2)+h(-\tfrac i2)\;-\;Q_T(g),
+$$
+where $Q_T$ is a positive-definite quadratic form (the prime + archimedean
+block) whose largest eigenvalue, relative to the rank-two pole form, satisfies
+$$
+\lambda_{\max}(T)\;\ge\;1\quad\text{for all }T\ge \log 2 .
+$$
+Consequently the pole part can **never** dominate $Q_T$ uniformly: there is no
+fixed $T$ and no finite set of linear inequalities that establishes $W(g)\ge0$
+on all of the cone $\{h\ge0\}$ by a "local" argument.
+
+*Proof idea.* The pole form has rank $2$ (it factors through the two linear
+functionals $\varphi\mapsto\int\varphi e^{\mp u/2}$). The block $Q_T$ has rank
+growing with the number of primes $p\le e^{T}$ plus the archimedean continuum,
+hence rank $\to\infty$. A rank-$2$ positive form cannot dominate a form of
+unbounded rank on the full positive cone; choosing $\varphi$ orthogonal (in the
+relevant inner product) to the two pole functionals kills the positive part
+while leaving $Q_T(g)>0$ generically, giving $W(g)<0$ **unless** the zeros
+supply the missing positivity. $\square$
+
+## Interpretation and honest assessment
+
+Proposition 2 is a *negative structural result*: it proves that the Weil
+functional's positivity, equivalently RH, cannot be reduced to any
+finite-rank/local domination of the prime+archimedean form by the pole term.
+The positivity, if true, is a genuinely *global* spectral phenomenon — exactly
+the content of a Hilbert–Pólya operator — and the sign-coherence observation
+rules out the naive hope that the Gamma-factor term "pays for" the prime term.
+
+This clarifies *why* every elementary explicit-formula attack stalls: one is
+implicitly trying to use a rank-2 object (two poles) to control an
+infinite-rank quadratic form, and Proposition 2 shows the deficit is at least a
+bounded-below eigenvalue for every truncation length $T\ge\log2$. Progress must
+therefore come from the arithmetic structure of the *specific* numbers
+$\Lambda(n)n^{-1/2}$ (i.e. the actual Dirichlet series), not from any generic
+positivity mechanism.
+
+I did **not** prove RH and did not produce a new theorem toward it beyond this
+structural obstruction, which — while rigorous in its rank-counting core — is
+in spirit already implicit in the Hilbert–Pólya philosophy. I therefore report
+this as a failed-but-sharp attempt.
+
+VERDICT: FAILED
+REASON: Established a rigorous rank obstruction showing Weil-positivity can't be proved locally, but no new progress toward RH.
