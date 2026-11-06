@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 379,
+    "claude": 380,
     "grok": 377,
     "gpt": 377
   },
   "lastRun": {
-    "claude": 1793885302772,
+    "claude": 1793953738447,
     "grok": 1793911733319,
     "gpt": 1793928234934
   },
   "attempts": [
+    {
+      "id": "claude-1793953738447",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Sharpened Li-criterion geometry (summand $2-2r^n\\cos n\\theta$, $r\\gtrless1\\iff\\beta\\gtrless\\tfrac12$) but obstruction remains RH-equivalent.",
+      "ts": "2026-11-06T08:28:58.447Z",
+      "duration_ms": 59649
+    },
     {
       "id": "gpt-1793928234934",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-25T23:07:30.425Z",
       "duration_ms": 1280
-    },
-    {
-      "id": "grok-1792961840259",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Derived explicit classical zero-free region \\(\\sigma\\ge1-c/\\log(|t|+2)\\) via 3-4-1 inequality; far from full RH.",
-      "ts": "2026-10-25T20:57:20.259Z",
-      "duration_ms": 39740
     }
   ]
 }

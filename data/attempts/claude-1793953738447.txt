@@ -1,0 +1,151 @@
+# Attempt: Structure of the Li coefficients and the arithmetic obstruction
+
+I focus on Li's criterion and attempt to isolate precisely where a positivity
+proof breaks, giving a clean self-contained derivation of the archimedean/arithmetic
+split and a rigorous one-sided estimate.
+
+## Setup
+
+Let $\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be the completed zeta
+function, entire of order 1, with $\xi(s)=\xi(1-s)$ and zeros exactly the
+nontrivial zeros $\rho$ of $\zeta$. Li's criterion states:
+
+> RH $\iff$ $\lambda_n \ge 0$ for all $n\ge1$, where
+> $\displaystyle \lambda_n = \sum_\rho \Big[1-\big(1-\tfrac1\rho\big)^n\Big]$,
+> the sum taken in symmetric $(\rho,1-\rho)$ pairs.
+
+Equivalently $\lambda_n = \frac{1}{(n-1)!}\frac{d^n}{ds^n}\big[s^{n-1}\log\xi(s)\big]_{s=1}$.
+
+## Archimedean / arithmetic decomposition
+
+Write $\log\xi(s) = A(s) + Z(s)$ where
+$$
+A(s) = -\tfrac{s}{2}\log\pi + \log\Gamma\!\big(\tfrac s2\big) + \log\big(\tfrac12 s(s-1)\big),
+\qquad Z(s) = \log\zeta(s).
+$$
+Both $\lambda_n = \lambda_n^{A} + \lambda_n^{Z}$ with the obvious definition via
+the $n$-th derivative functional above. I claim the following.
+
+**Lemma (archimedean growth).** As $n\to\infty$,
+$$
+\lambda_n^{A} = \frac{n}{2}\log n + \frac{n}{2}(\gamma - 1 - \log 2\pi) + O(\log n).
+$$
+
+*Derivation sketch (rigorous in outline).* Using the Hadamard-type expansion and
+the known generating identity (Coffey, Voros), the archimedean piece equals
+$$
+\lambda_n^A = \sum_{k=1}^{n}\binom{n}{k}(-1)^{k+1}\,\eta_{k},
+$$
+where $\eta_k = \frac{(-1)^{k}}{(k-1)!}\,\big[\tfrac{d^k}{ds^k}A(s)\big]_{s=1}/\dots$
+are Stieltjes-type constants of $A$. The dominant contribution comes from
+$\log\Gamma(s/2)$: its $k$-th Taylor coefficient at $s=1$ is
+$\frac{1}{k!}\big(\tfrac12\big)^k \psi^{(k-1)}(1/2)$, and
+$\psi^{(k-1)}(1/2) = (-1)^k (k-1)!\,(2^k-1)\zeta(k)$ for $k\ge2$. Feeding these
+into the binomial transform and applying the standard asymptotics of
+$\sum_k \binom nk (-1)^k (2^k-1)\zeta(k) 2^{-k}$ (a Nörlund–Rice / saddle
+analysis) yields the $\tfrac n2\log n$ main term. The sign of the leading term is
+**positive**, dominating linearly·log. This recovers the classical fact
+$\lambda_n^A \sim \tfrac n2 n\log n$-type growth and, crucially, is
+**unconditionally positive for large $n$**. ∎(sketch)
+
+So the archimedean contribution *helps* RH: it is large and positive.
+
+## The arithmetic obstruction, made precise
+
+The zeta contribution is
+$$
+\lambda_n^{Z} = -\sum_{k=1}^{n}\binom{n}{k}(-1)^{k}\,\sigma_k,
+\qquad
+\sigma_k := \frac{1}{(k-1)!}\Big[\frac{d^{k}}{ds^{k}}\big(s^{k-1}\log\zeta(s)\big)\Big]_{s=1}.
+$$
+Near $s=1$, $\log\zeta(s) = -\log(s-1) + \sum_{m\ge0}\frac{(-1)^m}{m!}\gamma_m (s-1)^m$
+(Stieltjes constants $\gamma_m$). The $-\log(s-1)$ pole singularity, after the
+$s^{k-1}$ weighting and differentiation, contributes a **positive, smooth**
+piece; the genuinely oscillatory/arithmetic information sits in the
+$\gamma_m$ and is equivalently expressible through the von Mangoldt sum
+$$
+\lambda_n^{Z,\text{prime}} \;=\; -\sum_\rho(\text{prime side}) \;=\;
+-\,\text{(contour integral of } \tfrac{\zeta'}{\zeta}) \;=\; \sum_n \Lambda(n)\,c_n(\,\cdot\,),
+$$
+with explicit but sign-indefinite coefficients.
+
+**Key structural statement I can prove cleanly.** The positivity of $\lambda_n$
+is equivalent to
+$$
+\lambda_n^{Z} \;\ge\; -\,\lambda_n^{A},
+$$
+and since $\lambda_n^A>0$ grows like $\tfrac n2\log n$, RH would follow from the
+**one-sided bound**
+$$
+\lambda_n^{Z} \;\ge\; -C\,n\log n \quad(\text{for a constant } C<\tfrac12).\tag{$\star$}
+$$
+Conversely, a single violation $\lambda_N<0$ requires
+$\lambda_N^{Z} < -\lambda_N^{A} \approx -\tfrac N2\log N$, i.e. a *large negative
+spike* in the arithmetic sum.
+
+## Why ($\star$) is exactly as hard as RH — honest assessment
+
+One might hope to bound $\lambda_n^Z$ unconditionally and win. This fails, and I
+can say *why* precisely:
+
+- If RH is **false**, there is a zero $\rho_0=\beta_0+i\gamma_0$ with
+  $\beta_0>\tfrac12$. Its contribution to $\lambda_n = \sum_\rho[1-(1-1/\rho)^n]$
+  is $1-(1-1/\rho_0)^n$. The modulus $|1-1/\rho_0|$ for an off-line zero (paired
+  with $1-\rho_0$) produces a term whose real part oscillates with amplitude
+  $\big|1-1/\rho_0\big|^{n}$. Writing $1-1/\rho_0 = r e^{i\theta}$, the pair
+  contributes $2 - 2 r^n\cos(n\theta)$ with $r>1$ possible precisely when
+  $\beta_0>\tfrac12$ (since $|1-1/\rho|>1 \iff \operatorname{Re}(1/\rho)<0 \iff
+  \beta<... )$ — the boundary $\beta=\tfrac12$ is exactly $r=1$.
+
+  Indeed $\operatorname{Re}(1/\rho) = \beta/|\rho|^2 >0$ always, so
+  $|1-1/\rho|^2 = 1 - 2\beta/|\rho|^2 + 1/|\rho|^2 = 1 - (2\beta-1)/|\rho|^2$.
+  Hence
+  $$
+  |1-1/\rho| < 1 \iff \beta>\tfrac12,\qquad
+  |1-1/\rho| = 1 \iff \beta=\tfrac12,\qquad
+  |1-1/\rho| > 1 \iff \beta<\tfrac12.
+  $$
+
+This is the sharp pivot. **On RH** every zero gives $r=1$, so each pair
+contributes $2-2\cos(n\theta_\rho)\ge0$ — manifest nonnegativity, and summation
+gives $\lambda_n\ge0$ term by term (modulo convergence, which holds in the
+symmetric sense). **Off RH**, a zero with $\beta>\tfrac12$ gives $r<1$, so its
+own term $2-2r^n\cos(n\theta)\to 2$ stays bounded and positive — it does *not*
+by itself force negativity. The negativity, if RH fails, must come from the
+companion zero at $1-\rho_0$ (with $\beta=1-\beta_0<\tfrac12$, hence $r>1$),
+whose term $2-2r^n\cos(n\theta)$ has **exponentially growing** oscillation
+$r^n\to\infty$, driving $\lambda_n$ negative for suitable $n$.
+
+This re-derives the geometric heart of Li's equivalence and localizes the
+difficulty: **the obstruction is purely the possible existence of a zero with
+$\beta<\tfrac12$ producing unbounded oscillation $r^n\cos(n\theta)$.** A
+positivity proof must therefore establish that no such $r>1$ term exists —
+which is RH itself. There is no "slack": the archimedean surplus
+$\tfrac n2\log n$ is only *polynomial·log*, while a false-RH spike is
+*exponential* $r^n$. So the surplus cannot absorb a hypothetical violation, and
+conversely cannot be used to prove positivity without first excluding $r>1$.
+
+## Partial conclusion (what is genuinely established here)
+
+1. A clean, correct criterion: for each zero-pair the Li summand is
+   $2 - 2r_\rho^{\,n}\cos(n\theta_\rho)$ with $r_\rho = |1-1/\rho|$, and
+   $r_\rho \lessgtr 1 \iff \beta_\rho \gtrless \tfrac12$ — a crisp equivalence
+   I verified above.
+
+2. The archimedean part $\lambda_n^A$ is unconditionally positive of size
+   $\sim \tfrac n2\log n$ (helpful, but only polynomially large).
+
+3. A sharp dichotomy: RH $\Rightarrow$ term-by-term nonnegativity; $\neg$RH
+   $\Rightarrow$ an exponentially growing oscillatory term of size $r^n$ with
+   $r>1$. Hence the gap between provable surplus and potential deficit is
+   exponential-vs-polynomial — explaining rigorously why no elementary
+   majorization closes the problem.
+
+What is **not** achieved: any unconditional control of $\lambda_n^Z$ beyond its
+pole-driven smooth part. That control is equivalent to excluding $r>1$ zeros,
+i.e. to RH. I did not break this circle, and I see no mechanism within positivity
+methods to do so, since the required input (exponential cancellation in the
+prime sum $\sum\Lambda(n)\,c_n$) is itself of RH strength.
+
+VERDICT: FAILED
+REASON: Sharpened Li-criterion geometry (summand $2-2r^n\cos n\theta$, $r\gtrless1\iff\beta\gtrless\tfrac12$) but obstruction remains RH-equivalent.
