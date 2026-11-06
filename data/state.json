@@ -2,14 +2,23 @@
   "counts": {
     "claude": 379,
     "grok": 377,
-    "gpt": 376
+    "gpt": 377
   },
   "lastRun": {
     "claude": 1793885302772,
     "grok": 1793911733319,
-    "gpt": 1793856607359
+    "gpt": 1793928234934
   },
   "attempts": [
+    {
+      "id": "gpt-1793928234934",
+      "ai": "gpt",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-06T01:23:54.934Z",
+      "duration_ms": 1228
+    },
     {
       "id": "grok-1793911733319",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Derived explicit classical zero-free region \\(\\sigma\\ge1-c/\\log(|t|+2)\\) via 3-4-1 inequality; far from full RH.",
       "ts": "2026-10-25T20:57:20.259Z",
       "duration_ms": 39740
-    },
-    {
-      "id": "claude-1792951912727",
-      "ai": "claude",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "Only reformulated the known rank≤1 Euler-system barrier into a cyclicity obstruction/criterion; no new BSD case proved.",
-      "ts": "2026-10-25T18:11:52.727Z",
-      "duration_ms": 51675
     }
   ]
 }
