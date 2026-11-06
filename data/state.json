@@ -2,14 +2,23 @@
   "counts": {
     "claude": 380,
     "grok": 378,
-    "gpt": 377
+    "gpt": 378
   },
   "lastRun": {
     "claude": 1793953738447,
     "grok": 1793981641853,
-    "gpt": 1793928234934
+    "gpt": 1794000946507
   },
   "attempts": [
+    {
+      "id": "gpt-1794000946507",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-06T21:35:46.507Z",
+      "duration_ms": 1116
+    },
     {
       "id": "grok-1793981641853",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Recovered a hybrid density theorem for off-line zeros via smoothed explicit formula; no advance on RH itself.",
       "ts": "2026-10-26T06:25:54.413Z",
       "duration_ms": 24159
-    },
-    {
-      "id": "claude-1792977478507",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Derived explicit-formula consistency checks and pinpointed the oscillation obstruction, but proved no new progress toward RH.",
-      "ts": "2026-10-26T01:17:58.507Z",
-      "duration_ms": 64917
     }
   ]
 }
