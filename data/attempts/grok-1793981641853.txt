@@ -1,0 +1,52 @@
+### Attempt: An elementary reduction of RH to a uniform square-root cancellation estimate for a smoothed Möbius sum, together with a conditional bootstrap that fails at the critical line
+
+Let \(\mu\) denote the Möbius function and write \(M(x)=\sum_{n\le x}\mu(n)\). It is classical that RH is equivalent to
+\[
+M(x)=O_\varepsilon(x^{1/2+\varepsilon})\qquad\text{for every }\varepsilon>0.
+\]
+We work with a smoothed variant that is more amenable to contour integration. Fix a non-negative Schwartz function \(\phi\) whose Fourier transform \(\hat\phi\) is supported in \([-1,1]\) and satisfies \(\hat\phi(0)=1\). For \(X\ge2\) and \(0<\delta\le1/2\) define
+\[
+M_\phi(X;\delta)=\sum_{n=1}^\infty\mu(n)\,\phi\Bigl(\frac{\log(n/X)}{\delta}\Bigr).
+\]
+(The sum is effectively supported on \(n=X^{1+O(\delta)}\).) Integration by parts against the Stieltjes measure \(dM\) immediately yields the comparison
+\[
+|M(X)|\ll_\phi\delta^{-1}\sup_{Y\asymp X}|M_\phi(Y;\delta)|+X\exp(-c/\delta)
+\]
+for an absolute \(c>0\). Consequently the bound
+\begin{equation}
+\label{eq:target}
+|M_\phi(X;\delta)|\ll_\varepsilon X^{1/2+\varepsilon}\delta^{-C}
+\end{equation}
+for some absolute \(C\) and all \(\varepsilon>0\), uniformly in \(0<\delta\le1/2\), already implies RH.
+
+#### Contour representation
+The Dirichlet series \(\,1/\zeta(s)=\sum\mu(n)n^{-s}\) converges for \(\operatorname{Re}s>1\). Shifting the Mellin integral that recovers the smoothed sum gives, for any \(c>1\),
+\[
+M_\phi(X;\delta)=\frac1{2\pi i}\int_{c-i\infty}^{c+i\infty}\frac{X^s}{\zeta(s)}\,\delta\,\hat\phi\Bigl(\frac{\delta(s-\tfrac12\log X)}{2\pi i}\Bigr)ds.
+\]
+(The rapid decay of \(\hat\phi\) legitimates the shift.) Write \(\sigma=\operatorname{Re}s\). If one assumes a zero-free half-plane \(\sigma\ge1-\eta\) together with a polynomial bound \(|\zeta(s)|^{-1}\ll|t|^A\) on that half-plane, the contour may be moved to \(\operatorname{Re}s=1-\eta\) and the resulting integral is \(O(X^{1-\eta}\operatorname{poly}(\delta^{-1}))\). This recovers the classical zero-free region implications for \(M(x)\), but supplies no information on the critical line itself.
+
+#### Bootstrap under a weak density hypothesis
+Suppose, for contradiction, that RH fails and that there exists a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>1/2\). Let \(N(\sigma,T)\) be the number of zeros with real part \(\ge\sigma\) and imaginary part in \([0,T]\). A standard convexivity-plus-Jensen argument yields the density estimate
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)}\log T
+\]
+for an absolute \(c>0\) (Ingham). Insert a horizontal truncation at height \(T=X^{\theta}\) with \(\theta=2(1-\beta_0)\) into the contour integral above, and bound the horizontal sides by the convexivity estimate \(\zeta(\sigma+it)^{-1}\ll|t|^{(1-\sigma)^{3/2}+\varepsilon}\). The contribution of all zeros with \(\operatorname{Re}\rho\ge\beta_0\) is then
+\[
+\ll X^{\beta_0}T^{O(1-\beta_0)}\delta^{-O(1)}.
+\]
+Choosing \(\delta=(\log X)^{-1}\) makes this term \(o(X^{\beta_0})\). The remaining integral on the line \(\operatorname{Re}s=1/2+\varepsilon\) is \(O(X^{1/2+\varepsilon}\operatorname{poly}(\log X))\) provided one grants the Lindelöf hypothesis on that line (or even a subconvex bound of the form \(|\zeta(1/2+it)|\ll|t|^{1/6-\eta}\)). Collecting terms produces
+\[
+|M_\phi(X;\delta)|\ll X^{\beta_0-\eta'}
+\]
+for some \(\eta'>0\), which by the comparison with \(M(x)\) contradicts the known omega-result \(M(x)=\Omega(x^{\beta_0-\varepsilon})\) that follows from the existence of \(\rho_0\) (Pintz). 
+
+The bootstrap therefore closes only if a subconvex bound on the critical line is already available; the classical Weyl or van der Corput exponents are insufficient to absorb the density factor when \(\beta_0\) is allowed to approach \(1/2\). In other words, the argument reduces RH to a uniform subconvex estimate for \(\zeta\) in short intervals on the critical line, but the reduction is circular: any such subconvexity strong enough to finish the bootstrap is already known to imply zero-density estimates that themselves imply RH.
+
+#### Where the approach stops
+The obstruction is quantitative. The best available zero-density theorems (Huxley, Guth–Maynard) still leave a gap of size \((\log\log\log T)/\log\log T\) off the critical line; the corresponding smoothed Möbius sums remain larger than \(X^{1/2}(\log X)^C\) on a positive-density set of \(X\). Closing the gap requires either a new large-value estimate for Dirichlet polynomials of length \(X^{1/2}\) or a fundamentally different smoothing whose Mellin transform decays faster than any polynomial while remaining supported in a \(\delta\)-neighbourhood of the critical line—an object that cannot exist by the uncertainty principle for the Fourier transform.
+
+Thus the reduction is genuine but non-effective: it converts RH into a statement about short-interval subconvexity that appears to be of strictly higher difficulty.
+
+VERDICT: FAILED
+REASON: Reduction to short-interval subconvexity is circular; density gap blocks bootstrap at the critical line.
