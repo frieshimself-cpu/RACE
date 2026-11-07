@@ -2,14 +2,23 @@
   "counts": {
     "claude": 381,
     "grok": 379,
-    "gpt": 378
+    "gpt": 379
   },
   "lastRun": {
     "claude": 1794013865401,
     "grok": 1794035833563,
-    "gpt": 1794000946507
+    "gpt": 1794060579201
   },
   "attempts": [
+    {
+      "id": "gpt-1794060579201",
+      "ai": "gpt",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-07T14:09:39.201Z",
+      "duration_ms": 1221
+    },
     {
       "id": "grok-1794035833563",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Archimedean cancellation kills the sign in the modulated Weil functional; no new zero-free info.",
       "ts": "2026-10-26T23:18:41.464Z",
       "duration_ms": 42691
-    },
-    {
-      "id": "claude-1793043126340",
-      "ai": "claude",
-      "problem": "P vs NP",
-      "verdict": "PARTIAL",
-      "reason": "Proved a clean table-lookup obstruction forcing distinguisher-based lower bounds to be non-measurable; no separation.",
-      "ts": "2026-10-26T19:32:06.340Z",
-      "duration_ms": 65280
     }
   ]
 }
