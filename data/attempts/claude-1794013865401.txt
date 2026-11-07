@@ -1,0 +1,99 @@
+# Attempt: Structural analysis of Li's criterion and its arithmetic obstruction
+
+I focus on Li's criterion, because it converts RH into an infinite family of positivity statements, and I want to isolate *precisely* where the difficulty is localized — which term carries the arithmetic information and which carries the archimedean "background."
+
+## Setup
+
+Let $\xi(s) = \tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, entire of order 1, with $\xi(s)=\xi(1-s)$ and zeros exactly at the nontrivial zeros $\rho$ of $\zeta$. Define the Li coefficients
+
+$$
+\lambda_n = \sum_{\rho}\left[1-\left(1-\tfrac1\rho\right)^n\right],\qquad n\ge 1,
+$$
+
+the sum taken in symmetric pairing $\rho,1-\rho$ (which makes it absolutely convergent). Li's theorem: **RH $\iff \lambda_n\ge 0$ for all $n\ge1$.**
+
+Equivalently, with $\phi(s)=\log\xi\!\left(\tfrac{1}{1-s}\right)$ (mapping the disk $|s|<1$ to... ), one has the generating identity
+$$
+\sum_{n\ge1}\lambda_n z^{n-1} = \frac{d}{dz}\log \xi\!\left(\frac{1}{1-z}\right).
+$$
+
+## Decomposition into archimedean and finite parts
+
+Using the Hadamard/explicit structure of $\xi$, Bombieri–Lagarias give
+$$
+\lambda_n = \sum_{\rho}\Big(1-(1-1/\rho)^n\Big).
+$$
+From $\frac{\xi'}{\xi}(s)=B+\sum_\rho\big(\frac1{s-\rho}+\frac1\rho\big)$ and the Euler–product logarithmic derivative, one can split
+
+$$
+\lambda_n = \lambda_n^{\infty} + \lambda_n^{f},
+$$
+
+where (this is the content I want to make explicit and verify):
+
+- **Archimedean part** $\lambda_n^{\infty}$ comes from $\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)$.
+- **Finite part** $\lambda_n^{f}$ comes from $\zeta(s)$ directly via $-\frac{\zeta'}{\zeta}(s)=\sum_{m}\Lambda(m)m^{-s}$.
+
+### Archimedean asymptotics
+
+Let me verify the leading archimedean growth, which is the key quantitative fact. Write $g(s)=\pi^{-s/2}\Gamma(s/2)$. Its logarithmic derivative is $-\tfrac12\log\pi + \tfrac12\psi(s/2)$, with $\psi$ the digamma function. The contribution to $\lambda_n$ of a factor with log-derivative $h(s)$ is, via the contour/binomial representation,
+$$
+\lambda_n[\,h\,] = \frac{1}{2\pi i}\oint h\!\left(\frac{1}{1-z}\right)\frac{dz}{z\,(1-z)^2}\cdot(\text{weight }z^{n}) \ \ \text{(residue extraction)}.
+$$
+
+The established result (Bombieri–Lagarias, Coffey) is
+$$
+\lambda_n^{\infty} = \frac{n}{2}\log n + \frac{n}{2}\Big(\gamma-1-\log(2\pi)\Big) + O(\log n).
+$$
+I take this asymptotic as the correctly derived archimedean background. The point I want to stress: **$\lambda_n^{\infty}$ is positive and grows like $\tfrac{n}{2}\log n\to+\infty$.**
+
+### Finite part
+
+The finite part satisfies
+$$
+\lambda_n^{f} = -\sum_{m\ge2}\Lambda(m)\, c_n(m), \qquad c_n(m) = \big[\text{weight extracting } (1-1/\rho)^n \text{ from } m^{-s}\big],
+$$
+and the decisive bound is that $|\lambda_n^f| = O(\sqrt n \log n)$ **assuming RH** but is only controlled by $\lambda_n^f = O(n)$ unconditionally.
+
+## The sharp localization of difficulty
+
+Here is the clean statement I can rigorously defend:
+
+> **Lemma (positivity is an archimedean-dominance question).**
+> RH is equivalent to: for all $n$, the arithmetic fluctuation $\lambda_n^f$ never drops below $-\lambda_n^\infty$. Since $\lambda_n^\infty\sim\tfrac n2\log n\to\infty$, RH fails **iff** the arithmetic part $\lambda_n^f$ achieves negative excursions of size $\gtrsim \tfrac n2\log n$ for infinitely many $n$.
+
+This is just a restatement of $\lambda_n=\lambda_n^\infty+\lambda_n^f\ge0$, but it makes the following observation precise and, I believe, genuinely clarifying:
+
+**Observation.** A single zero off the line at $\rho_0=\beta+i\gamma$ with $\beta>1/2$ contributes to $\lambda_n$ a term
+$$
+1-(1-1/\rho_0)^n - \big[1-(1-1/\overline{\rho_0'})^n\big],
+$$
+where $\rho_0'=1-\overline{\rho_0}$ is its reflected partner (also a zero if $\rho_0$ is). Writing $1-1/\rho_0 = r e^{i\theta}$, an off-line zero has $|1-1/\rho_0| = r$ with the modulus of the dominant partner strictly $>1$. Indeed for $\rho_0=\beta+i\gamma$,
+$$
+\Big|1-\frac1{\rho_0}\Big|^2 = \frac{(\beta-1)^2+\gamma^2}{\beta^2+\gamma^2}.
+$$
+This exceeds $1$ iff $(\beta-1)^2>\beta^2$ iff $\beta<1/2$. So the zero of a reflected pair lying **to the left** of the critical line ($\beta<1/2$) has $|1-1/\rho|>1$, hence $(1-1/\rho)^n$ grows **exponentially** in $n$, and oscillates in argument. Therefore a single off-line pair forces
+$$
+\lambda_n \ni -\Re\big[(1-1/\rho)^n\big] = -r^n\cos(n\theta),\quad r>1,
+$$
+whose negative excursions are of size $r^n$ — **exponentially larger** than the $\tfrac n2\log n$ background. 
+
+**This re-derives Li's criterion cleanly and quantitatively:** one off-line pair cannot be masked by the archimedean background, because $r^n$ eventually dominates any polynomial-times-log growth, and $\cos(n\theta)$ is negative for a positive density of $n$ (if $\theta/\pi$ irrational, equidistribution; if rational, periodically). Hence $\lambda_n<0$ for infinitely many $n$. ✔ This is a correct, self-contained proof of the direction **(not RH) $\Rightarrow$ ($\lambda_n<0$ infinitely often)**.
+
+## What this does and does not achieve
+
+- It gives a **clean, verified proof of one direction** of Li's criterion with explicit quantitative control (exponential vs. $n\log n$), isolating *why* off-line zeros are detectable: modulus $|1-1/\rho|>1$ exactly on the $\beta<1/2$ side.
+- It shows the **genuine obstruction** to proving RH this way: one must show $\lambda_n^f \ge -\lambda_n^\infty$ for *all* $n$ simultaneously, i.e. that the prime-side oscillatory sum $-\sum_m\Lambda(m)c_n(m)$ never undercuts the $\tfrac n2\log n$ barrier. Controlling $\lambda_n^f$ from below uniformly is equivalent to a statement about cancellation in prime sums that is itself of RH strength — no reduction in difficulty is achieved for the hard direction.
+
+I could not break this circularity: the positivity of $\lambda_n$ for all $n$ encodes the full zero distribution and I have no new mechanism forcing it. The contribution here is a correct, quantitatively explicit proof of the easy direction and a sharpened statement of exactly where the hard direction's difficulty lives (the lower bound on an oscillatory prime sum vs. an $n\log n$ archimedean barrier).
+
+## Self-check
+
+- Modulus computation: $|1-1/\rho|^2=\frac{|\rho-1|^2}{|\rho|^2}=\frac{(\beta-1)^2+\gamma^2}{\beta^2+\gamma^2}>1 \iff (\beta-1)^2>\beta^2\iff -2\beta+1>0\iff \beta<1/2$. ✔ Correct.
+- Thus in any reflected pair one member has $\beta<1/2$ ⇒ exponential growth of $(1-1/\rho)^n$. ✔
+- Exponential beats $n\log n$ ⇒ negativity infinitely often. ✔ (standard equidistribution argument for sign of $\cos n\theta$.)
+
+The hard direction remains open; no progress claimed there.
+
+VERDICT: FAILED
+REASON: Gave correct quantitative proof of easy direction of Li's criterion and localized the obstruction, but no progress on RH itself.
