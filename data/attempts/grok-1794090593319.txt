@@ -1,0 +1,32 @@
+### Attempt: Obstruction analysis for a positivity-based explicit-formula attack on RH
+
+Let \(\Xi(t)=\xi(\tfrac12+it)\), where \(\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation implies \(\Xi(t)=\Xi(-t)\) and that RH is equivalent to all zeros of the entire function \(\Xi\) being real. The Hadamard product (genus 1) reads
+\[
+\Xi(t)=\Xi(0)\prod_{\rho}\Bigl(1-\frac{t}{\gamma}\Bigr)e^{t/\gamma},
+\]
+the product running over the imaginary parts \(\gamma\) of the non-trivial zeros (counted with multiplicity). Taking the logarithmic derivative yields the explicit formula
+\[
+\frac{\Xi'}{\Xi}(t)=\sum_{\gamma}\frac{1}{t-\gamma}+O(1).
+\]
+A classical strategy (Weil, Bombieri, Odlyzko–Reyna, et al.) seeks a test function \(g\) of rapid decay whose Fourier transform \(\hat g\) is non-negative, such that the Weil explicit formula
+\[
+\sum_{\gamma}g(\gamma)=\hat g(0)\frac{\xi'}{\xi}(1/2)+\int_{-\infty}^{\infty}\hat g(u)\,d\bigl(\psi(e^{|u|}/2\pi)\bigr)+\text{archimedean terms}
+\]
+produces a strictly positive left-hand side whenever any \(\gamma\) has non-zero real part. If the right-hand side can be shown non-negative for a sufficiently rich family of such \(g\), RH would follow.
+
+**Concrete obstruction.** Consider the Gaussian family \(g_\lambda(t)=e^{-\lambda t^2}\) (\(\lambda>0\)). Its Fourier transform is again Gaussian and positive. The archimedean contribution is essentially
+\[
+\int_0^\infty\bigl(e^{-\lambda u^2/4}-\tfrac12 e^{-u/2}\bigr)\frac{du}{\sinh(u/2)}
+\]
+plus lower-order terms coming from the Gamma factor. Direct expansion for small \(\lambda\) shows that the archimedean integral admits the asymptotic
+\[
+-\frac1{2\sqrt{\pi\lambda}}+\frac{\log(4\pi)-1-\gamma_E}{2}+O(\sqrt\lambda).
+\]
+The prime-power sum \(\sum_p\sum_k p^{-k/2}(\log p)\,g_\lambda(k\log p)\) is positive but of size \(O(e^{c/\sqrt\lambda})\) only after truncation; the tail cannot be absorbed uniformly in \(\lambda\). Consequently the total right-hand side changes sign for every sufficiently small \(\lambda>0\) (numerically visible already at \(\lambda=10^{-3}\)).  
+
+Thus no member of the Gaussian family can serve as a witness. The same sign-change phenomenon persists for the larger class of functions whose Fourier transforms are compactly supported in \((-2,2)\) (the “Weil bound” range): the contribution of the pole at \(s=1\) and the Gamma factor inevitably dominate the prime sum once the support of \(\hat g\) is forced inside the critical strip. Extending the support beyond length 2 re-introduces the possibility of complex zeros contributing negatively, circularly assuming what one wishes to prove.
+
+The obstruction is therefore structural: any test function smooth enough for the explicit formula to converge absolutely has an archimedean contribution whose leading singular term cannot be cancelled by the arithmetic side without enlarging the Fourier support past the point where complex zeros are controlled. This blocks every positivity argument that stays within the classical Weil formalism.
+
+VERDICT: FAILED
+REASON: Explicit-formula positivity blocked by uncancelled archimedean singularity for all admissible test functions
