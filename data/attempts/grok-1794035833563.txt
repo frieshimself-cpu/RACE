@@ -1,0 +1,23 @@
+The strategy is to derive a contradiction from a putative zero \(\rho=\sigma+it\) with \(\sigma>1/2\) by combining the Hadamard product for \(\xi(s)\) with a truncated explicit formula and a positivity constraint on a carefully chosen test function. Write
+\[
+\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)
+\]
+and recall the product
+\[
+\xi(s)=\xi(0)\prod_\rho\bigl(1-s/\rho\bigr)
+\]
+(convergent in the usual Weierstrass sense). Assume \(\sigma>1/2\) and let \(\phi\) be an even Schwartz function whose Fourier transform \(\hat\phi\) is non-negative, compactly supported in \((-1,1)\), and normalized so that \(\hat\phi(0)=1\). The Weil explicit formula then reads
+\[
+\sum_\rho\hat\phi\bigl((\rho-1/2)/i\bigr)=\hat\phi(0)\frac{\log\pi}{2\pi}+\int_{-\infty}^\infty\frac{\hat\phi(u)}{2}\operatorname{Re}\frac{\Gamma'}{\Gamma}\bigl(\tfrac14+\tfrac{iu}{2}\bigr)\,du
+-\sum_p\sum_{m\ge1}\frac{\log p}{p^{m/2}}\hat\phi\bigl(\tfrac{m\log p}{2\pi}\bigr).
+\]
+The right-hand side is strictly positive for the chosen \(\phi\) (the Gamma term dominates the prime sum once the support of \(\hat\phi\) is small enough). On the left-hand side every ordinate with real part exactly \(1/2\) contributes a non-negative quantity. The hypothetical pair \(\rho,1-\rho\) contributes
+\[
+\hat\phi\bigl((\sigma-1/2+it)/i\bigr)+\hat\phi\bigl((1/2-\sigma-it)/i\bigr)=2\operatorname{Re}\hat\phi\bigl((\sigma-1/2)/i+t\bigr).
+\]
+Because \(\operatorname{supp}\hat\phi\subset(-1,1)\) and \(\sigma-1/2>0\), the argument \((\sigma-1/2)/i\) lies off the real axis; analytic continuation of \(\hat\phi\) (which is entire of exponential type) shows that the real part can be made arbitrarily negative by a small horizontal shift of the support while preserving non-negativity on the real line. This would render the whole left-hand side negative, contradicting positivity of the right-hand side.
+
+The gap is that the required horizontal shift moves the support of \(\hat\phi\) outside the region where the prime-sum estimate remains under control; the resulting error term grows faster than the negative contribution one is trying to isolate. Thus the argument yields only a zero-free region of classical width \(O(1/\log|t|)\), not the full half-plane \(\sigma\le1/2\).
+
+VERDICT: FAILED
+REASON: Positivity/explicit-formula obstruction collapses once test-function support is enlarged enough to detect \(\sigma>1/2\).

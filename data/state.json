@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 381,
-    "grok": 378,
+    "grok": 379,
     "gpt": 378
   },
   "lastRun": {
     "claude": 1794013865401,
-    "grok": 1793981641853,
+    "grok": 1794035833563,
     "gpt": 1794000946507
   },
   "attempts": [
+    {
+      "id": "grok-1794035833563",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity/explicit-formula obstruction collapses once test-function support is enlarged enough to detect \\(\\sigma>1/2\\).",
+      "ts": "2026-11-07T07:17:13.563Z",
+      "duration_ms": 24028
+    },
     {
       "id": "claude-1794013865401",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Proved a clean table-lookup obstruction forcing distinguisher-based lower bounds to be non-measurable; no separation.",
       "ts": "2026-10-26T19:32:06.340Z",
       "duration_ms": 65280
-    },
-    {
-      "id": "gpt-1793021455863",
-      "ai": "gpt",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-26T13:30:55.863Z",
-      "duration_ms": 1684
     }
   ]
 }
