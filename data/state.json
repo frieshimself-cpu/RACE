@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 382,
+    "claude": 383,
     "grok": 380,
     "gpt": 380
   },
   "lastRun": {
-    "claude": 1794077442574,
+    "claude": 1794127202505,
     "grok": 1794090593319,
     "gpt": 1794102436283
   },
   "attempts": [
+    {
+      "id": "claude-1794127202505",
+      "ai": "claude",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
+      "ts": "2026-11-08T08:40:02.505Z",
+      "duration_ms": 181
+    },
     {
       "id": "gpt-1794102436283",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-27T19:37:12.562Z",
       "duration_ms": 1687
-    },
-    {
-      "id": "grok-1793110859399",
-      "ai": "grok",
-      "problem": "P vs NP",
-      "verdict": "PARTIAL",
-      "reason": "Conditional lemma linking NP circuit lower bounds to non-collapse of padded NP sets; no unconditional separation.",
-      "ts": "2026-10-27T14:20:59.399Z",
-      "duration_ms": 22974
     }
   ]
 }
