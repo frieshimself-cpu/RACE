@@ -1,0 +1,46 @@
+### Attempt: Obstruction in a contour-integral approach to forcing zeros onto the critical line
+
+Let \(\xi(s)=s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) is entire of order 1, and the non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\). Write \(\rho=\beta+i\gamma\) for a zero in the critical strip. The goal is to show \(\beta=1/2\).
+
+Consider the rectangular contour \(C_T\) with vertices \(1/2\pm\delta\pm iT\) (\(\delta>0\) fixed small, \(T\to\infty\) not equal to an ordinate of a zero) oriented positively. By the argument principle,
+\[
+\frac1{2\pi}\Delta_{C_T}\arg\xi(s)=N(1/2+\delta,T)-N(1/2-\delta,T),
+\]
+where \(N(\sigma,T)\) counts zeros with real part \(>\sigma\) and imaginary part in \((0,T]\). The functional equation forces the contribution on the left vertical side to cancel that on the right after the substitution \(s\mapsto1-s\), up to a sign that converts the difference into twice the number of zeros with \(\beta>1/2+\delta\). Thus it suffices to prove
+\[
+\Delta_{C_T}\arg\xi(s)=o(T)\qquad\text{or better}\qquad\Delta_{C_T}\arg\xi=0
+\]
+for large \(T\), which would force \(N(1/2+\delta,T)=0\).
+
+On the horizontal sides the variation of \(\arg\xi\) is \(O(\log T)\) by the standard Stirling estimate for \(\Gamma\) and the convexivity bound \(\zeta(\sigma+iT)\ll T^{c(1-\sigma)^{3/2}}\log T\). The obstruction is therefore confined to the vertical side \(\operatorname{Re}s=1/2+\delta\):
+\[
+\int_{-T}^{T}\frac{\xi'}{\xi}(1/2+\delta+it)\,dt.
+\]
+Expanding the logarithmic derivative via the Euler product (valid for \(\delta>0\)) yields
+\[
+\frac{\xi'}{\xi}(s)=-\frac12\log\pi+\frac12\frac{\Gamma'}{\Gamma}(s/2)+\sum_p\sum_{k\ge1}\frac{\log p}{p^{ks}}+\frac1s+\frac1{s-1}.
+\]
+The Gamma term contributes a smooth main term of size \(\frac12\log(|t|/2)\) whose integral against the contour is purely imaginary and cancels in the argument increment. The double sum over primes produces
+\[
+\sum_{p^k\le X}\frac{\Lambda(n)}{n^{1/2+\delta}}e^{-it\log n}+O(T/X^\delta)
+\]
+after a smooth truncation at \(X=T^A\). Integrating in \(t\) therefore reduces to showing that the Dirichlet polynomial
+\[
+D_X(t)=\sum_{n\le X}\frac{\Lambda(n)}{n^{1/2+\delta}}e^{-it\log n}
+\]
+has mean value
+\[
+\int_{-T}^T D_X(t)\,dt=o(T)
+\]
+uniformly in the truncation parameter. Square-mean estimates (Montgomery–Vaughan) give
+\[
+\int_{-T}^T|D_X(t)|^2\,dt\asymp T\sum_{n\le X}\frac{\Lambda(n)^2}{n^{1+2\delta}},
+\]
+which is \(\asymp T(\log X)\) and therefore only yields an \(L^2\) bound \(O(\sqrt{T\log T})\) after Cauchy–Schwarz. This is larger than the main-term size by a full square-root factor; the resulting error after integration is \(O(T^{1/2}(\log T)^{1/2}X^{1/2-\delta})\), which cannot be driven below \(T\) simultaneously for all fixed \(\delta>0\) no matter how \(X\) is chosen.
+
+The same square-root barrier reappears if one replaces the Euler-product expansion by the approximate functional equation for \(\xi'/\xi\) or by a smoothed explicit formula: the diagonal contribution always produces a positive \(L^2\) mass of size \(\asymp T\log T\), while off-diagonal oscillation is insufficient to cancel it uniformly down to the critical line. Consequently the argument increment on the critical vertical line remains \(O(T^{1/2+\varepsilon})\) at best, which is precisely the strength of the classical zero-density estimates and is too weak to force \(N(1/2+\delta,T)=0\).
+
+Thus the contour method, while capable of recovering all known zero-free regions of the form \(\beta\le1-c/\log(|\gamma|+2)\), cannot cross the square-root barrier that separates those regions from the line \(\beta=1/2\). Any successful proof must introduce an essentially new source of cancellation (e.g., a positivity certificate or a spectral interpretation) that improves upon pure \(L^2\) mean-value estimates for Dirichlet polynomials.
+
+VERDICT: FAILED
+REASON: Contour/arg-principle approach blocked by irreducible \(\sqrt{T\log T}\) barrier from Dirichlet-polynomial mean squares.

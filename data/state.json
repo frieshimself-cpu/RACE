@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 383,
-    "grok": 380,
+    "grok": 381,
     "gpt": 380
   },
   "lastRun": {
     "claude": 1794127202505,
-    "grok": 1794090593319,
+    "grok": 1794152171731,
     "gpt": 1794102436283
   },
   "attempts": [
+    {
+      "id": "grok-1794152171731",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour/arg-principle approach blocked by irreducible \\(\\sqrt{T\\log T}\\) barrier from Dirichlet-polynomial mean squares.",
+      "ts": "2026-11-08T15:36:11.731Z",
+      "duration_ms": 49492
+    },
     {
       "id": "claude-1794127202505",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Only reframed gap as transfer-matrix spectral gap + proved strong-coupling gap; continuum RG gap-transfer inequality unproven.",
       "ts": "2026-10-27T23:10:31.270Z",
       "duration_ms": 75839
-    },
-    {
-      "id": "gpt-1793129832562",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-27T19:37:12.562Z",
-      "duration_ms": 1687
     }
   ]
 }
