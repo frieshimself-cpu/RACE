@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 383,
+    "claude": 384,
     "grok": 381,
     "gpt": 381
   },
   "lastRun": {
-    "claude": 1794127202505,
+    "claude": 1794180613110,
     "grok": 1794152171731,
     "gpt": 1794167798149
   },
   "attempts": [
+    {
+      "id": "claude-1794180613110",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
+      "ts": "2026-11-08T23:30:13.110Z",
+      "duration_ms": 258
+    },
     {
       "id": "gpt-1794167798149",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-28T08:57:50.332Z",
       "duration_ms": 1366
-    },
-    {
-      "id": "grok-1793154156712",
-      "ai": "grok",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "PARTIAL",
-      "reason": "Conditional reduction of rank-BSD to MC+μ=0 via Kato/Iwasawa; leading term and unconditional case open.",
-      "ts": "2026-10-28T02:22:36.712Z",
-      "duration_ms": 39037
     }
   ]
 }
