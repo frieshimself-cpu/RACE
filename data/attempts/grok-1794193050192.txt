@@ -1,0 +1,36 @@
+### Attempt: Obstruction in a contour-shift approach to forcing critical-line zeros
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) and the Hadamard factorization
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr)
+\]
+(over the non-trivial zeros, written with the usual pairing \(\rho\leftrightarrow 1-\rho\)) are taken as given. Write \(s=\sigma+it\) with \(t\ge t_0>0\) large and consider the horizontal integrals of \(\xi'/\xi\) on the segments
+\[
+L_\pm=\bigl\{\sigma\pm iT:\ \tfrac12\le\sigma\le 2\bigr\}
+\]
+together with the vertical segment \(V=\bigl\{2+it:\ |t|\le T\bigr\}\). The goal of the approach is to show that any zero off the critical line would force a sign change in \(\operatorname{Re}(\xi'/\xi)\) incompatible with the known asymptotic
+\[
+\frac{\xi'}{\xi}(s)=\sum_{|t-\gamma|<1}\frac1{s-\rho}+O(\log t)
+\]
+(uniformly for \(1/2\le\sigma\le 2\)).
+
+Assume for contradiction that a zero \(\rho_0=\beta+i\gamma\) exists with \(\beta>1/2\) and \(\gamma\approx T\). Shift the contour of
+\[
+\frac1{2\pi i}\int_{c-iT}^{c+iT}\frac{\xi'}{\xi}(s)\frac{x^s}{s}\,ds\qquad(c=2)
+\]
+leftward to \(\operatorname{Re}s=1/2\). The residue at \(\rho_0\) contributes a term \(x^{\rho_0}/\rho_0\) whose real part oscillates with amplitude \(x^\beta/|\rho_0|\). On the new vertical line the integrand is \(O(x^{1/2}\log T)\) by the convexivity bound \(\xi(1/2+it)\ll |t|^A\). The horizontal integrals are \(O(x^2T^{-1}\log T)\) after a standard convexivity estimate on \(\Gamma\) and the functional equation.
+
+Collecting terms yields the formal identity
+\[
+\sum_{n\le x}\Lambda(n)=x-\sum_{|\gamma|\le T}\frac{x^\rho}{\rho}+O\bigl(x^{1/2}\log T+x^2T^{-1}\bigr).
+\]
+If one could choose \(T=x^{1/2+\varepsilon}\) while keeping the error smaller than the putative off-line term \(x^\beta\), a contradiction with the prime-number theorem (or even with Chebyshev’s bounds) would follow. The obstruction is that the zero-density estimates available unconditionally only guarantee
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}\log^C T
+\]
+(for an absolute \(c>0\)). Consequently the summed contribution of all zeros with \(\operatorname{Re}\rho\ge\beta\) is still \(O(x^\beta\exp(-c'(\log x)^{a}))\) for some \(a<1\), which is absorbed by the horizontal-error term once \(T\) is taken large enough to make the vertical contribution small. No choice of the free parameters \(T=T(x)\) simultaneously suppresses both the horizontal integrals and the clustered off-line zeros. The same density barrier appears if one replaces the rectangular contour by a truncated Hankel contour about the critical line: the arc contributions remain larger than any single off-line residue.
+
+Thus the contour-shift method reduces RH to a zero-density hypothesis stronger than any theorem presently known, and cannot be closed by existing convexivity or mean-value estimates on \(\xi\).
+
+VERDICT: FAILED
+REASON: Contour shift blocked by insufficient zero-density; error terms dominate off-line residues.
