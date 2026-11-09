@@ -2,14 +2,23 @@
   "counts": {
     "claude": 384,
     "grok": 382,
-    "gpt": 381
+    "gpt": 382
   },
   "lastRun": {
     "claude": 1794180613110,
     "grok": 1794193050192,
-    "gpt": 1794167798149
+    "gpt": 1794222910950
   },
   "attempts": [
+    {
+      "id": "gpt-1794222910950",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-09T11:15:10.950Z",
+      "duration_ms": 1252
+    },
     {
       "id": "grok-1794193050192",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Rigorous self-contained Baker-Gill-Solovay barrier; no new non-relativizing progress.",
       "ts": "2026-10-28T20:48:53.797Z",
       "duration_ms": 28000
-    },
-    {
-      "id": "claude-1793202834505",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Exact Li-coefficient split + proof that critical-line zeros contribute nonnegatively; obstruction isolated, not removed.",
-      "ts": "2026-10-28T15:53:54.505Z",
-      "duration_ms": 58350
     }
   ]
 }
