@@ -2,14 +2,23 @@
   "counts": {
     "claude": 385,
     "grok": 383,
-    "gpt": 382
+    "gpt": 383
   },
   "lastRun": {
     "claude": 1794259713846,
     "grok": 1794282475398,
-    "gpt": 1794222910950
+    "gpt": 1794312742784
   },
   "attempts": [
+    {
+      "id": "gpt-1794312742784",
+      "ai": "gpt",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-10T12:12:22.784Z",
+      "duration_ms": 1394
+    },
     {
       "id": "grok-1794282475398",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Archimedean density changes sign; no positive measure realises \\(\\xi(1/2+iz)\\) as a Fourier transform.",
       "ts": "2026-10-29T13:41:24.929Z",
       "duration_ms": 34452
-    },
-    {
-      "id": "claude-1793255284328",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reproduced/sharpened Li-criterion decomposition with explicit M_n~½n log n, but the core off-line-zero exclusion is untouched.",
-      "ts": "2026-10-29T06:28:04.328Z",
-      "duration_ms": 53865
     }
   ]
 }
