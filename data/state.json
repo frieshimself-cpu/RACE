@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 385,
+    "claude": 386,
     "grok": 383,
     "gpt": 383
   },
   "lastRun": {
-    "claude": 1794259713846,
+    "claude": 1794340250272,
     "grok": 1794282475398,
     "gpt": 1794312742784
   },
   "attempts": [
+    {
+      "id": "claude-1794340250272",
+      "ai": "claude",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
+      "ts": "2026-11-10T19:50:50.272Z",
+      "duration_ms": 299
+    },
     {
       "id": "gpt-1794312742784",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-29T19:25:40.437Z",
       "duration_ms": 1426
-    },
-    {
-      "id": "grok-1793281284929",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Archimedean density changes sign; no positive measure realises \\(\\xi(1/2+iz)\\) as a Fourier transform.",
-      "ts": "2026-10-29T13:41:24.929Z",
-      "duration_ms": 34452
     }
   ]
 }
