@@ -1,0 +1,30 @@
+### Attempt: A critical-space enstrophy bound that nearly closes but fails by a logarithmic gap
+
+Consider the incompressible Navier–Stokes system on \(\mathbb{R}^3\)
+\[
+\partial_t u+(u\cdot\nabla)u=\nu\Delta u-\nabla p,\qquad\operatorname{div}u=0,
+\]
+with \(\nu>0\) and smooth, divergence-free initial data \(u_0\in\mathcal{S}\). Let \(\omega=\nabla\times u\). The enstrophy \(\mathcal{E}(t)=\|\omega(t)\|_{L^2}^2\) satisfies the identity
+\[
+\frac12\frac{d}{dt}\mathcal{E}+\nu\|\nabla\omega\|_{L^2}^2=\int_{\mathbb{R}^3}\omega_i\omega_j\partial_j u_i\,dx.
+\]
+The stretching integral is estimated via the Biot–Savart law and the fact that \(\nabla u=\mathcal{R}(\omega)\) (matrix Riesz transforms). By the Coifman–Meyer theorem in the borderline space,
+\[
+\bigl|\int\omega_i\omega_j\partial_j u_i\bigr|\le C\|\omega\|_{L^2}^2\|\omega\|_{\mathrm{BMO}}.
+\]
+A standard logarithmic Sobolev inequality on \(\mathbb{R}^3\) then yields
+\[
+\|\omega\|_{\mathrm{BMO}}\le C\|\omega\|_{L^2}\bigl(1+\log(e+\|\nabla\omega\|_{L^2}/\|\omega\|_{L^2})\bigr).
+\]
+Substituting and absorbing the viscous term by Young’s inequality produces the differential inequality
+\[
+\frac{d}{dt}\mathcal{E}\le C\mathcal{E}^2\bigl(1+\log(e+\|\nabla\omega\|_{L^2}/\sqrt{\mathcal{E}})\bigr)^2.
+\]
+If one could replace the logarithm by a power strictly less than 1, a standard Osgood argument would give global boundedness of \(\mathcal{E}\) and hence, by the Beale–Kato–Majda criterion, global smoothness. The logarithm, however, is sharp: the Riesz-transform characterization of BMO admits sequences of divergence-free fields for which
+\[
+\|\omega\|_{\mathrm{BMO}}\ge c\|\omega\|_{L^2}\log(e+\|\nabla\omega\|_{L^2}/\|\omega\|_{L^2}).
+\]
+Consequently the a-priori estimate remains supercritical by precisely this logarithmic factor. No further isotropic Calderón–Zygmund or paraproduct refinement removes the log without additional geometric assumptions (e.g., directionally depleted vortex stretching). The same gap reappears when the argument is repeated in any scale-invariant space \(\dot{H}^{1/2+\varepsilon}\) or \(\mathrm{BMO}^{-1}\). Thus the enstrophy method, even after optimal endpoint harmonic analysis, does not close.
+
+VERDICT: FAILED
+REASON: Log-gap in BMO enstrophy estimate is sharp; no new closed a-priori bound obtained.
