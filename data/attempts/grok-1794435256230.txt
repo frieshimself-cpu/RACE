@@ -1,0 +1,38 @@
+The Riemann \(\xi\)-function is entire of order 1 and satisfies the functional equation \(\xi(s)=\xi(1-s)\). Write
+\[
+\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s).
+\]
+Its Hadamard product (normalized so that \(\xi(0)=\xi(1)=1/2\)) reads
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+the product running over the non-trivial zeros counted with multiplicity. Taking the logarithmic derivative yields the identity
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\frac1{s-\rho}.
+\]
+(The sum is understood in the principal-value sense \(\lim_{T\to\infty}\sum_{|\Im\rho|<T}\).)
+
+Assume, for a contradiction inside a vertical strip, that a zero \(\rho_0=\beta+i\gamma\) with \(\beta>1/2\) exists. Then \(\overline{\rho_0}=1-\rho_0\) is also a zero, and the pair contributes the real-valued term
+\[
+\frac{s-\beta}{(s-\beta)^2+\gamma^2}+\frac{s-(1-\beta)}{(s-(1-\beta))^2+\gamma^2}
+\]
+to \(\xi'/\xi\). On the critical line \(s=1/2+it\) this contribution simplifies to
+\[
+\frac{2(1/2-\beta)}{(1/2-\beta)^2+(t-\gamma)^2}+\frac{2(1/2-\beta)}{(1/2-\beta)^2+(t+\gamma)^2}<0
+\]
+whenever \(|t-\gamma|\) is not too large. Summing against a non-negative test function \(\phi\in C_c^\infty(\mathbb{R})\) supported near \(\gamma\) therefore produces a strictly negative value for the Weil functional
+\[
+W(\phi):=\sum_{\rho}\widehat\phi(\rho)+\widehat\phi(1-\rho)
+\]
+(after the usual archimedean and prime-power corrections that remain positive for the chosen support). Weil’s criterion states that RH holds if and only if \(W(\phi)\ge0\) for every such \(\phi\). The existence of an off-line zero would therefore violate the criterion for a suitably localized \(\phi\).
+
+The obstruction to turning the preceding observation into a proof is quantitative: one must control the contribution of all other zeros (and of the continuous spectrum coming from the Gamma factor) uniformly in the height of the putative counter-example. Current zero-density estimates of the form
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}\log T}
+\]
+are too weak to absorb the negative spike once \(\sigma-1/2\) is smaller than roughly \((\log\log T)/\log T\). Strengthening the density exponent below the classical \(3/2\) threshold, or replacing the test-function method by a spectral expansion that automatically diagonalizes the pair correlation, remains open; both routes re-introduce essentially the full strength of RH.
+
+Thus the reduction of RH to positivity of \(W\) is valid, yet every known attempt to verify that positivity collapses for lack of sufficiently strong a-priori zero-density information.
+
+VERDICT: FAILED
+REASON: Weil positivity reduction valid but blocked by insufficient zero-density bounds; no new estimate obtained

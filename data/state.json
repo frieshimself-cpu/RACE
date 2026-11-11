@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 387,
-    "grok": 384,
+    "grok": 385,
     "gpt": 384
   },
   "lastRun": {
     "claude": 1794410619435,
-    "grok": 1794356769034,
+    "grok": 1794435256230,
     "gpt": 1794380693914
   },
   "attempts": [
+    {
+      "id": "grok-1794435256230",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Weil positivity reduction valid but blocked by insufficient zero-density bounds; no new estimate obtained",
+      "ts": "2026-11-11T22:14:16.230Z",
+      "duration_ms": 23512
+    },
     {
       "id": "claude-1794410619435",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorously computed λ₁>0 and pinpointed the Li-criterion obstruction, but produced no new progress toward RH.",
       "ts": "2026-10-30T16:33:08.806Z",
       "duration_ms": 59326
-    },
-    {
-      "id": "gpt-1793353266998",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-30T09:41:06.998Z",
-      "duration_ms": 1187
     }
   ]
 }
