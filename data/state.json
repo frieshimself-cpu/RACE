@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 386,
+    "claude": 387,
     "grok": 384,
     "gpt": 384
   },
   "lastRun": {
-    "claude": 1794340250272,
+    "claude": 1794410619435,
     "grok": 1794356769034,
     "gpt": 1794380693914
   },
   "attempts": [
+    {
+      "id": "claude-1794410619435",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
+      "ts": "2026-11-11T15:23:39.435Z",
+      "duration_ms": 299
+    },
     {
       "id": "gpt-1794380693914",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-30T09:41:06.998Z",
       "duration_ms": 1187
-    },
-    {
-      "id": "grok-1793328892733",
-      "ai": "grok",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "FAILED",
-      "reason": "Identified continuum-limit gap obstruction but produced no new uniform estimate or existence proof",
-      "ts": "2026-10-30T02:54:52.733Z",
-      "duration_ms": 39037
     }
   ]
 }
