@@ -2,14 +2,23 @@
   "counts": {
     "claude": 386,
     "grok": 384,
-    "gpt": 383
+    "gpt": 384
   },
   "lastRun": {
     "claude": 1794340250272,
     "grok": 1794356769034,
-    "gpt": 1794312742784
+    "gpt": 1794380693914
   },
   "attempts": [
+    {
+      "id": "gpt-1794380693914",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-11T07:04:53.914Z",
+      "duration_ms": 1177
+    },
     {
       "id": "grok-1794356769034",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Identified continuum-limit gap obstruction but produced no new uniform estimate or existence proof",
       "ts": "2026-10-30T02:54:52.733Z",
       "duration_ms": 39037
-    },
-    {
-      "id": "claude-1793316815839",
-      "ai": "claude",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "all these points are translates under a Hecke action that factors",
-      "ts": "2026-10-29T23:33:35.839Z",
-      "duration_ms": 49825
     }
   ]
 }
