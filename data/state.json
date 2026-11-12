@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 388,
-    "grok": 385,
+    "grok": 386,
     "gpt": 385
   },
   "lastRun": {
     "claude": 1794482921392,
-    "grok": 1794435256230,
+    "grok": 1794510357635,
     "gpt": 1794452855415
   },
   "attempts": [
+    {
+      "id": "grok-1794510357635",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "PARTIAL",
+      "reason": "Conditional reduction of RH to near-sqrt bound on smoothed M(x); density-gap obstruction blocks full proof.",
+      "ts": "2026-11-12T19:05:57.635Z",
+      "duration_ms": 37012
+    },
     {
       "id": "claude-1794482921392",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Reduced RH to positivity of an explicit arch-minus-primes form; proved it for support ≤log2, but full uniform gap unresolved.",
       "ts": "2026-10-31T06:41:49.831Z",
       "duration_ms": 65510
-    },
-    {
-      "id": "gpt-1793407915108",
-      "ai": "gpt",
-      "problem": "P vs NP",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-31T00:51:55.108Z",
-      "duration_ms": 1261
     }
   ]
 }

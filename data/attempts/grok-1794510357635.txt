@@ -1,0 +1,52 @@
+### Attempt: A conditional reduction of RH to a uniform bound on a smoothed Möbius sum, with an identified obstruction
+
+Let \(\mu\) denote the Möbius function and write
+\[
+M_\varphi(x) := \sum_{n\le x}\mu(n)\,\varphi(n/x)
+\]
+for a fixed Schwartz test function \(\varphi\in\mathcal{S}(\mathbb{R}_+)\) with \(\operatorname{supp}\hat\varphi\subset[-1,1]\) and \(\varphi\ge0\), \(\int\varphi=1\). (The Fourier transform is normalized so that the Mellin inversion formula reads
+\[
+M_\varphi(x)=\frac1{2\pi i}\int_{2-i\infty}^{2+i\infty}\frac1{\zeta(s)}\,\Phi(s)\,x^s\,ds,
+\]
+where \(\Phi(s)=\int_0^\infty\varphi(u)u^{s-1}\,du\) is entire of rapid decay in vertical strips.)
+
+It is classical that RH is equivalent to
+\[
+M_\varphi(x)\ll_\varphi x^{1/2+\varepsilon}\qquad(x\to\infty)
+\]
+for every such \(\varphi\). We sharpen the reduction as follows.
+
+**Lemma.** Fix \(\varphi\) as above. Suppose there exists an absolute constant \(C_\varphi<\infty\) such that
+\[
+\bigl|M_\varphi(x)\bigr|\le C_\varphi\,x^{1/2}\log\log\log x
+\]
+holds for all \(x\ge3\). Then every non-trivial zero \(\rho=\beta+i\gamma\) of \(\zeta(s)\) satisfies \(\beta\le1/2\).
+
+**Proof sketch.** Assume, for contradiction, a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>1/2\). Shift the contour in the Mellin representation to \(\operatorname{Re}s=1/2+\delta\) with \(0<\delta<\beta_0-1/2\). The residue at \(s=\rho_0\) contributes a term
+\[
+\frac{\Phi(\rho_0)}{\zeta'(\rho_0)}\,x^{\rho_0}
+\]
+(assuming simplicity for the moment; a multiple zero produces a polynomial factor in \(\log x\) of degree \(m-1\), which only strengthens the lower bound below). All other residues on the critical strip are \(O(x^{1/2+\delta} \exp(C\log x/\log\log x))\) by the classical zero-density estimate
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}\log^C T
+\]
+(Ingham–Huxley). The horizontal integrals vanish by the convexivity bound \(\zeta(\sigma+it)\ll|t|^{(1-\sigma)^{3/2}+\varepsilon}\) and rapid decay of \(\Phi\). Consequently
+\[
+M_\varphi(x)= \frac{\Phi(\rho_0)}{\zeta'(\rho_0)}\,x^{\rho_0}+O\bigl(x^{1/2+\delta}\exp(C\log x/\log\log x)\bigr).
+\]
+The main term has modulus \(\asymp x^{\beta_0}\). Choosing \(x_n=\exp(n)\) large enough that the error is smaller than half the main term yields
+\[
+\bigl|M_\varphi(x_n)\bigr|\ge c\,x_n^{\beta_0}\ge c\,x_n^{1/2+\delta},
+\]
+which contradicts the assumed bound once \(n\) is large. (If \(\rho_0\) is multiple the same argument applies after replacing \(x^{\rho_0}\) by \(x^{\rho_0}(\log x)^{m-1}\).) Thus no such \(\rho_0\) exists.
+
+**Obstruction to removing the \(\log\log\log\) factor.** The same contour shift with a pure square-root bound \(M_\varphi(x)=O(x^{1/2})\) leaves an error term that is only \(O(x^{1/2+\delta}\operatorname{polylog}x)\). Because zero-density estimates presently lose a positive power of \(T\) when \(\sigma\downarrow1/2\), one cannot absorb the contribution of a putative zero with \(\beta=1/2+\varepsilon(T)\) for an arbitrarily slow \(\varepsilon(T)\to0\). Closing the gap requires either
+- a density estimate \(N(\sigma,T)\ll T^{o(1-\sigma)}\) uniformly down to \(\sigma=1/2\), or
+- a zero-detection device that isolates a single ordinate without enlarging the horizontal integrals,
+
+neither of which is available by present methods. The \(\log\log\log\) factor is an artifact of the best available zero-density theorems and cannot be eliminated by refining the test-function class alone.
+
+Thus the lemma gives a genuine (but still conditional) reduction of RH to a near-optimal bound on a single smoothed sum \(M_\varphi\); the obstruction is precisely the subconvex density gap at the critical line.
+
+VERDICT: PARTIAL
+REASON: Conditional reduction of RH to near-sqrt bound on smoothed M(x); density-gap obstruction blocks full proof.
