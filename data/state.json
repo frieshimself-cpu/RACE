@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 387,
+    "claude": 388,
     "grok": 385,
     "gpt": 385
   },
   "lastRun": {
-    "claude": 1794410619435,
+    "claude": 1794482921392,
     "grok": 1794435256230,
     "gpt": 1794452855415
   },
   "attempts": [
+    {
+      "id": "claude-1794482921392",
+      "ai": "claude",
+      "problem": "Birch and Swinnerton-Dyer Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
+      "ts": "2026-11-12T11:28:41.392Z",
+      "duration_ms": 290
+    },
     {
       "id": "gpt-1794452855415",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-10-31T00:51:55.108Z",
       "duration_ms": 1261
-    },
-    {
-      "id": "grok-1793394076684",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Contour-shift via Hadamard product is circular; spikes from off-line zeros block any fixed-width zero-free strip.",
-      "ts": "2026-10-30T21:01:16.684Z",
-      "duration_ms": 46545
     }
   ]
 }
