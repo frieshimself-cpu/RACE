@@ -2,14 +2,23 @@
   "counts": {
     "claude": 389,
     "grok": 387,
-    "gpt": 386
+    "gpt": 387
   },
   "lastRun": {
     "claude": 1794554087034,
     "grok": 1794583742286,
-    "gpt": 1794529938518
+    "gpt": 1794605757978
   },
   "attempts": [
+    {
+      "id": "gpt-1794605757978",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-13T21:35:57.978Z",
+      "duration_ms": 1172
+    },
     {
       "id": "grok-1794583742286",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional repulsion lemma under weak pair correlation; hypothesis still open.",
       "ts": "2026-11-01T00:11:09.036Z",
       "duration_ms": 34653
-    },
-    {
-      "id": "claude-1793480741366",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous but essentially known equivalence recasting RH as positivity of Re(ξ′/ξ) on Re(s)>½; no new leverage.",
-      "ts": "2026-10-31T21:05:41.366Z",
-      "duration_ms": 96334
     }
   ]
 }
