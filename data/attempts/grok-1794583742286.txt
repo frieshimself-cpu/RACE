@@ -1,0 +1,29 @@
+### Attempt: A conditional reduction via truncated explicit formulae and a parity obstruction
+
+Let \(\Xi(t) := \xi(1/2 + it)\) where \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) is the completed Riemann xi-function (entire of order 1, functional equation \(\xi(s)=\xi(1-s)\)). The non-trivial zeros of \(\zeta\) are precisely the zeros of \(\Xi\), and RH is equivalent to all zeros of \(\Xi\) being real.
+
+Write the Hadamard product (normalized so that the product converges in the usual way after removing the trivial factor)
+\[
+\xi(s) = \xi(0)\prod_{\rho}(1-s/\rho),
+\]
+the product running over zeros \(\rho=\beta+i\gamma\) with \(\beta\in(0,1)\). Taking logarithmic derivatives and inserting the explicit formula of Weil type for a compactly supported even test function \(g\in C_c^\infty(\mathbb{R})\) whose Fourier transform \(\hat g\) is entire of exponential type, one obtains the identity
+\[
+\sum_{\gamma}\hat g(\gamma) = \int_{-\infty}^{\infty}\hat g(t)\,d\bigl(\tfrac12\log(\pi^{-1}(t^2+\tfrac14))\bigr) + \sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\bigl(g(\log n)+g(-\log n)\bigr)
+\]
+(up to the contribution of the pole terms already absorbed into the archimedean integral).  
+
+**Lemma (parity obstruction for off-line zeros).**  
+Suppose there exists a zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>1/2\). By the functional equation there is a conjugate zero \(1-\rho_0\). Let \(g_\varepsilon\) be a non-negative approximate identity supported in \([-\varepsilon,\varepsilon]\) with \(\hat g_\varepsilon\ge0\) and \(\hat g_\varepsilon(\gamma_0)=1\). Scaling the test function to \(g_\varepsilon(\,\cdot\,-T)\) for large \(T\) near \(\gamma_0\) and letting \(\varepsilon\to0\) after a standard smoothing, the left-hand side of the explicit formula receives a contribution \(\asymp |\hat g(\gamma_0)|+|\hat g(-\gamma_0)|\) from the pair \(\{\rho_0,1-\rho_0\}\). The archimedean integral remains \(O(\log(|T|+2))\). The prime-power sum is bounded by
+\[
+\Bigl|\sum_{n\le X}\frac{\Lambda(n)}{\sqrt n}g(\log n-T)\Bigr|\le C_\varepsilon\,X^{1/2}\log X
+\]
+uniformly for \(T\) in compact sets (by the classical zero-free region and partial summation).  
+
+If one could choose the height \(T=\gamma_0\) so that the oscillatory prime sum cancelled the excess mass coming from \(\operatorname{Re}\rho_0>1/2\) while keeping \(\hat g\ge0\), a contradiction with the positivity of the right-hand side archimedean term would follow. However, the phase \(\mathrm{e}^{i\gamma_0\log n}\) is essentially independent of the slowly-varying archimedean weight; the best available cancellation (from the Vinogradov–Korobov zero-free region) only yields an error \(O(X\exp(-c(\log X)^{3/5}/(\log\log X)^{1/5}))\), which is larger than the putative excess \(X^{\beta_0-1/2}\) once \(\beta_0-1/2\) is smaller than the classical zero-free width. Thus the excess cannot be ruled out, and the positivity argument fails to produce a contradiction.
+
+The same obstruction appears for any fixed test-function family of compact support: the prime sum cannot be forced to have a definite sign at the scale needed to absorb a zero with \(\beta>1/2\) lying inside the classical zero-free region. Consequently the method yields no new zero-free strip and no proof that all zeros are real.
+
+(The argument is fully rigorous once the classical explicit formula and the Vinogradov–Korobov region are granted; the only gap is that the required sign-definite cancellation is unavailable.)
+
+VERDICT: FAILED
+REASON: Positivity/explicit-formula approach blocked by insufficient prime-sum cancellation inside classical zero-free region

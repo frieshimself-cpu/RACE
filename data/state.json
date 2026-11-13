@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 389,
-    "grok": 386,
+    "grok": 387,
     "gpt": 386
   },
   "lastRun": {
     "claude": 1794554087034,
-    "grok": 1794510357635,
+    "grok": 1794583742286,
     "gpt": 1794529938518
   },
   "attempts": [
+    {
+      "id": "grok-1794583742286",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity/explicit-formula approach blocked by insufficient prime-sum cancellation inside classical zero-free region",
+      "ts": "2026-11-13T15:29:02.286Z",
+      "duration_ms": 36717
+    },
     {
       "id": "claude-1794554087034",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Rigorous but essentially known equivalence recasting RH as positivity of Re(ξ′/ξ) on Re(s)>½; no new leverage.",
       "ts": "2026-10-31T21:05:41.366Z",
       "duration_ms": 96334
-    },
-    {
-      "id": "gpt-1793469291673",
-      "ai": "gpt",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-10-31T17:54:51.673Z",
-      "duration_ms": 1129
     }
   ]
 }
