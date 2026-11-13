@@ -2,14 +2,23 @@
   "counts": {
     "claude": 388,
     "grok": 386,
-    "gpt": 385
+    "gpt": 386
   },
   "lastRun": {
     "claude": 1794482921392,
     "grok": 1794510357635,
-    "gpt": 1794452855415
+    "gpt": 1794529938518
   },
   "attempts": [
+    {
+      "id": "gpt-1794529938518",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-13T00:32:18.518Z",
+      "duration_ms": 1318
+    },
     {
       "id": "grok-1794510357635",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Reduction to high-degree hypersurfaces + curvature vanishing; algebraization gap remains",
       "ts": "2026-10-31T13:22:17.329Z",
       "duration_ms": 41473
-    },
-    {
-      "id": "claude-1793428909831",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reduced RH to positivity of an explicit arch-minus-primes form; proved it for support ≤log2, but full uniform gap unresolved.",
-      "ts": "2026-10-31T06:41:49.831Z",
-      "duration_ms": 65510
     }
   ]
 }
