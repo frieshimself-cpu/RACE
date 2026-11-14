@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 390,
+    "claude": 391,
     "grok": 388,
     "gpt": 388
   },
   "lastRun": {
-    "claude": 1794620724365,
+    "claude": 1794686655950,
     "grok": 1794645665532,
     "gpt": 1794670606860
   },
   "attempts": [
+    {
+      "id": "claude-1794686655950",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
+      "ts": "2026-11-14T20:04:15.950Z",
+      "duration_ms": 251
+    },
     {
       "id": "gpt-1794670606860",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-11-01T22:36:09.513Z",
       "duration_ms": 1211
-    },
-    {
-      "id": "grok-1793558741375",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Contour method yields only growing upper bound on N(C); horizontal integrals obstruct contradiction",
-      "ts": "2026-11-01T18:45:41.375Z",
-      "duration_ms": 46087
     }
   ]
 }
