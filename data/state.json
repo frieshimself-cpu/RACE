@@ -2,14 +2,23 @@
   "counts": {
     "claude": 390,
     "grok": 388,
-    "gpt": 387
+    "gpt": 388
   },
   "lastRun": {
     "claude": 1794620724365,
     "grok": 1794645665532,
-    "gpt": 1794605757978
+    "gpt": 1794670606860
   },
   "attempts": [
+    {
+      "id": "gpt-1794670606860",
+      "ai": "gpt",
+      "problem": "P vs NP",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-14T15:36:46.860Z",
+      "duration_ms": 1137
+    },
     {
       "id": "grok-1794645665532",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Contour method yields only growing upper bound on N(C); horizontal integrals obstruct contradiction",
       "ts": "2026-11-01T18:45:41.375Z",
       "duration_ms": 46087
-    },
-    {
-      "id": "claude-1793540724383",
-      "ai": "claude",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "FAILED",
-      "reason": "Reproved strong-coupling lattice mass gap rigorously; continuum/uniform-in-spacing gap (the actual problem) untouched.",
-      "ts": "2026-11-01T13:45:24.383Z",
-      "duration_ms": 59019
     }
   ]
 }
