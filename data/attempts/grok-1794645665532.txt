@@ -1,0 +1,28 @@
+### Attempt: Constraint from the functional equation and growth on vertical lines
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). Then \(\xi\) is entire of order 1, satisfies \(\xi(s)=\xi(1-s)\), and the non-trivial zeros of \(\zeta\) are precisely the zeros of \(\xi\). Write \(s=\sigma+it\) with \(t\in\mathbb{R}\). The functional equation forces the zero set to be symmetric under \(\rho\mapsto 1-\rho\). Consequently it is enough to rule out zeros in the half-plane \(\sigma>1/2\).
+
+Assume for contradiction that \(\xi(\rho)=0\) for some \(\rho=\beta+i\gamma\) with \(\beta>1/2\). The Hadamard factorization (normalized so that the genus is 1)
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr)e^{s/\rho}
+\]
+converges uniformly on compact sets. Taking the logarithmic derivative yields
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\Bigl(\frac{1}{s-\rho}+\frac{1}{\rho}\Bigr).
+\]
+On the critical line \(\sigma=1/2\) the terms coming from a putative pair \(\rho,1-\rho\) with \(\beta\neq 1/2\) produce a non-real contribution to \(\operatorname{Im}(\xi'/\xi(1/2+it))\) whose size is
+\[
+\sim\frac{2(\beta-1/2)t}{(t-\gamma)^2+(\beta-1/2)^2}+O\bigl((|t|+1)^{-1}\bigr).
+\]
+Because \(\xi(1/2+it)\) is real-valued for real \(t\) (a classical consequence of the functional equation and the reflection formula for \(\Gamma\)), one must have \(\operatorname{Im}(\xi'/\xi(1/2+it))=0\) wherever \(\xi(1/2+it)\neq 0\). The displayed summand is therefore forced to cancel against the collective contribution of all other zeros.
+
+A crude density estimate (standard zero-density bound \(N(\sigma,T)\ll T^{c(1-\sigma)}\log T\) for any fixed \(\sigma>1/2\)) shows that the remaining zeros cannot supply a cancellation of the required strength uniformly in \(t\). More precisely, the \(L^1\)-mass of the discrepancy on \([T,2T]\) is
+\[
+\int_T^{2T}\Bigl|\operatorname{Im}\frac{\xi'}{\xi}\Bigl(\tfrac12+it\Bigr)\Bigr|\,dt\gg(\beta-1/2)\frac{T}{\log T},
+\]
+while the contribution admissible from zeros with real part \(\le 1/2+\delta\) is \(O(T^{1-\eta})\) for some \(\eta=\eta(\delta)>0\). Choosing \(\delta<\beta-1/2\) yields a contradiction for large \(T\).
+
+The argument collapses at the last step: the best available zero-density estimates are not strong enough to produce a positive power saving \(\eta>0\) uniformly down to the critical line; they deteriorate as \(\sigma\downarrow 1/2\). Thus the putative off-line zero is not ruled out, and the approach yields no new zero-free region.
+
+VERDICT: FAILED
+REASON: Density estimates too weak near \(\sigma=1/2\) to force cancellation contradiction
