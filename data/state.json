@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 389,
+    "claude": 390,
     "grok": 387,
     "gpt": 387
   },
   "lastRun": {
-    "claude": 1794554087034,
+    "claude": 1794620724365,
     "grok": 1794583742286,
     "gpt": 1794605757978
   },
   "attempts": [
+    {
+      "id": "claude-1794620724365",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
+      "ts": "2026-11-14T01:45:24.365Z",
+      "duration_ms": 173
+    },
     {
       "id": "gpt-1794605757978",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-11-01T06:22:35.905Z",
       "duration_ms": 1073
-    },
-    {
-      "id": "grok-1793491869036",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Conditional repulsion lemma under weak pair correlation; hypothesis still open.",
-      "ts": "2026-11-01T00:11:09.036Z",
-      "duration_ms": 34653
     }
   ]
 }
