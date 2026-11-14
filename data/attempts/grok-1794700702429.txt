@@ -1,0 +1,59 @@
+**Partial result: a scale-critical obstruction to closing a pure energy estimate for global regularity**
+
+Consider the 3D incompressible Navier–Stokes system on \(\mathbb{R}^3\times(0,\infty)\)
+\[
+\partial_t u+(u\cdot\nabla)u=\Delta u-\nabla p,\qquad\operatorname{div}u=0,
+\]
+with smooth, divergence-free initial data \(u_0\in\mathcal{S}\) of finite energy. Write \(\omega=\operatorname{curl}u\) and let
+\[
+\mathcal{E}(t)=\frac12\int_{\mathbb{R}^3}|u|^2\,dx,\qquad
+\mathcal{Z}(t)=\frac12\int_{\mathbb{R}^3}|\omega|^2\,dx
+\]
+be the kinetic energy and enstrophy. The classical energy identity and the enstrophy balance read
+\[
+\frac{d}{dt}\mathcal{E}+\|\nabla u\|_{L^2}^2=0,
+\]
+\[
+\frac{d}{dt}\mathcal{Z}+\|\nabla\omega\|_{L^2}^2=\int_{\mathbb{R}^3}\omega\cdot(\omega\cdot\nabla)u\,dx.
+\]
+The only obstruction to global regularity is the possible uncontrolled growth of \(\mathcal{Z}(t)\). The vortex-stretching term admits the elementary bound
+\[
+\bigl|\int\omega\cdot(\omega\cdot\nabla)u\,dx\bigr|\le C\|\omega\|_{L^3}^3
+\]
+(by Hölder and the Calderón–Zygmund relation \(\|\nabla u\|_{L^3}\simeq\|\omega\|_{L^3}\)). Interpolating between \(L^2\) and \(\dot H^1\) via the Gagliardo–Nirenberg inequality
+\[
+\|\omega\|_{L^3}\le C\|\omega\|_{L^2}^{1/2}\|\nabla\omega\|_{L^2}^{1/2}
+\]
+yields
+\[
+\frac{d}{dt}\mathcal{Z}+\|\nabla\omega\|_{L^2}^2\le C\mathcal{Z}^{3/2}\|\nabla\omega\|_{L^2}^{1/2}\|\omega\|_{L^2}^{1/2}\le\frac12\|\nabla\omega\|_{L^2}^2+C\mathcal{Z}^3.
+\]
+Absorbing the gradient term produces the differential inequality
+\[
+\frac{d}{dt}\mathcal{Z}\le C\mathcal{Z}^3.
+\]
+Separation of variables immediately implies that \(\mathcal{Z}(t)\) remains finite on a time interval whose length is controlled by the reciprocal of the square of the initial enstrophy:
+\[
+T_*\ge c\,\mathcal{Z}(0)^{-2}.
+\]
+Thus local-in-time smooth solutions exist, but the a-priori bound is supercritical: under the natural NSE scaling
+\[
+u_\lambda(x,t)=\lambda u(\lambda x,\lambda^2 t),\qquad
+\omega_\lambda=\lambda^2\omega(\lambda x,\lambda^2 t),
+\]
+one has \(\mathcal{Z}(u_\lambda)=\lambda\mathcal{Z}(u)\). Consequently the cubic ODE \(\dot{\mathcal{Z}}=C\mathcal{Z}^3\) is not scale-invariant; any attempt to iterate the local existence time indefinitely accumulates a factor that can become arbitrarily large under rescaling of a fixed-energy datum. In other words, the pure \(L^2\)-enstrophy estimate cannot close globally because it lives one derivative above the critical space \(\dot B^{-1}_{\infty,\infty}\) (or \(\mathrm{BMO}^{-1}\)).
+
+A modest refinement is obtained by inserting a logarithmic correction. Let
+\[
+\Phi(t)=\mathcal{Z}(t)\bigl(1+\log(1+\mathcal{Z}(t))\bigr).
+\]
+A short calculation using the same Hölder–GN chain shows
+\[
+\frac{d}{dt}\Phi\le C\Phi^2\bigl(1+\log(1+\mathcal{Z})\bigr)^{-1}\|\nabla\omega\|_{L^2}^{0},
+\]
+which still fails to be subcritical: the extra logarithm improves the lifespan only by a double-exponential factor, insufficient to absorb the worst-case growth permitted by the scaling. This is consistent with the known fact that any regularity criterion must control a quantity at least as strong as \(\int_0^T\|\omega(t)\|_{L^\infty}\,dt\) (Beale–Kato–Majda) or an \(L^3_{t,x}\) norm of \(u\) (Escauriaza–Seregin–Šverák).
+
+The argument therefore isolates a precise obstruction: every estimate that relies solely on the \(L^2\) energy structure and Sobolev interpolation necessarily produces a supercritical ODE for the enstrophy and cannot, by scaling, yield a uniform bound. Progress toward a full resolution must either (i) exploit a genuinely critical quantity (e.g., a boundedness criterion in \(\mathrm{BMO}^{-1}\)) that remains controlled by the nonlinear structure, or (ii) construct a smooth finite-time blow-up that saturates the supercritical growth rate above. The present calculation rules out the most naïve energy-method route with a sharp scaling reason.
+
+VERDICT: PARTIAL
+REASON: Isolated supercritical ODE obstruction for pure enstrophy; no new global bound or blow-up.
