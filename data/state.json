@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 391,
+    "claude": 392,
     "grok": 389,
     "gpt": 389
   },
   "lastRun": {
-    "claude": 1794686655950,
+    "claude": 1794751492018,
     "grok": 1794700702429,
     "gpt": 1794722943058
   },
   "attempts": [
+    {
+      "id": "claude-1794751492018",
+      "ai": "claude",
+      "problem": "Yang–Mills Existence and Mass Gap",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
+      "ts": "2026-11-15T14:04:52.018Z",
+      "duration_ms": 275
+    },
     {
       "id": "gpt-1794722943058",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-11-02T19:22:20.846Z",
       "duration_ms": 1660
-    },
-    {
-      "id": "grok-1793609843870",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Sign obstruction from Hadamard product incompatible with functional equation without Euler-product positivity, which is unavailable for \\(\\sigma\\le1\\).",
-      "ts": "2026-11-02T08:57:23.870Z",
-      "duration_ms": 33256
     }
   ]
 }
