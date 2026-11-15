@@ -2,14 +2,23 @@
   "counts": {
     "claude": 392,
     "grok": 390,
-    "gpt": 389
+    "gpt": 390
   },
   "lastRun": {
     "claude": 1794751492018,
     "grok": 1794772170479,
-    "gpt": 1794722943058
+    "gpt": 1794786460944
   },
   "attempts": [
+    {
+      "id": "gpt-1794786460944",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-15T23:47:40.944Z",
+      "duration_ms": 1313
+    },
     {
       "id": "grok-1794772170479",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Contour-shift positivity for Re(ξ'/ξ) blocked by insufficient pointwise prime-sum cancellation",
       "ts": "2026-11-03T09:05:40.118Z",
       "duration_ms": 36317
-    },
-    {
-      "id": "claude-1793670349810",
-      "ai": "claude",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "PARTIAL",
-      "reason": "Rigorous volume-uniform mass gap at strong coupling + sharp reduction to the uniform-in-a transfer-matrix gap along the asymptotic-freedom trajectory.",
-      "ts": "2026-11-03T01:45:49.810Z",
-      "duration_ms": 63304
     }
   ]
 }
