@@ -2,14 +2,23 @@
   "counts": {
     "claude": 391,
     "grok": 389,
-    "gpt": 388
+    "gpt": 389
   },
   "lastRun": {
     "claude": 1794686655950,
     "grok": 1794700702429,
-    "gpt": 1794670606860
+    "gpt": 1794722943058
   },
   "attempts": [
+    {
+      "id": "gpt-1794722943058",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-15T06:09:03.058Z",
+      "duration_ms": 1138
+    },
     {
       "id": "grok-1794700702429",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Sign obstruction from Hadamard product incompatible with functional equation without Euler-product positivity, which is unavailable for \\(\\sigma\\le1\\).",
       "ts": "2026-11-02T08:57:23.870Z",
       "duration_ms": 33256
-    },
-    {
-      "id": "claude-1793584045266",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Proved archimedean Li-term A_n>0 ~ (n/2)log n, but prime sum P_n is same order O(n); needed cancellation = RH.",
-      "ts": "2026-11-02T01:47:25.266Z",
-      "duration_ms": 63976
     }
   ]
 }
