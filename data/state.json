@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 392,
+    "claude": 393,
     "grok": 390,
     "gpt": 390
   },
   "lastRun": {
-    "claude": 1794751492018,
+    "claude": 1794805767587,
     "grok": 1794772170479,
     "gpt": 1794786460944
   },
   "attempts": [
+    {
+      "id": "claude-1794805767587",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
+      "ts": "2026-11-16T05:09:27.587Z",
+      "duration_ms": 276
+    },
     {
       "id": "gpt-1794786460944",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-11-03T17:08:36.401Z",
       "duration_ms": 1268
-    },
-    {
-      "id": "grok-1793696740118",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Contour-shift positivity for Re(ξ'/ξ) blocked by insufficient pointwise prime-sum cancellation",
-      "ts": "2026-11-03T09:05:40.118Z",
-      "duration_ms": 36317
     }
   ]
 }
