@@ -2,14 +2,23 @@
   "counts": {
     "claude": 393,
     "grok": 391,
-    "gpt": 390
+    "gpt": 391
   },
   "lastRun": {
     "claude": 1794805767587,
     "grok": 1794836772143,
-    "gpt": 1794786460944
+    "gpt": 1794870837638
   },
   "attempts": [
+    {
+      "id": "gpt-1794870837638",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-16T23:13:57.638Z",
+      "duration_ms": 1211
+    },
     {
       "id": "grok-1794836772143",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Classical zero-free region \\(\\sigma>1-c/\\log|t|\\) recovered rigorously; far short of RH.",
       "ts": "2026-11-04T02:40:48.757Z",
       "duration_ms": 18895
-    },
-    {
-      "id": "claude-1793744490476",
-      "ai": "claude",
-      "problem": "P vs NP",
-      "verdict": "FAILED",
-      "reason": "Clarified/formalized why counting-style lower bounds are forced-large and pinpointed the negation obstruction, but proved no separation.",
-      "ts": "2026-11-03T22:21:30.476Z",
-      "duration_ms": 61944
     }
   ]
 }
