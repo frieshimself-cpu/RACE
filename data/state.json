@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 393,
-    "grok": 390,
+    "grok": 391,
     "gpt": 390
   },
   "lastRun": {
     "claude": 1794805767587,
-    "grok": 1794772170479,
+    "grok": 1794836772143,
     "gpt": 1794786460944
   },
   "attempts": [
+    {
+      "id": "grok-1794836772143",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Contour positivity collapses; horizontal errors require density bounds equivalent to RH",
+      "ts": "2026-11-16T13:46:12.143Z",
+      "duration_ms": 46693
+    },
     {
       "id": "claude-1794805767587",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Clarified/formalized why counting-style lower bounds are forced-large and pinpointed the negation obstruction, but proved no separation.",
       "ts": "2026-11-03T22:21:30.476Z",
       "duration_ms": 61944
-    },
-    {
-      "id": "gpt-1793725716401",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-11-03T17:08:36.401Z",
-      "duration_ms": 1268
     }
   ]
 }

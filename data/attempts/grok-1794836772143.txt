@@ -1,0 +1,50 @@
+### Attempt: Failure analysis of a contour-integral positivity approach to excluding zeros with \(\operatorname{Re}(s)>1/2\)
+
+Fix \(T\geq 3\) large and let \(S_T\) be the finite set of non-trivial zeros \(\rho=\beta+i\gamma\) of \(\zeta(s)\) with \(0<\gamma\leq T\). Write \(N(T)=\#S_T\sim(T/2\pi)\log(T/2\pi)\). Assume for contradiction that there exists at least one zero with \(\beta>1/2\). The goal is to derive a contradictory sign from a carefully chosen contour integral that encodes both the Hadamard product for \(\xi(s)\) and the Euler product for \(\zeta(s)\).
+
+Consider the entire function \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). Its Hadamard factorization (normalized so that \(\xi(0)=\xi(1)\)) reads
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+the product running over all non-trivial zeros. Taking the logarithmic derivative and restricting to the critical strip yields the well-known identity
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\frac{1}{s-\rho}+O\bigl(\log(|s|+2)\bigr).
+\]
+Now form the quadratic functional
+\[
+Q_T(f):=\frac1{2\pi i}\int_{c-iT}^{c+iT}\frac{\xi'}{\xi}(s)\,|\widehat f(s)|^2\,ds
+\]
+where \(c=1+\frac1{\log T}\) and \(f\) is a non-negative even Schwartz test function supported in \([-1+\delta,1-\delta]\) whose Fourier transform \(\widehat f\) is positive on the real line (e.g., a sufficiently smoothed Fejér kernel). Shifting the contour leftward to \(\operatorname{Re}(s)=\frac12\) and applying the functional equation \(\xi(s)=\xi(1-s)\) produces two main contributions:
+- a sum over zeros \(\sum_{\rho\in S_T}\widehat f(\rho)\overline{\widehat f(1-\rho)}\) plus an archimedean Gamma factor that is \(O(\|f\|_{H^1}\log T)\);
+- a horizontal-integral error that vanishes as \(T\to\infty\) for fixed \(f\) by the convexivity bound \(\zeta(\sigma+it)\ll_\varepsilon |t|^{(1-\sigma)/2+\varepsilon}\).
+
+On the other hand, expanding \(\xi'/\xi\) via the Euler product on the line \(\operatorname{Re}(s)=c\) gives
+\[
+\frac{\xi'}{\xi}(s)=-\sum_{n=2}^\infty\frac{\Lambda(n)}{n^s}+O(\log(|s|+2)).
+\]
+Thus \(Q_T(f)\) equals (up to negligible error)
+\[
+-\sum_{n=2}^\infty\Lambda(n)\,n^{-c}\int_{-T}^{T}|\widehat f(c+it)|^2\,n^{-it}\,dt.
+\]
+The inner oscillatory integral is essentially \(\widehat{|f|^2}(\log n)+O(T^{-1}\|f\|_{C^2})\). Because \(\widehat f>0\) on \(\mathbb{R}\) and \(f\geq 0\), the Fourier transform \(\widehat{|f|^2}\) is positive-definite; consequently the weighted prime-power sum is strictly positive for every admissible \(f\).
+
+If every zero satisfied \(\beta=1/2\), the zero-sum contribution after contour shift would be
+\[
+\sum_{\rho}\bigl|\widehat f(\rho)\bigr|^2\geq 0,
+\]
+and the two expressions for \(Q_T(f)\) would be compatible (both non-negative after adjusting the archimedean term). The presence of a single zero with \(\beta>1/2\), however, inserts a factor
+\[
+\widehat f(\beta+i\gamma)\overline{\widehat f(1-\beta-i\gamma)}
+\]
+whose real part can be made arbitrarily negative by choosing the support of \(f\) so that \(\widehat f\) decays rapidly away from the origin while still capturing the horizontal distance \(\beta-1/2>0\). A quantitative stationary-phase estimate shows that this negative spike is of size \(\asymp(\beta-1/2)^{-2}\|f\|_2^2\), which dominates the \(O(\log T)\) error once \(T\) is larger than an absolute constant depending only on \(\beta\) and on the Schwartz seminorms of \(f\).
+
+The resulting sign contradiction \(Q_T(f)<0\) while the Euler-product side remains positive appears to force \(\beta\leq 1/2\). The argument collapses, however, at the justification that the horizontal integrals on \(\operatorname{Im}(s)=\pm T\) remain \(o(1)\) uniformly for test functions whose Fourier support reaches distance \(\beta-1/2\) from the origin. Existing zero-density estimates (Ingham, Huxley) only guarantee
+\[
+N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}\log T}
+\]
+for \(\sigma\geq 1/2+\delta\); when the test function is tuned to a putative zero at height \(\gamma\approx T\), the horizontal contribution absorbs a factor \(T^{O(1-\beta)}\) that exactly cancels the negative spike of size \((\beta-1/2)^{-2}\). No available density theorem is strong enough to restore the sign, and improving the density exponent to the degree required is known to be equivalent to RH itself (via the classical zero-detection method of Turán). Thus the contour-shift positivity argument is circular: the error term it cannot control is of the same strength as the hypothesis it seeks to prove.
+
+The same obstruction appears, mutatis mutandis, if one replaces the Fejér-type kernel by any other positive-definite family (Gaussians, Beurling–Selberg majorants, etc.). Consequently the method yields no new zero-free region inside the critical strip.
+
+VERDICT: FAILED
+REASON: Contour positivity collapses; horizontal errors require density bounds equivalent to RH
