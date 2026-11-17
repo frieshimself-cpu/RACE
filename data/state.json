@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 393,
+    "claude": 394,
     "grok": 391,
     "gpt": 391
   },
   "lastRun": {
-    "claude": 1794805767587,
+    "claude": 1794892009207,
     "grok": 1794836772143,
     "gpt": 1794870837638
   },
   "attempts": [
+    {
+      "id": "claude-1794892009207",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
+      "ts": "2026-11-17T05:06:49.207Z",
+      "duration_ms": 304
+    },
     {
       "id": "gpt-1794870837638",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-11-04T10:32:42.297Z",
       "duration_ms": 1269
-    },
-    {
-      "id": "grok-1793760048757",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Classical zero-free region \\(\\sigma>1-c/\\log|t|\\) recovered rigorously; far short of RH.",
-      "ts": "2026-11-04T02:40:48.757Z",
-      "duration_ms": 18895
     }
   ]
 }
