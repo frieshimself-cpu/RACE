@@ -1,0 +1,36 @@
+### Attempt: A conditional reduction via truncated explicit formulae and a positivity obstruction
+
+Let \(\Xi(t) := \xi(1/2 + it)\), where \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The Riemann Hypothesis is equivalent to \(\Xi(t) \neq 0\) for all non-real \(t\). Write the Hadamard product (normalized so that the product converges absolutely after the usual Weierstrass factor)
+\[
+\Xi(t) = \Xi(0)\prod_{\rho} \Bigl(1 - \frac{t}{\gamma}\Bigr)e^{t/\gamma},
+\]
+the product running over the imaginary parts \(\gamma\) of the non-trivial zeros (counted with multiplicity). Taking the logarithmic derivative yields the identity
+\[
+\frac{\Xi'}{\Xi}(t) = \sum_{\gamma}\frac{1}{t-\gamma}
+\]
+(valid off the zeros).  
+
+Now fix a smooth even test function \(g\in C_c^\infty(\mathbb{R})\) whose Fourier transform \(\hat g\) is supported in \((-1,1)\). The Weil explicit formula specialized to the critical line reads
+\[
+\sum_{\gamma}\hat g(\gamma) = \hat g(0)\frac{\Omega'}{\Omega}(0) - g(0)\log\pi + \frac1{2\pi}\int_{-\infty}^{\infty}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14 + \tfrac{it}2\Bigr)\hat g(t)\,dt
+\]
+\[
+- \sum_{n=2}^{\infty}\frac{\Lambda(n)}{\sqrt n}\bigl(g(\log n)+g(-\log n)\bigr),
+\]
+where \(\Omega(s) = s(s-1)\pi^{-s/2}\Gamma(s/2)\). (The archimedean contribution is entire of order 1 and the prime sum is absolutely convergent under the support restriction on \(\hat g\).)
+
+**Lemma (conditional positivity).** Suppose there exists a sequence of admissible test functions \(g_N\) such that
+1. \(\hat g_N\ge 0\) everywhere,
+2. \(\hat g_N(\gamma)\ge 1\) for every ordinate \(\gamma\) with \(|\operatorname{Re}\rho-1/2|\ge\delta>0\) and \(|\gamma|\le N\),
+3. the prime-sum side remains \(O(1)\) uniformly in \(N\) while the archimedean integral grows at most like \(o(\#\{\gamma:|\gamma|\le N\})\).
+
+Then no such zeros with \(|\operatorname{Re}\rho-1/2|\ge\delta\) can exist, because the left-hand side would be \(\gg N\log N\) while the right-hand side would be \(o(N\log N)\), a contradiction.
+
+**Obstruction.** The only known constructions of non-negative \(\hat g\) with controlled support (Beurling–Selberg majorants, or optimized polynomials in the Li coefficients) force the prime-sum side to acquire a large negative contribution precisely when one tries to inflate the mass of \(\hat g\) off the critical line. In other words, the arithmetic side “detects” the would-be off-line zeros faster than the archimedean side can compensate, but the same detection mechanism prevents the test functions from satisfying condition 2 for any fixed \(\delta>0\) and arbitrarily large \(N\). Consequently the reduction cannot be closed unconditionally; it merely recovers the classical zero-free region of the form \(\sigma\ge 1-c(\log|t|)^{-2/3}(\log\log|t|)^{-1/3}\) when the support of \(\hat g\) is allowed to shrink slowly.
+
+The same obstruction appears if one replaces the explicit formula by Li’s criterion: the numbers \(\lambda_n = \sum_{\rho}(1-(1-1/\rho)^n)\) remain non-negative for all computed \(n\) up to several thousand, yet no inductive step propagates the inequality from \(n\le N\) to \(n=N+1\) without an a-priori bound on the horizontal distribution of zeros that is already comparable in strength to RH itself.
+
+Thus the approach yields a clean conditional implication “sufficiently strong positivity of a family of explicit formulae \(\implies\) RH”, but the required positivity lies at the same depth as the original hypothesis.
+
+VERDICT: FAILED
+REASON: Positivity reduction via explicit formulae blocked by arithmetic-archimedean tension; no new unconditional zero-free information.

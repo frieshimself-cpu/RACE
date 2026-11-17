@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 394,
-    "grok": 391,
+    "grok": 392,
     "gpt": 391
   },
   "lastRun": {
     "claude": 1794892009207,
-    "grok": 1794836772143,
+    "grok": 1794926243672,
     "gpt": 1794870837638
   },
   "attempts": [
+    {
+      "id": "grok-1794926243672",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity reduction via explicit formulae blocked by arithmetic-archimedean tension; no new unconditional zero-free information.",
+      "ts": "2026-11-17T14:37:23.672Z",
+      "duration_ms": 33276
+    },
     {
       "id": "claude-1794892009207",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "Reduced RH to Weil positivity, proved non-locality and exact pole–prime leading cancellation, but closed no gap.",
       "ts": "2026-11-04T18:12:59.744Z",
       "duration_ms": 57821
-    },
-    {
-      "id": "gpt-1793788362297",
-      "ai": "gpt",
-      "problem": "Hodge Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-11-04T10:32:42.297Z",
-      "duration_ms": 1269
     }
   ]
 }
