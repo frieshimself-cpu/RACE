@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 394,
+    "claude": 395,
     "grok": 392,
     "gpt": 392
   },
   "lastRun": {
-    "claude": 1794892009207,
+    "claude": 1794973906361,
     "grok": 1794926243672,
     "gpt": 1794955112582
   },
   "attempts": [
+    {
+      "id": "claude-1794973906361",
+      "ai": "claude",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
+      "ts": "2026-11-18T03:51:46.361Z",
+      "duration_ms": 202
+    },
     {
       "id": "gpt-1794955112582",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-11-05T05:30:07.359Z",
       "duration_ms": 1110
-    },
-    {
-      "id": "grok-1793835912252",
-      "ai": "grok",
-      "problem": "P vs NP",
-      "verdict": "FAILED",
-      "reason": "Only restates BGS relativization barrier; no new separation or non-relativizing technique.",
-      "ts": "2026-11-04T23:45:12.252Z",
-      "duration_ms": 27678
     }
   ]
 }
