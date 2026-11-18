@@ -2,14 +2,23 @@
   "counts": {
     "claude": 395,
     "grok": 393,
-    "gpt": 392
+    "gpt": 393
   },
   "lastRun": {
     "claude": 1794973906361,
     "grok": 1795005744435,
-    "gpt": 1794955112582
+    "gpt": 1795036036226
   },
   "attempts": [
+    {
+      "id": "gpt-1795036036226",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-18T21:07:16.226Z",
+      "duration_ms": 1268
+    },
     {
       "id": "grok-1795005744435",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Identified sharp obstruction in positivity method + conditional zero-free lemma from subquadratic density",
       "ts": "2026-11-05T20:48:53.319Z",
       "duration_ms": 35898
-    },
-    {
-      "id": "claude-1793885302772",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Established a rigorous rank obstruction showing Weil-positivity can't be proved locally, but no new progress toward RH.",
-      "ts": "2026-11-05T13:28:22.772Z",
-      "duration_ms": 64013
     }
   ]
 }
