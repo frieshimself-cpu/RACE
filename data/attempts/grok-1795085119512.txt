@@ -1,0 +1,35 @@
+### Attempt: Obstruction to lifting p-adic BSD equalities to the complex L-function via control theorems
+
+Let \(E/\mathbb{Q}\) be an elliptic curve of conductor \(N\), with \(L(E,s)\) its Hasse-Weil \(L\)-function. Write \(r_{\mathrm{an}}=\mathrm{ord}_{s=1}L(E,s)\) and \(r=\mathrm{rank}\,E(\mathbb{Q})\). Assume \(E\) has good ordinary reduction at a fixed odd prime \(p\nmid N\). Let \(\Lambda=\mathbb{Z}_p[[\Gamma]]\) (\(\Gamma\simeq\mathbb{Z}_p\)) be the Iwasawa algebra, \(X_\infty\) the Pontryagin dual of the \(p^\infty\)-Selmer group over the cyclotomic \(\mathbb{Z}_p\)-extension, and \(f_E\in\Lambda\) a characteristic power series (existing by Kato’s Euler system). The main conjecture (now a theorem of Skinner–Urban in the ordinary case under mild hypotheses) equates the ideal \((f_E)\) with the characteristic ideal of \(X_\infty\).
+
+The \(p\)-adic BSD statement that follows from control theorems (Mazur, Greenberg, Perrin-Riou) is an equality of the form
+\[
+\mathrm{ord}_{T=0}f_E(T)=r,\qquad
+\frac{f_E(T)}{T^r}\Big|_{T=0}\;\sim\;
+\frac{\#\Sha(E/\mathbb{Q})[p^\infty]\cdot\mathrm{Reg}_p(E)\cdot\prod c_v}{\#E(\mathbb{Q})_{\mathrm{tors}}^2}
+\]
+(up to a computable \(p\)-adic period and the product of local Tamagawa factors already visible in the Euler factors). This is unconditional for \(r\le1\) in a density-one set of ordinary primes once the complex \(L\)-value is known to be non-zero (Kolyvagin–Flach–Kato).
+
+**Lemma (non-ascent of leading-term data).** Suppose \(r_{\mathrm{an}}=r=0\) and the \(p\)-adic leading-term formula holds for infinitely many ordinary \(p\). Then the complex BSD formula
+\[
+L(E,1)=\frac{\#\Sha(E/\mathbb{Q})\cdot\Omega_E\cdot\prod c_v}{\#E(\mathbb{Q})_{\mathrm{tors}}^2}
+\]
+does *not* follow by any direct limit or interpolation argument that uses only the control maps
+\[
+\mathrm{Sel}_{p^\infty}(E/\mathbb{Q})\otimes\mathbb{Q}_p/\mathbb{Z}_p\;\hookrightarrow\;
+\mathrm{Sel}_{p^\infty}(E/\mathbb{Q}_\infty)^{\Gamma}
+\]
+and the fact that the \(p\)-adic \(L\)-function interpolates the algebraic parts of \(L(E,\chi,1)\).
+
+*Proof sketch.* The \(p\)-adic \(L\)-function \(L_p(E,T)\) is related to \(f_E\) by a \(\Lambda\)-adic period that is a unit in \(\mathbb{Z}_p[[T]]^\times\) only after localisation away from the trivial character. At the trivial character the interpolation factor contains the term \((1-a_p p^{-1}+p^{-1})\) which vanishes to order exactly one when \(a_p=1\) (anomalous primes). Even after removing those primes, the ratio
+\[
+\frac{L_p(E,0)}{L(E,1)/\Omega_E}
+\]
+is a \(p\)-adic unit times an Euler factor at \(p\), but the global Sha order appearing in the \(p\)-adic formula is only the \(p\)-primary part. Passing to the inverse limit over \(p\) therefore recovers only the product of the \(p\)-parts of \(\#\Sha\), never the full integer \(\#\Sha\). Moreover the archimedean period \(\Omega_E\) is invisible to all \(p\)-adic measures; any attempt to reconstruct it from the collection of \(p\)-adic periods \(\Omega_p\) fails because the latter are defined via the formal group logarithm and bear no canonical relation to the Néron differential over \(\mathbb{R}\). Hence the complex leading-term identity cannot be assembled from the family of \(p\)-adic identities.
+
+The same obstruction persists for \(r\ge1\): the \(p\)-adic regulator is a determinant of \(p\)-adic logarithms of a basis of \(E(\mathbb{Q})\otimes\mathbb{Z}_p\), while the complex regulator uses the Néron–Tate height pairing; these two pairings are related by a \(p\)-adic height interpolation formula whose leading coefficient again involves only \(p\)-primary Sha data.
+
+Consequently every known descent from the main conjecture yields only a \(p\)-local fragment of BSD. A global lifting would require an independent determination of the prime-to-\(p\) part of Sha (or a comparison isomorphism between \(p\)-adic and archimedean regulators that does not itself presuppose BSD), which is presently unavailable.
+
+VERDICT: FAILED
+REASON: Only exhibits a structural obstruction; yields no new equality or reduction toward BSD.
