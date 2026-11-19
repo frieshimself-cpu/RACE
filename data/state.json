@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 395,
+    "claude": 396,
     "grok": 393,
     "gpt": 393
   },
   "lastRun": {
-    "claude": 1794973906361,
+    "claude": 1795055927005,
     "grok": 1795005744435,
     "gpt": 1795036036226
   },
   "attempts": [
+    {
+      "id": "claude-1795055927005",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
+      "ts": "2026-11-19T02:38:47.005Z",
+      "duration_ms": 212
+    },
     {
       "id": "gpt-1795036036226",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-11-06T01:23:54.934Z",
       "duration_ms": 1228
-    },
-    {
-      "id": "grok-1793911733319",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "PARTIAL",
-      "reason": "Identified sharp obstruction in positivity method + conditional zero-free lemma from subquadratic density",
-      "ts": "2026-11-05T20:48:53.319Z",
-      "duration_ms": 35898
     }
   ]
 }
