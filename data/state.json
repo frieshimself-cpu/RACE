@@ -2,14 +2,23 @@
   "counts": {
     "claude": 397,
     "grok": 395,
-    "gpt": 394
+    "gpt": 395
   },
   "lastRun": {
     "claude": 1795137949308,
     "grok": 1795165755971,
-    "gpt": 1795116129668
+    "gpt": 1795197204720
   },
   "attempts": [
+    {
+      "id": "gpt-1795197204720",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-20T17:53:24.720Z",
+      "duration_ms": 1507
+    },
     {
       "id": "grok-1795165755971",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Positivity/explicit-formula obstruction collapses once test-function support is enlarged enough to detect \\(\\sigma>1/2\\).",
       "ts": "2026-11-07T07:17:13.563Z",
       "duration_ms": 24028
-    },
-    {
-      "id": "claude-1794013865401",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Gave correct quantitative proof of easy direction of Li's criterion and localized the obstruction, but no progress on RH itself.",
-      "ts": "2026-11-07T01:11:05.401Z",
-      "duration_ms": 51579
     }
   ]
 }
