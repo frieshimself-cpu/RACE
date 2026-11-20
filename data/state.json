@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 397,
+    "claude": 398,
     "grok": 395,
     "gpt": 395
   },
   "lastRun": {
-    "claude": 1795137949308,
+    "claude": 1795218235164,
     "grok": 1795165755971,
     "gpt": 1795197204720
   },
   "attempts": [
+    {
+      "id": "claude-1795218235164",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
+      "ts": "2026-11-20T23:43:55.164Z",
+      "duration_ms": 208
+    },
     {
       "id": "gpt-1795197204720",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-11-07T14:09:39.201Z",
       "duration_ms": 1221
-    },
-    {
-      "id": "grok-1794035833563",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Positivity/explicit-formula obstruction collapses once test-function support is enlarged enough to detect \\(\\sigma>1/2\\).",
-      "ts": "2026-11-07T07:17:13.563Z",
-      "duration_ms": 24028
     }
   ]
 }
