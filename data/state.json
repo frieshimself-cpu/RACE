@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 396,
+    "claude": 397,
     "grok": 394,
     "gpt": 394
   },
   "lastRun": {
-    "claude": 1795055927005,
+    "claude": 1795137949308,
     "grok": 1795085119512,
     "gpt": 1795116129668
   },
   "attempts": [
+    {
+      "id": "claude-1795137949308",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
+      "ts": "2026-11-20T01:25:49.308Z",
+      "duration_ms": 206
+    },
     {
       "id": "gpt-1795116129668",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-11-06T21:35:46.507Z",
       "duration_ms": 1116
-    },
-    {
-      "id": "grok-1793981641853",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Reduction to short-interval subconvexity is circular; density gap blocks bootstrap at the critical line.",
-      "ts": "2026-11-06T16:14:01.853Z",
-      "duration_ms": 50593
     }
   ]
 }
