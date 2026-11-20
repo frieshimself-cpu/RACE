@@ -1,0 +1,47 @@
+### Attempt: Obstruction in the Weil positivity criterion via a compactly supported test function family
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The completed \(\xi\) is entire of order 1, real on the critical line, and satisfies \(\xi(s)=\xi(1-s)\). Write the non-trivial zeros as \(\rho=\beta+i\gamma\). The Riemann–Weil explicit formula asserts that for every even Schwartz test function \(g\) whose Fourier transform
+\[
+\widehat g(x)=\int_{-\infty}^\infty g(t)e^{ixt}\,dt
+\]
+is supported in \((-1,1)\),
+\[
+\sum_{\rho}\widehat g(\gamma_\rho)=\widehat g\Bigl(\tfrac i2\Bigr)+\widehat g\Bigl(-\tfrac i2\Bigr)-\sum_p\sum_{m\ge1}\frac{\log p}{p^{m/2}}\bigl(g(m\log p)+g(-m\log p)\bigr)
+\]
+plus an elementary archimedean contribution coming from the Gamma factor (explicitly a rapidly decaying integral involving \(\operatorname{Re}\frac{\Gamma'}{\Gamma}(\frac14+\frac{it}2)\)).  
+
+Weil’s criterion states that RH holds if and only if the quadratic form
+\[
+Q(g):=\sum_{\rho}\widehat g(\gamma_\rho)
+\]
+is non-negative for every such \(g\not\equiv0\) with \(\widehat g\ge0\) on \(\mathbb R\). (The “if” direction follows because a zero with \(\beta\neq1/2\) produces a pair \(\rho,1-\rho\) whose contribution can be made negative by a suitable positive-definite \(\widehat g\) concentrated near \(\pm\operatorname{Im}\rho\).)
+
+#### Concrete obstruction for a natural family
+Consider the one-parameter family of even tent functions whose Fourier transforms are the non-negative Fejér kernels
+\[
+\widehat g_\lambda(\xi)=\bigl(1-|\xi|/\lambda\bigr)_+,\qquad 0<\lambda<1.
+\]
+Then \(g_\lambda\) is continuous, compactly supported in \((-1,1)\) after a standard mollification of width \(\varepsilon\ll1-\lambda\), and the explicit formula applies. The prime-power sum is
+\[
+\sum_{p^m} \frac{\log p}{p^{m/2}}g_\lambda(m\log p)=O\bigl(\lambda^{-1}e^{-c/\lambda}\bigr)
+\]
+by the prime-number theorem with classical zero-free region; the archimedean term is \(O(\log\lambda)\). Consequently
+\[
+Q(g_\lambda)=\sum_{\rho}\widehat g_\lambda(\gamma_\rho)=2+O(\lambda^{-1}e^{-c/\lambda})+O(\log\lambda).
+\]
+If all \(\lvert\gamma_\rho\rvert\) were bounded below by a positive constant independent of the zero, the left-hand side would be asymptotically \(2N(T)\) times the average of \(\widehat g_\lambda\) and positivity would be immediate. In reality the zeros may accumulate at height zero (they do not, but the argument cannot use that). More decisively, the contribution of a hypothetical zero \(\rho_0=\beta_0+i\gamma_0\) with \(\beta_0>1/2\) and \(\lvert\gamma_0\rvert\) small relative to \(\lambda\) is
+\[
+\widehat g_\lambda(\gamma_0)+\widehat g_\lambda(-\gamma_0)+ \widehat g_\lambda(i(\beta_0-1/2))+\widehat g_\lambda(-i(\beta_0-1/2)).
+\]
+The last two (complex) terms equal
+\[
+2\frac{\sinh\bigl(\lambda(\beta_0-1/2)\bigr)}{\lambda(\beta_0-1/2)}\cos(\lambda\gamma_0)
+\]
+which, for \(\lambda(\beta_0-1/2)\gg1\), grows exponentially and dominates the \(O(1)\) main term, making \(Q(g_\lambda)<0\).  
+
+The obstruction is that the same exponential growth appears for every fixed \(\lambda<1\) once \(\beta_0-1/2>0\), yet one cannot let \(\lambda\to1^-\) while keeping \(\operatorname{supp}\widehat g\subset(-1,1)\) and simultaneously controlling the prime sum uniformly down to the critical line. Any attempt to enlarge the support beyond length 2 introduces the unknown zeros of \(\zeta\) on the lines \(\operatorname{Re}s=1\pm\delta\), circularly assuming a zero-free region stronger than what is already known. Thus the criterion, while equivalent to RH, cannot be verified by any compactly supported family; the passage to the limit \(\operatorname{supp}\widehat g\to\mathbb R\) re-introduces the full strength of the prime-number theorem in short intervals, which is essentially RH again.
+
+This shows that the most natural positivity tests are blocked by a support-versus-growth tension that is precisely as hard as the original hypothesis. No new zero-free region or density estimate follows.
+
+VERDICT: FAILED
+REASON: Weil positivity blocked by support/growth tension; no new zero-free info obtained
