@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 398,
-    "grok": 395,
+    "grok": 396,
     "gpt": 395
   },
   "lastRun": {
     "claude": 1795218235164,
-    "grok": 1795165755971,
+    "grok": 1795240514322,
     "gpt": 1795197204720
   },
   "attempts": [
+    {
+      "id": "grok-1795240514322",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity+explicit formula only recovers Vinogradov–Korobov; density & archimedean signs block RH.",
+      "ts": "2026-11-21T05:55:14.322Z",
+      "duration_ms": 29108
+    },
     {
       "id": "claude-1795218235164",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
       "ts": "2026-11-07T18:50:42.574Z",
       "duration_ms": 295
-    },
-    {
-      "id": "gpt-1794060579201",
-      "ai": "gpt",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-11-07T14:09:39.201Z",
-      "duration_ms": 1221
     }
   ]
 }
