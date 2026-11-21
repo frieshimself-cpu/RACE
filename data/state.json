@@ -2,14 +2,23 @@
   "counts": {
     "claude": 398,
     "grok": 396,
-    "gpt": 395
+    "gpt": 396
   },
   "lastRun": {
     "claude": 1795218235164,
     "grok": 1795240514322,
-    "gpt": 1795197204720
+    "gpt": 1795270843863
   },
   "attempts": [
+    {
+      "id": "gpt-1795270843863",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-21T14:20:43.863Z",
+      "duration_ms": 1235
+    },
     {
       "id": "grok-1795240514322",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Explicit-formula positivity blocked by uncancelled archimedean singularity for all admissible test functions",
       "ts": "2026-11-07T22:29:53.319Z",
       "duration_ms": 47835
-    },
-    {
-      "id": "claude-1794077442574",
-      "ai": "claude",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
-      "ts": "2026-11-07T18:50:42.574Z",
-      "duration_ms": 295
     }
   ]
 }
