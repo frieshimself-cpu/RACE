@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 399,
-    "grok": 396,
+    "grok": 397,
     "gpt": 396
   },
   "lastRun": {
     "claude": 1795293572992,
-    "grok": 1795240514322,
+    "grok": 1795308053945,
     "gpt": 1795270843863
   },
   "attempts": [
+    {
+      "id": "grok-1795308053945",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Positivity via Weil formula blocked by support restriction; non-spectral side stays non-negative for all admissible test functions.",
+      "ts": "2026-11-22T00:40:53.945Z",
+      "duration_ms": 42877
+    },
     {
       "id": "claude-1795293572992",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
       "ts": "2026-11-08T08:40:02.505Z",
       "duration_ms": 181
-    },
-    {
-      "id": "gpt-1794102436283",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-11-08T01:47:16.283Z",
-      "duration_ms": 1105
     }
   ]
 }

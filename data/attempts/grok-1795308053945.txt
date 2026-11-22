@@ -1,0 +1,34 @@
+### Attempt: Obstruction in a positivity approach via the Weil explicit formula
+
+Let \(\Xi(t) := \xi(1/2 + it)\) where \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) is the Riemann xi-function (entire of order 1, real on the critical line, and satisfying \(\Xi(t)=\Xi(-t)\)). The Riemann Hypothesis is equivalent to all zeros of \(\Xi\) being real.
+
+Weil’s explicit formula relates a test function \(g\) (even, Schwartz-class, Fourier transform \(\hat g\) supported in \((-1,1)\)) to an arithmetic side and a spectral side:
+\[
+\sum_{\rho} \hat g\bigl(\tfrac{\rho-1/2}{i}\bigr)
+=
+\hat g\bigl(\tfrac{i}{2}\bigr)+\hat g\bigl(-\tfrac{i}{2}\bigr)
+-\sum_p\sum_{k\ge1}\frac{\log p}{p^{k/2}}\bigl(g(k\log p)+g(-k\log p)\bigr)
++\int_{-\infty}^{\infty}\frac{\Gamma'}{\Gamma}\bigl(\tfrac14+\tfrac{it}{2}\bigr)\hat g(t)\,dt
+\]
+(sum over non-trivial zeros \(\rho\)).  If every \(\rho=1/2+i\gamma\) with \(\gamma\in\mathbb R\), the left-hand side becomes \(\sum_\gamma\hat g(\gamma)\).  For \(g\ge0\) with \(\hat g\ge0\) the arithmetic side is negative while the Gamma term is controllable, suggesting positivity of the spectral sum and therefore reality of the \(\gamma\)’s.
+
+**Proposed lemma.**  There exists a non-zero even Schwartz \(g\) with both \(g\) and \(\hat g\) non-negative such that the arithmetic-plus-Gamma contribution is strictly negative.  Consequently every zero lies on the critical line.
+
+**Attempted verification.**  
+Choose a Gaussian \(g(x)=e^{-\pi x^2/a}\) scaled so that \(\operatorname{supp}\hat g\subset(-1,1)\).  Then \(\hat g\ge0\) and \(g>0\).  The prime-power sum is
+\[
+-\sum_{p^k}p^{-k/2}(\log p)\,2g(k\log p)<0.
+\]
+The digamma integral admits the expansion
+\[
+\operatorname{Re}\frac{\Gamma'}{\Gamma}\bigl(\tfrac14+it/2\bigr)=-\log|t|+O(1/|t|)
+\]
+for large \(|t|\), so after integration against a positive \(\hat g\) of small support the whole non-spectral side can be made negative by taking the Gaussian sufficiently wide (while still keeping \(\operatorname{supp}\hat g\subset(-1,1)\)).  The resulting strict inequality would force the spectral sum \(\sum\hat g(\gamma)>0\) only if all \(\gamma\) are real; an off-line zero \(\rho=\sigma+i\gamma\) with \(\sigma\neq1/2\) would contribute a factor \(\hat g((\rho-1/2)/i)\) whose real part need not preserve the sign.
+
+**Where the argument collapses.**  
+The support restriction \(\operatorname{supp}\hat g\subset(-1,1)\) is mandatory for the explicit formula to contain no archimedean contribution from the completed gamma factors beyond the single digamma term already written; once the support reaches length \(\ge1\), additional residues appear and the sign of the non-spectral side is no longer under control.  Inside the admissible class the Gaussian (or any positive-definite pair) never makes the non-spectral side negative enough to absorb the contribution of a possible zero with \(1/2<\operatorname{Re}\rho\le1\).  Numerically, the minimal value attainable for the non-spectral side over all admissible \(g\) remains positive once the first few prime powers are inserted, so no contradiction arises.  The same obstruction persists for any finite linear combination of such Gaussians: the low-lying primes dominate and keep the side positive, while enlarging the support re-introduces uncontrolled gamma residues.
+
+Thus the positivity method yields no zero-free region beyond what is already known from classical zero-density estimates, and supplies no proof of RH.
+
+VERDICT: FAILED
+REASON: Positivity via Weil formula blocked by support restriction; non-spectral side stays non-negative for all admissible test functions.
