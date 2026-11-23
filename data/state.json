@@ -2,14 +2,23 @@
   "counts": {
     "claude": 400,
     "grok": 398,
-    "gpt": 397
+    "gpt": 398
   },
   "lastRun": {
     "claude": 1795363115336,
     "grok": 1795383621691,
-    "gpt": 1795333728190
+    "gpt": 1795400358114
   },
   "attempts": [
+    {
+      "id": "gpt-1795400358114",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-23T02:19:18.114Z",
+      "duration_ms": 1236
+    },
     {
       "id": "grok-1795383621691",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Contour shift blocked by insufficient zero-density; error terms dominate off-line residues.",
       "ts": "2026-11-09T02:57:30.192Z",
       "duration_ms": 43782
-    },
-    {
-      "id": "claude-1794180613110",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
-      "ts": "2026-11-08T23:30:13.110Z",
-      "duration_ms": 258
     }
   ]
 }
