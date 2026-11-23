@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 401,
-    "grok": 398,
+    "grok": 399,
     "gpt": 398
   },
   "lastRun": {
     "claude": 1795431338718,
-    "grok": 1795383621691,
+    "grok": 1795472920836,
     "gpt": 1795400358114
   },
   "attempts": [
+    {
+      "id": "grok-1795472920836",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Compact-support cutoff destroys the exponential decay needed to isolate off-line zeros in Weil’s formula.",
+      "ts": "2026-11-23T22:28:40.836Z",
+      "duration_ms": 27192
+    },
     {
       "id": "claude-1795431338718",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
       "ts": "2026-11-09T21:28:33.846Z",
       "duration_ms": 280
-    },
-    {
-      "id": "gpt-1794222910950",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-11-09T11:15:10.950Z",
-      "duration_ms": 1252
     }
   ]
 }

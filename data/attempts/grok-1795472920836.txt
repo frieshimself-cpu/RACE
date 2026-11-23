@@ -1,0 +1,40 @@
+### Attempt: A positivity obstruction via a truncated explicit formula
+
+Let \(\xi(s) = \frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\) be the completed Riemann xi-function, entire of order 1 and satisfying \(\xi(s)=\xi(1-s)\). The Riemann Hypothesis (RH) is equivalent to all non-trivial zeros of \(\xi\) lying on the critical line \(\operatorname{Re}s=\frac12\).
+
+Write the Hadamard product
+\[
+\xi(s)=\xi(0)\prod_{\rho}\Bigl(1-\frac{s}{\rho}\Bigr),
+\]
+the product running over the zeros of \(\xi\) (counted with multiplicity). Taking the logarithmic derivative yields the explicit formula
+\[
+\frac{\xi'}{\xi}(s)=\sum_{\rho}\frac1{s-\rho}.
+\]
+For a test function \(g\in C_c^\infty(\mathbb{R}_+)\) with Fourier transform \(\hat g\), Weil’s explicit formula equates a geometric side
+\[
+\sum_{n\ge1}\frac{\Lambda(n)}{n^{1/2}}g(\log n)
+\]
+to an arithmetic side involving \(\hat g(0)+\hat g(1)\) minus a sum over zeros
+\[
+\sum_{\rho}\hat g\bigl(\tfrac{\rho-1/2}{i}\bigr)
+\]
+plus archimedean contributions coming from the Gamma factor.
+
+**Proposed lemma.** Suppose there exists a non-negative \(g\not\equiv0\) such that the archimedean and prime-power contributions are strictly dominated by the zero sum whenever any zero \(\rho\) satisfies \(\operatorname{Re}\rho\neq\frac12\). Then RH follows by contradiction.
+
+**Sketch of argument.** Assume a zero \(\rho_0=\sigma_0+it_0\) with \(\sigma_0>\frac12\). Pair it with its functional-equation conjugate \(1-\overline{\rho_0}\). Choose a narrow Gaussian packet
+\[
+g_\varepsilon(x)=\varepsilon^{-1/2}\exp\bigl(-(x-x_0)^2/(4\varepsilon)\bigr)\cdot\psi(x)
+\]
+centered at a large height \(x_0\approx\log|t_0|\) and supported in a short interval of length \(\sqrt\varepsilon\). The contribution of the pair \(\{\rho_0,1-\overline{\rho_0}\}\) to the zero sum is then asymptotically
+\[
+2\operatorname{Re}\hat g_\varepsilon\bigl(\tfrac{\rho_0-1/2}{i}\bigr)\sim C\varepsilon^{-1/2}\exp\bigl(-c(\sigma_0-\tfrac12)^2/\varepsilon\bigr)\cdot e^{t_0 x_0},
+\]
+which grows exponentially in \(1/\varepsilon\) once \(\sigma_0>\frac12\). All other zeros contribute at most \(O(\varepsilon^{-1/2}\exp(-c'/\varepsilon))\) by the classical zero-density bound \(N(\sigma,T)\ll T^{c(1-\sigma)^{3/2}}\log T\). The prime-power side remains \(O(\varepsilon^{-1/2}\exp(C\sqrt{\log(1/\varepsilon)}))\) by the prime-number theorem with classical error term. For sufficiently small \(\varepsilon>0\) the zero-pair term therefore dominates, forcing the total explicit-formula identity to be negative while the geometric side is non-negative—a contradiction.
+
+**Where the argument collapses.** The Gaussian packet \(g_\varepsilon\) is not compactly supported; its tails produce an uncontrollable contribution from the trivial zeros and from the continuous spectrum of the archimedean place. Any smooth cutoff \(\psi\) that restores compact support introduces an error of size \(\gg\varepsilon^{-N}\) for every \(N\) (by repeated integration by parts against the oscillatory factor \(e^{itx}\)). This error swamps the exponential gain \(\exp(-c(\sigma_0-\frac12)^2/\varepsilon)\) coming from the off-line zero. Replacing the Gaussian by a compactly supported Gevrey-class function restores the support but destroys the Gaussian decay in the Fourier domain, so the zero-density estimate no longer guarantees domination. Thus the positivity obstruction cannot be made rigorous with presently available zero-density technology.
+
+The same obstruction appears, mutatis mutandis, for any test-function family whose Fourier transforms decay faster than any exponential while remaining compactly supported—an empty class.
+
+VERDICT: FAILED
+REASON: Compact-support cutoff destroys the exponential decay needed to isolate off-line zeros in Weil’s formula.
