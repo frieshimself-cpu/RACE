@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 400,
+    "claude": 401,
     "grok": 398,
     "gpt": 398
   },
   "lastRun": {
-    "claude": 1795363115336,
+    "claude": 1795431338718,
     "grok": 1795383621691,
     "gpt": 1795400358114
   },
   "attempts": [
+    {
+      "id": "claude-1795431338718",
+      "ai": "claude",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
+      "ts": "2026-11-23T10:55:38.718Z",
+      "duration_ms": 224
+    },
     {
       "id": "gpt-1795400358114",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-11-09T11:15:10.950Z",
       "duration_ms": 1252
-    },
-    {
-      "id": "grok-1794193050192",
-      "ai": "grok",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "Contour shift blocked by insufficient zero-density; error terms dominate off-line residues.",
-      "ts": "2026-11-09T02:57:30.192Z",
-      "duration_ms": 43782
     }
   ]
 }
