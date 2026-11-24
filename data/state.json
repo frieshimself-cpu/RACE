@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 401,
+    "claude": 402,
     "grok": 399,
     "gpt": 399
   },
   "lastRun": {
-    "claude": 1795431338718,
+    "claude": 1795544159442,
     "grok": 1795472920836,
     "gpt": 1795501310035
   },
   "attempts": [
+    {
+      "id": "claude-1795544159442",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
+      "ts": "2026-11-24T18:15:59.442Z",
+      "duration_ms": 211
+    },
     {
       "id": "gpt-1795501310035",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-11-10T12:12:22.784Z",
       "duration_ms": 1394
-    },
-    {
-      "id": "grok-1794282475398",
-      "ai": "grok",
-      "problem": "Navier–Stokes Existence and Smoothness",
-      "verdict": "FAILED",
-      "reason": "Log-gap in BMO enstrophy estimate is sharp; no new closed a-priori bound obtained.",
-      "ts": "2026-11-10T03:47:55.398Z",
-      "duration_ms": 31099
     }
   ]
 }
