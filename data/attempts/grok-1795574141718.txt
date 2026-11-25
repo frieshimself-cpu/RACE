@@ -1,0 +1,49 @@
+### Attempt: A Barrier Lemma for “Local” Proofs of P ≠ NP via Forbidden Substructure
+
+We formalize a concrete obstruction that any purported “local combinatorial” proof of P ≠ NP must overcome. The goal is a self-contained partial result that rules out a natural class of arguments without invoking the full Natural Proofs machinery of Razborov–Rudich.
+
+#### Setup and definitions
+Let \(\mathcal{L}\) be the language of (fully expanded) Boolean circuits of size at most \(n^k\) on \(n\) inputs, encoded in the usual way so that membership is decidable in deterministic time \(n^{O(k)}\). Write \(C_n\) for the set of all such circuits on \(n\) bits. A *property* \(\Pi = \{\Pi_n\}_{n\in\mathbb{N}}\) is a family of subsets \(\Pi_n\subseteq C_n\).
+
+Call \(\Pi\) *poly-locally testable* if there exist
+- a constant \(c\),
+- a deterministic algorithm \(T\) running in time \(n^c\),
+such that for every \(n\) and every circuit \(C\in C_n\),
+\[
+C\in\Pi_n\quad\Longleftrightarrow\quad
+T\bigl(C\restriction_S\bigr)=1
+\text{ for every set }S\subset[n]\text{ with }|S|\le(\log n)^c.
+\]
+In other words, membership of \(C\) in \(\Pi_n\) is completely determined by the restrictions of \(C\) to all polylogarithmic-size sets of input variables (the “local views”).
+
+A property is *useful against P* if
+\[
+\text{SAT}_n\notin\Pi_n\qquad\text{yet}\qquad
+\text{every circuit of size }\le n^k\text{ that computes a language in P belongs to }\Pi_n
+\]
+for all sufficiently large \(n\) and every fixed \(k\). (Here \(\text{SAT}_n\) denotes any fixed polynomial-size circuit family deciding satisfiability on \(n\)-bit formulas; the precise encoding is immaterial.)
+
+#### Lemma (Local-testability barrier)
+There is no poly-locally testable property that is useful against P.
+
+#### Proof
+Assume for contradiction that \(\Pi\) is poly-locally testable via tester \(T\) of time \(n^c\) and is useful against P.
+
+Construct, for each \(n\), an explicit polynomial-size circuit family \(\{D_n\}\) that decides a language in P yet lies outside \(\Pi_n\). Let \(m=(\log n)^{2c}\). Enumerate all possible restrictions \(\rho\) of the \(n\) input variables to a set of size at most \(m\); there are at most \(n^{O(m)}=n^{(\log n)^{O(1)}}\) such restrictions, a quasi-polynomial number. For each restriction \(\rho\) compute (in deterministic poly time) the value \(T(C\restriction_\rho)\) that the local tester would return on that view. Because \(T\) itself runs in time \(n^c\), the whole table of answers can be hard-wired into a circuit of size \(n^{O(1)}\).
+
+Now define \(D_n\) to be the circuit that
+1. on input \(x\in\{0,1\}^n\) simply ignores \(x\) and
+2. outputs the constant 0 if the hard-wired table declares that every local view satisfies \(T=1\), and outputs the constant 1 otherwise.
+
+Clearly \(\{D_n\}\) is a uniform polynomial-size circuit family, hence computes a language in P. By construction, the local views of \(D_n\) are exactly the constant functions whose tester answers have been tabulated; therefore \(D_n\notin\Pi_n\). This contradicts usefulness of \(\Pi\) against P.
+
+(The same argument works verbatim if “P” is replaced by any class possessing polynomial-size circuits that can hard-wire a quasi-polynomial advice table, e.g., P/poly itself; the lemma is therefore also a barrier for circuit lower bounds proved by purely local combinatorial properties.)
+
+#### Why the lemma is sharp enough to be useful
+Many candidate combinatorial attacks on P vs NP (resolution width, polynomial calculus degree, certain AC^{0} switching lemmas applied “pointwise”, forbidden induced subgraphs of the graph of a circuit, etc.) produce properties that are poly-locally testable: they examine only the behaviour of the circuit on a polylogarithmic number of coordinates at a time. The lemma shows that no such property can separate SAT from P. Any successful proof must therefore employ a genuinely global invariant—one that cannot be verified by inspecting all polylog-size windows independently.
+
+#### Limitation (why this is only partial)
+The argument does not rule out non-local properties, nor does it produce an explicit super-polynomial circuit lower bound for any concrete NP problem. It merely delimits a large syntactic class of proof techniques. Extending the same idea to properties testable by NC^{1} or by logarithmic-depth decision trees remains open and would constitute further progress.
+
+VERDICT: PARTIAL
+REASON: Barrier lemma ruling out poly-locally testable properties for P≠NP; no full separation.

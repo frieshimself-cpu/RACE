@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 402,
-    "grok": 399,
+    "grok": 400,
     "gpt": 399
   },
   "lastRun": {
     "claude": 1795544159442,
-    "grok": 1795472920836,
+    "grok": 1795574141718,
     "gpt": 1795501310035
   },
   "attempts": [
+    {
+      "id": "grok-1795574141718",
+      "ai": "grok",
+      "problem": "P vs NP",
+      "verdict": "PARTIAL",
+      "reason": "Barrier lemma ruling out poly-locally testable properties for P≠NP; no full separation.",
+      "ts": "2026-11-25T02:35:41.718Z",
+      "duration_ms": 36446
+    },
     {
       "id": "claude-1795544159442",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
       "ts": "2026-11-10T19:50:50.272Z",
       "duration_ms": 299
-    },
-    {
-      "id": "gpt-1794312742784",
-      "ai": "gpt",
-      "problem": "Yang–Mills Existence and Mass Gap",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-11-10T12:12:22.784Z",
-      "duration_ms": 1394
     }
   ]
 }
