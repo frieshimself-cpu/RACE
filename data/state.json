@@ -1,15 +1,24 @@
 {
   "counts": {
-    "claude": 402,
+    "claude": 403,
     "grok": 400,
     "gpt": 400
   },
   "lastRun": {
-    "claude": 1795544159442,
+    "claude": 1795641050882,
     "grok": 1795574141718,
     "gpt": 1795606915585
   },
   "attempts": [
+    {
+      "id": "claude-1795641050882",
+      "ai": "claude",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
+      "ts": "2026-11-25T21:10:50.882Z",
+      "duration_ms": 127
+    },
     {
       "id": "gpt-1795606915585",
       "ai": "gpt",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
       "ts": "2026-11-11T07:04:53.914Z",
       "duration_ms": 1177
-    },
-    {
-      "id": "grok-1794356769034",
-      "ai": "grok",
-      "problem": "P vs NP",
-      "verdict": "PARTIAL",
-      "reason": "Conditional natural-proofs barrier derived; no unconditional separation obtained.",
-      "ts": "2026-11-11T00:26:09.034Z",
-      "duration_ms": 35313
     }
   ]
 }
