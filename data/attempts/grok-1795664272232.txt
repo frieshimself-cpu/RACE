@@ -1,0 +1,62 @@
+### Attempt: Obstruction to a Contour-Shift Argument for Zero-Free Regions Beyond the Classical Zero-Free Strip
+
+We work throughout with the Riemann xi-function
+\[
+\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),
+\]
+which is entire of order 1, satisfies the functional equation \(\xi(s)=\xi(1-s)\), and whose zeros are precisely the non-trivial zeros of \(\zeta\). Write \(\rho=\beta+i\gamma\) for a generic zero. The classical zero-free region of de la Vallée-Poussin asserts that there is an absolute \(c>0\) such that
+\[
+\beta\le 1-\frac{c}{\log(|\gamma|+2)}
+\]
+whenever \(\xi(\rho)=0\). The goal of many contour-shift arguments is to enlarge this region to a fixed-width strip \(\beta\le 1-\delta\) (which would already imply a power-saving error term in the prime-number theorem and, by standard density theorems, would force all but \(O(T^{1-\eta})\) zeros up to height \(T\) onto the critical line). We exhibit a concrete analytic obstruction that prevents any such enlargement by a pure contour integration of \(\xi'/\xi\) against a fixed test function.
+
+#### Setup
+Let \(\phi\) be a fixed even Schwartz function on \(\mathbb{R}\) whose Fourier transform \(\hat\phi\) is supported in \([-1,1]\) and satisfies \(\hat\phi\ge0\). (Such functions exist by standard constructions; e.g., take a smooth approximate identity convolved with itself.) For \(T\ge2\) and \(\sigma\in(1/2,1)\) define the truncated horizontal integrals
+\[
+I(\sigma,T)=\int_{-T}^{T}\frac{\xi'}{\xi}(\sigma+it)\,\phi(t/T)\,dt.
+\]
+By the functional equation and the reflection formula for the digamma function one has the exact identity
+\[
+\frac{\xi'}{\xi}(s)=-\frac{\xi'}{\xi}(1-s)+O\bigl(\log(|s|+2)\bigr)
+\]
+uniformly in vertical strips. Consequently, after a change of variables,
+\begin{equation}
+\label{eq:reflection}
+I(\sigma,T)=-I(1-\sigma,T)+O\bigl(T\log T\bigr).
+\end{equation}
+On the other hand, the argument principle plus the known density estimate \(N(T)= (T/2\pi)\log(T/2\pi)-T/2\pi+O(\log T)\) yields
+\begin{equation}
+\label{eq:zerosum}
+I(\sigma,T)=2\pi\sum_{|\gamma|\le T}\phi(\gamma/T)\cdot\mathbf{1}_{\beta>\sigma}+O\bigl(T\log T\bigr),
+\end{equation}
+where the error absorbs the contribution of the horizontal sides of a rectangular contour (the latter are \(O(\log T)\) by the convexivity bound \(\zeta(\sigma+it)\ll_\varepsilon |t|^{(1-\sigma)/3+\varepsilon}\)).
+
+#### The obstruction
+Suppose, for contradiction, that a fixed-width zero-free region \(\beta\le1-\delta\) holds for some absolute \(\delta>0\). Choose \(\sigma=1-\delta/2\). Then the indicator in \eqref{eq:zerosum} vanishes identically, so
+\[
+I(\sigma,T)=O(T\log T).
+\]
+The reflection identity \eqref{eq:reflection} then forces
+\[
+I(1-\sigma,T)=O(T\log T)
+\]
+as well. But \(1-\sigma=\delta/2<1/2\), and on the line \(\operatorname{Re}s=\delta/2\) the logarithmic derivative admits the absolutely convergent Dirichlet-series representation
+\[
+\frac{\xi'}{\xi}(s)=-\sum_{n=1}^\infty\frac{\Lambda(n)}{n^s}+O(1)
+\]
+(the \(O(1)\) coming from the gamma and polynomial factors). Inserting this expansion into \(I(\delta/2,T)\) and integrating term-by-term against \(\phi(t/T)\) produces
+\begin{align*}
+I(\delta/2,T)
+&=-T\sum_{n\le\exp(cT)}\frac{\Lambda(n)}{n^{\delta/2}}\hat\phi\Bigl(\frac{T\log n}{2\pi}\Bigr)+O(T\log T)\\
+&=-\Omega\bigl(T^{1+\delta/2-\varepsilon}\bigr)
+\end{align*}
+for every \(\varepsilon>0\), because the partial sum of \(\Lambda(n)n^{-\delta/2}\) diverges like a positive multiple of \(x^{1-\delta/2}/\log x\) (prime-number theorem with classical error) and \(\hat\phi\) is non-negative and not identically zero. This contradicts the earlier bound \(I(\delta/2,T)=O(T\log T)\).
+
+Hence no fixed-width zero-free region can be obtained by contour integration of \(\xi'/\xi\) against a test function whose Fourier transform has compact support. Any successful enlargement of the classical region must therefore either
+- employ a test function whose Fourier transform has unbounded support (thereby re-introducing the contribution of the possible zeros with \(\beta>1-\delta\)), or
+- replace the plain logarithmic derivative by a more elaborate mollifier whose Dirichlet coefficients cancel the main-term growth on the far-left line.
+
+Both alternatives lie outside the classical contour-shift paradigm and appear to require new arithmetic input (e.g., strong bounds on short character sums or on the distribution of primes in short intervals).
+
+VERDICT: FAILED
+REASON: Contour-shift obstruction shown; no new zero-free width or RH progress obtained.
