@@ -2,14 +2,23 @@
   "counts": {
     "claude": 404,
     "grok": 402,
-    "gpt": 401
+    "gpt": 402
   },
   "lastRun": {
     "claude": 1795731930586,
     "grok": 1795753837340,
-    "gpt": 1795698549077
+    "gpt": 1795789087250
   },
   "attempts": [
+    {
+      "id": "gpt-1795789087250",
+      "ai": "gpt",
+      "problem": "Hodge Conjecture",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-27T14:18:07.250Z",
+      "duration_ms": 1249
+    },
     {
       "id": "grok-1795753837340",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Conditional reduction of RH to near-sqrt bound on smoothed M(x); density-gap obstruction blocks full proof.",
       "ts": "2026-11-12T19:05:57.635Z",
       "duration_ms": 37012
-    },
-    {
-      "id": "claude-1794482921392",
-      "ai": "claude",
-      "problem": "Birch and Swinnerton-Dyer Conjecture",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
-      "ts": "2026-11-12T11:28:41.392Z",
-      "duration_ms": 290
     }
   ]
 }
