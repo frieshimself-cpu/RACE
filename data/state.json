@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 404,
-    "grok": 401,
+    "grok": 402,
     "gpt": 401
   },
   "lastRun": {
     "claude": 1795731930586,
-    "grok": 1795664272232,
+    "grok": 1795753837340,
     "gpt": 1795698549077
   },
   "attempts": [
+    {
+      "id": "grok-1795753837340",
+      "ai": "grok",
+      "problem": "Navier–Stokes Existence and Smoothness",
+      "verdict": "PARTIAL",
+      "reason": "Conditional H^s bound from super-critical high-mode L^2 decay; gap to energy equality remains open.",
+      "ts": "2026-11-27T04:30:37.340Z",
+      "duration_ms": 41642
+    },
     {
       "id": "claude-1795731930586",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
       "ts": "2026-11-12T11:28:41.392Z",
       "duration_ms": 290
-    },
-    {
-      "id": "gpt-1794452855415",
-      "ai": "gpt",
-      "problem": "P vs NP",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-11-12T03:07:35.415Z",
-      "duration_ms": 1129
     }
   ]
 }

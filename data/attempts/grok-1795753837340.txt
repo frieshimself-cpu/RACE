@@ -1,0 +1,61 @@
+### Attempt: A conditional compactness criterion via controlled high-mode dissipation
+
+We work throughout with the mild form of the 3D incompressible Navier–Stokes equations on \(\mathbb{R}^3\times[0,T)\),
+\[
+u(t)=e^{t\Delta}u_0-\int_0^t e^{(t-s)\Delta}\mathbb{P}\nabla\cdot(u\otimes u)(s)\,ds,
+\]
+with \(\operatorname{div}u=0\), \(u_0\in H^s(\mathbb{R}^3)\) divergence-free for some \(s>5/2\), and \(T>0\) maximal. Write \(\Lambda=(-\Delta)^{1/2}\) and decompose into low/high modes via a smooth radial cutoff \(\chi_R(\xi)=1\) for \(|\xi|\le R\), \(0\) for \(|\xi|\ge 2R\), and set
+\[
+u=u_{\le R}+u_{>R},\qquad u_{\le R}=\mathcal{F}^{-1}(\chi_R\hat u).
+\]
+The goal is a quantitative reduction: global smoothness follows from a uniform-in-time bound on a single supercritical quantity provided the high-mode energy dissipates at a slightly super-critical rate.
+
+**Lemma (high-mode dissipation implies a priori \(H^s\) bound).**  
+Fix \(\alpha\in(0,1/2)\). Suppose there exists a continuous nondecreasing function \(\Phi:[0,\infty)\to[0,\infty)\) and a sequence \(R_k\to\infty\) such that, along any smooth solution on \([0,T)\),
+\begin{equation}
+\int_0^t\|u_{>R_k}(s)\|_{L^2}^2\,ds\le\Phi\bigl(\|u_0\|_{H^s}\bigr)\cdot R_k^{-2\alpha}\qquad\text{for all }t<T.
+\tag{H}
+\end{equation}
+Then \(\sup_{t<T}\|u(t)\|_{H^s}<\infty\), so \(T=\infty\) and the solution is smooth for all time.
+
+**Proof sketch.**  
+Standard energy estimates on the projected equation for \(v:=u_{\le R}\) yield, after absorbing the Stokes semigroup decay,
+\begin{align*}
+\frac{d}{dt}\|v\|_{H^s}^2+\|\Lambda^{s+1}v\|_{L^2}^2
+&\le C\|v\|_{H^s}^2\|v\|_{W^{1,\infty}}+C\|u_{>R}\|_{L^\infty}\|v\|_{H^{s+1}}\|\Lambda^sv\|_{L^2}\\
+&\quad+C\|u_{>R}\|_{H^s}\|v\|_{W^{1,\infty}}\|v\|_{H^s}.
+\end{align*}
+The low-mode piece is controlled by Sobolev embedding and the elementary bound
+\[
+\|v\|_{W^{1,\infty}}\le C R^{5/2}\|v\|_{L^2}^{1/2}\|\Lambda v\|_{L^2}^{1/2}+C R^{-1/2}\|v\|_{H^s},
+\]
+which is subcritical once \(R\) is large. For the high-mode interaction terms we use the Bernstein inequality
+\[
+\|u_{>R}\|_{L^\infty}\le C R^{3/2}\|u_{>R}\|_{L^2}
+\]
+together with the interpolation
+\[
+\|u_{>R}\|_{H^s}\le C R^{s}\|\Lambda u_{>R}\|_{L^2}^{1-\theta}\|u_{>R}\|_{L^2}^\theta,\qquad\theta=\frac{1}{s+1}.
+\]
+Inserting these estimates and applying Young’s inequality with a small fraction of the dissipation produces
+\[
+\frac{d}{dt}\|v\|_{H^s}^2+\frac12\|\Lambda^{s+1}v\|_{L^2}^2
+\le C(R)\|v\|_{H^s}^3+C R^{3}\|u_{>R}\|_{L^2}^2\|v\|_{H^s}^2.
+\]
+Integrating in time and invoking the assumed decay (H) with \(\alpha>0\) shows that the last term remains bounded by a constant depending only on \(\Phi(\|u_0\|_{H^s})\) and on \(R^{-2\alpha}\) after we choose \(R=R_k\) sufficiently large. A standard continuity argument then upgrades the bound from \(v\) to the full field \(u\), because the high-mode energy itself satisfies
+\[
+\frac{d}{dt}\|u_{>R}\|_{L^2}^2+\,c R^2\|u_{>R}\|_{L^2}^2\le C\|u\|_{H^{s}}^2\|u_{>R}\|_{L^2},
+\]
+which, under (H), cannot blow up in finite time. Thus \(\|u(t)\|_{H^s}\) stays finite on \([0,T)\), contradicting maximality of \(T\) unless \(T=\infty\).
+
+**Why the criterion is not vacuous yet insufficient.**  
+Condition (H) is strictly weaker than the classical Prodi–Serrin or Beale–Kato–Majda criteria: it only demands that the \(L^2\) mass of frequencies \(\gtrsim R\) integrate to something \(o(R^{-2\alpha})\). In the opposite direction, the a-priori energy equality only gives
+\[
+\int_0^T\|u_{>R}\|_{L^2}^2\,ds\le C R^{-2}\|u_0\|_{L^2}^2,
+\]
+which corresponds to the critical exponent \(\alpha=0\) and is therefore excluded by the lemma. Closing the gap from \(\alpha=0\) to any positive \(\alpha\) would require a new quantitative estimate on the cascade of energy to high frequencies; no such estimate is presently available from the energy structure alone, and the standard paraproduct decompositions lose exactly the logarithmic factors that would be needed to reach \(\alpha>0\).
+
+Consequently the lemma reduces global regularity to a concrete (still open) improvement of the high-mode energy decay, but does not itself establish that improvement.
+
+VERDICT: PARTIAL
+REASON: Conditional H^s bound from super-critical high-mode L^2 decay; gap to energy equality remains open.
