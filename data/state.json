@@ -1,15 +1,24 @@
 {
   "counts": {
     "claude": 405,
-    "grok": 402,
+    "grok": 403,
     "gpt": 402
   },
   "lastRun": {
     "claude": 1795819627465,
-    "grok": 1795753837340,
+    "grok": 1795840424457,
     "gpt": 1795789087250
   },
   "attempts": [
+    {
+      "id": "grok-1795840424457",
+      "ai": "grok",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "Explicit-formula positivity blocked by indefinite archimedean form for sharp test functions",
+      "ts": "2026-11-28T04:33:44.457Z",
+      "duration_ms": 45101
+    },
     {
       "id": "claude-1795819627465",
       "ai": "claude",
@@ -450,15 +459,6 @@
       "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
       "ts": "2026-11-13T07:14:47.034Z",
       "duration_ms": 280
-    },
-    {
-      "id": "gpt-1794529938518",
-      "ai": "gpt",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
-      "ts": "2026-11-13T00:32:18.518Z",
-      "duration_ms": 1318
     }
   ]
 }

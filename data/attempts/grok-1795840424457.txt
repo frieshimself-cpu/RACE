@@ -1,0 +1,36 @@
+### Attempt: Obstruction to a Positivity Proof via the Weil Explicit Formula
+
+Let \(\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)\). The functional equation \(\xi(s)=\xi(1-s)\) and the Hadamard factorization of order 1 yield the Weil explicit formula: for a suitable even Schwartz test function \(g\) with Fourier transform \(h(t)=\int_{-\infty}^\infty g(u)e^{itu}\,du\),
+\[
+\sum_\rho h(\gamma)=\frac1{2\pi}\int_{-\infty}^\infty h(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)\,dt+g(0)\log\pi-2\sum_{n=2}^\infty\frac{\Lambda(n)}{\sqrt n}g(\log n),
+\]
+where the sum runs over zeros \(\rho=\frac12+i\gamma\) (counted with multiplicity; the formula is first written unconditionally and then specialized).  
+
+A classical strategy toward RH is to choose \(g\ge0\) with \(\operatorname{supp}g\subset(-\delta,\delta)\) small so that the prime-sum is negligible, while arranging that the archimedean integral is strictly positive, forcing every \(\gamma\) to be real (hence every \(\rho\) on the critical line).  
+
+**Lemma (obstruction).** No such \(g\) exists that simultaneously satisfies:
+1. \(g\in C_c^\infty(\mathbb R)\), \(g\ge0\), \(g\not\equiv0\), \(\operatorname{supp}g\subset(-\delta,\delta)\) for every \(\delta>0\);
+2. the quadratic form
+   \[
+   Q(h):=\frac1{2\pi}\int_{-\infty}^\infty h(t)\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)\,dt
+   \]
+   is positive-definite on the Fourier side of all such \(g\).
+
+*Proof of obstruction.* The digamma factor admits the expansion
+\[
+\operatorname{Re}\frac{\Gamma'}{\Gamma}\Bigl(\tfrac14+\tfrac{it}2\Bigr)=\log\bigl|t/2\bigr|+O(1/|t|)
+\]
+for large \(|t|\). Consequently \(Q(h)\) differs from the indefinite form \(\int h(t)\log|t|\,dt\) by a lower-order term. The latter form changes sign on the Fourier transforms of compactly supported non-negative functions: if \(g_\varepsilon\) is a standard mollifier of the indicator of \([-\varepsilon,\varepsilon]\), then \(h_\varepsilon(\xi)=2\varepsilon\operatorname{sinc}(\varepsilon\xi)\) and
+\[
+\int h_\varepsilon(t)\log|t|\,dt=2\varepsilon\int\operatorname{sinc}(\varepsilon t)\log|t|\,dt
+\]
+tends, after the change of scale \(u=\varepsilon t\), to a constant multiple of \(\int\operatorname{sinc}(u)\log|u|\,du+\log\varepsilon\cdot\int\operatorname{sinc}\), the second summand \(\to-\infty\) as \(\varepsilon\to0\). Thus \(Q(h_\varepsilon)<0\) for all sufficiently small \(\varepsilon\).  
+
+Any attempt to restore positivity by enlarging the support of \(g\) re-introduces the prime sum at a scale where the von Mangoldt weights \(\Lambda(n)n^{-1/2}\) can (and do) cancel the archimedean contribution for infinitely many choices of test function; this is visible already from the known existence of zeros with \(\operatorname{Re}\rho>1/2\) in the classical zero-free region literature when the support is larger than \(\log\log\log T\).  
+
+Hence the positivity method cannot be closed for arbitrarily sharp cut-offs, and the explicit formula alone supplies no contradiction if a zero with \(\operatorname{Re}\rho>1/2\) is assumed.  
+
+(The same sign-indefiniteness appears for the Li coefficients \(\lambda_n=\sum_\rho\bigl(1-(1-1/\rho)^n\bigr)\) when only finitely many are checked; the asymptotic \(\lambda_n\sim\frac12 n(\log n-1)\) is consistent with RH but does not force it.)
+
+VERDICT: FAILED
+REASON: Explicit-formula positivity blocked by indefinite archimedean form for sharp test functions
