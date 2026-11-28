@@ -2,14 +2,23 @@
   "counts": {
     "claude": 405,
     "grok": 403,
-    "gpt": 402
+    "gpt": 403
   },
   "lastRun": {
     "claude": 1795819627465,
     "grok": 1795840424457,
-    "gpt": 1795789087250
+    "gpt": 1795872843733
   },
   "attempts": [
+    {
+      "id": "gpt-1795872843733",
+      "ai": "gpt",
+      "problem": "Riemann Hypothesis",
+      "verdict": "FAILED",
+      "reason": "attempt crashed: https://api.openai.com/v1/chat/completions 429: {\n    \"error\": {\n        \"message\": \"You have no cre",
+      "ts": "2026-11-28T13:34:03.733Z",
+      "duration_ms": 1264
+    },
     {
       "id": "grok-1795840424457",
       "ai": "grok",
@@ -450,15 +459,6 @@
       "reason": "Positivity/explicit-formula approach blocked by insufficient prime-sum cancellation inside classical zero-free region",
       "ts": "2026-11-13T15:29:02.286Z",
       "duration_ms": 36717
-    },
-    {
-      "id": "claude-1794554087034",
-      "ai": "claude",
-      "problem": "Riemann Hypothesis",
-      "verdict": "FAILED",
-      "reason": "attempt crashed: 403 {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"This organization can't receive re",
-      "ts": "2026-11-13T07:14:47.034Z",
-      "duration_ms": 280
     }
   ]
 }
